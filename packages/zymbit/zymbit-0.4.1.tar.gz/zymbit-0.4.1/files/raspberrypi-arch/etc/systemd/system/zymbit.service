@@ -1,0 +1,10 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Zymbit Cloud Connector
+After=network.target
+
+[Service]
+ExecStart=/opt/zymbit/latest/bin/zymbit --logfile /var/log/zymbit connector
+RestartSec=1
