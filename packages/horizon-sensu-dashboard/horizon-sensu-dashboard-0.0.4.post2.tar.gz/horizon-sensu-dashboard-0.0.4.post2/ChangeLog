@@ -1,0 +1,225 @@
+CHANGES
+=======
+
+* cleanup
+* fix classifier
+
+0.0.4
+-----
+
+* cosmetic
+* gitignore
+* overhaul
+* fixes
+* cleanup
+* constants
+* fixes
+* managers and models
+* use power of horizon contrib
+* rewrite some views with new approach, models with managers
+* contrib has new API for clients
+* icon
+* fix titles
+* new panel
+* list of aggregations
+* cleanups
+* fix labels
+* cleanups
+* readme update
+* required fixes for new sensu API > 0.16.0
+* css fixes
+* juno branch nav
+* escape stash
+* transport
+* urls fix
+* stashed colors
+* fix missed template
+* cleanup
+
+0.0.3
+-----
+
+* actions rename
+* fix only sensu board cleanup
+* fix row opacity
+* change README format
+* added base api client from contrib and fix unicode error in logging requests
+* skin hack
+* monitoring dashboard as user home
+* rest of colors
+* colors
+* colors
+* fix
+* color fixes
+* navigation
+* change color scheme
+* filter silenced + cleanups
+* fix render response
+* update error changes
+* remove gitlab client
+* remove gitlab
+* fix url params
+* fix split char in object id
+* change
+* changes
+* fixes
+* fix parse client and check
+* gitlab panel initial
+* not property.
+* image filter
+* fix url patterns
+* change choices
+* last changes
+* new attrs
+* fix show workarounds
+* fix show workarounds
+* centered column
+* remove error column
+* handle down kedb
+* change table
+* new columns
+* request check rewrite
+* fix resolve + btn classes
+* new layout
+* added choice
+* fix silence template
+* fix
+* stash delete complete
+* stash delete
+* fix styling
+* fixes
+* event update
+* remove links
+* fixes
+* changes + formset intial
+* fix error update
+* import changes
+* import fixes
+* workarounds + errors fixes
+* hide known error column
+* contrib client + error link
+* global include_kedb
+* safe check kedb
+* correct redirect after KE create
+* rename
+* remove unnesessary
+* fix missing reason
+* back
+* cleanups
+* url map fix
+* filter action
+* simplify delete stashes
+* silence all
+* silence complete
+* remove unused dep
+* change to new client
+* corect response
+* styling
+* new fields
+* event action rewrites
+* filter
+* filter actions
+* remove duplicity
+* event detail fixes
+* fixes
+* tidying
+* fixes
+* change
+* resolve table action
+* workaround action changes
+* error as tableaction and row action
+* remove unused
+* request util and baseclient
+* error name
+* fixes kedb client
+* kedb fixes
+* client side done
+* kedb call
+* resolve from create error view
+* remove duplicity method
+* resolve, silence from create known error forms initial
+* check output
+* create error with check
+* kedb panel
+* small changes
+* create error initial
+* workaround update
+* create action #529
+* delete actions
+* custom delete return
+* update + detail
+* columns reorder
+* custom known_error field + link
+* save known errors with workarounds
+* short version
+* abstraction tunning
+* better debug
+* simplicity
+* changes
+* fixes
+* formsetdatatable
+* formset datatable initial
+* reorder
+* remove unused
+* datatable in workflow view "proof of concept"
+* two column layout with math helper
+* ownership column
+* table in modal initial
+* label fixes
+* fix
+* smal changes
+* workarounds panel initial
+* error fixes
+* errors detail
+* client fixes & changes
+* api preps
+* settings
+* stash delete method
+* real fullscreen
+* monitoring fixiies
+* stashes
+* stashes
+* status 0
+* unknows to back
+* correct ordering
+* sorting fix and link
+* ordering
+* fullscreen fixes
+* Fullscreen view
+* monitoring
+* docfixes
+* stashes start
+* docs
+* processing fixes
+* complete check request code
+* resolve events
+* working modal forms, tabbed pages
+* simple form modals
+* First modal views, forms
+* panel fixes
+* additions
+* table actions
+* cleanups
+* Events datatable
+* fixes
+* events and clients panels
+* typo fix
+* no need to setup id
+* header
+* checks template
+* monitoring panels
+* datum name
+* Name fix
+* imports fix
+* no actions tables
+* add fake id to checks
+* faster init
+* simple requests
+* sensu client
+* just host/port
+* sensu settings
+* import logging
+* checks
+* Nastrel check panelu, a sensu client api
+* register dashboard
+* Initial commit
