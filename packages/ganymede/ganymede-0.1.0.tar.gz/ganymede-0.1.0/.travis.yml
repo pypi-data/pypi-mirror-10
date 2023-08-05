@@ -1,0 +1,19 @@
+language: python
+python:
+  - '2.7'
+  - '3.3'
+  - '3.4'
+  - pypy
+
+install:
+  - npm install coffee-script
+  - export PATH="$(npm bin):$PATH"
+  - pip install -r requirements.txt
+  - pip install -r requirements.dev.txt
+  - pip install -e .
+  - pip install pytest
+  - pip install tox
+
+script:
+  - py.test -v test
+  - tox -rv
