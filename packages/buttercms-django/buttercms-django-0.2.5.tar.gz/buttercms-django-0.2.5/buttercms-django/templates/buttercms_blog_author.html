@@ -1,0 +1,20 @@
+{% extends base_template %}
+
+{% block content %}
+<h2>Recent posts from {{ first_name }} {{ last_name }}</h2>
+{% for post in recent_posts %}
+<div class="post-preview">
+    <a href="{% url 'blog_post' post.slug %}">
+      <h2 class="post-title">
+          {{ post.title }}
+      </h2>
+    </a>
+    <p class="post-meta">Posted by <a href="{% url 'blog_author' post.author.slug %}">{{ post.author.first_name }} {{ post.author.last_name }}</a> on {{ post.created }}</p>
+    <p class="post-subtitle">{{ post.summary }}</p>
+</div>
+<hr>
+{% endfor %}
+
+{% endblock %}
+
+
