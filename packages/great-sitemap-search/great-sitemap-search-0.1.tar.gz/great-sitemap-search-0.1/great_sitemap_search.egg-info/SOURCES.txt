@@ -1,0 +1,13 @@
+MANIFEST.in
+README
+README.rst
+setup.py
+great_sitemap_search.egg-info/PKG-INFO
+great_sitemap_search.egg-info/SOURCES.txt
+great_sitemap_search.egg-info/dependency_links.txt
+great_sitemap_search.egg-info/requires.txt
+great_sitemap_search.egg-info/top_level.txt
+simplesearch/__init__.py
+simplesearch/management/__init__.py
+simplesearch/management/commands/__init__.py
+simplesearch/management/commands/update_search_index.py

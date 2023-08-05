@@ -1,0 +1,42 @@
+=====
+SIMPLESEARCH
+=====
+
+Simplesearch provides an easy and really simple way to offer search on your website.
+it installs a Class that you can use to execute queries and a managment command you can use to update the indext pages based on a sitemap.xml
+
+
+
+Quick start
+-----------
+
+1. Add "simplesearch" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = (
+        ...
+        'polls',
+    )
+
+2. edit settings.py file to include the location of the search index.
+  eg.
+  INDEX_DIR = os.path.join(BASE_DIR, 'index')
+
+2. run the command ./manage.py update_search_index <the url of the sitemap>
+
+3. access the search backen from your views with:
+    from simplesearch import SimpleSiteSearcher
+
+    searcher = SimpleSiteSearcher()
+    results = searcher.search('a query String')
+
+   This will return a list like this:
+
+   [
+        {
+            title:'some tiele',
+            text:'relevant part of the searched text with <b> on the importatn terms',
+            url:'the url to the page on your site where the text was found'
+        },
+        ...
+   ]
+   you may then use the list in your templates to display the search tresults.
