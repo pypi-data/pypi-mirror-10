@@ -1,0 +1,27 @@
+NekBot geo
+##########
+geo plugin. Nekbot, a modular and multiprotocol bot written in Python.
+
+Usage:
+
+    !geo <place or coordenates>
+    Return coordenates, place, and extra information.
+    
+    !geodistance <place or coordenates 1> <place or coordenates 2>
+    Return distance between places.
+    
+Example:
+
+    !geo Madrid
+    40.4167047,-3.7035825 Madrid, Área metropolitana de Madrid y Corredor del Henares, Madrid, Comunidad de Madrid, España [city] https://www.openstreetmap.org/relation/4844521
+    
+    !geo 40.4167047,-3.7035825
+    Plaza de la Puerta del Sol, Barrio de las Letras, Centro, Madrid, Área metropolitana de Madrid y Corredor del Henares, Madrid, Comunidad de Madrid, 28080, España https://www.openstreetmap.org/way/4263034
+    
+    !geo 40.4167047,-3.7035825 Sevilla
+    Vicenty distance: 390.503168km Great-circle distance: 390.839770km
+
+
+Please! You need NekBot for use this plugin. This plugin not works without NekBot.
+
+https://bitbucket.org/Nekmo/nekbot-mirai/
