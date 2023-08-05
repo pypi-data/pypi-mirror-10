@@ -1,0 +1,94 @@
+Valection - Sampler for validation (version 0.1.1)
+==================================================
+
+This readme is formatted in Markdown.
+
+Description
+-----------
+
+Valection can be used in various ways to sample the outputs of competing algorithims or
+parameterizations, and fairly assess their performance against each other.
+
+The sampling will be distributed over the calls common to all, many, few, and single callers.
+
+This version has been tested with Python 3.4.1, 3.3.0, and 2.7.6.
+
+Installation
+-----------
+Change directory to to top of the package and run `python setup.py install`.
+You may want to do this with a virtualenv activated.
+
+Of course, for testing it is also possible to simply add the package to the python path without installing it.
+
+    import sys; sys.path.append("/path/to/this/package")
+
+Example Run
+------------
+
+This is a sample run showing how to use valection simply to select 100 calls (the budget) from `"test_file.valec"`, a format which will be explained later in this readme. "Calls", in this package, refer to the items you want to select from. Callers are the competing sources of calls, whose performace you are evaluating.
+
+    from valection import valection, display_valection_matrix
+    
+    # Run the sampling
+    calls, matrix, callers = valection("test_file.valec", budget=100)
+    
+    # Print out some stats
+    display_valection_matrix(matrix, callers)
+    
+    #  Common calls          alg0          alg1          alg2          alg3          alg4          alg5          alg6
+    #             1 3 (3868,3868) 3 (3911,3911) 3 (3767,3767) 3 (3920,3920) 3 (3852,3852) 3 (3776,3776) 3 (3858,3858)
+    #             2 3 (3899,3899) 3 (3947,3945) 3 (3922,3920) 3 (3895,3895) 3 (3916,3915) 3 (3990,3986) 3 (3965,3962)
+    #             3 3 (1726,1724) 3 (1659,1659) 3 (1803,1794) 3 (1701,1701) 3 (1736,1727) 3 (1734,1731) 3 (1647,1647)
+    #             4   3 (409,406)   2 (402,402)   3 (419,415)   2 (403,402)   3 (414,411)   3 (413,409)   3 (440,432)
+    #             5     2 (63,53)     2 (52,52)     2 (52,51)     2 (56,51)     2 (52,49)     2 (52,48)     2 (53,48)
+    #             6       0 (4,0)       0 (4,0)       0 (4,0)       2 (3,3)       2 (3,2)       0 (3,0)       0 (3,0)
+    #             7       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)
+    
+    print(calls)
+    # ['call 47238', 'call 3976', ...]
+
+The file that was loaded (`"test_file.valec"`) is in a simple format. Each line should start with a caller name and a tab, and the rest of the line is interpreted as the call itself. The rest of the line can contain data from any line-oriented format, as long as it doesn't contain a newline. The file does not have to be sorted in any way.
+
+    alg1    call x line here
+    alg1    call y line here
+    alg2    call x line here
+    alg2    call z line here
+    ....
+
+So for SNVs and two competing callers (`snv_finder` and `snv_seeker`), it could look like this, basiically a tab-seperated file with an extra column at the beginning:
+
+    snv_finder    chr1    4987623    A
+    snv_finder    chr1    5665766    T
+    snv_finder    chr2    9836626    A
+    snv_seeker    chr1    4987623    A
+    snv_seeker    chr4    5476236    A
+    snv_seeker    chr2    2434533    A
+
+In this example, there is only 1 shared call, which is `"chr1    4987623    A"`
+
+Explanation
+-----------
+
+When you call the valection function, it returns three things.
+First, the list of calls it selected, then a matrix of information about what calls were available where, and finally the list of callers found in the file.
+
+    calls, matrix, callers = valection("test_file.valec", budget=100)
+
+Calls and callers are straightforward lists of the strings (callers are sorted alphabetically), but the matrix contains a `valection.ValectionCell` object at each location (it is a two-dimensional aray). (see `valection.ValectionCell`'s Docstring for details)
+
+The matrix only contains the calls that were selected. Both dimensions of the matrix are equal to the number of callers. Row `0` contains all the calls made only by individual callers, row `1` contains the calls made be exactly 2 callers, all the way to row `n-1`, which contains the calls that were made by all of the n callers.
+
+Along the columns, column `j` contains all the calls made by the j'th caller (aphabetically). This means that in row `3`, for example, the row of calls shared by 4 callers, the call can be found in 4 of the columns along the row.
+
+The output of the `display_valection_matrix` function shows this and some additional information. You can see that the rows are labelled by number of common calls, and the columns by the caller names. Each cell here follows the pattern `s (t,a)`. `s` is the number of calls that were selected from that cell. `t` is the total number of calls that were found in that cell before selection, and out of those `t` calls, `a` is the number that hadn't already been selected from another cell in that row. Note that this means `t == a` always in row `0`.
+
+So here, `alg4 ` had 1736 calls that were shared with 2 other callers. Out of these, only 1727 hadn't already been selected from other cells in the row. When this cell was reached by the algorithm, 3 of these calls were selected, according to the budget. So `matrix[2][4].calls` will be a list of the calls selected from here.
+
+    Common calls          alg0          alg1          alg2          alg3          alg4          alg5          alg6
+               1 3 (3868,3868) 3 (3911,3911) 3 (3767,3767) 3 (3920,3920) 3 (3852,3852) 3 (3776,3776) 3 (3858,3858)
+               2 3 (3899,3899) 3 (3947,3945) 3 (3922,3920) 3 (3895,3895) 3 (3916,3915) 3 (3990,3986) 3 (3965,3962)
+               3 3 (1726,1724) 3 (1659,1659) 3 (1803,1794) 3 (1701,1701) 3 (1736,1727) 3 (1734,1731) 3 (1647,1647)
+               4   3 (409,406)   2 (402,402)   3 (419,415)   2 (403,402)   3 (414,411)   3 (413,409)   3 (440,432)
+               5     2 (63,53)     2 (52,52)     2 (52,51)     2 (56,51)     2 (52,49)     2 (52,48)     2 (53,48)
+               6       0 (4,0)       0 (4,0)       0 (4,0)       2 (3,3)       2 (3,2)       0 (3,0)       0 (3,0)
+               7       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)       0 (0,0)

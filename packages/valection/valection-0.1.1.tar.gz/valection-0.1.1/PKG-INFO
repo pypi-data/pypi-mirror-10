@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: valection
+Version: 0.1.1
+Summary: Sampler for validation
+Home-page: http://oicr.on.ca/
+Author: Chris Cooper
+Author-email: chris.cooper@oicr.on.ca
+License: UNKNOWN
+Description: Valection - Sampler for validation (version 0.1.1)
+        --------------------------------------------------
+        
+        Valection can be used in various ways to sample the outputs of competing algorithims or
+        parameterizations, and fairly assess their performance against each other.
+        
+        The sampling will be distributed over the calls common to all, many, few, and single callers.
+        
+        This version has been tested with Python 3.4.1, 3.3.0, and 2.7.6.
+        
+        
+Keywords: validation,selection,sampling
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
