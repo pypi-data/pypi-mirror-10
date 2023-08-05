@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: django-asyncmailer
+Version: 0.2
+Summary: Async email solution w/ multiple SMTP credentials, load-balancing and blacklist.
+Home-page: https://github.com/yzmtf2008/django-asyncmailer
+Author: Andy Fang
+Author-email: andyfang.dz@gmail.com
+License: MIT License
+Description: # django-asyncmailer
+        Async email solution w/ multiple SMTP credentials, load-balancing and blacklist.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
