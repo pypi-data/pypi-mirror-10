@@ -1,0 +1,72 @@
+Metadata-Version: 1.1
+Name: django-downtime
+Version: 1.0.1
+Summary: Give your site a down page, or redirect to another error page.
+Home-page: http://github.com/dstegelman/django-downtime
+Author: Derek Stegelman
+Author-email: dstegelman@gmail.com
+License: MIT
+Description: ## Django Downtime
+        
+        Small, simple, app to show a down page while you make upgrades.
+        
+        Official Docs
+        -------------
+        
+        http://django-downtime.readthedocs.org
+        
+        Install
+        -------
+        
+        Django supports versions 1.4 to 1.8 on Python 2.7 and 3.4.
+        
+        To install django-downtime::
+        
+        	pip install django-downtime
+        	
+        add to installed apps::
+        
+        	downtime
+        
+        Add downtime middleware to ``the top`` your list of installed middlewares::
+        
+            'downtime.middleware.DowntimeMiddleware',
+        
+        
+        Settings
+        --------
+        
+        Exempted Paths::
+        
+            DOWNTIME_EXEMPT_PATHS = (
+                '/admin',
+                '/other_location_not_down',
+            )
+        
+        Url Redirect
+        
+            DOWNTIME_URL_REDIRECT = "http://errors.mypage.com"
+        
+        Templates
+        ---------
+        
+        If no URL Redirect is specified a ``lame`` default template is rendered, this can be overridden
+        by specificing a ``downtime/downtime.html`` template.
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.4
+Classifier: Framework :: Django :: 1.5
+Classifier: Framework :: Django :: 1.6
+Classifier: Framework :: Django :: 1.7
+Classifier: Framework :: Django :: 1.8
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
