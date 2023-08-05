@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: nekbot.plugins.weather
+Version: 0.2.0.1
+Summary: weather, a plugin for NekBot, a modular and multiprotocol bot written in Python.
+Home-page: http://nekmo.com
+Author: Nekmo
+Author-email: contacto@nekmo.com
+License: UNKNOWN
+Description: NekBot weather
+        ##############
+        weather plugin. Nekbot, a modular and multiprotocol bot written in Python.
+        
+        Usage::
+        
+            !weather <place or coordenates>[ <moment: now, today, tomorrow... or datetime>]
+            Return weather for now, today and tomorrow if moment is not given.
+            
+        Moment keys options:
+        
+            * now (or n).
+            * today (or ty).
+            * tomorrow (or tw).
+            * after-tomorrow (or aw).
+            
+        Examples::
+        
+            !weather Madrid
+            Now: Clear 20.9ºc ⚫ Tomorrow: Partly cloudy until evening. 16.1ºc min. 31.5ºc max.
+            
+            !weather Madrid 01/02/1987
+            Clear 6.7ºc 6.7ºc RealFeel 0% humid.
+            
+            !weather Barcelona "20/10/2006 10:15"
+            Partly Cloudy 20.3ºc 20.3ºc RealFeel 0% humid. wind 3.47km/h
+            
+            !weather Torrelodones tomorrow
+            Clear throughout the day. 15.2ºc min. 33.9ºc max. 0% humid. wind 0.63km/h
+        
+        
+        Please! You need NekBot for use this plugin. This plugin not works without NekBot.
+        
+        https://bitbucket.org/Nekmo/nekbot-mirai/
+Keywords: nekbot,bot,weather,plugins,chat
+Platform: linux
+Provides: nekbot.plugins.weather
