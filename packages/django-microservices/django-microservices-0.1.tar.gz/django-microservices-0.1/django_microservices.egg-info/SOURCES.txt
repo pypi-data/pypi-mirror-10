@@ -1,0 +1,17 @@
+README.rst
+setup.py
+django_microservices.egg-info/PKG-INFO
+django_microservices.egg-info/SOURCES.txt
+django_microservices.egg-info/dependency_links.txt
+django_microservices.egg-info/not-zip-safe
+django_microservices.egg-info/pbr.json
+django_microservices.egg-info/requires.txt
+django_microservices.egg-info/top_level.txt
+microservices/__init__.py
+microservices/admin.py
+microservices/models.py
+microservices/urls.py
+microservices/views.py
+microservices/management/__init__.py
+microservices/management/commands/__init__.py
+microservices/management/commands/runcluster.py
