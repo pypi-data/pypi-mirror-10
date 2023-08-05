@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: pyveplot
+Version: 0.1
+Summary: SVG Hiveplot Python API
+Home-page: http://github.com/CSB-IG/pyveplot
+Author: Rodrigo Garcia
+Author-email: rgarcia@inmegen.gob.mx
+License: GPLv3
+Description: # Pyveplot
+        
+        [Hiveplots](http://www.hiveplot.com/) are a nice way of visualizing a
+        complex network.
+        
+        This library uses
+        [svgwrite](http://svgwrite.readthedocs.org/en/latest/classes/shapes.html)
+        to programbatically create hiveplots..
+        
+        In the following example I've used a network created using
+        [NetworkX](http://networkx.github.io/), but there is no dependency to
+        it.
+        
+        <img src="example.png">
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
