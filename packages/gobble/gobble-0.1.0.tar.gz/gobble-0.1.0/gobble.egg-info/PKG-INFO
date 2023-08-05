@@ -1,0 +1,80 @@
+Metadata-Version: 1.1
+Name: gobble
+Version: 0.1.0
+Summary: A simpler parsing framework
+Home-page: https://github.com/prophile/gobble
+Author: Alistair Lynn
+Author-email: alistair@alynn.co.uk
+License: UNKNOWN
+Description: Gobble
+        ======
+        
+        .. image:: https://travis-ci.org/prophile/gobble.svg
+            :target: https://travis-ci.org/prophile/gobble
+        
+        Simpler Parsing in Python.
+        
+        Usage
+        -----
+        
+        .. Yes, this is a bit pants, but it'll go into Sphinx eventually. Maybe.
+        
+        .. code:: python
+        
+            from gobble import *
+        
+        Basic parsers:
+        
+        .. code:: python
+        
+            @parser
+            def natural():
+                digits = yield character('0123456789').star
+                return int(''.join(digits))
+        
+        Alternatives:
+        
+        .. code:: python
+        
+            @parser
+            def literal_null():
+                yield literal('NULL')
+                return None
+        
+            literal = natural / literal_null
+        
+        Optional elements:
+        
+        .. code:: python
+        
+            @parser
+            def natural():
+                sign = yield character('-+').option('+')
+                factor = {'-': -1, '+': 1}
+                value = yield natural
+                return value * factor
+        
+        Sequencing with operators:
+        
+        .. code:: python
+        
+            whitespace = character(' \n\r\t').star
+        
+            literal_expr = literal << whitespace
+        
+        Actually running a parser:
+        
+        .. code:: python
+        
+            value = literal_expr.execute(input_string)
+            print(value)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Compilers
+Classifier: Topic :: Software Development :: Interpreters
+Classifier: Topic :: Text Processing
