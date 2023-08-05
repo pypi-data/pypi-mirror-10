@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: OpenWeatherForecast
+Version: 0.2.1
+Summary: Openweather python wrapper to forecast weather data.
+Home-page: https://github.com/enanablancaynumeros/weather_forecast
+Author: Yeray Alvarez Romero
+Author-email: yeray.alvarez.romero@gmail.com
+License: MIT
+Keywords: forecast,weather,prediction
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Office/Business :: Financial
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: requests
+
+Openweather python wrapper to forecast weather data.
+
+
