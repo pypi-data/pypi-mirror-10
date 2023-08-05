@@ -1,0 +1,4 @@
+[console_scripts]
+cfn = awstools.commands.cloudformation:main
+cfnas = awstools.commands.cfnautoscale:main
+
