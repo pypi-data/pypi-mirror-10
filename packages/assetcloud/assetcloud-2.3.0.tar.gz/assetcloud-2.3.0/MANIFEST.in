@@ -1,0 +1,6 @@
+include README.md
+recursive-include apps/assetcloud/fixtures *.json
+recursive-include apps/assetcloud/templates *
+recursive-include apps/assetcloud/tests/test_models/templates *
+recursive-include apps/assetcloud/static *
+global-exclude *.pyc *.orig *~ *.bak

@@ -1,0 +1,13 @@
+{% extends "assetcloud/pages/logged_out/base.html" %}
+{% load humanize_backports %}
+
+{% block title %}Shared Asset{{ share.shared_assets.all|length|pluralize:",s" }}{% endblock %}
+
+{% block box_content %}
+  {% with count=share.shared_assets.all|length %}
+    <h1>Shared Asset{{ count|pluralize }} Expired</h1>
+
+    <p>Sorry, the asset{{ count|pluralize }} that {{ count|pluralize:"was,were" }} shared with you expired {{ share.expiry|naturaltime }}.</p>
+    <p>Please ask the person who shared {{ count|pluralize:"it,them" }} with you to share {{ count|pluralize:"it,them" }} again.</p>
+  {% endwith %}
+{% endblock %}

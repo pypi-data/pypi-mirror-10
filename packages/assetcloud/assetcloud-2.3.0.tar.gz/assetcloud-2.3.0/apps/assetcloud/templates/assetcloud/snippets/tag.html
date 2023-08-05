@@ -1,0 +1,11 @@
+{% load taggit_utils %}
+
+<li>
+  {% if can_edit_assets %}
+    <a href="#" class="close" id="id_remove_tag_link_{{ tag.name }}">&times;</a>
+    {% if tag.is_user_tag or force_user_tag %}
+      <a href="#" class="user"><i class="icon icon-user"></i></a>
+    {% endif %}
+  {% endif %}
+  <a href="{% url 'search' %}?tags={{ tag.name|tag_escape }}" class="tag" title="View other assets with this tag">{{ tag.name }}</a>
+</li>

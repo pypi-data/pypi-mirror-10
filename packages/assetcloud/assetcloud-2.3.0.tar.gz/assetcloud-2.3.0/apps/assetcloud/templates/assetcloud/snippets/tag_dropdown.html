@@ -1,0 +1,23 @@
+<ul class="dropdown-menu dropdown-large dropdown-offset">
+    <li class="dialog" id="bulk-tag">
+        <h4>Tagging <strong class="selected-count">X</strong> items</h4>
+
+        <div id="bulk_tagging" class="tagging" data-tag-html-url="{% url 'render_tag_action' %}"
+             data-add-tags-url="{% url 'asset_add_tags_action' %}"
+             data-delete-tags-url="{% url 'asset_delete_tags_action' %}">
+            <ul class="tags unstyled clearfix">
+            </ul>
+            <div class="input clearfix">
+
+              <form class="form-inline">
+                <input type="text" value="" id="add_more_tags" class="add_more_tags span2" data-autocomplete-url="{% url 'tag_autocomplete_action' %}" placeholder="Add tags..." /> 
+                <button type="submit" class="btn">Add</button>
+                <span class="hint">Separate tags with a comma</span>
+              </form>
+            </div>
+        </div>
+    </li>
+    <li class="dialog dialog-actions">
+        <a href="#" data-toggle="dropdown">Close</a>
+    </li>
+</ul>

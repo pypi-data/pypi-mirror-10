@@ -1,0 +1,44 @@
+{% extends "assetcloud/pages/logged_out/base.html" %}
+
+{% block title %}Shared Asset{% endblock %}
+
+
+
+{% block box_content %}
+
+    <h1>{{ asset_statuses|length }} {{ asset_statuses|length|pluralize:"file has,files have" }} been shared with you:</h1>
+    <div class="message">
+        <p class="message-label">Message from sender:</p>
+        {{ share.message|linebreaks }}
+    </div>
+    
+
+    <ul class="shared">
+        {% for asset_status in asset_statuses %}
+            <li class="media">
+                {% if asset_status.asset_not_found %}
+                    <div class="bd">
+                        <p class="alert no-bottom-margin"><strong>Sorry!</strong> Asset {{ asset_status.shared_asset.asset_id }} that was shared with you has since been deleted.</p>
+                    </div>
+                {% else %}
+                    {% with asset_status.asset as asset %}
+                        <span class="img">{% include "assetcloud/snippets/asset_display_thumbnail.html" %}</span>
+                        <div class="bd">
+                            {% if asset.title %}
+                                <h3 class="no-top-margin">{{ asset.title }}</h3>
+                            {% endif %}
+                            {% if asset.description %}
+                                <p>{{ asset.description }}</p>
+                            {% endif %}
+                            <a href="{{ asset_status.shared_asset.download_url }}" class="btn btn-primary" title="Download {{ asset.filename }}" id="download_asset_{{ asset.id }}"><i class="icon-download-alt icon-white"></i> Download {{ asset.filename|truncatechars:20 }}</a>
+                        </div>
+                    {% endwith %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br /><br />
+    <p class="align-right">Don't have an account? <a href="{% url 'register' %}">Sign up now</a>.</p>
+
+{% endblock %}

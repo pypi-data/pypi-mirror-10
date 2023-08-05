@@ -1,0 +1,17 @@
+{% extends "assetcloud/pages/logged_out/base.html" %}
+{% load renderform %}
+
+{% block title %}Activation Key Sent{% endblock %}
+
+
+{% block box_content %}
+
+
+    <div class="page-header">
+        <h1>Activation email sent</h1>
+    </div>
+    
+    <p>We have sent an email to <strong>{{ email }}</strong> containing an activation link. <br />Please click on that link to access your {{ PROJECT_NAME }} account.</p>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% for message in messages %}
+  <div class="alert {{ fade_class }} in
+       {% for tag in message.tags.split %}
+         {% if not tag == "__safe" %}
+         alert-{{ tag }}
+         {% endif %}
+       {% endfor %}"
+       data-alert="alert">
+    <a class="close" data-dismiss="alert">&times;</a>
+    {% if "__safe" in message.tags %}
+      {{ message|safe }}
+    {% else %}
+      {{ message }}
+    {% endif %}
+  </div>
+{% endfor %}

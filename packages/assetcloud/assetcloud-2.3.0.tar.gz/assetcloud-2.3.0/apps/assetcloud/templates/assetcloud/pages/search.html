@@ -1,0 +1,63 @@
+{% extends "assetcloud/pages/search_base.html" %}
+{% load humanize %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+  {% with page.object_list as results %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block sidebar %}
+  {% block filters %}
+    <div class="span3 column searchfilter">
+      <div class="well">
+        <h4 class="no-top-margin">Filters</h4>
+        <form action="{{ request.path }}" class="form-stacked">
+          <input type="hidden" name="q" value="{{ query }}" />
+          {% include "assetcloud/snippets/tagfilter.html" %}
+          {% include "assetcloud/snippets/datefilter.html" %}
+        </form>
+      </div>
+    </div>
+  {% endblock %}
+{% endblock %}
+
+{% block has-assets-pre-results %}
+  {% block applied_filters %}
+    {% if form.have_tag_filter %}
+      <div class="filter">
+        <a class="close" href="{{ request.path }}?{{ form.query_string_without_tag_filter }}" title="Remove this filter">&times;</a>
+        Tagged with:
+        {% for tag in form.tag_list %}
+          <strong>{{ tag }}{% if not forloop.last %}, {% endif %}</strong>
+        {% endfor %}
+      </div>
+    {% endif %}
+                      
+    {% if form.have_date_filter %}
+      <div class="filter" >
+        <a class="close" href="{{ request.path }}?{{ form.query_string_without_date_filter }}" title="Remove this filter">&times;</a>
+        Uploaded
+        {% if form.have_last_upload_filter %}
+            in <strong>last upload</strong>
+        {% else %}
+            {% ifequal form.cleaned_data.from_date form.cleaned_data.until_date %}
+              on
+              <strong>{{ form.cleaned_data.from_date|naturalday }}</strong>.
+            {% else %}
+              {% if not form.cleaned_data.until_date %}
+                since <strong>{{ form.cleaned_data.from_date|naturalday }}</strong>.
+              {% else %}
+                between
+                <strong>{{ form.cleaned_data.from_date|naturalday }}</strong>
+                and
+                <strong>{{ form.cleaned_data.until_date|naturalday }}</strong>
+              {% endif %}
+            {% endifequal %}
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endblock applied_filters %}
+ {% endblock %}

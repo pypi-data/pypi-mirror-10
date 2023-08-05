@@ -1,0 +1,197 @@
+{% load compress %}<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        {% block head %}
+
+        <meta charset="utf-8" />
+        <meta name="application-name" content="{{ PROJECT_NAME }}" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ PROJECT_NAME }}: {% block title %}{% endblock %}</title>
+
+        <!-- <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico"> -->
+        <link rel="apple-touch-icon" href="{{ STATIC_URL }}assetcloud/img/apple-touch-icon.png" />
+
+        {% compress css %}
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/bootstrap.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/bootstrap-responsive.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/nav.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/tagging.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/dropdown.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/filetypes.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/searchfilter.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/home.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/logged-out.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/font-icons.css" rel="stylesheet" />
+        <link type="text/css" href="{{ STATIC_URL }}assetcloud/css/common.css" rel="stylesheet" />
+        
+        {% endcompress %}
+
+        {% block css_files %}
+        {% endblock %}
+
+        <style type="text/css">
+            .navbar,
+            .navbar-inverse .navbar-inner, 
+            .current-image,
+            .navbar-inverse .nav li.dropdown.open > .dropdown-toggle, 
+            .navbar-inverse .nav li.dropdown.active > .dropdown-toggle, 
+            .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+                background-color: {{ header_background }};
+            }
+            .ie9 .navbar-inner, .ie8 .navbar-inner{
+                filter:none;
+            }
+
+            .ie8 .navbar .nav > li.active > a, .ie8 .navbar .nav > li.active > a:hover {
+               background: none;
+            }
+
+            .navbar .nav > li > a,
+            [class^="glyph-"] i:before,
+            [class*=" glyph-"] i:before  {
+                color: {{ header_links }};
+            }
+            .navbar-inverse .nav li.dropdown > .dropdown-toggle .caret {
+                border-top-color: {{ header_links }};
+                border-bottom-color: {{ header_links }};
+            }
+
+            .navbar .nav > li > a:hover,
+            .navbar .nav > li.active > a,
+            .navbar .nav > li.active > a:hover,
+            [class^="glyph-"]:hover i:before,
+            [class*=" glyph-"]:hover i:before  {
+                color: {{ header_links_active }};
+            }
+
+        </style>
+
+        <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects and the url definitions-->
+        {% include "snippets/js_urls.html" %}
+        {% compress js %}
+        <script src="{{ STATIC_URL }}assetcloud/js/lib/modernizr-2.0.6.js"></script>
+        {% endcompress %}
+        {% if GOOGLE_ANALYTICS_KEY %}
+            <script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS_KEY }}']);
+                  _gaq.push(['_setDomainName', 'assetshare.com']);
+                  _gaq.push(['_trackPageview']);
+
+                  (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                  })();
+            </script>
+
+        {% endif %}
+        {% endblock %}
+    </head>
+
+    <body {% block body-attr %}{% endblock %}>
+        {% block body %}
+        
+
+        <div id="header" class="clearfix">
+
+
+        {% block header %}{% include "assetcloud/nav.html" %}{% endblock %}
+
+
+        {% block subnav %}{% endblock %}
+
+        </div>
+        <div class="container">
+            <div class="messages {% if not messages %}hide{% endif %}">
+              {% if messages %}
+                {% include 'assetcloud/snippets/messages.html' %}
+              {% endif %}
+            </div>
+
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+            <div id="footer">
+                {% block footer %}
+                <ul class="link-list unstyled">
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+                {% endblock %}
+            </div>
+        </div>
+        {% endblock %}
+
+        {% include 'assetcloud/snippets/upgrade_modal.html' %}
+
+
+        <!-- Hidden iframe to use as 'target' for submitting forms
+             when we don't want to trigger a page refresh -->
+        <iframe class="hidden" name="no-refresh" height="0" width="0"></iframe>
+
+        <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+        <script type="text/javascript"
+                src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script>
+          window.jQuery || document.write('<script src="{{ STATIC_URL }}js/lib/jquery-1.7.2.js"><\/script>')
+        </script>
+
+        <script type="text/javascript">
+            LOCALE = "{{ LOCALE }}";
+            {% block javascript %}{% endblock %}
+        </script>
+
+        <!-- All other javascript inside this compress block, which gives us a
+             single cached, minified, javascript file -->
+        {% compress js %}
+        <script type="text/javascript">
+            function STATIC_URL(relative) {
+                return "{{ STATIC_URL }}" + relative;
+            };
+        </script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/bootstrap.js"></script>
+
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/ajax-form.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/autosubmit.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/clicktoedit.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/confirmation.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/csrf.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/dateinput.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/datefilter.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/tagging.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/resize.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/ajax-dialog.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/actions.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/messages.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/domain-check.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/google-track.js"></script>
+
+        {% endcompress %}
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/jquery.history.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/jquery.form.js"></script>
+
+        {% block page_scripts %}
+        {% endblock %}
+        <script type="text/javascript">
+          var uvOptions = {
+            
+          };
+          (function() {
+            var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+            uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/cl8Ixx0B2KSEeioHEzoedw.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+          })();
+        </script>
+    </body>
+</html>

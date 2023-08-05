@@ -1,0 +1,100 @@
+{% load navigation %}
+
+
+
+
+
+<div class="navbar navbar-inverse navbar-static-top {% if user.get_profile.account.logo %}custom-logo-used{% endif %}">
+
+    <div class="topstrip">
+        <div class="container">
+            
+
+            <ul class="topstrip-links pull-right">
+                {% if user.is_authenticated %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="id_account_dropdown">{{ user.email }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            {% if not user.get_profile.is_social_auth %}
+                                <li><a href="{% url 'change-password' %}">Change password</a></li>
+                            {% endif %}
+                            <li class="last"><a href="{% url 'logout' %}" id="logout">Log out</a></li>
+                            
+                        </ul>
+                    </li>
+                    {% if is_admin %}
+                        
+                        <li class="dropdown settings-link">
+                            <a id="id_admin_menu_link" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> Admin <b class="caret"></b> </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'account-users' %}">Users</a></li>
+                                <li><a href="{% url 'customise-account' %}">Customise</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="last"><a href="{% url 'login' %}" id="login">Log in</a></li>
+                {% endif %}
+
+            </ul>
+
+        </div>    
+    </div>
+
+    <div class="navbar-inner">
+
+        <div class="container">
+
+            <div class="row">
+                
+                <div class="span3">
+                    <ul class="nav">
+                    <li class="logo">
+                        {% if header_logo %}
+                            <a  href="{% url 'home' %}">
+                                <img src="{{ header_logo.url }}" />
+                            </a> 
+                        {% else %}
+                            <a href="{% url 'home' %}">
+                                <img src="{{ STATIC_URL }}assetcloud/img/asset-share-logo.png"  class="as-logo" alt="Asset Share" />
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul> 
+                </div>
+                
+                <div class="span9">
+
+                    
+
+                    <form action="{% url 'search' %}" class="pull-left search">
+                        <input type="search" name="q" placeholder="Search" value="{{ query }}" class="search-field" />
+                        <input type="image" src="{{ STATIC_URL }}assetcloud/img/icons/search.png" alt="Search" class="search-icon">
+                    </form>
+
+           
+                    <ul class="nav nav-primary pull-right">
+                        
+                        <li class="{% nav_classes "home" %} arrow_box"><a href="{% url 'home' %}">home</a></li>
+                        <li class="{% nav_classes "asset-list" %}"><a id="id_nav_asset_list" href="{% url 'asset-list' %}">browse</a></li>
+                        {% if can_edit_assets %}
+                            <li class="{% nav_classes "upload" %}"><a id="id_nav_upload" href="{% url 'asset-upload' %}">upload</a></li>
+                        {% endif %}
+                        <li class="{% nav_classes "folder" %}"><a href="{% url 'favourites' %}">favourites</a></li>
+                        
+                  
+                    </ul> 
+                     
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

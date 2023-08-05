@@ -1,0 +1,37 @@
+{% extends "assetcloud/emails/base.html" %}
+
+{% block subject %}Asset{{ asset_count|pluralize }} have been shared with you{% endblock %}
+
+{% block html_content %}
+<p>The following {{ asset_count|pluralize:"asset has,assets have" }} been shared with you.</p>
+
+{% if expiry %}
+    <p>This link will expire on {{ expiry }}.</p>
+{% endif %}
+
+{% for asset in assets %}
+    <p>{{ asset.filename }}</p>
+{% endfor %}
+
+<p>Please visit <a href="{{ link }}">{{ link }}</a> to download {{ asset_count|pluralize:"it,them" }}.</p>
+
+<p>{{ message|linebreaks }}</p>
+{% endblock %}
+
+{% block plain_content %}
+{% autoescape off %}
+The following {{ asset_count|pluralize:"asset has,assets have" }} been shared with you.
+
+{% if expiry %}
+This link will expire on {{ expiry }}.
+{% endif %}
+
+{% for asset in assets %}
+{{ asset.filename }}
+{% endfor %}
+
+Please visit {{ link }} to download {{ asset_count|pluralize:"it,them" }}.
+
+{{ message }}
+{% endautoescape %}
+{% endblock %}

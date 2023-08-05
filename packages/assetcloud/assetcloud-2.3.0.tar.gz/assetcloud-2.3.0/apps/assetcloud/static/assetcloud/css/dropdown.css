@@ -1,0 +1,123 @@
+/* ===================================================================
+    Dropdown styles
+    Adds to bootstraps dropdown styles
+
+    ----------------------------------------------------------------------*/
+
+/* More neutral hover state */
+.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
+    background:  #444;
+}   
+
+
+/* Use dialog when you want a richer interface in a bootstrap dropdown 
+    These styles overide many bootstrap ones 
+*/
+.dropdown-menu li.dialog {
+    padding: 3px 15px 8px 15px;
+    overflow: hidden;
+    display:block;
+}
+.dropdown-menu li.dialog-actions {
+    padding: 8px 15px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.dialog {
+    font-size: 13px;
+}
+
+li.dialog a:hover {
+    background:none;
+    color: #333
+}
+
+
+li.dialog a{
+    clear:none;
+    display: inline;
+    padding: 0;
+    color: inherit;
+}
+li.dialog a:hover,
+li.dialog .tags > li > a:hover {
+    background:none;
+    filter:none;
+}
+
+.dropdown-menu li.dialog-actions a,
+.dropdown-menu li.dialog-actions a:hover {
+    color: #0088CC;
+    display:block;
+    width: auto;
+    filter:none;
+    background:none;
+}
+
+
+
+/* Dropdown menu overides */
+
+
+
+.dropdown-menu {
+    min-width: 190px;
+}
+
+.dropdown-large {
+    min-width: 254px;
+}
+.dropdown-xlarge {
+    min-width: 440px;
+}
+
+.dropdown-offset {
+    margin-left: -60px;
+}
+
+
+.dropdown-menu.dropdown-large a.cancel {
+    color: #08C;
+    margin-left: 8px;
+}
+
+.dropdown-menu a:hover span {
+    color: #ddd;
+}
+
+.dropdown-menu.dropdown-large ul li.dialog {
+    padding: 0 auto;
+}
+
+.dropdown-menu.dropdown-large form {
+    margin:0;
+}
+
+.dropdown-large .hint {
+    color: #999;
+    float:none;
+    font-size: 11px;
+}
+
+.dropdown-large .hint.large {
+    font-size: 12px;
+    padding: 8px 0 4px; 
+}
+
+.dropdown-large  form textarea, .dropdown-large  form input {
+    display: inline-block;
+}
+
+.dropdown-large  form textarea {
+    height: 110px;
+}
+
+
+/* fix margin on the main controls menu */
+#main-actions .dropdown-large {
+    margin-top: 13px;
+}
+
+
+
+

@@ -1,0 +1,23 @@
+{% load renderform %}
+<form action="{% url 'share_assets_action' %}" method="POST" id="share-asset-form">
+{% csrf_token %}
+
+    <li class="dialog no-close">
+       
+        <h4>
+            {% if asset.title %}
+                Share: {{ asset.title|truncatechars:20 }}
+            {% else %}
+                Sharing <strong class="selected-count">{{ num_assets }}</strong> items
+            {% endif %}
+        </h4>
+
+        {% render_form form %}
+
+    </li>
+
+    <li class="dialog dialog-actions">
+        <button type="submit" id="share-submit" class="btn btn-primary no-close">Share</button>
+        <button class="btn" data-toggle="dropdown">Cancel</button>
+    </li>     
+</form>

@@ -1,0 +1,1079 @@
+/* ===================================================================
+    common.css
+
+    Created by Ben Browning on 2011-05-03.
+    Copyright 2011 Bright Interactive. All rights reserved.
+
+    NOTE: This is called ontop of bootstrap, so all resets, typography etc
+    are already taken care of.
+   =================================================================== */
+
+
+/* ===================================================================
+    Misc overrides (e.g getting jquery ui to play nice with bootstrap)
+----------------------------------------------------------------------*/
+
+h1 {
+    font-size: 32px;
+    line-height: 38px;
+}
+h2 {
+    font-size: 26px;
+    line-height: 36px;
+}
+
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 16px;
+}
+
+.ie8 body {
+    font-family: arial, helvetica, sans-serif;
+}
+
+.ui-datepicker {
+    font-size: 13px;
+}
+
+.ui-datepicker table {
+    border:0;
+}
+
+.ui-datepicker table td,
+.ui-datepicker table th{
+    line-height: 1.1;
+}
+
+img.ui-datepicker-trigger {
+    padding-left: 3px;
+}
+
+.ui-widget {
+    font-size: 1em;
+}
+
+.errorlist {
+    list-style:none;
+    margin:5px 0; 
+    padding:0;
+    color: #B94A48;
+}
+
+.modal .form-actions {
+    margin: 0;
+    padding-left: 175px;
+    -webkit-border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}   
+
+
+/* Fix vertical-align of icons inside sidebar or button in IE9/10 */
+[class^="icon-"],
+[class*=" icon-"] {
+    margin-top:  -1px \9;
+}
+/* Fix vertical aligment in IE8 */
+.ie8 [class^="icon-"],
+.ie8 [class*=" icon-"] {
+    margin-top:  1px;
+}
+
+
+/* New icons */
+.icon-loading {
+    background: url(../img/icons/load-icon.gif) 0 0 no-repeat;
+    height: 16px;
+    width: 16px;
+    margin-top:0;
+}
+
+.btn-danger .icon-loading {
+    background-image: url(../img/icons/load-icon-danger.gif);
+}
+
+.icon-loading-info {
+    background: url(../img/icons/working-info.gif) 0 0 no-repeat;
+    height: 16px;
+    width: 16px;
+    margin-top: -1px;
+}
+
+.alert-wrap {
+    min-height: 54px;
+    display: none;
+    position: relative;
+}
+.alert-wrap > .alert {
+    position: absolute;
+    top: 0;
+    left:0;
+    display:block;
+    width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+}
+
+/* Make form input add-ons a bit lighter*/
+.add-on {
+    color: #666;
+}
+
+/* Temporary fix for bootstrap bug https://github.com/twitter/bootstrap/issues/3674 */
+.ie8 input[type="radio"], 
+.ie9 input[type="radio"],
+.ie8 input[type="checkbox"] 
+.ie9 input[type="checkbox"] {
+    margin-top: -2px;
+}
+
+
+.page-header .btn-group {
+    margin-top: 3px;
+}
+
+
+/* Replace some default bootstrap colours with Bright Interactive colours */
+
+a {
+    color: #009fcc;
+}
+
+
+
+.btn-primary {
+    background-color: hsl(193, 100%, 40%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#14ccff", endColorstr="#009fcc");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#14ccff), to(#009fcc));
+    background-image: -moz-linear-gradient(top, #14ccff, #009fcc);
+    background-image: -ms-linear-gradient(top, #14ccff, #009fcc);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #14ccff), color-stop(100%, #009fcc));
+    background-image: -webkit-linear-gradient(top, #14ccff, #009fcc);
+    background-image: -o-linear-gradient(top, #14ccff, #009fcc);
+    background-image: linear-gradient(#14ccff, #009fcc);
+    border-color: #009fcc #009fcc hsl(193, 100%, 36.5%);
+}
+
+
+/* Make multiple dropdown buttons in a .btn-group work. 
+    You need to wrap dropdown buttons within a span.dropdown */
+
+.btn-group > .btn + .dropdown,
+.btn-group > .dropdown + .dropdown,
+.btn-group > .dropdown + .btn {
+    margin-left: -1px;
+}
+
+.btn-group > .dropdown > .btn {
+    border-radius: 0;
+}
+
+.btn-group > .dropdown:last-child .btn {
+-webkit-border-top-right-radius: 4px;
+-moz-border-radius-topright: 4px;
+border-top-right-radius: 4px;
+-webkit-border-bottom-right-radius: 4px;
+-moz-border-radius-bottomright: 4px;
+border-bottom-right-radius: 4px;
+}
+
+.btn-group > .dropdown:first-child .btn {
+-webkit-border-top-left-radius: 4px;
+-moz-border-radius-topleft: 4px;
+border-top-left-radius: 4px;
+-webkit-border-bottom-left-radius: 4px;
+-moz-border-radius-bottomleft: 4px;
+border-bottom-left-radius: 4px;
+}
+
+/* ===================================================================
+    Page Structure
+    Styles for the layout of page furniture
+    E.g. div#header, div#footer, div#leftPanel etc...
+----------------------------------------------------------------------*/
+
+div#wrapper {
+    margin: 2em 5em;
+
+}
+
+#header {
+    margin: 0 0 40px 0;
+    background-color: #fff;
+}
+
+div#content {
+    min-height: 400px;
+}
+
+div#footer {
+    margin: 18px 0 20px 0;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+
+/* footer links */
+.link-list {
+    margin:0;
+    padding: 7px 0;
+    list-style: none;
+}
+
+.link-list > li {
+    float:left;
+    padding: 0 0.5em 0 0;
+    line-height: 16px;
+    border-right: 1px solid #ddd;
+    margin-right: 0.5em;
+}
+
+.link-list > li.last,
+.link-list > li:last-child {
+    border:0;
+    padding-right:0;
+}
+
+
+.link-list-inline,
+.link-list-inline li{
+    display:inline;
+    float:none;
+}
+
+
+
+/* ===================================================================
+    Page components
+    styles for the components that make up each webpage. (Most of the
+    CSS will go in here)
+    E.g. div#header img.logo, div#leftPanel ul li a etc...
+----------------------------------------------------------------------*/
+
+
+
+
+/* Asset view page ---------- */
+
+
+body.view #content {
+    padding-bottom: 90px;
+}
+body.view h2,
+body.view img.main {
+    margin-bottom: 9px;
+}
+
+body.view .click-to-edit form {
+    padding-left: 0;
+}
+body.view .click-to-edit form input[type=text],
+body.view .click-to-edit form textarea {
+    width: 80%;
+}
+
+table.metadata th {
+    padding-right: 5px;
+    text-align: right;
+}
+
+/* Allow us to apply 'span' classes to field-enclosing divs,
+   And have the input fields fill the div.
+
+   NB: Currently at 95% to prevent ugly spill-over. */
+.edit-asset-details .input input,
+.edit-asset-details .input textarea {
+    width: 95%;
+}
+.edit-asset-details .input .date-field {
+    width: 90px;
+}
+
+
+/* 'Sections' - a way to space out discrete areas of functionality (e.g. in RH col on asset detail page) ---------- */
+div.section {
+    margin: 0 0 37px 0;
+}
+
+.edit-asset-details .current-image
+{
+    background-color: #eee;
+    padding: 2px;
+}
+
+
+
+/* Image resize dialogue ---------- */
+
+div.aspect-lock {
+    width: 80px;
+    height: 80px;
+    margin-left:20px;
+
+}
+.aspect-lock a.btn {
+    float:left;
+    margin: 27px 0 0 8px;
+}
+.aspect-lock .linking-border {
+    height: 50px;
+    margin-top: 14px;
+    border: 1px solid #ccc;
+    border-width: 1px 1px 1px 0;
+    float:left;
+    width: 20px;
+    -webkit-transition: all 0.3s ease-out; 
+    -moz-transition: all 0.3s ease-out; 
+    -ms-transition: all 0.3s ease-out; 
+    -o-transition: all 0.3s ease-out; 
+    transition: all 0.3s ease-out;
+}
+.icon-aspect-lock {
+    background: url('../img/icons/icon-sprite.png') 2px 1px no-repeat;
+    -webkit-transition: all 0.3s ease-out; 
+    -moz-transition: all 0.3s ease-out; 
+    -ms-transition: all 0.3s ease-out; 
+    -o-transition: all 0.3s ease-out; 
+    transition: all 0.3s ease-out;  
+}
+.unlocked .icon-aspect-lock {
+    background-position: 2px -19px;
+}
+.unlocked .linking-border {
+    border-color: #ddd;
+    border-style:dashed;
+}
+.unlocked .btn {
+    border-color: #ddd;
+}
+
+
+
+/* Admin page ------------*/
+
+.well h4 {
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+.well form {
+    padding-left:0;
+}
+.well form input {
+    margin-bottom:0;
+}
+
+.well form li label input {
+    display: inline;
+}
+
+td.actions form {
+    display: inline-block;
+}
+
+
+/*Cancel account modal ------*/
+.cancel-form .modal-body {
+    overflow-y: scroll;
+}
+
+.cancel-form textarea,
+.cancel-form input[type=text] {
+    width: 500px;
+}
+
+.cancel-form .form-actions {
+    padding-left: 15px;
+}
+
+/* Toolbar for bulk actions ---------- */
+.toolbar p {
+    float:left; 
+    margin-right: 20px;
+    line-height: 29px;
+    margin-bottom: 0;
+}
+
+.toolbar .pull-right {
+    margin-left: 20px;
+}
+
+.toolbar .btn-toolbar {
+    margin-top:0;
+}
+
+.toolbar p.selection {
+    clear:left;
+}
+
+/* List of assets ---------- */
+ul.asset-list {
+    margin: 20px 0 18px 0;
+    clear:both;
+    list-style:none;
+}
+ul.asset-list li {
+    float:left;
+    width: 120px;
+    min-height: 210px;
+    margin: 0 44px 20px 0;
+    word-wrap: break-word;
+    line-height: 18px;
+}
+
+ul.asset-list li:nth-child(6n+6) {
+    margin-right:0;
+}
+
+#results ul.asset-list li  {
+    margin-right: 25px;
+}
+
+#results ul.asset-list li:nth-child(5n+5) {
+    margin-right:0;
+}
+
+
+ul.asset-list li .inner {
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+ul.asset-list li.on .inner,
+ul.asset-list li.on .inner {
+
+    -webkit-box-shadow: 0 0 4px 2px #468847;
+    -moz-box-shadow: 0 0 4px 2px #468847;
+    box-shadow: 0 0 4px 2px #468847;
+}
+
+.select-bar {
+    display: block;
+    background: #eee;
+    text-align: center;
+    padding:3px;
+    margin:0;
+    cursor: pointer;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;    
+
+}
+
+.select-bar input[type="checkbox"] {
+    margin-top:0;
+    vertical-align: baseline;
+}
+
+.on .select-bar {
+    background: #DFF0D8;
+}
+
+/* Fall back for IE (as it doesn't support nth-child) */
+.ie8 ul.asset-list li,
+.ie7 ul.asset-list li {
+    margin-right: 25px
+}
+
+
+ul.asset-list li a {
+    text-decoration: none;
+}
+ul.asset-list li.end {
+    margin-right:0;
+}
+
+ul.asset-list li img {
+    display:block;
+    margin-bottom: 5px;
+}
+ul.asset-list li form {
+    margin-bottom:0;
+}
+ul.asset-list li input.title-field {
+    width: 110px;
+    display:block;
+    margin: 5px 0 5px 0;
+    color: #616161;;
+}
+ul.asset-list li input.title-field {
+    display:none;
+}
+ul.asset-list li .title-text {
+    width: 100%;
+    display:block;
+    margin: 10px 0 5px 0;
+    color: #616161;
+    line-height: 1.2;
+    cursor: text;
+}
+.js ul.asset-list li a.title-text:hover {
+    text-decoration:none;
+    background-color: #FCF9C9;
+}
+ul.asset-list li a.title-text em {
+    color:#999;
+}
+ul.asset-list a:hover img {
+    opacity:0.90;
+    filter:alpha(opacity=90); /* For IE8 and earlier */
+    -webkit-box-shadow: 1px 1px 5px #aaa;
+    -moz-box-shadow: 1px 1px 5px #aaa;
+    box-shadow: 1px 1px 5px #aaa;
+}
+
+
+
+span.file, ul.asset-list a img {
+    -webkit-transition: all linear 0.1s;
+    -moz-transition: all linear 0.1s;
+    -ms-transition: all linear 0.1s;
+    -o-transition: all linear 0.1s;
+    transition: all linear 0.1s;
+}
+
+/* Non-image files */
+span.file {
+    display:block;
+    background: #eee url('../img/icons/file-type/_blank.png') center 15px no-repeat;
+    width: 100px;
+    padding: 80px 10px 10px 10px;
+    padding-top: 80px;
+    word-wrap: break-word;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #999;
+    text-align:center;
+    margin-bottom: 9px;
+}
+ul.asset-list span.file {
+    height: 40px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 80px 10px 0 10px;
+    overflow:hidden;
+}
+ul.asset-list a:hover span.file {
+    background-color: #aaa;
+    color: #fff;
+    text-indent: 0;
+    -webkit-box-shadow: 1px 1px 4px #ccc;
+    -moz-box-shadow: 1px 1px 4px #ccc;
+    box-shadow: 1px 1px 4px #ccc;
+}
+
+/* Display file icons differently on detail page */
+.view span.file {
+    background-color: white;
+    background-position: -7px center;
+    padding: 30px 65px 0;
+    height: 40px;
+    font-size: 14px;
+    width: auto;
+    text-align: left;
+}
+
+
+/* Simple pager (extending bootstraps styles) ---------- */
+ul.pager li.padded {
+    padding: 0 10px 0 10px;
+}
+ul.pager {
+    text-align:right;
+}
+
+
+
+/* Log of messages (e.g. upload log) ---------- */
+ul.log {
+    width: 400px;
+    margin: 20px 0;
+}
+ul.log li{
+    padding: 0.5em 1em;
+    line-height: 2em;
+    background: #f2f2f2 url('../img/bg-progress.png') no-repeat -100% top;
+    border-radius: 10px;
+    margin-bottom: 2px;
+    position:relative;
+}
+ul.log li em {
+    color: #999;
+    font-style: normal;
+}
+ul.log li span {
+    color: #bbb; float:right;
+    font-size: 1.25em; /*=15px*/
+}
+ul.log li div{
+    position: absolute;
+    left:0;
+    top:0;
+    display:block;
+    width: 0%;
+    height: 3em;
+    background: green;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    border-radius: 10px;
+}
+
+
+/* Upload page ---------- */
+div.plupload input {
+    cursor: pointer;
+}
+#drop-hint {
+    width: 100%;
+    line-height: 100px;
+    border: 2px dashed #5F9658;
+    background: #c1dbbe;
+    text-align: center;
+    font-size: 26px;
+    color: #46773F;
+    margin-bottom: 20px;
+    display:none;
+}
+
+.drag-drop-text {
+    margin-top:4px;
+}
+.ie7 .drag-drop-text,
+.ie8 .drag-drop-text,
+.ie9 .drag-drop-text  {
+    display:none;
+}
+
+
+/* Click to edit forms ---------- */
+.click-to-edit form {
+    display:none;
+}
+.no-js .click-to-edit form {
+    display:block;
+}
+.click-to-edit.edit form {
+    display:block;
+}
+.click-to-edit.edit div.content {
+    display:none;
+}
+.click-to-edit div.content h2:hover,
+.click-to-edit div.content h3:hover,
+.click-to-edit div.content p:hover,
+.click-to-edit div.content a:hover,
+.click-to-edit div.content tr:hover {
+    text-decoration:none;
+    background-color: #FCF9C9;
+}
+
+/* Users page ---------- */
+table.users td {
+    vertical-align: middle;
+}
+table.users td form {
+    margin:0;
+}
+table.users .inactive,
+.modal .inactive {
+    color: #888;
+    font-style: italic;
+}
+
+
+/* Storage meter */
+.progress {
+    background: #eee;
+}
+.progress-constrained {
+    width: 50%;
+}
+
+
+
+/* ===================================================================
+    Customise page
+----------------------------------------------------------------------*/
+.current-image {
+    margin-bottom: 5px;
+    background: #eee;
+    padding: 15px;
+    border-radius: 3px;
+    width: auto;
+    display: inline-block;
+}
+
+.current-image img {
+    max-height: 60px;
+    max-width: 150px;
+}
+
+.color-input {
+    padding: 6px 0;
+}
+
+
+/* ===================================================================
+    Misc form styles
+----------------------------------------------------------------------*/
+
+.wide-label .control-label {
+    width: 200px;
+}
+.wide-label .controls {
+    margin-left: 220px;
+}
+.wide-label .form-actions {
+    padding-left: 220px;
+}
+
+.narrow-label .control-label {
+    width: 120px;
+}
+.narrow-label .controls {
+    margin-left: 140px;
+}
+.narrow-label .form-actions {
+    padding-left: 140px;
+}
+
+.x-narrow-label .control-label {
+    width: 100px;
+}
+.x-narrow-label .controls {
+    margin-left: 120px;
+}
+.x-narrow-label .form-actions {
+    padding-left: 120px;
+}
+
+.control-group ul
+/* input lists */
+{
+    margin: 0;
+    list-style-type: none;
+}
+
+label h3 {margin-top: -5px;}
+
+
+.field-value {
+    display:inline-block;
+    padding-top: 5px;
+}
+
+
+.actionpair .actionpair-secondary {
+    padding-left: 20px;
+    line-height: 28px;
+    display:inline-block;
+}
+.actionpair-large .actionpair-secondary {
+    line-height: 35px;
+}
+/* ===================================================================
+    Helpers
+    styles that apply to elements, usually using a single
+    class name throughout the site.
+    E.g. div.error, p.message, .clearfix etc...
+----------------------------------------------------------------------*/
+
+/* ===================================================================
+    Promo links
+----------------------------------------------------------------------*/
+ul.promo-links {
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+ul.promo-links li a {
+    display: block;
+    padding: 3px 0;
+}
+ul.promo-links li a:hover {
+    background-color: #eee;
+    text-decoration: none;
+}
+ul.promo-links i[class^="icon-"] {
+    margin-right: 2px;
+}
+
+.alert-message ul, .alert-message ul li {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom:0;
+}
+.alert-message ul li {
+    color: #404040;
+}
+
+div.input ul.errorlist {
+    margin:0;
+    list-style:none;
+    color: #9D261D;
+}
+div.input ul.errorlist li {
+    color: #9D261D;
+}
+a.browse-button-hover {
+    background-position: 0 -15px;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Terms and conditions */
+.terms dt {
+    float:left;
+    width: 40px;
+    clear:left;
+    display:block;
+}
+
+.terms > dd {
+    font-weight: bold;
+}
+
+.terms dl dt {
+    font-weight: normal;
+}
+
+.terms  dd {
+    margin:0 0 0 40px;
+}
+
+/* Acceptable Use Policy*/
+.aup dt {
+    margin: 0 0 10px 0;
+}
+.aup dd {
+    margin: 0 0 20px 0;
+}
+
+
+.loading,
+.loading-small {
+    line-height: 50px;
+    background: url("../img/load.gif") left center no-repeat;
+    padding-left: 50px;
+    color: #888;
+    display:inline-block;
+}
+.loading-small {
+    line-height: 32px;
+    background-image: url("../img/load-small.gif");
+    padding-left: 38px;
+}
+
+.input-load input[type='text'] {
+    background: url("../img/load-input.gif") 96% center no-repeat;
+}
+
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* Util */
+.clear {
+    display: block;
+    clear: both;
+}
+
+.placeholder,
+ul.asset-list li a.placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.subtle {
+    color:#999;
+}
+
+.big {
+    font-size: 18px;
+}
+
+.danger-link:hover {
+    color: #b94a48;
+    text-decoration: none;
+}
+
+.top-margin {
+    margin-top: 20px
+}
+.no-top-margin {
+    margin-top: 0;
+}
+.bottom-margin {
+    margin-bottom: 20px;
+}
+.no-bottom-margin {
+    margin-bottom: 0;
+}
+.no-margin {
+    margin:0;
+}
+
+
+/* Media block */
+.media {
+    margin:20px 0;
+}
+
+.media, 
+.bd {
+    overflow:hidden; 
+    _overflow:visible; 
+    zoom:1;
+}
+
+.media .img {
+    float:left; 
+    margin-right: 20px;
+}
+
+.media .imgExt {
+    float:right; 
+    margin-left: 10px;
+}
+
+.media .img img {
+    display:block;
+}
+
+.bd h3 {
+    line-height: 20px;
+}
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hide { display: none; }
+.off-page { position: absolute; left: -9999px; }
+
+.no-js .no-script { display:block; }
+.js .no-script{ display:none; }
+.no-js .js-only { display:none; }
+.js .js-only{ display:block; }
+.no-js .js-only-inline { display:none; }
+.js .js-only-inline{ display:inline; }
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+
+.right {
+    float:right;
+}
+.left {
+    float:left;
+}
+
+
+.align-right {
+    text-align:right;
+}
+
+
+
+
+/* ===================================================================
+    Responsive styles
+    Adding to bootstraps responsive css
+----------------------------------------------------------------------*/
+
+ 
+/*Landscape phone to portrait tablet*/
+@media (max-width: 767px) {
+
+    /* always show a right hand margin on small screens */
+    ul.asset-list li{
+        margin-right: 20px !important;
+    }
+
+
+}
+ 
+/*Portrait tablet to landscape and desktop*/
+@media (min-width: 768px) and (max-width: 979px) {
+
+    ul.asset-list li,
+    ul.asset-list li:nth-child(6n+6)  {
+        margin-right: 30px;
+    }
+
+    ul.asset-list li:nth-child(5n+5) {
+        margin-right:0;
+    }
+
+
+    #results ul.asset-list li,
+    #results ul.asset-list li:nth-child(6n+6),
+    #results ul.asset-list li:nth-child(5n+5)  {
+        margin-right: 19px;
+    }
+
+    #results ul.asset-list li:nth-child(4n+4) {
+        margin-right:0;
+    }
+
+
+
+}
+ 
+/* Large desktop */
+@media (min-width: 1200px) {
+
+    ul.asset-list li,
+    ul.asset-list li:nth-child(6n+6)  {
+        margin-right: 30px;
+    }
+
+    ul.asset-list li:nth-child(8n+8) {
+        margin-right:0;
+    }
+
+
+    #results ul.asset-list li,
+    #results ul.asset-list li:nth-child(8n+8),
+    #results ul.asset-list li:nth-child(5n+5)  {
+        margin-right: 30px;
+    }
+
+    #results ul.asset-list li:nth-child(6n+6) {
+        margin-right:0;
+    }
+
+}
+
+
+
+
+
+/* ===================================================================
+    Print styles
+    Inline to save a http request
+----------------------------------------------------------------------*/
+@media print {
+
+
+
+}
+
+

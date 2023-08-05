@@ -1,0 +1,31 @@
+<p>
+  {% if page %}
+    <strong>{{ page.paginator.count }}</strong>
+  {% elif results %}
+    <strong>{{ results|length }}</strong>
+  {% else %}
+    No
+  {% endif %}
+
+  {% if page.paginator.count %}
+    item{{ page.paginator.count|pluralize}}
+  {% elif results %}
+    item{{ results|length|pluralize }}
+  {% else %}
+    items
+  {% endif %}
+
+  {% if query %}
+    found for <strong>&#8220;{{ query }}&#8221;</strong>
+  {% endif %}
+
+  {% if page.object_list or results %}
+    <span id="selected-count" class="subtle">&mdash; <strong>0</strong> selected</span>
+  {% endif %}
+</p>
+
+{% if page.object_list or results %}
+  <p class="selection">
+    Select: <a href="#" id="select-all">All</a>    | <a href="#" id="select-none">None</a>
+  </p>
+{% endif %}

@@ -1,0 +1,51 @@
+{% extends "assetcloud/pages/search_base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  {% with all_results as results %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock %}
+
+{% block body-attr %}id="home"{% endblock %}
+
+{% block primary_col_class %}span12 column{% endblock %}
+
+{% block intro_text %}
+    {% if user.get_profile.account.welcome_text %}
+        <div class="well clearfix">
+
+            <ul class="promo-links">
+                <li><a href="{% url 'asset-list' %}"><i class="icon-chevron-right"></i> Browse all assets</a></li>
+                {% if can_edit_assets %}
+                    <li><a href="{% url 'asset-upload' %}"><i class="icon-chevron-right"></i> Start uploading</a></li>
+                {% endif %}
+            </ul>
+
+            <div id="welcome-text">{{ user.get_profile.account.welcome_text|linebreaks }}</div>
+
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block search-results %}
+    {% for group, results in all_results.items %}
+        {% if results %}
+            <h4 class="no-bottom-margin">
+                {% if group == 'Recently added' %}
+                    <a href="{% url 'asset-list' %}">{{ group }}</a>
+                {% else %}
+                    <a href="{% url 'asset-list' %}?tags={{ group }}">{{ group }}</a>
+                {% endif %}
+            </h4>
+            <div class="imagestrip">
+                {{ block.super }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block search-count %}
+
+{% endblock %}

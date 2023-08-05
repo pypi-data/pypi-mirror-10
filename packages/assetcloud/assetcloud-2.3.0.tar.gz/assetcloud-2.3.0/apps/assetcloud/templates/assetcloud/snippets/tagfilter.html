@@ -1,0 +1,53 @@
+{% load renderform %}
+{% load tag_url %}
+
+<fieldset class="tag-filter">
+
+    <legend>Tagged with:</legend>
+
+    {% if form.have_tag_filter %}
+        <ul class="tags unstyled clearfix">
+            {% for tag in form.tag_list %}
+                <li><a href="{% url 'search' %}?{% remove_tag_from_url tag %}" class="close" title="Remove this filter">&times;</a><a href="{% url 'search' %}?tags={{ tag }}" class="tag" title="View other assets with this tag">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <ul class="unstyled filter-options">
+        {% if not form.have_tag_filter %}
+            <li><strong>Anything</strong></li>
+        {% endif %}
+       
+
+        <li class="specify-tags-link"><a href='#'>Search tags...</a></li>    
+        
+        
+
+        <li id="tagging" class="specify-tags-fields hide">
+            {{ form.tags }}
+            {% render_field form.more_tags %}
+            <button type="submit" class="btn primary">Apply</button>
+            &nbsp;
+            <a href="#" class="subtle cancel">Cancel</a>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle browse-tags-link" data-toggle="dropdown">Browse tags <b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-xlarge">
+                <li class="dialog browse-tags-dialog" id="browse-tags-dialog">
+                    <div>
+                        <span class="loading">Loading...</span>
+                    </div>
+                </li>
+            </ul>
+        </li>
+          
+    </ul>
+
+
+
+  
+
+
+
+</fieldset>

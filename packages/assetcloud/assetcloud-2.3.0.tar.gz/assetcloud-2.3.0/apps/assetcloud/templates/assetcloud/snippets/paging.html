@@ -1,0 +1,23 @@
+{% load url_utils %}
+
+{% if page.paginator.num_pages > 1 %}
+
+    <ul class="pager pull-right">
+
+        <li class="{% if not page.has_previous %}disabled{% endif %}">
+            <a {% if page.has_previous %}href="{% current_url_with_params page=page.previous_page_number %}"{% endif %} >
+                &larr; Previous
+            </a>
+        </li>
+
+        <li class="padded">Page {{ page.number }} of {{ page.paginator.num_pages }}</li>
+
+        <li class="{% if not page.has_next %}disabled{% endif %}" >
+            <a {% if page.has_next %}href="{% current_url_with_params page=page.next_page_number %}"{% endif %}>
+                Next &rarr;
+            </a>
+        </li>
+
+    </ul>
+
+{% endif %}

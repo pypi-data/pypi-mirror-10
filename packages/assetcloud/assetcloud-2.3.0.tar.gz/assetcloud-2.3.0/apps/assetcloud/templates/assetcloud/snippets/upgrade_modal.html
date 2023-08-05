@@ -1,0 +1,15 @@
+<div class="modal hide fade" id="upgrade-modal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Asset Share is still in beta</h3>
+    </div>
+    <div class="modal-body">
+        {% with user.get_profile.account as account %}
+            <p>Whilst Asset Share is in beta all accounts are free and limited to {{ account.storage_limit|filesizeformat }} of storage space.</p>
+        {% endwith %}
+        <p>At the end of the beta period you will be able to upgrade to a paid account. Until then, if you need more space, please email us on <a href="mailto:info@bright-interactive.com">info@bright-interactive.com</a> to arrange payment.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>

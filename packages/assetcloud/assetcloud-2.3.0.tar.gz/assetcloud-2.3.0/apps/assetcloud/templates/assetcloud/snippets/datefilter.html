@@ -1,0 +1,38 @@
+{% load renderform %}
+
+<fieldset class="date-filter">
+    <legend>Uploaded:</legend>
+
+    <ul class="unstyled filter-options">
+        <li>
+            {% if form.have_date_filter %}
+                <a href="{% url 'search' %}?{{ form.query_string_without_date_filter }}">Anytime</a>
+            {% else %}
+                <strong>Anytime</strong>
+            {% endif %}
+        </li>
+
+        {% if form.have_last_upload_filter %}
+            <li><strong>Your last upload</strong></li>
+            <input type="hidden" name="last_upload" value="True"/>
+        {% else %}
+            <li><a id="last_upload_link" href="{% url 'search' %}?{{ form.query_string_with_last_upload }}">Your last upload</a></li>
+        {% endif %}
+        <li class="{% if form.have_date_range_filter %}active{% endif %}"><a href="#" class="custom-range-link {% if form.have_date_range_filter %}hide active{% endif %}">Specify date range&hellip;</a>
+
+        <div class="custom-range-fields {% if not form.have_date_range_filter %}hide{% endif %}">
+            <label>Specify date range:</label>
+            <div class="inline">
+                {% render_field form.from_date %}
+                {% render_field form.until_date %}
+            </div>
+            <button type="submit" id="apply_date_filters" 
+                    class="btn primary">Apply</button>
+            &nbsp;
+            <a href="#" class="subtle cancel">Cancel</a>
+        </div>
+
+    </li>
+    </ul>
+
+</fieldset>

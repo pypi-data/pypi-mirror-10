@@ -1,0 +1,76 @@
+{% extends "assetcloud/base.html" %}
+
+{% load compress %}
+
+{% block head %}
+    {{ block.super }}
+    {% compress js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/plupload-1.5.1.1/plupload.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/plupload-1.5.1.1/plupload.flash.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/plupload-1.5.1.1/plupload.html4.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/plupload-1.5.1.1/plupload.html5.js"></script>
+    {% endcompress %}
+{% endblock %}
+
+{% block title %}Upload{% endblock %}
+
+{% block javascript %}
+    {% include "assetcloud/snippets/upload.js" %}
+{% endblock %}
+
+{% block body-attr %}id="drop-area"{% endblock %}
+
+{% block content %}
+
+    <div class="alert-wrap">
+        <div class="alert alert-success hide" id="all_uploads_successful">
+            All files successfully uploaded!
+        </div>
+
+        <div class="alert alert-error hide" id="some_uploads_failed">
+            One or more files failed to upload
+        </div>
+
+        <div class="alert alert-info" id="inProgress">
+            <i class="icon icon-loading-info"></i>
+            Upload in progress
+        </div>
+
+    </div>
+
+
+    <div id="drop-hint" class="well">
+        drop files here to upload
+    </div>
+  
+    <a href="{% url 'search' %}?last_upload=True" id="view_last_upload" class="pull-right">View your last upload &raquo;</a>
+      
+    
+
+    <div class="js-show" id="submit-form">
+
+        <a id="pickfiles" class="btn btn-large btn-primary">Upload files...</a> <a href="{% url 'search' %}?last_upload=True" id="view_uploaded_files" class="btn btn-large btn-success hide">Next, view uploaded files...</a>
+        <a id="cancel" href="{% url 'cancel_upload_action' %}" class="hide btn btn-large btn-danger">Cancel</a>
+        
+
+        <p class="subtle drag-drop-text">or drag and drop files here</p>
+
+
+        <ul class="log unstyled" id="file-list"></ul>
+
+
+    </div>
+
+
+    {# For selenium uploads, and browsers with js turned off #}
+    <div class="no-script">
+        <form action="{% url 'asset-upload-action' %}"
+              method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input id="upload-file" name="file" type="file" multiple />
+                <input id="upload-submit" type="submit" />
+        </form>
+    </div>
+
+
+{% endblock %}

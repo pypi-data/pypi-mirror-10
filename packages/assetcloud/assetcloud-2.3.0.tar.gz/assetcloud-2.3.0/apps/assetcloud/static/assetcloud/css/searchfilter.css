@@ -1,0 +1,123 @@
+/*
+    Active filter styling
+*/
+
+div.filter {
+    background-color: #eee;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: 16px 20px 20px 0;
+    min-height: 20px;
+    padding: 9px 19px;
+    float:left;
+}
+div.filter .close {
+    margin-left: 20px;
+    line-height: 16px;
+}
+
+/*
+    Styling for the 'filter search' column on the search page.
+*/
+
+.searchfilter fieldset {
+    padding: 0;
+    margin-bottom: 18px;
+}
+.searchfilter legend {
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 0px;
+    color: #808080;
+    line-height: 24px;
+    border:0;
+    margin-bottom:0;
+}
+.searchfilter .clearfix {
+    margin-bottom: 6px;
+}
+.searchfilter ul.filter-options {
+    margin:0;
+}
+.searchfilter ul.filter-options > li {
+    margin: 3px 0;
+}
+.searchfilter ul a.hide {
+    display:none;
+}
+.searchfilter ul a.active,
+.searchfilter ul strong {
+    color: #404040;
+    font-weight: bold;
+}
+.searchfilter ul a.active:hover {
+    text-decoration:none;
+}
+.searchfilter label {
+    line-height: 18px;
+}
+
+/* Tag filter */
+
+.tag-filter ul.tags {
+    margin:0;
+}
+.searchfilter ul.tags li {
+    background: #ddd;
+    margin: 3px 10px 3px 0;
+}
+.tag-filter p.alert-message {
+    margin:9px 0;
+}
+.tag-filter label {
+    display:block;
+}
+.tag-filter div.input {
+    margin-left:0;
+    padding: 5px 0;
+}
+.tag-filter input[type='search'],
+.tag-filter input.add_more_tags {
+    width: 130px;
+}
+.tag-filter .hint {
+    color: #999;
+    font-size: 11px;
+}
+.tag-filter .specify-tags-fields {
+    padding: 2px 0 5px 0;
+}
+.specify-tags-fields label {
+    display:none;
+}
+
+.dropdown-menu li.browse-tags-dialog {
+    max-height: 240px;
+    overflow: auto;
+}
+
+/* Date filter */
+.date-filter .inline {
+    padding: 5px 0;
+    height: 1%;
+}
+.date-filter .active .custom-range-fields{
+    padding-top:0;
+}
+.date-filter .inline label {
+    width: 60px;
+    font-weight: normal;
+    float:left;
+    padding:6px 5px 0 0;
+    text-align:right;
+}
+.date-filter .inline div.input {
+    margin-left: 10px;
+    float:left;
+}
+.date-filter .date-field {
+    width: 70px;
+}
+

@@ -1,0 +1,16 @@
+{% extends "assetcloud/emails/base.html" %}
+
+{% block subject %}Activate your {{ PROJECT_NAME }} account.{% endblock %}
+
+{% block html_content %}
+<p>Your {{ PROJECT_NAME }} account has been created.</p>
+<p><strong><a href="{{ activation_url }}">Activate your account now</a></strong>.</p>
+<p>The activation process will ask you to set a password for your account.</p>
+{% endblock %}
+
+{% block plain_content %}
+Your {{ PROJECT_NAME }} account has been created.
+To activate your account go to: {{ activation_url }}
+The activation process will ask you to set a password for your account.
+{% endblock %}
+
