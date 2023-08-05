@@ -1,0 +1,17 @@
+Print a list item by item, with an optional indent and indent level.
+
+
+To install:
+
+python3 setup.py install 
+
+
+Example usage:
+
+import unnest
+
+unnest.print_lil(my_list)
+
+unnest.print_lil(my_list, True)
+
+unnest.print_lil(my_list, True, 2)
