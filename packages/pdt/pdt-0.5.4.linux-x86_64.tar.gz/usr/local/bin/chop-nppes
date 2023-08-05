@@ -1,0 +1,486 @@
+#!/home/alan/.virtualenvs/eapi/bin/python
+# -*- coding: utf-8 -*-
+# vim: ai ts=4 sts=4 et sw=4
+# Alan Viars
+
+import os, sys, string, json, csv
+from collections import OrderedDict
+import functools
+import time
+import hashlib
+
+
+
+
+def chop_taxonomy(csvfile):
+    """"Chop taxonomy up into its own file. Not flattened."""
+    fh              = open(csvfile, 'rb')
+    f               = csv.reader(fh, delimiter=',')
+    output_file     = csvfile[:-4]
+    output_file     = "%s_taxonomy.csv" % (output_file)
+    outputcsvfileb  = open(output_file,'wb')
+    csvwriterb      = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    rowindex        = 0
+
+    print "Parsing", csvfile, "to create", output_file
+
+    for row in f:
+        t = row[0:2] + row[6:9] + row[68:69] + row[71:73] + row[75:77] + row[79:81] \
+            + row[83:85] + row[87:89] + row[91:93] + row[95:97] + row[99:101] \
+            + row[103:105] + row[107:109] + row[111:113] + row[115:117] \
+            + row[119:121]+ row[123:125] + row[127:128]
+
+        for c in t:
+            c = c.decode('ascii', errors='ignore')
+
+        csvwriterb.writerow(t)
+        rowindex+=1
+
+    print "Done. Iterated over", rowindex, "rows. "
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+def flatten_taxonomy(csvfile):
+    """"Flatten the taxonomy output file."""
+    fh              = open(csvfile, 'rb')
+    f               = csv.reader(fh, delimiter=',')
+    output_file     = csvfile[:-4]
+    output_file     = "%s_flat.csv" % (output_file)
+    outputcsvfileb  = open(output_file,'wb')
+    csvwriterb      = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    rowindex         = 0
+
+    print "Parsing", csvfile, "to create", output_file
+    for row in f:
+        #If header row.
+        if rowindex==0:
+            column_headers = row[0:5] + ["Healthcare_Provider_Taxonomy_Code", "Primary"]
+            cleaned_headers = []
+            for c in column_headers:
+                c= c.replace(".", "")
+                c= c.replace("(", "")
+                c= c.replace(")", "")
+                c =c.replace("$", "-")
+                c =c.replace(" ", "_")
+                cleaned_headers.append(c)
+            csvwriterb.writerow(cleaned_headers)
+            rowindex += 1
+        else:
+            start=5
+            finish=7
+            for i in range(1,15):
+                flat_row = row[0:5] + row[start:finish]
+                #only write the taxonomy code if the cell is not blank
+                if row[start]:
+                    csvwriterb.writerow(flat_row)
+                start+=2
+                finish+=2
+                rowindex+=1
+
+    print "Done. Iterated over", rowindex, "rows. "
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+
+def chop_identifiers(csvfile):
+    """"Chop identifiers up into its own file. Not flattened."""
+
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_identifiers.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    rowindex=0
+
+    print "Parsing", csvfile, "to create", output_file
+
+    for row in f:
+        i = row[0:2] + row[6:9] + row[128:327]
+
+
+        for c in i:
+            c = c.decode('ascii', errors='ignore')
+        csvwriterb.writerow(i)
+        rowindex+=1
+
+    print "Iterated over", rowindex, "rows."
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+def flatten_identifiers(csvfile):
+    """"Flatten the identifiers output file."""
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_flat.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    rowindex              = 0
+    print "Parsing", csvfile, "to create", output_file
+    for row in f:
+        #If header row.
+        if rowindex==0:
+            column_headers = row[0:5] + ["Identifier", "Type Code", "State", "Issuer"]
+            cleaned_headers = []
+            for c in column_headers:
+                c= c.replace(".", "")
+                c= c.replace("(", "")
+                c= c.replace(")", "")
+                c =c.replace("$", "-")
+                c =c.replace(" ", "_")
+                cleaned_headers.append(c)
+            csvwriterb.writerow(cleaned_headers)
+            rowindex += 1
+        else:
+            #print "here"
+            start=5
+            finish=9
+            for i in range(1,50):
+                flat_row = row[0:5] + row[start:finish]
+                #only write the taxonomy code if the cell is not blank
+                if row[start]:
+                    csvwriterb.writerow(flat_row)
+                start+=4
+                finish+=4
+                rowindex+=1
+    print "Done. Iterated over", rowindex, "rows. "
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+
+def chop_licenses(csvfile):
+    """Chop license up into its own file. Not flattened."""
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_licenses.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    rowindex              = 0
+    print "Parsing", csvfile, "to create", output_file
+
+    for row in f:
+        l = row[0:2] + row[6:9]  + row[69:71]+ row[73:75]+ row[77:79]+ row[81:83] + \
+                       row[85:87]+ row[89:91]+ row[93:95]+ row[97:99] + row[101:103] + \
+                       row[105:107]+ row[109:111]+ row[113:115]+ row[117:119]+ row[121:123] + \
+                       row[125:127]
+
+        for c in l:
+            c = c.decode('ascii', errors='ignore')
+
+        csvwriterb.writerow(l)
+        rowindex+=1
+
+    print "Done. Iterated over", rowindex, "rows. "
+
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+
+def flatten_licenses(csvfile):
+    """"Flatten the licenses output file."""
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_flat.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+
+    rowindex              = 0
+
+    print "Parsing", csvfile, "to create", output_file
+    for row in f:
+        #If header row.
+        if rowindex==0:
+            column_headers = row[0:5] + ["Number", "State"]
+            cleaned_headers = []
+            for c in column_headers:
+                c= c.replace(".", "")
+                c= c.replace("(", "")
+                c= c.replace(")", "")
+                c =c.replace("$", "-")
+                c =c.replace(" ", "_")
+                cleaned_headers.append(c)
+            csvwriterb.writerow(cleaned_headers)
+            rowindex += 1
+        else:
+            #print "here"
+            start=5
+            finish=7
+            for i in range(1,15):
+                flat_row = row[0:5] + row[start:finish]
+                #only write the taxonomy code if the cell is not blank
+                if row[start]:
+                    csvwriterb.writerow(flat_row)
+                start+=2
+                finish+=2
+                rowindex+=1
+    print "Done. Iterated over", rowindex, "rows. "
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+def chop_addresses(csvfile):
+    """Chop addresses up into its own file. Not flattened."""
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_addresses.csv" % (output_file)
+    outputcsvfileb  = open(output_file,'wb')
+    csvwriterb      = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    rowindex        = 0
+
+    print "Parsing", csvfile, "to create", output_file
+
+
+    for row in f:
+
+
+
+
+
+        l = row[0:2] + row[36:38] + row[6:9]  + row[20:36]
+
+
+        for c in l:
+            c = c.decode('ascii', errors='ignore')
+
+        csvwriterb.writerow(l)
+        rowindex+=1
+
+    print "Done. Iterated over", rowindex, "rows."
+
+    fh.close()
+    outputcsvfileb.close()
+
+    return output_file
+
+
+
+
+def flatten_addresses(csvfile):
+    """"Flatten the addresses output file."""
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_flat.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+
+    rowindex = 0
+
+    print "Parsing", csvfile, "to create", output_file
+    for row in f:
+        #If header row.
+        if rowindex==0:
+            column_headers = row[0:7] + ["Address Type", "Street1", "Street2", "City", "State",
+                                         "ZipCode", "CountryCode",
+                                         "Telephone Number",  "Fax Number",]
+
+
+
+            cleaned_headers = []
+            for c in column_headers:
+                c= c.replace(".", "")
+                c= c.replace("(", "")
+                c= c.replace(")", "")
+                c =c.replace("$", "-")
+                c =c.replace(" ", "_")
+                cleaned_headers.append(c)
+            csvwriterb.writerow(cleaned_headers)
+            rowindex += 1
+        else:
+            start=7
+            finish=15
+            flat_row = row[0:7] + ["Business_Mailing",] + row[start:finish]
+            csvwriterb.writerow(flat_row)
+            rowindex+=1
+
+            start+=8
+            finish+=8
+            flat_row = row[0:7] + ["Practice_Location",] + row[start:finish]
+            csvwriterb.writerow(flat_row)
+            rowindex+=1
+
+
+
+    print "Done. Iterated over", rowindex, "rows. "
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+def chop_basic(csvfile):
+    """Chop basic info into its own file."""
+
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_basic.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+
+    rowindex = 0
+    """#skip the first row """
+    """#next(csvfile)"""
+    print "start file iteration"
+    for row in f:
+
+        r = (row[0:68]+row[328:332])
+
+        for c in r:
+            c = c.decode('ascii', errors='ignore')
+        csvwriterb.writerow(r)
+        rowindex+=1
+
+
+
+    print "Done. Iterated over", rowindex, "rows."
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+
+
+
+def redact(csvfile):
+    """React certain fields in REDACT_LIST from file."""
+
+    REDACT_LIST  = ["Provider Social Security Number",
+                "Provider IRS Individual Tax Identification Number",
+                "Employer Identification Number (EIN)",
+                "NPI Deactivation Reason Code",
+                "Provider Date of Birth",
+                "Provider State of Birth Provider", "Country of Birth",
+                "Parent Organization TIN"
+                ]
+
+
+    fh = open(csvfile, 'rb')
+    f = csv.reader(fh, delimiter=',')
+    output_file = csvfile[:-4]
+    output_file = "%s_redact.csv" % (output_file)
+    outputcsvfileb = open(output_file,'wb')
+    csvwriterb = csv.writer(outputcsvfileb, delimiter=',',
+                           quoting=csv.QUOTE_MINIMAL)
+    redact_column_numbers = []
+    rowindex = 0
+    header = []
+
+
+
+    CODIFIED_REDACT_LIST =[]
+    for c in REDACT_LIST:
+        c = c.replace(".", "")
+        c= c.replace("(", "")
+        c= c.replace(")", "")
+        c =c.replace("$", "-")
+        c =c.replace(" ", "_")
+        CODIFIED_REDACT_LIST.append(c)
+    REDACT_LIST = REDACT_LIST + CODIFIED_REDACT_LIST
+
+
+    print "start file iteration"
+    for row in f:
+
+        if rowindex == 0:
+            #figure out what colums we want redacted
+
+            for c in row:
+                header.append(c)
+
+            for c in header:
+
+               if c in REDACT_LIST:
+                     #print c, header.index(c)
+                     redact_column_numbers.append(int(header.index(c)))
+
+            print "Redacting fields that match", REDACT_LIST
+            print "Redacting column numbers", redact_column_numbers
+
+        #Make a new row, r
+        r =[]
+        column_index = 0
+        for c in row:
+
+            if column_index not in redact_column_numbers:
+               #print "erer"
+               r.append(c)
+            elif rowindex == 0:
+               r.append(c)
+            else:
+               r.append("")
+
+            column_index += 1
+
+        csvwriterb.writerow(r)
+        rowindex+=1
+
+
+
+    print "Done. Iterated over", rowindex, "rows."
+    fh.close()
+    outputcsvfileb.close()
+    return output_file
+
+
+
+
+
+
+if __name__ == "__main__":
+
+    if len(sys.argv)<2:
+        main_file = 'test.csv'
+    else:
+        main_file = sys.argv[1]
+
+
+    #chop basic
+    #basic_file = chop_basic(main_file)
+
+    redact(main_file)
+
+
+    #taxonomy and flat taxonomy
+    #taxonomy_filename = chop_taxonomy(main_file)
+    #flatten_taxonomy(taxonomy_filename)
+
+    #licenses and flat licenses
+    #licenses_filename = chop_licenses(main_file)
+    #flatten_licenses(licenses_filename)
+
+    #identifiers and flat identifiers
+    #identifiers_filename = chop_identifiers(main_file)
+    #flatten_identifiers(identifiers_filename)
+
+
+    #addresses and flat addresses
+    #addresses_filename = chop_addresses(main_file)
+    #flatten_addresses(addresses_filename)
+
+
+
+
+
