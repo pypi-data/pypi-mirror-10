@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: uniscripts
+Version: 1.0.1
+Summary: query Unicode script metadata
+Home-page: https://github.com/leoboiko/uniscripts
+Author: Leonardo Boiko
+Author-email: leoboiko@namakajiri.net
+License: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Description: Interface to query Unicode UCD script metadata, as per UAX #24.
+        
+        This module is useful for querying if a text is made of Latin characters,
+        Arabic, hiragana, kanji (han), and so on.  It works for all scripts supported
+        by the Unicode character database.
+        
+        This module is dumb and slow.  If you need speed, you probably want to
+        implement your own functions.
+        
+Keywords: unicode script scripts uax24 hiragana katakana kanji han
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Internationalization
+Classifier: Topic :: Software Development :: Localization
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
