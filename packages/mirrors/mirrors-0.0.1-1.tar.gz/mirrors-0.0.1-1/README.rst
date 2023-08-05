@@ -1,0 +1,48 @@
+Mirrors
+=======
+
+Mirrors is the back end (or content repository, if you will) Django application
+for the `Smoke <https://github.com/benbreedlove/smokejs>`_ and `Mirrors
+<https://github.com/motherjones/mirrors_server>`_ project.
+
+Requirements
+------------
+
+* Postgres 9.4+
+* Python 3
+    * django 1.7
+    * django rest framework
+    * psycopg2
+    * sphinx
+
+Installation
+------------
+
+Installation is easy::
+
+  bash
+  cd /path/to/mirrors
+  pip install -e ./
+
+Testing
+~~~~~~~
+
+To run the tests enter these commands::
+
+  bash
+  cd sample_project
+  python manage.py test mirrors
+
+If you want to get all of the test coverage, run this::
+
+  bash
+  coverage run --source='../mirrors/mirrors' --omit='*migrations*' manage.py test mirrors; coverage html
+
+Documentation
+-------------
+
+The actual docs can be found at
+http://mj-gitlab-docs.s3.amazonaws.com/mirrors/html/index.html and in the docs
+directory of this project. Just run `make` inside of it and it'll build you a
+nice, readable version of our API.
+    
