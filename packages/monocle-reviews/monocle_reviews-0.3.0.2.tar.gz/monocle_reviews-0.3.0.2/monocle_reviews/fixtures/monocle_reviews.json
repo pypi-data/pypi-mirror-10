@@ -1,0 +1,24 @@
+[
+{
+ "model": "monocle_reviews.Review",
+ "fields": {
+  "reviewer": "Ольга",
+  "image": "monocle_reviews/olga.jpg",
+  "text": "<p>Оказанными услугами довольна. Все очень грамотно объяснили и помогли сделать правильный выбор.</p><p>Надеюсь на дальнейшее сотрудничество c этой компанией.</p>",
+  "isShown": true,
+  "position": 0
+ },
+ "pk": 1
+},
+  {
+ "model": "monocle_reviews.Review",
+ "fields": {
+  "reviewer": "Петр",
+  "image": "monocle_reviews/petr.jpg",
+  "text": "<p>Все очень понравилось. В компании работают отличные специалисты.</p><p>Надеюсь на дальнейшее сотрудничество.</p>",
+  "isShown": true,
+  "position": 1
+ },
+ "pk": 2
+}
+]
