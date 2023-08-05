@@ -1,0 +1,36 @@
+#menu {
+    height: 55px;
+    background: #85234d;
+    font-size: 13px;
+}
+
+#menu ul {
+    margin-top: 10px;
+}
+
+#menu li {
+    /* height: 30px; */
+    padding-top: 4px;
+    /* background: #fff; */
+    padding-bottom: 4px;
+    margin-right: 10px;
+}
+
+#menu a {
+    color: #fff;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#menu a:hover {
+    text-decoration: none;
+}
+
+#menu li:hover {
+    background: #fff;
+    border-radius: 4px;
+}
+
+#menu li:hover a {
+    color: #000;
+}
