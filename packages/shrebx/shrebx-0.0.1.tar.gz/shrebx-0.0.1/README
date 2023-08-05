@@ -1,0 +1,41 @@
+shrebx
+============
+`Thomas Levine <https://thomaslevine.com>`_
+
+Read and write secrets from a configuration file.
+
+Install from PyPI. ::
+
+    pip install shrebx
+
+I originally made this for secret settings in a Django project,
+so here's the example from that.
+
+First, load the secrets. ::
+
+    import os
+
+    from shrebx import shrebx
+
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    SECRETS = shrebx(os.path.join(BASE_DIR, '.secrets'),
+                     manual_fields = ['DATABASE_PASSWORD'],
+                     random_fields = ['SECRET_KEY'])
+
+Then set them to things. ::
+
+    SECRET_KEY = SECRETS['SECRET_KEY']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dadaportal',
+            'USER': 'www-data',
+            'HOST': 'localhost',
+            'PASSWORD': SECRETS['DATABASE_PASSWORD'],
+        }
+    }
+
+If you have a lot of secrets, consider using ``locals``. ::
+
+    locals().update(shrebx(random_fields = ['THIS_PASSWORD', 'THAT_PASSWORD'],
+                           manual_fields = ['EMAIL_ADDRESS' ))
