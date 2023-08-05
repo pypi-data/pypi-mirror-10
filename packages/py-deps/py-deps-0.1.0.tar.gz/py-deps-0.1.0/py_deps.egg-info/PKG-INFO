@@ -1,0 +1,69 @@
+Metadata-Version: 1.1
+Name: py-deps
+Version: 0.1.0
+Summary: parsing the Python deps and generating graph data
+Home-page: https://github.com/mkouhei/py-deps
+Author: Kouhei Maeda
+Author-email: mkouhei@palmtb.net
+License: GNU General Public License version 3
+Description: ==============
+         About py-dep
+        ==============
+        
+        The ``py-dep`` provides parsing the dependencies of Python packages
+        and generating the metadata for graph.
+        
+        The graph data is for `Graphviz <http://www.graphviz.org/>`_, `blockdiag <http://blockdiag.com/>`_, `Linkdraw <https://github.com/mtoshi/linkdraw/wiki>`_, etc.
+        
+        Status
+        ======
+        
+        .. image:: https://secure.travis-ci.org/mkouhei/py-deps.png?branch=master
+           :target: http://travis-ci.org/mkouhei/py-deps
+        .. image:: https://coveralls.io/repos/mkouhei/py-deps/badge.png?branch=master
+           :target: https://coveralls.io/r/mkouhei/py-deps?branch=master
+        .. image:: https://pypip.in/v/py-deps/badge.png
+           :target: https://crate.io/packages/py-deps
+        .. image:: https://readthedocs.org/projects/py-deps/badge/?version=latest
+           :target: https://readthedocs.org/projects/py-deps/?badge=latest
+           :alt: Documentation Status
+        
+        Requirements
+        ============
+        
+        * Python 2.7 over or Python 3.4 over
+        * pip 1.5.6 or 6.1.1 over
+        * wheel 0.24.0 over
+          
+        Features
+        ========
+        
+        * Generating Linkdraw data.
+        
+        History
+        =======
+        
+        0.1.0 (2015-05-07)
+        ------------------
+        
+        * Supports generating linkdraw data.
+        * Supports pip 6.1.1 over.
+        * Supports wheel format for distribution.
+        * Adds unit tests.
+        
+        0.0.1 (2015-04-29)
+        ------------------
+        
+        * First release
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
