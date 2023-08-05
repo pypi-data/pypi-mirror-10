@@ -1,0 +1,56 @@
+[
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Наверх",
+  "anchor": "#menu",
+  "position": 1
+ },
+ "pk": 1
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "О нас",
+  "anchor": "#about",
+  "position": 2
+ },
+ "pk": 2
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Отзывы",
+  "anchor": "#reviews",
+  "position": 3
+ },
+ "pk": 3
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Фото",
+  "anchor": "#photo",
+  "position": 4
+ },
+ "pk": 4
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Видео",
+  "anchor": "#video",
+  "position": 5
+ },
+ "pk": 5
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Контакты",
+  "anchor": "#contacts",
+  "position": 6
+ },
+ "pk": 6
+}
+]
