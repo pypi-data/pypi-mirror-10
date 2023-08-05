@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+cloudmesh_inventory/__init__.py
+cloudmesh_inventory/command_inventory.py
+cloudmesh_inventory.egg-info/PKG-INFO
+cloudmesh_inventory.egg-info/SOURCES.txt
+cloudmesh_inventory.egg-info/dependency_links.txt
+cloudmesh_inventory.egg-info/pbr.json
+cloudmesh_inventory.egg-info/requires.txt
+cloudmesh_inventory.egg-info/top_level.txt
+cloudmesh_inventory/etc/__init__.py
+cloudmesh_inventory/plugins/__init__.py
+cloudmesh_inventory/plugins/cm_shell_inventory.py
