@@ -1,0 +1,4 @@
+include LICENSE requirements.txt VERSION README.md
+recursive-include newslynx *.yaml
+recursive-include newslynx *.sql
+global-exclude *.pyc .DS_Store
