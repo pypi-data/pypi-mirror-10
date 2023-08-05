@@ -1,0 +1,20 @@
+#slider .slide-text{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+#slider .owl-pagination .owl-page {
+    display: inline-block;
+}
+
+#slider .text-center{
+    width: 100%;
+    padding: 15px;
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
+    color: #FFF;
+    z-index: 1;
+}
