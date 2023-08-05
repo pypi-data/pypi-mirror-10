@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: LatinSquareSolver
+Version: 1.0.1
+Summary: Solve Latin Squares
+Home-page: https://github.com/nicholasRutherford/LatinSquareSolver
+Author: Nicholas Rutherford
+Author-email: nicholas.rutherford.pypi@cluemail.com
+License: GPLv3
+Keywords: LatinSquare arc-consitency forward-checking
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Games/Entertainment :: Puzzle Games
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Environment :: Console
+Provides-Extra: test
+Requires-Dist: nose; extra == 'test'
+Provides-Extra: dev
+Requires-Dist: sphinx; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme; extra == 'dev'
+
+Solve Latin Squares using forward checking and arc consistency.
+
+
