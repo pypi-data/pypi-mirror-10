@@ -1,0 +1,48 @@
+CHANGES
+=======
+
+0.6.0
+-----
+
+* store history in sqlite instead of yaml
+* do not set max_points for graphs
+* handle errors in history loading
+* save only the end of the history
+* save the end of the history, not the beginning
+
+0.5.0
+-----
+
+* record history
+* switch from openweathermap.org to yweather
+* make a new observation in each loop
+* always show the graph legend
+* update readme for owm
+
+0.4.0
+-----
+
+* add OWM weather reporting and labels for traces
+
+0.3.1
+-----
+
+* set pid file contents properly
+* set minimum versions of dependencies
+
+0.3.0
+-----
+
+* add pidfile
+
+0.2.0
+-----
+
+* add help to command line args
+
+0.1.0
+-----
+
+* ignore build artifacts from pbr
+* first working version of daemon
+* Initial commit
