@@ -1,0 +1,4 @@
+include README
+include COPYING
+include third_party_sources/*
+recursive-include examples *
