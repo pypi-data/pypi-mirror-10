@@ -1,0 +1,337 @@
+/*
+    useful mixins
+*/
+
+// scss-lint:disable all
+// the scss linter completely looses it with this one
+@mixin grayscale() {
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+            filter: gray;
+            filter: grayscale(100%);
+}
+// scss-lint:enable all
+
+/*
+    get rid of the jump that is introduced when switching from a site with
+    scrollbar to a site without (or vice versa)
+
+    (100vw includes the scrollbar, 100% does not)
+*/
+html {
+    margin-left: calc(100vw - 100%);
+}
+
+/*
+    top navigation
+*/
+
+.top-bar {
+  margin-bottom: 1rem;
+
+    ul {
+        margin-bottom: $top-bar-border-size;
+    }
+}
+
+.top-bar,
+.top-bar-section ul li {
+    box-shadow: 0 $top-bar-border-size 0 $primary-color;
+}
+
+/*
+    alert boxes
+*/
+.alert-box {
+    margin-bottom: 1rem;
+}
+
+/*
+    form errors
+*/
+form small.error {
+    padding: .5rem;
+    padding-left: .5rem;
+}
+
+/*
+    the color picker field does not look right with zurb foundation
+*/
+input[type=color] {
+    background-color: transparent;
+    border: 0;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+/*
+    links at the absoulte bottom
+*/
+.bottom-links {
+    color: $bottom-links-color;
+    margin-left: 0;
+
+    a {
+        color: $bottom-links-color;
+        font-size: $bottom-links-size;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    a:after {
+        content: ' |';
+        display: inline-block;
+        margin-left: .4em;
+    }
+
+    a:last-child:after {
+        content: '';
+    }
+}
+
+/*
+    homepage tiles
+*/
+
+.homepage-tiles > .row {
+  margin-bottom: 1em;
+}
+
+.homepage-tile {
+    line-height: 1rem;
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .tile-sub-link {
+        font-size: $bottom-links-size;
+    }
+
+    .tile-sub-link:hover {
+        text-decoration: underline;
+    }
+
+    .tile-sub-link:after {
+        content: ' | ';
+        display: inline-block;
+        margin-left: .5ex;
+        margin-right: .5ex;
+    }
+
+    .tile-sub-link:last-child:after {
+        content: '';
+    }
+
+    .tile-image {
+        background-size: cover;
+        display: block;
+        height: 5rem;
+        width: 100%;
+    }
+
+    .tile-link:hover h2 {
+        color: $primary-color;
+    }
+
+    .tile-link:hover .tile-image {
+        @include grayscale;
+    }
+}
+
+/*
+    homepage tiles images
+*/
+
+#homepage-tile-1 .tile-image { background-image: url(#{$tile-image-1});}
+#homepage-tile-2 .tile-image { background-image: url(#{$tile-image-2});}
+#homepage-tile-3 .tile-image { background-image: url(#{$tile-image-3});}
+#homepage-tile-4 .tile-image { background-image: url(#{$tile-image-4});}
+#homepage-tile-5 .tile-image { background-image: url(#{$tile-image-5});}
+#homepage-tile-6 .tile-image { background-image: url(#{$tile-image-6});}
+
+/*
+    pages edit bar
+*/
+.edit-bar {
+    background-color: $primary-color;
+    margin-bottom: .9rem;
+    margin-top: -1rem;
+
+    button.tiny {
+        margin-bottom: 0;
+        padding-left: 1rem;
+    }
+
+    a:before {
+        font-family: 'FontAwesome';
+        margin-right: .4em;
+    }
+
+    .new-page:before {
+        content: '\f0f6';
+    }
+
+    .new-link:before {
+        content: '\f0c1';
+    }
+
+    .edit-page:before,
+    .edit-link:before {
+        content: '\f040';
+    }
+
+    .delete-link:before,
+    .delete-page:before {
+        content: '\f014';
+    }
+}
+
+/*
+    images
+*/
+.thumbnail {
+  padding: .5em;
+}
+
+/*
+    image control elements
+*/
+.image-box {
+    position: relative;
+
+    .delete {
+        background-color: $input-disabled-bg;
+        border-radius: 15px;
+        color: $button-font-color;
+        height: 27px;
+        left: -4px;
+        position: absolute;
+        text-align: center;
+        top: -13px;
+        width: 27px;
+    }
+
+    .delete:hover {
+        background-color: $alert-color;
+    }
+}
+
+/*
+    dropzone styling
+*/
+.dropzone {
+    background-color: $topbar-bg-color;
+    border: 1px dashed $primary-color;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    .dz-preview {
+        float: left;
+        margin-right: 1rem;
+    }
+
+    .dz-details,
+    .dz-error-mark,
+    .dz-image,
+    .dz-success-mark {
+        margin-top: 1rem;
+    }
+
+    .dz-filename {
+        display: none;
+    }
+
+    .dz-success .dz-error-mark {
+        display: none;
+    }
+
+    .dz-error .dz-success-mark {
+        display: none;
+    }
+
+    .dz-success-mark * {
+        fill: $success-color;
+    }
+
+    .dz-error-mark * {
+        fill: $alert-color;
+    }
+
+    > div:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*
+    confirm dialog styling
+*/
+.confirm-modal .button {
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+/*
+    main title
+*/
+
+.main-title {
+    margin-top: -.5rem;
+}
+
+/*
+    page lead
+*/
+
+.page-lead {
+    display: block;
+    font-size: $h5-font-size;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+/*
+    breadcrumbs
+*/
+
+.breadcrumbs {
+    border-bottom: 1px solid transparentize($primary-color, .8);
+    margin-bottom: .6rem;
+    padding-bottom: .7rem;
+    padding-left: 1rem;
+}
+
+/*
+    sidebar navigation
+*/
+
+.sidebar {
+    ul {
+        padding-left: 1rem;
+
+        // the left side of the sidebar has to align to the text of the
+        // top navigation and the edit bar *exactly* - for some reason it
+        // doesn't here without removing 1px.. this means I'm doing something
+        // wrong, but I haven't yet found out what
+        li {
+            margin-left: -1px;
+        }
+    }
+
+    li {
+        a.childpage,
+        a.new-content-placeholder {
+            color: #000;
+            padding-left: 1rem;
+        }
+
+        a.new-content-placeholder {
+            display: none;
+        }
+    }
+}
