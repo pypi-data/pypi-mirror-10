@@ -1,0 +1,51 @@
+ERAlchemy: Simple entity relation (ER) diagrams generation.
+===========================================================
+
+It's now integrated with SQLAlchemy.
+
+It's also able to generate the ER digram from an existing database.
+
+Quick Start
+===========
+
+::
+
+    from eralchemy import draw_er
+    # Draw from SQLAlchemy base
+    draw_er(Base, 'erd_from_sqlalchemy.png')
+
+    # Draw from database
+    draw_er("sqlite:///relative/path/to/db.db", 'erd_from_sqlite.png')
+
+Install
+=======
+
+``ERAlchemy`` requires
+`GraphViz <http://www.graphviz.org/Download.php>`__ to generate the
+graphs. Install `graphviz <http://www.graphviz.org/Download.php>`__ for
+your system.
+
+Architecture
+============
+
+.. figure:: https://raw.githubusercontent.com/Alexis-benoist/eralchemy/master/eralchemy_architecture.png?raw=true
+   :alt: Architecture schema
+
+   Architecture schema
+
+Thanks to it's modular architecture, it's an extensible tool: it can
+also be connected to other ORMs/ODMs/OGMs.
+
+Notes
+=====
+
+ERAlchemy was inspired by `erd <https://github.com/BurntSushi/erd>`__.
+
+License
+=======
+
+Released under an Apache License 2.0
+
+Creator: Alexis Benoist
+
+
