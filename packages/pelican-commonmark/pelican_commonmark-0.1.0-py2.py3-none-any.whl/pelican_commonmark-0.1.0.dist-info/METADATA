@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: pelican-commonmark
+Version: 0.1.0
+Summary: This reader plugin replaces the markdown reader with one that uses the Python parser for CommonMark
+Home-page: https://github.com/theskumar/pelican-commonmark
+Author: Saurabh Kumar
+Author-email: me@saurabh-kumar.com
+License: BSD licence, see LICENCE.txt
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Requires-Dist: pelican (>=3.5.0)
+Requires-Dist: CommonMark (>=0.5.4)
+
+UNKNOWN
+
+
