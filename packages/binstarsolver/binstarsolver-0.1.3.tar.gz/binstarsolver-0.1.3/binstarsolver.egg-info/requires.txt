@@ -1,0 +1,10 @@
+numpy>=1.8.2
+scipy>=0.14.0
+matplotlib>=1.4.0
+
+[test]
+coverage>=3.7.1
+pytest>=2.6.3
+
+[dev]
+check-manifest>=0.22
