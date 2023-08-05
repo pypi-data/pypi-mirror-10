@@ -1,0 +1,111 @@
+from flask import Flask
+from time import sleep
+from nxtbrick import NXTBrick
+import logging
+import json
+import os
+from os import path
+from nxt.locator import BrickNotFoundError
+        
+def write_description_file():
+    extension_description = { 
+        "extensionName": "cpNXT",
+            "extensionPort": 3317,
+        "blockSpecs": [
+            [' ', "set up sensor %m.sensor as %m.sensorType", 'setsensor', '1', 'touch'],
+            ['r', "sensor %m.sensor value", "sensor", '1'],
+            [' ', "start turning motor %m.motor %m.direction", 'turnmotor', 'A', 'forward'],
+            [' ', "stop motor %m.motor", 'stopmotor', 'A']
+        ],
+        "menus": {
+            "motor": ['A', 'B', 'C'],
+            "direction": ['forward', 'backward'],
+            "sensor": ['1', '2', '3', '4'],
+            "sensorType": ["none", "touch", "sound", "ultrasonic", "light"]
+        }
+    }
+    username = os.environ.get('USER') or os.environ.get('USERNAME')
+    destination = path.join(os.sep, 'Users', username, 'Desktop', 'scratch_nxt_extension.s2e')
+    with open(destination, 'w') as destinationFile:
+        destinationFile.write(json.dumps(extension_description))
+
+# Run...
+print("Looking for a connected NXT...")
+try:
+    brick = NXTBrick()
+except BrickNotFoundError:
+    print("""
+Could not find the NXT brick. Check that you have paired with the brick over Bluetooth, and that
+the brick is powered on. If you still have trouble, check mrproctor.net/scratch or ask Chris.
+""")
+    raise BrickNotFoundError()
+
+print("Found a brick.")
+
+app = Flask(__name__)
+# Suppress confusing output
+app.logger.removeHandler(app.logger.handlers[0])
+handler = logging.FileHandler('nxt_helper.log')
+formatter = logging.Formatter('%(asctime)s - %(name)14s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
+app.logger.setLevel(logging.DEBUG)
+
+@app.route('/setsensor/<int:sensor>/<sensorType>')
+def setSensor(sensor, sensorType):
+    try:
+        brick.add_sensor(sensor, sensorType)
+        return "OK. Set sensor {} to be {}.".format(sensor, sensorType)
+    except ValueError, e:
+        return "Error: {}".format(e)
+
+@app.route('/turnmotor/<motor>/<direction>')
+def turnMotor(motor, direction):
+    app.logger.debug("Turning motor {} in direction {}".format(motor, direction))
+    try: 
+        if direction == "forward":
+            brick.roll(motor.lower(), 100)
+        elif direction == "backward":
+            brick.roll(motor.lower(), -100)
+        else: 
+            raise ValueError("Direction must be forward or backward")
+        return "OK. Motor {} is turning {}.".format(motor, direction)
+    except ValueError, e:
+        app.logger.warn(e)
+        return "Error: {}".format(e)
+        
+@app.route('/stopmotor/<motor>')
+def stopMotor(motor):
+    try:
+        brick.halt(motor.lower())
+        return "OK. Motor {} has halted.".format(motor)
+    except ValueError, e:
+        app.logger.warn(e)
+        return "Error: {}".format(e)
+
+@app.route('/reset_all')
+def reset():
+    for motor in brick.motors.keys():
+        brick.halt(motor)
+    for sensor in brick.sensors.keys():
+        brick.remove_sensor(sensor)
+    return "OK. Reset."
+
+@app.route('/poll')
+def poll():
+    return '\n'.join("sensor/{} {}".format(k, v) for k, v in brick.read_sensors().items())
+
+@app.route('/crossdomain.xml')
+def cross_domain_check():
+    return """
+<cross-domain-policy>
+    <allow-access-from domain="*" to-ports="3316"/>
+</cross-domain-policy>
+"""
+
+write_description_file()
+
+print(" * The NXT helper app is running. Have fun :)")
+print(" * See mrproctor.net/scratch for help.")
+print(" * Press Control + C to quit.")
+app.run('0.0.0.0', port=3317)
