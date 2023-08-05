@@ -1,0 +1,38 @@
+Metadata-Version: 1.1
+Name: c2.splitter.janome
+Version: 0.1.0
+Summary: This product is split word by janome for Plone.
+Home-page: https://github.com/nakagami/c2.splitter.janome
+Author: Manabu TERADA, Hajime Nakagami
+Author-email: terada@cmscom.jp, nakagami@gmail.com
+License: GPL
+Description: c2.splitter.janome
+        ====================
+        
+        A Japanese aware splitter for Plone/Zope, that morphological analyze strings
+        by janome.
+        janome is a Japanese morphological analysis engine written in pure Python.
+        
+        https://github.com/mocobeta/janome
+        
+        
+        Installation
+        --------------------
+        
+        Add ``c2.splitter.janome`` to the list of eggs to install, e.g.::
+        
+           [buildout]
+           ...
+           eggs =
+               ...
+               c2.splitter.janome
+        
+        Re-run buildout, e.g. with::
+        
+           $ ./bin/buildout
+        
+        
+Keywords: plone splitter
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
