@@ -1,0 +1,49 @@
+{% extends 'news/templatetags/templatetags_news_content.html' %}
+{% load cms_tags sekizai_tags menu_tags i18n static thumbnail %}
+
+{% block extra_style %}{% endblock extra_style %}
+
+{% block news_content %}
+
+    <h2>Latest news</h2>
+
+    {% for article in news %}
+
+    <h3>Ttile</h3>
+        <p><a href="{% url 'news_detail' article.slug %}">{{ article.title }}</a></p>
+
+    <h3>Athor</h3>
+        <p>{{ article.author }}</p>
+
+    <h3>Summary</h3>
+        <p>{{ article.summary|safe }}</p>
+
+    <h3>Content</h3>
+        <p>{{ article.content|safe }}</p>
+
+    <h3>Category</h3>
+        <p>{{ article.category }}</p>
+
+    <h3>Tags</h3>
+        {% for tag in article.tag.all %}
+            <p>{{ tag.name }}</p>
+        {% endfor %}
+
+    <h3>Source url</h3>
+        <p><a href="{{ article.source_url }}">{{ article.source_url }}</a></p>
+
+    <h3>Gallery</h3>
+        {% for image in article.news_gallery.all %}
+            <img src="{% thumbnail image.image 400x400 crop upscale %}" alt="{{ image.title }}"/>
+        {% endfor %}
+
+    <h3>Attachments</h3>
+        {% for attachment in article.news_attachments.all %}
+            <a href="{{ attachment.attachment }}">{{ attachment.name }}</a>
+        {% endfor %}
+
+    {% endfor %}
+
+{% endblock news_content %}
+
+{% block extra_script %}{% endblock extra_script %}
