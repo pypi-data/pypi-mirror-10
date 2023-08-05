@@ -1,0 +1,11 @@
+click
+requests
+pytz
+
+[dev]
+check-manifest
+nose
+
+[test]
+coverage
+nose
