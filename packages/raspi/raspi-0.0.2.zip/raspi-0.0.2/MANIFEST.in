@@ -1,0 +1,7 @@
+include *.cmd *.ini *.py *.rst *.txt *.yml
+include appveyor/*
+include doc/*.rst doc/*.py
+include pythonhosted.org/*
+include test/*.rst
+include raspi/*.txt
+recursive-include raspi/doc *
