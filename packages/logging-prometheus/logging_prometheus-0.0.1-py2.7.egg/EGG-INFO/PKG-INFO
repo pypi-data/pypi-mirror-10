@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: logging-prometheus
+Version: 0.0.1
+Summary: Exports logging metrics for Prometheus.io.
+Home-page: http://github.com/korfuri/python-logging-prometheus
+Author: Uriel Corfa
+Author-email: uriel@corfa.fr
+License: Apache
+Description: Logging-Prometheus
+        
+        Exports metrics about the logging of your Python application for
+        Prometheus.io.
+        
+        See https://github.com/korfuri/python-logging-prometheus for usage
+        instructions.
+        
+Keywords: python logging monitoring prometheus
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Monitoring
+Classifier: License :: OSI Approved :: Apache Software License
