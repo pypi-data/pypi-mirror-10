@@ -1,0 +1,24 @@
+Get features of a maildir very quickly, by not opening the files.
+
+As a side effect, the features reveal little private information.
+
+I made this for my dada portal; I wanted to be able to analyze my
+emails in the context of other things, but I didn't want to have
+sensitive information in my dada portal.
+
+It implements only a subset of the maildir filename format.
+(http://cr.yp.to/proto/maildir.html).
+
+I use it like this to find only the emails I sent. ::
+
+    ./maildir_featurizer.py my-maildir/*/*/Sent/
+
+Or, if you install it, ::
+
+    maildir-featurizer my-maildir/*/*/Sent/
+
+Or, from Python, which is how I really use it, ::
+
+    from maildir_featurizer import messages
+    for message in messages('my-maildir'):
+        print(message)
