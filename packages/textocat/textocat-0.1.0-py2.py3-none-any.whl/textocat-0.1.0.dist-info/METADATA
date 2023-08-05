@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: textocat
+Version: 0.1.0
+Summary: Unofficial Textocat Python SDK
+Home-page: http://github.com/radik/textocat-python-sdk
+Author: Radik Fattakhov
+Author-email: radikft@gmail.com
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Dist: requests (>=2.7.0)
+Provides-Extra: test
+Requires-Dist: httpretty; extra == 'test'
+
+UNKNOWN
+
+
