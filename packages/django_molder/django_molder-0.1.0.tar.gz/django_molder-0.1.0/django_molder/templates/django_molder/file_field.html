@@ -1,0 +1,13 @@
+{% extends 'django_molder/base.html' %}
+
+{% block field_place %}
+    {% if bound_field.value and show_value %}
+        <p>
+            <a href="{{ bound_field.value.url }}" target="_blank">
+                {{ bound_field.value.name }}
+            </a>
+        </p>
+    {% endif %}
+
+    {{ bound_field }}
+{% endblock %}

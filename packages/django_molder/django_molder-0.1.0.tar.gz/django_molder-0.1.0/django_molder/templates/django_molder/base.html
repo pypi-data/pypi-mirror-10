@@ -1,0 +1,23 @@
+<div class="form-group{% if bound_field.errors %} has-error{% endif %}">
+    {% if show_label %}
+        <label for="{{ bound_field.auto_id }}">
+            {{ bound_field.label }}{% if required %} *{% endif %}
+        </label>
+    {% endif %}
+
+    {% if help_on_top and bound_field.help_text and show_help %}
+        <p class="help-block">
+            {{ bound_field.help_text|safe }}{% if required %} *{% endif %}
+        </p>
+    {% endif %}
+
+    {% block field_place %}{% endblock %}
+
+    {% if bound_field.errors %}
+        <p class="help-block">{{ bound_field.errors|safe }}</p>
+    {% endif %}
+
+    {% if bound_field.help_text and show_help and not help_on_top %}
+        <p class="help-block text-danger">{{ bound_field.help_text|safe }}</p>
+    {% endif %}
+</div>

@@ -1,0 +1,13 @@
+{% extends 'django_molder/base.html' %}
+{% load molder_tags %}
+
+{% block field_place %}
+    {% for value, label, checked in bound_field|iter_choices %}
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="{{ bound_field.name }}" value="{{ value }}"{% if checked %}checked="checked"{% endif %} {{ renderer.widget_attrs_as_html }} />
+                {{ label }}
+        </label>
+    </div>
+    {% endfor %}
+{% endblock %}

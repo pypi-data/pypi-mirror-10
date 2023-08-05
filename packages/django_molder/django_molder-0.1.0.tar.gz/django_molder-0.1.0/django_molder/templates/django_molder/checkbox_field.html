@@ -1,0 +1,10 @@
+{% extends 'django_molder/base.html' %}
+
+{% block field_place %}
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="{{ bound_field.html_name }}" id="{{ bound_field.auto_id }}" value="True"{% if bound_field.value %} checked="checked"{% endif %} {{ renderer.widget_attrs_as_html }} />
+                {{ bound_field.label }}
+        </label>
+    </div>
+{% endblock %}
