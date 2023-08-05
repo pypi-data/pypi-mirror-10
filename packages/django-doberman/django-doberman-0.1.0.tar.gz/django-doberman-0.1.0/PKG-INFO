@@ -1,0 +1,101 @@
+Metadata-Version: 1.1
+Name: django-doberman
+Version: 0.1.0
+Summary: Django app that locks out users after too many failed login attempts.
+Home-page: https://github.com/nicchub/django-doberman
+Author: Nicolas Mendoza
+Author-email: niccolasmendoza@gmail.com
+License: MIT License
+Description: [Development] django-doberman
+        ===============
+        
+        ``django-doberman``   Django app that locks out users after too many failed login attempts. 
+        
+        
+        Requirements
+        ------------
+        - Python => 2.7
+        - Django => 1.7
+        
+        
+        Installation
+        ------------
+        
+        1. Install python library using pip: pip install django-doberman
+        
+        2. Add ``doberman`` to ``INSTALLED_APPS`` in your Django settings file
+        
+        3. ./manage.py migrate doberman || or sync your database
+        
+        
+        Usage
+        -----
+        
+        Add ``doberman.decorators.watch_login`` decorator to your login view. Example::
+        
+        
+            class LoginView(FormView):
+                template_name = 'example/login.html'
+                form_class = AuthenticationForm
+        
+                @method_decorator(watch_login)
+                def dispatch(self, request, *args, **kwargs):
+                    if request.user.is_authenticated():
+                        return redirect(settings.LOGIN_REDIRECT_URL)
+                    return super(LoginView, self).dispatch(request, *args, **kwargs)
+        
+                def form_valid(self, form):
+                    user = form.get_user()
+                    login(self.request, user)
+                    return super(LoginView, self).form_valid(form)
+        
+                def get_success_url(self):
+                    return reverse('logged_in')
+        
+        
+        Settings
+        --------
+        
+        DOBERMAN_MAX_FAILED_ATTEMPTS
+            Number of max failed login attempt. Default: ``5``.
+        
+        DOBERMAN_LOCKOUT_TIME
+            Number of seconds after the failed login attempts are forgotten in seconds. Default: ``600``.
+        
+        DOBERMAN_REAL_IP_ONLY
+        
+        DOBERMAN_LOGIN_FORGOTTEN_SECONDS
+        
+        DOBERMAN_USERNAME_FORM_FIELD
+        
+        DOBERMAN_LOCKOUT_TEMPLATE
+        
+        DOBERMAN_MODEL
+        
+        DOBERMAN_IP_PRIVATE_IP_PREFIX
+        
+        DOBERMAN_IP_META_PRECEDENCE_ORDER
+        
+        Authors
+        -------
+        
+        Library is by `Hanlle Nicolas Mendoza`.
+        
+        
+        .. Website: http://nicolasmendoza.org/
+        
+Keywords: django locks users account login attempts banned ip doberman authentication
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.7
+Classifier: Framework :: Django :: 1.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
