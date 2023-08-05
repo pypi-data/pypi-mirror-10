@@ -1,0 +1,19 @@
+language: python
+python: 2.7
+sudo: false
+cache:
+  directories:
+  - eggs
+env:
+- PLONE_VERSION=4.2
+- PLONE_VERSION=4.3
+install:
+- sed -ie "s#test-4.x.cfg#test-$PLONE_VERSION.x.cfg#" buildout.cfg
+- python bootstrap.py
+- bin/buildout -N -t 3 -q
+script:
+- bin/code-analysis
+- bin/test
+after_success:
+- bin/coverage run --source=plone.tiles bin/test
+- bin/coveralls
