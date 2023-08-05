@@ -1,0 +1,160 @@
+<system name="system"  >
+    <tag name="version">0.6.0</tag>
+    <tag name="Preferences">
+        <tag name="titles">
+            <tag name="organization" />
+            <tag name="title" />
+        </tag>
+        <tag name="Welcome">
+            <tag name="Types of images">image_type</tag>
+            <tag name="Experimenters">experimenter</tag>
+            <tag name="Species">species</tag>
+        </tag>
+        <tag name="Toolbar">
+            <tag name="registration">/auth_service/login</tag> <!-- /registration -->
+            <tag name="password_recovery">/auth_service/login</tag> <!-- /registration/lost_password -->
+            <tag name="user_profile">/registration/edit_user</tag>
+        </tag>
+        <tag name="ResourceBrowser">
+            <tag name="Browser">
+                <tag name="Tag Query"/>
+                <tag name="Layout">Compact<template>
+                        <tag type="string" name="Type">ComboBox</tag>
+                        <tag type="string" name="defaultValue">Compact</tag>
+                        <tag type="boolean" name="allowBlank">false</tag>
+                        <tag type="boolean" name="Editable">true</tag>
+                        <tag type="string" name="select">Compact,Grid,Card,Full</tag>
+                    </template>
+                </tag>
+                <tag name="Include Public Resources">false<template>
+                        <tag type="string" name="Type">Boolean</tag>
+                        <tag type="string" name="defaultValue">false</tag>
+                        <tag type="boolean" name="allowBlank">false</tag>
+                        <tag type="boolean" name="Editable">true</tag>
+                    </template>
+                </tag>
+            </tag>
+            <tag name="Images">
+                <tag name="ImageParameters"/>
+            </tag>
+            <tag name="Summary Tags">
+                <tag name="filename"/>
+                <tag name="attached-file"/>
+                <tag name="image_type"/>
+                <tag name="imagedate"/>
+                <tag name="dataset_label"/>
+                <tag name="species"/>
+            </tag>
+        </tag>
+
+        <tag name="Uploader">
+            <tag name="initial_path">{date_iso}<template>
+                    <tag type="boolean" name="allowBlank">true</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                </template>
+            </tag>
+        </tag>
+
+        <tag name="Viewer">
+            <tag name="autoUpdate">true<template>
+                    <tag type="string" name="Type">Boolean</tag>
+                    <tag type="string" name="defaultValue">true</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                </template>
+            </tag>
+
+            <tag name="negative">false<template>
+                    <tag type="string" name="Type">Boolean</tag>
+                    <tag type="string" name="defaultValue">false</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                </template>
+            </tag>
+
+            <tag name="enhancement">d<template>
+                    <tag type="string" name="Type">ComboBox</tag>
+                    <tag type="string" name="defaultValue">d</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                    <tag type="string" name="select">Data range,Full range,Data range + tolerance,Equalized</tag>
+                    <tag type="string" name="passedValues">d,f,t,e</tag>
+                </template>
+            </tag>
+
+            <tag name="projection">
+                <template>
+                    <tag type="string" name="Type">ComboBox</tag>
+                    <tag type="string" name="defaultValue"></tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                    <tag type="string" name="select">None,projectmax,projectmin,projectmaxt,projectmint,projectmaxz,projectminz</tag>
+                    <tag type="string" name="passedValues"> ,projectmax,projectmin,projectmaxt,projectmint,projectmaxz,projectminz</tag>
+                </template>
+            </tag>
+
+            <tag name="enhancement-8bit">f<template>
+                    <tag type="string" name="Type">ComboBox</tag>
+                    <tag type="string" name="defaultValue">f</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                    <tag type="string" name="select">Data range,Full range,Data range + tolerance,Equalized</tag>
+                    <tag type="string" name="passedValues">d,f,t,e</tag>
+                </template>
+            </tag>
+
+            <tag name="fusion">m<template>
+                    <tag type="string" name="Type">ComboBox</tag>
+                    <tag type="string" name="defaultValue">m</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                    <tag type="string" name="select">Average,Maximum</tag>
+                    <tag type="string" name="passedValues">a,m</tag>
+                </template>
+            </tag>
+
+            <tag name="showOverlay">false<template>
+                    <tag type="string" name="Type">ComboBox</tag>
+                    <tag type="string" name="defaultValue">false</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                    <tag type="string" name="select">None,Dots,Dots (Medium),Dots (Narrow),Grid</tag>
+                    <tag type="string" name="passedValues">false,dots,dots_medium,dots_narrow,grid</tag>
+                </template>
+            </tag>
+
+            <tag name="channel_color_0">255,0,0<template>
+                    <tag type="string" name="Type">color</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                </template>
+            </tag>
+
+            <tag name="hide_gobjects_creation" />
+
+        </tag>
+
+        <tag name="Viewer3D" >
+	        <tag name="render_quality" type="string">medium<template>                
+                    <tag type="string" name="Type">ComboBox</tag>
+                    <tag type="string" name="defaultValue">high</tag>
+                    <tag type="boolean" name="allowBlank">false</tag>
+                    <tag type="boolean" name="Editable">true</tag>
+                    <tag type="string" name="select">low,medium,high</tag>
+                </template>
+                </tag>
+                <tag name="dithering" type="boolean">true</tag>
+                <tag name="gobjects">
+                  <tag name="show" type="boolean">true</tag>
+                </tag>
+                <tag name="transfer_editor">
+                  <tag name="functions">
+                    <tag name="default">[{&quot;id&quot;:0,&quot;offset&quot;:0,&quot;alpha&quot;:0,&quot;color&quot;:[0,0,0,0],&quot;selected&quot;:false},{&quot;id&quot;:1,&quot;offset&quot;:100,&quot;alpha&quot;:1,&quot;color&quot;:[255,255,255,1],&quot;selected&quot;:false}]</tag>
+                    <tag name="bone+muscle">[{&quot;id&quot;:0,&quot;offset&quot;:0,&quot;alpha&quot;:0,&quot;color&quot;:[20.400000000000002,1.44,4.96,0],&quot;selected&quot;:false},{&quot;id&quot;:1,&quot;offset&quot;:20,&quot;alpha&quot;:0,&quot;color&quot;:[0,0,0,0],&quot;selected&quot;:false},{&quot;id&quot;:2,&quot;offset&quot;:33,&quot;alpha&quot;:0.1,&quot;color&quot;:[232.05,16.38,56.42,0.1],&quot;selected&quot;:false},{&quot;id&quot;:3,&quot;offset&quot;:41,&quot;alpha&quot;:0.25,&quot;color&quot;:[242.25,193.8,28.5,0.25],&quot;selected&quot;:false},{&quot;id&quot;:4,&quot;offset&quot;:47,&quot;alpha&quot;:1,&quot;color&quot;:[221.85,214.89,173.13,1],&quot;selected&quot;:true},{&quot;id&quot;:5,&quot;offset&quot;:100,&quot;alpha&quot;:1,&quot;color&quot;:[221.85,214.89,173.13,1],&quot;selected&quot;:false}]</tag>
+                  </tag>
+                  <tag name="show" type="boolean">false</tag>
+                </tag>
+        </tag>
+
+      </tag>
+    </system>

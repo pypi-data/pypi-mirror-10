@@ -1,0 +1,41 @@
+Metadata-Version: 2.0
+Name: bisque-base
+Version: 0.6a1
+Summary: Bisque Utility Classes 
+Home-page: http://biodev.ece.ucsb.edu/project/bisque
+Author: Center for BioImage Informatics
+Author-email: bisque-bioimage@googlegroups.com
+License: UNKNOWN
+Keywords: database image processing scientific
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Requires-Dist: pyramid
+Requires-Dist: pyramid-chameleon
+Requires-Dist: pyramid-debugtoolbar
+Requires-Dist: pyramid-authstack
+Requires-Dist: pyramid-genshi
+Requires-Dist: pyramid-beaker
+Requires-Dist: waitress
+Requires-Dist: shortuuid
+Requires-Dist: six
+
+BisQue Base
+-----------
+
+Helper package for BisQue engines and servers
+
+This package contains most library code for all other BisQue components
+
+
+See http://bioimage.ucsb.edu/bisque
+
+
+0.6
+---
+
+   Initial Version
+
+
+
