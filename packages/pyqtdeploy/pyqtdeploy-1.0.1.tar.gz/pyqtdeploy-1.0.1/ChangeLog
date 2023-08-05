@@ -1,0 +1,57 @@
+changeset:   8a0f60d09bbb
+date:        Wed May 06 11:20:43 2015 +0100
+Released as v1.0.1.
+
+changeset:   4a3ed33929d1
+date:        Sat May 02 22:12:29 2015 +0100
+Updated the docs for Sphinx 1.3.1.
+
+changeset:   5bd5285c6594
+date:        Sat May 02 22:08:39 2015 +0100
+Documented that the sys.path field can be used to specify external ZIP files
+and eggs.
+
+changeset:   5a6953dda746
+date:        Sat May 02 18:58:22 2015 +0100
+zipimport is now an extension module (rather than core) and requires the zlib
+module. It is enabled in order to import from .zip files (and eggs).
+
+changeset:   77df83ededc3
+date:        Sun Apr 26 11:04:38 2015 +0100
+Changed the workaround for the apparent Python v3.4 bug in the _struct.c module
+so that it is Windows specific and works with the python.org Python library.
+
+changeset:   12b1bc84bb70
+date:        Sat Apr 25 23:31:24 2015 +0100
+Improved the handling of sub-scopes reduce the hardcoding.
+
+changeset:   c97ab970f4ca
+date:        Sat Apr 25 17:20:28 2015 +0100
+Fixed remaining issues with platform scope name and Windows sub-scopes.
+
+changeset:   b6b1ae19a3d2
+date:        Sat Apr 25 15:44:36 2015 +0100
+Fixed the unscoped inclusion of external libraries that modules in the
+python.org Python library depends on.
+
+changeset:   83baa99746b0
+date:        Sat Apr 25 14:16:49 2015 +0100
+Removed pre_configuration.pro and moved its contents to post_configuration.pro
+because it requires the value of SOURCES to be complete.
+
+changeset:   307548fccd45
+date:        Sat Apr 25 14:02:50 2015 +0100
+Make sure the PC sub-directory is added to INCLUDEPATH when building stdlib
+extension modules on Windows.
+
+changeset:   3494844f0449
+date:        Sat Apr 25 13:34:43 2015 +0100
+Added the pathlib module to the Python meta-data.
+
+changeset:   d77711fb5a11
+date:        Mon Mar 02 14:06:52 2015 +0000
+Added tag 1.0 for changeset 792793701930
+
+changeset:   792793701930
+date:        Mon Mar 02 14:06:46 2015 +0000
+Released as v1.0.
