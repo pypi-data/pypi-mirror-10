@@ -1,0 +1,165 @@
+Metadata-Version: 1.1
+Name: docutils-react-docgen
+Version: 0.0.2
+Summary: docutils extension which converts react-docgen output to restructured text
+Home-page: https://bitbucket.org/pwexler/docutils_react_docgen
+Author: Paul Wexler
+Author-email: paul@prometheusresearch.com
+License: MIT
+Description: =====================
+        docutils_react_docgen
+        =====================
+        
+        .. contents::
+        
+        
+        Overview
+        ========
+        
+        docutils extension for documenting React modules.
+        Requires react-docgen
+        
+        Example
+        -------
+        
+        Here is the restructured text to display all of the
+        React modules in `static/js/lib/my`.  Source links 
+        to each module are relative to the `src` option::
+         
+            My JS/React Library
+            ===================
+        
+            .. contents:: Table of Contents
+        
+            .. reactdocgen:: static/js/lib/my
+                    :src: https://bitbucket.org/.../my/src/tip
+        
+        Installation
+        ============
+        
+        From PyPi
+        ::
+        
+            $ pip install docutils-react-docgen 
+        
+        From source
+        ::
+        
+            $ hg clone ssh://hg@bitbucket.org/pwexler/docutils_react_docgen
+            $ pip install -e docutils_react_docgen/
+        
+        The installation is successful if you can import docutils_react_docgen.  
+        The following command must produce no errors::
+        
+            $ python -c 'import docutils_react_docgen'
+        
+        
+        Usage
+        -----
+        
+        In your `conf.py` you must import docutils_react_docgen::
+        
+            import docutils_react_docgen
+            
+        In your restructured text document(s) include the `reactdocgen` directive 
+        followed by zero or more option lines, 
+        followed by a blank line::
+        
+            .. reactdocgen::  /path/to/your/react/modules/ [react-docgen options]
+                :option: value             
+                
+        This will convert the output of::
+        
+            react-docgen /path/to/your/react/modules/ [react-docgen options]
+        
+        into restructured text and insert it in place of the directive.
+        
+        react-docgen lets you filter which modules to extract meta data from.
+        See::
+        
+            react-docgen --help
+        
+        for an explanation of the react-docgen command line options.
+        
+        Each module is displayed with a heading 
+        (which can appear in the table of contents), 
+        optionally followed by a link to its source code,
+        followed by its description, 
+        followed by its properties shown alphabetically in a definition list.  
+        
+        Each property is emphasized using `module_prop_emphasis` 
+        (default is '**' i.e. bold).  
+        The 'definition' of each property is itself a dict.  
+        This dict is displayed in alphabetic key order.  
+        Each key is emphasized using `module_dict_key_emphasis` 
+        (default is '*' i.e. italic).
+        
+        To help insure that the modules are properly documented, 
+        all "description" key values are replaced with the text in `missing` 
+        if they are empty.
+        
+        Options
+        -------
+        
+        Each option is shown with its default value.
+        
+        `missing`  default: Doc string is missing!
+        
+          The string to display whenever a 'description' key value is empty.
+        
+        `module_dict_key_emphasis`  default: \*
+        
+          The emphasis style for dict keys.
+          
+        `module_prop_emphasis`  default: \*\*
+        
+          The emphasis style for each module property.
+          
+        `module_underline_character`  default: \-
+        
+          The underline character for the module heading.
+        
+        `src`  default: 
+        
+          If not empty, the prefix to use when linking to the source code.
+          The url is the prefix followed by '/' followed by the module heading.
+          If empty, no link is displayed for each module.
+        
+        ..
+            :missing: Doc string is missing!
+        
+                The string to display whenever a 'description' key value is empty.
+        
+            :module_dict_key_emphasis: \*
+        
+                The emphasis style for dict keys.
+              
+            :module_prop_emphasis: \*\*
+        
+                The emphasis style for each module property.
+              
+            :module_underline_character: \-
+        
+                The underline character for the module heading.
+        
+            :src: 
+        
+                If not empty, the prefix to use when linking to the source code.
+                If empty, no link is displayed for each module.
+        
+        
+        Changing Default Options
+        ------------------------
+        
+        The default values of all the options 
+        may be changed directly.  
+        For example::
+        
+            import docutils_react_docgen
+            docutils_react_docgen.default_options['missing'] = ''
+        
+        
+Keywords: docutils,sphinx,react,docgen,documentation
+Platform: Any
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
