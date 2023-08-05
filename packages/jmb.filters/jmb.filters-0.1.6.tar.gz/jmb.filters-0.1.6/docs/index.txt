@@ -1,0 +1,23 @@
+=============
+jmb.filter
+=============
+
+jmb.filter is a fork of django-filter that is a generic, reusable
+application to alleviate writing some of the more mundane bits of view
+code. Specifically, it allows users to filter down a queryset based on
+a model's fields, displaying the form to let them do this.
+
+The mail goal of jmb.filter is to add an easy interface to the django
+admin interface to get :ref:`advanced search <advanced-search>`
+
+Contents:
+
+.. toctree::
+    :maxdepth: 1
+
+    install
+    usage
+    ref/filters
+    ref/widgets
+    advanced_search
+    tests
