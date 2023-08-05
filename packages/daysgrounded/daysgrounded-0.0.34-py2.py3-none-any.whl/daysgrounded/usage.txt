@@ -1,0 +1,12 @@
+
+    usage: daysgrounded [-option | child+/-days...]
+
+    optional arguments:
+      -a, --auto            auto update based on date
+      -h, --help            show this help message and exit
+      -l, --license         show license
+      -V, --version         show version
+      child+/-days          eg. t+1 s-1
+
+    No arguments starts GUI (Graphical User Interface).
+    Maximum of 99 days.
