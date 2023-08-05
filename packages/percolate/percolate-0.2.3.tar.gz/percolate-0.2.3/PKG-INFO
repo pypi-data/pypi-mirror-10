@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: percolate
+Version: 0.2.3
+Summary: A scientific Python package for Monte Carlo simulation of percolation on graphs
+Home-page: http://github.com/andsor/pypercolate
+Author: Andreas Sorge
+Author-email: pypercolate@asorge.de
+License: apache
+Description: ===========
+        pypercolate
+        ===========
+        
+        Scientific Python package for Monte-Carlo simulation of percolation on graphs
+        
+        * **Documentation**: `pypercolate.readthedocs.org <http://pypercolate.readthedocs.org>`_
+        * **Setup**: http://pypercolate.readthedocs.org/en/latest/setup.html
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
