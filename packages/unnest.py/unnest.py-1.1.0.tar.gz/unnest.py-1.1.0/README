@@ -1,0 +1,15 @@
+
+
+1. To install module. Run.
+python3 setup.py install
+
+2. Run.
+import unnest
+
+3. Create a list.
+my_list = ["Kid with the Golden Arm", "Magnificent Ruffians", 
+    "Ten Tigers of Kwangtung", "Lion Vs. Lion aka Roar Of The Lion", 
+    "Five Element Ninjas aka Super Ninjas"]
+
+4. Example usage.
+unnest.print_lil(my_list)
