@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: caatinga
+Version: 1.1.1
+Summary: A backup program that creates multiple snapshots of a file system.
+Home-page: https://github.com/headmastersquall/caatinga
+Author: Chris Taylor
+Author-email: headmastersquall@gmail.com
+License: GNU GENERAL PUBLIC LICENSE Version 3
+Description: UNKNOWN
+Keywords: backup,restore,Linux,FreeBSD,snapshot,history,python
+Platform: Linux
+Platform: FreeBSD
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Archiving :: Backup

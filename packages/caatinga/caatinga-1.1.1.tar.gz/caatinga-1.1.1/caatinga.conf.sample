@@ -1,0 +1,98 @@
+# Copyright 2015 Chris Taylor
+#
+# This file is part of caatinga.
+#
+# Caatinga is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Caatinga is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with caatinga.  If not, see <http://www.gnu.org/licenses/>.
+
+# Configuration options for caat and lscaat.  For more information on the
+# following options, see man caatinga.conf(5).
+
+
+########################
+# System Configuration #
+########################
+
+# The root directory of the system being backed up.
+root = /
+
+# Where the backup images will be created.
+#backup_location = /mnt/usb
+
+# Use this option to provide an alternate host name.  If this is not set,
+# the host name for the local system will be used.
+#hostname = myhostname
+
+# Group name that backups are created for.  Be sure to add users to this group
+# that you want to grant access to the backup drive.  This option should also
+# be set prior to registering a backup device to insure proper ownership is
+# set.
+#backup_group = backup
+
+# Do not backup files that are greater than the
+# specified amount.  Size in MB
+#max_file_size = 10240
+
+# Do not backup these items.  Value must be the full path of the file
+# or directory to be skipped.  Glob patterns can be used to skip multiple
+# items.
+ignore = /proc
+ignore = /dev
+ignore = /sys
+ignore = /var/lib/docker/devicemapper
+
+
+############################
+# Image Life Span Settings #
+############################
+
+# These settings maintain old backups and help insure the backup device never
+# reaches 100% capacity.  Using the default settings will eventually fill up
+# the backup media and is therefore recommended to set max_images and/or
+# keep_days according to your needs to prevent you from running out of space.
+
+# Maximum number of backup images to be stored.  Setting this to zero will
+# allow for unlimited images.
+max_images = 0
+
+# Number of days a backup image should be kept.  After a backup is performed,
+# any image older than keep_days days will be deleted.  A value of zero
+# disables this feature.
+keep_days = 0
+
+# Set this to yes if you would like old backups to be reduced.
+# The backups will be reduced by age to a frequency of daily then
+# weekly.  Daily backups are kept for 31 days, then reduced to
+# weekly.
+reduce_backups = yes
+
+
+#########
+# Hooks #
+#########
+
+# Each executable script in a hook directory will be executed in alphabetical
+# order.  In the event a script exits with a non zero status, any remaining
+# scripts will not execute and the backup or restore operation will terminate.
+
+# Hooks directory for scripts to be executed prior to a backup.
+#pre_backup_hooks = /etc/caatinga/pre_backup_hooks
+
+# Hooks directory for scripts to be executed after a backup.
+#post_backup_hooks = /etc/caatinga/post_backup_hooks
+
+# Hooks directory for scripts to be executed prior to a restore operation.
+#pre_restore_hooks = /etc/caatinga/pre_restore_hooks
+
+# Hooks directory for scripts to be executed after a restore operation.
+#post_restore_hooks = /etc/caatinga/post_restore_hooks
