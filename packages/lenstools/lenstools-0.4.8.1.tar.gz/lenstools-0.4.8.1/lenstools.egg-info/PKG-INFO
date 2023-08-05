@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: lenstools
+Version: 0.4.8.1
+Summary: Toolkit for Weak Gravitational Lensing analysis
+Home-page: http://www.columbia.edu/~ap3020/LensTools/html
+Author: Andrea Petri
+Author-email: apetri@phys.columbia.edu
+License: MIT
+Download-URL: https://github.com/apetri/LensTools/archive/0.4.8.1.tar.gz
+Description: Welcome to LensTools!
+        +++++++++++++++++++++
+        
+        .. image:: https://travis-ci.org/apetri/LensTools.svg?branch=master
+                :target: https://travis-ci.org/apetri/LensTools
+        .. image:: http://img.shields.io/pypi/dm/lenstools.svg?style=flat
+                :target: https://pypi.python.org/pypi/lenstools/
+        .. image:: http://img.shields.io/pypi/v/lenstools.svg?style=flat
+                :target: https://pypi.python.org/pypi/lenstools/
+        .. image:: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+                :target: https://github.com/apetri/LensTools/blob/master/licenses/LICENSE.rst
+        
+        This python package collects together a suite of widely used analysis tools in Weak Gravitational Lensing. For more information visit `the project official page <http://www.columbia.edu/~ap3020/LensTools/html>`_
+        
+        
+        Changelog
+        ---------
+        
+        .. :changelog:
+        
+        0.4.8(beta)
+        +++++++++++
+        
+        Beta release 
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: C
+Classifier: License :: OSI Approved :: MIT License
