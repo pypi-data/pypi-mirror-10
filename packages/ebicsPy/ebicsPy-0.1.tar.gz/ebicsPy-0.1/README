@@ -1,0 +1,14 @@
+This is an open source Python library dealing with the EBICS protocole.
+It provides an interface to echanges files with banks. It's curently a beta version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See test_XLMStorageService.py to get more details.
+
+While it's still in beta version, it's strongly adviced to use EBCICS T profile only.
+
+This library could be used to :
+* create EBICSmodule in python softwares
+	=> see the Odoo l10n_fr_ebics module : https://github.com/yuntux/l10n_fr_ebics
+* create an XMLRPC or a REST server and provide an agnostic way to use this lib with non-python softwares
+* create command line argument parser and provide a console way to use this lib with non-python softwares
+* create a standalone GUI for end-users

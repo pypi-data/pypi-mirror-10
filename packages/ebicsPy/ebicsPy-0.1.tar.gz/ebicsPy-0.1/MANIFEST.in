@@ -1,0 +1,14 @@
+include PKG-INFO
+include MANIFEST.in
+
+include TODO
+include *.py
+
+graft schemas_version_H003_EBICS2.4
+graft schemas_version_H004_EBICS2.5
+
+exclude test*
+include test_XLMStorageService.py 
+
+global-exclude *.pyo
+global-exclude *.pyc

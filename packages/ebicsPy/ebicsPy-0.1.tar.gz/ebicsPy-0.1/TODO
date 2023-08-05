@@ -1,0 +1,70 @@
+Security
+========
+Verify the validity of the TLS certif on HTTPS connexion
+	=> python 2.7.9 published the 2014-12-10 implement PEP476. TLS auth chain is verifed by default
+	=> ebicsPy has to be able to handle bankSpecific CA : simply add it to the system trustedStore
+	=> do we have to provide a way to verify specific certificate (the given certificate, not the CA cert) ?
+check_AuthSignature_node(xml, partner) works fine for partner but fails on bank auth verification 
+	=> correct it and call it at evrery response reception
+The iv paramater on AES cipher intialization is put to \0 : 
+	=> Crypto lib doc says it's nt secure (even if IV should not be secret). What the EBICS specification advice ?
+Implement a builtin encrypt/decrypt AES function on loading and writing private exponent of th partner's Sign/Encrypt/Auth keys AND bankKeys.
+	=> CFONB GL say we have to store key in a similar way than JavaKeyStore does
+		-> http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/sun/security/provider/JavaKeyStore.java#JavaKeyStore
+		-> http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/sun/security/provider/KeyProtector.java#KeyProtector
+		-> https://pypi.python.org/pypi/pyjks
+Verify partner file signatures if present(not required) => irelevant for now : banks do not generate order files Signature in the current EBCIS version
+
+Ebics
+=====
+Make key_hash and cert_hash clearly different in functionNames and variableNames
+XPath : use ckear root based path 
+
+Resend FLD acknowledgment message if no confirmation from the bank
+
+Check the Return codes
+
+Manage multi-user EBICS contracts : each USERID has its proper keys 
+	=> we have to manage parrallel transaction so we have to manage OrderID ranges for each USERID
+	=> we have to keep track of the already used OrderIDs and do not resend them
+
+Implement other mandatory messages (be able to renew the keys or download the bank specifics parameters)
+	=> see page 24 of EBICS IG CFONB VF 2.1.4 2012 02 24 - GUF : 
+		- HTD : Download subscriber’s customer and subscriber Data
+		- HCA : Send amendment of the subscriber key for identification and authentication and encryption
+		- HCS : Transmission of the subscriber key for ES, identification and authentication and encryption
+		- HPD : Download bank parameters
+		- HEV : Download supported EBICS versions
+		- PUB : Send public key for signature verification
+		- SPR : Suspension of access authorisation
+Implement PSR parsing : French banks have to generate a PSR (Payment Status Report) if a FUL generated a financial error.
+
+Automaticaly ask the user to process a new HPB exhange ONLY IF bank response tells the bank's keys are out of date
+
+Manage deconections and other subtilities of CFONB guide lines (see 6-10 EBICS IG CFONB VF 2.1.4_2012_02_24) and tests (see 6-21 Proposition tests EBICS V1 0_2009_05_15)
+
+Upload and dowload big files (more than 1024 bytes)
+	=> get EBICS_AUTHENTICATION_FAILED when sending the first content segment during the first transfertPhase request
+
+Log more things : initial uploaded file, uploaded file signature(proof valuable during a trial)
+
+Try to remove OrderID from FDL : some banks reject it
+
+Generate INI letters in PDF rather than raw txt.
+
+
+
+General
+=======
+Resolve all TODO and FIXME points
+Translation : create a french.po to transate the UI using the pythonic way (_("")).
+Create exceptions and log it if something is wrong
+Find a better serialisation for keys and other data => implement an XML version of the StorageLayer and encrypt the content with 3DES
+Use a more pythonic way to manipulate XML (etree object) : initialy ebicsPy used raw XML string to handle auth complexity 
+Update the FileSysteme storage layer implementation according to the storage API evolutions
+Create a separated GUI(with WXPython) and a CLI UI.
+Clean includes
+Write inline documentation
+Package it on Pypi
+Include crypto module dependecies to be sure there is not the fuking Crypto/Hash/SHA256.so 
+		-> which prevent the normal python compilation and cause a IODless SHA256 HASH generation
