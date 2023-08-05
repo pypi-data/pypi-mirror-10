@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: webassets-ng-annotate
+Version: 0.0.1
+Summary: Ng-annotate filter for webassets.
+Home-page: https://github.com/imbolc/webassets_ng_annotate
+Author: Imbolc
+Author-email: imbolc@imbolc.name
+License: ISC
+Description: Webassets-ng-annotate
+        =====================
+        Ng-annotate filter for webassets.
+        
+        Install
+        -------
+            npm install -g ng-annotate
+            pip install webassets-ng-annotate
+        
+        Usage
+        -----
+            from webassets import Bundle
+            import webassets_ng_annotate
+        
+            webassets_ng_annotate.register()
+            js = Bundle('vendors/angular.js', 'app.js',
+                        filters='ng-annotate,uglifyjs',
+                        output='gen/packed.js')
+        
+        Parameters
+        ----------
+        - `NG_ANNOTATE_BIN` - path to ng-annotate binary
+        - `NG_ANNOTATE_EXTRA_ARGS` - additional option to pass to ng-annotate
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
