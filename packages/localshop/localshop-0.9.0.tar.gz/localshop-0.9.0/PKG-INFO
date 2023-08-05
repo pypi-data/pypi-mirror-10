@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: localshop
+Version: 0.9.0
+Summary: A private pypi server including auto-mirroring of pypi.
+Home-page: http://github.com/mvantellingen/localshop
+Author: Michael van Tellingen
+Author-email: michaelvantellingen@gmail.com
+License: BSD
+Description: localshop
+        
+        =========
+        
+        
+        
+        .. image:: https://pypip.in/version/localshop/badge.svg
+        
+            :target: https://pypi.python.org/pypi/localshop/
+        
+            :alt: Latest Version
+        
+        
+        
+        .. image:: https://travis-ci.org/mvantellingen/localshop.svg?branch=develop
+        
+            :target: https://travis-ci.org/mvantellingen/localshop
+        
+        
+        
+        .. image:: https://coveralls.io/repos/mvantellingen/localshop/badge.svg?branch=develop&cache=1
+        
+            :target: https://coveralls.io/r/mvantellingen/localshop?branch=develop
+        
+        
+        
+        A PyPI server which automatically proxies and mirrors PyPI packages based
+        
+        upon packages requested. It also supports the uploading of local (private)
+        
+        packages.
+        
+        
+        
+        The full documentation is available on `Read The Docs`_
+        
+        
+        
+        .. _`Read The Docs`: http://localshop.readthedocs.org/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Topic :: System
+Classifier: Topic :: System :: Software Distribution
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
