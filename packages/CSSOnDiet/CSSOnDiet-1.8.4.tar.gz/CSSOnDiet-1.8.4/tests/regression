@@ -1,0 +1,161 @@
+#!/bin/bash
+REDIRECT_DBG=/dev/null # NO debug
+#REDIRECT_DBG=/dev/stdout # DEBUG
+
+TARBALL=$1
+shift
+VERDIR=$1
+shift
+PYTHON=$1
+shift
+
+test_application_start() { application_start; }
+test_switches() { switches; }
+test_switches_stdin() { switches_stdin; }
+test_preserve_comments1() { one2one comments1; }
+test_defines1() { one2one defines1; }
+test_header1() { one2one header1; }
+test_arithmetics1() { one2one arythmetics1; }
+test_file_formats() { file_formats; }
+test_rgba() { one2one rgba1; }
+test_consume_strings() { one2one strings1; }
+test_include() { include1; }
+test_include_dirs() { include_dirs; }
+test_multipledefines() { one2one multipledefines; }
+test_media1() { one2one media1; }
+test_defines2mixin() { one2one defines2mixin; }
+test_user_buttons() { one2one user-buttons; }
+test_newlines() { one2one newlines; }
+test_media2() { one2one media2; }
+test_values() { one2one values; }
+test_minify1() { minify1; }
+test_prefixes() { one2one prefixes; }
+test_flex() { one2one flex; }
+
+
+oneTimeSetUp()
+{
+  COD_TMP_DIR=`mktemp -d --tmpdir cod-XXX`
+  tar xfz ../$TARBALL -C "$COD_TMP_DIR" #> /dev/null
+  COD_DIR="$COD_TMP_DIR/$VERDIR"
+  COD="$PYTHON $COD_DIR/CSSOnDiet/cod.py"
+}
+
+oneTimeTearDown()
+{
+  #log=log.SL.`date +%Y-%m-%d__%H-%M-%S`.log.bz2
+  #mv "$SL_DIR"/logs/SL.log.bz2 ../$log
+  #echo "Log file: $log"
+  rm -r "$COD_TMP_DIR"
+}
+
+
+application_start()
+{
+  assertTrue "Cannot start cod executable" "$COD -h"
+}
+
+assert_except_1st_line()
+# $1 - file1
+# $2 - file2
+{
+  assertTrue "wrong result file" \
+    "cmp <(tail -n +2 $1) <(tail -n +2 $2)" # start from 2nd line
+}
+assert_every_line()
+# $1 - file 1
+# $2 - file2
+{
+  assertTrue "wrong result file"  "cmp $1 $2" 
+}
+
+switches()
+{
+  in=switches.cod
+  out=switches.result.css
+  expected=switches.css
+
+  $COD $in -o $out
+  assertSame "execution error" 0 $?
+  assert_except_1st_line $expected $out
+}
+
+switches_stdin()
+{
+  in=-
+  out=stdin.result.css
+  expected=stdin.css
+
+  echo "@cod-include{include1c.cod} li{fos 10p}" | $COD $in -o $out
+  assertSame "execution error" 0 $?
+
+  assert_except_1st_line $expected $out
+}
+
+one2one()
+{
+  in=$1.cod
+  out=$1.result.css
+  expected=$1.css
+
+  $COD $in > $out 2> /dev/null
+
+  assertSame "execution error" 0 $?
+
+  assert_except_1st_line $expected $out
+}
+
+file_formats()
+{
+  one2one ffunix
+  one2one ffmac
+  one2one ffdos
+  one2one ffmix
+}
+
+include1()
+{
+  in="include1.cod include1Z.cod"
+  out=include1.result.css
+  expected=include1.css
+
+  $COD $in > $out 2> /dev/null
+
+  assertSame "execution error" 0 $?
+
+  assert_except_1st_line $expected $out
+}
+
+
+include_dirs()
+{
+  in="include1dir.cod include1Z.cod"
+  out=include1.result.css
+  expected=include1.css
+
+  $COD -I.. $in > $out 2> /dev/null
+
+  assertSame "execution error" 0 $?
+
+  assert_except_1st_line $expected $out
+}
+
+minify1()
+{
+  in=minify1.cod
+  out=minify1.result.css
+  expected=minify1.css
+
+  $COD -m $in > $out 2> /dev/null
+
+  assertSame "execution error" 0 $?
+
+  assert_every_line $expected $out
+}
+
+
+
+# TEST ENGINE
+. ./shunit2
+
+# vim: tw=0:

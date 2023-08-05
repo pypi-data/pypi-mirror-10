@@ -1,0 +1,35 @@
+@cod-defines {
+  M  substring issue
+  MAR 12
+  CAR MAR19
+  MULTIPLE MAR19MAR14
+  GOT 14_ARG1_MAR_ARG2_
+  MACROGOT GOT(14,12)
+}
+
+@cod-define {
+  OLA {INNER}
+  SINGULAR #FF0000
+}
+// before
+li {
+  ma- MAR/*  */
+  mal CAR 
+  pa- GOT(ola , pies  kot ) /* dwa */
+  mar MACROGOT
+  bac SINGULAR
+  // perenthesis support
+  pa- GOT( one(two()) three() )
+  // missing paretheses
+  pa- GOT( one(two()) three(  )
+  //multiple
+  mal MULTIPLE
+
+}
+
+.extra_arguments {
+  ma- GOT( one )
+  ma- GOT( one, two )
+  ma- GOT( one, two, three )
+  ma- GOT( one, two, three, four )
+}
