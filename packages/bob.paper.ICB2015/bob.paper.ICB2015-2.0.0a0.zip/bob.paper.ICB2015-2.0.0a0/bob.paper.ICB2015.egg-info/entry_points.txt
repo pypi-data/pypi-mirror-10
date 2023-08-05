@@ -1,0 +1,4 @@
+[console_scripts]
+icb2015_evaluate.py = bob.paper.ICB2015.evaluate:main
+icb2015_palmvein_NOMandSpoofingAttack.py = bob.paper.ICB2015.execute:main
+
