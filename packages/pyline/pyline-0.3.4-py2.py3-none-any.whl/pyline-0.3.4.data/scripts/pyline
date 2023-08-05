@@ -1,0 +1,10 @@
+#!python
+# EASY-INSTALL-ENTRY-SCRIPT: 'pyline==0.3.4','console_scripts','pyline'
+__requires__ = 'pyline==0.3.4'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('pyline==0.3.4', 'console_scripts', 'pyline')()
+    )
