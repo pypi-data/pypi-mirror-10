@@ -1,0 +1,46 @@
+<section id="slider">
+
+    <div class='row'>
+        <h2 class='fancy'><span>Карусель</span></h2>
+    </div>
+
+    {% for slider in monocle_slider_models %}
+        <div class="row">
+            <h5 class="text-center"> {{ slider.name }}</h5>
+        </div>
+        <div class="row">
+            <h5 class="text-center"> {{ slider.text }}</h5>
+        </div>
+        <div class="row">
+            <div id="slider-wrap">
+            {% for slide in slider.slide_set.all%}
+                <div class="slide">
+                    <div class="slide-img">
+                        <img class="img-responsive" src="{{slide.image.url}}"/>
+                    </div>
+                <div class="slide-text">
+                    {{slide.text}}
+                </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $('#slider-wrap').owlCarousel({
+                    items: {{ slider.elem_number }},
+                    navigation: {{ slider.arrows }},
+                    navigationText: [
+                        "<i class='glyphicon glyphicon-menu-left'></i>",
+                        "<i class='glyphicon glyphicon-menu-right'></i>"
+                    ],
+                    pagination: {{ slider.pagination }},
+                    responsive: false
+                });
+            });
+        </script>
+    {% endfor %}
+</section>
+
+
