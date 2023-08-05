@@ -1,0 +1,16 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_migrate_project/__init__.py
+django_migrate_project.egg-info/PKG-INFO
+django_migrate_project.egg-info/SOURCES.txt
+django_migrate_project.egg-info/dependency_links.txt
+django_migrate_project.egg-info/requires.txt
+django_migrate_project.egg-info/top_level.txt
+django_migrate_project/management/__init__.py
+django_migrate_project/management/commands/__init__.py
+django_migrate_project/management/commands/collectmigrations.py
+django_migrate_project/management/commands/migrateproject.py
