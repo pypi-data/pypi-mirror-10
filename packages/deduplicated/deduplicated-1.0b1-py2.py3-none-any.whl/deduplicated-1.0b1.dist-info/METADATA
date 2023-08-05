@@ -1,0 +1,51 @@
+Metadata-Version: 2.0
+Name: deduplicated
+Version: 1.0b1
+Summary: Check duplicated files
+Home-page: https://github.com/eduardoklosowski/deduplicated
+Author: Eduardo Klosowski
+Author-email: eduardo_klosowski@yahoo.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Archiving
+Provides-Extra: web
+Requires-Dist: Flask; extra == 'web'
+
+Deduplicated
+============
+
+Check duplicated files.
+
+Exemple of use
+--------------
+
+.. code-block:: bash
+
+  # Update directory cache
+  $ deduplicated update /path/for/check
+
+  # List duplicated files in directory cache
+  $ deduplicated duplicated /path/for/check
+
+  # Update and list duplicated files
+  $ deduplicated check /path/for/check
+
+  # Check if file in directory cache
+  $ deduplicated indir myfile /path/for/check
+
+  # Start web version, connect http://127.0.0.1:5050
+  $ deduplicated-web
+
+
