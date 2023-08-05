@@ -1,0 +1,59 @@
+Metadata-Version: 1.1
+Name: sascar-client
+Version: 1.2
+Summary: A client to sascar soap web service.
+Home-page: https://github.com/ibamacsr/sascar_client
+Author: Wille Marcel
+Author-email: wille@wille.blog.br
+License: GPLv3
+Description: sascar_client
+        =============
+        
+        A client to Sascar SOAP web service, using SUDS Python library.
+        
+        .. image:: https://travis-ci.org/ibamacsr/sascar_client.svg
+            :target: https://travis-ci.org/ibamacsr/sascar_client
+        
+        Installation
+        ============
+        
+            pip install sascar_client
+        
+        Usage
+        =====
+        
+        Usage:
+        
+            sascar_client [OPTIONS] <user> <password> <database> <dbuser> <dbpassword>
+        
+        Get the routes of all vehicles and save it to a database.
+        User and password fields refer to your sascar user and password.
+        
+        Options:
+        
+              --get_vehicles  Save vehicles to the database.
+              --host TEXT     Set URL of the database server. Default value is localhost.
+              --port INTEGER  Set port of database server. Default value is 5432.
+              --hours INTEGER  Set the number of prior hours you want to query. Default
+                         value is 24
+              --help          Show this message and exit.
+        
+        Requirements
+        ============
+        
+        * click
+        * suds
+        * psycopg2
+        * shapely
+        
+        License
+        =======
+        
+        GPLv3
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2 :: Only
