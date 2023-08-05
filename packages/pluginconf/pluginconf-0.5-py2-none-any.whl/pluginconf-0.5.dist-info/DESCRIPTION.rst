@@ -1,0 +1,52 @@
+Read meta data, pyz/package contents, module locating
+Provides plugin lookup and meta data extraction utility functions.
+It's used to abstract module+option management in applications.
+For consolidating internal use and external/tool accessibility.
+
+The key:value format is language-agnostic. It's basically YAML in
+a topmost script comment. For Python only # hash comments though.
+Uses common field names, a documentation block, and an obvious
+`config: { .. }` spec for options and defaults.
+
+It neither imposes a specific module/plugin API, nor config storage,
+and doesn't fixate module loading. It's really just meant to look
+up meta infos.
+This approach avoids in-code values/inspection, externalized meta
+descriptors, and any hodgepodge or premature module loading just to
+uncover module description fields.
+
+plugin_meta() 
+‾‾‾‾‾‾‾‾‾‾‾‾‾
+Is the primary function to extract a meta dictionary from files.
+It either reads from a given module= name, a literal fn=, or just
+src= code, and as fallback inspects the last stack frame= else.
+
+module_list()
+‾‾‾‾‾‾‾‾‾‾‾‾‾
+Returns basenames of available/installed plugins. It uses the
+plugin_base=[] list for module relation. Which needs to be set up
+beforehand, or injected.
+
+add_plugin_defaults()
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+Populates a config_options{} and plugin_states{} list. Used for
+initial setup, or when adding new plugins, etc. Both dicts might
+also be ConfigParser stores, or implement magic __set__ handling
+to act on state changes.
+
+get_data()
+‾‾‾‾‾‾‾‾‾‾
+Is mostly an alias for pkgutil.get_data(). It abstracts the main
+base path, allows PYZ usage, and adds some convenience flags.‾
+It's somewhat off-scope for plugin management, but used internally.
+
+argparse_map()
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+Converts a list of config: options with arg: attribute for use as
+argparser parameters.
+
+dependency().valid/depends()
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+Probes a new plugins` depends: list against installed base modules.
+Very crude and tied to streamtuner2 base names.
+
