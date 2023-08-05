@@ -1,0 +1,69 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="customer.mlscrcom">
+
+  <!-- GenericSetup Profiles. -->
+  <!-- ====================== -->
+  <genericsetup:registerProfile
+      name="default"
+      title="mls-cr.com Website"
+      directory="profiles/default"
+      description='Extension profile for the mls-cr.com Website.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall mls-cr.com Website"
+      directory="profiles/uninstall"
+      description="An uninstall profile for the mls-cr.com Website."
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+
+  <!-- GenericSetup Import Steps. -->
+  <!-- ========================== -->
+  <genericsetup:importStep
+      name="customer.mlscrcom.LinguaPlone"
+      title="mls-cr.com: LinguaPlone configuration"
+      description="Configure LinguaPlone to support multi language content."
+      handler="customer.mlscrcom.setuphandlers.setup_linguaplone">
+    <depends name="portal_languages" />
+  </genericsetup:importStep>
+
+
+  <!-- GenericSetup Upgrade Steps. -->
+  <!-- =========================== -->
+  <genericsetup:upgradeStep
+      title="Upgrade customer.mlscrcom"
+      description="CSS and viewlet updates."
+      source="1000"
+      destination="1001"
+      handler=".migration.migrate_to_1001"
+      sortkey="1"
+      profile="customer.mlscrcom:default"
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade customer.mlscrcom"
+      description="Registry updates."
+      source="1001"
+      destination="1002"
+      handler=".migration.migrate_to_1002"
+      sortkey="1"
+      profile="customer.mlscrcom:default"
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade customer.mlscrcom"
+      description="Javascript updates."
+      source="1002"
+      destination="1003"
+      handler=".migration.migrate_to_1003"
+      sortkey="1"
+      profile="customer.mlscrcom:default"
+      />
+
+</configure>

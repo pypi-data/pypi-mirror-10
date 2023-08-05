@@ -1,0 +1,104 @@
+Metadata-Version: 1.0
+Name: customer.mlscrcom
+Version: 0.2
+Summary: mls-cr.com Theme & Policy Product.
+Home-page: http://pypi.propertyshelf.com
+Author: Thomas Massmann
+Author-email: thomas@propertyshelf.com
+License: GPL
+Download-URL: http://pypi.python.org/pypi/customer.mlscrcom
+Description: Introduction
+        ============
+        
+        
+        customer.mlscrcom Installation
+        ------------------------------
+        
+        To install customer.mlscrcom into the global Python environment (or a workingenv),
+        using a traditional Zope 2 instance, you can do this:
+        
+        * When you're reading this you have probably already run 
+          ``easy_install customer.mlscrcom``. Find out how to install setuptools
+          (and EasyInstall) here:
+          http://peak.telecommunity.com/DevCenter/EasyInstall
+        
+        * If you are using Zope 2.9 (not 2.10), get `pythonproducts`_ and install it 
+          via::
+        
+            python setup.py install --home /path/to/instance
+        
+        into your Zope instance.
+        
+        * Create a file called ``customer.mlscrcom-configure.zcml`` in the
+          ``/path/to/instance/etc/package-includes`` directory.  The file
+          should only contain this::
+        
+            <include package="customer.mlscrcom" />
+        
+        .. _pythonproducts: http://plone.org/products/pythonproducts
+        
+        
+        Alternatively, if you are using zc.buildout and the plone.recipe.zope2instance
+        recipe to manage your project, you can do this:
+        
+        * Add ``customer.mlscrcom`` to the list of eggs to install, e.g.:
+        
+            [buildout]
+            ...
+            eggs =
+                ...
+                customer.mlscrcom
+               
+        * Tell the plone.recipe.zope2instance recipe to install a ZCML slug:
+        
+            [instance]
+            recipe = plone.recipe.zope2instance
+            ...
+            zcml =
+                customer.mlscrcom
+              
+        * Re-run buildout, e.g. with:
+        
+            $ ./bin/buildout
+                
+        You can skip the ZCML slug if you are going to explicitly include the package
+        from another package's configure.zcml file.
+        
+        
+          customer.mlscrcom is copyright Thomas Massmann
+        
+          This program is free software; you can redistribute it and/or modify
+          it under the terms of the GNU General Public License as published by
+          the Free Software Foundation; either version 2 of the License, or
+          (at your option) any later version.
+        
+          This program is distributed in the hope that it will be useful,
+          but WITHOUT ANY WARRANTY; without even the implied warranty of
+          MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+          GNU General Public License for more details.
+        
+          You should have received a copy of the GNU General Public License
+          along with this program; if not, write to the Free Software
+          Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+          MA 02111-1307 USA.
+        
+        
+        Changelog
+        =========
+        
+        1.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Keywords: web zope plone theme
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Zope

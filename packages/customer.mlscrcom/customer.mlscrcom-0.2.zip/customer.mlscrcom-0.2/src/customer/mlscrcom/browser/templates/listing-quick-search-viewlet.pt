@@ -1,0 +1,133 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="customer.mlscrcom"
+      tal:omit-tag="">
+
+  <div id="quicksearch-wrapper"
+       tal:condition="view/available | nothing">
+    <div id="tabs-wrapper">
+      <h1 class="hiddenStructure"
+          i18n:translate="heading_quicksearch">Quicksearch</h1>
+      <ul class="tabs">
+        <li><a href="#quicksearch-residential" i18n:translate="label_quicksearch_residential">Residential</a></li>
+        <li><a href="#quicksearch-commercial" i18n:translate="label_quicksearch_commercial">Commercial</a></li>
+        <li><a href="#quicksearch-landlisting" i18n:translate="label_quicksearch_landlistings">Land Listing</a></li>
+      </ul>
+    </div>
+
+    <aside id="quicksearch">
+      <div class="panes">
+        <div id="quicksearch-residential">
+          <h2 class="hide" i18n:translate="label_quicksearch_residential">Residential</h2>
+          <form  id="quicksearch-form-residential">
+            <fieldset>
+              <span class="h-menu">
+                <label for="type">Type</label><br>
+                <select name="type">
+                  <option>Residential for sale</option>
+                  <option>Residential for lease</option>
+                  <option>Residential for rent</option>
+                </select>
+              </span>
+              <span class="h-menu">
+                <label for="province">Province</label><br>
+                <select name="province">
+                  <option>Province 1</option>
+                  <option>Province 2</option>
+                  <option>Province 3</option>
+                </select>
+              </span>
+              <span class="h-menu">
+                <label for="town">City/Town</label><br>
+                <input name="town" type="text" />
+              </span>
+              <span class="h-menu">
+                <label for="price">Price</label><br>
+                <input name="price" type="text" />
+              </span>
+              <span class="h-menu button"><br>
+                <input type="submit" value="Search" />
+              </span>
+            </fieldset>
+          </form>
+        </div>
+
+        <div id="quicksearch-commercial">
+          <h2 class="hide" i18n:translate="label_quicksearch_commercial">Commercial</h2>
+          <form id="quicksearch-form-commercial">
+            <fieldset>
+              <span class="h-menu">
+                <label for="type">Type</label><br>
+                <select name="type">
+                  <option>Commercial 1</option>
+                  <option>Commercial 2</option>
+                  <option>Commercial 3</option>
+                </select>
+              </span>
+              <span class="h-menu">
+                <label for="province">Province</label><br>
+                <select name="province">
+                  <option>Province 1</option>
+                  <option>Province 2</option>
+                  <option>Province 3</option>
+                </select>
+              </span>
+              <span class="h-menu">
+                <label for="town">City/Town</label><br>
+                <input name="town" type="text" />
+              </span>
+              <span class="h-menu">
+                <label for="price">Price</label><br>
+                <input name="price" type="text" />
+              </span>
+              <span class="h-menu button"><br>
+                <input type="submit" value="Search" />
+              </span>
+            </fieldset>
+
+          </form>
+        </div>
+
+        <div id="quicksearch-landlisting">
+          <h2 class="hide" i18n:translate="label_quicksearch_landlistings">Land Listing</h2>
+          <form id="quicksearch-form-commercial">
+            <fieldset>
+              <span class="h-menu">
+                <label for="type">Type</label><br>
+                <select name="type">
+                  <option>Land for sale</option>
+                  <option>Land for rent</option>
+                  <option>Land for lease</option>
+                </select>
+              </span>
+              <span class="h-menu">
+                <label for="province">Province</label><br>
+                <select name="province">
+                  <option>Province 1</option>
+                  <option>Province 2</option>
+                  <option>Province 3</option>
+                </select>
+              </span>
+              <span class="h-menu">
+                <label for="town">City/Town</label><br>
+                <input name="town" type="text" />
+              </span>
+              <span class="h-menu">
+                <label for="price">Price</label><br>
+                <input name="price" type="text" />
+              </span>
+              <span class="h-menu button"><br>
+                <input type="submit" value="Search" />
+              </span>
+            </fieldset>
+
+          </form>
+        </div>
+      </div>  
+    </aside>
+  </div>
+</html>
+
