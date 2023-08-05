@@ -1,0 +1,47 @@
+<ion-view cache-view="false" hide-back-button="true" view-title="{{'Tracklist' | translate}}">
+  <ion-nav-buttons side="secondary">
+    <button class="mopidy-mobile-button-icon mopidy-mobile-icon-edit"
+            ui-sref="^.edit">
+    </button>
+    <button class="mopidy-mobile-button-icon mopidy-mobile-icon-menu"
+            ng-click="popover.show($event)"
+            ng-controller="TracklistViewMenuCtrl"
+            >
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-title ng-switch="tlTracks.length">
+    <span ng-switch-when="0" translate>
+      Empty
+    </span>
+    <span ng-switch-default>
+      <span ng-if="currentTlTrack"
+            translate
+            translate-values="{count: tlTracks.length, index: index(currentTlTrack) + 1}"
+            >
+        {index} of {count}
+      </span>
+      <span ng-if="!currentTlTrack"
+            translate
+            translate-values="{count: tlTracks.length}"
+            >
+        {count} tracks
+      </span>
+    </span>
+  </ion-nav-title>
+  <ion-content delegate-handle="tracklistScroll">
+    <ion-refresher on-refresh="refresh()" pulling-text="{{'Pull to refresh' | translate}}">
+    </ion-refresher>
+    <div class="list">
+      <div class="item item-thumbnail-left"
+           collection-repeat="tlTrack in tlTracks"
+           ng-class="{'item-positive': tlTrack.tlid == currentTlTrack.tlid}"
+           ng-click="play(tlTrack)"
+           >
+        <img class="mopidy-mobile-thumbnail-track" ng-src="{{images[tlTrack.track.uri].uri}}">
+        <h2>{{tlTrack.track.name}}</h2>
+        <h3>{{tlTrack.track.artists[0].name}}</h3>
+        <h4>{{tlTrack.track.album.name}}</h4>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view hide-back-button="true" view-title="{{'Playlists' | translate}}">
+  <ion-nav-buttons side="secondary">
+    <button class="mopidy-mobile-button-icon mopidy-mobile-icon-create"
+            ui-sref="main.playlist.edit({uri: none})"
+            >
+    </button>
+    <button class="mopidy-mobile-button-icon mopidy-mobile-icon-menu"
+            ng-click="popover.show($event)"
+            ng-controller="PlaylistsMenuCtrl"
+            >
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher on-refresh="refresh()" pulling-text="{{'Pull to refresh' | translate}}">
+    </ion-refresher>
+    <div class="list">
+      <a class="item item-icon-right"
+         collection-repeat="playlist in playlists | playlistOrder : order"
+         ui-sref="main.playlist.view({uri: playlist.uri})"
+         >
+        <h2>{{playlist.name}}</h2>
+        <h3>{{getScheme(playlist)}}</h3>
+        <i class="mopidy-mobile-icon-link icon-accessory"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
