@@ -1,0 +1,52 @@
+Metadata-Version: 1.0
+Name: django-rmixins
+Version: 0.0.1
+Summary: Yet another django mixins compilation
+Home-page: http://bitbucket.org/r0sk/django-rmixins
+Author: Oscar M. Lage Guitian
+Author-email: info@oscarmlage.com
+License: BSD licence, see LICENSE file
+Description: ==========================
+        django-rmixins
+        ==========================
+        
+        What is it?
+        ===========
+        
+        django-rmixins is a simple Django App that contains some Mixins to use for
+        Django's Class Based Views.
+        
+        Installation
+        ============
+        
+        You can do any of the following to install ``django-rmixins``
+        
+        - Run ``pip install django-rmixins``.
+        - Run ``easy_install django-rmixins``.
+        - Download or "hg clone" the package and run ``setup.py``.
+        - Download or "hg clone" the package and add ``rmixins`` to your PYTHONPATH.
+        
+        Usage
+        =====
+        
+        For example if you'd like to use the ``CacheMixin``::
+        
+            from django.views.generic import ListView
+        
+            from rmixins.mixins import CacheMixin
+        
+            class PostsListView(CacheMixin, ListView):
+                cache_timeout = 900
+                model = Posts
+        
+Keywords: django mixins
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
