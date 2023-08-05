@@ -1,0 +1,9 @@
+#!/mnt/hgfs/rubik/.virtualenvs/ese/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'ese==0.2','console_scripts','ese'
+__requires__ = 'ese==0.2'
+import sys
+from pkg_resources import load_entry_point
+
+sys.exit(
+   load_entry_point('ese==0.2', 'console_scripts', 'ese')()
+)
