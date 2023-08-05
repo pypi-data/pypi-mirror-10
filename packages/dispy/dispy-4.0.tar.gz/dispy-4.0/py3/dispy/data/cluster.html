@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="cluster.css" />
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript">
+    //<![CDATA[
+      var cluster = {};
+      var timer = null;
+      var timeout = 1000 * %(TIMEOUT)s;
+      var sorted_ip_addrs = [];
+
+      function merge_sorted_uniq(suarr1, suarr2, compare) {
+        var result = Array(suarr1.length + suarr2.length);
+        var i =  0;
+        var j = 0;
+        var k = 0;
+        compare = compare || function(a, b) { return a.toString().localeCompare(b.toString()); };
+        while (i < suarr1.length && j < suarr2.length) {
+          var test = compare(suarr1[i], suarr2[j]);
+          if (test < 0) {
+            result[k++] = suarr1[i++];
+          } else {
+            result[k++] = suarr2[j++];
+            if (test == 0) {
+              i++;
+            }
+          }
+        }
+        while (i < suarr1.length) {
+          result[k++] = suarr1[i++];
+        }
+        while (j < suarr2.length) {
+          result[k++] = suarr2[j++];
+        }
+        if (k == (suarr1.length + suarr2.length)) {
+          return result;
+        } else {
+          result.splice(k, (suarr1.length + suarr2.length - k));
+          return result;
+        }
+      }
+
+      function cluster_status(request) {
+        $.ajax({
+          url: request,
+          method: 'GET',
+          dataType: 'json',
+          timeout: Math.min(5000, timeout)
+        })
+          .done(function(updates) {
+            var jobs = updates.jobs;
+
+            $('#jobs-submitted').text(jobs.submitted);
+            $('#jobs-done').text(jobs.done);
+            $('#jobs-pending').text(jobs.submitted - jobs.done);
+
+            if (updates.nodes.length > 0) {
+              $.each(updates.nodes, function(i, node) {
+                cluster[node.ip_addr] = node;
+              });
+              var ip_addrs = $.map(updates.nodes, function(node) {
+                return node.ip_addr;
+              });
+             /* apparently localeCompare is slow */
+              sorted_ip_addrs = merge_sorted_uniq(sorted_ip_addrs, ip_addrs.sort(),
+                                         function(a, b) { return a < b ? -1 : (a > b ? 1 : 0); });
+              var rows = '';
+              $.each(sorted_ip_addrs, function(i, ip_addr) {
+                var node = cluster[ip_addr];
+                rows += '<tr><td>' + node.ip_addr + '</td><td>' + node.name + '</td><td>' +
+                    node.cpus + '</td><td>' + node.busy + '</td><td>' + node.done + '</td><td>' +
+                    node.cpu_time.toFixed(2) + '</td></tr>';
+              });
+              $('#nodes').html(rows);
+            }
+            var now = new Date();
+            $('#messages').html('<li>Cluster status updated at ' +
+              now.toLocaleTimeString() + '</li>');
+
+            timer = setTimeout(function() { cluster_status('updates') }, timeout);
+          })
+
+          .fail(function(jqXHR, textStatus, errorThrown) {
+            $('#messages').append('<li>Could not get status from dispy cluster; ' +
+              'reload this page when cluster is ready</li>');
+            $('#update-status').remove();
+            if (timer != null) {
+              clearTimeout(timer);
+            }
+            timer = null;
+          })
+      }
+
+      $(document).ready(function() {
+
+        cluster_status('status');
+
+        $('#timeout-update').click(function() {
+          var newtimeout = parseInt($('#timeout').val());
+          if ((!$.isNumeric(newtimeout)) || newtimeout < 1) {
+            $('#timeout').val(timeout / 1000);
+            $('#messages').append(
+              '<li>Invalid timeout value ignored; it must be >= 1.</li>');
+            return;
+          }
+          if (timer != null) {
+            clearTimeout(timer);
+          }
+          timeout = 1000 * newtimeout;
+          $('#timeout').val(timeout / 1000);
+          timer = setTimeout(function() { cluster_status('updates') }, timeout);
+          $.ajax({
+            url: '/timeout',
+            method: 'POST',
+            data: {timeout: (timeout / 1000)},
+            timeout: 1000
+          });
+      });
+
+      });
+    //]]>
+    </script>
+
+  <title>dispy Cluster Status</title>
+  </head>
+  <body>
+    <div style="text-align:center;margin-top:2em;">
+      <h1 style="margin:2em 0;"><span class="title">dispy Cluster Status</span></h1>
+
+      <table class="cluster" style="text-align:right;margin:20px auto;">
+        <caption>
+          <span class="border" style="display:inline-block;">
+            <table class="jobs">
+              <tr><td>Jobs Submitted : </td><td id="jobs-submitted">0</td></tr>
+              <tr><td>Jobs Done : </td><td id="jobs-done">0</td></tr>
+              <tr><td>Jobs Pending : </td><td id="jobs-pending">0</td></tr>
+            </table>
+          </span>
+        </caption>
+        <thead>
+          <tr>
+            <th>IP</th><th>Name</th><th>CPUs</th><th>Busy</th><th>Done</th><th>CPU Time</th>
+          </tr>
+        </thead>
+        <tbody id="nodes">
+        </tbody>
+      </table>
+
+      <hr style="margin:2em;" />
+      <span class="border" id="update-status" style="margin:1em auto;padding:15px;">
+        <strong>Cluster status update interval seconds:</strong>
+        <input type="text" id="timeout" size="4" maxlength="4" value="%(TIMEOUT)s" />
+        <button type="button" style="margin-left:5px;" id="timeout-update">Update</button>
+      </span>
+      <div>
+        <ul id="messages" style="margin:1em auto;display:inline-block;"></ul>
+      </div>
+    </div>
+  </body>
+</html>
