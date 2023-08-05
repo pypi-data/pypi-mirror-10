@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: pbox
+Version: 2.6.0
+Summary: Pbox is a simple module that makes it easier to handle persistent data using pickle or json.
+Home-page: https://bitbucket.org/caveiramanca/pbox/
+Author: Caveiramanca
+Author-email: caveiramanca@gmail.com
+License: LGPL
+Download-URL: https://bitbucket.org/caveiramanca/pbox/src/master/dist/
+Description: **Pbox** is a simple module that makes it easier to handle persistent data using **pickle** or **json**.
+        You don't need to worry about writing and reading external files as well as packing and unpacking 
+        your objects to and from dictionaries. **It's all done for you!**
+        
+        Source code and **documentation** can be found `here <https://bitbucket.org/caveiramanca/pbox>`_.
+        
+        
+        **Changelog**
+        
+        Version 2.6.0:
+        
+        * Added option to use **json** instead of **pickle**.
+        * Methods **datafile** and **cached** were added to manually overwrite the **box** contents.
+        
+        Version 2.5.4:
+        
+        * Expanding **documentation**.
+        * Minor **code** refactoring.
+        
+        Version 2.5.3:
+        
+        * Minor **code** refactoring.
+        
+        Version 2.5.2:
+        
+        * Fixed issue that prevented to **dump** objects living inside **functions** or **classes**.
+        
+        Version 2.5.1:
+        
+        * Added **cache_datafile** property to save the **data-file** content into **cache**.
+Keywords: pickle,persistent data,cPickle,json
+Platform: Posix
+Platform: Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: pygame
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Games/Entertainment
