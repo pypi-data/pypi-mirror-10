@@ -1,0 +1,4 @@
+<div class="item {% if parentloop.first %}active{% endif %}">
+    <img src="{{ instance.image.url }}" alt="{{ instance.get_title }}">
+    <div class="carousel-caption">{{ instance.get_description }}</div>
+</div>
