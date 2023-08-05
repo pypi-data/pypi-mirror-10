@@ -1,0 +1,6 @@
+#!/usr/bin/env python -E
+
+import geminisqlite.scripts
+import geminisqlite.gemini_main
+from geminisqlite.gemini_constants import *
+geminisqlite.gemini_main.main()
