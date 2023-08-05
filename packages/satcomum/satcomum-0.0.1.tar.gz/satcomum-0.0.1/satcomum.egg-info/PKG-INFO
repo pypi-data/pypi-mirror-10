@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: satcomum
+Version: 0.0.1
+Summary: Código comum à implementação do SAT-CF-e (SAT Fiscal).
+Home-page: http://github.com/base4sistemas/satcomum/
+Author: Daniel Gonçalves
+Author-email: daniel@base4.com.br
+License: Apache Software License
+Description: 
+        ``satcomum``
+        ============
+        
+        Código comum à implementação do `SAT-CF-e`_ (a.k.a. SAT Fiscal).
+        
+        Esta biblioteca inclui validadores, formatadores e constantes que são
+        utilizados nos outros projetos voltados à implementação do projeto
+        principal, o `SAT-CF-e`_.
+        
+        
+        .. `SAT-CF-e`: https://github.com/base4sistemas/satcfe
+        
+        
+        
+        Mudanças em ``satcomum``
+        ========================
+        
+        2015-04-20
+        ==========
+        
+        * Início do projeto.
+        
+        
+        
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Office/Business :: Financial :: Point-Of-Sale
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
