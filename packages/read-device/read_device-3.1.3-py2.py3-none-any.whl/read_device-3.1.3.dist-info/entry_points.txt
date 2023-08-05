@@ -1,0 +1,5 @@
+
+        [console_scripts]
+        device=read_device.commands.device:main
+        meters=read_device.commands.meters:main
+    
