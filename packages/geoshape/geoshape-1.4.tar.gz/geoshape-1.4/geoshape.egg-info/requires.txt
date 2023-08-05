@@ -1,0 +1,15 @@
+geoshape-geonode==1.2
+django-classification-banner>=0.1.4
+django-maploom==1.2.1
+psycopg2==2.4.5
+
+[docs]
+sphinx-rtd-theme==0.1.5
+Sphinx==1.2.2
+
+[tests]
+geoshape-geonode==1.2
+django-classification-banner>=0.1.4
+django-maploom==1.2.1
+psycopg2==2.4.5
+lxml==3.3.1
