@@ -1,0 +1,14 @@
+numpy
+tables>=3.1
+future
+pyzmq
+
+[WORKER]
+pyopa
+pyzmq
+
+[BROKER]
+pyzmq
+
+[REST]
+tornado

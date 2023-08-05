@@ -1,0 +1,43 @@
+How to install siblings
+=======================
+
+in principle, a 
+- pip install -e . (from the repostitory root)
+should do the work. But unfortunately, the pytable package does not properly
+resolve all its dependencies. Hence, pytables needs to be already installed.
+See http://www.pytables.org/moin/Downloads for description (a longer version
+is contained in the documentation)
+
+installing in ubuntu allows for:
+sudo apt-get install python-tables
+but depending on the ubuntu version, the package might be quite outdated. 
+
+instead, I used:
+sudo apt-get install libhdf5-serial-dev libbz2-dev liblzo2-dev
+pip install numpy
+pip install numexpr
+pip install cython
+pip install tables
+
+
+and finally, install the siblings package
+- pip install -e .
+
+
+Example session of direct siblings usage (not as a server)
+==========================================================
+
+import siblings
+
+r = siblings.Reader('/path/to/master/file.h5')
+genomes = r.genomes
+filterCond = siblings.QueryFilter('Score>500 & PamDistance<100')
+idtype = r.createReturnIdType('UniProtKB/TrEMBL','SourceAC')
+res = r.getMatchesBetweenGenomePair(genomes[1],genomes[2], matchFilter=filterCond, idType=idtype)
+
+print(len(res['data']))
+print(res['colnames'])
+print(res['data'][0:10])
+
+
+res = r.getHomologsOfGene(genomes[0],1,idType=idtype)
