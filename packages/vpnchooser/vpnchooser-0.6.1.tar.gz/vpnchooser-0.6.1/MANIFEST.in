@@ -1,0 +1,7 @@
+graft src/vpnchooser/static/src
+graft src/vpnchooser/static/dist
+include src/vpnchooser/static/index.html
+include src/vpnchooser/template.cfg
+include README.md
+include LICENSE.txt
+include setup.cfg

@@ -1,0 +1,22 @@
+<div class="ui form segment"
+        ng-class="{error: error}">
+    <h2>New User</h2>
+
+    <ng-include
+        src="'src/partials/box/message.html'">
+    </ng-include>
+
+    <form name="newUserForm" ng-submit="create($event)">
+        <ng-include
+            src="'src/partials/users/form.html'"
+            ></ng-include>
+
+        <div class="field">
+            <div class="add-vpn ui green button"
+                 ng-click="create($event)">
+                <i class="icon plus user"></i>
+                Create user
+            </div>
+        </div>
+    </form>
+</div>

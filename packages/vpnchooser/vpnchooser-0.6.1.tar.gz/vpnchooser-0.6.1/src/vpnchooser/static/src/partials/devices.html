@@ -1,0 +1,102 @@
+<table class="ui table segment devices-table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>IP address</th>
+        <th>Type</th>
+        <th>VPN</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="device in devices"
+        ng-controller="deviceCtrl"
+        ng-form="deviceForm"
+        ng-submit="save()"
+        class="ui form device-type-{{device.type}}">
+        <td class="field">
+            <div class="ui left labeled input">
+                <input
+                        name="name"
+                        type="text"
+                        ng-model="device.name"
+                        class="device-name"
+                        ng-blur="save()"
+                        placeholder="Name"
+                        required/>
+
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+        </td>
+        <td class="field">
+            <div class="ui left labeled icon input">
+                <input
+                        name="ip"
+                        type="text"
+                        ng-model="device.ip"
+                        class="device-ip"
+                        ng-blur="save()"
+                        ng-pattern='/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/'
+                        placeholder='xxx.xxx.xxx.xxx'
+                        required/>
+                <i class="globe icon"></i>
+
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+        </td>
+        <td class="field">
+            <div class="ui left labeled input">
+                <ng-select-box
+                        ng-model="device.type"
+                        ng-name="type"
+                        ng-choose="save()"
+                        ng-collection="deviceTypes"
+                        ng-collection-key="key"
+                        ng-collection-text="name"
+                        ng-collection-default-text="Device type"
+                        />
+            </div>
+        </td>
+        <td class="field">
+            <div class="ui left labeled input">
+                <ng-select-box
+                        ng-model="device.vpn"
+                        ng-name="vpn"
+                        ng-choose="save()"
+                        ng-collection="vpns"
+                        ng-collection-key="self"
+                        ng-collection-text="name"
+                        ng-collection-default-text="VPN"
+                        ng-null-name="-- No VPN --"
+                        />
+            </div>
+        </td>
+        <td class="aligned right" align="right">
+            <button
+                    class="delete-button teal ui button"
+                    ng-if="device.id"
+                    ng-click="delete($event)"
+                    >
+                Delete
+            </button>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5">
+            <div class="column right aligned segment">
+                <button class="add-device ui black button"
+                        ng-click="add_device()">
+                    <i class="icon add"></i> Add device
+                </button>
+            </div>
+        </td>
+    </tr>
+    </tfoot>
+</table>

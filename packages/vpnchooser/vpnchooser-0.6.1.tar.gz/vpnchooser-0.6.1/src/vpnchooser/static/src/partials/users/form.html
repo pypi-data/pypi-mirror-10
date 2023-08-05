@@ -1,0 +1,32 @@
+<div class="field">
+    <label>Name</label>
+
+    <div class="ui left labeled icon input">
+        <input ng-model="user.name" type="text">
+        <i class="user icon"></i>
+
+        <div class="ui corner label">
+            <i class="icon asterisk"></i>
+        </div>
+    </div>
+</div>
+
+<div class="field">
+    <label>Password</label>
+
+    <div class="ui left labeled icon input">
+        <input ng-model="user.password" type="password">
+        <i class="lock icon"></i>
+
+        <div class="ui corner label">
+            <i class="icon asterisk"></i>
+        </div>
+    </div>
+</div>
+
+<div class="field">
+    <ng-check-box
+        ng-model="user.is_admin"
+        ng-description="Is administrator">
+    </ng-check-box>
+</div>

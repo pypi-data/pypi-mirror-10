@@ -1,0 +1,102 @@
+<table class="ui table segment">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Table</th>
+        <th ng-if="!disabled"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="vpn in vpns"
+        ng-controller="vpnCtrl"
+        ng-if="disabled">
+        <td>
+            {{vpn.name}}
+        </td>
+        <td>
+            {{vpn.description}}
+        </td>
+        <td>
+            {{vpn.table}}
+        </td>
+    </tr>
+
+    <tr ng-repeat="vpn in vpns"
+        ng-controller="vpnCtrl"
+        ng-if="!disabled"
+        ng-form="vpnForm"
+        ng-submit="save()"
+        class="ui form">
+        <td class="field">
+            <div class="ui left labeled input">
+                <input
+                        name="name"
+                        type="text"
+                        ng-model="vpn.name"
+                        class="vpn-name"
+                        ng-blur="save()"
+                        placeholder="Name"
+                        required/>
+
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+
+        </td>
+        <td class="field">
+            <div class="ui left labeled input">
+                <input
+                        name="description"
+                        type="text"
+                        ng-model="vpn.description"
+                        class="vpn-description"
+                        ng-blur="save()"
+                        placeholder="Description"
+                        required
+                        />
+            </div>
+        </td>
+        <td class="field">
+            <div class="ui left labeled input">
+                <input
+                        name="table"
+                        type="text"
+                        ng-model="vpn.table"
+                        class="vpn-table"
+                        ng-blur="save()"
+                        placeholder="VPN Table Number"
+                        required
+                        />
+
+                <div class="ui corner label">
+                    <i class="icon asterisk"></i>
+                </div>
+            </div>
+        </td>
+        <td class="aligned right" align="right">
+            <button
+                    class="delete-button teal ui button"
+                    ng-if="displayDeleteButton()"
+                    ng-click="delete($event)"
+                    >
+                Delete
+            </button>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot ng-if="!disabled">
+    <tr>
+        <td colspan="4">
+            <button class="add-vpn ui black button" ng-click="add_vpn()"
+                    ng-if="!disabled">
+                <i class="icon add"></i> Add vpn
+            </button>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+
+
+

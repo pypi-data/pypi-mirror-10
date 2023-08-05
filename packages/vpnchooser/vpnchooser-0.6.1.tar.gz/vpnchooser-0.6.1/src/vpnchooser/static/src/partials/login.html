@@ -1,0 +1,20 @@
+<div class="login-form ui form segment">
+    <h2 class="ui header">Login</h2>
+
+    <form name="login_form" method="POST" ng-submit="login()">
+        <div class="field">
+            <label>User</label>
+            <input type="text" name="user_name" value=""
+                   ng-model="user_name"/>
+        </div>
+        <div class="field">
+            <label>
+                Password
+            </label>
+            <input type="password" name="password" value=""
+                   ng-model="password"/>
+
+        </div>
+        <button class="ui button right floated green">Login</button>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="vpnChooserApp" lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>VPN Chooser</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/app.css">
+    <script type="text/javascript" src="dist/lib.js"></script>
+    <script type="text/javascript" src="dist/app.js"></script>
+</head>
+<body ng-controller="menuCtrl">
+    <div class="ui primary pointing menu" ng-if="isAuthenticated()">
+        <a class="item" href="#/devices"><i class="desktop icon"></i>Devices</a>
+        <a class="item" href="#/vpns"><i class="upload disk icon"></i>VPNs</a>
+        <a class="item" href="#/users" ng-if="isAdmin()"><i class="users icon"></i>Users</a>
+        <a class="item" href="#/account"><i class="wrench icon"></i>Account</a>
+        <a class="item" href="#/logout"><i class="sign out icon"></i>Logout</a>
+    </div>
+    <div ui-view></div>
+</body>
+</html>

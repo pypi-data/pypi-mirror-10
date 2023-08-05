@@ -1,0 +1,41 @@
+<table class="ui table segment">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr
+            ng-repeat="user in users"
+            ng-controller="userCtrl">
+        <td>{{user.name}}</td>
+        <td>
+            <button class="ui tiny black button" ng-click="moveToEdit()">
+                <i class="icon edit"></i> Edit
+            </button>
+            <button class="ui tiny red button" ng-click="checkDelete()" ng-show="!deleteCheck">
+                <i class="icon delete"></i> Delete
+            </button>
+            <div class="ui inline" ng-show="deleteCheck">
+                Really delete?
+                <button class="ui tiny green button" ng-click="delete()">
+                    <i class="icon delete"></i> Yes
+                </button>
+                <button class="ui tiny red button" ng-click="deleteDeny()">
+                    No
+                </button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2">
+               <button class="add-vpn ui tiny green button" ng-click="moveToNew()">
+                    <i class="icon plus user"></i> Add user
+                </button>
+            </td>
+        </tr>
+    </tfoot>
+</table>

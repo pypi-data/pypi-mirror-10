@@ -1,0 +1,12 @@
+<div class="ui ignored positive icon message"
+     ng-if="message">
+  <div class="content">
+    <h3 class="header">{{message.header}}</h3>
+    <p>{{message.text}}</p>
+  </div>
+</div>
+
+<div class="ui error message" ng-if="error">
+    <div class="header">{{error.header}}</div>
+    <p>{{error.text}}</p>
+</div>
