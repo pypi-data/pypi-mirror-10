@@ -1,0 +1,16 @@
+parmap
+whoosh<=2.6
+
+[green]
+coverage
+nose
+nose-parameterized
+setuptools-green
+six
+testtools
+
+[polysquarelint]
+polysquare-setuptools-lint
+
+[upload]
+setuptools-markdwon
