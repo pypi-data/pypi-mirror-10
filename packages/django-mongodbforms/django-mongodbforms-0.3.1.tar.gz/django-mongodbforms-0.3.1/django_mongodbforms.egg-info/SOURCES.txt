@@ -1,0 +1,17 @@
+MANIFEST.in
+README.txt
+readme.md
+setup.py
+django_mongodbforms.egg-info/PKG-INFO
+django_mongodbforms.egg-info/SOURCES.txt
+django_mongodbforms.egg-info/dependency_links.txt
+django_mongodbforms.egg-info/not-zip-safe
+django_mongodbforms.egg-info/requires.txt
+django_mongodbforms.egg-info/top_level.txt
+mongodbforms/__init__.py
+mongodbforms/documentoptions.py
+mongodbforms/documents.py
+mongodbforms/fieldgenerator.py
+mongodbforms/fields.py
+mongodbforms/util.py
+mongodbforms/widgets.py
