@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: sblu
+Version: 0.1
+Summary: Library for munging data files from ClusPro/FTMap/etc.
+Home-page: UNKNOWN
+Author: Bing Xia
+Author-email: sixpi@bu.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: path.py (>=5.0)
+Requires-Dist: paramiko (>=1.14)
+Requires-Dist: numpy (>=1.8)
+Requires-Dist: scipy (>=0.13)
+Requires-Dist: prody (==1.5.1)
+
+UNKNOWN
+
+
