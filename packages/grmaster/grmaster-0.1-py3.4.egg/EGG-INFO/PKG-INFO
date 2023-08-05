@@ -1,0 +1,121 @@
+Metadata-Version: 1.1
+Name: grmaster
+Version: 0.1
+Summary: Tool for dividing students into groups.
+Home-page: https://github.com/vslutov/grmaster
+Author: vslutov
+Author-email: vslutov@yandex.ru
+License: https://gnu.org/licenses/agpl.html
+Description: <h1>grmaster</h1>
+        <h2>License</h2>
+        <pre><code>grmaster - tool for dividing students into groups
+        Copyright (C) 2015  Lutov V. S. &lt;vslutov@yandex.ru&gt;
+        
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU Affero General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+        
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU Affero General Public License for more details.
+        
+        You should have received a copy of the GNU Affero General Public License
+        along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+        </code></pre>
+        <h2>Введение</h2>
+        <p>Программа <code>grmaster</code> предназначена для удобного и быстрого распределения
+        студентов первого курса на группы с учетом их пожеланий и уровня английского.</p>
+        <p>Программа писалась для факультета ВМК и учитывает его специфику.</p>
+        <ul>
+        <li>В каждой группе две английские подгруппы, которые могут быть как одного
+          уровня знаний, так и разных.</li>
+        <li>Все английские подгруппы и академические группы примерно одинакового
+          размера.</li>
+        <li>На каждом потоке свое количество групп, примерно одинакового размера.</li>
+        <li>Потоки принципиально ничем не отличаются (разве что, студент может захотеть
+          на какой-то конкретный поток.</li>
+        </ul>
+        <p>Если у вас другие требования для распределения, то меняйте код программы так,
+        как вам нужно, в рамках соблюдения лицензии GNU AGPL. Подробнее о коде
+        читайте в разделе <a href="#Для-программистов">для программистов</a>.</p>
+        <h2>Установка и запуск</h2>
+        <p>Если не хотите заморачиваться с установкой - откройте эту ссылку
+        <a href="http://lutov.net/grmaster">http://lutov.net/grmaster</a> и переходите к
+        пункту <a href="#Использование">использование</a>.</p>
+        <p>Если вы по каким-то причинам, решили настроить свой сервер или запустить
+        приложение из консоли, то все равно прочитайте раздел
+        <a href="#Использование">использование</a>, а потом переходите в раздел
+        <a href="#Для-программистов">для программистов</a>.</p>
+        <h2>Использование</h2>
+        <p>Итак, перед вами интерфейс веб-сервера, который обрабатывает информацию,
+        которую вы в него загрузите. Процесс автоматического распределения состоит из
+        4 шагов.</p>
+        <ol>
+        <li>Загрузка шаблона на ваш компьютер.</li>
+        <li>Добавление информации о студентах в шаблон (делается в табличном редакторе).</li>
+        <li>Загрузка данных на сервер для обработки.</li>
+        <li>Получение результата с сервера.</li>
+        </ol>
+        <p>Рассмотрим этот процесс по шагам.</p>
+        <h3>Загрузка шаблона</h3>
+        <p>Нажмите кнопку <code>Cкачать шаблон</code>.</p>
+        <h3>Добавление информации о студентах</h3>
+        <p>Шаблон - это табличный файл в формате
+        <a href="https://ru.wikipedia.org/wiki/CSV">.csv</a>. Редактировать его удобно табличным
+        редактором Microsoft Excel или LibreOffice Calc. Если у вас нет табличного
+        редактора, можете бесплатно загрузить офисный пакет LibreOffice с сайта
+        разработчика: <a href="https://www.libreoffice.org/download/libreoffice-fresh/">https://www.libreoffice.org/download/libreoffice-fresh/</a>.</p>
+        <p>Файл с информацией содержит (в порядке сверху-вниз):</p>
+        <ol>
+        <li>Настройки для <code>grmaster</code>.</li>
+        <li>Одна пустая строка.</li>
+        <li>Заголовок для таблицы студетов.</li>
+        <li>Таблица студетов.</li>
+        <li>Еще одна пустая строка.</li>
+        <li>Таблица желаний студетов.</li>
+        </ol>
+        <p>Настройки можно менять так, как вам нужно - программа сама подстроится под
+        ваши желания.</p>
+        <p>Доступные настройки:</p>
+        <ul>
+        <li><code>streams_info</code> - количество групп на потоке (набор чисел в разных столбцах
+          таблицы</li>
+        <li><code>english_header</code> - название столбца, в котором находится информация об
+          уровне английского каждого студента</li>
+        <li><code>english_per_group</code> - количество английских подгрупп в одной группе</li>
+        </ul>
+        <p>В таблице студентов все столбцы должны быть подписаны в заголовке (первой
+        строке после пустой строки). Студенты с одним уровнем английского должны
+        иметь одинаковые значения в поле <code>english_header</code>.</p>
+        <p>Таблица желаний (пока) не имеет никакого значения.</p>
+        <p>Заполните этот файл в соответсвии с вашими потребностями.</p>
+        <h3>Загрузка данных на сервер</h3>
+        <p>После того, как вы добавили в шаблон нужную информацию, сохраните его в формате
+        <code>.csv</code> <strong>(ВАЖНО: <code>grmaster</code> понимает только этот формат, не пытайтесь
+        загрузить <code>.ods</code> или <code>.xlsx</code>, ничего хорошего у вас не получится)</strong>.</p>
+        <p>Перейдите в форму <code>Загрузить подготовленную информацию</code>, выберите файл и
+        отправьте его на сервер.</p>
+        <h3>Получение результата</h3>
+        <p>Прочитайте отчет о ходе распределения и скачайте файл по предоставленной
+        ссылке.</p>
+        <p>Поздравляем! Вы получили очень хорошее распределение по группам для студентов
+        первого курса. Возвращайтесь к нам через год и рекомендуйте это приложения
+        своим знакомым с других факультетов.</p>
+        <h2>Для программистов</h2>
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Database
+Classifier: Topic :: Education
+Classifier: Topic :: Sociology
+Classifier: Topic :: Utilities

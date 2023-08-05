@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Group-master</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    </head>
+  <body>
+    <div class="container">
+      <header class="row page-header">
+        <div class="col-sm-12">
+          <h1>Group-master</h1>
+          <p class="lead">Tool for dividing students into groups.</p>
+        <p class="text-muted"><small>
+          Copyright (C) 2015 V. S. Lutov &lt;<a href="mailto:vslutov@yandex.ru">vslutov@yandex.ru</a>&gt; (contact me, if need)<br>
+          License: GNU AGPL 3.0 <a href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</a>
+        </small></p>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Preparation</h2>
+        </div>
+        <div class="col-sm-9">
+          <p class="lead">Read the help: <a href="https://vslutov.github.io/group-master/">https://vslutov.github.io/group-master/</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Step 1</h2>
+        </div>
+        <div class="col-sm-9">
+          <a class="btn btn-primary" href="template.csv">Download template</a>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Step 2</h2>
+        </div>
+        <div class="col-sm-9">
+          <p class="lead">Add student information to template in table editor.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Step 3</h2>
+        </div>
+        <div class="col-sm-9">
+          <p class="lead">Upload information about student to server.</p>
+          <p>
+            <small>
+              We don't memorize your information, but if you are paranoic, run your own server.<br>
+            </small>
+          </p>
+          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="result.csv">
+            <div class="form-group">
+              <label for="studentfile" class="col-sm-3 control-label">Student file</label>
+              <div class="col-sm-9">
+                <input type="file" name="studentfile" id="studentfile">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <input type="submit" class="btn btn-success" value="Upload">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
