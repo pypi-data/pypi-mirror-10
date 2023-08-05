@@ -1,0 +1,4 @@
+include *.cfg
+include *.rst
+include LICENSE
+recursive-include xbus *.py
