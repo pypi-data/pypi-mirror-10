@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: plonetheme.ploneorg
+Version: 0.0.5
+Summary: Plone.org theme
+Home-page: https://github.com/plone/plonetheme.ploneorg
+Author: Alex Clark
+Author-email: aclark@aclark.net
+License: GPL2
+Description: Introduction
+        ============
+        
+        This is the first theme for Plone.org that was not "Plone Classic", launched circa 2008. It was originally developed outside of a Python package using pre-Diazo technology (XDV). It is now included in the PloneOrg deployment via install_requires-this-package for convenience.
+        
+        .. image:: screenshot.png
+        
+        Changelog
+        =========
+        
+        1.0 - 2015-05-08
+        ----------------
+        
+        - update links related to unused dev.plone.org
+          [vangheem]
+        
+        0.0.4 - 05/10/2012
+        ------------------
+        
+        - Package fix
+          [aclark]
+        
+        0.0.3 - 05/10/2012
+        ------------------
+        
+        - Package fix
+          [aclark]
+        
+        0.0.2 - 05/10/2012
+        ------------------
+        
+        - Package fix
+          [aclark]
+        
+        0.0.1 - 05/10/2012
+        ------------------
+        
+        - Initial release
+          [aclark]
+        
+Keywords: plone theme zope
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
