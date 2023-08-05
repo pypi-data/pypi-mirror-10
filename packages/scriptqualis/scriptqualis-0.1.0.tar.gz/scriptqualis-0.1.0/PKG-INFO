@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: scriptqualis
+Version: 0.1.0
+Summary: Ferramenta para extrair informações do Qualis CAPES e as salvar localmente.
+Home-page: https://bitbucket.org/scriptlattes/scriptqualis
+Author: Fabio Natanael Kepler
+Author-email: fabio@kepler.pro.br
+License: BSD
+Description: ===============================
+        scriptqualis
+        ===============================
+        
+        .. image:: https://app.wercker.com/status/f0838d931d919d7097924d8dbe10ab75/s
+                :target: https://app.wercker.com/project/bykey/f0838d931d919d7097924d8dbe10ab75
+        
+        .. image:: https://img.shields.io/pypi/v/scriptqualis.svg
+                :target: https://pypi.python.org/pypi/scriptqualis
+        
+        Ferramenta para extrair informações do Qualis CAPES e as salvar localmente. Os arquivos locais podem então ser usados como entrada para o #scriptLattes.
+        
+        * Free software: BSD license
+        * Documentation: https://scriptqualis.readthedocs.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-05-08)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: scriptqualis
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: Portuguese
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
