@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: bassa
+Version: 0.0.1
+Summary: Automated Download Queue for Enterprise to take the best use of Internet bandwidth
+Home-page: https://github.com/scorelab/Bassa
+Author: SCoRe Community
+Author-email: community@scorelab.org
+License: GPL
+Keywords: bassa download queue
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: Framework :: Flask
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Requires-Dist: flask
+Requires-Dist: WorQ[redis]
+Requires-Dist: pip
+Requires-Dist: pySmartDL
+
+UNKNOWN
+
+
