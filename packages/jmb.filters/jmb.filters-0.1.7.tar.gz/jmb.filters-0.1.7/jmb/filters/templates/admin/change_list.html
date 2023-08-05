@@ -1,0 +1,15 @@
+{% extends "django.contrib.admin:admin/change_list.html" %}
+{% load search_form admin_static i18n %}
+
+{% block extrahead %}
+{{ block.super }}
+
+ <script type="text/javascript" src="{% static 'jmb/filters/js/search_form.js' %}" ></script>
+{% endblock %}
+
+{% block search %}
+   {% jsearch_form cl %} <!-- Thunder version that adds advanced and filter  button -->
+   {% block extended_search %}{% advanced_search_form cl %}{% endblock %}
+ {% endblock %}
+
+

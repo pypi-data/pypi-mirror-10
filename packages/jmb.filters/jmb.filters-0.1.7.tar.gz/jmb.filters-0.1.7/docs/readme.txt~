@@ -1,0 +1,66 @@
+jmb.filter
+=============
+
+jmb.filter is a fork of django-filter_ whose main goal is to make 
+life easy integrating django_filter in the django admin interface 
+creating advanced search forms based on a description similar to 
+search_list definition.
+
+jmb.filter is a reusable Django application for allowing users to filter
+querysets dynamically.
+
+Documentation on thunder-site_.
+
+Original documentation on `read the docs`_
+
+.. image:: https://secure.travis-ci.org/alex/django-filter.png?branch=master
+   :target: http://travis-ci.org/alex/django-filter
+
+Requirements
+------------
+
+* Python 2.7+
+* Django 1.4+
+
+Installation
+------------
+
+Install using pip::
+
+    pip install jmb.filter
+
+Or clone the repo and add to your PYTHONPATH::
+
+    hg clone https://hg@bitbucket.org/jumboteam/jmb.filters
+
+
+Usage
+-----
+
+jmb.filter can be used for generating interfaces similar to the Django
+admin's ``list_filter`` interface.  It has an API very similar to Django's
+``ModelForms``.  For example, if you had a Product model you could have a
+filterset for it with the code::
+
+    import jmb.filters
+
+    class ProductFilter(jmb.filters.FilterSet):
+        class Meta:
+            model = Product
+            fields = ['name', 'price', 'manufacturer']
+
+
+And then in your view you could do::
+
+    def product_list(request):
+        filter = ProductFilter(request.GET, queryset=Product.objects.all())
+        return render_to_response('my_app/template.html', {'filter': filter})
+
+Support
+-------
+
+
+.. _`read the docs`: https://django-filter.readthedocs.org/en/latest/
+.. _django-filter: https://pypi.python.org/pypi/django-filter
+.. _thunder-site: http://docs.thux.it/jmb.filters
+

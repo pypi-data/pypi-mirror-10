@@ -1,0 +1,11 @@
+.. _install:
+
+Installing django-filter
+------------------------
+
+To install, simply place the ``jmb.filters`` as a dependancy (i.e. in
+your ``install_requires`` of your setup.py) and add it to your
+``INSTALLED_APPS``.
+
+If you don't have a ``setup.py`` (and I don't understand why people don't
+use it), add ``jmb.filters`` to your ``requirements.txt``.

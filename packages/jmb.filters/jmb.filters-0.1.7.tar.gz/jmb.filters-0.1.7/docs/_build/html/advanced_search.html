@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced search &mdash; jmb.filters 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bootstrap.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="jmb.filters 0.1 documentation" href="index.html" />
+    <link rel="next" title="Running the django-filter tests" href="tests.html" />
+    <link rel="prev" title="Widget Reference" href="ref/widgets.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">jmb.filters<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="install.html#install" >install</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#advanced-search" >advanced search</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="tests.html" title="Running the django-filter tests"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ref/widgets.html" title="Widget Reference"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">jmb.filters 0.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="advanced-search">
+<span id="id1"></span><h1>Advanced search<a class="headerlink" href="#advanced-search" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>The goal of my fork was to create an easy way to add filters in ModelAdmin,
+simply setting an attribute that I named &#8216;advanced_search_fields&#8217;.
+In the following, &#8216;advanced_search_fields&#8217; refers to a filter that allows to
+filter the fields independently and is clearly implemented with a FilterSet
+form.</p>
+<p>In my current implementation, the presence of attribute
+<code class="docutils literal"><span class="pre">advanced_search_fields</span></code> on ModelAdmin generates a button that will
+display the form filter when clicked. As in most other django ModelAdmin
+attributes there&#8217;s also a function named <code class="docutils literal"><span class="pre">get_advanced_search_fields</span></code>
+(same signature as <code class="docutils literal"><span class="pre">get_search_fields</span></code>) that you can use to customize the
+<code class="docutils literal"><span class="pre">advanced_search</span></code> field at runtime. This method takes precedence over the
+attribute.</p>
+<p>Below you can find the features I added to django-filters:</p>
+<div class="section" id="short-way-to-declare-lookup-type">
+<h3>short way to declare lookup_type<a class="headerlink" href="#short-way-to-declare-lookup-type" title="Permalink to this headline">¶</a></h3>
+<p>I realized that in many circumstancies I needed to create a FilterSet class
+just to set the <code class="docutils literal"><span class="pre">lookup_type</span></code> for each field, so I modified it in a way that
+accepts the <code class="docutils literal"><span class="pre">lookup_type</span></code> to be added to the <code class="docutils literal"><span class="pre">field_name</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CertificateAdmin</span><span class="p">(</span><span class="n">DjangoFiltersModelAdmin</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Certificates</span>
+    <span class="n">advanced_search_fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="s">&#39;start_date__gte&#39;</span><span class="p">,</span> <span class="s">&#39;start_date__range&#39;</span><span class="p">,</span> <span class="s">&#39;user&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">&#39;status__in&#39;</span><span class="p">,</span> <span class="s">&#39;description__icontains&#39;</span><span class="p">,),</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="status-in">
+<h3>status__in<a class="headerlink" href="#status-in" title="Permalink to this headline">¶</a></h3>
+<p>in case the field has choices, I fill the widget with them. In case the
+lookup_type is <code class="docutils literal"><span class="pre">in</span></code> a MultipleChoices Widget is used and a lookup type
+menu is used as well to select the operator.</p>
+<p>The operators allow inclusion (<code class="docutils literal"><span class="pre">.filter</span></code>) or exclusion(<code class="docutils literal"><span class="pre">.exclude</span></code>) of selected
+items. In case of a ManyToManyField it also offers the choice between
+<code class="docutils literal"><span class="pre">any</span></code> or <code class="docutils literal"><span class="pre">all</span></code> selected items.</p>
+<p>To customize this, you can set <code class="docutils literal"><span class="pre">lookup_type</span></code> attribute to Filter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTicketAdmin</span><span class="p">(</span><span class="n">TicketAdmin</span><span class="p">):</span>
+    <span class="n">advanced_search_fields</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="p">(</span><span class="s">&#39;typology__in&#39;</span><span class="p">,),</span>
+    <span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_filterset_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">TkFilterset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyTicketAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_filterset_class</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">TkFilters</span><span class="p">(</span><span class="n">TkFilterset</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">TkFilters</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;typology__in&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lookup_type</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;not_in_any&#39;</span><span class="p">,</span><span class="s">&#39;not_in_all&#39;</span><span class="p">,</span><span class="s">&#39;in_any&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">TkFilters</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="boolean">
+<h3>boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<p>Boolean fields has a default that is &#8216;&#8212;&#8212;&#8217;</p>
+</div>
+<div class="section" id="date-range">
+<h3>date range<a class="headerlink" href="#date-range" title="Permalink to this headline">¶</a></h3>
+<p>When the lookp type is <code class="docutils literal"><span class="pre">range</span></code> I use the DateRangeFilter. This definetely
+reflects a personal choice, but an <a class="reference internal" href="#date-customization-tomorrow"><em>example</em></a>  is provided to change this.</p>
+</div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>My working implementation to get advance_search in admin pages is split
+in different places:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">change_list.html:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">added 2 templatetags:</p>
+<ul class="simple">
+<li>one to add a button &#8220;advanced search&#8221; if needed</li>
+<li>one to add the form with advanced search input filters</li>
+<li>some javascript to serialize the form (just filled in fields)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ModelAdmin:</th><td class="field-body"><p class="first">added/customized several methods:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>lookup_allowed: must let any field present in &#8216;advanced_search_fields&#8217; to</dt>
+<dd><p class="first last">be used</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>search_filterset_class: property that return a FilterSet based on the</dt>
+<dd><p class="first last">declared fields. To allow for greater flexibility, it&#8217;s possible
+to set it or to create get_filterset_class method instead.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">get_changelist: a personalized changelist is used (see below)</p>
+</li>
+<li><dl class="first docutils">
+<dt>queryset: if an advanced_search is requested, the new queryset produced</dt>
+<dd><p class="first last">by FilterSet (search_filterset.qs) is returned</p>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ChangeList:</th><td class="field-body"><p class="first">currently I customized the &#8216;get_filters&#8217; method, to clean
+self.params from filters already used.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">templatetags:</th><td class="field-body"><ul class="first simple">
+<li>jsearch_form: adds &#8220;Advanced Search&#8221; button</li>
+<li>advanced_search_form: renders the html form</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">advanced_search.js:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
+<li>manages visibility of advanced_search form</li>
+<li>creates a serialization of just the filled in fields</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="admin-integration">
+<h2>Admin integration<a class="headerlink" href="#admin-integration" title="Permalink to this headline">¶</a></h2>
+<p>Integrating this into the admin is quite simple. You just need to:</p>
+<ul>
+<li><p class="first">declare django-filter early in INSTALLED_APPS. So doing <code class="docutils literal"><span class="pre">change_list.html</span></code>
+will be used instead of django.contrib.auth&#8217;s one</p>
+</li>
+<li><p class="first">declare in TEMPLATE_LOADER &#8216;django_filters.admin.Loader&#8217; that implements
+the template syntax:</p>
+<blockquote>
+<div><p>admin:admin/change_list.html</p>
+</div></blockquote>
+<p>so that we don&#8217;t need to overwrite the whole template</p>
+</li>
+<li><p class="first">derive your ModelAdmin class from <code class="xref py py-class docutils literal"><span class="pre">django_filters.admin.AdvancedSearchModelAdmin</span></code></p>
+</li>
+<li><p class="first">make your change_list extend <code class="docutils literal"><span class="pre">django_filters:admin/change_list.html</span></code></p>
+</li>
+<li><p class="first">declare one of:</p>
+<ul class="simple">
+<li>get_advanced_search_fields</li>
+<li>advanced_search_fields</li>
+<li>get_filterset_class</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
+<p>In the following lines I want to show how easy it can be to customize the
+filterset automatically build from the <code class="docutils literal"><span class="pre">advanced_search_fields</span></code> attribute.</p>
+<div class="section" id="autocomplete-in-advanced-search">
+<h3>autocomplete in advanced_search<a class="headerlink" href="#autocomplete-in-advanced-search" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s add an autocomplettion to the form automatically generated. Let&#8217;s
+substitue:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">advanced_search_fields</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="p">(</span><span class="s">&#39;organization__name__icontains&#39;</span><span class="p">,),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>and let us add the widget from autocomplete_light:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTicketAdmin</span><span class="p">(</span><span class="n">TicketAdmin</span><span class="p">):</span>
+    <span class="n">advanced_search_fields</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="p">(</span><span class="s">&#39;organization&#39;</span><span class="p">,),</span>
+    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_filterset_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">TkFilterset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyTicketAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_filterset_class</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">class</span> <span class="nc">TkFilters</span><span class="p">(</span><span class="n">TkFilterset</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+                <span class="nb">super</span><span class="p">(</span><span class="n">TkFilters</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+                <span class="n">widget_with_autocompl</span> <span class="o">=</span> <span class="n">autocomplete_light</span><span class="o">.</span><span class="n">ChoiceWidget</span><span class="p">(</span><span class="s">&#39;OrganizationAutocomplete&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&#39;organization&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">widget_with_autocompl</span>
+                <span class="k">return</span> <span class="n">TkFilters</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lookup-type-choices">
+<h3>Lookup Type Choices<a class="headerlink" href="#lookup-type-choices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>icontains -&gt; contains</li>
+<li>istartswith -&gt; starts with</li>
+<li>lt -&gt; less then</li>
+<li>gt -&gt; grater then</li>
+<li>lte -&gt; less then or equal</li>
+<li>gte -&gt; grater then or equal</li>
+<li>exact -&gt; uguale a</li>
+<li>range -&gt; range</li>
+<li>in_any -&gt; in any</li>
+<li>in_all -&gt; in all</li>
+<li>not_in_any -&gt; not in any</li>
+<li>not_in_all -&gt; not in all</li>
+</ul>
+</div>
+<div class="section" id="date-customization">
+<h3>Date customization<a class="headerlink" href="#date-customization" title="Permalink to this headline">¶</a></h3>
+<p>If you want a &#8220;less then or equal&#8221; and &#8220;grater then or equal&#8221; on
+a DateField, DateTimeField, or TimeField
+you can add lookup_type on the end of name of field in advanced_search_fields tuple
+this generate a 2 field separated:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTicketAdmin</span><span class="p">(</span><span class="n">TicketAdmin</span><span class="p">):</span>
+    <span class="n">advanced_search_fields</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="p">(</span><span class="s">&#39;date_create__gt&#39;</span><span class="p">,</span> <span class="s">&#39;date_create__lt&#39;</span><span class="p">,),</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>But is possible get a single field with a customized lookup type menu:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTicketAdmin</span><span class="p">(</span><span class="n">TicketAdmin</span><span class="p">):</span>
+    <span class="n">advanced_search_fields</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="p">(</span><span class="s">&#39;date_create&#39;</span><span class="p">,),</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_filterset_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">TkFilterset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyTicketAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_filterset_class</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">class</span> <span class="nc">TkFilters</span><span class="p">(</span><span class="n">TkFilterset</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+                <span class="nb">super</span><span class="p">(</span><span class="n">TkFilters</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;date_create&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lookup_type</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;gte&#39;</span><span class="p">,</span><span class="s">&#39;lte&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">TkFilters</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="range-that-implements-tomorrow">
+<span id="date-customization-tomorrow"></span><h3>range that implements Tomorrow<a class="headerlink" href="#range-that-implements-tomorrow" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s implement a filter that offers option <code class="docutils literal"><span class="pre">Tomorrow</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RangeWithTomorrow</span><span class="p">(</span><span class="n">dj_filters</span><span class="o">.</span><span class="n">DateRangeFilter</span><span class="p">):</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="n">dj_filters</span><span class="o">.</span><span class="n">DateRangeFilter</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">options</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Tomorrow&#39;</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">qs</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">qs</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+            <span class="s">&#39;</span><span class="si">%s</span><span class="s">__year&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">:</span> <span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+            <span class="s">&#39;</span><span class="si">%s</span><span class="s">__month&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">:</span> <span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">month</span><span class="p">,</span>
+            <span class="s">&#39;</span><span class="si">%s</span><span class="s">__day&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">:</span> <span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">}))</span>
+</pre></div>
+</div>
+<p>And now let&#8217;s add it to the filterset:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyPlanAdmin</span><span class="p">(</span><span class="n">PlanAdmin</span><span class="p">):</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_agenda</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">get_filterset_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">PlanFilterset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyPlanAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_filterset_class</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">class</span> <span class="nc">MyPlanFilters</span><span class="p">(</span><span class="n">PlanFilterset</span><span class="p">):</span>
+            <span class="n">date_begin__range</span> <span class="o">=</span> <span class="n">RangeWithTomorrow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;date_begin&#39;</span><span class="p">,</span> <span class="n">lookup_type</span><span class="o">=</span><span class="s">&#39;range&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;Start&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">MyPlanFilters</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="autocompletion-in-forms">
+<h3>Autocompletion in forms<a class="headerlink" href="#autocompletion-in-forms" title="Permalink to this headline">¶</a></h3>
+<p>You can also add an autocompletion, just changing the widget in the form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">get_filterset_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+   <span class="n">TkFilterset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyTicketAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_filterset_class</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+   <span class="k">class</span> <span class="nc">MyTkFilters</span><span class="p">(</span><span class="n">TkFilterset</span><span class="p">):</span>
+       <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+          <span class="nb">super</span><span class="p">(</span><span class="n">MyTkFilters</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+          <span class="n">widget_with_autocompl</span> <span class="o">=</span> <span class="n">autocomplete_light</span><span class="o">.</span><span class="n">ChoiceWidget</span><span class="p">(</span><span class="s">&#39;amministratore&#39;</span><span class="p">)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&#39;project__organization__azienda__amministratore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">widget_with_autocompl</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Advanced search</a><ul>
+<li><a class="reference internal" href="#goal">Goal</a><ul>
+<li><a class="reference internal" href="#short-way-to-declare-lookup-type">short way to declare lookup_type</a></li>
+<li><a class="reference internal" href="#status-in">status__in</a></li>
+<li><a class="reference internal" href="#boolean">boolean</a></li>
+<li><a class="reference internal" href="#date-range">date range</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+<li><a class="reference internal" href="#admin-integration">Admin integration</a></li>
+<li><a class="reference internal" href="#customization">Customization</a><ul>
+<li><a class="reference internal" href="#autocomplete-in-advanced-search">autocomplete in advanced_search</a></li>
+<li><a class="reference internal" href="#lookup-type-choices">Lookup Type Choices</a></li>
+<li><a class="reference internal" href="#date-customization">Date customization</a></li>
+<li><a class="reference internal" href="#range-that-implements-tomorrow">range that implements Tomorrow</a></li>
+<li><a class="reference internal" href="#autocompletion-in-forms">Autocompletion in forms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="ref/widgets.html"
+                          title="Previous page">&larr; Widget Reference</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="tests.html"
+                          title="Next page">&rarr; Running the django-filter tests</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/advanced_search.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="tests.html" title="Running the django-filter tests"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ref/widgets.html" title="Widget Reference"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">jmb.filters 0.1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

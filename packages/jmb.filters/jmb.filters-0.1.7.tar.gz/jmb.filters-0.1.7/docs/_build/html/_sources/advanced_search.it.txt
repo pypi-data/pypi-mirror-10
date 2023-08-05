@@ -1,0 +1,252 @@
+.. _advanced-search
+
+===============
+Advanced search
+===============
+
+Goal
+====
+
+The goal of my fork was to create an easy way to add filters in ModelAdmin,
+simply setting an attribute that I named 'advanced_search_fields'. 
+In the following, 'advanced_search_fields' refers to a filter that allows to
+filter the fields independently and is clearly implemented with a FilterSet
+form. 
+
+In my current implementation, the presence of attribute
+``advanced_search_fields`` on ModelAdmin generates a button that will
+display the form filter when clicked. As in most other django ModelAdmin
+attributes there's also a function named ``get_advanced_search_fields``
+(same signature as ``get_search_fields``) that you can use to customize the
+``advanced_search`` field at runtime. This method takes precedence over the
+attribute.
+
+Below you can find the features I added to django-filters:
+
+short way to declare lookup_type
+--------------------------------
+
+I realized that in many circumstancies I needed to create a FilterSet class
+just to set the ``lookup_type`` for each field, so I modified it in a way that
+accepts the ``lookup_type`` to be added to the ``field_name``::
+
+   class CertificateAdmin(DjangoFiltersModelAdmin):
+       model = Certificates
+       advanced_search_fields = (
+	       ('start_date__gte', 'start_date__range', 'user'),
+	       ('status__in', 'description__icontains',),
+	       )
+
+status__in
+----------
+in case the field has choices, I fill the widget with them. In case the
+lookup_type is ``in`` a MultipleChoices Widget is used and a lookup type
+menu is used as well to select the operator.
+
+The operators allow inclusion (``.filter``) or exclusion(``.exclude``) of selected
+items. In case of a ManyToManyField it also offers the choice between 
+``any`` or ``all`` selected items.
+
+To customize this, you can set ``lookup_type`` attribute to Filter::
+
+    class MyTicketAdmin(TicketAdmin):
+        advanced_search_fields = (
+          ('typology__in',),
+        )
+    def get_filterset_class(self, request):
+        TkFilterset = super(MyTicketAdmin, self).get_filterset_class(request)
+        class TkFilters(TkFilterset):
+            def __init__(self, *args, **kw):
+                super(TkFilters, self).__init__(*args, **kw)
+                self.filters['typology__in'].lookup_type = ('not_in_any','not_in_all','in_any')
+                return TkFilters
+
+
+boolean
+--------
+
+Boolean fields has a default that is '------'
+
+date range
+-----------
+
+When the lookp type is ``range`` I use the DateRangeFilter. This definetely
+reflects a personal choice, but an :ref:`example
+<date-customization-tomorrow>`  is provided to change this.
+
+
+Implementation
+==============
+
+My working implementation to get advance_search in admin pages is split
+in different places:
+
+:change_list.html: added 2 templatetags:
+
+   * one to add a button "advanced search" if needed
+   * one to add the form with advanced search input filters
+   * some javascript to serialize the form (just filled in fields)
+
+:ModelAdmin: added/customized several methods:
+
+  * lookup_allowed: must let any field present in 'advanced_search_fields' to
+          be used 
+  * search_filterset_class: property that return a FilterSet based on the
+          declared fields. To allow for greater flexibility, it's possible
+          to set it or to create get_filterset_class method instead.
+  * get_changelist: a personalized changelist is used (see below)
+  * queryset: if an advanced_search is requested, the new queryset produced
+          by FilterSet (search_filterset.qs) is returned
+  
+:ChangeList: currently I customized the 'get_filters' method, to clean
+    self.params from filters already used. 
+
+:templatetags:
+  * jsearch_form: adds "Advanced Search" button
+  * advanced_search_form: renders the html form
+
+:advanced_search.js:
+  * manages visibility of advanced_search form
+  * creates a serialization of just the filled in fields
+
+Admin integration
+=================
+
+Integrating this into the admin is quite simple. You just need to:
+
+* declare django-filter early in INSTALLED_APPS. So doing ``change_list.html``
+  will be used instead of django.contrib.auth's one
+
+* declare in TEMPLATE_LOADER 'django_filters.admin.Loader' that implements
+  the template syntax:
+
+      admin:admin/change_list.html
+
+  so that we don't need to overwrite the whole template
+
+* derive your ModelAdmin class from :class:`django_filters.admin.AdvancedSearchModelAdmin`
+
+* make your change_list extend ``django_filters:admin/change_list.html``
+
+* declare one of:
+
+  + get_advanced_search_fields
+  + advanced_search_fields
+  + get_filterset_class
+
+
+Customization
+=============
+
+In the following lines I want to show how easy it can be to customize the
+filterset automatically build from the ``advanced_search_fields`` attribute.
+
+autocomplete in advanced_search
+-------------------------------
+
+Let's add an autocomplettion to the form automatically generated. Let's
+substitue::
+
+    advanced_search_fields = (
+      ('organization__name__icontains',),
+    )
+
+and let us add the widget from autocomplete_light::
+
+    class MyTicketAdmin(TicketAdmin):
+        advanced_search_fields = (
+          ('organization',),
+        )
+        def get_filterset_class(self, request):
+            TkFilterset = super(MyTicketAdmin, self).get_filterset_class(request)
+            class TkFilters(TkFilterset):
+                def __init__(self, *args, **kw):
+                    super(TkFilters, self).__init__(*args, **kw)
+                    widget_with_autocompl = autocomplete_light.ChoiceWidget('OrganizationAutocomplete')
+                    self.form.fields['organization'].widget = widget_with_autocompl
+                    return TkFilters
+
+Lookup Type Choices
+-------------------
+* icontains -> contains
+* istartswith -> starts with
+* lt -> less then
+* gt -> grater then
+* lte -> less then or equal
+* gte -> grater then or equal
+* exact -> uguale a
+* range -> range
+* in_any -> in any
+* in_all -> in all
+* not_in_any -> not in any
+* not_in_all -> not in all
+
+
+Date customization
+------------------
+
+If you want a "less then or equal" and "grater then or equal" on
+a DateField, DateTimeField, or TimeField
+you can add lookup_type on the end of name of field in advanced_search_fields tuple
+this generate a 2 field separated::
+
+    class MyTicketAdmin(TicketAdmin):
+        advanced_search_fields = (
+          ('date_create__gt', 'date_create__lt',), 
+        )
+        
+But is possible get a single field with a customized lookup type menu::
+
+    class MyTicketAdmin(TicketAdmin):
+        advanced_search_fields = (
+          ('date_create',),
+        )
+
+        def get_filterset_class(self, request):
+            TkFilterset = super(MyTicketAdmin, self).get_filterset_class(request)
+            class TkFilters(TkFilterset):
+                def __init__(self, *args, **kw):
+                    super(TkFilters, self).__init__(*args, **kw)
+                    self.filters['date_create'].lookup_type = ('gte','lte')
+            return TkFilters
+
+
+.. _date-customization-tomorrow:
+
+range that implements Tomorrow
+-------------------------------
+
+Let's implement a filter that offers option ``Tomorrow``::
+
+  class RangeWithTomorrow(dj_filters.DateRangeFilter):
+      options = dj_filters.DateRangeFilter.options.copy()
+      options[0] = (_('Tomorrow'), lambda qs, name: qs.filter(**{
+	      '%s__year' % name: now().year,
+	      '%s__month' % name: now().month,
+	      '%s__day' % name: now().day +1,
+	  }))
+
+
+And now let's add it to the filterset::
+
+
+  class MyPlanAdmin(PlanAdmin):
+      actions = [create_agenda]
+      def get_filterset_class(self, request):
+	  PlanFilterset = super(MyPlanAdmin, self).get_filterset_class(request)
+	  class MyPlanFilters(PlanFilterset):
+	      date_begin__range = RangeWithTomorrow(name='date_begin', lookup_type='range', label='Start')
+	  return MyPlanFilters
+
+Autocompletion in forms
+------------------------
+
+You can also add an autocompletion, just changing the widget in the form::
+
+   def get_filterset_class(self, request):
+      TkFilterset = super(MyTicketAdmin, self).get_filterset_class(request)
+      class MyTkFilters(TkFilterset):
+	  def __init__(self, *args, **kw):
+	     super(MyTkFilters, self).__init__(*args, **kw)
+	     widget_with_autocompl = autocomplete_light.ChoiceWidget('amministratore')
+	     self.form.fields['project__organization__azienda__amministratore'].widget = widget_with_autocompl
