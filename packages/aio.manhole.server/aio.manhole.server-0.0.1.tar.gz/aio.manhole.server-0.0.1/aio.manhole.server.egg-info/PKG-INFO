@@ -1,0 +1,134 @@
+Metadata-Version: 1.1
+Name: aio.manhole.server
+Version: 0.0.1
+Summary: Manhole server for the aio asyncio framework
+Home-page: http://github.com/phlax/aio.manhole.server
+Author: Ryan Northey
+Author-email: ryan@3ca.org.uk
+License: GPL
+Description: Detailed documentation
+        **********************
+        
+        aio.manhole.server
+        ==================
+        
+        Manhole server for the aio_ asyncio framework
+        
+        .. _aio: https://github.com/phlax/aio
+        
+        
+        
+        Build status
+        ------------
+        
+        .. image:: https://travis-ci.org/phlax/aio.manhole.server.svg?branch=master
+        	       :target: https://travis-ci.org/phlax/aio.manhole.server
+        
+        
+        Installation
+        ------------
+        
+        Requires python >= 3.4
+        
+        Install with:
+        
+        .. code:: bash
+        
+        	  pip install aio.manhole.server
+        
+        	  
+        Quick start - Manhole server
+        ----------------------------
+        
+        Save the following into a file "manhole.conf"
+        
+        .. code:: ini
+        
+        	  [server/my_manhole_server]
+        	  factory = aio.manhole.server.factory
+        	  port = 7373
+        
+        	  
+        Run with the aio run command
+        
+        .. code:: bash
+        
+        	  aio run -c manhole.conf
+        
+        You should now be able to telnet into the running server on port 7373
+        
+        
+        
+        aio.manhole.server usage
+        ------------------------
+        
+        
+        Configuration
+        -------------
+        
+        Lets create a manhole configuration
+          
+        >>> config = """
+        ... [aio]
+        ... log_level = ERROR
+        ... 
+        ... [server/server_name]
+        ... factory = aio.manhole.server.factory
+        ... port = 7373
+        ... 
+        ... """  
+        
+        >>> import sys
+        >>> import io
+        >>> import aiomanhole
+        
+        >>> import aio.testing
+        >>> import aio.app
+        >>> from aio.app.runner import runner
+        
+        When we run the manhole server, its accessible as "server_name" from aio.app.servers
+        
+        >>> @aio.testing.run_forever(sleep=1)
+        ... def run_manhole_server(config):
+        ...     yield from runner(['run'], config_string=config)
+        ... 
+        ...     def call_manhole():
+        ...         print(aio.app.servers["server_name"])
+        ...         aio.app.clear()
+        ...          
+        ...     return call_manhole
+        
+        >>> run_manhole_server(config)
+        <Server sockets=[<socket.socket ...laddr=('0.0.0.0', 7373)...>
+        
+        Lets try calling the manhole server
+        
+        >>> import asyncio
+        >>> import telnetlib3
+        
+        >>> @aio.testing.run_forever(sleep=1)
+        ... def run_manhole_server(config):
+        ...     yield from runner(['run'], config_string=config)
+        ...     
+        ...     class TestTelnetClient(telnetlib3.TelnetClient):
+        ... 
+        ...         def data_received(self, data):
+        ...             print(data)
+        ... 
+        ...     def call_manhole():
+        ...         loop = asyncio.get_event_loop()
+        ...         transport, protocol = yield from loop.create_connection(
+        ...             TestTelnetClient, "127.0.0.1", 7373)
+        ...         aio.app.clear()
+        ...          
+        ...     return call_manhole
+        
+        >>> run_manhole_server(config)
+        b'hello...\n>>> '
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
