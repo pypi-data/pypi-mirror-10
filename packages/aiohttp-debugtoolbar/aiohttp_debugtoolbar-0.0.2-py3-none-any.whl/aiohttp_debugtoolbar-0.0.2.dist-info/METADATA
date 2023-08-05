@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: aiohttp-debugtoolbar
+Version: 0.0.2
+Summary: debugtoolbar for aiohttp
+Home-page: https://github.com/jettify/aiohttp_debugtoolbar/
+Author: Nikolay Novik
+Author-email: nickolainovik@gmail.com
+License: Apache 2
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: aiohttp (>=0.14)
+Requires-Dist: mako (>=1.0.0)
+Requires-Dist: aiohttp-mako
+
+UNKNOWN
+
+
