@@ -1,0 +1,72 @@
+#!/usr/bin/python
+
+from mabs.mabs import *
+from optparse import OptionParser
+
+
+
+parser = OptionParser()
+parser.add_option("-H", "--host", dest="host",
+        help = "define the groups or host,like -h web1 ,-h group-name1")
+parser.add_option("-C", "--command", dest="command",
+        help = "execute simple command")
+parser.add_option("", "--hostfile", dest="hostfile",
+        help = "define the host file, like --hostfile hostfile.txt")
+parser.add_option("", "--commfile", dest="commfile",
+        help = "define the command file, like --commfile commfile.txt")
+parser.add_option("-s", "--show", action="store_true", dest="show_clients",
+        help = "display all the clients, like -s")
+parser.add_option("-u", "--user", dest="user",
+        help = "define the use to execute command, like -u root")
+(options, args) = parser.parse_args()
+verify = Verify_bool()
+host_bool = verify.common_verify(
+                        options.host, options.hostfile)
+comm_bool = verify.common_verify(
+                        options.command, options.commfile, 'comm')
+paraset = [options.host, options.hostfile, options.command, options.commfile]
+if options.command:
+    options.command = file_parse(options.command)
+if options.host:
+    ini_host = HostSearch()
+    options.host = ini_host.tidy_parse(options.host)
+if options.user:
+    try:
+        options.host = ' '.join(
+                [i if i != 'root' else options.user for i in options.host.split()])
+    except:
+        pass
+paradict = {'host': options.host,
+            'hostfile': options.hostfile,
+            'command': options.command,
+            'commfile': options.commfile}
+paras = [{i:j} for i,j in paradict.items() if j]
+if options.show_clients:
+    try:
+        j=0
+        toparalist = paradict['host'].split('\n')
+        for i in toparalist:
+            print str(j) + ': ' + i.split()[0]
+            j = j + 1
+    except:
+        j=0
+        toparalist = paradict['hostfile'].split('\n')
+        for i in toparalist:
+            print str(j) + ': ' + i.split()[0]
+            j = j + 1
+    for x, y in collections.Counter(toparalist).items():
+        if y > 1:
+            print '\033[1;40;33m'
+            print "be careful! {0}'s numbers is: {1}".format(x.split()[0], str(y))
+            print '\033[0m'
+    sys.exit(0)
+if host_bool and comm_bool:
+        print '\033[1;40;36m'
+        print "choose two -H --hostfile -C --commfile together"
+        print '\033[0m'
+        sys.exit(1)
+if len(paras) != 2:
+    TranTune.Usage()
+    sys.exit()
+MyMul(paras)
+sleep(0.1)
