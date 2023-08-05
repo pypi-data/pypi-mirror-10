@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: astro-pi
+Version: 1.0.1
+Summary: Python API for Astro Pi (Sense HAT) for the Raspberry Pi
+Home-page: https://github.com/astro-pi/astro-pi-hat
+Author: Dave Honess
+Author-email: dave@raspberrypi.org
+License: BSD
+Keywords: raspberrypi,astro pi,astro pi hat,sense hat
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: pillow
+Requires-Dist: numpy
+
+=========
+Astro Pi HAT
+=========
+
+Python module to control the Astro Pi HAT for the `Raspberry Pi`_ used in the `Astro Pi`_ mission - an education outreach programme for UK schools sending code experiments to the International Space Station.
+
+
+.. _Raspberry Pi: http://www.raspberrypi.org/
+.. _Astro Pi: http://www.astro-pi.org/
+
+
