@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: Encry
+Version: 1.0.3.Beta
+Summary: A simple encryption module
+Home-page: encry.cpnerd.koding.io/Encry.py
+Author: CPNerd
+Author-email: shadow889566@gmail.com
+License: MIT
+Description: Encry
+        -----
+        
+        This is a simple, and fairly insecure Encryption module for python
+        
+        If you want something to put in chat messages to lots of people this is perfect
+        
+        To see the path to the file simply do:
+        	>>>From Encry import getpath
+        	>>>print getpath('Encry.py')
+        
+        From there you can use Encry like it's ment to be used.
+Platform: UNKNOWN
