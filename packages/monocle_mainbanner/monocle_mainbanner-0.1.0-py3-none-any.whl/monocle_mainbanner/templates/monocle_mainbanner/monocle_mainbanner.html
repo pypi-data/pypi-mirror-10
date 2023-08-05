@@ -1,0 +1,50 @@
+<section id="mainbanner">
+
+    {% for banner in monocle_mainbanner_models %}
+        <div class="row banner-header">
+            <div class="row banner-header-inner"><h1>{{ banner.name }}</h1></div>
+        </div>
+        <div class="row banner-text">
+            <div class="row banner-text-inner"> {{ banner.text|safe }}</div>
+        </div>
+        <div class="row banner-full-width">
+            <div id="banner-wrap">
+            {% for slide in banner.slide_set.all%}
+                <div class="banner">
+                    <div class="banner-img" style="background: url('{{slide.image.url}}');"></div>
+                    <div class="banner-text">
+                        {{slide.text|safe}}
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <style>
+            #mainbanner{
+                padding: 0px;
+            }
+            #mainbanner .banner-img{
+                height: 700px;
+                background-size: cover !important;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function() {
+                $('#banner-wrap').owlCarousel({
+                    items: {{ banner.elem_number }},
+                    navigation: {{ banner.arrows }},
+                    navigationText: [
+                        "<i class='glyphicon glyphicon-menu-left'></i>",
+                        "<i class='glyphicon glyphicon-menu-right'></i>"
+                    ],
+                    pagination: {{ banner.pagination }},
+                    responsive: false
+                });
+            });
+        </script>
+    {% endfor %}
+</section>
+
+
