@@ -1,0 +1,14 @@
+~$
+\.pyc$
+\.diff$
+\.orig$
+
+\.env/
+\.egg-info/
+^dist/
+^node_modules/
+^\.tox/
+
+ganymede/static/ganymede.js
+^\.ipynb
+
