@@ -1,0 +1,79 @@
+Metadata-Version: 1.1
+Name: ucloud-cli
+Version: 0.6
+Summary: A simple command-line tool for interacting with UCloud API.
+Home-page: https://github.com/likang/ucloud-cli
+Author: Kang Li
+Author-email: i@likang.me
+License: MIT
+Download-URL: http://pypi.python.org/pypi/ucloud-cli
+Description: # UCloud API 命令行客户端
+        
+        本工具提供了一个命令行环境，来方便与 UCloud API 的交互，
+        如果你对 GNU 系列工具有基本的了解，那么你甚至可以直接上手，无需查看任何帮助。
+        
+        ## 特色功能如下：
+        
+        1. 完整的命令补全（包含命令名称、枚举参数）；
+        2. 详尽的帮助文档，与官方保持一致；
+        3. 数据、代码分离，API 若有变化，仅需更新 .json 配置文件；
+        4. 支持 OSX / Linux or Unix(?)。
+        
+        ## 安装
+        
+        ```
+        pip install ucloud-cli
+        ```
+        
+        ## 使用
+        
+        首先保存如下示例的文件到个人目录的 ~/.ucloudrc 文件中 
+        
+        ```
+        ; Sample UCloud config file
+        
+        [ucloud]
+        public_key=
+        private_key=
+        base_url=https://api.ucloud.cn
+        ```
+        
+        接着执行命令
+        
+        ```
+        ucloud-cli
+        ```
+        
+        ## 说明
+        
+        ### 查看帮助
+        ```
+        >>> help foo
+        ```
+        
+        ### 切换默认数据中心
+        ```
+        >>> region bar
+        ```
+        
+        ### 与 API 交互
+        ```
+        >>> DescribeBucket Offset=0
+        ```
+        
+        ### 非交互模式下使用
+        ```
+        $ ucloud-cli DescribeBucket Offset=0
+        ```
+        
+        ## 其他
+        时间仓促，难免有考虑不周的地方，欢迎扔 issue :D
+        
+Keywords: ucloud,console,commandline,command
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
