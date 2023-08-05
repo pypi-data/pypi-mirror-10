@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: python-jumprunpro
+Version: 0.0.1
+Summary: A simple API for getting winds aloft data from NOAA
+Home-page: https://github.com/natemara/jumprunpro-python
+Author: Nate Mara
+Author-email: natemara@gmail.com
+License: MIT
+Description: .. image:: https://travis-ci.org/natemara/jumprunpro-python.svg?branch=master
+            :target: https://travis-ci.org/natemara/jumprunpro-python
+        
+        python-jumprunpro
+        =================
+        
+        Python API bindings for the Jumprun Pro skydiving manifest software
+        
+Keywords: skydiving manifest
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
