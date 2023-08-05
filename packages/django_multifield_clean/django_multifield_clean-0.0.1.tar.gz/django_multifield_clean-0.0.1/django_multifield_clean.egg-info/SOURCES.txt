@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+test-requirements.txt
+django_multifield_clean.egg-info/PKG-INFO
+django_multifield_clean.egg-info/SOURCES.txt
+django_multifield_clean.egg-info/dependency_links.txt
+django_multifield_clean.egg-info/top_level.txt
+multifieldclean/__init__.py
+multifieldclean/forms.py
+multifieldclean/settings.py
+multifieldclean/tests/__init__.py
+multifieldclean/tests/tests.py
+multifieldclean/tests/test_app/__init__.py
+multifieldclean/tests/test_app/forms.py
+multifieldclean/tests/test_app/settings.py
