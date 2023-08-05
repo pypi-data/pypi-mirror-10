@@ -1,0 +1,92 @@
+Metadata-Version: 1.1
+Name: pyspaces
+Version: 1.1.2
+Summary: Create process in linux namespaces
+Home-page: https://github.com/Friz-zy/pyspaces
+Author: Filipp Frizzy
+Author-email: filipp.s.frizzy@gmail.com
+License: MIT
+Description: pyspaces
+        ========
+        
+        Works with Linux namespaces througth glibc with pure python
+        
+        Goals
+        -----
+        
+        There is so many beautiful tools like
+        `docker <https://github.com/docker/docker>`__,
+        `rocket <https://github.com/coreos/rkt>`__ and
+        `vagga <https://github.com/tailhook/vagga>`__ written on go and rust,
+        but no one on python. I think that is because there is no easy way to
+        works wit linux namespaces on python:
+        
+        -  you can use `asylum <https://pypi.python.org/pypi/asylum/0.4.1>`__ -
+           project that looks like dead and with codebase hosted not on
+           mainstream hub like github
+        -  or you can use
+           `python-libvirt <https://pypi.python.org/pypi/libvirt-python/1.2.13>`__
+           bindings with big layer of abstraction
+        -  or just use native glibc library with ctypes
+        -  otherwise subprocess.Popen your choice
+        
+        I want to change it: i want to create native python bindings to glibc
+        with interface of python multiprocessing.Process.
+        
+        Example
+        -------
+        
+        First simple example
+        
+        .. code:: python
+        
+            from pyspaces import Container
+        
+        
+            def execute(argv):
+                os.execvp(argv[0], argv)
+        
+            cmd = "mount -t proc proc /proc; ps ax"
+            c = Container(target=execute, args=(('bash', '-c', cmd),),
+                          uid_map='0 1000 1',
+                          newpid=True, newuser=True, newns=True
+                          )
+            c.start()
+            print("PID of child created by clone() is %ld\n" % c.pid)
+            c.join()
+            print("Child returned: pid %s, status %s" % (c.pid, c.exitcode))
+        
+        .. code:: bash
+        
+            PID of child created by clone() is 15978
+        
+            PID TTY      STAT   TIME COMMAND
+            1   pts/19   S+     0:00 bash -c mount -t proc proc /proc; ps ax
+            3   pts/19   R+     0:00 ps ax
+        
+            Child returned: pid 15978, status 0
+        
+        CLI
+        
+        .. code:: bash
+        
+            space -v execute --pid --fs --user --uid '0 1000 1' bash
+        
+        
+Keywords: linux,container,namespaces
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Clustering
+Classifier: Topic :: System :: Systems Administration
