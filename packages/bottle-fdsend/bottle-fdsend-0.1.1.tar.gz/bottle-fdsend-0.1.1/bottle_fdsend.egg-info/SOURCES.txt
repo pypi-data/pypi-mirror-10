@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+bottle_fdsend.egg-info/PKG-INFO
+bottle_fdsend.egg-info/SOURCES.txt
+bottle_fdsend.egg-info/dependency_links.txt
+bottle_fdsend.egg-info/pbr.json
+bottle_fdsend.egg-info/requires.txt
+bottle_fdsend.egg-info/top_level.txt
+fdsend/__init__.py
+fdsend/rangewrapper.py
+fdsend/sendfile.py
