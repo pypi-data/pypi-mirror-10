@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+tlp/__init__.py
+tlp/tlp.py
+tlp/tlp_filter.py
+tlp.egg-info/PKG-INFO
+tlp.egg-info/SOURCES.txt
+tlp.egg-info/dependency_links.txt
+tlp.egg-info/requires.txt
+tlp.egg-info/top_level.txt
+tlp/lib/__init__.py
+tlp/lib/effective_tld_names.dat
+tlp/lib/filter_list.py
+tlp/lib/regex_list.py
