@@ -1,0 +1,46 @@
+{% load i18n admin_static %}
+
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+<script>
+    $(document).ready(function(){
+        // Função que recebe uma string e um caractere de escolha, 
+        // remove todos os caracteres após o último caractere de escolha, 
+        // e retorna a string formatada.
+        function formata_valor(valor, caractere) {
+            valor = valor.split("").reverse().join("");
+            valor = valor.substring(valor.indexOf(caractere) +1);
+            valor = valor.split("").reverse().join("");
+            return valor;
+        }
+
+        $('input[type="hidden"]').each(function(){
+            var attr = $(this).attr('data-selectable-type');
+            if (typeof attr !== typeof undefined && attr !== false) {
+                var valor = $(this).val();
+                var name = $(this).attr('name');
+                    name = formata_valor(name, '_');
+                
+                $(this).prev("input").val(valor);
+                $(this).prev("input").attr('name', name);
+                $(this).remove();
+            }
+        });
+    });
+</script>
+
+<style>
+    .input-append .add-on:last-child, .input-append .btn:last-child, .input-append .btn-group:last-child>.dropdown-toggle {
+        margin-top: 5px;
+    }
+    .ui-button-icon-only {
+        width: 2.2em;
+        height: 2em;
+        bottom: 1px;
+    }
+    .ui-widget {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    }
+</style>
+
+    {{ spec.form.media }}
+    {{ spec.form }}
