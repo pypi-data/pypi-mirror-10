@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: truce
+Version: 0.1.0
+Summary: An experimental text editor and/or shell
+Home-page: https://github.com/jangler/truce
+Author: Brandon Mulcahy
+Author-email: brandon@jangler.info
+License: MIT
+Description: Truce
+        =====
+        
+        An experimental text editor and/or shell. Alpha status. Currently, it's
+        essentially just a minimal text editor. Future plans include the ability
+        to use it as a filter in pipes and the ability to use it to interact
+        with CLI programs like REPLs, FTP clients, and the like. The goal is to
+        integrate well with the environment and to blur the distinction between
+        editor and shell.
+        
+        Installation
+        ------------
+        
+        ::
+        
+        	sudo pip install truce
+        
+        Usage
+        -----
+        
+        ::
+        
+        	usage: truce [-h] [--version] [file]
+        	
+        	positional arguments:
+        	  file        file to edit
+        	
+        	optional arguments:
+        	  -h, --help  show this help message and exit
+        	  --version   show program's version number and exit
+        
+Keywords: truce,text,editor,shell,tkinter
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: System :: Shells
+Classifier: Topic :: Text Editors
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
