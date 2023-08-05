@@ -1,0 +1,5 @@
+[console_scripts]
+oda_get_hosts = pyoda.scripts.gethosts:run
+oda_register_host = pyoda.scripts.registerhost:run
+oda_view_host_ciphered_data = pyoda.scripts.viewhostcredentials:run
+
