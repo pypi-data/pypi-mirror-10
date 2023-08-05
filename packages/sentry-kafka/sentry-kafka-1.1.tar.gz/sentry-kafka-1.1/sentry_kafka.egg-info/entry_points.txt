@@ -1,0 +1,6 @@
+[sentry.apps]
+sentry_kafka = sentry_kafka
+
+[sentry.plugins]
+kafka = sentry_kafka.models:KafkaMessage
+

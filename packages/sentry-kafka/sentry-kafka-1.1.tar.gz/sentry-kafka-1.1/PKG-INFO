@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: sentry-kafka
+Version: 1.1
+Summary: A Sentry extension which integrates with Apache Kafka.
+Home-page: http://github.com/banno/getsentry-kafka
+Author: Chad Killingsworth - Jack Henry and Associates, Inc.
+Author-email: chadkillingsworth@banno.com
+License: Apache-2.0
+Download-URL: https://github.com/banno/getsentry-kafka/tarball/1.0
+Description: 
+        sentry-kafka
+        ==============
+        
+        An extension for Sentry which integrates with Apache Kafka. It will forward
+        events to a Kafka instance for logging.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
