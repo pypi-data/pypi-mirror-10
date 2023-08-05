@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: django-storages-folder
+Version: 0.1.0
+Summary: django-storages-redux extension to allow separate folders for media and static files
+Home-page: https://github.com/RyanPineo/django-storages-folder
+Author: Ryan Pineo
+Author-email: ryanpineo@gmail.com
+License: BSD
+Description: =======================
+        django-storages-folder
+        =======================
+        
+        About
+        =====
+        django-storage-folder is a small extension to the django-storages-redux_ (a
+        python3 compatible fork of django-storages) project that allows you to specify
+        different directories for storing media and static files.
+        
+        It currently only supports the s3boto backend.
+        
+        .. _django-storages-redux: https://pypi.python.org/pypi/django-storages-redux/
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
