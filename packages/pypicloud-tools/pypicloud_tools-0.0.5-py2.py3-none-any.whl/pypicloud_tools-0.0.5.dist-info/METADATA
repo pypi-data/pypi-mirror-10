@@ -1,0 +1,29 @@
+Metadata-Version: 2.0
+Name: pypicloud-tools
+Version: 0.0.5
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Adam Talsma
+Author-email: se-adam.talsma@ccpgames.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: System :: Software Distribution
+Classifier: Topic :: Utilities
+Requires-Dist: boto (>=2.38.0)
+Requires-Dist: futures (>=2.2.0)
+Requires-Dist: futures (<3.0.0)
+Requires-Dist: filechunkio (>=1.6)
+Requires-Dist: requests (>=2.6.2)
+Requires-Dist: setuptools (>=15.0)
+
+UNKNOWN
+
+
