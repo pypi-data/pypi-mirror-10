@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: flask-pre-configured-loggers
+Version: 0.1.0
+Summary: Flask request / script pre-configured loggers.
+Home-page: https://github.com/Jaza/flask-pre-configured-loggers
+Author: Jeremy Epstein
+Author-email: jazepstein@gmail.com
+License: UNKNOWN
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Requires-Dist: Flask
+
+flask-pre-configured-loggers
+============================
+
+Flask request / script pre-configured loggers.
+
+These loggers (and supporting code / config) have also been published at:
+https://gist.github.com/Jaza/0de82f66854769ea6bc4
+
+
+
