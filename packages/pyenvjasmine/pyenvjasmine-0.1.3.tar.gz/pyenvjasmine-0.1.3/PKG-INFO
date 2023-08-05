@@ -1,0 +1,121 @@
+Metadata-Version: 1.1
+Name: pyenvjasmine
+Version: 0.1.3
+Summary: A Python wrapper for envjasmine
+Home-page: https://bitbucket.org/codigo23/pyenvjasmine
+Author: Francisco de Borja Lopez Rio
+Author-email: borja@codigo23.net
+License: BSD licence, see LICENSE
+Download-URL: http://pypi.python.org/pypi/pyenvjasmine#downloads
+Description: Python envjasmine wrapper
+        =========================
+        
+        This is a thin python wrapper around the envjasmine_ JavaScript
+        testing framework.
+        
+        
+        .. contents::
+        
+        
+        Installation
+        ------------
+        
+        You can install pyenvjasmine using pip_ or easy_install_::
+        
+          pip install pyenvjasmine
+        
+        ::
+        
+          easy_install pyenvjasmine
+        
+        Or you can grab the latest sources and install it from there::
+        
+          python setup.py install
+        
+        Also, you can use it directly from the sources directory, in *development mode*
+        (useful if you want to contribute to the project)::
+        
+          python setup.py develop
+        
+        .. note::
+        
+           More about the *development mode* here:
+        
+           https://packaging.python.org/en/latest/distributing.html#working-in-development-mode
+        
+        
+        Running pyenvjasmine tests
+        --------------------------
+        
+        To run the tests on this code here (as opposed to *your* JavaScript code you
+        want to test), install pyenvjasmine and then run::
+        
+            nosetests --cover-package=pyenvjasmine --cover-erase \
+            --with-coverage --with-doctest $*
+        
+        .. note::
+        
+           If you have installed pyenvjasmine in *development mode*, you can simply
+           run::
+        
+             nosetests -c nose.cfg
+        
+           to run the tests from within the pyenvjasmine sources directory.
+        
+        
+        Run your own tests
+        ------------------
+        
+        The easiest way is to put your "specs" (JavaScript tests) into some directory
+        in your code, then in your python tests, add a new TestCase with just one test
+        that runs all your JavaScript tests.
+        
+        The simplest solution is to set capture_output to False, so you see the output
+        from the js tests on the console. Something like this::
+        
+            import unittest
+            from pyenvjasmine.runner import TestRunner
+        
+            class JavaScriptTests(unittest.TestCase):
+                def test_my_javascript(self):
+                    runner = TestRunner(
+                              testdir='/path/to/my/testdir',
+                              configfile='relative/path/to/configfile')
+                    runner.run(capture_output=False)
+        
+        
+        If you want a more integrated test control, you could set capture_output to
+        True, then parse the test output that is returned from the run() method, with
+        something like this::
+        
+            import unittest
+            from pyenvjasmine.runner import TestRunner
+        
+            class JavaScriptTests(unittest.TestCase):
+                def test_my_javascript_no_output(self):
+                    runner = TestRunner(
+                              testdir='/path/to/my/testdir',
+                              configfile='relative/path/to/configfile')
+                    res = runner.run(capture_output=True)
+                    lines = res.splitlines()
+                    self.assertTrue('Failed: 0' in lines)
+        
+        
+        .. _envjasmine : https://github.com/trevmex/EnvJasmine
+        .. _pip: http://www.pip-installer.org/en/latest/index.html
+        .. _easy_install: http://peak.telecommunity.com/DevCenter/EasyInstall
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Testing
+Requires: nose
+Requires: coverage
