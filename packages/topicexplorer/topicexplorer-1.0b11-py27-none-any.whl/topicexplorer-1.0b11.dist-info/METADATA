@@ -1,0 +1,35 @@
+Metadata-Version: 2.0
+Name: topicexplorer
+Version: 1.0b11
+Summary: InPhO Topic Explorer
+Home-page: http://inphodata.cogs.indiana.edu
+Author: The Indiana Philosophy Ontology (InPhO) Project
+Author-email: inpho@indiana.edu
+License: UNKNOWN
+Download-URL: http://github.com/inpho/topic-explorer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Bottle
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Dist: bottle (>=0.12)
+Requires-Dist: brewer2mpl (>=1.4)
+Requires-Dist: pystache (>=0.5.4)
+Requires-Dist: vsm (>=0.2.1)
+Requires-Dist: wget
+Requires-Dist: unidecode
+Requires-Dist: pdfminer
+Requires-Dist: pyenchant
+
+UNKNOWN
+
+
