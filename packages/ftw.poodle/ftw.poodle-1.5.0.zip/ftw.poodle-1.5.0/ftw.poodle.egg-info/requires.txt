@@ -1,0 +1,11 @@
+setuptools
+Products.DataGridField>=1.9.0
+Products.AutocompleteWidget
+plone.principalsource
+ftw.notification.email
+ftw.notification.base
+ftw.upgrade
+
+[tests]
+plone.app.testing
+ftw.testing
