@@ -1,0 +1,16 @@
+{% extends "contact_form/base.html" %}
+
+{% load i18n %}
+
+{% comment %}
+NOTE: A message via the "messages" framework would be nicier. But as
+``contact_form``'s view doesn't sent one, without writing a custom view,
+one needs to stick with ``contact_forms``'s workflow.
+{% endcomment %}
+
+{% block page_title %}{% trans "Contact Us" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "The message has been sent successfully" %}</h1>
+<a class="btn btn-default" href="/">{% trans "Back to start page" %}</a>
+{% endblock content %}

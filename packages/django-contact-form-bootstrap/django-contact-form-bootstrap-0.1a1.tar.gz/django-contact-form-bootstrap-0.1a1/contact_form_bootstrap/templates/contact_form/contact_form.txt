@@ -1,0 +1,10 @@
+{% load i18n %}{% blocktrans with site.name as site_name and site.domain as site_domain %}Hello {{ site }} manager,
+
+a message has been sent via the contact form
+on {{ site_url }} ({{ site_domain }}){% endblocktrans %}
+
+{% trans "Email" %}: {% if email %}{{ email }}{% else %}{% trans "not given" %}{% endif %}
+{% trans "Name" %}: {% if name %}{{ name }}{% else %}{% trans "not given" %}{% endif %}
+{% trans "Message" %}:
+
+{{ body }}

@@ -1,0 +1,1 @@
+{% load i18n %}{% blocktrans with site.domain as site %}Email from contact form of site {{ site }}{% endblocktrans %}

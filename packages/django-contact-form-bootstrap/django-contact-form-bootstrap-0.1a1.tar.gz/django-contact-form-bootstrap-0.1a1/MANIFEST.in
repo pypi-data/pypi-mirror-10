@@ -1,0 +1,8 @@
+include AUTHORS
+include LICENSE
+include LICENSE-3RD-PARTY
+include MANIFEST.in
+include README.rst
+recursive-include contact_form_bootstrap/static *
+recursive-include contact_form_bootstrap/templates *
+recursive-include contact_form_bootstrap/locale *.mo
