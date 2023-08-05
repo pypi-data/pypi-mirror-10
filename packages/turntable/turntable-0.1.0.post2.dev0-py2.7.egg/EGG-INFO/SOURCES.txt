@@ -1,0 +1,17 @@
+MANIFEST.in
+RELEASE-VERSION
+setup.cfg
+setup.py
+version.py
+turntable/__init__.py
+turntable/press.py
+turntable/spin.py
+turntable/utils.py
+turntable.egg-info/PKG-INFO
+turntable.egg-info/SOURCES.txt
+turntable.egg-info/dependency_links.txt
+turntable.egg-info/requires.txt
+turntable.egg-info/top_level.txt
+turntable/tests/__init__.py
+turntable/tests/mapper_tests.py
+turntable/tests/stencil_tests.py
