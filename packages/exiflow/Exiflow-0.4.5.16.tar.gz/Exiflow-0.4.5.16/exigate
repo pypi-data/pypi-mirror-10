@@ -1,0 +1,4 @@
+#!/usr/bin/python
+import sys
+import exiflow.exigate
+sys.exit(exiflow.exigate.run(sys.argv[1:]))

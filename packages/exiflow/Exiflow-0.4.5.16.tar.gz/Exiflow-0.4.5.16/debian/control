@@ -1,0 +1,21 @@
+Source: exiflow
+Section: python
+Priority: optional
+Maintainer: Ulf Rompe <debian@rompe.org>
+Build-Depends: debhelper (>= 7), python
+Standards-Version: 3.8.4
+Homepage: http://exiflow.org/
+
+Package: exiflow
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-glade2, libimage-exiftool-perl
+Provides: ${python:Provides}
+Suggests: digikam
+Description: A set of tools to provide a complete digital photo workflow
+ exiflow is a set of tools to provide a complete digital photo workflow for
+ Unixes. EXIF headers are used as the central information repository, so
+ users may change their software at any time without loosing any data.
+ The tools may be used individually or combined.
+ Special support is included for F-Spot and Gthumb.
+ .
+ Homepage: http://exiflow.org/
