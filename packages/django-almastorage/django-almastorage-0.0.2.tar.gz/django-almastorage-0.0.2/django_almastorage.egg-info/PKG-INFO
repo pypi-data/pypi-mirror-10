@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: django-almastorage
+Version: 0.0.2
+Summary: A simple Django app to use SwiftStack Storage
+Home-page: https://github.com/aaannnyyy/django-almastorage
+Author: Nurlan Abyken
+Author-email: abyken.nurlan@gmail.com
+License: UNKNOWN
+Description: almastorage
+        ========
+        
+        Simple web-application used for accessing project with SwiftStack storage
+        
+        Quick Install
+        -------------
+        
+        1) Install almastorage:
+        
+            pip install django-almastorage
+        
+        2) Add 'almastorage' into your INSTALLED_APPS in project settings 
+        
+        3) Add fields into project settings infortation from your swiftstack:
+        
+        	SW_USERNAME = 'user'//account name
+        
+        	SW_KEY = 'key' //account key
+        	
+        	SW_AUTH_URL = 'http://your_url' //auth_url 
+        
+        4) Make migration
+        
+        	./manage.py schemamigration almastorage --initial
+        	
+        	./manage.py migrate almastorage
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Utilities
