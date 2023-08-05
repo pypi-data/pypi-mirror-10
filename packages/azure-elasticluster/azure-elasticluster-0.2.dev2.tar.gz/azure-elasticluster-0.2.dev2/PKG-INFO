@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: azure-elasticluster
+Version: 0.2.dev2
+Summary: A fork of elasticluster with Azure support
+Home-page: https://github.com/bobd00/elasticluster
+Author: dsteinkraus
+Author-email: dsteinkraus@users.noreply.github.com
+License: LGPL
+Description: azure-elasticluster is a fork of elasticluster, modified to support Microsoft Azure. It is only published temporarily, for testing purposes.
+        It requires azure-ansible instead of the standard ansible distribution.
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: License :: DFSG approved
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: Other
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: System :: Clustering
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: System :: Distributed Computing
