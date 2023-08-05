@@ -1,0 +1,194 @@
+Django Touchnet
+===============
+
+Django app for Touchnet integration built for KDVS Fundraiser based on Ecollege.
+
+Overview
+--------
+
+Each payment is associated with a ``transaction_id`` that can be any string 
+without whitespace but is typically a primary key.
+
+The app includes a basic template tag that has a form with Bootstrap classes 
+that can be used to redirect to Touchnet.
+
+There are two signals for ``payment_received`` and ``payment_cancelled`` that 
+will trigger on postbacks from Touchnet.
+
+The ``PostbackLog`` model stores all transactions, what was received and 
+returned, and is registered in the admin.
+
+The test card is `5454545454545454` for Mastercard.
+
+Installation
+------------
+
+Download from Bitbucket and install in virtual environment with ``pip install django-touchnet-x.x.tar.gz``.
+
+Configuration
+-------------
+
+Include in ``INSTALLED_APPS``::
+
+    INSTALLED_APPS = (
+        ...
+        'touchnet',
+        ...
+    )
+
+Include the required settings in your base settings, for example for development::
+
+    TOUCHNET = {
+        'accounting': {
+            'fid': '117', # FID number for account
+            'fau': '3804148111300', # FAU number for account
+        },
+        'posting_key': 'CM-KDVS-jfeiowajfiewao', # Random posting key for site in Touchnet Test
+        'site_id': '24', # Site id in Touchnet Test
+        'url': 'https://secure.touchnet.com:8443/C21642test_upay/web/index.jsp', # Touchnet Test endpoint
+    }
+    
+And similarly for production settings::
+
+    TOUCHNET = {
+        'accounting': {
+            'fid': '117',
+            'fau': '3804148111300',
+        },
+        'posting_key': 'CM-KDVS-jfeaiwjfeioaw',
+        'site_id': '17',
+        'url': 'https://marketplace.ucdavis.edu/C21642_upay/web/index.jsp', # Production Touchnet endpoint
+    }
+
+Include the URLs for postback in your ``urls.py``::
+
+    urlpatterns = patterns('',
+        ...
+        url(r'^touchnet/', include('touchnet.urls')),
+        ...
+    )
+  
+Also include URLs for success, error, and cancel redirects back, e.g.::
+
+    urlpatterns = patterns('fundraiser.views',
+        ...
+        url(r'^donate/success/$', 'donate_success_detail',
+                name='fundraiser_donate_success_detail'), # Touchnet success
+        url(r'^donate/error/$', 'donate_error_detail', 
+                name='fundraiser_donate_error_detail'), # Touchnet error
+        url(r'^donate/cancel/$', 'donate_cancel_detail',
+                name='fundraiser_donate_cancel_detail'), # Touchnet cancel
+        ...
+    )
+
+Finally, log into Touchnet and verify the postback URL, posting key, success 
+URL, error URL, and cancel URL settings match. The postback URL should end in
+``/touchnet/postback``, e.g. ``https://fundraiser.kdvs.org/touchnet/postback``. 
+The URL must be ``https`` and the SSL certificate and IP address of the server 
+must be allowed by Touchnet.
+
+Usage
+-----
+
+To process payments, connect receivers to signals in ``models.py``, optionally
+connect one for cancellations e.g.::
+
+    # Receivers
+
+    def received_payment(sender, **kwargs):
+        amount = kwargs['amount']
+        transaction_id = kwargs['transaction_id']
+  
+        pledge = Pledge.objects.get(pk=transaction_id)
+        pledge.amount_paid = amount
+        pledge.save()
+    payment_received.connect(received_payment, dispatch_uid='fundraiser_received_payment')
+
+    def received_cancellation(sender, **kwargs):
+        transaction_id = kwargs['transaction_id']
+  
+        pledge = Pledge.objects.get(pk=transaction_id)
+        pledge.timestamp_cancelled = timezone.now()
+        pledge.save()
+    payment_cancelled.connect(received_cancellation, dispatch_uid='fundraiser_received_cancellation')
+    
+
+To redirect to Touchnet, create a ``touchnet.forms.RedirectForm`` with a 
+transaction id (e.g. pledge pk) and an amount (e.g. donation_amount) in a view::
+
+    def donate_redirect_detail(request):
+        context = {}
+        pledge_pk = request.session['pledge']
+        pledge = Pledge.objects.get(pk=pledge_pk)
+        context['redirect_form'] = RedirectForm(pledge.pk, pledge.donation_amount)
+        return render(request, 'fundraiser/donate_redirect_detail.html', context)
+        
+And show the form in a template, optionally submitting it automatically. If 
+using Bootstrap, use the ``show_redirect_form`` template tag::
+
+    {% extends 'core/base.html' %}
+
+    {% load touchnet_extras %}
+
+    {% block page-title %}Payment{% endblock %}
+    {% block donate-status %}active{% endblock %}
+
+    {% block content %}
+    <h2>Continue To Payment</h2>
+    <p>You will be redirected to a third-party payment site.</p>
+    {% show_redirect_form redirect_form %}
+    {% endblock %}
+
+    {% block scripts %}
+      <script>
+        (function($) {
+          $(document).ready(function() {
+            $('button').attr('data-loading-text', 'Redirecting...')
+                .button('loading');
+            $('form').submit();
+          });
+        })($);
+      </script>
+    {% endblock %}
+
+If the payment was successful, you can retrieve the ``transaction_id`` in the
+success view with the utility function, e.g.::
+
+    def donate_success_detail(request):
+        ...
+        pledge_pk = touchnet.utils.get_transaction_id_from_request(request)
+        ...
+
+Process
+-------
+
+1. Create ``transaction_id`` by saving a model instance for the transaction 
+   (e.g. a pledge) or create a unique id
+2. Make ``RedirectForm`` with ``transaction_id`` and amount, and display
+3. Optionally, auto-submit ``RedirectForm`` with JavaScript
+4. User is redirected to Touchnet URL
+
+Success:
+
+5. User inputs credit card information
+6. Touchnet processes credit card
+7. Touchnet send POST request to ``/touchnet/postback/``
+8. Django Touchnet verifies validity and sends signal to ``payment_received``
+9. Receiver receives signal and updates payment amount (e.g. ``pledge.amount_paid``)
+10. Touchnet redirects user to success URL configured
+11. Display success and confirmation
+
+Error:
+
+5. An error occurs
+6. Touchnet redirects user to error URL configured
+7. Display error
+
+Cancel:
+
+5. User cancels
+6. Touchnet send POST request to ``/touchnet/postback/``
+7. Django Touchnet verifies validity and sends signal to ``payment_cancelled``
+8. Receiver receives signal and processes further (e.g. possibly delete order)
+9. Touchnet redirects user to cancel URL configured
+10. Display cancellation
