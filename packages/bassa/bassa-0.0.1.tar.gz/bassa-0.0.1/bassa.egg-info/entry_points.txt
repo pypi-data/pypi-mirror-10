@@ -1,0 +1,4 @@
+[console_scripts]
+bassa = Main:main
+bassa-pool = Worker:start_worker
+
