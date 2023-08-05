@@ -1,0 +1,3 @@
+#!/bin/bash
+
+MOMOKO_TEST_JSON=1 MOMOKO_TEST_HSTORE=1 MOMOKO_TEST_DB=haizaar MOMOKO_TEST_USER=haizaar MOMOKO_TEST_PASSWORD=password MOMOKO_TEST_HOST=localhost MOMOKO_TEST_PORT=5434 PYTHONPATH=~/dev/momoko python gen_example.py
