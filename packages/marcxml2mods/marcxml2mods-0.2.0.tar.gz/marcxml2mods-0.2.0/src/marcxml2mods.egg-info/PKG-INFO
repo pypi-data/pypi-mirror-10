@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: marcxml2mods
+Version: 0.2.0
+Summary: Module for conversion from MARC XML / OAI to MODS used in NK CZ.
+Home-page: https://github.com/edeposit/marcxml2mods
+Author: Edeposit team
+Author-email: edeposit@email.cz
+License: GPL2+
+Description: Introduction
+        ============
+        
+        .. image:: https://badge.fury.io/py/marcxml2mods.png
+            :target: https://pypi.python.org/pypi/marcxml2mods
+        
+        .. image:: https://pypip.in/d/marcxml2mods/badge.png
+        
+        This package provides conversion functions to convert data from
+        `MARC XML`_ / `OAI`_ format to MODS_ XML format used in
+        `National Library of the Czech Republic`_ (NK CZ).
+        
+        .. _MARC XML: http://www.loc.gov/marc/marcxml.html
+        .. _OAI: http://www.openarchives.org/OAI/2.0/guidelines-oai_marc.htm
+        .. _MODS: http://www.loc.gov/standards/mods/
+        .. _National Library of the Czech Republic: http://www.nkp.cz/
+        
+        
+        Documentation
+        -------------
+        
+        Full module documentation and description can be found at Read the Docs:
+        
+        - http://marcxml2mods.readthedocs.org/
+        
+        Contributors
+        ============
+        
+        - Bystroushaak <bystrousak@kitakitsune.org>, Developer
+        
+        Changelog
+        =========
+        
+        0.2.0
+        -----
+            - Added code, documentation and test coverage.
+            - Package is now capable of transforming MARC XML / OAI to MODS in case of monographic publications.
+            - Multimonograph and periodical publications should work, but are untested and postprocessing is not defined.
+        
+        0.1.0
+        -----
+            - Project created.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
