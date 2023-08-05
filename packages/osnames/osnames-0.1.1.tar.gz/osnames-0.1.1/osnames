@@ -1,0 +1,94 @@
+#!/usr/bin/env python
+from __future__ import print_function
+import re
+import os
+import sys
+import argparse
+#from fnmatch import fnmatch
+from contextlib import contextmanager
+
+import requests
+
+class OSNames:
+
+    urls = [
+        'http://git.openstack.org/cgit',
+        'http://git.openstack.org/cgit/?ofs=600',
+        ]
+
+    gitpath = 'https://git.openstack.org/'
+
+    def __iter__(self):
+        for url in self.urls:
+            page = requests.get(url).content
+            for proj in re.findall(r"td class=.sublevel-repo.*?<a .*?>(.*?)</a>", page):
+                yield proj
+
+@contextmanager
+def cd(path):
+    old = os.getcwd()
+    yield
+    os.chdir(old)
+
+
+def find(pattern):
+    for proj in OSNames():
+        if proj.find(pattern) != -1:
+            yield proj
+
+
+def cmd_find(args):
+    for proj in find(args.pattern):
+        print(proj)
+
+
+def cmd_clone(args):
+    projs = list(find(args.pattern))
+    print('\n'.join(projs))
+    ch = raw_input('Do you want to clone all the above projects [Y/n]? ')
+    if ch.lower() in ('n', 'no'):
+        return
+
+    with cd(args.directory):
+        for proj in projs:
+            path = os.path.basename(proj) if args.basename else proj
+            if os.path.exists(os.path.join(path, '.git')):
+                continue
+            cmd = 'git clone %s%s %s' % (OSNames.gitpath, proj, path)
+            print('>>>', cmd)
+            if args.dry_run:
+                continue
+            try:
+                os.system(cmd)
+            except KeyboardInterrupt:
+                raise
+
+
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument('--cache', help='use cache', action='store_true')
+    p.add_argument('--dry-run', help='for testing', action='store_true')
+
+    sub = p.add_subparsers(title='subcommands')
+    findp = sub.add_parser('find')
+    findp.add_argument('pattern', help='project name to find')
+    findp.set_defaults(func=cmd_find)
+
+    clonep = sub.add_parser('clone')
+    clonep.add_argument('pattern')
+    clonep.add_argument('-b', '--basename', help='use basename in output path', action='store_true')
+    clonep.add_argument('-D', '--directory', help='target directory', default=os.getcwd())
+    clonep.set_defaults(func=cmd_clone)
+    return p.parse_args()
+
+
+def main():
+    args = parse_args()
+    if args.cache:
+        import requests_cache
+        requests_cache.install_cache()
+    sys.exit(args.func(args))
+
+
+if __name__ == '__main__':
+    main()
