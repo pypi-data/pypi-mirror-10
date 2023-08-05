@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: django-multimedia
+Version: 0.2.0
+Summary: Encode and upload multimedia from the Django admin interface
+Home-page: https://github.com/jbittel/django-multimedia
+Author: Jason Bittel
+Author-email: jason.bittel@gmail.com
+License: BSD
+Download-URL: https://pypi.python.org/pypi/django-multimedia/
+Description: django-multimedia
+        =================
+        
+        Encode and upload multimedia from the Django admin interface. Supports any
+        encoding profile you can write a command line statement to accomplish.
+        
+        Quick start
+        -----------
+        
+        Install with `pip`_::
+        
+           $ pip install django-multimedia
+        
+        Add to ``INSTALLED_APPS``::
+        
+           INSTALLED_APPS += (
+               'storage',
+               'multimedia',
+           )
+        
+        Update your database::
+        
+           $ ./manage.py syncdb
+           $ ./manage.py migrate multimedia
+        
+        Configure your selected `storage backend`_::
+        
+           MULTIMEDIA_FILE_STORAGE = 'path.to.backend'
+        
+        .. _pip: http://www.pip-installer.org/
+        .. _storage backend: http://django-storages.readthedocs.org/
+        
+Keywords: multimedia,media,audio,video,encoding,conversion
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Multimedia :: Video :: Conversion
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Multimedia :: Sound/Audio :: Conversion
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
