@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: ruamel.minimal
+Version: 0.4
+Summary: provides a minimal package to test if tox works for multiple installs
+Home-page: http://bitbucket.com/ruamel/minimal/
+Author: Anthon van der Neut
+Author-email: anthon@Mnt.org
+License: MIT
+Description: 
+        ruamel.minimal
+        ==============
+        
+        minimal package to test if interpreter install, pip can
+        retrieve something and virtualenv/tox/py.test are set up.
+        
+        Prints the 64/32 bit info from the python exe, as py.test
+        doesn't do that (pytest 2.7.1).
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: System :: Installation/Setup
