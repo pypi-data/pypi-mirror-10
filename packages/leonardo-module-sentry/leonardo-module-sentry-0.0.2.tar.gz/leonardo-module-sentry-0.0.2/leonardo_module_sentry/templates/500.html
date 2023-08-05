@@ -1,0 +1,4 @@
+<p>The Leonardo team has been alerted and we're on the case. For more information, check out <a href="https://github.com/django-leonardo/django-leonardo/issues">Leonardo Issues »</a></p>
+{% if request.sentry.id %}
+    <p>If you need assistance, you may reference this error as <strong>{{ request.sentry.id }}</strong>.</p>
+{% endif %}
