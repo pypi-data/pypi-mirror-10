@@ -1,0 +1,4 @@
+[console_scripts]
+nodepoold = nodepool.cmd.nodepoold:main
+nodepool = nodepool.cmd.nodepoolcmd:main
+
