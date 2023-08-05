@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Django secure-js-login example project{% endblock %}
+
+{% block content %}
+    <h1>Example project test page.</h1>
+    <p>Try out:</p>
+    <ul>
+        <li><a href="{% url 'secure-js-login:login' %}">secure JS login</a></li>
+        <li><a href="{% url 'honypot-login:login' %}">honypot login</a></li>
+        <li><a href="{% url 'admin:index' %}">Django Admin</a></li>
+    </ul>
+{% endblock content %}
