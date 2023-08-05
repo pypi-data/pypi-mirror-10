@@ -1,0 +1,25 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept-encoding: ['gzip, deflate']
+      !!python/unicode 'authorization': [!!python/unicode 'Basic cmVzdGFkbWluOnJlc3RwYXNz']
+      !!python/unicode 'user-agent': [!!python/unicode 'GNU Mailman REST client v1.0.0b1']
+    method: !!python/unicode 'GET'
+    uri: http://localhost:9001/3.0/lists/foo.example.com/roster/owner
+  response:
+    body: {string: !!python/unicode '{"entries": [{"role": "owner", "list_id": "foo.example.com",
+        "user": "http://localhost:9001/3.0/users/43128411197829253290894670252349751310",
+        "address": "http://localhost:9001/3.0/addresses/newowner@example.com", "email":
+        "newowner@example.com", "self_link": "http://localhost:9001/3.0/members/301200134723622213332953324062582371198",
+        "delivery_mode": "regular", "member_id": 301200134723622213332953324062582371198,
+        "http_etag": "\"28b18726c05af574df6ce44bef6e21fed7d5c470\""}], "start": 0,
+        "http_etag": "\"a41be3d8b413e41956e4947b5c03eff8049bcad5\"", "total_size":
+        1}'}
+    headers:
+      content-length: ['571']
+      content-type: [application/json; charset=utf-8]
+      date: ['Tue, 14 Apr 2015 14:06:45 GMT']
+      server: [WSGIServer/0.2 CPython/3.4.2]
+    status: {code: 200, message: OK}
+version: 1
