@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: pdnssync
+Version: 0.4
+Summary: PowerDNS sync tool
+Home-page: https://github.com/Quiphius/pdns-sync
+Author: Mikael Olofsson
+Author-email: mikael.olofsson@oet.nu
+License: MIT
+Description: A tool to read a hosts-like file and synconize it with the database used by PowerDNS.
+Keywords: powerdns hosts sync postgresql
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Internet :: Name Service (DNS)
+Classifier: Topic :: System :: Systems Administration

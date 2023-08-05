@@ -1,0 +1,4 @@
+[console_scripts]
+pdns-sync = pdnssync.main:do_sync
+pdns-export = pdnssync.main:do_export
+
