@@ -1,0 +1,5 @@
+[zc.buildout]
+default = theo.recipe.cmd:Cmd
+py = theo.recipe.cmd:Python
+sh = theo.recipe.cmd:Cmd
+

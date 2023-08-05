@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: theo.recipe.cmd
+Version: 0.6.2
+Summary: ZC Buildout recipe to execute commands in it's own shell
+Home-page: https://github.com/timonwong/theo.recipe.cmd
+Author: Timon Wong
+Author-email: timon86.wang@gmail.com
+License: GPL
+Description: =======================
+        theo.recipe.cmd package
+        =======================
+        
+        .. contents::
+        
+        What is theo.recipe.cmd ?
+        =======================
+        
+        This recipe is used to run one or more command lines.
+        
+        I stole this from cp.recipe.cmd (http://pypi.python.org/pypi/cp.recipe.cmd)
+        
+        Changelog
+        =========
+        
+        0.6 (2014-12-10)
+        ----------------
+        
+        - Unix only
+        - Prints to stdout as command goes
+        
+Keywords: buildout,zc.buildout,recipe
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Framework :: Buildout
