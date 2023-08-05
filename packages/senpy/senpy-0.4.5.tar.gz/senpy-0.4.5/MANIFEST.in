@@ -1,0 +1,6 @@
+include requirements.txt
+include test-requirements.txt
+include README.md
+include senpy/context.jsonld
+recursive-include senpy/plugins
+recursive-include *.senpy
