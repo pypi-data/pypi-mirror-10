@@ -1,0 +1,18 @@
+.modal-dialog {
+  background: white;
+}
+.modal-dialog .modal-title, .modal-text{
+    color: #000000;
+}
+
+form label.error {
+  line-height: 14px;
+  font-size: 12px;
+  color: red;
+}
+.modal-content {
+  padding: 15px;
+}
+a.btn.btn-success {
+  margin: 10px;
+}
