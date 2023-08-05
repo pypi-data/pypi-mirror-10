@@ -1,0 +1,1217 @@
+modes   : dump
+db url  : mongodb://54.221.194.147:24242/radicalpilot/
+cachedir: /home/merzky/saga/radical.pilot
+session : rp.session.ip-10-184-31-85.mturilli.016546.0001
+session : rp.session.ip-10-184-31-85.mturilli.016546.0001
+ +-- db   radicalpilot
+ | +-- coll rp.session.ip-10-184-31-85.mturilli.016546.0001
+ | | +-- doc  rp.session.ip-10-184-31-85.mturilli.016546.0001
+ | | | +-- _id        : u'rp.session.ip-10-184-31-85.mturilli.016546.0001'
+ | | | +-- connected  : datetime.datetime(2015, 4, 21, 19, 42, 49, 714000)
+ | | | +-- name       : u'rp.session.ip-10-184-31-85.mturilli.016546.0001'
+ | | | +-- created    : datetime.datetime(2015, 4, 21, 19, 42, 49, 714000)
+ | +-- coll rp.session.ip-10-184-31-85.mturilli.016546.0001.pm
+ | | +-- doc  5536a83a23769c619f0e7501
+ | | | +-- _id        : ObjectId('5536a83a23769c619f0e7501')
+ | | | +-- data       : {}
+ | | | +-- pilot_launcher_workers : 1
+ | +-- coll rp.session.ip-10-184-31-85.mturilli.016546.0001.p
+ | | +-- doc  pilot.0000
+ | | | +-- input_transfer_started : None
+ | | | +-- log        : [{u'message': u'Using bootstrapper /home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 42, 52, 225000)},
+ | | | |                 {u'message': u"Copying bootstrapper 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh' to agent sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000//pilot_bootstrapper.sh).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 42, 52, 225000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/utils/radical.utils-0.28.tar.gz' to sdist sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 592000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/saga/saga-python-0.28.tar.gz' to sdist sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 4, 106000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/pilot/controller/..//radical.pilot-v0.28-2-g7473553-master.tar.gz' to sdist sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 4, 638000)},
+ | | | |                 {u'message': u'Submitting SAGA job with description: {\'Queue\': \'batch\', \'Executable\': \'/bin/bash\', \'TotalPhysicalMemory\': None, \'WorkingDirectory\': \'/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/\', \'Project\': \'unc101\', \'WallTimeLimit\': 56, \'Arguments\': [\'-l pilot_bootstrapper.sh\', " -b \'radical.utils-0.28.tar.gz:saga-python-0.28.tar.gz:radical.pilot-v0.28-2-g7473553-master.tar.gz\' -c \'20\' -d \'10\' -g \'/usr/users/9/mturilli/radical.pilot.sandbox/ve_blacklight\' -j \'DPLACE\' -k \'MPIRUN_DPLACE\' -l \'TORQUE\' -m \'54.221.194.147:24242\' -n \'radicalpilot\' -o \'POPEN\' -p \'pilot.0000\' -q \'CONTINUOUS\' -r \'56\' -s \'rp.session.ip-10-184-31-85.mturilli.016546.0001\' -t \'multicore\' -u \'create\' -v \'debug\' -e \'source /usr/share/modules/init/bash\' -e \'module load python\' -e \'unset PYTHONPATH\' -x \'lue\'"], \'Error\': \'agent.err\', \'Output\': \'agent.out\', \'TotalCPUCount\': 20}',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 7, 670000)},
+ | | | |                 {u'message': u'SAGA job submitted with job id [pbs+ssh://blacklight.psc.xsede.org/?ppn=16]-[451314]',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 8, 27000)}]
+ | | | +-- output_transfer_finished : None
+ | | | +-- state      : u'PendingActive'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'PendingLaunch',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 42, 52, 87000)},
+ | | | |                 {u'state': u'Launching',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 42, 52, 221000)},
+ | | | |                 {u'state': u'PendingActive',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 8, 27000)}]
+ | | | +-- nodes      : None
+ | | | +-- description : {u'access_schema': None,
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 20,
+ | | | |                 u'memory': None,
+ | | | |                 u'project': u'unc101',
+ | | | |                 u'queue': None,
+ | | | |                 u'resource': u'xsede.blacklight',
+ | | | |                 u'runtime': 56,
+ | | | |                 u'sandbox': None}
+ | | | +-- started    : None
+ | | | +-- cores_per_node : None
+ | | | +-- finished   : None
+ | | | +-- commands   : [{u'arg': None,
+ | | | |                  u'time': datetime.datetime(2015, 4, 21, 20, 16, 36, 242000),
+ | | | |                  u'type': u'Cancel_Pilot'}]
+ | | | +-- global_sandbox : u'/usr/users/9/mturilli/radical.pilot.sandbox'
+ | | | +-- sagajobid  : None
+ | | | +-- output_transfer_started : None
+ | | | +-- saga_job_id : u'[pbs+ssh://blacklight.psc.xsede.org/?ppn=16]-[451314]'
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 42, 52, 89000)
+ | | | +-- sandbox    : u'sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/'
+ | | | +-- pilotmanager : u'5536a83a23769c619f0e7501'
+ | | | +-- heartbeat  : None
+ | | | +-- _id        : u'pilot.0000'
+ | | | +-- input_transfer_finished : None
+ | | +-- doc  pilot.0001
+ | | | +-- input_transfer_started : None
+ | | | +-- log        : [{u'message': u'Using bootstrapper /home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 8, 31000)},
+ | | | |                 {u'message': u"Copying bootstrapper 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh' to agent sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001//pilot_bootstrapper.sh).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 8, 32000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/utils/radical.utils-0.28.tar.gz' to sdist sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 13, 446000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/saga/saga-python-0.28.tar.gz' to sdist sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 14, 176000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/pilot/controller/..//radical.pilot-v0.28-2-g7473553-master.tar.gz' to sdist sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 14, 990000)},
+ | | | |                 {u'message': u'Submitting SAGA job with description: {\'Queue\': \'normal\', \'Executable\': \'/bin/bash\', \'TotalPhysicalMemory\': None, \'WorkingDirectory\': \'/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/\', \'Project\': \'TG-MCB090174\', \'WallTimeLimit\': 56, \'Arguments\': [\'-l pilot_bootstrapper.sh\', " -b \'radical.utils-0.28.tar.gz:saga-python-0.28.tar.gz:radical.pilot-v0.28-2-g7473553-master.tar.gz\' -c \'20\' -d \'10\' -g \'/work/02855/mturilli/radical.pilot.sandbox/ve_stampede\' -j \'SSH\' -k \'MPIRUN_RSH\' -l \'SLURM\' -m \'54.221.194.147:24242\' -n \'radicalpilot\' -o \'POPEN\' -p \'pilot.0001\' -q \'CONTINUOUS\' -r \'56\' -s \'rp.session.ip-10-184-31-85.mturilli.016546.0001\' -t \'multicore\' -u \'update\' -v \'local\' -e \'module purge\' -e \'module load TACC\' -e \'module load cluster\' -e \'module load Linux\' -e \'module load mvapich2\' -e \'module load python\' -e \'module unload xalt\' -e \'export TACC_DELETE_FILES=TRUE\' -i \'python\' -x \'lue\'"], \'Error\': \'agent.err\', \'Output\': \'agent.out\', \'TotalCPUCount\': 20}',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 17, 678000)},
+ | | | |                 {u'message': u'SAGA job submitted with job id [slurm+ssh://stampede.tacc.utexas.edu/]-[5144337]',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 28, 98000)}]
+ | | | +-- output_transfer_finished : None
+ | | | +-- state      : u'PendingActive'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'PendingLaunch',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 42, 59, 168000)},
+ | | | |                 {u'state': u'Launching',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 8, 29000)},
+ | | | |                 {u'state': u'PendingActive',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 28, 98000)}]
+ | | | +-- nodes      : None
+ | | | +-- description : {u'access_schema': None,
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 20,
+ | | | |                 u'memory': None,
+ | | | |                 u'project': u'TG-MCB090174',
+ | | | |                 u'queue': None,
+ | | | |                 u'resource': u'xsede.stampede',
+ | | | |                 u'runtime': 56,
+ | | | |                 u'sandbox': None}
+ | | | +-- started    : None
+ | | | +-- cores_per_node : None
+ | | | +-- finished   : None
+ | | | +-- commands   : [{u'arg': None,
+ | | | |                  u'time': datetime.datetime(2015, 4, 21, 20, 16, 36, 242000),
+ | | | |                  u'type': u'Cancel_Pilot'}]
+ | | | +-- global_sandbox : u'/work/02855/mturilli/radical.pilot.sandbox'
+ | | | +-- sagajobid  : None
+ | | | +-- output_transfer_started : None
+ | | | +-- saga_job_id : u'[slurm+ssh://stampede.tacc.utexas.edu/]-[5144337]'
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 42, 59, 169000)
+ | | | +-- sandbox    : u'sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/'
+ | | | +-- pilotmanager : u'5536a83a23769c619f0e7501'
+ | | | +-- heartbeat  : None
+ | | | +-- _id        : u'pilot.0001'
+ | | | +-- input_transfer_finished : None
+ | | +-- doc  pilot.0002
+ | | | +-- stdout     : None
+ | | | +-- callbackhistory : [{u'state': u'Launching',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 28, 334000)},
+ | | | |                 {u'state': u'PendingActive',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 38, 364000)},
+ | | | |                 {u'state': u'Active',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 754000)},
+ | | | |                 {u'state': u'Canceled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 45, 697000)}]
+ | | | +-- input_transfer_started : None
+ | | | +-- log        : [{u'message': u'Using bootstrapper /home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 28, 103000)},
+ | | | |                 {u'message': u"Copying bootstrapper 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh' to agent sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//pilot_bootstrapper.sh).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 28, 104000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/utils/radical.utils-0.28.tar.gz' to sdist sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 30, 410000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/saga/saga-python-0.28.tar.gz' to sdist sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 31, 390000)},
+ | | | |                 {u'message': u"Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/pilot/controller/..//radical.pilot-v0.28-2-g7473553-master.tar.gz' to sdist sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/).",
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 32, 681000)},
+ | | | |                 {u'message': u'Submitting SAGA job with description: {\'Queue\': \'normal\', \'Executable\': \'/bin/bash\', \'TotalPhysicalMemory\': None, \'WorkingDirectory\': \'/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/\', \'Project\': \'unc101\', \'WallTimeLimit\': 56, \'Arguments\': [\'-l pilot_bootstrapper.sh\', " -b \'radical.utils-0.28.tar.gz:saga-python-0.28.tar.gz:radical.pilot-v0.28-2-g7473553-master.tar.gz\' -c \'20\' -d \'10\' -g \'/home/mturilli/radical.pilot.sandbox/ve_gordon\' -j \'SSH\' -k \'MPIRUN_RSH\' -l \'TORQUE\' -m \'54.221.194.147:24242\' -n \'radicalpilot\' -o \'POPEN\' -p \'pilot.0002\' -q \'CONTINUOUS\' -r \'56\' -s \'rp.session.ip-10-184-31-85.mturilli.016546.0001\' -t \'multicore\' -u \'create\' -v \'debug\' -e \'module purge\' -e \'module load python intel mvapich2_ib gnubase\' -x \'lue\'"], \'Error\': \'agent.err\', \'Output\': \'agent.out\', \'TotalCPUCount\': 20}',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 36, 735000)},
+ | | | |                 {u'message': u'SAGA job submitted with job id [pbs+ssh://gordon.sdsc.xsede.org/]-[2016689]',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 37, 495000)},
+ | | | |                 {u'message': u'CANCEL received. Terminating.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 44, 678000)},
+ | | | |                 {u'message': u'real 1828.645286 sec | user 8.070 sec | system 1.793 sec | mem 39304.00 kB',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 44, 678000)},
+ | | | |                 {u'message': u'Terminated (_terminate set).',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 45, 865000)},
+ | | | |                 {u'message': u'real 1828.846895 sec | user 8.073 sec | system 1.796 sec | mem 39328.00 kB',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 45, 865000)}]
+ | | | +-- output_transfer_finished : None
+ | | | +-- state      : u'Canceled'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'PendingLaunch',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 1, 963000)},
+ | | | |                 {u'state': u'Launching',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 28, 100000)},
+ | | | |                 {u'state': u'PendingActive',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 37, 495000)},
+ | | | |                 {u'state': u'Active',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 560000)},
+ | | | |                 {u'state': u'Canceled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 44, 678000)},
+ | | | |                 {u'state': u'Canceled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 45, 865000)}]
+ | | | +-- nodes      : [u'gcn-9-76', u'gcn-9-75']
+ | | | +-- description : {u'access_schema': None,
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 20,
+ | | | |                 u'memory': None,
+ | | | |                 u'project': u'unc101',
+ | | | |                 u'queue': None,
+ | | | |                 u'resource': u'xsede.gordon',
+ | | | |                 u'runtime': 56,
+ | | | |                 u'sandbox': None}
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 19, 46, 17, 560000)
+ | | | +-- cores_per_node : 16
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 16, 45, 865000)
+ | | | +-- logfile    : u"[... CONTENT SHORTENED ...]\n-----|'}\n2015-04-21 13:16:30,951 - radical.pilot.agent - INFO - slot status before reschedule: {'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 951641), 'slotstate': '|----------------|----------------|'}\n2015-04-21 13:16:30,952 - radical.pilot.agent - INFO - slot status after  reschedule: {'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 952708), 'slotstate': '|----------------|----------------|'}\n2015-04-21 13:16:31,125 - radical.pilot.agent - DEBUG - bulk update result: {'nModified': 1, 'nUpserted': 0, 'nMatched': 1, 'writeErrors': [], 'upserted': [], 'writeConcernErrors': [], 'nRemoved': 0, 'nInserted': 0}\n2015-04-21 13:16:32,218 - radical.pilot.agent - DEBUG - bulk update result: {'nModified': 1, 'nUpserted': 0, 'nMatched': 1, 'writeErrors': [], 'upserted': [], 'writeConcernErrors': [], 'nRemoved': 0, 'nInserted': 0}\n2015-04-21 13:16:44,678 - radical.pilot.agent - WARNING - CANCEL received. Terminating.\n2015-04-21 13:16:45,865 - radical.pilot.agent - WARNING - Terminated (_terminate set).\n"
+ | | | +-- commands   : []
+ | | | +-- global_sandbox : u'/home/mturilli/radical.pilot.sandbox'
+ | | | +-- sagajobid  : None
+ | | | +-- output_transfer_started : None
+ | | | +-- saga_job_id : u'[pbs+ssh://gordon.sdsc.xsede.org/]-[2016689]'
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 1, 965000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- pilotmanager : u'5536a83a23769c619f0e7501'
+ | | | +-- stderr     : None
+ | | | +-- heartbeat  : None
+ | | | +-- _id        : u'pilot.0002'
+ | | | +-- input_transfer_finished : None
+ | +-- coll rp.session.ip-10-184-31-85.mturilli.016546.0001.um
+ | | +-- doc  5536a84523769c619f0e7502
+ | | | +-- input_transfer_workers : 2
+ | | | +-- _id        : ObjectId('5536a84523769c619f0e7502')
+ | | | +-- output_transfer_workers : 2
+ | | | +-- scheduler  : u'backfilling'
+ | +-- coll rp.session.ip-10-184-31-85.mturilli.016546.0001.cu
+ | | +-- doc  unit.000004
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_5 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_5 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_5 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 19000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 526000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 588000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 23, 595000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 23, 847000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 896000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-76:0', u'gcn-9-76:1']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_5',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_5'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 762000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_5 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000004/Stage_1_Input/Stage_1_Input_0_5',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 6000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 10000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 414000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 573000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 23, 349000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 23, 354000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_5',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 24, 673000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000004/Stage_1_Output/Stage_1_Output_0_5 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_5',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 134000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 142000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 655000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 835000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 11000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 250000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 414000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 573000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 23, 349000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 24, 671000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 145000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_5',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_5'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'2',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_5',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_5',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 2,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_5',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_5'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_4',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_5',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_5'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 19, 46, 22, 573000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 1, 23, 348000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 657000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000004'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000004'
+ | | +-- doc  unit.000002
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_3 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_3 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_3 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 17000)},
+ | | | |                 {u'state': u'PendingInputStaging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 529000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 589000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 621000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 628000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 27, 884000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 32, 942000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-76:6',
+ | | | |                 u'gcn-9-76:7',
+ | | | |                 u'gcn-9-76:8',
+ | | | |                 u'gcn-9-76:9',
+ | | | |                 u'gcn-9-76:10',
+ | | | |                 u'gcn-9-76:11',
+ | | | |                 u'gcn-9-76:12',
+ | | | |                 u'gcn-9-76:13',
+ | | | |                 u'gcn-9-76:14',
+ | | | |                 u'gcn-9-76:15',
+ | | | |                 u'gcn-9-75:0',
+ | | | |                 u'gcn-9-75:1',
+ | | | |                 u'gcn-9-75:2',
+ | | | |                 u'gcn-9-75:3',
+ | | | |                 u'gcn-9-75:4',
+ | | | |                 u'gcn-9-75:5']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_3',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_3'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 766000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_3 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000002/Stage_1_Input/Stage_1_Input_0_3',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 293000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 297000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 490000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 563000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 27, 64000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 27, 67000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_3',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 156000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000002/Stage_1_Output/Stage_1_Output_0_3 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_3',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 441000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 446000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 639000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 22, 12000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 44000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 323000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 490000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 563000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 27, 64000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 154000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 32, 732000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_3',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_3'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'16',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_3',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_3',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 16,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_3',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_3'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_2',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_3',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_3'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 19, 46, 26, 563000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 1, 27, 63000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 640000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000002'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000002'
+ | | +-- doc  unit.000007
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_8 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_8 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_8 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 23000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 527000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 609000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 621000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 862000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 915000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-76:2', u'gcn-9-76:3', u'gcn-9-76:4', u'gcn-9-76:5']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_8',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_8'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 764000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_8 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000007/Stage_1_Input/Stage_1_Input_0_8',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 158000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 296000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 587000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 667000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 157000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 160000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_8',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 717000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000007/Stage_1_Output/Stage_1_Output_0_8 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_8',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 542000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 445000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 676000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 508000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 299000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 428000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 587000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 667000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 157000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 687000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 447000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_8',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_8'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'4',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_8',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_8',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 4,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_8',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_8'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_7',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_8',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_8'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 19, 46, 24, 667000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 1, 25, 156000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 678000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000007'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000007'
+ | | +-- doc  unit.000001
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_2 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_2 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_2 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 17000)},
+ | | | |                 {u'state': u'PendingInputStaging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 535000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 610000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 636000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 642000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 917000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 33, 954000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-75:8',
+ | | | |                 u'gcn-9-75:9',
+ | | | |                 u'gcn-9-75:10',
+ | | | |                 u'gcn-9-75:11',
+ | | | |                 u'gcn-9-75:12',
+ | | | |                 u'gcn-9-75:13',
+ | | | |                 u'gcn-9-75:14',
+ | | | |                 u'gcn-9-75:15']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_2',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_2'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 771000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_2 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000001/Stage_1_Input/Stage_1_Input_0_2',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 39000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 43000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 954000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 39000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 975000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 977000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_2',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 451000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000001/Stage_1_Output/Stage_1_Output_0_2 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_2',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 31, 722000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 31, 727000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 617000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 300000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 602000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 794000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 954000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 39000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 975000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 449000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 33, 737000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_2',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_2'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'8',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_2',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_2',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 8,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_2',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_2'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_1',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_2',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_2'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 19, 46, 29, 39000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 1, 29, 974000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 639000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000001'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000001'
+ | | +-- doc  unit.000005
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_6 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_6 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_6 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 21000)},
+ | | | |                 {u'state': u'PendingInputStaging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 530000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 609000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 629000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 635000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 642000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 906000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 31, 929000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-75:6', u'gcn-9-75:7']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_6',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_6'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 769000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_6 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000005/Stage_1_Input/Stage_1_Input_0_6',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 25, 879000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 42000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 113000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 188000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 669000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 672000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_6',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 547000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000005/Stage_1_Output/Stage_1_Output_0_6 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_6',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 803000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 31, 726000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 657000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 24, 160000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 597000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 952000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 113000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 28, 187000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 669000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 29, 544000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 31, 728000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_6',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_6'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'2',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_6',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_6',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 2,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_6',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_6'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_5',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_6',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_6'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 19, 46, 28, 187000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 1, 28, 668000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 670000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000005'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000005'
+ | | +-- doc  unit.000006
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_7 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_7 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_7 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 21000)},
+ | | | |                 {u'state': u'PendingInputStaging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 535000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 622000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 643000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 649000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 871000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 26, 433000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 31, 526000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-76:0', u'gcn-9-76:1', u'gcn-9-76:2', u'gcn-9-76:3']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_7',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_7'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 772000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_7 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000006/Stage_1_Input/Stage_1_Input_0_7',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 520000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 596000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 83000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 241000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 25, 835000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 25, 839000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_7',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 27, 515000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000006/Stage_1_Output/Stage_1_Output_0_7 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_7',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 31, 231000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 31, 234000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 670000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 25, 881000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 607000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 914000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 83000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 25, 241000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 25, 835000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 27, 513000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 31, 236000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_7',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_7'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'4',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_7',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_7',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 4,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_7',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_7'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_6',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_7',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_7'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 20, 1, 25, 241000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 16, 25, 834000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 676000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000006'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000006'
+ | | +-- doc  unit.000003
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_4 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_4 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_4 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 18000)},
+ | | | |                 {u'state': u'PendingInputStaging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 537000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 629000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 31, 657000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 32, 663000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 31, 932000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 31, 531000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 34, 556000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-76:12',
+ | | | |                 u'gcn-9-76:13',
+ | | | |                 u'gcn-9-76:14',
+ | | | |                 u'gcn-9-76:15',
+ | | | |                 u'gcn-9-75:0',
+ | | | |                 u'gcn-9-75:1',
+ | | | |                 u'gcn-9-75:2',
+ | | | |                 u'gcn-9-75:3',
+ | | | |                 u'gcn-9-75:4',
+ | | | |                 u'gcn-9-75:5',
+ | | | |                 u'gcn-9-75:6',
+ | | | |                 u'gcn-9-75:7',
+ | | | |                 u'gcn-9-75:8',
+ | | | |                 u'gcn-9-75:9',
+ | | | |                 u'gcn-9-75:10',
+ | | | |                 u'gcn-9-75:11']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_4',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_4'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 775000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_4 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000003/Stage_1_Input/Stage_1_Input_0_4',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 54000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 29, 606000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 32, 85000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 402000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 951000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 953000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_4',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 32, 243000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000003/Stage_1_Output/Stage_1_Output_0_4 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_4',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 33, 567000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 33, 571000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 641000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 526000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 31, 615000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 31, 921000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 32, 85000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 30, 402000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 951000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 32, 241000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 33, 572000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_4',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_4'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'16',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_4',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_4',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 16,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_4',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_4'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_3',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_4',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_4'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 20, 1, 30, 402000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 16, 30, 950000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 655000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000003'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000003'
+ | | +-- doc  unit.000000
+ | | | +-- stdout     : u'serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_1 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_1 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_1 with bufsize: 65536\n'
+ | | | +-- callbackhistory : [{u'state': u'Unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 3, 16000)},
+ | | | |                 {u'state': u'PendingInputStaging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 18, 537000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 622000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 650000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 31, 656000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 28, 900000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 28, 448000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 35, 568000)}]
+ | | | +-- Agent_Output_Directives : []
+ | | | +-- Agent_Output_Status : None
+ | | | +-- slots      : [u'gcn-9-76:4',
+ | | | |                 u'gcn-9-76:5',
+ | | | |                 u'gcn-9-76:6',
+ | | | |                 u'gcn-9-76:7',
+ | | | |                 u'gcn-9-76:8',
+ | | | |                 u'gcn-9-76:9',
+ | | | |                 u'gcn-9-76:10',
+ | | | |                 u'gcn-9-76:11']
+ | | | +-- exec_locs  : None
+ | | | +-- FTW_Input_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Input/Stage_1_Input_0_1',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Input/Stage_1_Input_0_1'}]
+ | | | +-- log        : [{u'message': u'unit remains unscheduled',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 720000)},
+ | | | |                 {u'message': u'Scheduled for data transfer to ComputePilot pilot.0002.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 17, 774000)},
+ | | | |                 {u'message': u'Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_1 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000000/Stage_1_Input/Stage_1_Input_0_1',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 593000)},
+ | | | |                 {u'message': u'All FTW Input Staging Directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 27, 596000)},
+ | | | |                 {u'message': u'unit needs no input staging',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 958000)},
+ | | | |                 {u'message': u'unit execution start',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 27, 131000)},
+ | | | |                 {u'message': u'unit execution completed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 27, 642000)},
+ | | | |                 {u'message': u'FTW output staging needed',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 27, 644000)},
+ | | | |                 {u'message': u'Starting transfer of Stage_1_Output/Stage_1_Output_0_1',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 28, 895000)},
+ | | | |                 {u'message': u'Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000000/Stage_1_Output/Stage_1_Output_0_1 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_1',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 32, 723000)},
+ | | | |                 {u'message': u'All FTW output staging directives done - 1.',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 33, 570000)}]
+ | | | +-- exit_code  : 0
+ | | | +-- FTW_Input_Status : u'Done'
+ | | | +-- state      : u'Done'
+ | | | +-- unitmanager : u'5536a84523769c619f0e7502'
+ | | | +-- statehistory : [{u'state': u'Scheduling',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 43, 2, 616000)},
+ | | | |                 {u'state': u'StagingInput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 26, 45000)},
+ | | | |                 {u'state': u'PendingExecution',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 612000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 793000)},
+ | | | |                 {u'state': u'Allocating',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 19, 46, 30, 958000)},
+ | | | |                 {u'state': u'Executing',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 1, 27, 131000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 27, 642000)},
+ | | | |                 {u'state': u'StagingOutput',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 28, 889000)},
+ | | | |                 {u'state': u'Done',
+ | | | |                  u'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 34, 576000)}]
+ | | | +-- pilot      : u'pilot.0002'
+ | | | +-- FTW_Output_Directives : [{u'action': u'Transfer',
+ | | | |                  u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                  u'priority': 0,
+ | | | |                  u'source': u'Stage_1_Output/Stage_1_Output_0_1',
+ | | | |                  u'state': u'Done',
+ | | | |                  u'target': u'Stage_1_Output/Stage_1_Output_0_1'}]
+ | | | +-- pilot_sandbox : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/'
+ | | | +-- description : {u'arguments': [u'serial',
+ | | | |                                u'8',
+ | | | |                                u'900.0',
+ | | | |                                u'65536',
+ | | | |                                u'65536',
+ | | | |                                u'1',
+ | | | |                                u'1',
+ | | | |                                u'0',
+ | | | |                                u'Stage_1_Input/Stage_1_Input_0_1',
+ | | | |                                u'Stage_1_Output/Stage_1_Output_0_1',
+ | | | |                                u'20000'],
+ | | | |                 u'cleanup': True,
+ | | | |                 u'cores': 8,
+ | | | |                 u'environment': None,
+ | | | |                 u'executable': u'task',
+ | | | |                 u'input_staging': [{u'action': u'Transfer',
+ | | | |                                     u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                     u'priority': 0,
+ | | | |                                     u'source': u'Stage_1_Input/Stage_1_Input_0_1',
+ | | | |                                     u'target': u'Stage_1_Input/Stage_1_Input_0_1'}],
+ | | | |                 u'kernel': None,
+ | | | |                 u'mpi': False,
+ | | | |                 u'name': u'Stage_1_Stage_1_0',
+ | | | |                 u'output_staging': [{u'action': u'Transfer',
+ | | | |                                      u'flags': [u'CreateParents', u'SkipFailed'],
+ | | | |                                      u'priority': 0,
+ | | | |                                      u'source': u'Stage_1_Output/Stage_1_Output_0_1',
+ | | | |                                      u'target': u'Stage_1_Output/Stage_1_Output_0_1'}],
+ | | | |                 u'post_exec': None,
+ | | | |                 u'pre_exec': [],
+ | | | |                 u'restartable': False,
+ | | | |                 u'stderr': None,
+ | | | |                 u'stdout': None}
+ | | | +-- restartable : False
+ | | | +-- started    : datetime.datetime(2015, 4, 21, 20, 1, 27, 131000)
+ | | | +-- FTW_Output_Status : u'Done'
+ | | | +-- finished   : datetime.datetime(2015, 4, 21, 20, 16, 27, 641000)
+ | | | +-- Agent_Input_Directives : []
+ | | | +-- Agent_Input_Status : None
+ | | | +-- submitted  : datetime.datetime(2015, 4, 21, 19, 43, 2, 617000)
+ | | | +-- sandbox    : u'sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000000'
+ | | | +-- stderr     : u''
+ | | | +-- _id        : u'unit.000000'
