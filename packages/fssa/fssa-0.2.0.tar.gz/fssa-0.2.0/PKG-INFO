@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: fssa
+Version: 0.2.0
+Summary: Scientific Python package for finite-size scaling analysis at phase transitions
+Home-page: http://andsor.github.io/pyfssa
+Author: Andreas Sorge
+Author-email: pyfssa@asorge.de
+License: apache
+Description: ======
+        pyfssa
+        ======
+        
+        Scientific Python package for algorithmic finite-size scaling analysis at phase
+        transitions.
+        
+        * **Documentation**: http://andsor.github.io/pyfssa
+        * **Setup**: http://andsor.github.io/pyfssa/setup.html
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
