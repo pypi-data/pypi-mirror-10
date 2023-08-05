@@ -1,0 +1,171 @@
+exiflow (0.4.5.16-1) UNRELEASED; urgency=low
+
+  * Release Exiflow 0.4.5.15.
+  * Release Exiflow 0.4.5.16.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 18 Feb 2014 01:35:56 +0100
+
+exiflow (0.4.5.14-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.14.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Thu, 24 Jan 2013 23:03:07 +0100
+
+exiflow (0.4.5.13-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.13.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Wed, 16 Jan 2013 00:04:31 +0100
+
+exiflow (0.4.5.12-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.12.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 15 Jan 2013 23:27:36 +0100
+
+exiflow (0.4.5.11-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.11.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 15 Jan 2013 23:01:08 +0100
+
+exiflow (0.4.5.10-1) UNRELEASED; urgency=low
+
+  * Release Exiflow 0.4.5.8.
+  * Release Exiflow 0.4.5.9.
+  * Release Exiflow 0.4.5.10.
+
+ -- Ulf Rompe <launchpad.net@rompe.org>  Thu, 15 Nov 2012 09:06:27 +0100
+
+exiflow (0.4.5.7-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.7.
+
+ -- Ulf Rompe <launchpad.net@rompe.org>  Wed, 14 Nov 2012 01:06:41 +0100
+
+exiflow (0.4.5.6-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.6.
+
+ -- Ulf Rompe <launchpad.net@rompe.org>  Wed, 14 Nov 2012 00:26:04 +0100
+
+exiflow (0.4.5.5-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.5.
+
+ -- Ulf Rompe <launchpad.net@rompe.org>  Wed, 14 Nov 2012 00:14:19 +0100
+
+exiflow (0.4.5.4-1) precise; urgency=low
+
+  * Release Exiflow 0.4.5.4.
+
+ -- Ulf Rompe <launchpad.net@rompe.org>  Tue, 13 Nov 2012 22:44:37 +0100
+
+exiflow (0.4.5.3-1) precise; urgency=low
+
+  * Just bump version number to 0.4.5.3.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Thu, 03 May 2012 23:25:53 +0200
+
+exiflow (0.4.5.2-1) oneiric; urgency=low
+
+  * Just bump version number to 0.4.5.2.
+
+ -- Ulf Rompe <ulf@rompe.org>  Thu, 24 Nov 2011 12:42:35 +0100
+
+exiflow (0.4.5-1) maverick; urgency=low
+
+  * Bring back setup.py, this time in a way that works.
+
+  * Overhaul debian directory using stdeb 0.6:
+    python setup.py --command-packages=stdeb.command debianize
+    and merge the result with the original debian directory.
+
+  * Release all flavours based on distutils output.
+
+  * Build Debian source package for out new PPA.
+
+ -- Ulf Rompe <ulf@rompe.org>  Sun, 26 Sep 2010 22:37:17 +0200
+
+exiflow (0.4.4-1) UNRELEASED; urgency=low
+
+  * added some unit tests
+
+  * fix exiftool error detection, making all unit tests pass
+
+  * fix: stop whitespace inflation when saving keywords
+
+  * Use mount/umount instead of pmount/pumount.
+    pmount isn't part of standard installations anymore. It's job is now done
+    by udisks, but we are just happy with plain mount.
+
+  * commandline tags and section take precedence over camera model section
+    from exif.conf now
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 22 Jun 2010 21:37:15 +0100
+
+exiflow (0.4.3-1) UNRELEASED; urgency=low
+
+  * fixes #2691924 - deal with non-utf8 chars in exif data
+    Try hard to decode EXIF values as UTF-8, current locale, and Latin1. 
+    Don't die if none of these encodings succeed. Instead, use "???". 
+    Thanks to Gilbert Laycock for the patch!
+
+  * make exirename able to modify filenames which are already in the exiflow 
+    schema to allow switching to or from timestamp inclusion
+
+  * exiassign: take exif tag "Model" to decide if file has already camera exif
+    informations
+
+  * Fix update_exif() to not blow up the amount of keywords when used 
+    repeatedly.
+  
+  * Some bug fixes and minor cleanups.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 02 Sep 2008 21:37:15 +0100
+
+exiflow (0.4.2-1) UNRELEASED; urgency=low
+
+  * fixes #2053225 - exirename bug
+  
+  * Some bug fixes.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 02 Sep 2008 21:37:15 +0100
+
+exiflow (0.4.1-1) UNRELEASED; urgency=low
+
+  * fixes #2017186 - wrong indentation in the default settings.cfg file
+  
+  * Some bug fixes.
+
+ -- Sebastian Berthold <exiflow@sleif.de>  Tue, 22 Jul 2008 23:07:15 +0100
+
+exiflow (0.4.0-1) UNRELEASED; urgency=low
+
+  * Some bug fixes and new features.
+
+ -- Ulf Rompe <debian@rompe.org>  Tue, 8 Apr 2008 23:07:15 +0100
+
+exiflow (0.3.0-1) UNRELEASED; urgency=low
+
+  * First public alpha version.
+
+ -- Ulf Rompe <debian@rompe.org>  Thu, 6 Jun 2006 00:31:06 +0100
+
+exiflow (0.2.0-1) UNRELEASED; urgency=low
+
+  * First public alpha version.
+
+ -- Ulf Rompe <debian@rompe.org>  Thu, 8 Mar 2006 23:12:06 +0100
+
+exiflow (0.1.0) UNRELEASED; urgency=low
+
+  * First alpha version.
+
+ -- Ulf Rompe <debian@rompe.org>  Thu, 23 Feb 2006 10:12:06 +0100
+
+exiflow (0.1) UNRELEASED; urgency=low
+
+  * Initial release.
+
+ -- Ulf Rompe <debian@rompe.org>  Thu,  1 Dec 2005 00:09:18 +0100

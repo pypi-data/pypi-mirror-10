@@ -1,0 +1,4 @@
+#!/usr/bin/python
+import sys
+import exiflow.exirename
+sys.exit(exiflow.exirename.run(sys.argv[1:]))

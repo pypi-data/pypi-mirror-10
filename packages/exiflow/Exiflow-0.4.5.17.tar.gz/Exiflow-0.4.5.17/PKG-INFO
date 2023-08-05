@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: Exiflow
+Version: 0.4.5.17
+Summary: A set of tools including a little GUI to provide a complete digital photo workflow for Unixes, using EXIF headers as the central information repository.
+Home-page: http://exiflow.org/
+Author: Ulf Rompe, Sebastian Berthold
+Author-email: exiflow-devel@lists.sourceforge.net
+License: GNU General Public License (GPL)
+Download-URL: http://sourceforge.net/project/showfiles.php?group_id=151136
+Description: A set of tools including a little GUI to provide a complete digital photo workflow for Unixes. EXIF headers are used as the central information repository, so users may change their software at any time without loosing any data. The tools may be used individually or combined.
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: Utilities
+Requires: python
