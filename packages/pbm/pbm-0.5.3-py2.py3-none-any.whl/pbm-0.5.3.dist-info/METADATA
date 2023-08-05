@@ -1,0 +1,213 @@
+Metadata-Version: 2.0
+Name: pbm
+Version: 0.5.3
+Summary: pbm works with Chrome and Chromium bookmarks JSON.
+Home-page: https://github.com/westurner/pbm
+Author: Wes Turner
+Author-email: wes@wrd.nu
+License: BSD
+Keywords: pbm bookmarks chrome chromium
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP :: Browsers
+Classifier: Topic :: Utilities
+Requires-Dist: jinja2
+
+===============================
+pbm
+===============================
+
+.. image:: https://badge.fury.io/py/pbm.png
+    :target: http://badge.fury.io/py/pbm
+
+.. .. image:: https://travis-ci.org/westurner/pbm.png?branch=master
+..        :target: https://travis-ci.org/westurner/pbm
+
+.. image:: https://pypip.in/d/pbm/badge.png
+        :target: https://pypi.python.org/pypi/pbm
+
+
+pbm works with Chrome and Chromium bookmarks JSON.
+
+* Free software: BSD license
+* Source: https://github.com/westurner/pbm
+* PyPI: https://pypi.python.org/pypi/pbm
+
+.. * Documentation: https://pbm.readthedocs.org.
+
+Features
+========
+
+* List Chrome and Chromium Bookmarks JSON files (``-l`` / ``-L``)
+* Print all bookmarks (``--print-all``)
+* Reorganize all bookmarks into the Bookmarks Bar (``--organize``)
+
+
+Bookmarks Bar Folders
+-----------------------
+
++------------------+-------------------------------------------------------------+
+|   Name           | Description                                                 |
++------------------+-------------------------------------------------------------+
+| yearly           | date-based folders: ``YYYY`` > ``YYYY-MM`` > ``YYYY-MM-DD`` |
++------------------+-------------------------------------------------------------+
+| ``bookmarklets`` | bookmarklets (additions will be merged with a default set)  |
++------------------+-------------------------------------------------------------+
+| ``chrome``       | select ``chrome://`` URLs                                   |
++------------------+-------------------------------------------------------------+
+| ``quicklinks``   | custom quicklinks (optional; copied as-is)                  |
++------------------+-------------------------------------------------------------+
+| ``starred``      | bookmarks ending in one or more ``#`` are copied here       |
+|                  | searchably prefixed with ``[XO]``, ``[XOOOO]``              |
++------------------+-------------------------------------------------------------+
+| ``queue``        | default folder for new bookmarks                            |
++------------------+-------------------------------------------------------------+
+
+
+Installation
+==============
+Install from PyPI with pip:
+
+.. code:: bash
+
+   pip install pbm
+
+Development:
+
+.. code:: bash
+
+   pip install -e git+ssh://git@github.com/westurner/pbm#egg=pbm
+
+
+Usage
+=======
+List available ``Bookmarks`` files in Chrome and Chromium User Data
+directories:
+
+.. code:: bash
+
+   pbm -l  # or -L to also list Bookmarks.%FT%T%z.bkp backups
+
+Reorganize all bookmarks into Bookmarks Bar folders:
+
+.. code:: bash
+
+   bmarks=$(pbm -l | grep "Profile 1" | head -n1)
+   pbm --organize "${bmarks}"
+
+Serve and search bookmarks with the Tornado webapp:
+
+.. code:: bash
+
+   pbmweb -H localhost -P 8080 -f "${bmarks}"
+
+Then access the searchable bookmarks jstree at
+http://localhost:28881/bookmarks/chrome
+
+
+
+
+History
+=======
+
+0.5.3 (2015-04-23)
+-------------------
+* BUG: app.py: main argv handling, logging
+
+0.5.2 (2015-04-23)
+-------------------
+* RLS: version v0.5.2
+
+0.5.1 (2015-04-23)
+-------------------
+* BUG: main.py: don't call .get_ids() (queue folder id to max)
+* BUG: \*: Fix id renumbering (Note: This is still relatively unsolved)
+* BUG: utils.py: generate longdates
+* TST: tests/test_pbm.py: test that queue['id'] is the max
+* REF: \*: regular imports
+* RLS: HISTORY.txt: v0.5.0, v0.5.1
+
+0.5.0 (2015-04-23)
+-------------------
+* BUG: main.py: encoding errors when piping to e.g. cat (default: UTF-8)
+* ENH: main.py: ``--print-json-link-list``
+* ENH: main.py: ``--print-html-tree``
+* ENH: main.py: ``--print-all``
+* ENH: app.py: tornado app w/ stub login auth, csrf, secure cookies
+* ENH: templates/bookmarks_list.jinja: HTML: ``/bookmarks/chrome/list``
+* ENH: app.py: ``/bookmarks/chrome/json`` JSON (``~ cat ./Bookmarks``)
+* ENH: templates/bookmarks.jinja: JS: ``/bookmarks/chrome`` jstree
+* ENH: templates/bookmarks.jinja: JS: #searchterm! onhashchanged
+* ENH: templates/bookmarks.jinja: CSS: Bootstrap
+* ENH: templates/bookmarks.jinja: CSS: show a:visited
+* ENH: templates/bookmarks.jinja: CSS: [markdown](url://formatting)
+* ENH: templates/bookmarks_tree.jinja: HTML+RDFa: ``/bookmarks/chrome/tree`` recursive RDFa template
+* REF: utils.get_template, imports
+* TST,REF: main function signature, explicit stdout, q
+* TST: tests/data: current output
+* TST: tests/test_app.py: tornado.testing.AsyncHTTPTestCase
+* REF: -> pbm
+
+0.4.1 (2015-03-02)
+-------------------
+* BLD: Makefile, MANIFEST.in: rm .ropeproject, exclude.bak
+
+0.4.0 (2015-03-02)
+-------------------
+* ENH: plugins.starred: prefix with X
+* ENH: plugins.starred: O instead of # (searchable)
+* REF: pbm.plugins plugin API
+* ENH: add "notetab (800px)" bookmarklet
+
+0.3.0 (2015-02-08)
+-------------------
+
+* ENH: Refactor to pbm.plugins
+* TST: Move tests to tests/test_pbm.py
+* DOC: README.rst, HISTORY.txt: headings
+
+0.2.5 (2014-12-25)
+-------------------
+
+* BUG: Add support for "linux2" platform
+
+0.2.4 (2014-12-13
+------------------
+
+* DOC: README.rst, setup.py: fix pip install editable command, keywords
+
+0.2.3 (2014-12-13)
+-------------------
+
+* DOC: README.rst: link to PyPI package
+
+0.2.2 (2014-12-13)
+-------------------
+
+* BLD: MANIFEST.in: ``exclude tests/data *.bkp``
+
+0.2.1 (2014-12-13)
+-------------------
+
+* DOC: README.rst, setup.py: Update description and trove classifiers
+
+0.2.0 (2014-12-13)
+---------------------
+
+* RLS: First release on PyPI
+
+
