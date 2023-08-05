@@ -1,0 +1,15 @@
+.widget-buildstatus {
+    background-color: rgb(37, 86, 15);
+}
+
+.widget-buildstatus h1 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.widget-buildstatus h2 {
+    color: rgb(255, 255, 255);
+}
+
+.widget-buildstatus .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+}

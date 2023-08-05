@@ -1,0 +1,26 @@
+.widget-sizednumber {
+    background-color: rgb(30, 205, 159);
+}
+
+.widget-sizednumber h1 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.widget-sizednumber h2 {
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.widget-sizednumber .detail {
+    font-weight: 500;
+    font-size: 30px;
+    color: #fff;
+}
+
+.widget-sizednumber .more-info {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.widget-sizednumber .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+}
