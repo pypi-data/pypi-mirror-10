@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: zbg
+Version: 0.1.1
+Summary: A python library for zbg encodings.
+Home-page: https://github.com/Muterra/py_zbg
+Author: Nick Badger
+Author-email: badg@muterra.io
+License: GNU LGPL v2.1
+Description: zbg is a general-purpose library for serialization and deserialization with zbg encoding. It is a very simple format supporting nested containers and arbitrary binary blobs, with a slightly more efficient implementation of 256-bit and 512-bit objects, intended to be used with cryptographic hashes and keys.
+Keywords: zbg serialization muterra eic encoding decoding
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Topic :: Software Development :: Libraries
