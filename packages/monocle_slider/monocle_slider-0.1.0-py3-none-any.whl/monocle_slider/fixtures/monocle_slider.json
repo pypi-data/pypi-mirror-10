@@ -1,0 +1,7 @@
+[
+{"pk": 1, "model": "monocle_slider.slider", "fields": {"text": "Описание для карусели", "elem_number": 3, "isShown": true, "arrows": "true", "name": "Карусель", "pagination": "true"}},
+{"pk": 1, "model": "monocle_slider.slide", "fields": {"text": "Описание для слайда 1", "isShown": true, "image": "monocle_slider/Chrysanthemum.jpg", "slider": 1, "name": "Слайд 1", "position": 0}},
+{"pk": 2, "model": "monocle_slider.slide", "fields": {"text": "Описание для слайда 2", "isShown": true, "image": "monocle_slider/Desert.jpg", "slider": 1, "name": "Слайд 2", "position": 1}},
+{"pk": 3, "model": "monocle_slider.slide", "fields": {"text": "Описание для слайда 3", "isShown": true, "image": "monocle_slider/Koala.jpg", "slider": 1, "name": "Слайд 3", "position": 2}},
+{"pk": 4, "model": "monocle_slider.slide", "fields": {"text": "Описание для слайда 4", "isShown": true, "image": "monocle_slider/Penguins.jpg", "slider": 1, "name": "Слайд 4", "position": 3}}
+]
