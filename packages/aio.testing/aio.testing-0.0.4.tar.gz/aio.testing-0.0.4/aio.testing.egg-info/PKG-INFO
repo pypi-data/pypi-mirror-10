@@ -1,0 +1,348 @@
+Metadata-Version: 1.1
+Name: aio.testing
+Version: 0.0.4
+Summary: Testing utils for aio asyncio framework
+Home-page: http://github.com/phlax/aio.testing
+Author: Ryan Northey
+Author-email: ryan@3ca.org.uk
+License: GPL
+Description: Detailed documentation
+        **********************
+        
+        aio.testing
+        ===========
+        
+        Test utils for the aio_ asyncio framework
+        
+        .. _aio: https://github.com/phlax/aio
+        
+        
+        Build status
+        ------------
+        
+        .. image:: https://travis-ci.org/phlax/aio.testing.svg?branch=master
+        	       :target: https://travis-ci.org/phlax/aio.testing
+        
+        
+        Installation
+        ------------
+        Install with:
+        
+        .. code:: bash
+        
+        	  pip install aio.testing
+        
+        
+        @aiotest decorator
+        ------------------
+        
+        aio.testing provides a method decorator for running asyncio-based tests
+        
+        .. code:: python
+        
+        	  import unittest
+        	  import asyncio
+        
+        	  from aio.testing import aiotest
+        
+        
+        	  class MyTestCase(unittest.TestCase):
+        
+        	      @aiotest
+        	      def test_example():
+        	          yield from asyncio.sleep(2)
+        		  self.assertTrue(True)
+        
+        		  
+        Prior to the test running asyncio.get_new_loop() is called and set using asyncio.set_event_loop().
+        
+        On completion of the test asyncio.set_event_loop() is again called with the original event loop.
+        
+        
+        @aiofuturetest decorator
+        ------------------------
+        
+        If your code needs to test long-running tasks, you can use the @aiofuturetest decorator.
+        
+        The @aiofuturetest decorator uses loop.run_forever to run the test.
+        
+        Any setup required can be done in the body of the test function which can optionally return a test callback
+        
+        The callback is wrapped in a coroutine, and called after 1 second
+        
+        .. code:: python
+        
+        	  import unittest
+        	  import asyncio
+        
+        	  from aio.testing import aiofuturetest
+        
+        
+        	  class MyFutureTestCase(unittest.TestCase):
+        
+        	      @aiofuturetest
+        	      def test_example():
+        	          yield from asyncio.sleep(2)
+        
+        		  def callback_test(self):
+        		      yield from asyncio.sleep(2)		  
+        		      self.assertTrue(True)
+        
+        		  # this function is called 1 second after being returned		      
+        		  return callback_test
+        
+        
+        As with aiotest, the test is run in a separate loop.
+        
+        		  
+        @aiofuturetest decorator with timeout
+        -------------------------------------	  
+        
+        You can specify how many seconds to wait *before* running the callback tests by setting the timeout value
+        
+        
+        .. code:: python
+        
+        	  import unittest
+        	  import asyncio
+        
+        	  from aio.testing import aiofuturetest
+        
+        
+        	  class MyFutureTestCase(unittest.TestCase):
+        
+        	      @aiofuturetest(timeout=10)
+        	      def test_example():
+        	          yield from asyncio.sleep(2)
+        
+        		  def callback_test(self):
+        		      yield from asyncio.sleep(2)		  
+        		      self.assertTrue(True)
+        
+        		  # this function is called 10 seconds after being returned		      
+        		  return callback_test
+        
+        
+        @aiofuturetest decorator with sleep
+        -------------------------------------	  
+        
+        Sometimes a test needs to wait for some time after services have been stopped and the test loop has been destroyed.
+        
+        You can specify how many seconds to wait *after* running the callback tests by setting the sleep value
+        
+        
+        .. code:: python
+        
+        	  import unittest
+        	  import asyncio
+        
+        	  from aio.testing import aiofuturetest
+        
+        
+        	  class MyFutureTestCase(unittest.TestCase):
+        
+        	      @aiofuturetest(sleep=10)
+        	      def test_example():
+        	          yield from asyncio.sleep(2)
+        
+        		  def callback_test(self):
+        		      yield from asyncio.sleep(2)		  
+        		      self.assertTrue(True)
+        
+        		  return callback_test
+        		  
+        
+        
+        aio.testing usage
+        =================
+        
+        
+        Aio testing provides 2 decorators for running asyncio tests
+        
+        - *aiotest*:
+        
+          - creates a test loop
+          - calls the test with loop.run_until_done
+        
+        - *aiofuturetest*:
+          
+          - creates a test loop
+          - calls test using loop.run_forever
+          - waits for number of seconds specified in "timeout"
+          - if test returns a coroutine, calls the coroutine
+          - waits for number of seconds specified in "sleep"
+        
+        aiotest
+        -------
+        
+        Lets create a test
+        
+          >>> import asyncio
+          >>> from aio.testing import aiotest
+        
+          >>> @aiotest
+          ... def run_test(parent_loop):
+          ...     yield from asyncio.sleep(1)
+          ... 
+          ...     print(asyncio.get_event_loop() != parent_loop)
+        
+        And lets check that the test loop is not the same as the current one
+        
+          >>> loop_before_test = asyncio.get_event_loop()
+          >>> run_test(loop_before_test)
+          True
+        
+        After the test has run we have the original event loop back
+        
+          >>> asyncio.get_event_loop() == loop_before_test
+          True
+        
+        We can raise an error in the test
+        
+          >>> @aiotest
+          ... def run_test():
+          ...     assert(True == False)
+        
+          >>> try:
+          ...     run_test()
+          ... except Exception as e:
+          ...     print(repr(e))
+          AssertionError()
+        
+          
+        aiofuturetest
+        -------------
+        
+        Lets create a future test
+        
+          >>> import asyncio
+          >>> from aio.testing import aiofuturetest
+        
+          >>> @aiofuturetest
+          ... def run_test(parent_loop):
+          ...     yield from asyncio.sleep(1)
+          ... 
+          ...     print(asyncio.get_event_loop() != parent_loop)
+        
+        Just like with aiotest, the test is run in a separate loop
+        
+          >>> loop_before_test = asyncio.get_event_loop()  
+          >>> run_test(loop_before_test)
+          True
+        
+        And again, after the test has run we have the original event loop back
+        
+          >>> asyncio.get_event_loop() == loop_before_test
+          True
+          
+        If the test returns a callable, its called 1 second later.
+        
+        The test_callback runs in the same loop as the test
+          
+          >>> @aiofuturetest
+          ... def run_test():
+          ...     test_loop = asyncio.get_event_loop()
+          ... 
+          ...     @asyncio.coroutine
+          ...     def test_callback():
+          ...         print(
+          ...             asyncio.get_event_loop() == test_loop)
+          ... 
+          ...     return test_callback
+          
+          >>> run_test()
+          True
+        
+        The test_callback is always wrapped in asyncio.coroutine if its not one already
+        
+          >>> @aiofuturetest
+          ... def run_test():
+          ... 
+          ...     def test_callback():
+          ...         yield from asyncio.sleep(1)
+          ...         print("test_callback is always wrapped in a coroutine!")
+          ... 
+          ...     return test_callback
+          
+          >>> run_test()
+          test_callback is always wrapped in a coroutine!
+        
+        
+        We can raise an error in the test
+        
+          >>> @aiofuturetest
+          ... def run_test():
+          ...     assert(True == False)
+        
+          >>> try:
+          ...     run_test()
+          ... except Exception as e:
+          ...     print(repr(e))
+          AssertionError()
+        
+        And we can raise an error in the test callback
+        
+          >>> @aiofuturetest
+          ... def run_test():
+          ... 
+          ...     def test_callback():
+          ...         assert(True == False)
+          ... 
+          ...     return test_callback
+          
+          >>> try:
+          ...     run_test()
+          ... except Exception as e:
+          ...     print(repr(e))
+          AssertionError()
+        
+        By default the test_callback is called 1 second after being returned
+        
+          >>> import time
+        
+          >>> @aiofuturetest
+          ... def run_test():
+          ...     test_run_at = int(time.time())
+          ... 
+          ...     return lambda: (
+          ...         print("callback called %s second(s) after test" % (
+          ...             int(time.time()) - test_run_at)))
+          
+          >>> run_test()
+          callback called 1 second(s) after test
+        
+        You can set the amount of time to wait before calling the test_callback by setting the "timeout" argument in the decorator
+        
+          >>> import time
+        
+          >>> @aiofuturetest(timeout=3)
+          ... def run_test():
+          ...     test_run_at = int(time.time())
+          ... 
+          ...     return lambda: print(
+          ...         "callback called %s second(s) after test" % (
+          ...             int(time.time()) - test_run_at))
+          
+          >>> run_test()
+          callback called 3 second(s) after test
+          
+        You can also set the amount of time to wait after the test has completely finished, by setting the "sleep" argument on the decorator
+        
+          >>> @aiofuturetest(sleep=3)
+          ... def run_test(test_time):
+          ...     return lambda: (
+          ...         test_time.__setitem__('completed_at', int(time.time())))
+        
+          >>> test_time = {}
+          >>> run_test(test_time)
+          
+          >>> print("test waited %s second(s) after completing" % (
+          ...     int(time.time()) - test_time['completed_at']))
+          test waited 3 second(s) after completing
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
