@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import pynagios, multiprocessing, os
+from pynagios import Plugin
+
+class NagiosLoadPerCore(Plugin):
+    def check(self):
+        cpu_count = multiprocessing.cpu_count()
+        load_avg = os.getloadavg()[0]
+        value = load_avg / cpu_count
+        return self.response_for_value(value, "Normalized 5 minute load average: %0.2f" % value)
+
+if __name__ == "__main__":
+    NagiosLoadPerCore().check().exit()
