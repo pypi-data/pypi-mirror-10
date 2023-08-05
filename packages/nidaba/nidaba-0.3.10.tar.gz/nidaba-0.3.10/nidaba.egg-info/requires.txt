@@ -1,0 +1,10 @@
+celery==3.1.17
+lxml==3.4.3
+numpy==1.9.2
+Pillow==2.8.1
+pluginbase==0.3
+PyYAML==3.11
+redis==2.10.3
+
+[kraken]
+kraken>=0.3.1
