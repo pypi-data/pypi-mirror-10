@@ -1,0 +1,50 @@
+[
+  {"pk": 1,
+    "fields":
+    {"text": "Мы верим, что все, что отделяет Вашу компанию от международной аудитории, это один клик. Никогда раньше перевод веб-сайтов не был так прост.",
+      "name": "LangPrism - это сервис, созданный специально для перевода веб-сайтов",
+      "arrows": "false",
+      "width": true,
+      "elem_number": 1,
+      "isShown": true,
+      "pagination": "false"
+    },
+    "model": "monocle_mainbanner.mainbanner"
+  },
+  {
+    "pk": 1,
+    "fields":
+    {"text": "Перевод вашего сайта в один клик",
+      "name": "Перевод",
+      "image": "monocle_mainbanner/banner_1.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 0
+    },
+    "model": "monocle_mainbanner.slide"
+  },
+  {
+    "pk": 2,
+    "fields":
+    {"text": "Отдыхайте, пока мы рабоатем",
+      "name": "Экономия времени",
+      "image": "monocle_mainbanner/banner_2.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 1
+    },
+  "model": "monocle_mainbanner.slide"
+  },
+  {
+    "pk": 3,
+    "fields":
+    {"text": "Актуальное состояние сайта",
+      "name": "Актуальное состояние",
+      "image": "monocle_mainbanner/banner_3.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 1
+    },
+  "model": "monocle_mainbanner.slide"
+  }
+]
