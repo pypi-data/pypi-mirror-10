@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: disk-dict
+Version: 2.1.0
+Summary: A disk-based key/value store in Python.
+Home-page: https://github.com/AWNystrom/DiskDict
+Author: Andrew Nystrom
+Author-email: AWNystrom@gmail.com
+License: Apache 2.0
+Description: DiskDict is a hashtable on your hard drive. It allows you to store KAZILLIONS (!) of key/value pairs and interact with them as you would a Python dictionary, all the while never storing more than two key/value pairs in memory simultaneously. The key/value pairs can be anything that's serializable (you specify the serializer and deserializer, with repr and eval as the default). Since we're operating on the disk, big O of all operations are dependent on the host operating system's file access complexities.
+        
+        >>> from disk_dict import DiskDict
+        >>> from numpy import array
+        >>> dd = DiskDict('my_disk_dict')
+        >>> a = array([[1,2],[3,4]])
+        >>> dd[a] = 'I was pointed to by ' + repr(a)
+        >>> dd[a]
+        'I was pointed to by array([[1, 2],\n       [3, 4]])'
+        >>> del dd[a]
+        >>> dd[a]
+        >>>
+        
+        PyPI: https://pypi.python.org/pypi?name=disk_dict&:action=display
+        
+        Github: https://github.com/AWNystrom/DiskDict/
+        
+Keywords: disk,based,key,value,store,dict,diskdict
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
