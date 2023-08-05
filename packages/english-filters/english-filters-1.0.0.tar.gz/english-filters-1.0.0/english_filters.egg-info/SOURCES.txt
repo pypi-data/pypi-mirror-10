@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.py
+./english_filters/__init__.py
+./english_filters/models.py
+./english_filters/tests.py
+./english_filters/templatetags/__init__.py
+./english_filters/templatetags/english_filters.py
+english_filters.egg-info/PKG-INFO
+english_filters.egg-info/SOURCES.txt
+english_filters.egg-info/dependency_links.txt
+english_filters.egg-info/requires.txt
+english_filters.egg-info/top_level.txt
