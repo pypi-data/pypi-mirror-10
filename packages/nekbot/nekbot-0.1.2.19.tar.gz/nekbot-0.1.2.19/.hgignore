@@ -1,0 +1,23 @@
+# use glob syntax.
+syntax: glob
+
+*.elc
+*.pyc
+*~
+docs/_build
+build
+dist
+*.egg-info
+nekbot/protocols/irc/**
+nekbot/protocols/irc
+
+# switch to regexp syntax.
+syntax: regexp
+.idea
+^\.pc/
+.directory
+.pypirc
+nekbot/protocols/telegram
+nekbot/plugins/random
+^settings.py
+doc.txt

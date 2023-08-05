@@ -1,0 +1,28 @@
+NekBot
+######
+Nekbot, a modular and multiprocol bot written in Python.
+
+Supported protocols
+===================
+- Telegram.
+- IRC.
+- Jabber/XMPP (coming soon).
+
+Instalación en 5 minutos con virtualenvwrapper
+==============================================
+Si no tuvieses en tu sistema pip, deberás instalarlo::
+
+
+
+
+Create plugins easily!
+======================
+Create plugins is very easy! Here's an example::
+
+    from nekbot.core.commands import command
+
+    @command
+    def hello(message):
+        return 'Hello world! Your message: %s' % message
+
+For more information, see the documentation.
