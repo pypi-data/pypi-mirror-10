@@ -1,0 +1,21 @@
+#!/bin/sh
+# This is tow run script which copy files from tow volume
+
+if [ -f "{{volume_name}}/mapping.sh" ]; then
+    sh {{volume_name}}/mapping.sh
+fi
+
+{% if entrypoint %}
+{% if cmd %}
+command="{{entrypoint}} {{cmd}} $*"
+{% else %}
+command="{{entrypoint}} $*"
+{% endif %}
+{% else %}
+command="{{cmd}}"
+{% endif %}
+
+PATH=$PATH:`pwd`
+
+# execute entire command
+"$command"
