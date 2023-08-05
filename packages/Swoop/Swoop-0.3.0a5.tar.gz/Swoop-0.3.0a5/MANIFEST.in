@@ -1,0 +1,7 @@
+include Swoop/Swoop.py.jinja
+include Swoop/eagle.dtd.diff
+include Swoop/eagle-7.2.0.dtd
+include DESCRIPTION.rst
+include Makefile
+include VERSION.txt
+include test/inputs/*
