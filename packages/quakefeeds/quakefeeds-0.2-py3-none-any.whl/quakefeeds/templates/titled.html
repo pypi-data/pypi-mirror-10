@@ -1,0 +1,9 @@
+{% extends "plain.html" %}
+{% block title %}{{ feed.title }}{% endblock %}
+{%- block beforemap -%}
+  <h2>{{ feed.title }}</h2>
+{%- endblock %}
+{%- block aftermap -%}
+  <p>{{ feed|length }} events plotted.</p>
+  <p>Data captured: {{ feed.time }}</p>
+{%- endblock %}
