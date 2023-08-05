@@ -1,0 +1,84 @@
+Metadata-Version: 1.1
+Name: aio.core
+Version: 0.0.4
+Summary: Aio core utils
+Home-page: http://github.com/phlax/aio.core
+Author: Ryan Northey
+Author-email: ryan@3ca.org.uk
+License: GPL
+Description: Detailed documentation
+        **********************
+        
+        
+        aio.core
+        ========
+        
+        Core definitions and utilities for the aio_ asyncio framework
+        
+        .. _aio: https://github.com/phlax/aio
+        
+        
+        Installation
+        ------------
+        
+        Install with:
+        
+        .. code:: bash
+        
+        	  pip install aio.core
+        
+        
+        aio.core.exceptions usage
+        =========================
+        
+        
+        MissingConfiguration
+        --------------------
+        
+          >>> from configparser import ConfigParser
+          >>> from aio.core.exceptions import MissingConfiguration
+        
+          >>> def get_configuration(conf, section, option):
+          ...     try:
+          ...         conf[section][option]
+          ...     except KeyError:
+          ...         raise MissingConfiguration(
+          ...             "Configuration option is missing: %s:%s" % (
+          ...                 section, option))
+          
+          >>> try:
+          ...     get_configuration(ConfigParser(), "foo", "bar")
+          ... except MissingConfiguration as e:
+          ...     print(e)
+          Configuration option is missing: foo:bar
+        
+        
+        BadConfiguration
+        --------------------  
+          
+          >>> from aio.core.exceptions import BadConfiguration  
+        
+          >>> def get_configuration(conf, section, option, option_type):
+          ...     option_value = conf[section][option]
+          ...     try:
+          ...         option_type(option_value)
+          ...     except ValueError:
+          ...         raise BadConfiguration(
+          ...             'Configuration is bad: %s:%s expected type %s, but got "%s"' % (
+          ...                 section, option, option_type.__name__, option_value))
+        
+          >>> config = ConfigParser()
+          >>> config.read_dict({"foo": {"bar": "baz"}})
+        
+          >>> try:
+          ...     get_configuration(config, "foo", "bar", int)
+          ... except BadConfiguration as e:
+          ...     print(e)
+          Configuration is bad: foo:bar expected type int, but got "baz"
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
