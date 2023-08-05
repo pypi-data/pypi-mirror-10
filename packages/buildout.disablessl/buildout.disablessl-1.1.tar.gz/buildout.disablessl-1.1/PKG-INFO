@@ -1,0 +1,67 @@
+Metadata-Version: 1.0
+Name: buildout.disablessl
+Version: 1.1
+Summary: Disable SSL verification of setuptools for buildout
+Home-page: https://bitbucket.org/gocept/buildout.disablessl/
+Author: gocept <mail@gocept.com>
+Author-email: mail@gocept.com
+License: ZPL 2.1
+Description: ===================
+        buildout.disablessl
+        ===================
+        
+        setuptools-0.7 introduced verification of SSL certificates. This feature,
+        however, is not configurable (yet?), which makes it impossible to install
+        packages from a custom package index with a self-signed certificate, for
+        example.
+        
+        This package is a very small, monkey-patching buildout extension that simply
+        sets "ssl available" to false. Use it like so::
+        
+            [buildout]
+            extensions = buildout.disablessl
+        
+        Python 2.7.9 activated SSL certificate verification by default, too. When using
+        this version or newer it is disabled, too.
+        
+        WARNING: Using this extension disables SSL verification (duh), so you make
+        yourself susceptible to man-in-the-middle attacks (among other things). Use
+        with caution!
+        
+        
+        ==============================
+        Developing buildout.disablessl
+        ==============================
+        
+        :Author:
+            `gocept <http://gocept.com/>`_ <mail@gocept.com>
+        
+        :PyPI page:
+            http://pypi.python.org/pypi/buildout.disablessl/
+        
+        :Issues:
+            `report by e-mail <mail@gocept.com>`_
+        
+        :Source code:
+            https://bitbucket.org/gocept/buildout.disablessl/
+        
+        :Current change log:
+            https://bitbucket.org/gocept/buildout.disablessl/raw/tip/CHANGES.txt
+        
+        
+        ==================================
+        Change log for buildout.disablessl
+        ==================================
+        
+        1.1 (2015-04-28)
+        ================
+        
+        - Disable SSL certificate verification of Python 2.7.9+, too.
+        
+        
+        1.0 (2013-11-14)
+        ================
+        
+        initial release
+        
+Platform: UNKNOWN
