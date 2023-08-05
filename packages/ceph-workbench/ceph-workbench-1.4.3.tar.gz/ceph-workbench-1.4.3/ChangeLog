@@ -1,0 +1,1131 @@
+commit fa6106bebada1f2cbce8786d962003fa8d6d73b3
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 22:51:42 2015 +0200
+
+    version 1.4.3
+
+commit fd5d82f550855c496053f9f849271ed3c0eed6a8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 20:31:40 2015 +0200
+
+    include docs in setup.cfg
+    
+    so that it is built and included in the distribution
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 8a689ad0a3a79d2223d9f826db360cfab5270e21
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 20:21:17 2015 +0200
+
+    rename AUTHORS to AUTHORS.rst
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 578f4c17d16e1e76b17c04c791071d733912f3ea
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 19:42:03 2015 +0200
+
+    do not use ditaa because rtd does not have it
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit f2acdeca06eaa1aa18f03f58875875754a362fee
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 19:14:26 2015 +0200
+
+    documentation focuse on jenkins
+    
+    forked from the requests documentation
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 0ee00fe1ca9c761cb2d9a883f70624db67d6f6fb
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 19:12:38 2015 +0200
+
+    import sphinx ditaa to beautify ascii art
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 28f94a47ecdff931676a79407ed041c45aea9a80
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 19:11:52 2015 +0200
+
+    six > 1.9.0 for six.moves import UserString
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit da78b1f72d3920c8f7f26d2f0b9f11eaea9939d9
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 19:11:28 2015 +0200
+
+    sphinx and docutils are not just for tests
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 138eb92dc2929c2b4459f1c6648320078f40a0ee
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Apr 18 19:10:13 2015 +0200
+
+    rename AUTHORS to AUTHORS.rst
+    
+    For not reason really.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit f721ea3fbf8470bfcb2687a2a1ef97b4e17962b6
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 23:25:21 2015 +0200
+
+    quote the \ to determine docker version
+    
+    Otherwise it's a ^A
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ecd919105cb5b11b859a81db666316c5ff35f0c9
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:41:26 2015 +0200
+
+    version 1.4.2
+
+commit 7d9724e3765ce6b006077dc8eaf385c78ac8b5a5
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:40:00 2015 +0200
+
+    install lxc-docker in the container to match the host
+    
+    Otherwise it will complain and not be able to connect thru the socket.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit a9207a48e939d035a93ed6d8d51740bbdf298775
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:39:15 2015 +0200
+
+    do not chown the jenkins home, set the jenkins uid instead
+    
+    Make sure the jenkins user in the container has the same uid as the
+    jenkins user from the host.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 6c8a5710d811b323981ba8a1a7e74b213abaa3f4
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:38:58 2015 +0200
+
+    squash: the tunnel must be established as jenkins
+
+commit 3e8be73d420431ad14bfb7b3070c122e789cd3a6
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:36:53 2015 +0200
+
+    append to jenkins authorized_keys instead of overriding it
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 916616589b6ae3f43fc4795661fd1dfc62e1048a
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:30:55 2015 +0200
+
+    By default /home/jenkins is the data directory
+    
+    This is required for the docker container running the jenkins slave to
+    launch containers that bind mount the same home and use a common .ccache
+    directory. It is also simpler to think about.
+    
+    It can be overridden for test purposes with --jenkins-home
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit cb69d7b4a9aa0e99cbf80604ff5fa59d99773dfa
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:28:08 2015 +0200
+
+    the init script is setup.sh not setup-ssh.sh
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 32624276ed022ad406fa6e7d09ccd0fcffceca6d
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 21:27:18 2015 +0200
+
+    the tunnel must be established as jenkins
+    
+    so that it uses the proper ssh key
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 22605684f71c053f518f9b18f010c03097b4467a
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 13:55:29 2015 +0200
+
+    version 1.4.1
+
+commit 0426e3bc50f1acb4739e98943a24196fe9940781
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 13:38:51 2015 +0200
+
+    jenkins slave docker group must have the same id as the host
+    
+    The setup script modifies the docker group in the jenkins slave so that
+    it matches the docker group id in the host. Otherwise there will be
+    permission denied when trying to access the docker socket from within
+    the jenkins slave.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 8a62572c63ab7214d97e8ab5a87a689fb7255a59
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 12:24:49 2015 +0200
+
+    the jenkins slave needs apt-get install ccache jq
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 4df64cdb88c0043b14cc77a97bfa4f2512e391d2
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 12:23:09 2015 +0200
+
+    the jenkins user in the jenkins slave needs to sudo
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ed0c86b3b5caabba8c2342c217b1baa76b576c82
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 12:21:49 2015 +0200
+
+    OVERRIDE_GIT_BRANCH for jenkins parameterized builds
+    
+    So the user can force which branch is going to be build.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 1ae23cd0f0df32f88daf0eda6579f36e95359f80
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 13:38:27 2015 +0200
+
+    store the logs of the sshd jenkins slave daemon
+    
+    for debugging
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 45b2a31207e7435bedbb33ca37e5668297ecb807
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 13:37:52 2015 +0200
+
+    discard known_hosts maintenance for jenkins slave
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 68af69b63d162cd743e6440acdb36ccc41f2733f
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 12:18:50 2015 +0200
+
+    allow jenkins slave to connect to itself when using its ssh key
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ca5cf9ff0f0cb82d1bf2aa3ca5f65833991ca004
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 13:37:05 2015 +0200
+
+    set jenkins .ssh permissions
+    
+    The ssh daemon is sensitive to permissions and will refuse connections
+    if they are too permissive.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 391f7d1a0017e71a5b36555b2b2f845ac339396d
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 12:17:31 2015 +0200
+
+    set jenkins .ssh permissions
+    
+    The ssh daemon is sensitive to permissions and will refuse connections
+    if they are too permissive.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 67b7ad04339e21da0fac1a5ceb633478f0d10cef
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Apr 17 12:15:26 2015 +0200
+
+    implement --jenkins-git-branch
+    
+    To override the branch name --publish-build-to-pull-request will find by
+    navigating the job reports. When it is overridden by
+    OVERRIDE_GIT_BRANCH, it won't be the value that is expected.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit f98352440d83fde9c7cdb3d5d74cf4ffe7b28611
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 12:43:30 2015 +0200
+
+    implement default for --datadir
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 1a16829e33d98a36f6fe693d5c21f4b82fb80dc8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:25:31 2015 +0200
+
+    version 1.4.0
+
+commit 71331d8f4bb4950cda3596cccae68ec88e42b759
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:19:22 2015 +0200
+
+    implement jenkins.prepare_qemu_img for ubuntu-14.04-i386
+    
+    Although it is in theory suitable for multiple OS / architectures, it
+    only supports this combination as a first use case.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 7d897c548802396c66c08acdbeeec402562246f7
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:16:49 2015 +0200
+
+    define a libguestfs docker image
+    
+    And the matching jenkins.docker_build_libguestfs function to build it if
+    it does not exist already.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit c81d5d915d6f0361376ec57a5a074552ad9fce40
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:12:44 2015 +0200
+
+    implement jenkins.docker_{run,destroy}_slave
+    
+    It is a docker jenkins slave configured to establish a tunnel to the
+    designated master so that it is ready to get to work. It also has access
+    to the docker socket to isolate the tests it is asked to run.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 4c623235f8455c76a9e72208cdca00e7399b0deb
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:07:23 2015 +0200
+
+    define a jenkins slave docker image
+    
+    And the matching jenkins.docker_build_slave function to build it if it
+    does not exist already.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit de7b6bf64c0d4b3ccc75fb86246181a88168e8ba
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:04:42 2015 +0200
+
+    implement jenkins.next_node_name
+    
+    Scan the existing jenkins slave nodes and return one that has a XXX
+    suffix greater than any of them. It can then be used to chose the port.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit c9aaf1258e36fb3df6968660e23260e85e78688f
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 01:02:26 2015 +0200
+
+    define find/destroy/create jenkins slave nodes
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 164303e74949126b2927f6398fe1cb4a6a4f71b5
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 00:35:41 2015 +0200
+
+    define jenkins master / slave port range
+    
+    For a slave named slaveXXX, there will be a ssh port
+    self.args.port_range = 3000 + XXX to ssh to it. And when the slave runs
+    in a docker container, it will forward port 4000 + XXX to the host to
+    ssh to it.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ec235073cb617bc8b9431741d241edaf3f9d88a7
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 00:31:38 2015 +0200
+
+    implement jenkins.slave_credential_id
+    
+    With a helper to run cli commands. It means a dependency to a jdk that
+    should be resolved by running this command from with a jenkins container
+    that has the necessary package installed to not require an additional
+    dependency from the user. If docker is not installed and installing a
+    jdk is not an option, we're out of luck.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 40e83a96f0f04da83b81308cfa1ef96d58609cf8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 00:15:12 2015 +0200
+
+    implement --jenkins-make-check-bot
+    
+    As a passthru to the make check bot script.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit bd4497e3ec2966df2477bf05ab9a0dd9c3c34031
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 00:12:32 2015 +0200
+
+    define libdir and datadir
+    
+    The libdir directory has immutable data and helper. The datadir has data
+    that must be preserved such as the jenkins data etc.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 6ec8219683957a1667053285976117386bc93f9c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 00:04:55 2015 +0200
+
+    run a jenkins server as part of the integration tests setup
+    
+    A credential to be used for ssh connected bot is also created, using
+    the web interface because the API / cli does not allow for that.
+    
+    http://stackoverflow.com/questions/29616660/how-to-create-jenkins-credentials-via-the-rest-api
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ff7e32227c95eff5b3fba928ede0d22e4f93a342
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Apr 16 00:02:13 2015 +0200
+
+    jenkins docker image with a ssh server
+    
+    So that the slaves can connect and expose a port for the jenkins master
+    to connect. This way slaves with a public IP or behind a NAT are treated
+    the same.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 1402bce5209bfd5bb608bda7861bbc42c7e3387c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 15 23:57:54 2015 +0200
+
+    move ceph-workbench-jenkins-runner jenkins-make-check-bot
+    
+    And move the ceph-workbench-jenkins-runner helper from bin
+    to a library directory to not pollute.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 557d4c0cb839106cd11d849b49070f84ce6ad30b
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 20:57:38 2015 +0200
+
+    set the ccache size to 15G
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 6ce8fe507939e3a3f0af41aa47c72707d5f57656
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 20:45:19 2015 +0200
+
+    version 1.3.1
+
+commit 636bd233a3a2b662c7e9e7030c4317927b67b519
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 20:44:32 2015 +0200
+
+    the container name now has the $USER appended
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 3d9bcc1f15d13aea0ec1947b2e5ae209a5bc0f37
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 16:33:03 2015 +0200
+
+    make it easier to publish a new version
+    
+    Mainly the oneliner to tag / sdist a few times to get it stable before
+    pushing. It's otherwise tedious and error prone.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 6d5a8d84dec593813edb5b5ac1a69a6f7d2e67f1
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 16:26:02 2015 +0200
+
+    version 1.3.0
+
+commit 7cb1ae0985060fb9a5b4f7d2f80bfb3f609fa223
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 16:24:19 2015 +0200
+
+    jenkins runner helper
+    
+    Shell script suitable to be called from a jenkins slave shell script.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ab52aaa5002902f83f7d94d4e4b56d7b82114a8c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Apr 8 16:21:01 2015 +0200
+
+    add reference to pbr in setup.cfg
+    
+    To make it easier to figure out the syntax and conventions.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit fa621188dfd06802d188557268471163202cae8c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Apr 7 13:58:56 2015 +0200
+
+    version 1.1.0
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ee5b73588d611192c7d3600a9145ad55586cba26
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Apr 7 13:52:35 2015 +0200
+
+    implement jenkins subcommand to report to github
+    
+    Given a jenkins job, it reports the success or failure as a comment on
+    github, if the branch has a pull/XXX structure. It is assumed that the
+    jenkins job has a single upstream job. The upstream job is a multi
+    configuration job and each of the combinations success or failure is
+    reported with a URL to the report like so:
+    
+    FAILURE: http://jenkins/job/ceph/12/
+    * SUCCESS http://jenkins/job/ceph/TARGET_OPERATING_SYSTEM=centos-7/12/
+    * FAILURE http://jenkins/job/ceph/TARGET_OPERATING_SYSTEM=ubuntu-14.04/12/
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit e2a6c3133907db8a610843a72002dab2b8656bbc
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Apr 7 13:51:48 2015 +0200
+
+    implement run from the command line
+    
+    Rely on the run() function implemented by sub-commands
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit af1d2b9f050ae99c5168f4e1968c72c8f8ed8d1f
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Apr 7 13:50:57 2015 +0200
+
+    add global --verbose
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ada909ee07aefadf0f4959f103e47e92df989803
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 12:16:14 2015 +0100
+
+    add missing requirement to six
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit b1dfd5d578e32065843c8c44e392dc0af2727ba7
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 12:09:55 2015 +0100
+
+    release 1.0.2
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 1e9acf61c3b12c871390afb71072427654f07580
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 11:43:35 2015 +0100
+
+    release 1.0.1
+
+commit 683bfdb0bea12adacafb8c0f5afa44f27358434b
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 11:38:44 2015 +0100
+
+    ignore distribution files
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 17f56a8d777aad5e4d4f864e91356c0332d2d4a6
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 11:37:51 2015 +0100
+
+    document how to create the pypi project
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 016fbf31c76a6d5b84456ee2f8d6b669ad0512a5
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 10:49:32 2015 +0100
+
+    release 1.0.0
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 20bcf5eeec69ee353d427e898fcc2f488bb0793a
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 10:47:20 2015 +0100
+
+    rename the package from ceph_workbench to ceph-workbench
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 5edeb4792c0484c799577a777b61f02415288c36
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 02:31:02 2015 +0100
+
+    pep8 and python3 compatibility
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit f5d8f44904f5d410b25e5dc31d484f8330a7fe86
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 01:02:16 2015 +0100
+
+    implement ceph_workbench main
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit dad9b779231127025b486c8c243e667da6902465
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 26 01:01:52 2015 +0100
+
+    pep8 compliance
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 32e3c76bf890de5fcd115d1b4026a6e2173b5129
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Feb 25 02:27:14 2015 +0100
+
+    implement WBBackport::inventory_write
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ac08380cd1c5e5865be1f99506e1cc7b1b88701e
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Feb 25 02:25:40 2015 +0100
+
+    allow for separate ssh GitLab configuration
+    
+    Also create a ssh key and upload it in the GitLab fixture.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 3503bd3348ae07d7cf4060467915bd41b473207c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Feb 24 14:50:40 2015 +0100
+
+    Implement WBBackport
+    
+    To display an inventory of a given release, based on WBXref findings.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 4b063854d726421566602cad29a3a514c14d752a
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Feb 24 14:49:49 2015 +0100
+
+    implement fixture helpers
+    
+    For git, GitLab, Redmine and Xref so that they can be shared among test
+    files.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit eb056e42c6cedd3019b6f1a9a785ca13818c0509
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Feb 24 14:49:09 2015 +0100
+
+    implement WBRedmine::load_issue
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 762bc148b6a9ed1d574993c8fae05227f304f4ec
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Tue Feb 24 14:48:20 2015 +0100
+
+    add missing updates in WBXref::index
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 528922fe2889d700a3569fae0bec0235da1f275c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 13 02:03:27 2015 +0100
+
+    xref collects argument parser from git, redmine and gitlab
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 13d8ae64507b74a8da6d7a79c75c551233b7e975
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 13 02:03:01 2015 +0100
+
+    redmine argument parsing
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 17d9ed3e67ee69a97e5ee1083288a7cc6047501d
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 13 02:02:29 2015 +0100
+
+    gitlab argument parsing
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 092307efa0c1f46434ca56d126583a5918f226ab
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 13 02:01:59 2015 +0100
+
+    git argument parsing
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 576bf65ae54e9097333cfc459c8319c29a9a9259
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 13 02:01:18 2015 +0100
+
+    --release is used in various contexts
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit f908529befcf8cb2fe18cf48763c7903da0052f2
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 12 22:05:07 2015 +0100
+
+    implement sanity_checks
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 2aa5f5453dbe2c333ba940579c1f4e54e9b687e2
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 12 22:04:35 2015 +0100
+
+    six is not used in util
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 088fa5fe74423cc2d16e8bc5ba9045c264a0eee6
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 12 21:30:30 2015 +0100
+
+    implement and test update_cherry_pick_or_link
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 7245c90b8bcf1539043f2b0f8aa06494e9551828
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 12 21:29:58 2015 +0100
+
+    init self.commit2issues in the constructor
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 7873f0bd47aed4e88e3be02b544d770243ffcded
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Thu Feb 12 21:28:26 2015 +0100
+
+    convert bytes into string
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 98a15659890a9fd5e93ce9fdb318491978dedcbd
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Mon Feb 9 02:06:31 2015 +0100
+
+    implement wbxref.update_issues_with_comments
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 96d0ee45cbaf3b9f9c26b94511a2f37798437ddb
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Mon Feb 9 02:05:58 2015 +0100
+
+    cosmetic change
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit f857d5c0a7d07147955c1d5c6465ca0adbb7cf91
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Mon Feb 9 02:05:15 2015 +0100
+
+    implement wbgitlab.commit_url
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit d01228a2fe3fb3fa15e9be1255d10f6cde1ac128
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 23:08:53 2015 +0100
+
+    test wbxref.update_issues_with_merge
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 9c7378f475105cabb0659ae8dd90355602541a6d
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 23:07:57 2015 +0100
+
+    flake8 cleanup
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 41971ea52361f63ad1b12eadd0874750980abf02
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 23:06:47 2015 +0100
+
+    test wxref.merge_message2issue
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 3ea661fc4aaffdf0756d5c09217c935e6a22b73a
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 23:05:56 2015 +0100
+
+    add wbxref.message2issue with tests
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 51bd062c6abbc6ca0238ef9a08bcef10f902f603
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 21:03:56 2015 +0100
+
+    update wbxref to connect to redmine
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit d77d372864f25cea25d66ca7ba3ec962164a288c
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 19:11:55 2015 +0100
+
+    use python-redmine instead requests
+    
+    Working with the redmine API without a wrapper significantly increases
+    the code verbosity. The python-redmine module is well maintained, covers
+    all the API and hides the details. The redmine API does not evolve much
+    and there probably won't be a need to upgrade the module.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 2a37f4ed41fc2136a63477578784f28687aec9c8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 16:33:39 2015 +0100
+
+    add tests for wbxref.{test_update_issue,update_commit2issues}
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit b0f305d23156984c08df558af50a37bb287a80ec
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:40:16 2015 +0100
+
+    wbxref stub
+    
+    Cross references git, gitlab and redmine
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit fe32dcf3c9498849393eee1c76cf17aa14ec5dee
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:39:46 2015 +0100
+
+    depends on github2gitlab
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 37ffd31227051bc81807e8ad9c21faad6120076f
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:39:16 2015 +0100
+
+    remove method that relates to issues
+    
+    Because wbgit is only about git and does not deal with issues.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit b9d785182a12c81691fc542ca49b7daf64121638
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:38:46 2015 +0100
+
+    wbredmine flake8 compliance
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 0e654612652c4b4ef2b2a7e5e34cf6646e8f9962
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:38:01 2015 +0100
+
+    cleanup wbgitlab tests
+    
+    Remove unused code.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 067a4b7303d5834ca3acc130f477a56ee25b391f
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:36:51 2015 +0100
+
+    flake8 compliance import parse instead of urllib
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 7f4ef6940ac2af18da4c5f8c9c35e9c91d864324
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:36:09 2015 +0100
+
+    add the merge_requests attr that contains all merge_requests
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 522f226adb8d5db55ab8513a7227dc470ed8e242
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:35:23 2015 +0100
+
+    populate the urls field of a merge request
+    
+    To be used when displaying messages.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit de521cab971989b05098622a396d6d94b0176292
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:34:07 2015 +0100
+
+    add for_each_merge helper
+    
+    And refactor update_head2merge to use it. It is generaly useful and will
+    help implementing cross referencing.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit b6b89cc02c6f30a3685ba7af090f53f51fcdf3a2
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:32:56 2015 +0100
+
+    move gitpython repo initialization to open
+    
+    So that the object can be created even when the git repository does not
+    exist.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 322088543a0a074eba52efa8ce0642e2e305b2fb
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 14:32:06 2015 +0100
+
+    single script to setup redmine / gitlab
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 3a9451fa89e32bd02b6c8d7ecbd7b14245345612
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 01:00:49 2015 +0100
+
+    add gitlab stub
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit ef86be828bc9a440ccb1672b2195d3393cf3b1c1
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 00:58:10 2015 +0100
+
+    run docker generation from root not from tests
+    
+    Otherwise coverage will trying to explore the data directory which
+    contains directories owned by root and not readable.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 6a1572865d0bfde4549b71fd74cb9cc8fa73da36
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 00:57:07 2015 +0100
+
+    wb{git,redmine} index return self
+    
+    So that Constructor().index() can be used.
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 5fdfdfe3d53467de0f0fa6300dad98ea7819883b
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sun Feb 8 00:56:31 2015 +0100
+
+    ignore docker data directory
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit 7a929249be86ea239957daa47c81c3eaeedb69bb
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Feb 7 17:47:37 2015 +0100
+
+    load all redmine issues
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit fb4947e03442000d97c2fd72472e5bc99b4ba25e
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Feb 7 17:46:19 2015 +0100
+
+    update release2last_tag
+    
+    Signed-off-by: Loic Dachary <loic@dachary.org>
+
+commit caf5bc5604508f6a2954f0347fddfb807d5c2b44
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Sat Feb 7 01:40:14 2015 +0100
+
+    redmine fixture
+    
+    In addition to opening the API, the default configuration must be loaded
+    and the Backport custom field created because there is no API for that.
+    
+    The test class creates the project and deletes it afterwards. The custom
+    field id is extracted.
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 78b03bfbce5bc7eb004181a25b93a692f426ab55
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 19:32:30 2015 +0100
+
+    programatically enable the REST API
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit acc82a6bba3120d3f65af472906a8a9bae852651
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 19:32:05 2015 +0100
+
+    populate release2backports
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 42a6364ea4e815738a7710deb3aa9543ac59b6b9
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 15:02:53 2015 +0100
+
+    head2merge map
+    
+    because git does not map commits to their children
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit bbab602e0419a87c6f0c0232e0e2ac8846ead0f8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 14:35:56 2015 +0100
+
+    cross reference Ceph tags, releases and commits
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit fbb17fe47d7734b458ec25eebb6a71833ebc2b14
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:09:33 2015 +0100
+
+    initial git class and stub test
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit fbf11a9020bed60392ec2c9176cd9e557b6311f8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:08:18 2015 +0100
+
+    draft scripts to launch redmine / gitlab from scratch
+    
+    So that the integration tests can assume they have a live installation
+    means we don't need to mock the API and risk assuming things that turn
+    out to be incorrect.
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit d4eb35134d006c67d90a55c06cdb9fd1335e7ec3
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:07:42 2015 +0100
+
+    shell script helper
+    
+    Because the idea is to mix shell and python when it makes sense.
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit be794c1145e79c10cbf271e7373099ed3d571abb
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:07:22 2015 +0100
+
+    check pep8 on tests too
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 694a5777c4326ddbedc04597abbce3e8a94bd288
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:06:58 2015 +0100
+
+    minimal test that relies on a live redmine
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 38b8785342d2e029bf95c4b89769318c0772fde5
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:06:08 2015 +0100
+
+    responses to mock requests
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 526deaecb19b6712d98eeb8a8b32f14745114bc0
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:03:52 2015 +0100
+
+    include_package_data can be used to include helper scripts
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 5b35e45b3452170331446c3e708c090b74c9c027
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Fri Feb 6 12:02:46 2015 +0100
+
+    ignore more python temporary files
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 9e9d84d461db2c89415ab51a657420b71a95c11a
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Feb 4 16:33:04 2015 +0100
+
+    add CephWorkbench class
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit 4ed3c696c725b7058a1ba56f6b08ca921028fca8
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Feb 4 16:33:17 2015 +0100
+
+    remove spurious github2gitlab
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit c84147f4675ea9a3820bd2db5fb3c1b8bfc48e1f
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Feb 4 16:28:22 2015 +0100
+
+    ceph-workbench script
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>
+
+commit d863d7b62cf763431c7ee2a86dd549afaffff4bd
+Author: Loic Dachary <ldachary@redhat.com>
+Date:   Wed Feb 4 16:05:40 2015 +0100
+
+    base files for, license etc.
+    
+    Signed-off-by: Loic Dachary <ldachary@redhat.com>

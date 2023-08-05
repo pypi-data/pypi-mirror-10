@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# Copyright (C) 2015 <contact@redhat.com>
+#
+# Author: Loic Dachary <loic@dachary.org>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+export LIBGUESTFS_BACKEND=direct 
+
+URL=http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-i386-disk1.img
+NAME=ubuntu-14.04-i386
+
+mkdir -p $NAME
+cd $NAME
+
+yum install -y libguestfs-tools openssh wget
+if ! test -e test_key ; then
+    ssh-keygen -N '' -f test_key
+    chmod +r test_key
+fi
+if ! test -e $NAME.orig ; then
+    wget -O $NAME.tmp -c $URL
+    mv $NAME.tmp $NAME.orig
+    virt-builder --get-kernel $NAME.orig
+    qemu-img resize $NAME.orig +10G
+fi
+
+cat > rc.local <<EOF
+#!/bin/sh -e
+mkfs -t ext4 /dev/ram1
+mkdir -p /home/ubuntu/workspace
+mount /dev/ram1 /home/ubuntu/workspace
+chown ubuntu /home/ubuntu/workspace
+exit 0
+EOF
+chmod +x rc.local
+virt-copy-in -a ubuntu-14.04-i386.orig rc.local /etc
+
+mkdir -p seed
+cat > seed/user-data <<EOF
+#cloud-config
+password: ubuntu
+ssh_authorized_keys:
+ - $(cat test_key.pub)
+sudo: ALL=(ALL) NOPASSWD:ALL
+chpasswd: { expire: False }
+EOF
+cat > seed/meta-data <<EOF
+instance-id: iid-123459
+local-hostname: testhost
+EOF
+( cd seed ; virt-make-fs --type=msdos --label=cidata .  ../seed.img )
+
+(
+    echo NAME=$NAME
+    cat <<'EOF'
+PORT=$1
+RAM=$(($2 * 1024))
+VMLINUZ=$(echo vmlinuz-*)
+INITRD=$(echo initrd.*)
+RD_SIZE=$((16 * 1024 * 1024))
+cp $NAME.orig $NAME.img
+qemu-system-x86_64 -machine accel=kvm:tcg -m $RAM -smp 8,sockets=1 -drive file=$NAME.img,if=virtio,cache=writeback -drive file=seed.img,if=virtio -net nic -net user,hostfwd=tcp::$PORT-:22 -kernel $VMLINUZ -initrd $INITRD -append "root=/dev/vda1 ro ds=nocloud-net brd.rd_size=$RD_SIZE" -display none
+EOF
+) > run.sh
+chmod +x run.sh
+
+(
+    cat <<'EOF'
+PORT=$1
+chmod 600 test_key
+ssh -A -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i test_key -p $PORT -t ubuntu@localhost
+EOF
+) > ssh.sh
+chmod +x ssh.sh
