@@ -1,0 +1,10 @@
+six
+
+[amqp]
+amqp
+
+[mongodb]
+pymongo < 3
+
+[redis]
+redis > 2.10
