@@ -1,0 +1,63 @@
+Metadata-Version: 2.0
+Name: django-demirbank
+Version: 1.0.21a1
+Summary: DemirBank library for making payment using store type = 3d_Pay_Hosting and transaction type = Auth
+Home-page: https://github.com/CyberLight/django-demirbank
+Author: CyberLight
+Author-email: cyberlight@live.ru
+License: MIT
+Keywords: 3d_pay_hosting payment demirbank
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django :: 1.7
+Classifier: Framework :: Django :: 1.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: django (>=1.7,<1.9)
+Provides-Extra: dev
+Requires-Dist: wheel; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+
+Library django-demirbank
+=======================
+
+Supports only one operation "Selling" (type `Auth`) which includes `Pre-Auth` and `Post-Auth`
+Supported only following settings
+``STORE_TYPE = '3d_Pay_Hosting'``
+``TRANSACTION_TYPE = 'Auth'``
+
+Library settings
+================
+
+The following settings needs to add inside ``settings/dev.py`` or ``settings/prod.py``
+
+=======================================================  =============================================
+Name                                                     Value
+=======================================================  =============================================
+DEMIR_BANK_PAY_ACTION_URL                                           'url/to/demirbank/proces'
+DEMIR_BANK_CLIENT_ID                                                12345678 # client id
+DEMIR_BANK_TRANSACTION_TYPE                                         'Auth' # type for Selling operation
+DEMIR_BANK_INSTALMENT                                               '' # empty string for this parameter
+DEMIR_BANK_OK_URL                                                   'url/to/merchant/success/page'
+DEMIR_BANK_FAIL_URL                                                 'url/to/merchant/error/page'
+DEMIR_BANK_STORE_TYPE                                               '3d_Pay_Hosting'
+DEMIR_BANK_LANG                                                     'ru' # language of demirbank interface
+DEMIR_BANK_CURRENCY_CODE                                            417 # currency code for SOM
+DEMIR_BANK_STORE_KEY                                                'KEY VALUE RECEIVED FROM BANK'
+``DEMIR_BANK_CLIENT_MODEL_PATH``                         'some_app.models' #for example
+``DEMIR_BANK_CLIENT_MODEL_NAME``                         'Client' #for example
+``DEMIR_BANK_CLIENT_MODEL_SEARCH_FIELD``                 'phone_number' #for example
+``DEMIR_BANK_CLIENT_MODEL_UPDATE_BALANCE_METHOD_NAME``   'update_balance' #for example
+=======================================================  =============================================
+
+
