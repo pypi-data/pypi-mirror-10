@@ -1,0 +1,74 @@
+Metadata-Version: 2.0
+Name: imgtohttps
+Version: 0.3
+Summary: Simple image uploader
+Home-page: https://github.com/Orhideous/imgtohttps
+Author: Andriy Kushnir (Orhideous)
+Author-email: orhideous@gmail.com
+License: GPLv3
+Keywords: Imgur
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Utilities
+Requires-Dist: Flask
+Requires-Dist: Flask-Redis
+Requires-Dist: imgurpython
+Requires-Dist: itsdangerous
+Requires-Dist: Jinja2
+Requires-Dist: MarkupSafe
+Requires-Dist: redis
+Requires-Dist: requests
+Requires-Dist: Werkzeug
+
+=====================
+Simple image uploader
+=====================
+
+About
+=====
+
+Microservice for uploading all insecure images to Imgur by url.
+
+Use Redis as cache backend and metadata storage.
+
+Installation
+============
+
+>From PyPI::
+
+    pip install imgtohttps
+
+>From GitHub::
+
+    git clone https://github.com/Orhideous/imgtohttps.git
+
+Usage
+=====
+
+Request::
+
+    curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com/image.png"}' http://localhost:5000
+
+Response::
+
+    {"url": "https://i.imgur.com/AxQwu0h.png"}
+
+Error::
+
+    {"error": "Some error message"}
+
+
+
