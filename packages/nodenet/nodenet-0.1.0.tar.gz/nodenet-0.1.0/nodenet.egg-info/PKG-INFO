@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: nodenet
+Version: 0.1.0
+Summary: an asynchronous node-based UDP networking library
+Home-page: http://github.com/AjayMT/nodenet
+Author: Ajay MT
+Author-email: ajaymt@icloud.com
+License: UNKNOWN
+Download-URL: https://github.com/AjayMT/nodenet/tarball/v0.1.0
+Description: UNKNOWN
+Keywords: node network UDP asynchronous
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Requires: pyuv (>1.0.0, <2.0.0)
+Requires: emitter (>=0.0.6)
