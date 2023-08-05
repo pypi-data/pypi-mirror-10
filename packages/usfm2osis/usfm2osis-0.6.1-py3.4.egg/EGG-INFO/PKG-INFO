@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: usfm2osis
+Version: 0.6.1
+Summary: Tools for converting Bibles from USFM to OSIS XML
+Home-page: https://github.com/chrislit/usfm2osis
+Author: Christopher C. Little
+Author-email: chrisclittle+usfm2osis@gmail.com
+License: GPLv3+
+Download-URL: https://github.com/chrislit/usfm2osis/archive/master.zip
+Description: usfm2osis
+        =========
+        
+        .. image:: https://travis-ci.org/chrislit/usfm2osis.svg
+            :target: https://travis-ci.org/chrislit/usfm2osis
+            :alt: Build Status
+        
+        .. image:: https://coveralls.io/repos/chrislit/usfm2osis/badge.svg
+            :target: https://coveralls.io/r/chrislit/usfm2osis
+            :alt: Coverage Status
+        
+        .. image:: https://readthedocs.org/projects/usfm2osis/badge/?version=latest
+            :target: https://usfm2osis.readthedocs.org/en/latest/
+            :alt: Documentation Status
+        
+        Python scripts for converting USFM to OSIS XML
+        
+        ::
+        
+            Usage: usfm2osis.py <osisWork> [OPTION] ...  <USFM filename|wildcard> ...')
+              -d               debug mode (single-threaded, verbose output)
+              -e ENCODING      input encoding override (default is to read the USFM file's
+                                 \ide value or assume UTF-8 encoding in its absence)
+              -h, --help       print this usage information
+              -o FILENAME      output filename (default is: <osisWork>.osis.xml)
+              -r               enable relaxed markup processing (for non-standard USFM)
+              -s mode          set book sorting mode: natural (default), alpha, canonical,
+                                 usfm, random, none
+              -v               verbose feedback
+              -x               disable XML validation
+        
+            As an example, if you want to generate the osisWork <Bible.KJV> and your USFM
+              are located in the ./KJV folder, enter:
+                python usfm2osis.py Bible.KJV ./KJV/*.usfm
+        
+Keywords: OSIS,USFM,Bible
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Religion
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Religion
+Classifier: Topic :: Text Processing :: Markup :: XML
