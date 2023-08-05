@@ -1,0 +1,59 @@
+Metadata-Version: 1.0
+Name: fixxd
+Version: 0.2.1
+Summary: iOS UIAutomation tests launcher
+Home-page: https://github.com/Stupeflix/fixxd
+Author: Francescu
+Author-email: UNKNOWN
+License: MIT
+Description: # fixxd
+        iOS UIAutomation tests launcher
+        
+        #installation
+        ```
+        pip install fixxd
+        ```
+        
+        Go in the folder you want to put the tests in:
+        ```
+        echo "app_name:MyApp.app" > .fixxd
+        mkdir iphone
+        mkdir lib
+        ```
+        #usage
+        Put your tests in the `iphone`, `ipad` or `universal` folder.
+        Put your lib / utils in the `lib` folder.
+        
+        Then run `fixxd test iphone/mytest.coffee`
+        
+        #contributing
+        TODO
+        
+        # thanks
+        This library is inspired by both [ui-automation-runner](https://github.com/idStar/ui-automation-runner/) and [bwoken](https://github.com/bendyworks/bwoken). Thanks to them.
+        
+        
+        # News
+        ## 0.2.1
+        
+        *Release date: 2015-05-20*
+        
+        - Fixed: Files in CoffeeScript within the lib folders are now compiled
+        - Fixed: Removed first and last line from compiled coffee to enable inline var declarations
+        
+        ## 0.2
+        
+        *Release date: 2015-05-20*
+        
+        - Added Coffeescript support
+        
+        ## 0.1
+        
+        *Release date: 2015-05-18*
+        
+        - Created proper python pypi package thanks to @madlag
+        - `python setup.py develop` creates the `fixxd` cli
+        - Introduced `.fixxd` config file
+        
+Keywords: ios,uiautomation,tests,instruments,ui,automation
+Platform: UNKNOWN
