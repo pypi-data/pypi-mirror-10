@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+chicago/__init__.py
+chicago/base.py
+chicago/community_areas.py
+chicago/neighborhoods.py
+chicago/version.py
+chicago.egg-info/PKG-INFO
+chicago.egg-info/SOURCES.txt
+chicago.egg-info/dependency_links.txt
+chicago.egg-info/top_level.txt
+chicago/data/CommAreas.csv
+chicago/data/Neighborhoods_2012b.csv
