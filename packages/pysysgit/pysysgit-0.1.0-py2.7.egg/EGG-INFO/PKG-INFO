@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: pysysgit
+Version: 0.1.0
+Summary: Utility to call git from python
+Home-page: https://github.com/onlynone/pysysgit
+Author: Steven Willis
+Author-email: onlynone@gmail.com
+License: BSD
+Description: ===============================
+        System Git
+        ===============================
+        
+        .. image:: https://img.shields.io/pypi/v/pysysgit.svg
+                :target: https://pypi.python.org/pypi/pysysgit
+        
+        
+        Utility to call git from python. Examples::
+        
+          >>> from sysgit import git
+          >>> git('ls-files')
+        
+        * Free software: BSD license
+        * Documentation: https://pysysgit.readthedocs.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-01-11)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: sysgit
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
