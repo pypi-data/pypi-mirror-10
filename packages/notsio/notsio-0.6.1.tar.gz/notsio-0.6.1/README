@@ -1,0 +1,85 @@
+notsio
+======
+
+notsio note and bookmark tool - client to the ownCloud notsio app.
+
+
+installation
+------------
+
+You need at least python 3.4 to use `notsio`.
+
+The recommended way of installing `notsio` is via `pip`:
+
+    $ pip install notsio
+
+
+The package provides a command line completion file for `zsh` here:
+
+https://github.com/nrocco/notsio-cli/blob/master/contrib/completion.zsh
+
+
+usage
+-----
+
+First create a `~/.notsiorc` file in your home directory.
+The file could look like this:
+
+    $ cat ~/.notsiorc
+    [notsio]
+    base_url = https://owncloud.example.com
+    editor = /usr/bin/vim -c 'set ft=markdown' -c 'autocmd BufWritePost tmp*-notsio :silent !cat %% | notsio modify {note_id} > /dev/null 2>&1'
+    pager = less
+    username = yourusername
+    password = yourpassword
+    verify_ssl = my_ca.crt|True|False
+
+
+Get help:
+
+    $ notsio -h
+    usage: notsio [-h] [-c CONFIG_FILE] [-v] [-q] [-V]
+                  {books,inbox,list,show,create,move-to,modify,edit,delete} ...
+
+    notsio note and bookmark command line utility
+
+    positional arguments:
+      {books,inbox,list,show,create,move-to,modify,edit,delete}
+        books               list all books on the server
+        inbox               list all notes in the inbox book on the server
+        list                search or list notes
+        show                show a note
+        create              create a new note
+        move-to             move one or more notes to another book
+        modify              change one or more note attributes
+        edit                edit a note in your favorite $EDITOR
+        delete              delete one or more notes
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -c CONFIG_FILE, --config CONFIG_FILE
+                            path to the config file
+      -v, --verbose         output more verbose
+      -q, --quiet           surpress all output
+      -V, --version         show program's version number and exit
+
+    notsio reads its default configuration from /home/nrocco/.notsiorc unless the
+    -c|--config option is given. In that case none of the default configuration
+    files are parsed.
+
+
+To list all the notes in your inbox:
+
+    $ notsio inbox
+
+
+To edit a note (with id 728) in your `$EDITOR`:
+
+    $ notsio edit 728
+
+
+After saving and closing your editor the note will be uploaded to the server.
+
+To use a file as the content for a new note:
+
+    $ cat myfile.txt | notsio create my-fancy-note-title
