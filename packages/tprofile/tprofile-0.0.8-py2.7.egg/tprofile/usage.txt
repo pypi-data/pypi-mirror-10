@@ -1,0 +1,15 @@
+Usage:
+use `tprofile.ProfileMeta' as the metaclass of handler subclass or base handler class.
+
+example:
+
+import tornado.web
+from tprofile import ProfileMeta
+
+class BaseHandler(tornado.web.RequestHandler):
+    __metaclass__ = ProfileMeta
+
+class MainHandler(BaseHandler):
+    def get(self):
+        pass
+
