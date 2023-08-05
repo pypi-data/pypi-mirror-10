@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: object_by_name
+Version: 0.0.1
+Summary: Get an object by name or dotted path, import if it necessary.
+Home-page: https://github.com/imbolc/object_by_name
+Author: Imbolc
+Author-email: imbolc@imbolc.name
+License: ISC
+Description: object_by_name
+        ==============
+        Get an object by name or dotted path, import if it necessary.
+        
+        Install
+        -------
+            pip install object_by_name
+        
+        Usage
+        -----
+            >>> from object_by_name import object_by_name
+        
+            >>> object_by_name('test_package')
+            <module 'test_package' from ...>
+        
+            >>> object_by_name('test_package.test_module')
+            <module 'test_package.test_module' from ...>
+        
+            >>> object_by_name('test_package.test_module.TestClass')
+            <class 'test_package.test_module.TestClass'>
+        
+            >>> object_by_name('test_package.test_module.instance')
+            <test_package.test_module.TestClass object at 0x...>
+        
+            >>> object_by_name('test_package.test_module.instance.method')
+            <bound method TestClass.method of <test_package.test_module.TestClass ...>>
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
