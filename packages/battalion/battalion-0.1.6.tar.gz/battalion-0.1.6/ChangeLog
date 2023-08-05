@@ -1,0 +1,67 @@
+CHANGES
+=======
+
+0.1.6
+-----
+
+* linting fixes
+* better error handleing, fixture memoization
+* add new fixture feature
+
+0.1.5
+-----
+
+* more bug fixes
+
+0.1.4
+-----
+
+* adding github url
+
+0.1.3
+-----
+
+* bug fixes and new features
+
+0.1.2
+-----
+
+* lint fixes
+* handle the CLI better, so return values are propegated and argv can be passed in
+* making logging better logging
+
+0.1.1
+-----
+
+* update pyversion
+* updating the readme
+* adding command dispatching inside other commands
+* code reorg and cleanup
+* cleanup, implement config files, implement state
+* rename tests remove doc building from tox
+* fixup tox testing
+
+0.1.0
+-----
+
+* battalion v1
+* another WIP state capture
+* capturing a WIP state
+* it works
+
+0.0.4
+-----
+
+* project structure cleanup
+
+0.0.3
+-----
+
+* trying to add some things to the sdist
+
+0.0.2
+-----
+
+* working on release task
+* intial project structure layout
+* Initial commit
