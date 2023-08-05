@@ -1,0 +1,15 @@
+Django>=1.8
+django-allauth
+gunicorn
+django-bootstrap3
+jsmin
+django-debug-toolbar
+rcssmin
+django-pipeline
+celery
+django-redis
+django-redis-sessions-fork
+django-redis-cache
+funcsigs
+django-websocket-redis
+gevent
