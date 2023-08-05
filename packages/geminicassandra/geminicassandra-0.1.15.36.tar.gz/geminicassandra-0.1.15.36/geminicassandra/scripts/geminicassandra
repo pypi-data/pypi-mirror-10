@@ -1,0 +1,6 @@
+#!/usr/bin/env python -E
+
+import geminicassandra.scripts
+import geminicassandra.gemini_main
+from geminicassandra.gemini_constants import *
+geminicassandra.gemini_main.main()
