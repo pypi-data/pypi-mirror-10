@@ -1,0 +1,27 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+START=99
+
+BIN="python"
+DEFAULT=/etc/default/tunnel
+OPTIONS="/usr/bin/tunnel.py connect"
+
+start() {
+        env >> /tmp/env
+	[ -f $DEFAULT ] && . $DEFAULT
+	$BIN $OPTIONS > /tmp/tunnel.log &
+}
+
+stop() {
+	kill -9 $(ps | grep ship.[py] | awk '{print $1}')
+}
+
+reload() {
+  restart
+}
+
+restart() {
+  stop
+  start
+}
+
