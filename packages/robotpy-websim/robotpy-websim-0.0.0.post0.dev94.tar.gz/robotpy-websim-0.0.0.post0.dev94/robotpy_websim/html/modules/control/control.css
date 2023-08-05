@@ -1,0 +1,12 @@
+#control {
+	width: 120px;
+	padding-left: 20px;
+}
+
+#connection_notification.disconnected {
+	color: red;
+}
+
+#connection_notification.connected {
+	color: green;
+}
