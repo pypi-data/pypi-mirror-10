@@ -1,0 +1,52 @@
+#!/bin/bash
+
+REPO="https://raw.github.com/trentrichardson/jQuery-Timepicker-Addon/master"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR/../js/jquery_timepicker_addon/resources
+
+curl -O $REPO/jquery-ui-sliderAccess.js
+curl -O $REPO/jquery-ui-timepicker-addon.css
+curl -O $REPO/jquery-ui-timepicker-addon.js
+
+cd -
+
+cd $DIR/../js/jquery_timepicker_addon/resources/localization
+
+curl -O $REPO/i18n/jquery-ui-timepicker-af.js
+curl -O $REPO/i18n/jquery-ui-timepicker-bg.js
+curl -O $REPO/i18n/jquery-ui-timepicker-ca.js
+curl -O $REPO/i18n/jquery-ui-timepicker-cs.js
+curl -O $REPO/i18n/jquery-ui-timepicker-da.js
+curl -O $REPO/i18n/jquery-ui-timepicker-de.js
+curl -O $REPO/i18n/jquery-ui-timepicker-el.js
+curl -O $REPO/i18n/jquery-ui-timepicker-es.js
+curl -O $REPO/i18n/jquery-ui-timepicker-et.js
+curl -O $REPO/i18n/jquery-ui-timepicker-eu.js
+curl -O $REPO/i18n/jquery-ui-timepicker-fi.js
+curl -O $REPO/i18n/jquery-ui-timepicker-fr.js
+curl -O $REPO/i18n/jquery-ui-timepicker-gl.js
+curl -O $REPO/i18n/jquery-ui-timepicker-he.js
+curl -O $REPO/i18n/jquery-ui-timepicker-hr.js
+curl -O $REPO/i18n/jquery-ui-timepicker-hu.js
+curl -O $REPO/i18n/jquery-ui-timepicker-id.js
+curl -O $REPO/i18n/jquery-ui-timepicker-it.js
+curl -O $REPO/i18n/jquery-ui-timepicker-ja.js
+curl -O $REPO/i18n/jquery-ui-timepicker-ko.js
+curl -O $REPO/i18n/jquery-ui-timepicker-lt.js
+curl -O $REPO/i18n/jquery-ui-timepicker-nl.js
+curl -O $REPO/i18n/jquery-ui-timepicker-no.js
+curl -O $REPO/i18n/jquery-ui-timepicker-pl.js
+curl -O $REPO/i18n/jquery-ui-timepicker-pt-BR.js
+curl -O $REPO/i18n/jquery-ui-timepicker-pt.js
+curl -O $REPO/i18n/jquery-ui-timepicker-ro.js
+curl -O $REPO/i18n/jquery-ui-timepicker-ru.js
+curl -O $REPO/i18n/jquery-ui-timepicker-sk.js
+curl -O $REPO/i18n/jquery-ui-timepicker-sv.js
+curl -O $REPO/i18n/jquery-ui-timepicker-th.js
+curl -O $REPO/i18n/jquery-ui-timepicker-tr.js
+curl -O $REPO/i18n/jquery-ui-timepicker-uk.js
+curl -O $REPO/i18n/jquery-ui-timepicker-vi.js
+curl -O $REPO/i18n/jquery-ui-timepicker-zh-CN.js
+curl -O $REPO/i18n/jquery-ui-timepicker-zh-TW.js
+
+cd -
