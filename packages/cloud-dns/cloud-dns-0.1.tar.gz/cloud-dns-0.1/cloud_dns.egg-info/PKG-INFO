@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: cloud-dns
+Version: 0.1
+Summary: DNS utilities over Apache libcloud
+Home-page: https://github.com/cogniteev/cloud-dns
+Author: Tristan Carel
+Author-email: tristan.carel@gmail.com
+License: Apache license version 2.0
+Download-URL: https://github.com/cogniteev/cloud-dns/tarball/v0.1
+Description: 
+        Rationale
+        ---------
+        Using gcloud compute ssh ... commands are not user friendly.
+        
+Keywords: libcloud dns
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
