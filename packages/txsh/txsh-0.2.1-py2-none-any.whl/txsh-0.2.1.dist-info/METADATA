@@ -1,0 +1,46 @@
+Metadata-Version: 2.0
+Name: txsh
+Version: 0.2.1
+Summary: Twisted Process interface
+Home-page: https://github.com/nicholasamorim/txsh
+Author: Nicholas Amorim
+Author-email: nicholas@alienretro.com
+License: MIT
+Keywords: twisted process shell command
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Twisted
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires: twisted(>=10.2.0)
+Requires-Dist: twisted (>=10.2.0)
+
+txsh is a dynamic wrapper around Twisted ProcessProtocol and
+spawnProcess that allows you to call any program as if it were
+a function and return a deferred with its exit code and output.
+
+from twisted.internet import reactor
+from txsh import ls
+
+def my_callback(exc_info):
+    print 'Exit Code:', exc_info.status
+    print 'Output:', exc_info.stdout
+    print 'Errors:', exc_info.stderr
+    reactor.stop()
+
+d = ls()
+d.addCallback(my_callback)
+
+reactor.run()
+
+
