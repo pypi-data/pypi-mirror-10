@@ -1,0 +1,12 @@
+python-dateutil
+
+[test]
+elementtree>=1.2.6
+nose
+coverage
+
+[msgpack]
+msgpack-python>=0.4.2
+
+[cli]
+click>=3.3
