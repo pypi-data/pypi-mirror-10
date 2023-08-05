@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: flask-keyauth
+Version: 0.1.1
+Summary: A module to simplify working with KEY auth in Flask apps
+Home-page: http://www.github.com/jsevilleja/flask-keyauth
+Author: Joel Sevilleja
+Author-email: joel@jsevilleja.org
+License: MIT
+Description: #Flask-KeyAuth
+        A module to simplify Public Key authentication for RESTful APIs in Flask, which also builds in a simple RBAC concept and anti-replay via a timestamp.  
+        For GET requests, the path section and all parameters are hashed.  For POST requests, the request body is added as well.  
+        By default, the module expects authentication via an X-Auth-Signature header and ACCOUNT_ID and TIMESTAMP parameters (holding the obvious values) 
+        to be present in the query string or request body.  
+        TIMESTAMP can be in any format datetime.fromtimestamp() can parse.  ACCOUNT_ID will be used to lookup a given account's secret and roles via an AccountBroker.  
+        If auth fails, the application throws a 403 back to the client.  All of that can be changed, however.
+        
+        This code is based on the one made by Phillip Martin (https://github.com/Phillipmartin/flask-hmacauth)
+        #KeyManager
+        This is the meat of the module.  This object contains the is_authorized method, which actually does the Key verification and role checks.
+        
+        In the simple case, you just need to pass this object's constructor the flask application object and an AccountBroker object. 
+        In more complex cases, where you want to change defaults, you have the following options:
+        
+           * app - this is the Flask application container
+           * account_broker - this is the ApplicationBroker object
+           * account_id - this is a callable, which when fed a request object will return the request's account ID.  The default value for this is lambda x: x.values.get('ACCOUNT_ID')
+           * signature - this is a callable, which when fed a request object will return the request's signature.  The default value for this is GET_SIGNATURE = lambda x: x.headers.get('X-Auth-Signature').
+           * timestamp - this is a callable, which when fed a request object will return the request's timestamp.  The default value for this is lambda x: x.values.get('TIMESTAMP')
+           * valid_time - number of seconds that a signed request is valid (based on the signed timestamp).  defaults to 5
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires: flask
+Requires: pycrypto
