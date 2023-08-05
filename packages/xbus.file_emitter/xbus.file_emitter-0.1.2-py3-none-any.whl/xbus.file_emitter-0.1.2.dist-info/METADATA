@@ -1,0 +1,77 @@
+Metadata-Version: 2.0
+Name: xbus.file-emitter
+Version: 0.1.2
+Summary: Generic Xbus file emitter.
+Home-page: http://xbus.io
+Author: XCG
+Author-email: contact@xcg-consulting.fr
+License: UNKNOWN
+Keywords: xbus file emitter
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: msgpack-python
+Requires-Dist: pyjon.descriptors
+Requires-Dist: pyzmq
+
+xbus.file_emitter
+=================
+
+Generic Xbus file emitter.
+
+
+Xbus
+----
+
+Xbus is an Enterprise service bus. As such it aims to help IT departments
+achieve a better application infrastructure layout by providing a way to
+urbanize the IT systems.
+
+The goals of urbanization are:
+  - high coherence
+  - low coupling
+
+More information about Xbus:
+  - Documentation: <http://xbusbroker.readthedocs.org/>
+  - Website: <http://xbus.io/>
+  - Presentation: <http://bit.ly/1AYtQa6>
+
+
+Requirements
+------------
+
+  - pyjon.descriptors (directly from pypi)
+
+Contributors
+============
+
+Sorted by commit date:
+
+  - Jérémie Gavrel, <jeremie.gavrel@xcg-consulting.fr>
+  - Houzéfa Abbasbhay, <houzefa.abba@xcg-consulting.fr>
+  - Florent Aide, <florent.aide@xcg-consulting.fr>
+
+Changelog
+=========
+
+
+0.1.2 (2015-05-12)
+------------------
+
+  - Better release setup.
+
+
+0.1.1 Initial release (2015-05-12)
+----------------------------------
+
+  - Initial implementation of the Xbus file emitter.
+
+
