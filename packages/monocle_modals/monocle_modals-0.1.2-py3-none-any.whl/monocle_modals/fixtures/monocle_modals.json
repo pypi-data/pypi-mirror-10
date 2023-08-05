@@ -1,0 +1,45 @@
+[
+  {
+    "pk": 1,
+    "model": "monocle_modals.modal",
+    "fields":
+    {
+      "modal_id": "#contact_modal",
+      "showEmail": true,
+      "type": "send",
+      "requiredMessage": true,
+      "requiredPhone": true,
+      "showMessage": true,
+      "name": "Заказать звонок",
+      "requiredEmail": false,
+      "resModalText": "Заявка принята!",
+      "text": "Отправьте заявку и мы Вам перезвоним",
+      "buttonText": "Отправить",
+      "mandrill_api_key": "uwvfAAW-VFOYMAyj1kBrfA",
+      "email": "mj@langprism.com",
+      "showPhone": true,
+      "resModal": true}},
+  {
+    "pk": 2,
+    "model":
+    "monocle_modals.modal",
+    "fields":
+    {
+      "modal_id": "#guarantee_modal",
+      "showEmail": false,
+      "type": "text",
+      "requiredMessage": false,
+      "requiredPhone": false,
+      "showMessage": true,
+      "name": "100% Гарантия",
+      "requiredEmail": false,
+      "resModalText": "",
+      "text": "Мы настолько уверены в качестве своего сервиса, что гарантируем 100% возврат денег, если оно Вас не устроит.",
+      "buttonText": "",
+      "mandrill_api_key": "uwvfAAW-VFOYMAyj1kBrfA",
+      "email": "",
+      "showPhone": false,
+      "resModal": false
+    }
+  }
+]
