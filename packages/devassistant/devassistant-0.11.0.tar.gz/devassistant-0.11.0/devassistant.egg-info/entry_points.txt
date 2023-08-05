@@ -1,0 +1,6 @@
+[console_scripts]
+da = devassistant.cli.cli_runner:CliRunner.run
+devassistant = devassistant.cli.cli_runner:CliRunner.run
+devassistant-gui = devassistant.gui:run_gui
+da-gui = devassistant.gui:run_gui
+
