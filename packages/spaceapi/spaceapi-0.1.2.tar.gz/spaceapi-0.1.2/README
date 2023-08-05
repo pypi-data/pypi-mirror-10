@@ -1,0 +1,4 @@
+Archive data from the space API. I put it in my crontab like this. ::
+
+    */5 * * * * /usr/local/bin/spaceapi --download --threads 200 --csv > ~/.spaceapi/space.csv
+
