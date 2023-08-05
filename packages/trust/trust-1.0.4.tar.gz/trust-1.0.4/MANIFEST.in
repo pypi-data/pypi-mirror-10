@@ -1,0 +1,6 @@
+include README.markdown
+include __init__.py
+include local.py
+include server.py
+recursive-include trust *.py
+recursive-include extras *.py
