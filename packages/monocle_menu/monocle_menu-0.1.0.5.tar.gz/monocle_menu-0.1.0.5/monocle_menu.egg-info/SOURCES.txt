@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+monocle_menu/__init__.py
+monocle_menu/admin.py
+monocle_menu/models.py
+monocle_menu/monocle.py
+monocle_menu.egg-info/PKG-INFO
+monocle_menu.egg-info/SOURCES.txt
+monocle_menu.egg-info/dependency_links.txt
+monocle_menu.egg-info/top_level.txt
+monocle_menu/fixtures/monocle_menu.json
+monocle_menu/static/monocle_menu/monocle_menu.css
+monocle_menu/static/monocle_menu/monocle_menu.js
+monocle_menu/templates/monocle_menu/monocle_menu.html

@@ -1,0 +1,74 @@
+[
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Наверх",
+  "anchor": "#menu",
+  "position": 1
+ },
+ "pk": 1
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Главный баннер",
+  "anchor": "#mainbanner",
+  "position": 2
+ },
+ "pk": 2
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Акция",
+  "anchor": "#timer_action",
+  "position": 3
+ },
+ "pk": 3
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Отзывы",
+  "anchor": "#reviews",
+  "position": 4
+ },
+ "pk": 4
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Партнеры",
+  "anchor": "#partners",
+  "position": 5
+ },
+ "pk": 5
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Карусель",
+  "anchor": "#slider",
+  "position": 6
+ },
+ "pk": 6
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Социальные сети",
+  "anchor": "#social-buttons",
+  "position": 6
+ },
+ "pk": 7
+},
+{
+ "model": "monocle_menu.Menu",
+ "fields": {
+  "name": "Карта",
+  "anchor": "#map",
+  "position": 6
+ },
+ "pk": 8
+}
+]
