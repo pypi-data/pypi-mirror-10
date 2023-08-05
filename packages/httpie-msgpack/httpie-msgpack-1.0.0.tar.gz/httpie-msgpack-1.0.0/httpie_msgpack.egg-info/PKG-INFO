@@ -1,0 +1,38 @@
+Metadata-Version: 1.1
+Name: httpie-msgpack
+Version: 1.0.0
+Summary: Msgpack plugin for HTTPie.
+Home-page: https://github.com/rasky/httpie-msgpack
+Author: Giovanni Bajo
+Author-email: rasky@develer.com
+License: BSD
+Download-URL: https://github.com/rasky/httpie-msgpack
+Description: httpie-msgpack
+        ===========
+        
+        Msgpack decoding plugin for `HTTPie <https://github.com/jakubroztocil/httpie>`_.
+        
+        
+        Installation
+        ------------
+        
+        .. code-block:: bash
+        
+            $ pip install httpie-msgpack
+        
+        
+        
+        Usage
+        -----
+        Just fetch any msgpack file:
+        
+        .. code-block:: bash
+        
+            $ http GET example.org/whatever.msgpack
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Environment :: Plugins
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Utilities
