@@ -1,0 +1,62 @@
+Metadata-Version: 2.0
+Name: hexes
+Version: 0.1.0
+Summary: Curses for humans.
+Home-page: https://github.com/wlonk/hexes
+Author: Kit La Touche
+Author-email: kit@transneptune.net
+License: BSD
+Keywords: hexes
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: wheel (==0.24.0)
+
+===============================
+Hexes
+===============================
+
+.. image:: https://img.shields.io/pypi/v/hexes.svg?style=plastic
+        :target: https://pypi.python.org/pypi/hexes
+
+.. image:: https://badge.waffle.io/wlonk/hexes.png?label=ready&title=Ready 
+        :target: https://waffle.io/wlonk/hexes
+        :alt: 'Stories in Ready'
+
+.. image:: https://img.shields.io/circleci/project/wlonk/hexes.svg?style=plastic
+        :target: https://circleci.com/gh/wlonk/hexes
+
+.. image:: https://readthedocs.org/projects/pip/badge/?style=plastic
+        :target: https://hexes.readthedocs.org/
+
+
+Curses for humans.
+
+* Free software: BSD license
+
+This is very very alpha! I'm working on it, though, and would love your
+feedback, pull requests, and enthusiasm.
+
+Thanks!
+
+Features
+--------
+
+* It can draw boxes, lay them out, and resize them. FANCY!
+
+
+
+
+History
+-------
+
+0.1.0 (2015-04-21)
+---------------------
+
+* First release on PyPI.
+
+
