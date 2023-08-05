@@ -1,0 +1,20 @@
+toolz
+psutil
+chest
+
+[array]
+numpy
+
+[bag]
+dill
+
+[complete]
+bcolz
+dill
+numpy
+pandas >= 0.16.0
+
+[dataframe]
+bcolz
+numpy
+pandas >= 0.16.0
