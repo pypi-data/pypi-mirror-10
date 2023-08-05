@@ -1,0 +1,64 @@
+Metadata-Version: 2.0
+Name: pipreqs
+Version: 0.1.4
+Summary: Pip requirements.txt generator based on imports in project
+Home-page: https://github.com/bndr/pipreqs
+Author: Vadim Kravcenko
+Author-email: vadim.kravcenko@gmail.com
+License: Apache License
+Keywords: pip requirements imports
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: docopt
+Requires-Dist: yarg
+
+===============================
+pipreqs
+===============================
+
+.. image:: https://img.shields.io/travis/bndr/pipreqs.svg
+        :target: https://travis-ci.org/bndr/pipreqs
+
+.. image:: https://img.shields.io/pypi/v/pipreqs.svg
+        :target: https://pypi.python.org/pypi/pipreqs
+
+Work In Progress
+
+Pip Requirements generator
+
+* Free software: Apache license
+* Documentation: https://pipreqs.readthedocs.org.
+
+Features
+--------
+
+Why not pip freeze?
+--------
+
+
+
+
+History
+-------
+
+0.1.1 (2015-04-22)
+---------------------
+
+* Fix regex matching for imports
+* Release on Pypi
+
+0.1.0 (2015-04-22)
+---------------------
+
+* First release on Github.
+
+
