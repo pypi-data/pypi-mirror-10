@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: jmb.jadmin
+Version: 0.8
+Summary: jumbo admin
+Home-page: https://bitbucket.org/jumboteam/jmb.jadmin
+Author: ThunderSystems
+Author-email: dev@thundersystems.it
+License: UNKNOWN
+Description: 
+        Core of the admin part of the jumbo framework by Thunder Systems.
+        The main features it provides are a layout by tabs for fieldsests and 
+        inlines and a spacialized Inline called AjaxInline that allows to edit
+        records in an iframe and updates via ajax the calling page.
+        
+        Official documentation at http://docs.thundersystems.it/jmb.jadmin.
+        
+Platform: any
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Framework :: Django

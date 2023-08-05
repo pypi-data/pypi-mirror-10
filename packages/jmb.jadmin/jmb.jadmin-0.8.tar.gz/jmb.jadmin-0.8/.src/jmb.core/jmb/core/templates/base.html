@@ -1,0 +1,35 @@
+{% load dajaxice_templatetags %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        {% block head_meta %}<meta charset="utf-8" />{% endblock %}
+        {% dajaxice_js_import %}
+        <title>{% block title %}{% endblock %}</title>
+        {% block css %}
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}jmb/css/base.css" />
+	{% endblock %}
+        <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body class="{% block body_class %}body{% endblock %}" id="{% block body_id %}{% endblock %}">
+       {% block body %}
+	 {% block header %}{% endblock header %}
+	 {% block navbar %}{% endblock navbar %}
+       <div id="content">
+	 {% block content %}{% endblock content %}
+       </div>
+       <div id="footer">
+	    {% block footer %}
+	    {% endblock footer %}
+       </div>
+       {% endblock body %}
+       {% block js %}
+       <script src="{{ STATIC_URL }}jmb/js/jquery.min.js"></script>
+       <script src="{{ STATIC_URL }}jmb/js/jmb.core.js"></script>
+       {% endblock js %}
+    </body>
+</html>

@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Admin tabs &mdash; jmb.filters 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="jmb.filters 0.1 documentation" href="../index.html" />
+    <link rel="up" title="Addon &amp; layout" href="content.html" />
+    <link rel="next" title="Ajax inlines" href="ajax_inlines.html" />
+    <link rel="prev" title="Search_form" href="advanced_search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.core/jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">jmb.filters<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="None" >settings</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="None" >install</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="None" >commands</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="None" >hylafax</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ajax_inlines.html" title="Ajax inlines"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="advanced_search.html" title="Search_form"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.filters 0.1 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" accesskey="U">Addon &amp; layout</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-jmb.jadmin.templatetags.admin_tabs">
+<span id="id1"></span><span id="admin-tabs"></span><h1>Admin tabs<a class="headerlink" href="#module-jmb.jadmin.templatetags.admin_tabs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="admin-tabs-in-change-form">
+<span id="id2"></span><h2>Admin Tabs in change form<a class="headerlink" href="#admin-tabs-in-change-form" title="Permalink to this headline">¶</a></h2>
+<p>A templatetag to create a tabbed layout in a change_form.
+It looks in ModelAdmin for method <a class="reference internal" href="#get-tabs"><em>get_tabs</em></a>.</p>
+<p>that means you can just set <tt class="xref py py-attr docutils literal"><span class="pre">tabs</span></tt> in you ModelAdmin.</p>
+<p>Tabs is a tuple of tuples. An example of a hypothetical 
+Company model whose Inlines are <tt class="docutils literal"><span class="pre">Contacts</span></tt> and <tt class="docutils literal"><span class="pre">Banks</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tabs</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Company&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;general_info&#39;</span><span class="p">)]}),</span>
+  <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Contacts&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Contact</span><span class="p">,</span> <span class="p">],</span> <span class="s">&#39;active&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Addresses&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">AddressInline</span><span class="p">,</span> <span class="n">Banks</span><span class="p">],</span> <span class="s">&#39;active&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Banks&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">BankInline</span><span class="p">],</span> <span class="s">&#39;active&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/admin_tabs.png" class="align-right" src="../_images/admin_tabs.png" />
+<p>Resulting in 4 tabs with labels  as shown in the figure. 
+Each element of tabs is a tuple composed of:</p>
+<ul>
+<li><p class="first">a label</p>
+</li>
+<li><p class="first">a list of elements (possibly empty). Each element can be eather a</p>
+<ul>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">string:</th><td class="field-body">that will be interpreted as the name of a fieldset declared in
+fieldsets</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">(django) Inline:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">whose inline must be declared in the standard way. 
+(In this case a models can also be used)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">AjaxInline:</th><td class="field-body">whose inline must be declared as defined ref:<cite>here &lt;ajax-inline&gt;</cite></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">empty list:</th><td class="field-body"><p class="first">the first one that is left as an
+empty <strong>list</strong> will be filled with all fieldsets as in:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Author&#39;</span><span class="p">),</span> <span class="p">{}),</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<p>This grants the ability to place all peaces in any fancy way</p>
+<div class="section" id="get-tabs">
+<span id="id3"></span><h3>get_tabs<a class="headerlink" href="#get-tabs" title="Permalink to this headline">¶</a></h3>
+<p>The signature if function <tt class="xref py py-func docutils literal"><span class="pre">get_tabs()</span></tt> is as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">get_tabs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>to use <tt class="docutils literal"><span class="pre">get_tabs</span></tt> returning different tabs depending on 
+obj requires you also create inlines with the same logic.</p>
+<p class="last">That means you have at least django 1.5 when kw <tt class="docutils literal"><span class="pre">obj</span></tt> was added to 
+<tt class="docutils literal"><span class="pre">get_inline_instances</span></tt>!!</p>
+</div>
+<p>Note that if your <tt class="docutils literal"><span class="pre">get_tabs</span></tt> changes the number of Inlines used you need to 
+prepare a similar <tt class="docutils literal"><span class="pre">get_inline_instances</span></tt> that must on turn call super as in:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">get_tabs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">tabs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tabs</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tabs</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="s">&#39;Contratto&#39;</span> <span class="p">,</span> <span class="p">{}),</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">tabs</span>
+
+<span class="k">def</span> <span class="nf">get_inline_instances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inlines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inlines</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inlines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_inline_instances</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Admin tabs</a><ul>
+<li><a class="reference internal" href="#admin-tabs-in-change-form">Admin Tabs in change form</a><ul>
+<li><a class="reference internal" href="#get-tabs">get_tabs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="advanced_search.html"
+                          title="Previous page">&larr; Search_form</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="ajax_inlines.html"
+                          title="Next page">&rarr; Ajax inlines</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/jadmin/admin_tabs.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ajax_inlines.html" title="Ajax inlines"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="advanced_search.html" title="Search_form"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.filters 0.1 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" >Addon &amp; layout</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

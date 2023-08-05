@@ -1,0 +1,62 @@
+{% load admin_list %}
+{% load i18n %}
+<p class="paginator">
+{% if pagination_required %}
+{% for i in page_range %}
+        {% if i != '.' %}
+            <a href="?p={{ i }}" class="jmb_pagination">{{ i|add:1 }}</a>
+        {% else %}
+            ...
+        {% endif %}
+{% endfor %}
+{% endif %}
+&nbsp;&nbsp;
+<span class="paginator-counter">
+{{ cl.result_count }} {% ifequal cl.result_count 1 %}{{ cl.opts.verbose_name }}{% else %}{{ cl.opts.verbose_name_plural }}{% endifequal %}
+{% if show_all_url %}&nbsp;&nbsp;<a href="{{ show_all_url }}" class="showall">{% trans 'Show all' %}</a>{% endif %}
+{% if cl.formset and cl.result_count %}<input type="submit" name="_save" class="default" value="{% trans 'Save' %}"/>{% endif %}
+</span>
+</p>
+
+
+<script type="text/javascript">
+
+    function updateQueryStringParameter(uri, key, value) {
+      var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+      var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+      if (uri.match(re)) {
+        return uri.replace(re, '$1' + key + "=" + value + '$2');
+      }
+      else {
+        return uri + separator + key + "=" + value;
+      }
+    }
+
+    function get_request_parameter(name){
+       if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+          return decodeURIComponent(name[1]);
+    }
+
+    jQuery(document).ready(function() {
+
+        if (get_request_parameter('p')==undefined){
+            var new_html = "<span class='this-page'>1</span>"
+            $('.jmb_pagination').first().replaceWith(new_html);
+        }
+
+        $('.jmb_pagination').each(function(){
+            var href = $(this).attr('href');
+            var res = href.substring(href.search("p=") + 2, href.length);
+            if (res.indexOf("&") != -1) {
+                res = res.substring(0, res.search("&"));
+            }
+            if (parseInt(res)==get_request_parameter('p')) {
+                var new_html = "<span class='this-page'>"+(parseInt(res)+1)+"</span>"
+                $( this ).replaceWith(new_html);
+            } else {
+                $(this).attr('href', updateQueryStringParameter(document.URL, 'p', res));
+            }
+        })
+    })
+
+</script>
