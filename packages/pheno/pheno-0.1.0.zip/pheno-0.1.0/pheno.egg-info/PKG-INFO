@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: pheno
+Version: 0.1.0
+Summary: Genetic programming for arbitrary domains
+Home-page: https://github.com/hosford42/xcs
+Author: Aaron Hosford
+Author-email: hosford42@gmail.com
+License: Revised BSD
+Description: pheno
+        =====
+        
+        Project home page: https://github.com/hosford42/pheno
+        
+        Pheno is a genetic programming package for Python which supports the 
+        application of evolutionary algorithms to arbitrary phenotype design spaces. 
+        Pheno utilizes address/value pairs to linearize phenotypes, making it possible 
+        to apply standard genetic operators designed for linear chromosomes towards 
+        non-linear domains such as abstract syntax trees or artificial neural network
+        topologies. Pheno aims, through linearity of chromosomes, to make most of the 
+        theory developed for traditional genetic algorithms (e.g. convergence 
+        guarantees) applicable to all domains.
+        
+Keywords: genetic programming evolutionary machine learning linear phenotype genotype
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
