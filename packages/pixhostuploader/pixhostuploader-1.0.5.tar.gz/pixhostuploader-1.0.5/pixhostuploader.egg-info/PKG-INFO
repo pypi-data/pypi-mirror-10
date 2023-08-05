@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: pixhostuploader
+Version: 1.0.5
+Summary: Unofficial uploader to pixhost.org image sharing site.
+Home-page: https://github.com/martinsik/pixhost-uploader
+Author: Martin Sikora
+Author-email: martin.sikora.ahoj@gmail.com
+License: MIT
+Description: pixhost-uploader
+        ================
+        
+        Unofficial Python 3.2+ upload client for pixhost.org image sharing
+        website.
+        
+        Usage
+        -----
+        
+        .. code::
+        
+            import pixhostuploader as pixhost
+        
+            uploaded = pixhost.upload('image.jpg')
+        
+            print(uploaded)
+        
+        Uploader returns 3 URLs for each image: thumbnail, full size image and a
+        its page on pixhost.org.
+        
+        .. code::
+        
+            {
+                'thumb_image': '...',
+                'full_size_image': '...',
+                'page_url': '...',
+            }
+        
+        You can also upload multiple images at once.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Utilities
