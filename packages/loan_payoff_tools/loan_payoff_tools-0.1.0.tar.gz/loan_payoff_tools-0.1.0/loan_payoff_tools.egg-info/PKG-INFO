@@ -1,0 +1,78 @@
+Metadata-Version: 1.1
+Name: loan-payoff-tools
+Version: 0.1.0
+Summary: Simulates multiple different scenarios in which to payoff loans.
+Home-page: https://github.com/phillipgreenii/optimize_loan_payoff
+Author: Phillip Green II
+Author-email: phillip.green.ii@gmail.com
+License: MIT
+Download-URL: https://github.com/phillipgreenii/optimize_loan_payoff/tarball/0.1.0
+Description: ===================================================================================
+        loan_payoff_tools: Simulates multiple different scenarios in which to payoff loans.
+        ===================================================================================
+        
+        .. image:: https://travis-ci.org/phillipgreenii/loan_payoff_tools.svg
+            :target: https://travis-ci.org/phillipgreenii/loan_payoff_tools
+            :alt: Build Status
+        
+        This project is designed to determine the optimal way of paying off multiple loans.
+        This tool can be used to determine if is better to payoff the smallest loan or
+        the highest interest rate or any other technique.
+        
+        Installation
+        ------------
+        
+        The easiest way to install most Python packages is via ``easy_install`` or ``pip``:
+        
+        .. code-block:: bash
+        
+          $ easy_install loan_payoff_tools
+        
+        Usage
+        -----
+        
+        .. code-block:: python
+        
+          import loan_payoff_tools
+        
+        Examples
+        --------
+        
+        See `Examples <examples>`_
+        
+        Development
+        -----------
+        
+        Run Tests
+        ^^^^^^^^^
+        
+        .. code-block:: bash
+        
+          $ python setup.py test
+        
+        Install
+        ^^^^^^^
+        
+        .. code-block:: bash
+        
+          $ python setup.py develop
+        
+        Copyright & License
+        -------------------
+        
+          * Copyright 2014, Phillip Green II
+          * License: MIT
+        
+Keywords: loans payoff simulate debt college
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Other/Nonlisted Topic
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
