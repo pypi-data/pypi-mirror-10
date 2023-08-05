@@ -1,0 +1,15 @@
+DESCRIPTION.rst
+MANIFEST.in
+setup.cfg
+setup.py
+django_bridge/__init__.py
+django_bridge/models.py
+django_bridge.egg-info/PKG-INFO
+django_bridge.egg-info/SOURCES.txt
+django_bridge.egg-info/dependency_links.txt
+django_bridge.egg-info/top_level.txt
+django_bridge/management/__init__.py
+django_bridge/management/commands/__init__.py
+django_bridge/management/commands/bridge.py
+django_bridge/templatetags/__init__.py
+django_bridge/templatetags/bridge.py
