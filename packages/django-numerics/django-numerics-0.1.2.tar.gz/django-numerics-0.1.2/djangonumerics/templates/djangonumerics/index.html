@@ -1,0 +1,48 @@
+{% extends "djangonumerics/base.html" %}
+
+{% block extra_head %}
+    <!-- Custom styles for this template -->
+    <link href="{{ STATIC_URL }}djangonumerics/styles/main.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Numerics endpoints</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="content">
+        <h1>Numeric endpoints.</h1>
+        <p class="lead">Just copy endpoint url and use the url to create a custom json widget in numerics application.</p>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>EndPoint</th>
+              <th>Url</th>
+              <th>Integration</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for endpoint in endpoints %}
+            <tr>
+              <th>{{ endpoint.name }}</th>
+              <td><a href="{{ request.scheme|safe }}://{{ request.get_host|safe }}{{ endpoint.url|safe }}">Click to open endpoint</a></td>
+              <td><a href="{{ request.scheme|safe }}://{{ request.get_host|safe }}{{ endpoint.help_url|safe }}">Integration help</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div><!-- /.container -->
+
+
+{% endblock %}
