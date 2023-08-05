@@ -1,0 +1,31 @@
+[bob.test]
+tests = bob.palmvein.tests.test:PalmveinTests
+
+[console_scripts]
+evaluatesys.py = bob.palmvein.script.evaluatesys:main
+palmveinverify.py = bob.palmvein.script.palmveinverify:main
+scores2spoofingfile.py = bob.palmvein.script.scores2spoofingfile:main
+scoresanalysis.py = bob.palmvein.script.scoresanalysis:main
+
+[facereclib.database]
+verapalm = bob.palmvein.configurations.databases.verapalm:database
+
+[facereclib.feature_extractor]
+lbp-localbinarypatterns = bob.palmvein.configurations.features.lbp:feature_extractor
+
+[facereclib.grid]
+demanding = bob.palmvein.configurations.grid.demanding:grid
+gbu = bob.palmvein.configurations.grid.gbu:grid
+gpu = bob.palmvein.configurations.grid.gpu:grid
+gpu2 = bob.palmvein.configurations.grid.gpu2:grid
+gpu3 = bob.palmvein.configurations.grid.gpu3:grid
+grid = bob.palmvein.configurations.grid.grid:grid
+small = bob.palmvein.configurations.grid.small:grid
+very-demanding = bob.palmvein.configurations.grid.very_demanding:grid
+
+[facereclib.preprocessor]
+palmvein-preprocessor = bob.palmvein.configurations.preprocessing.palm_crop:preprocessor
+
+[facereclib.tool]
+match-lbp = facereclib.configurations.tools.lgbphs:tool
+
