@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: docbuilder
+Version: 0.4
+Summary: Python Literate Programming without Detanglement
+Home-page: http://docbuilder.rtfd.org/
+Author: James Milne
+Author-email: jmilne@graphic-designer.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Text Processing
+
+Docbuilder allows you to build Markdown documents without the need for detangling executables from literate Python programs. http://docbuilder.rtfd.org
+
+
