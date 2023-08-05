@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: notification_utils
+Version: 0.3.dev6
+Summary: Utilities for dealing with OpenStack Notifications
+Home-page: https://github.com/stackforge/stacktach-notification-utils
+Author: Dark Secret Software Inc.
+Author-email: admin@darksecretsoftware.com
+License: Apache-2
+Description: notification_utils
+        ==================
+        
+        Utilities for dealing with OpenStack Notifications
+        
+        Includes datetime <-> Decimal conversion and Json marshalling handlers
+        to name a few (for now)
+        
+        
+Keywords: openstack
+notifications
+events
+utilities
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
