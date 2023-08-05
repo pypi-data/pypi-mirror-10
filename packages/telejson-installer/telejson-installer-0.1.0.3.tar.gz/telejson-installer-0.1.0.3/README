@@ -1,0 +1,19 @@
+Python Telejson installer
+#########################
+Install Telejson eaisily for Python projects.
+
+Installation
+############
+Installing from Pypi:
+
+    pip install telejson
+
+Installing latest Hg version:
+
+    pip install -e hg+https://Nekmo@bitbucket.org/Nekmo/python-telejson#egg=telejson
+
+Please read the documentation for Pytg2.
+
+https://bitbucket.org/luckydonald/pytg2/overview
+ 
+Telejson website: https://bitbucket.org/luckydonald/tg-for-pytg2.git

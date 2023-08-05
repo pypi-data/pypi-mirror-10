@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: telejson-installer
+Version: 0.1.0.3
+Summary: Python Telejson Installer.
+Home-page: https://nekmo.com
+Author: Nekmo
+Author-email: contacto@nekmo.com
+License: UNKNOWN
+Description: Python Telejson installer
+        #########################
+        Install Telejson eaisily for Python projects.
+        
+        Installation
+        ############
+        Installing from Pypi:
+        
+            pip install telejson
+        
+        Installing latest Hg version:
+        
+            pip install -e hg+https://Nekmo@bitbucket.org/Nekmo/python-telejson#egg=telejson
+        
+        Please read the documentation for Pytg2.
+        
+        https://bitbucket.org/luckydonald/pytg2/overview
+         
+        Telejson website: https://bitbucket.org/luckydonald/tg-for-pytg2.git
+Platform: linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Provides: telejson
