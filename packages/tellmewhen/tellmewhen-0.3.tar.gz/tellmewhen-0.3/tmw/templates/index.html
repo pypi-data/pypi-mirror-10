@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section>
+  <div class="container-fluid section">
+    <div role="tabpanel">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active" id="builder-tab"><a href="#builder" aria-controls="builder" role="tab" data-toggle="tab">Builder</a></li>
+        <li role="presentation" id="events-tab"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
+        <li role="presentation" is="archive-tab"><a href="#archive" aria-controls="archive" role="tab" data-toggle="tab">Archive</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="builder">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <form action="/" method="POST">
+                  <ul class="event-builder">
+                    <li>
+                      Tell me when
+                    </li>
+                    <li>
+                      <input type="text" placeholder="URL" name="url" class="form-control event-url">
+                    </li>
+                    <li class="event-type">
+                      <select name="check_type" class="form-control">
+                        <option class="response-event" value="status_code">responds with</option>
+                        <option class="response-string" value="string_match">shows</option>
+                        <option class="response-string" value="regex_match">matches</option>
+                      </select>
+                    </li>
+                    <li class="response">
+                      <select name="status_code" class="form-control">
+                        <option value="200">200</option>
+                        <option value="500">500</option>
+                      </select>
+                    </li>
+                    <li class="string">
+                      <input type="text" placeholder="string" name="string_match" class="form-control">
+                    </li>
+                    <li>trying every</li>
+                    <li class="frequency">
+                      <select name="frequency" class="form-control">
+                        <option value="1" selected>1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="60">60</option>
+                        <option value="90">90</option>
+                      </select>
+                    </li>
+                    <li>second</li>
+                    <li class="num_checks">
+                      <select name="num_checks" class="form-control">
+                        <option value="0">infinite</option>
+                        <option value="1" selected>1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="60">60</option>
+                        <option value="90">90</option>
+                      </select>
+                    </li>
+                    <li>time</li>
+                    <li>
+                      <button class="btn btn-success" type="submit">Go</button>
+                    </li>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                  </ul>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="events">
+          <!-- Events Table -->
+          <table class="table events-table">
+            {% if jobs %}
+            <tr>
+              <th>Job URL</th>
+              <th>Shows</th>
+              <th>Status</th>
+            </tr>
+            {% endif %}
+            {% for job in jobs %}
+            <tr>
+              <td><a href="{{ job['url'] }}" target="_blank">{{ job['url'] }}</a></td>
+              <td>"{{ job['value'] }}"</td>
+              <td><i class="{{ job['status'] }} fa" title="{{ job['status'] | capitalize }}"></i></td>
+            </tr>
+            {% else %}
+              <td colspan="4" class="no-events">
+                <div class="jumbotron text-center">
+                  <h3 class="lead jumbotron">No events found. <a href="/">Click here</a> to create an event.</h3>
+                </div>
+              </td>
+            {% endfor %}
+          </table>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="archive">
+          <!-- Page Header -->
+          <div class="page-header"><h2>Events Archive</h2></div>
+          <div class="row">
+            <div class="col-sm-2">
+              <!-- Archive Navigation -->
+              <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="archive.html">Today</a></li>
+                <li><a href="archive.html">Monthly</a></li>
+                <li><a href="archive-yearly.html">Yearly</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-1">
+              <!-- Month Navigation -->
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="archive-year.html">2015</a></li>
+                <li><a href="archive-year.html">2014</a></li>
+                <li class="active"><a href="archive-year.html">2013</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-9">
+              <div class="row">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <ul class="nav nav-pills">
+                      <li><a href="archive-year.html">Jan</a></li>
+                      <li><a href="archive-year.html">Feb</a></li>
+                      <li><a href="archive-year.html">Mar</a></li>
+                      <li><a href="archive-year.html">Apr</a></li>
+                      <li class="active"><a href="/">May</a></li>
+                      <li><a href="archive-year.html">Jun</a></li>
+                      <li><a href="archive-year.html">July</a></li>
+                      <li><a href="archive-year.html">Aug</a></li>
+                      <li><a href="archive-year.html">Sep</a></li>
+                      <li><a href="archive-year.html">Oct</a></li>
+                      <li><a href="archive-year.html">Nov</a></li>
+                      <li><a href="archive-year.html">Dec</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <!-- Month Panel -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">May</div>
+                  <!-- Events Table -->
+                  <table class="table events-table">
+                    {% if jobs %}
+                    <tr>
+                      <th>Job URL</th>
+                      <th>Shows</th>
+                      <th>Status</th>
+                    </tr>
+                    {% endif %}
+                    {% for job in jobs %}
+                    <tr>
+                      <td><a href="/">{{ job['url'] }}</a></td>
+                      <td>"{{ job['value'] }}"</td>
+                      <td></td>
+                      <td><i class="{{ job['status'] }} fa" title="{{ job['status'] | capitalize }}"></i></td>
+                    </tr>
+                    {% else %}
+                      <td colspan="4" class="no-events">
+                        <div class="jumbotron text-center">
+                          <h3 class="lead jumbotron">No events found. <a href="/">Click here</a> to create an event.</h3>
+                        </div>
+                      </td>
+                    {% endfor %}
+                  </table>
+                </div>
+                <!-- /.panel .panel-default -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.col-sm-9 -->
+          </div>
+          <!-- /.col-sm-9 -->
+        </div>
+        <!-- /.tab-pane .fade -->
+      </div>
+      <!-- /.tab-content -->
+    </div>
+    <!-- /.tabpanel -->
+  </div>
+  <!-- /.container -->
+  </section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  window.setInterval(update_events, 500);
+</script>
+{% endblock %}

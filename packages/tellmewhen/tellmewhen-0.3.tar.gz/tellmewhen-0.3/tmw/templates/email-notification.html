@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Tell Me When Notification</title>
+    </head>
+    <body>
+      <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;</td>
+        <tr>
+        <tr>
+          <td><h1 style="font-family:
+          helvetica; font-weight: normal; font-size: 24px; color:
+          #888;">
+          <span style="color: #1976D2;">
+              <a href="{{ url }}" style="color: #1976D2;">{{ url }}</a>
+          </span>
+           had a 
+           <code style="color: #333333; font-weight:bold;">{{ check_type }}</code> 
+           that
+           <span style="color: {% if check_results %}#4CAF50; {% else %}#E64A19 {% endif %}">
+           {% if check_type == 'status_code' %}
+               {% if check_results %}returned{% else %}did not return{% endif %}
+           {% elif check_type == 'string_match' %}
+               {% if check_results %}contained{% else %}did not contain{% endif %}
+           {% else %}
+               {% if check_results %}matched{% else %}did not match{% endif %}
+           {% endif %}</span>
+           [<span style="color: #333333;font-style:italic">{{ check_value }}</span>]
+           after 
+           <span style="color: #333333;">{{ total_checks }}</span> 
+           check{% if total_checks == 1 %}{% else %}s{% endif %}</h1></td>
+          <!-- HEX VALUE FOR FAILURE: #E64A19 -->
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        <tr>
+          <td align="center" style="background-color: #F4F9FD; padding-top: 20px; padding-bottom: 20px;">
+            <table>
+              <tr>
+                <td><p style="font-family: helvetica; color: #2784DC; font-weight: normal;">Brought to you by:</p></td>
+                <td><img src="http://cpenner461.github.io/tellmewhen/img/logo.png" alt="Tell Me When" width="40" height="34"></td>
+                <td><p style="font-family: helvetica; color: #2784DC; font-weight: normal;">Tell Me When</p></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+</html>
