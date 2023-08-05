@@ -1,0 +1,10 @@
+include AUTHORS.md
+include LICENSE
+include README.md
+include CHANGELOG.md
+include doc
+include livechat
+recursive-include livechat/static *
+recursive-include livechat/templates *
+recursive-include livechat/templatetags *
+global-exclude *~
