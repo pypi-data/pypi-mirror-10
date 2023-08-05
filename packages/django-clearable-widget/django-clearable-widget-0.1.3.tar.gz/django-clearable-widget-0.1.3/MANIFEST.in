@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include clearable_widget/static *
+recursive-include clearable_widget/templates *
