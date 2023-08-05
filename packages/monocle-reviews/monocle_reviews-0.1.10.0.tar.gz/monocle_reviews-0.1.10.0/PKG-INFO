@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: monocle_reviews
+Version: 0.1.10.0
+Summary: Customers reviews app for monocle project
+Home-page: http://www.example.com/
+Author: Your Name
+Author-email: yourname@example.com
+License: BSD License
+Description: Monocle reviews app
+        ==================
+        
+        Отзывы клиентов.  Изначально картинки круглые.
+        Поля:
+         - Картинка
+         - Заголовок отзыва (Автор отзыва)
+         - Текст отзыва
+        
+        Проект предназначен для работы на языке Python 3.X и выше.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
