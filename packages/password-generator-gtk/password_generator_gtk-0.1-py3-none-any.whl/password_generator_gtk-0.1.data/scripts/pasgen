@@ -1,0 +1,5 @@
+#!/home/wirbi/venv/audiobooks/bin/python3
+
+import passwordgeneratorgtk.pasgen as pasgen
+
+pasgen.main()
