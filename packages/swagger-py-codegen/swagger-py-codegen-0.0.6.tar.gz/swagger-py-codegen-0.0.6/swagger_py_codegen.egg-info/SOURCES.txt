@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.cfg
+setup.py
+swagger_py_codegen/__init__.py
+swagger_py_codegen/__main__.py
+swagger_py_codegen/generator.py
+swagger_py_codegen/model.py
+swagger_py_codegen/parser.py
+swagger_py_codegen/resolver.py
+swagger_py_codegen/writer.py
+swagger_py_codegen.egg-info/PKG-INFO
+swagger_py_codegen.egg-info/SOURCES.txt
+swagger_py_codegen.egg-info/dependency_links.txt
+swagger_py_codegen.egg-info/entry_points.txt
+swagger_py_codegen.egg-info/requires.txt
+swagger_py_codegen.egg-info/top_level.txt
