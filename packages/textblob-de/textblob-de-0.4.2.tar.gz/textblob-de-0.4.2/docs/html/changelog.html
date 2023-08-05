@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; textblob-de 0.4.2 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="textblob-de 0.4.2 documentation" href="index.html"/>
+        <link rel="next" title="Credits" href="authors.html"/>
+        <link rel="prev" title="API Reference" href="api_reference.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> textblob-de</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">textblob-de README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#installing-upgrading">Installing/Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#access-to-pattern-api-in-python3">Access to <code class="docutils literal"><span class="pre">pattern</span></code> API in Python3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#documentation-and-api-reference">Documentation and API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#thanks">Thanks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Tutorial: Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage.html">Advanced Usage: Overriding Models and the Blobber Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.blob">Blob Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.base">Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.tokenizers">Tokenizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.taggers">POS Taggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.np_extractors">Noun Phrase Extractors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.sentiments">Sentiment Analyzers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob_de.parsers">Parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.classifiers">Classifiers (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#blobber">Blobber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.formats">File Formats (from TextBlob main package)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference.html#module-textblob.exceptions">Exceptions (from TextBlob main package)</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.4.2 (02/05/2015)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.4.1 (03/10/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.4.0 (17/09/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.3.1 (29/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">0.3.0 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.2.9 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">0.2.8 (14/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">0.2.7 (13/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.2.6 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">0.2.5 (04/08/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.2.3 (26/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">0.2.2 (22/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">0.2.1 (20/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">0.2.0 (18/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">0.1.3 (09/07/2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">0.1.0 - 0.1.2 (09/07/2014)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-development-lead">TextBlob Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#textblob-de-author-maintainer">textblob-de Author/Maintainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#in-general">In General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#in-particular">In Particular</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="make_info.html"><code class="docutils literal"><span class="pre">make</span></code> command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="make_info.html#using-make-on-windows">Using <code class="docutils literal"><span class="pre">make</span></code> on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_makefile.html">Project <code class="docutils literal"><span class="pre">Makefile</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_makefile.html">Documentation <code class="docutils literal"><span class="pre">Makefile</span></code></a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">textblob-de</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/changelog.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="changelog">
+<span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>0.4.2 (02/05/2015)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Removed dependency on <a class="reference external" href="https://github.com/nltk/nltk/">NLTK,</a> as it already is a <a class="reference external" href="http://textblob.readthedocs.org/en/dev/">TextBlob</a> dependency</li>
+<li>Temporary workaround for <a class="reference external" href="https://github.com/nltk/nltk/issues/824">NLTK Issue #824</a> for tox/Travis-CI</li>
+<li>(update 13/01/2015) <a class="reference external" href="https://github.com/nltk/nltk/issues/824">NLTK Issue #824</a> fixed, workaround removed</li>
+<li>Enabled <code class="docutils literal"><span class="pre">pattern</span></code> tagset conversion (<code class="docutils literal"><span class="pre">'penn'|'universal'|'stts'</span></code>) for <code class="docutils literal"><span class="pre">PatternTagger</span></code></li>
+<li>Added tests for tagset conversion</li>
+<li>Fixed test for Arabic translation example (Google translation has changed)</li>
+<li>Added tests for lemmatizer</li>
+<li>Bugfix: <code class="docutils literal"><span class="pre">PatternAnalyzer</span></code> no longer breaks on subsequent ocurrences of the same <code class="docutils literal"><span class="pre">(word,</span> <span class="pre">tag)</span></code> pairs on Python3 see comments to <a class="reference external" href="https://github.com/markuskiller/textblob-de/pull/11">Pull Request #11</a></li>
+<li>Bugfix/performance enhancement: Sentiment dictionary in <code class="docutils literal"><span class="pre">PatternAnalyzer</span></code> no longer reloaded for every sentence <a class="reference external" href="https://github.com/markuskiller/textblob-de/pull/11">Pull Request #11</a> (tanks &#64;Arttii)</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>0.4.1 (03/10/2014)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Docs hosted on <a class="reference external" href="http://textblob-de.readthedocs.org">RTD</a></li>
+<li>Removed dependency on nltk&#8217;s depricated <code class="docutils literal"><span class="pre">PunktWordTokenizer</span></code> and replaced it with <code class="docutils literal"><span class="pre">TreebankWordTokenizer</span></code> see  <a class="reference external" href="https://github.com/nltk/nltk/pull/746#issuecomment-57625756">nltk/nltk#746 (comment)</a> for details</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>0.4.0 (17/09/2014)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed <a class="reference external" href="https://github.com/markuskiller/textblob-de/issues/7">Issue #7</a> (restore <code class="docutils literal"><span class="pre">textblob&gt;=0.9.0</span></code> compatibility)</li>
+<li>Depend on <code class="docutils literal"><span class="pre">nltk3</span></code>. Vendorized <code class="docutils literal"><span class="pre">nltk</span></code> was removed in <code class="docutils literal"><span class="pre">textblob&gt;=0.9.0</span></code></li>
+<li>Fixed <code class="docutils literal"><span class="pre">ImportError</span></code> on Python2 (<code class="docutils literal"><span class="pre">unicodecsv</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>0.3.1 (29/08/2014)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Improved <code class="docutils literal"><span class="pre">PatternParserNPExtractor</span></code> (less false positives in verb filter)</li>
+<li>Made sure that all keyword arguments with default <code class="docutils literal"><span class="pre">None</span></code> are checked with <code class="docutils literal"><span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span></code></li>
+<li>Fixed shortcut to <code class="docutils literal"><span class="pre">_pattern.de</span></code> in vendorized library</li>
+<li>Added <code class="docutils literal"><span class="pre">Makefile</span></code> to facilitate development process</li>
+<li>Added docs and API reference</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>0.3.0 (14/08/2014)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed <a class="reference external" href="https://github.com/markuskiller/textblob-de/issues/5">Issue #5</a> (text + space + period)</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>0.2.9 (14/08/2014)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed tokenization in <code class="docutils literal"><span class="pre">PatternParser</span></code> (if initialized manually, punctuation was not always separated from words)</li>
+<li>Improved handling of empty strings (Issue #3) and of strings containing single punctuation marks (Issue #4) in <code class="docutils literal"><span class="pre">PatternTagger</span></code> and <code class="docutils literal"><span class="pre">PatternParser</span></code></li>
+<li>Added tests for empty strings and for strings containing single punctuation marks</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>0.2.8 (14/08/2014)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed <a class="reference external" href="https://github.com/markuskiller/textblob-de/issues/3">Issue #3</a> (empty string)</li>
+<li>Fixed <a class="reference external" href="https://github.com/markuskiller/textblob-de/issues/4">Issue #4</a> (space + punctuation)</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>0.2.7 (13/08/2014)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed <a class="reference external" href="https://github.com/markuskiller/textblob-de/issues/1">Issue #1</a> lemmatization of strings containing a forward slash (<code class="docutils literal"><span class="pre">/</span></code>)</li>
+<li>Enhancement <a class="reference external" href="https://github.com/markuskiller/textblob-de/issues/2">Issue #2</a> use the same rtype as <code class="docutils literal"><span class="pre">textblob</span></code> for sentiment detection.</li>
+<li>Fixed tokenization in <code class="docutils literal"><span class="pre">PatternParserLemmatizer</span></code></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>0.2.6 (04/08/2014)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed <code class="docutils literal"><span class="pre">MANIFEST.in</span></code> for package data in <code class="docutils literal"><span class="pre">sdist</span></code></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>0.2.5 (04/08/2014)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">sdist</span></code> is non-functional as important files are missing due to a misconfiguration in <code class="docutils literal"><span class="pre">MANIFEST.in</span></code> - does not affect <code class="docutils literal"><span class="pre">wheels</span></code></li>
+<li>Major internal refactoring (but no backwards-incompatible API changes) with the aim of restoring complete compatibility to original <code class="docutils literal"><span class="pre">pattern&gt;=2.6</span></code> library on Python2</li>
+<li>Separation of <code class="docutils literal"><span class="pre">textblob</span></code> and <code class="docutils literal"><span class="pre">pattern</span></code> code</li>
+<li>On Python2 the vendorized version of <code class="docutils literal"><span class="pre">pattern.text.de</span></code> is only used if original is not installed (same as <code class="docutils literal"><span class="pre">nltk</span></code>)</li>
+<li>Made <code class="docutils literal"><span class="pre">pattern.de.pprint</span></code> function and all parser keywords accessible to customise parser output</li>
+<li>Access to complete <code class="docutils literal"><span class="pre">pattern.text.de</span></code> API on Python2 and Python3 <code class="docutils literal"><span class="pre">from</span> <span class="pre">textblob_de.packages</span> <span class="pre">import</span> <span class="pre">pattern_de</span> <span class="pre">as</span> <span class="pre">pd</span></code></li>
+<li><code class="docutils literal"><span class="pre">tox</span></code> passed on all major platforms (Win/Linux/OSX)</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>0.2.3 (26/07/2014)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Lemmatizer: <code class="docutils literal"><span class="pre">PatternParserLemmatizer()</span></code> extracts lemmata from Parser output</li>
+<li>Improved polarity analysis through look-up of lemmatised word forms</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>0.2.2 (22/07/2014)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Option: Include punctuation in <code class="docutils literal"><span class="pre">tags</span></code>/<code class="docutils literal"><span class="pre">pos_tags</span></code> properties (<code class="docutils literal"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">TextBlobDE(text,</span> <span class="pre">tagger=PatternTagger(include_punc=True))</span></code>)</li>
+<li>Added <code class="docutils literal"><span class="pre">BlobberDE()</span></code> class initialized with German models</li>
+<li><code class="docutils literal"><span class="pre">TextBlobDE()</span></code>, <code class="docutils literal"><span class="pre">Sentence()</span></code>, <code class="docutils literal"><span class="pre">WordList()</span></code> and <code class="docutils literal"><span class="pre">Word()</span></code> classes are now all initialized with German models</li>
+<li>Restored complete API compatibility with <code class="docutils literal"><span class="pre">textblob.tokenizers</span></code> module of the main <a class="reference external" href="http://textblob.readthedocs.org/en/dev/">TextBlob</a> library</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>0.2.1 (20/07/2014)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Noun Phrase Extraction: <code class="docutils literal"><span class="pre">PatternParserNPExtractor()</span></code> extracts NPs from Parser output</li>
+<li>Refactored the way <code class="docutils literal"><span class="pre">TextBlobDE()</span></code> passes on arguments and keyword arguments to individual tools</li>
+<li><em>Backwards-incompatible</em>: Deprecate <code class="docutils literal"><span class="pre">parser_show_lemmata=True</span></code> keyword in <code class="docutils literal"><span class="pre">TextBlob()</span></code>. Use <code class="docutils literal"><span class="pre">parser=PatternParser(lemmata=True)</span></code> instead.</li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>0.2.0 (18/07/2014)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>vastly improved tokenization (<code class="docutils literal"><span class="pre">NLTKPunktTokenizer</span></code> and <code class="docutils literal"><span class="pre">PatternTokenizer</span></code> with tests)</li>
+<li>consistent use of specified tokenizer for all tools</li>
+<li><code class="docutils literal"><span class="pre">TextBlobDE</span></code> with initialized default models for German</li>
+<li>Parsing (<code class="docutils literal"><span class="pre">PatternParser</span></code>) plus <code class="docutils literal"><span class="pre">test_parsers.py</span></code></li>
+<li><strong>EXPERIMENTAL</strong> implementation of Polarity detection (<code class="docutils literal"><span class="pre">PatternAnalyzer</span></code>)</li>
+<li>first attempt at extracting German Polarity clues into <code class="docutils literal"><span class="pre">de-sentiment.xml</span></code></li>
+<li>tox tests passing for py26, py27, py33 and py34</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>0.1.3 (09/07/2014)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>First release on PyPI</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>0.1.0 - 0.1.2 (09/07/2014)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>First release on github</li>
+<li>A number of experimental releases for testing purposes</li>
+<li>Adapted version badges, tests &amp; travis-ci config</li>
+<li>Code adapted from sample extension <a class="reference external" href="https://github.com/sloria/textblob-fr">textblob-fr</a></li>
+<li>Language specific linguistic resources copied from <a class="reference external" href="https://github.com/clips/pattern/tree/master/pattern/text/de">pattern-de</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="authors.html" class="btn btn-neutral float-right" title="Credits">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api_reference.html" class="btn btn-neutral" title="API Reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Markus Killer (http://langui.ch).
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.4.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
