@@ -1,0 +1,6 @@
+[sentry.plugins]
+plivo = sentry_plivo.plugin:PlivoPlugin
+
+[sentry.apps]
+plivo = sentry_plivo
+
