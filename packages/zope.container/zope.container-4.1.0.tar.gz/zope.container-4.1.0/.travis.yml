@@ -1,0 +1,15 @@
+language: python
+sudo: false
+env:
+    - TOXENV=py26
+    - TOXENV=py27
+    - TOXENV=pypy
+    - TOXENV=py33
+    - TOXENV=py34
+    - TOXENV=py27-pure-zodb
+install:
+    - pip install tox
+script:
+    - tox --develop
+notifications:
+    email: false
