@@ -1,0 +1,66 @@
+{% extends "pages/page.html" %}{% load mezzanine_tags staticfiles %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static "mezzanine/css/magnific-popup.css" %}">
+{% endblock extra_css %}
+
+{% block main %}
+{{ block.super }}
+
+{{ page.article.content|richtext_filters|safe }}
+
+{% if page.article.images.all and page.article.show_gallery %}
+<div class="gallery row">
+    {% for image in page.article.images.all %}
+    <div class="col-xs-4 col-sm-3">
+        <a class="thumbnail" rel="#image-{{ image.id }}" title="{{ image.description }}" href="{{ image.file.url }}">
+            <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}">
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if page.article.article_links.all %}
+<!-- informacje z tej samej gałęzi -->
+<div class="siblings row">
+    <h2>Related:</h2>
+    <ul>
+    {% for link in page.article.article_links.all %}
+        <li><a href="{{ link.page.get_absolute_url }}" title="{{ link.page.description|striptags|truncatewords:20 }}">{{ link.page.title|striptags }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% if page.article.siblings %}
+<!-- informacje z tej samej gałęzi -->
+<div class="siblings row">
+    <h2>Other topics:</h2>
+    <ul>
+    {% for link in page.article.siblings %}
+        <li><a href="{{ link.get_absolute_url }}" title="{{ link.description|striptags|truncatewords:20 }}">{{ link.title|striptags }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+{{ block.super }}
+<script src="{% static "mezzanine/js/magnific-popup.js" %}"></script>
+<script>
+$(document).ready(function() {
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+        }
+    });
+});
+</script>
+{% endblock %}
