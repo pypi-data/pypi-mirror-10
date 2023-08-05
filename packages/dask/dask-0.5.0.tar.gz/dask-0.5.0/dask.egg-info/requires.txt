@@ -1,0 +1,28 @@
+
+[array]
+numpy
+toolz
+
+[bag]
+dill
+psutil
+toolz
+
+[complete]
+bcolz >= 0.9.0
+dill
+numpy
+pandas >= 0.16.0
+psutil
+toolz
+zmq
+
+[dataframe]
+bcolz >= 0.9.0
+numpy
+pandas >= 0.16.0
+toolz
+
+[distributed]
+zmq
+dill
