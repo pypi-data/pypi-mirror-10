@@ -1,0 +1,39 @@
+CHANGES
+=======
+
+* Bump version number to remove old pbr sha
+* pump events from STv2 db
+* version bump
+* proper audit period names
+* removed temporary ____context____ key and fixed pump
+* fixed up event_pump to use template dir supplied
+* removed the old generator. Template only now
+* fixed up templates. Added different length sequences and added .exists event
+* starting point of using templates ... need more templates
+* indent off by one error
+* cleanup and some comments on this mess
+* terminate_instance event is bad
+* even more missing keys
+* few more missing keys
+* output sanity check
+* phew ... datetime mapping and output in place
+* most regex stuff working
+* .exists now generated hourly and per-instance
+* fix versioning
+* tweaked setup.cfg
+* wrong lib name
+* missing message_id
+* change from 'event' to 'event_type'
+* minor doc bump
+* publish and consume working
+* now writes events to notabene
+* whoopsy ... str in the wrong place. Need tests :(
+* now generates string datetimes as openstack would
+* started working on send to rabbit utility
+* Minor doc and homepage in setup.cfg
+* doc tweak
+* another missing file
+* fixed up install
+* heh, missed the main files
+* version 1
+* Initial commit
