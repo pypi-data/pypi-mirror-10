@@ -1,0 +1,10 @@
+pymongo<3.0
+mongoengine>=0.8.5
+marrow.package<2.0
+wrapt<2.0
+
+[development]
+pytest
+pytest-cov
+pytest-flakes
+pytest-cagoule
