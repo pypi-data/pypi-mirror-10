@@ -1,0 +1,30 @@
+.. _changelog:
+
+Changelog
+=========
+
+
+v0.1.0 (2015-05-08)
+-------------------
+
+- Add ``Boolean``.
+- Add ``Dict``.
+- Add ``Float``.
+- Add ``Int``.
+- Add ``IsTrue``.
+- Add ``IsFalse``.
+- Add ``List``.
+- Add ``NaN``.
+- Add ``Number``.
+- Add ``Predicate``.
+- Add ``String``.
+- Add ``Tuple``.
+- Rename ``Except`` to ``except``. (**breaking change**)
+- Make ``except`` **not** call `value` if it's callable. (**breaking change**)
+- Make ``except`` return ``True`` if all assertions pass.
+
+
+v0.0.1 (2015-05-07)
+-------------------
+
+- First release.
