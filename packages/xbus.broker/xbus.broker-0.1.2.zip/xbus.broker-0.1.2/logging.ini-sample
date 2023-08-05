@@ -1,0 +1,37 @@
+[loggers]
+keys=root,xbus
+
+[handlers]
+keys=hand01
+;,hand02
+
+[formatters]
+keys=form01
+
+[formatter_form01]
+format=%(asctime)s %(levelname)s %(name)s %(message)s
+datefmt=
+class=logging.Formatter
+
+[logger_root]
+level=NOTSET
+handlers=
+;,hand02
+
+[logger_xbus]
+qualname=xbus
+level=INFO
+handlers=hand01
+
+[handler_hand01]
+class=StreamHandler
+level=INFO
+formatter=form01
+args=(sys.stderr,)
+
+[handler_hand02]
+class=FileHandler
+level=INFO
+formatter=form01
+args=('log.txt', 'a')
+
