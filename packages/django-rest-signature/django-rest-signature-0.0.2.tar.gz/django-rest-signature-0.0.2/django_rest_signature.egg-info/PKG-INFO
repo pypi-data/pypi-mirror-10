@@ -1,0 +1,93 @@
+Metadata-Version: 1.1
+Name: django-rest-signature
+Version: 0.0.2
+Summary: django-rest-signature for multisite
+Home-page: http://www.example.com/
+Author: c
+Author-email: zombiecong@gmail.com
+License: BSD License
+Description: 
+        **django-rest-signature是一个多站点的网站签名**
+        
+        Overview
+        ---------
+        这个包支持  `Django REST framework. <http://www.django-rest-framework.org/>`_
+        
+        |
+        
+        Requirements 
+        ----------------
+        * python(3.4)
+        * Django(1.8)
+        * Django REST Framework (3.1.0)
+        * PyJwt
+        
+        |
+        
+        **只在上述环境中测试过**
+        
+        Installation
+        ----------------
+        
+        install using pip
+        
+        .. code-block:: bash
+        
+         $ pip install django-rest-signature
+        
+        |
+        
+        Settings
+        ----------
+        
+        在INSTALLED_APPS 中增加 **'rest_signature'**.
+        
+        .. code-block:: python
+        
+         INSTALLED_APPS = (
+             ....
+             'rest_signature',
+         )
+        
+        |
+        
+        在MIDDLEWARE_CLASSES 中 AuthenticationMiddleware之前增加 **'rest_signature.middleware.SignatureMiddleware'**
+        
+        .. code-block:: python
+        
+         MIDDLEWARE_CLASSES = (
+             ...
+             'rest_signature.middleware.SignatureMiddleware', 
+             'django.contrib.auth.middleware.AuthenticationMiddleware',
+             ...
+         )
+         
+        |
+        
+        
+        Usage
+        ----------
+        
+        通过request.site获取 site 对象
+        
+        |
+        
+        Issue
+        ------
+        
+        1. 对GET和非GET请求未处理
+        
+        
+        
+        
+         
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
