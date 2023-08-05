@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: pytb
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: mitmeedle
+Author-email: mitmeedle@gmail.com
+License: UNKNOWN
+Description: pytb
+        ====
+        
+        Utility for inspecting python stack of running process (x64 linux only)
+        Usage: sudo pytb [pid] If you want to also see greenlet tracebacks, use
+        sudo pytb -g [pid] Supports viewing python 2 and python 3 tracebacks (it
+        will try to guess, however you can help it by specifying -2 or -3
+        option)
+        
+        The utility works by reading /proc//mem (this is why sudo is needed).
+        Also it uses nm and objdump for finding offsets of inner python
+        structures.
+        
+Platform: UNKNOWN
