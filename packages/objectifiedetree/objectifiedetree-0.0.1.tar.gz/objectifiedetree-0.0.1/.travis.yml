@@ -1,0 +1,12 @@
+language: python
+
+python:
+  - "3.4"
+
+# install link to package
+install: 
+  - pip install -e .
+
+# run tests
+script:
+  - py.test
