@@ -1,0 +1,18 @@
+{% extends base_template %}
+
+{% block content %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <p class="post-meta">Posted by <a href="{% url 'blog_author' post.author.slug %}">{{ post.author.first_name }} {{ post.author.last_name }}</a> on {{ post.created }}</p>
+                {{ post.body }}
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock %}
+
+
