@@ -1,0 +1,35 @@
+#slider .slide-text{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 15px;
+    background: rgba(45, 208, 228, 0.8);
+    color: white;
+}
+
+#slider .owl-pagination .owl-page {
+    display: inline-block;
+}
+
+#slider .slider-text{
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 5px;
+    color: white;
+    width: 500px;
+    margin: 35px 0px 0px 800px!important;
+    position: absolute;
+}
+
+#slider .slider-header {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    text-align: center;
+}
+
+#slider .slider-header-inner{
+    color: white;
+    margin-top: 10px;
+}
