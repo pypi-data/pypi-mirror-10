@@ -1,0 +1,10 @@
+setuptools
+
+[server]
+gevent
+greenlet
+
+[test]
+gevent
+greenlet
+p01.checker

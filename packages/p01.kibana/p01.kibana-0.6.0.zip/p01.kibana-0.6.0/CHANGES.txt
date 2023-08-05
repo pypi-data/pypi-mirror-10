@@ -1,0 +1,17 @@
+=======
+CHANGES
+=======
+
+
+0.6.0 (2015-04-18)
+------------------
+
+- feature: changed kibana entry_point to forwarder. This allows us to setup
+  the new kibana 4 server was bin/kibana and the forwareder server as
+  bin/forwarder.
+
+
+0.5.0 (2014-03-24)
+------------------
+
+- initial release
