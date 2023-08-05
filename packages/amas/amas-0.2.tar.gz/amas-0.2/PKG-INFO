@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: amas
+Version: 0.2
+Summary: Calculate various summary statistics on a multiple sequence alignment
+Home-page: https://github.com/marekborowiec/AMAS
+Author: Marek Borowiec
+Author-email: petiolus@gmail.com
+License: GNU PL v3
+Description: # AMAS
+        Calculate various summary statistics on a multiple sequence alignment
+        
+        ## Usage
+        AMAS can be run from the command line:
+        
+        ```shell
+        python AMAS.py <input_file> <format> <alphabet>
+        ```
+        The supported formats are `fasta`, `phylip`, `nexus`, `phylip-int`, and `nexus-int`. The alphabets are `aa` or `dna`.
+        
+        Also, AMAS can be imported from other Python modules:
+        
+        ```python
+        >>> from amas import AMAS
+        
+        >>> in_file = 'fasta1.fas'
+        >>> in_format = 'fasta'
+        >>> data_type = 'dna'
+        >>> aln = AMAS.DNAAlignment(in_file, in_format, data_type)
+        >>> aln.summarize_alignment()
+        ['fasta1.fas', '10', '100', '1000', '1', '0.1', '2', '0.02', '1', '0.01']
+        ```
+        
+Keywords: amas
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.3
