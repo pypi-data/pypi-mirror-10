@@ -1,0 +1,13 @@
+pandas
+matplotlib
+enum34
+scipy
+scikit-learn
+
+[dev]
+check-manifest
+nose
+
+[test]
+coverage
+nose
