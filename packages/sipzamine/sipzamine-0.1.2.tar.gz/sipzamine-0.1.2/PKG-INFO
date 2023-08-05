@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: sipzamine
+Version: 0.1.2
+Summary: SIP dialog examine utility (formerly sipcaparseye)
+Home-page: https://github.com/ossobv/sipzamine
+Author: Walter Doekes, OSSO B.V.
+Author-email: wjdoekes+sipzamine@osso.nl
+License: GPLv3+
+Description: sipzamine
+        =========
+        
+        Command line SIP dialog matching and searching through offline PCAPs
+        
+        TODO
+        ----
+        
+        - Upload to PyPI.
+        - Add help text from https://code.osso.nl/projects/sipp.
+        - Add tests: begin with a smallish pcap.
+        - Add the ability to write pcaps from the filter. Combine capability
+          with sipscrub?
+        - Compare this to sipgrep (and other tools?). And homer?
+        
+        See also:
+        ---------
+        
+        - https://github.com/ossobv/vcutil/blob/master/tcpdump247
+        
+Platform: linux
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Communications :: Telephony
+Classifier: Topic :: System :: Networking :: Monitoring
