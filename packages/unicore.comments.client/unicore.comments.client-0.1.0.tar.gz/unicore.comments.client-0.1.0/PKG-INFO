@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: unicore.comments.client
+Version: 0.1.0
+Summary: Client library to interact with Universal Core's unicore.comments
+Home-page: http://github.com/universalcore/unicore.comments.client
+Author: Praekelt Foundation
+Author-email: dev@praekelt.com
+License: BSD
+Description: unicore.comments.client
+        ==================
+        
+        Client library to interact with Universal Core's `unicore.comments`
+        
+        .. image:: https://travis-ci.org/universalcore/unicore.comments.client.svg?branch=develop
+            :target: https://travis-ci.org/universalcore/unicore.comments.client
+            :alt: Continuous Integration
+        
+        .. image:: https://coveralls.io/repos/universalcore/unicore.comments.client/badge.png?branch=develop
+            :target: https://coveralls.io/r/universalcore/unicore.comments.client?branch=develop
+            :alt: Code Coverage
+        
+        .. image:: https://pypip.in/version/unicore.comments.client/badge.svg
+            :target: https://pypi.python.org/pypi/unicore.comments.client
+            :alt: Pypi Package
+        
+Keywords: authentication,user,universal,core
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
