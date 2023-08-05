@@ -1,0 +1,10 @@
+How to use?
+===========
+
+
+You can import ``simulate`` from ``js.jquery_simulate`` and ``need`` it where you want
+these resources to be included on a page::
+
+  >>> from js.jquery_simulate import simulate
+  >>> simulate.need()
+

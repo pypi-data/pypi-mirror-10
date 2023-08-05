@@ -1,0 +1,44 @@
+Metadata-Version: 1.0
+Name: js.jquery-simulate
+Version: 1.0.1
+Summary: Fanstatic packaging of jQuery.simulate()
+Home-page: UNKNOWN
+Author: Fanstatic Developers
+Author-email: fanstatic@googlegroups.com
+License: BSD
+Description: js.jquery_simulate
+        ******************
+        
+        Introduction
+        ============
+        
+        This library packages `jQuery.simulate()`_ for `fanstatic`_.
+        
+        .. _`fanstatic`: http://fanstatic.org
+        .. _`jQuery.simulate()`: https://github.com/jquery/jquery-simulate
+        
+        This requires integration between your web framework and ``fanstatic``,
+        and making sure that the original resources (shipped in the ``resources``
+        directory in ``js.jquery_simulate``) are published to some URL.
+        
+        
+        How to use?
+        ===========
+        
+        
+        You can import ``simulate`` from ``js.jquery_simulate`` and ``need`` it where you want
+        these resources to be included on a page::
+        
+          >>> from js.jquery_simulate import simulate
+          >>> simulate.need()
+        
+        
+        CHANGES
+        *******
+        
+        1.0.1 (2015-04-21)
+        ==================
+        
+        - Initial release.
+        
+Platform: UNKNOWN
