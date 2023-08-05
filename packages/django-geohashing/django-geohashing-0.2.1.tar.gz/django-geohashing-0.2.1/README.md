@@ -1,0 +1,82 @@
+# django-geohashing
+
+A Django application for calculating geohashes and exposing them 
+via RESTful interface. Requires Django 1.8.x+ (takes advantage of
+updated argument parsing for custom management commands, see: 
+[Django 1.8 Release Notes][1] for more information).
+
+## Installation
+
+Install with pip:
+
+```bash
+pip install django-geohashing
+```
+
+## Quick Start
+
+1. Add "geohashing"  and "rest_framework" to your INSTALLED_APPS:
+
+    ```python
+    INSTALLED_APPS = (
+       ...
+       'geohashing',
+       'rest_framework',
+    )
+    ```
+
+2. Create the geohashing tables by resyncing your models:
+
+    ```bash
+    python manage.py migrate
+    ```
+
+3. Populate the table using the `get_historical_djia` management command:
+
+    ```bash
+    python manage.py get_historical_djia --start <date> --end <date>
+    ```
+
+   The `get_historical_djia` command takes two optional parameters:
+   `--start` and `--end`. These parameters accept date strings of the format
+   `YYYY-MM-DD`. They may be used to limit the set of results from
+   which to database is populated (so for instance to only retrieve and process 
+   only the 30 most recent DJIA openings instead of every opening since 1928).
+
+   The parameters are optional but their use is very much encouraged; otherwise 
+   tens of thousands of records will be retrieved and imported individually.
+
+4. To expose the geohashing offsets via REST API, include `geohashing.urls` in
+   your `urls.py`. Though not strictly required, as a best practice a namespace 
+   for the urls should be provided:
+
+    ```python
+    from django.conf.urls import url
+
+    urlpatterns = [
+        url(r'^geohashing/', include('geohashing.urls', namespace='geohashing')),
+    ]
+    ```
+
+## TODO
+
+This project is still in an extremely early alpha stage. Tasks that still need 
+to be tackled:
+
+- Update the importer to:
+
+    - Handle the creation of new Day objects and the update of existing Day 
+      objects seperately so that we can use `bulk_create` to improve 
+      performance.
+    - Extrapolate data points beyond the maximum date when enough information
+      is available to do so.
+    - Add a `get_current_djia` management command to be used for retrieving
+      today's opening value. Occasionally the various sources for the opening 
+      value are initially inconsistent with one another. The management command 
+      should handle this gracefully by waiting for consensus.
+
+- Add unit tests and docs
+- Run Flake8 against the codebase and fix any glaring PEP-8 violations
+- Set up Continuous Integration...integration
+
+[1]: https://docs.djangoproject.com/en/1.8/releases/1.8/#extending-management-command-arguments-through-command-option-list
