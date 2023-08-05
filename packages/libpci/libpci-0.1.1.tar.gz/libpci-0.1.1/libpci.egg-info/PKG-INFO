@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: libpci
+Version: 0.1.1
+Summary: Pure-Python, high-level bindings to libpci
+Home-page: https://github.com/zyga/python-libpci
+Author: Zygmunt Krynicki
+Author-email: zygmunt.krunicki@canonical.com
+License: LGPLv3
+Description: ==========================================
+        Pure Python, high-level bindings to libpci
+        ==========================================
+        
+        .. image:: https://badge.fury.io/py/libpci.png
+            :target: http://badge.fury.io/py/libpci
+        
+        .. image:: https://travis-ci.org/zyga/libpci.png?branch=master
+                :target: https://travis-ci.org/zyga/libpci
+        
+        .. image:: https://pypip.in/d/libpci/badge.png
+                :target: https://pypi.python.org/pypi/libpci
+        
+        Features
+        ========
+        
+        * Free software: LGPLv3 license
+        * Documentation: https://libpci.readthedocs.org.
+        * Use high-level, pythonic APIs to work with libpci
+        
+        
+        
+        
+        
+        History
+        =======
+        
+        0.1 (2015-04-23)
+        ----------------
+        
+        * First release on PyPI.
+        
+Keywords: libpci binding
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
