@@ -1,0 +1,51 @@
+{% load i18n catalog_tags cms_tags sekizai_tags %}
+{% block catalog_panel %}
+<div id="catalog-{{ instance.catalog.get_page.get_slug }}" class="panel{%if instance.panel_type%} panel-{{instance.panel_type}}{% endif %} catalog">
+  {% if instance.display_panel_header %}
+  <div class="panel-heading">
+    {% if instance.panel_header_link %}
+    <h3 class="panel-title"><a href="{{instance.get_absolute_url}}">{{instance.title}}</a></h3>
+    {% else %}
+    <h3 class="panel-title">{{instance.title}}</h3>
+    {% endif %}
+  </div>
+  {% endif %}
+  <ul class="list-group">
+  {% for page in instance.pages %}
+    <li class="list-group-item">
+      <a href="{{ page.get_absolute_url }}">
+      {% if instance.line_length %}
+        {{ page.get_title|truncatechars:instance.line_length }}
+      {% else %}
+        {{ page.get_title }}
+      {% endif %}
+      {% if instance.display_date %}
+        <time datetime='{{ page|published_at|date:"Y-m-d" }}'>{{ page|published_at|date:"Y-m-d" }}</time>
+      {% endif %}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  {% if instance.panel_after_content %}
+    {% for plugin in instance.child_plugin_instances %}
+      {% render_plugin plugin %}
+    {% endfor %}
+  {% endif %}
+  {% if instance.panel_footer_text %}
+  <div class="panel-footer">
+    {% if instance.panel_footer_link %}
+    <a href="{{instance.get_absolute_url}}">{{instance.panel_footer_text}}</a>
+    {% else %}
+    {{instance.panel_footer_text}}
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+{% addtoblock "css" %}
+<style>
+.catalog time{float:right;}
+</style>
+{% endaddtoblock %}
+
+{% endblock %}

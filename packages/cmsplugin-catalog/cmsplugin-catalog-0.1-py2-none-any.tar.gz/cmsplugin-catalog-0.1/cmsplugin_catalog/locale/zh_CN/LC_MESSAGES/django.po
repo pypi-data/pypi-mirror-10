@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: cmsplugin-catalog\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-29 16:39+0800\n"
+"PO-Revision-Date: 2015-05-04 01:33+0000\n"
+"Last-Translator: ouyanghongyu <ouyanghongyu@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/cmsplugin-catalog/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: cms_plugins.py:23
+msgid "Catalog Plugin"
+msgstr "栏目插件"
+
+#: cms_plugins.py:25 cms_toolbar.py:24 models.py:39
+msgid "Catalog"
+msgstr "栏目"
+
+#: cms_plugins.py:38
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+#: models.py:22
+msgid "Child catalog pages"
+msgstr "子栏目的页面"
+
+#: models.py:23
+msgid "Current catalog pages"
+msgstr "当前栏目的页面"
+
+#: models.py:24
+msgid "Current and child catalog pages"
+msgstr "当前栏目和子栏目的页面"
+
+#: models.py:27
+msgid "Bootstrap panel type"
+msgstr "Bootstrap 面板类型"
+
+#: models.py:28
+msgid "Panel header link to catalog page"
+msgstr "面板头部链接到栏目页面"
+
+#: models.py:29
+msgid "Panel footer text"
+msgstr "面板底部文字"
+
+#: models.py:30
+msgid "Panel footer link to catalog page"
+msgstr "面板底部链接到栏目页面"
+
+#: models.py:31
+msgid "After the panel body has a placeholder"
+msgstr "面板体之后添加占位符"
+
+#: models.py:32
+msgid "Display panel header"
+msgstr "显示面板头"
+
+#: models.py:34
+msgid "Which level catalog to show"
+msgstr "显示哪一级的栏目内容"
+
+#: models.py:36
+msgid "Length of every line"
+msgstr "每一行的长度"
+
+#: models.py:36
+msgid "Zero mean unlimited."
+msgstr "0代表不限制"
+
+#: models.py:37
+msgid "How much page display"
+msgstr "显示多少个页面"
+
+#: models.py:38
+msgid "Show page date in line"
+msgstr "在行内显示页面发布时间"
+
+#: models.py:58
+msgid "This page is a catalog"
+msgstr "此页面是一个栏目"
