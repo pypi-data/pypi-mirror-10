@@ -1,0 +1,7 @@
+[console_scripts]
+alocal = ansibletools.cli.wrappers:ansible_local
+arun = ansibletools.cli.wrappers:ansible
+avault-helper = ansibletools.cli.helper:main
+aplay = ansibletools.cli.wrappers:ansible_playbook
+avault = ansibletools.cli.wrappers:ansible_vault
+
