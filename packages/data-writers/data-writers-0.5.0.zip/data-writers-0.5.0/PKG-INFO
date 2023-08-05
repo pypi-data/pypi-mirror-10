@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: data-writers
+Version: 0.5.0
+Summary: Write to multiple databases and formats easily from python
+Home-page: https://github.com/jamesmarlowe/Python-Data-Writers
+Author: James Marlowe (jamesmarlowe)
+Author-email: jameskmarlowe@gmail.com
+License: FreeBSD
+Description: Data-Writers
+        =======================
+        
+        Write to multiple databases and formats easily from python.
+        
+        This project is useful in any scenario where you need to write some data in a 
+        readable manner quickly and easily.
+        
+        It can be used to write to:
+        * csv
+        * sqlite
+        * mysql
+        * redis
+        * mongo
+        * postgres
+        * aerospike
+        
+        Example usage is as simple as:
+        
+        ```
+        DataWriter(writer='csv').save([{"column1":"row1-item1", "column2":"row1-item2"},
+                                       {"column1":"row2-item1", "column2":"row2-item2"},
+                                       {"column1":"row3-item1", "column2":"row3-item2"}])
+        ```
+        
+        source code available at: https://github.com/jamesmarlowe/Python-Data-Writers
+        
+Keywords: database write csv data postgres mysql redis sqlite mongo
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: FreeBSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
