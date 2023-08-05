@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.cfg
+setup.py
+browsergui/__init__.py
+browsergui/command_stream.py
+browsergui/gui.py
+browsergui.egg-info/PKG-INFO
+browsergui.egg-info/SOURCES.txt
+browsergui.egg-info/dependency_links.txt
+browsergui.egg-info/requires.txt
+browsergui.egg-info/top_level.txt
+browsergui/elements/__init__.py
+browsergui/server/__init__.py
+test/test_element.py
+test/test_gui.py
+test/test_specific_elements.py
