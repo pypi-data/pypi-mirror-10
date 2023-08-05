@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: parse-python-indentation
+Version: 0.0.1
+Summary: python method to parse the indention of a python-style indented file.
+Home-page: https://github.com/johanneswilm/parse_python_indentation.py
+Author: Johannes Wilm
+Author-email: mail@johanneswilm.org
+License: Apache 2.0, see LICENCE.txt
+Description: Parse python indentation
+        =======================
+        
+        This method will take the contents of a file that has
+        python style indentation with newline characters between lines and
+        returns a construct of lists and dicts.
+        
+Keywords: parsing python development
+Platform: UNKNOWN
