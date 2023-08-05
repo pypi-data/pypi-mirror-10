@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: pystandardpaths
+Version: 0.1.0
+Summary: Cross-platform standard paths access in Python, based on QStandardPaths in Qt 5.
+Home-page: https://github.com/uranusjr/pystandardpaths
+Author: Tzu-ping Chung
+Author-email: uranusjr@gmail.com
+License: BSD
+Description: ===============================
+        PyStandardPaths
+        ===============================
+        
+        Cross-platform standard paths access in pure Python, based on `QStandardPaths` in
+        Qt 5.
+        
+        * Free software: BSD license
+        * Documentation: https://pystandardpaths.readthedocs.org.
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-05-02)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: qstandardpaths
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
