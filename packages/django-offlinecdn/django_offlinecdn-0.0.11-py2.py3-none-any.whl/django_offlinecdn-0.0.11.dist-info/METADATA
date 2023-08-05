@@ -1,0 +1,59 @@
+Metadata-Version: 2.0
+Name: django-offlinecdn
+Version: 0.0.11
+Summary: A nice way to allow for online-offline development, but also use cdn's for package dependencies.
+Home-page: https://github.com/gabegaster/django-offlinecdn
+Author: Gabe Gaster
+Author-email: gabe.gaster@datascopeanalytics.com
+License: MIT
+Download-URL: https://github.com/gabegaster/django-offlinecdn/archives/master
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Requires-Dist: Django (==1.8)
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+
+offline-cdn
+
+================
+
+
+
+A nice way to allow for online-offline development, but also use cdn's for package dependencies.
+
+
+
+`Read the documentation <http://django-offlinecdn.readthedocs.org/en/latest/>`__.
+
+
+
+|Build Status| |Version| |Downloads| |Test Coverage| |Documentation Status|
+
+
+
+.. |Build Status| image:: https://travis-ci.org/gabegaster/django-offlinecdn.svg?branch=master
+
+   :target: https://travis-ci.org/gabegaster/django-offlinecdn
+
+.. |Version| image:: https://pypip.in/v/django-offlinecdn/badge.png
+
+   :target: https://warehouse.python.org/project/django-offlinecdn/
+
+.. |Downloads| image:: https://pypip.in/d/django-offlinecdn/badge.png
+
+   :target: https://warehouse.python.org/project/django-offlinecdn/
+
+.. |Test Coverage| image:: https://coveralls.io/repos/gabegaster/django-offlinecdn/badge.png
+
+   :target: https://coveralls.io/r/gabegaster/django-offlinecdn
+
+
+
+.. |Documentation Status| image:: https://readthedocs.org/projects/django-offlinecdn/badge/?version=latest
+
+   :target: https://readthedocs.org/projects/django-offlinecdn/?badge=latest
+
+
