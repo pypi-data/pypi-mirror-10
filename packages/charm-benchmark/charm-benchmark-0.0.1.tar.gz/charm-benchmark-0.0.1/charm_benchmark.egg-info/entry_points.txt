@@ -1,0 +1,4 @@
+[console_scripts]
+benchmark-finish = charmbenchmark.Benchmark:finish
+benchmark-start = charmbenchmark.Benchmark.cli:start
+
