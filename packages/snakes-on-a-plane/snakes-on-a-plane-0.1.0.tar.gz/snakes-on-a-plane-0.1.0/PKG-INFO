@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: snakes-on-a-plane
+Version: 0.1.0
+Summary: A set of tools for interfacing with X-Plane 10.
+Home-page: https://github.com/tomleese/pyxplane
+Author: Tom Leese
+Author-email: inbox@tomleese.me.uk
+License: UNKNOWN
+Description: Snakes on a Plane
+        =================
+        
+        A Python module and a set of tools for interfacing with X-Plane 10.
+        
+        .. image:: http://s.hswstatic.com/gif/snakes-on%20-plane-1.jpg
+        
+        Installation
+        ------------
+        
+        .. code:: shell
+        
+           $ pip install snakes-on-a-plane
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
