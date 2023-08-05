@@ -1,0 +1,58 @@
+{% extends 'ui/base.html' %}
+{% load bob icons staticfiles %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+        requirejs.config({
+            paths: {
+                'assets': 'assets/js/assets',
+                'split': 'assets/js/split',
+            }
+        });
+        showAddAnotherPopup = function(e) {
+            window.open(e.href + e.previousElementSibling.value);
+            if (typeof(this.event) != 'undefined') {
+                this.event.preventDefault();
+            };
+            return false;
+        };
+        require(['jquery', 'assets', 'split'], function($, assets, split) {
+            $(function() {
+                assets.initialize()
+                split.initialize()
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        require(['jquery'], function ($) {
+            var editor;
+            $(".code_field").each(function(index, el) {
+                editor = ace.edit(el.id);
+                var that = this;
+                editor.getSelection().on('changeCursor', function(ev){
+                })
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block contentarea %}
+    <div class="content{% if detect_changes %} detect-changes{% endif %}">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% if sidebar %}
+        {% sidebar_menu sidebar active_sidebar_item %}
+    {% endif %}
+    {% block sidebar_search %}
+    {% endblock %}
+{% endblock %}
