@@ -1,0 +1,9 @@
+{% for m, success in messages %}
+    <div class="pageReg__{% if success %}success{% else %}alert{% endif %}">
+        <div class="pageReg__{% if success %}success{% else %}alert{% endif %}__item">
+            {{ m|safe }}
+        </div>
+    </div>
+{% endfor %}
+
+
