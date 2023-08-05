@@ -1,0 +1,18 @@
+/*! Header Comment */
+p * i ,  html   
+/* remove spaces */
+
+/* " comments have no escapes \*/
+body/* keep */ /* space */p,
+p  [ remove ~= " spaces  " ]  :nth-child( 3 + 2n )  >  b span   i  ,   div::after
+
+{
+  /* comment */
+    ba- :  url(  "  /* string */  " )   blue !i ;
+        content  :  " escapes \" allowed \\" ;
+      wid: calc( 100% - 3em + 5px ) ;
+  mat : 0;
+  mab : 0;
+  mal : 10p;
+  mar : 10p;
+}

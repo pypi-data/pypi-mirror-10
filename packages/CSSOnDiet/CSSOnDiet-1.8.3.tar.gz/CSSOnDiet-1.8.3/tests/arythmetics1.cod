@@ -1,0 +1,30 @@
+//!cssondiet.com/specification-1.7
+
+@cod-defines {
+  MYCAR 12p+3p
+  CAR (MYCAR)*2
+  CAR-MYCAR 13%
+}
+li {
+  mal 200p
+  mal 200+20p
+  mal 200p-20*3
+  mal 200p-2**2
+  mal 200p+300i
+  mal CAR
+  mal CAR+15p
+  mal CAR-15p
+  mal CAR-MYCAR-1
+  mal CAR-MYCAR+10%
+  mal20+3 // no white spaces around
+  mal 20+4   +4 // whitespace inside
+  mal 20+4 4+4 // one space separator
+  mal 21/5  // integer division
+  mal 21/5.00 // floats
+  mal 21.0/5 // floats
+  mal 10r
+  mal 10.0+2r
+  animation 10s+2s+1
+}
+
+
