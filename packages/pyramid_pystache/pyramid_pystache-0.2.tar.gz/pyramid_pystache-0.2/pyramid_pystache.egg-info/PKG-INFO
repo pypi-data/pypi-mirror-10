@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: pyramid-pystache
+Version: 0.2
+Summary: Mustache template bindings using Pystache for the Pyramid web framework
+Home-page: https://github.com/darrenlucas/pyramid_pystache
+Author: Darren Lucas
+Author-email: me@darrenlucas.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: Mustache templating system Bindings for Pyramid
+        ===============================================
+        
+        Bindings for the `Mustache templating system
+        <http://mustache.github.io/>`_ for the Pyramid_ web framework
+        
+        Heavily based on the pyramid_chameleon_ package
+        
+        .. _Pyramid: http://pylonsproject.org/
+        .. _pyramid_chameleon: https://github.com/Pylons/pyramid_chameleon
+        
+        
+        
+        0.2 (2015-05-23)
+        ---------------
+        
+        - Ensure we can build when CHANGES.txt and README.rst cannot be found by
+          setup.py.
+        
+        
+        0.1 (2014-11-22)
+        ----------------
+        
+        -  Initial version
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Pylons
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Intended Audience :: Developers
+Classifier: License :: Repoze Public License
+Classifier: Topic :: Text Processing :: Markup :: HTML
