@@ -1,0 +1,403 @@
+{% extends 'base.html' %}
+{% load i18n l10n static leaflet_tags nodeshot_tags %}
+
+{% block extrahead %}
+    {% if MAP_TOOLS_ENABLED %}
+        <link href="{% static 'leaflet/draw/leaflet.draw.css' %}" rel="stylesheet">
+        <link href="{% static 'ui/lib/css/leaflet.elevation.css' %}" rel="stylesheet">
+    {% endif %}
+    {% if METRICS_ENABLED %}
+        <link href="{% static 'metrics/css/nv.d3.min.css' %}" rel="stylesheet">
+    {% endif %}
+{% endblock %}
+
+{% block jstemplates %}
+    <script id="modal-template" type="text/template">
+        <div class="modal fade autocenter" id="tmp-modal" tabindex="-1">
+            <div class="modal-dialog modal-content modal-body modal-slim">
+                <span class="message"><%= message %></span>
+                <% if(successMessage) { %>
+                    <button type="button" class="btn btn-success"><%= successMessage %></button>
+                <% } %>
+
+                <% if(defaultMessage) { %>
+                    <button type="button" class="btn btn-default"><%= defaultMessage %></button>
+                <% } %>
+            </div>
+        </div>
+    </script>
+
+    <script id="search-template" type="text/template">
+        <input type="text" id="general-search-input" placeholder="{% trans 'Search for data' %}">
+        <span class="icon-search">&nbsp;</span>
+        <span class="icon-spinner animate-spin"></span>
+        <ul class="dropdown-menu" id="js-search-results"></ul>
+    </script>
+
+    <script id="search-result-template" type="text/template">
+        <a href="<%= action %>" class="<%= icon %>"><%= name %></a>
+    </script>
+
+    <script id="search-empty-template" type="text/template">
+        <a class="empty" href="#">{% trans 'nothing found' %}</a>
+    </script>
+
+    <script id="account-menu-template" type="text/template">
+        <li>
+            <a href="#" class="icon-search">&nbsp;</a>
+        </li>
+        <% if(typeof(username) !== 'undefined'){ %>
+        <li>
+            <a href="#" class="notifications">
+                <span class="icon-globe">&nbsp;</span>
+                &nbsp;
+                <span class="bg" id="js-notifications-count">0</span>
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="icon-user"></span>
+                <span class="text" id="js-username"><%= truncatedUsername %></span>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#users/<%= username %>" id="js-profile">
+                        <span class="icon-user"></span>{% trans 'My profile' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#account" id="js-account">
+                        <span class="icon-config"></span>{% trans 'My account' %}
+                    </a>
+                </li>
+                <% if (is_staff) { %>
+                <li>
+                    <a href="{% url 'admin:index' %}">
+                        <span class="icon-lock"></span>{% trans 'Admin site' %}
+                    </a>
+                </li>
+                <% } %>
+                <li>
+                    <a href="#logout" id="js-logout">
+                        <span class="icon-off"></span>{% trans 'Logout' %}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <% } else { %>
+        {% if REGISTRATION_OPEN %}
+        <li>
+            <a href="#" data-toggle="modal" data-target="#signup-modal">
+                <span class="icon-user-add"></span>
+                <span class="text">{% trans 'Sign up' %}</span>
+            </a>
+        </li>
+        {% endif %}
+        <li>
+            <a href="#" data-toggle="modal" data-target="#signin-modal">
+                <span class="icon-user"></span>
+                <span class="text">{% trans 'Sign in' %}</span>
+            </a>
+        </li>
+        <% } %>
+        <li>
+            <a href="#" id="mobile-nav" class="icon-menu"
+               data-toggle="collapse"
+               data-target="#ns-top-nav-links">&nbsp;</a>
+        </li>
+    </script>
+
+    <script id="main-menu-item-view-template" type="text/template">
+        <a href="<%= url %>"<% if(children.length){ %> class="dropdown-toggle" data-toggle="dropdown"<% } %>>
+            <span class="<%= classes || 'icon-info-circle' %>"></span><%= name %>
+            <% if(children.length){ %><span class="caret"></span><% } %>
+        </a>
+        <% if(children.length){ %>
+        <ul class="dropdown-menu">
+            <% children.forEach(function(child){ %>
+                <li><a href="<%= child.url %>" class="<%= child.classes %>"><%= child.name %></a></li>
+            <% }) %>
+        </ul>
+        <% } %>
+    </script>
+
+    <script id="main-menu-empty-view-template" type="text/template">
+        <a href="#">
+            <span class="icon-info-circle"></span>{% trans 'No menu item yet' %}
+        </a>
+    </script>
+
+    <script id="page-template" type="text/template">
+        <h1><%= title %></h1>
+        <%= content %>
+    </script>
+
+    <script id="notifications-template" type="text/template">
+        <span class="arrow"></span>
+        <div class="header">
+            <div class="left">
+                {% trans 'Notifications' %}
+            </div>
+            <!--<div class="right">
+                <a href="javascript:$.createModal({message:'not implemented yet'})">{% trans 'See all' %}</a> <span>-</span>
+                <a href="javascript:$.createModal({message:'not implemented yet'})">{% trans 'Settings' %}</a>
+            </div>-->
+        </div>
+        <div class="scroller">
+            <ul id="js-notifications-container"></ul>
+        </div>
+    </script>
+
+    <script id="notification-item-template" type="text/template">
+        <span class="icon-<%= icon %>"></span>
+        <p class="message"><%= text %></p>
+        <p class="time"><%= $.format.prettyDate(added) %></p>
+    </script>
+
+    <script id="notification-empty-template" type="text/template">
+        <p class="empty">{% trans 'Nothing interesting yet!' %}</p>
+    </script>
+
+    {% include 'includes/map.html' %}
+
+    <script id="node-details-template" type="text/template">
+        {% include 'includes/node-details.html' %}
+    </script>
+
+    <script id="node-list-template" type="text/template">
+        {% include 'includes/node-list.html' %}
+    </script>
+
+    <script id="node-list-row-template" type="text/template">
+        <td class="name-column">
+            <a href="#nodes/<%= slug %>">
+                <%= name %>
+            </a>
+        </td>
+        <td class="status-column hidden-xxs">
+            <span class="status <%= status %>">
+                <%= status %>
+            </span>
+        </td>
+        <td class="hidden-xxs">
+            <a href="#layers/<%= layer %>">
+                <%= layer_name %>
+            </a>
+        </td>
+        <td class="hidden-xs">
+            <a href="#users/<%= user %>"><%= user %></a>
+        </td>
+        <td class="hidden-xs"><%= _.formatDateTime(added) %></td>
+        <td class="hidden-xs"><%= _.formatDateTime(updated) %></td>
+    </script>
+
+    <script id="node-list-empty-template" type="text/template">
+        <td colspan="100%" class="empty">{% trans 'nothing found' %}</td>
+    </script>
+
+    <script id="layer-details-template" type="text/template">
+        {% include 'includes/layer-details.html' %}
+    </script>
+
+    <script id="layer-list-template" type="text/template">
+        {% include 'includes/layer-list.html' %}
+    </script>
+
+    <script id="layer-list-row-template" type="text/template">
+        <td class="name-column">
+            <a href="#layers/<%= slug %>">
+                <%= name %>
+            </a>
+        </td>
+        <td class="hidden-xxs">
+            <%= organization %>
+        </td>
+        <td class="hidden-xs">
+            <span class="icon-<%= new_nodes_allowed === true ? 'ok' : 'cancel' %>"></span>
+        </td>
+        <td class="hidden-xs">
+            <span class="icon-<%= is_external === true ? 'ok' : 'cancel' %>"></span>
+        </td>
+    </script>
+
+    <script id="layer-list-empty-template" type="text/template">
+        <td colspan="100%" class="empty">{% trans 'nothing found' %}</td>
+    </script>
+
+    <script id="user-details-template" type="text/template">
+        {% include 'includes/user-details.html' %}
+    </script>
+
+    <script id="account-template" type="text/template">
+        {% include 'includes/account.html' %}
+    </script>
+
+    <script id="edit-link-template" type="text/template">
+        <td><input type="url" class="form-control input-sm" name="url" value="<%= url %>" required></td>
+        <td><input type="text" class="form-control input-sm" name="description" value="<%= description %>"></td>
+        <td>
+            <button type="submit" class="btn btn-primary btn-sm save">
+                <span class="glyphicon glyphicon-ok"></span>{% trans 'Save' %}
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger btn-sm cancel" data-cid="<%= cid %>">
+                <span class="glyphicon glyphicon-remove"></span>{% trans 'Cancel' %}
+            </button>
+        </td>
+    </script>
+
+    <script id="edit-email-template" type="text/template">
+        <td><input type="email" class="form-control input-sm" name="email" value="<%= email %>" required></td>
+        <td><span class="icon-<%= verified ? 'ok' : 'cancel' %>"></span></td>
+        <td><span class="icon-<%= primary ? 'ok' : 'cancel' %>"></span></td>
+        <td>
+            <button type="submit" class="btn btn-primary btn-sm save">
+                <span class="glyphicon glyphicon-ok"></span>{% trans 'Save' %}
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger btn-sm cancel" data-cid="<%= cid %>">
+                <span class="glyphicon glyphicon-remove"></span>{% trans 'Cancel' %}
+            </button>
+        </td>
+    </script>
+
+    <script id="form-template" type="text/template">
+        <h1><%= title %></h1>
+        <ul class="error-list hidden"></ul>
+        <div id="form-container"></div>
+    </script>
+
+    <script id="loading-template" type="text/template">
+        <div id="loading" class="overlay loading">
+            <span class="icon-loading animate-spin"></span>
+            <span class="text">{% trans 'Loading' %} &hellip;</span>
+            <a class="icon-close hastip" title="{% trans 'cancel&nbsp;operation' %}"></a>
+        </div>
+    </script>
+
+    <script id="dynamic-css-template" type="text/template">
+        <style>
+        <% Ns.db.legend.toJSON().forEach(function(legend){ %>
+            .status.<%= legend.slug %>, .marker-<%= legend.slug %>{
+                background: <%= legend.fill_color %>;
+                color:<%= legend.text_color %>;
+            }
+            .marker-<%= legend.slug %>{
+                border: <%= legend.stroke_width %>px solid <%= legend.stroke_color %>;
+            }
+        <% }) %>
+        </style>
+    </script>
+
+    <script id="contact-success-template" type="text/template">
+        <p>{% trans 'Email sent successfully!' %}</p>
+        <p><a href="#<%= parentFragment %>" class="btn btn-primary">{% trans 'Take me back to' %} <%= slug %></a>
+    </script>
+{% endblock %}
+
+{% block jslibs %}
+    <!-- libs -->
+    <script src="{% url 'jsi18n' %}"></script>
+    <script src="{% static 'ui/lib/js/jquery.js' %}"></script>
+    <script src="{% static 'ui/lib/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/bootstrap.switch.js' %}"></script>
+    <script src="{% static 'ui/lib/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/pwstrength.js' %}"></script>
+    <script src="{% static 'ui/lib/js/scroller.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/underscore.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/backbone.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/backbone.marionette.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/backbone.paginator.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/backbone-forms.min.js' %}"></script>
+    <script src="{% static 'ui/lib/js/backbone-forms-bootstrap3.js' %}"></script>
+    <script src="{% static 'ui/lib/js/jquery.dateFormat.js' %}"></script>
+    <script src="{% static 'ui/lib/js/jquery.serializeJSON.js' %}"></script>
+    {% leaflet_js %}
+    <script src="{% static 'ui/lib/js/leaflet.markercluster.js' %}"></script>
+    {% if METRICS_ENABLED or MAP_TOOLS_ENABLED %}
+        <script type="text/javascript" src="{% static 'ui/lib/js/d3.min.js' %}"></script>
+    {% endif %}
+    {% if MAP_TOOLS_ENABLED %}
+        <script src="{% static 'leaflet/draw/leaflet.draw.js' %}"></script>
+        <script src="{% static 'ui/lib/js/leaflet.measurecontrol-customized.js' %}"></script>
+        <script src="{% static 'ui/lib/js/leaflet.elevation.js' %}"></script>
+    {% endif %}
+    {% if METRICS_ENABLED %}
+        <script type="text/javascript" src="{% static 'metrics/js/nv.d3.min.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block jssettings %}
+    <!-- global settings -->
+    <script>
+        Ns = new Marionette.Application();
+        Ns.settings = {
+            siteName: '{{ SITE_NAME }}',
+            map: {
+                {% localize off %}
+                lat: {{ MAP_CENTER.0 }},
+                lng: {{ MAP_CENTER.1 }},
+                zoom: {{ MAP_ZOOM }}
+                {% endlocalize  %}
+            },
+            votes: {% if VOTING_ENABLED %}true{% else %}false{% endif %},
+            ratings: {% if RATING_ENABLED %}true{% else %}false{% endif %},
+            comments: {% if COMMENTS_ENABLED %}true{% else %}false{% endif %},
+            contacting: {% if CONTACTING_ENABLED %}true{% else %}false{% endif %},
+            map3d: {% if MAP_3D_ENABLED %}true{% else %}false{% endif %},
+            mapTools: {% if MAP_TOOLS_ENABLED %}true{% else %}false{% endif %},
+            mapPreferences: {% if MAP_PREFERENCES_ENABLED %}true{% else %}false{% endif %},
+            api: '{{ SITE_URL }}{% url "api_root_endpoint" %}',
+            dateTimeFormat: '{{ DATETIME_FORMAT }}',
+            dateFormat: '{{ DATE_FORMAT }}',
+            leafletOptions: {{ LEAFLET_OPTIONS|safe }},
+            disableClusteringAtZoom: {{ DISABLE_CLUSTERING_AT_ZOOM }},
+            maxClusterRadius: {{ MAX_CLUSTER_RADIUS }},
+            addressSearchTriggers: {{ ADDRESS_SEARCH_TRIGGERS|safe }},
+            nodesHstoreSchema: {{ NODES_HSTORE_SCHEMA|safe }},
+            googleAnalytics: {% if GOOGLE_ANALYTICS_UA %}true{% else %}false{% endif %},
+            piwikAnalytics: {% if PIWIK_ANALYTICS_BASE_URL and PIWIK_ANALYTICS_SITE_ID %}true{% else %}false{% endif %},
+            additionalGeoJsonUrls: {{ ADDITIONAL_GEOJSON_URLS|safe }},
+            links: {% if LINKS_ENABLED %}true{% else %}false{% endif %},
+            metrics: {% if METRICS_ENABLED %}true{% else %}false{% endif %}
+        };
+    </script>
+{% endblock %}
+{% block jsnodeshot %}
+    <!-- nodeshot JS -->
+    <script src="{% static 'ui/nodeshot/js/utils.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/app.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/models.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/page.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/search.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/account-menu.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/main-menu.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/notifications.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/map.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/node-details.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/node-list.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/layer-details.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/layer-list.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/user.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/password-reset.js' %}"></script>
+    <script src="{% static 'ui/nodeshot/js/views/contact.js' %}"></script>
+    {% if METRICS_ENABLED %}
+        <script src="{% static 'metrics/js/graphs.js' %}"></script>
+    {% endif %}
+    <!-- preloaded data -->
+    <script>
+        Ns.db = {
+            menu: new Ns.collections.Menu({{ menu|safe }}),
+            legend: new Ns.collections.Legend({{ legend|safe }}),
+            layers: new Ns.collections.Layer({{ layers|safe }}),
+            user: new Ns.models.User({{ user|safe }}),
+            geo: new Ns.collections.Geo(),   // fetch later
+            nodes: new Ns.collections.Node(),   // local node details cache
+            nodeList: null,   // local node list cache
+            pages: new Ns.collections.Page(),   // local page cache
+            users: new Backbone.Collection()  // local user profile cache
+        };
+    </script>
+    {% nodeshot_map "map-js" creatediv=False %}
+{% endblock %}

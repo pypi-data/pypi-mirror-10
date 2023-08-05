@@ -1,0 +1,23 @@
+{% extends "admin/change_form.html" %}
+
+<!-- LOADING -->
+{% load url from future %}
+{% load admin_static i18n admin_modify grp_tags %}
+
+<!-- JAVASCRIPTS -->
+{% block javascripts %}
+    {{ block.super }}
+    <!-- nodeshot.core.metrics -->
+    <script type="text/javascript" charset="utf-8">
+        (function($) {
+            $(document).ready(function () {
+                $('#grp-content-container').append('<div id="metrics-chart"><svg style="height:400px;width:100%"></svg></div>');
+                {% if object_id %}
+                $.getJSON('{% url "api_metric_details" object_id %}').done(function (json) {
+                    Ns.graphs.createFromJson('linear', '#metrics-chart svg', json);
+                });
+                {% endif %}
+            });
+        })(grp.jQuery);
+    </script>
+{% endblock %}

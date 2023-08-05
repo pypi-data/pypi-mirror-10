@@ -1,0 +1,138 @@
+{% load i18n %}
+<h1>{% trans 'My account' %}</h1>
+
+<h3>{% trans 'Profile' %}</h3>
+<div class="row nomargin">
+    <% if(first_name){ %>
+        <p><strong>{% trans 'First name' %}:</strong> <%= first_name %></p>
+    <% } %>
+    <% if(last_name){ %>
+        <p><strong>{% trans 'Last name' %}:</strong> <%= last_name %></p>
+    <% } %>
+    <% if(city){ %>
+        <p><strong>{% trans 'City' %}:</strong> <%= city %></p>
+    <% } %>
+    <% if(country){ %>
+        <p><strong>{% trans 'Country' %}:</strong> <%= country %></p>
+    <% } %>
+    <% if(about){ %>
+        <p>
+            <strong>{% trans 'Bio' %}:</strong><br>
+            <%= _.nl2br(about) %>
+        </p>
+    <% } %>
+    <p>
+        <a href="#account/profile/edit" class="btn btn-primary icon-edit">{% trans 'Edit' %}</a>
+        &nbsp;
+        <a href="#users/<%= username %>" class="btn btn-primary">
+            <span class="glyphicon glyphicon-eye-open"></span>{% trans 'View' %}
+        </a>
+        &nbsp;
+        <a href="#account/password/change" class="btn btn-warning icon-lock">{% trans 'Change password' %}</a>
+    </p>
+</div>
+
+<h3>Gravatar</h3>
+
+<div class="row nomargin">
+    <a href="https://gravatar.com" target="_blank"><img src="<%= avatar %>?s=200" alt="" class="avatar200"></a>
+    <div class="col-sm-6 right nopadding">
+        <p>{% trans 'Avatars are managed through the popular <a href="https://gravatar.com" target="_blank">gravatar</a> service.' %}</p>
+        <p>{% trans "If you don't have one yet, create an account on <strong>gravatar.com</strong> and associate your current email address to it." %}</p>
+        <p><a href="https://gravatar.com" class="btn btn-primary icon-edit" target="_blank">{% trans 'Edit on gravatar.com' %}</a></p>
+    </div>
+</div>
+
+<h3>{% trans 'Links' %}</h3>
+
+<div id="js-links">
+    <form action="">
+        <table class="table table-striped columns middle">
+            <thead>
+                <tr>
+                    <th style="width:50%">{% trans 'url' %}</th>
+                    <th style="width:25%">{% trans 'description' %}</th>
+                    <th style="width:25%">{% trans 'actions' %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (social_links.length > 0) { %>
+                    <% _.each(social_links, function(link){ %>
+                        <tr>
+                            <td><%= link.url %></td>
+                            <td><%= link.description %></td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm icon-edit edit" data-cid="<%= link.cid %>">{% trans 'Edit' %}</button>
+                                &nbsp;
+                                <button type="button" class="btn btn-danger btn-sm delete" data-cid="<%= link.cid %>">
+                                    <span class="glyphicon glyphicon-remove"></span>{% trans 'Delete' %}
+                                </button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr><td colspan="4" class="text-center">{% trans 'No links to show' %}</td></tr>
+                <% } %>
+            </tbody>
+        </table>
+    </form>
+    <p>
+        <button type="button" class="btn btn-primary add">
+            <span class="glyphicon glyphicon-plus"></span>
+            {% trans 'Add' %}
+        </button>
+    </p>
+</div>
+
+<h3>{% trans 'Email addresses' %}</h3>
+
+<div id="js-emails">
+    <form action="">
+        <table class="table table-striped columns middle">
+            <thead>
+                <tr>
+                    <th style="width:40%">{% trans 'email address' %}</th>
+                    <th style="width:15%">{% trans 'verified' %}</th>
+                    <th style="width:15%">{% trans 'primary' %}</th>
+                    <th style="width:30%">{% trans 'actions' %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (email_addresses.length > 0) { %>
+                    <% _.each(email_addresses, function(email){ %>
+                        <tr>
+                            <td><%= email.email %></td>
+                            <td><span class="icon-<%= email.verified ? 'ok' : 'cancel' %>"></span></td>
+                            <td><span class="icon-<%= email.primary ? 'ok' : 'cancel' %>"></span></td>
+                            <td>
+                                <% if (!email.verified) { %>
+                                    <button type="button" class="btn btn-primary btn-sm resend" data-cid="<%= email.cid %>">
+                                        <span class="glyphicon glyphicon-repeat"></span>{% trans 'Resend confirmation' %}
+                                    </button>
+                                <% } %>
+                                <% if (email.verified && !email.primary) { %>
+                                    <button type="button" class="btn btn-primary btn-sm makeprimary" data-cid="<%= email.cid %>">
+                                        <span class="glyphicon glyphicon-ok"></span>{% trans 'Make primary' %}
+                                    </button>
+                                <% } %>
+                                <% if (!email.primary) { %>
+                                <button type="button" class="btn btn-danger btn-sm delete" data-cid="<%= email.cid %>">
+                                    <span class="glyphicon glyphicon-remove"></span>{% trans 'Delete' %}
+                                </button>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr><td colspan="4" class="text-center">{% trans 'No email addresses' %}</td></tr>
+                <% } %>
+            </tbody>
+        </table>
+    </form>
+    <p>
+        <button type="button" class="btn btn-primary add">
+            <span class="glyphicon glyphicon-plus"></span>
+            {% trans 'Add' %}
+        </button>
+    </p>
+</div>

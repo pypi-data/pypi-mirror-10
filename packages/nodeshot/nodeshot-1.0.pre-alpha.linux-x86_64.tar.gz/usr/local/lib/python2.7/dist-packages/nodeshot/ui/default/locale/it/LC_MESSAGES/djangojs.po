@@ -1,0 +1,196 @@
+# Nodeshot default UI translation file
+# This file is distributed under the same license as the Nodeshot package.
+# Federico Capoano nemesis at ninux dot org, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-27 17:28+0100\n"
+"PO-Revision-Date: 2015-02-27 17:43+0020\n"
+"Last-Translator: Federico Capoano\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.7.5\n"
+
+#: static/ui/lib/js/backbone-forms-bootstrap3.js:14
+msgid "Cancel"
+msgstr "Annulla"
+
+#: static/ui/nodeshot/js/app.js:253
+msgid "confirmation mail sent"
+msgstr "email di conferma inviata"
+
+#: static/ui/nodeshot/js/models.js:242
+msgid "Name"
+msgstr "Nome"
+
+#: static/ui/nodeshot/js/models.js:243
+msgid "Layer"
+msgstr "Layer"
+
+#: static/ui/nodeshot/js/models.js:255
+msgid "Geometry"
+msgstr "Geometria"
+
+#: static/ui/nodeshot/js/models.js:256
+msgid "Address"
+msgstr "Indirizzo"
+
+#: static/ui/nodeshot/js/models.js:257
+msgid "Elevation"
+msgstr "Elevazione"
+
+#: static/ui/nodeshot/js/models.js:258
+msgid "Description"
+msgstr "Descrizione"
+
+#: static/ui/nodeshot/js/models.js:427
+msgid "First name"
+msgstr "Nome"
+
+#: static/ui/nodeshot/js/models.js:428
+msgid "Last name"
+msgstr "Cognome"
+
+#: static/ui/nodeshot/js/models.js:429
+msgid "City"
+msgstr "Città"
+
+#: static/ui/nodeshot/js/models.js:430
+msgid "Country"
+msgstr "Stato"
+
+#: static/ui/nodeshot/js/models.js:431
+msgid "Bio"
+msgstr "Bio"
+
+#: static/ui/nodeshot/js/models.js:507
+msgid "problem while logging out"
+msgstr "problema durante il logout"
+
+#: static/ui/nodeshot/js/models.js:602
+msgid "Message"
+msgstr "Messaggio"
+
+#: static/ui/nodeshot/js/models.js:671
+msgid "Current password"
+msgstr "Password attuale"
+
+#: static/ui/nodeshot/js/models.js:672
+msgid "New password"
+msgstr "Nuova password"
+
+#: static/ui/nodeshot/js/models.js:673
+msgid "New password (confirmation)"
+msgstr "Nuova password (conferma)"
+
+#: static/ui/nodeshot/js/utils.js:255
+msgid "ok"
+msgstr "ok"
+
+#: static/ui/nodeshot/js/views/contact.js:22
+msgid "Contact"
+msgstr "Contatta"
+
+#: static/ui/nodeshot/js/views/contact.js:38
+msgid "Send"
+msgstr "Invia"
+
+#: static/ui/nodeshot/js/views/layer-list.js:30
+msgid "Layer list"
+msgstr "Lista layer"
+
+#: static/ui/nodeshot/js/views/map.js:277
+msgid "Map"
+msgstr "Mappa"
+
+#: static/ui/nodeshot/js/views/map.js:514
+#: static/ui/nodeshot/js/views/node-details.js:505
+msgid "not found"
+msgstr "non trovato"
+
+#: static/ui/nodeshot/js/views/map.js:764
+#: static/ui/nodeshot/js/views/map.js:888
+#: static/ui/nodeshot/js/views/node-list.js:127
+msgid "not implemented yet"
+msgstr "non ancora implementato"
+
+#: static/ui/nodeshot/js/views/map.js:988
+#: static/ui/nodeshot/js/views/map.js:1000
+msgid "Add node"
+msgstr "Aggiungi nodo"
+
+#: static/ui/nodeshot/js/views/node-details.js:249
+#: static/ui/nodeshot/js/views/node-details.js:331
+#: static/ui/nodeshot/js/views/node-details.js:479
+msgid "error"
+msgstr "errore"
+
+#: static/ui/nodeshot/js/views/node-details.js:415
+msgid "Edit"
+msgstr "Modifica"
+
+#: static/ui/nodeshot/js/views/node-details.js:419
+#: static/ui/nodeshot/js/views/user.js:107
+msgid "Save"
+msgstr "Salva"
+
+#: static/ui/nodeshot/js/views/node-details.js:435
+msgid "drag to change coordinates"
+msgstr "trascina per cambiare le coordinate"
+
+#: static/ui/nodeshot/js/views/node-list.js:52
+msgid "Node list"
+msgstr "Lista nodi"
+
+#: static/ui/nodeshot/js/views/page.js:32
+#: static/ui/nodeshot/js/views/user.js:41
+msgid "the requested page was not found"
+msgstr "la pagina richiesta non è stata trovata"
+
+#: static/ui/nodeshot/js/views/page.js:36
+#: static/ui/nodeshot/js/views/user.js:45
+msgid "there was an error while retrieving the page"
+msgstr "c'è stato un errore durante il caricamento della pagina"
+
+#: static/ui/nodeshot/js/views/password-reset.js:25
+#: static/ui/nodeshot/js/views/password-reset.js:43
+msgid "Reset Password"
+msgstr "Ripristina password"
+
+#: static/ui/nodeshot/js/views/password-reset.js:69
+msgid "Check your inbox for the password reset link."
+msgstr ""
+"Controlla la tua posta in arrivo per il link di ripristino della password"
+
+#: static/ui/nodeshot/js/views/user.js:99
+msgid "Edit \""
+msgstr "Modifica"
+
+#: static/ui/nodeshot/js/views/user.js:217
+msgid "Account"
+msgstr "Account"
+
+#: static/ui/nodeshot/js/views/user.js:278
+#: static/ui/nodeshot/js/views/user.js:328
+msgid "Do you confirm?"
+msgstr "Confermi?"
+
+#: static/ui/nodeshot/js/views/user.js:279
+#: static/ui/nodeshot/js/views/user.js:329
+msgid "yes"
+msgstr "sì"
+
+#: static/ui/nodeshot/js/views/user.js:283
+#: static/ui/nodeshot/js/views/user.js:333
+msgid "no"
+msgstr "no"
+
+#: static/ui/nodeshot/js/views/user.js:365
+msgid "Change account password"
+msgstr "Cambia password"

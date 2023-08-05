@@ -1,0 +1,599 @@
+# Nodeshot default UI translation file
+# This file is distributed under the same license as the Nodeshot package.
+# Federico Capoano nemesis at ninux dot org, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-01 20:52+0100\n"
+"PO-Revision-Date: 2015-03-01 20:52+0020\n"
+"Last-Translator: Federico Capoano\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.7.5\n"
+
+#: templates/base.html:66 templates/index.html:263
+msgid "Loading"
+msgstr "Caricamento"
+
+#: templates/base.html:67
+msgid "Warning: javascript disabled!"
+msgstr "Attenzione: javascript disabilitato!"
+
+#: templates/base.html:67
+msgid "This website needs javascript in order to work."
+msgstr "Questo sito ha bisogno di javascript per funzionare correttamente."
+
+#: templates/base.html:111
+#, python-format
+msgid ""
+"By signing up you declare to have accepted our <a "
+"href=\"%(PRIVACY_POLICY_LINK)s\" class=\"js-"
+"dismiss\">privacy&nbsp;policy</a><br />and <a "
+"href=\"%(TERMS_OF_SERVICE_LINK)s\" class=\"js-"
+"dismiss\">terms&nbsp;of&nbsp;service</a>."
+msgstr ""
+"Iscrivendoti dichiari di accettare l'<a href=\"%(PRIVACY_POLICY_LINK)s\" "
+"class=\"js-dismiss\">informativa sulla privacy</a><br />ed i <a "
+"href=\"%(TERMS_OF_SERVICE_LINK)s\" class=\"js-"
+"dismiss\">termini&nbsp;del&nbsp;servizio</a>."
+
+#: templates/base.html:119
+msgid "Sign up with Facebook"
+msgstr "Iscriviti con facebook"
+
+#: templates/base.html:127
+msgid "Sign up with Google"
+msgstr "Iscriviti con Google"
+
+#: templates/base.html:135
+msgid "Sign up with Github"
+msgstr "Iscriviti con Github"
+
+#: templates/base.html:143 templates/base.html.py:220
+msgid "or"
+msgstr "oppure"
+
+#: templates/base.html:173 templates/base.html.py:251 templates/index.html:82
+msgid "Sign up"
+msgstr "Iscriviti"
+
+#: templates/base.html:176
+msgid "Already have an account?"
+msgstr "Hai già un account?"
+
+#: templates/base.html:176 templates/base.html.py:246 templates/index.html:89
+msgid "Sign in"
+msgstr "Accedi"
+
+#: templates/base.html:196
+msgid "Sign in with Facebook"
+msgstr "Accedi con Facebook"
+
+#: templates/base.html:204
+msgid "Sign in with Google"
+msgstr "Accedi con Google"
+
+#: templates/base.html:212
+msgid "Sign in with Github"
+msgstr "Accedi con Github"
+
+#: templates/base.html:243
+msgid "Stay signed in"
+msgstr "Resta connesso"
+
+#: templates/base.html:249
+msgid "Forgot your password?"
+msgstr "Hai dimenticato la password?"
+
+#: templates/base.html:251
+msgid "Don't have an account yet?"
+msgstr "Non hai un account?"
+
+#: templates/index.html:20
+msgid "Search for data"
+msgstr "Cerca dati"
+
+#: templates/index.html:31 templates/index.html.py:185
+#: templates/index.html:214
+msgid "nothing found"
+msgstr "nessun risultato trovato"
+
+#: templates/index.html:55
+msgid "My profile"
+msgstr "Il mio profilo"
+
+#: templates/index.html:60 templates/includes/account.html:2
+msgid "My account"
+msgstr "Il mio account"
+
+#: templates/index.html:66
+msgid "Admin site"
+msgstr "Admin"
+
+#: templates/index.html:72
+msgid "Logout"
+msgstr "Esci"
+
+#: templates/index.html:116
+msgid "No menu item yet"
+msgstr "Nessun elemento del menu presente"
+
+#: templates/index.html:129
+msgid "Notifications"
+msgstr "Notifiche"
+
+#: templates/index.html:132
+msgid "See all"
+msgstr "Vedi tutte"
+
+#: templates/index.html:133
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: templates/index.html:148
+msgid "Nothing interesting yet!"
+msgstr "Ancora nulla di interessante!"
+
+#: templates/index.html:230 templates/index.html.py:245
+msgid "Save"
+msgstr "Salva"
+
+#: templates/index.html:234 templates/index.html.py:249
+msgid "Cancel"
+msgstr "Annulla"
+
+#: templates/index.html:264
+msgid "cancel&nbsp;operation"
+msgstr "annnulla&nbsp;operazione"
+
+#: templates/index.html:283
+msgid "Email sent successfully!"
+msgstr "Email inviata correttamente!"
+
+#: templates/index.html:284
+msgid "Take me back to"
+msgstr "Riportami a"
+
+#: templates/includes/account.html:4
+msgid "Profile"
+msgstr "Profilo"
+
+#: templates/includes/account.html:7
+msgid "First name"
+msgstr "Nome"
+
+#: templates/includes/account.html:10
+msgid "Last name"
+msgstr "Cognome"
+
+#: templates/includes/account.html:13
+msgid "City"
+msgstr "Città"
+
+#: templates/includes/account.html:16
+msgid "Country"
+msgstr "Stato"
+
+#: templates/includes/account.html:20 templates/includes/user-details.html:27
+msgid "Bio"
+msgstr "Bio"
+
+#: templates/includes/account.html:25 templates/includes/account.html.py:65
+msgid "Edit"
+msgstr "Modifica"
+
+#: templates/includes/account.html:28
+msgid "View"
+msgstr "Vedi"
+
+#: templates/includes/account.html:31
+msgid "Change password"
+msgstr "Cambia password"
+
+#: templates/includes/account.html:40
+msgid ""
+"Avatars are managed through the popular <a href=\"https://gravatar.com\" "
+"target=\"_blank\">gravatar</a> service."
+msgstr ""
+"Gli avatar sono gestiti tramite il famoso servizio <a "
+"href=\"https://gravatar.com\" target=\"_blank\">gravatar</a>."
+
+#: templates/includes/account.html:41
+msgid ""
+"If you don't have one yet, create an account on "
+"<strong>gravatar.com</strong> and associate your current email address to "
+"it."
+msgstr ""
+"Se non ne hai ancora uno, crea un account su <strong>gravatar.com</strong> "
+"associandoci il tuo attuale indirizzo email."
+
+#: templates/includes/account.html:42
+msgid "Edit on gravatar.com"
+msgstr "Modifica su gravatar.com"
+
+#: templates/includes/account.html:46 templates/includes/user-details.html:34
+msgid "Links"
+msgstr "Links"
+
+#: templates/includes/account.html:53
+msgid "url"
+msgstr "url"
+
+#: templates/includes/account.html:54
+msgid "description"
+msgstr "descrizione"
+
+#: templates/includes/account.html:55 templates/includes/account.html.py:97
+msgid "actions"
+msgstr "azioni"
+
+#: templates/includes/account.html:68 templates/includes/account.html:120
+msgid "Delete"
+msgstr "Elimina"
+
+#: templates/includes/account.html:74
+msgid "No links to show"
+msgstr "Nessun link da mostrare"
+
+#: templates/includes/account.html:82 templates/includes/account.html:135
+msgid "Add"
+msgstr "Aggiungi"
+
+#: templates/includes/account.html:87
+msgid "Email addresses"
+msgstr "Indirizzi email"
+
+#: templates/includes/account.html:94
+msgid "email address"
+msgstr "indirizzo email"
+
+#: templates/includes/account.html:95
+msgid "verified"
+msgstr "verificato"
+
+#: templates/includes/account.html:96
+msgid "primary"
+msgstr "primario"
+
+#: templates/includes/account.html:110
+msgid "Resend confirmation"
+msgstr "Re-invia conferma"
+
+#: templates/includes/account.html:115
+msgid "Make primary"
+msgstr "Rendi primario"
+
+#: templates/includes/account.html:127
+msgid "No email addresses"
+msgstr "Nessun indirizzo email"
+
+#: templates/includes/layer-details.html:7
+#: templates/includes/node-details.html:26
+#: templates/includes/user-details.html:9
+msgid "contact"
+msgstr "contatta"
+
+#: templates/includes/layer-details.html:9
+#: templates/includes/node-details.html:29
+#: templates/includes/user-details.html:12
+msgid "Press CTRL+C to copy"
+msgstr "Premi CTRL+C per copiare"
+
+#: templates/includes/layer-details.html:9
+#: templates/includes/node-details.html:29
+#: templates/includes/user-details.html:12
+msgid "permalink"
+msgstr "permalink"
+
+#: templates/includes/layer-details.html:26
+#: templates/includes/layer-list.html:12
+msgid "Organization"
+msgstr "Organizzazione"
+
+#: templates/includes/layer-details.html:36
+msgid "Website"
+msgstr "Sito web"
+
+#: templates/includes/layer-details.html:45
+#: templates/includes/layer-list.html:13
+msgid "New nodes allowed?"
+msgstr "Nuovi nodi ammessi?"
+
+#: templates/includes/layer-details.html:53
+msgid "Is external?"
+msgstr "Esterno?"
+
+#: templates/includes/layer-details.html:64
+msgid "Layer list"
+msgstr "Lista layer"
+
+#: templates/includes/layer-list.html:4 templates/includes/map.html:74
+msgid "Layers"
+msgstr "Layers"
+
+#: templates/includes/layer-list.html:11 templates/includes/node-list.html:98
+msgid "Name"
+msgstr "Nome"
+
+#: templates/includes/layer-list.html:14
+msgid "External?"
+msgstr "Esterno?"
+
+#: templates/includes/map.html:10
+msgid "Click on the map to indicate the location"
+msgstr "Clicca sulla mappa per indicare il luogo"
+
+#: templates/includes/map.html:11 templates/includes/map.html.py:17
+msgid "cancel"
+msgstr "annulla"
+
+#: templates/includes/map.html:15
+msgid "Drag to adjust"
+msgstr "Trascina per correggere"
+
+#: templates/includes/map.html:16
+msgid "confirm"
+msgstr "conferma"
+
+#: templates/includes/map.html:25 templates/includes/map.html.py:87
+msgid "Legend"
+msgstr "Legenda"
+
+#: templates/includes/map.html:36
+msgid "Hide legend"
+msgstr "Nascondi legenda"
+
+#: templates/includes/map.html:40
+msgid "Control map data"
+msgstr "Controlla i dati della mappa"
+
+#: templates/includes/map.html:41 templates/includes/map.html.py:198
+msgid "Add new node"
+msgstr "Aggiungi nuovo nodo"
+
+#: templates/includes/map.html:43
+msgid "Toggle 3D view"
+msgstr "Abilita / disabilita 3D"
+
+#: templates/includes/map.html:46
+msgid "Map tools"
+msgstr "Strumenti mappa"
+
+#: templates/includes/map.html:49
+msgid "Map preferences"
+msgstr "Preferenze mappa"
+
+#: templates/includes/map.html:51
+msgid "Toggle legend"
+msgstr "Mostra / nascondi legenda"
+
+#: templates/includes/map.html:59
+msgid "Map base"
+msgstr "Base mappa"
+
+#: templates/includes/map.html:106
+msgid "measure distance"
+msgstr "misura una distanza"
+
+#: templates/includes/map.html:108
+msgid "measure area"
+msgstr "misura un'area"
+
+#: templates/includes/map.html:112
+msgid "elevation profile"
+msgstr "Profilo elevazione"
+
+#: templates/includes/map.html:114
+msgid "drop placeholder"
+msgstr "lascia un segnaposto"
+
+#: templates/includes/map.html:187
+msgid "Details"
+msgstr "Dettagli"
+
+#: templates/includes/map.html:192
+msgid "Metric type"
+msgstr "Tipo metrica"
+
+#: templates/includes/map.html:193
+msgid "Metric value"
+msgstr "Valore metrica"
+
+#: templates/includes/map.html:194 templates/includes/node-details.html:71
+#: templates/includes/node-list.html:38 templates/includes/node-list.html:100
+msgid "Layer"
+msgstr "Layer"
+
+#: templates/includes/node-details.html:31
+msgid "edit"
+msgstr "modifica"
+
+#: templates/includes/node-details.html:36
+#: templates/includes/node-details.html:44
+msgid "General info"
+msgstr "Generale"
+
+#: templates/includes/node-details.html:61
+#: templates/includes/node-list.html:48 templates/includes/node-list.html:99
+msgid "Status"
+msgstr "Stato"
+
+#: templates/includes/node-details.html:80
+msgid "Address"
+msgstr "Indirizzo"
+
+#: templates/includes/node-details.html:90
+msgid "Elevation"
+msgstr "Elevazione"
+
+#: templates/includes/node-details.html:93
+msgid "meters"
+msgstr "metri"
+
+#: templates/includes/node-details.html:116
+msgid "Added"
+msgstr "Aggiunto"
+
+#: templates/includes/node-details.html:124
+#: templates/includes/node-list.html:103
+msgid "Updated"
+msgstr "Aggiornato"
+
+#: templates/includes/node-details.html:133
+msgid "Rating"
+msgstr "Punteggio"
+
+#: templates/includes/node-details.html:143
+msgid "number of ratings"
+msgstr "numero di valutazioni"
+
+#: templates/includes/node-details.html:158
+msgid "Comments"
+msgstr "Commenti"
+
+#: templates/includes/node-details.html:169
+msgid "Join the discussion..."
+msgstr "Partecipa alla discussione..."
+
+#: templates/includes/node-details.html:175
+msgid "leave comment"
+msgstr "lascia il commento"
+
+#: templates/includes/node-details.html:181
+msgid "Sign in to comment"
+msgstr "Accedi per commentare"
+
+#: templates/includes/node-list.html:4
+msgid "Nodes"
+msgstr "Nodi"
+
+#: templates/includes/node-list.html:27
+msgid "Quick search"
+msgstr "Ricerca veloce"
+
+#: templates/includes/node-list.html:33
+msgid "Filter"
+msgstr "Filtra"
+
+#: templates/includes/node-list.html:40 templates/includes/node-list.html:50
+msgid "All"
+msgstr "Tutti"
+
+#: templates/includes/node-list.html:58 templates/includes/node-list.html:101
+msgid "User"
+msgstr "Utente"
+
+#: templates/includes/node-list.html:60
+msgid "Any user"
+msgstr "Qualsiasi utente"
+
+#: templates/includes/node-list.html:66
+msgid "Created on"
+msgstr "Creato il"
+
+#: templates/includes/node-list.html:68
+msgid "Any date"
+msgstr "Qualsiasi data"
+
+#: templates/includes/node-list.html:69
+msgid "Today"
+msgstr "Oggi"
+
+#: templates/includes/node-list.html:70
+msgid "Past 7 days"
+msgstr "Ultimi 7 giorni"
+
+#: templates/includes/node-list.html:71
+msgid "This month"
+msgstr "Questo mese"
+
+#: templates/includes/node-list.html:72
+msgid "This year"
+msgstr "Quest'anno"
+
+#: templates/includes/node-list.html:80
+msgid "results"
+msgstr "risultati"
+
+#: templates/includes/node-list.html:83
+msgid "reset filter settings"
+msgstr "resetta impostazioni filtri"
+
+#: templates/includes/node-list.html:89
+msgid "Add node"
+msgstr "Aggiungi nodo"
+
+#: templates/includes/node-list.html:102
+msgid "Created"
+msgstr "Creato"
+
+#: templates/includes/node-list.html:115
+msgid "previous"
+msgstr "precedente"
+
+#: templates/includes/node-list.html:118
+msgid "next"
+msgstr "successivo"
+
+#: templates/includes/node-list.html:120
+msgid "of"
+msgstr "di"
+
+#: templates/includes/node-list.html:134
+msgid "Choose action"
+msgstr "Azione"
+
+#: templates/includes/node-list.html:145
+msgid "Select all"
+msgstr "Seleziona tutti"
+
+#: templates/includes/user-details.html:6
+msgid "my account"
+msgstr "il mio account"
+
+#: templates/includes/user-details.html:11
+msgid "nodes"
+msgstr "nodi"
+
+#: templates/includes/user-details.html:20
+msgid "Joined on"
+msgstr "Iscritto il"
+
+#: templates/includes/user-details.html:21
+msgid "Last seen on"
+msgstr "Ultima volta online il"
+
+#: templates/profiles/password_reset_from_key.html:7
+msgid "Bad Token"
+msgstr "Token non valido"
+
+#: templates/profiles/password_reset_from_key.html:7
+#: templates/profiles/password_reset_from_key.html:26
+msgid "Change Password"
+msgstr "Cambia password"
+
+#: templates/profiles/password_reset_from_key.html:11
+msgid ""
+"The password reset link is invalid, probably because it has already been "
+"used."
+msgstr ""
+"Il link di ripristino password non è valido, probabilmente perchè è già "
+"stato utilizzato."
+
+#: templates/profiles/password_reset_from_key.html:30
+msgid "You successfully changed your password!"
+msgstr "Hai cambiato la tua password con successo!"
+
+#: templates/profiles/password_reset_from_key.html:31
+msgid "Go to the homepage to login"
+msgstr "Vai alla pagina iniziale per accedere"
+
+#~ msgid "No link present yet"
+#~ msgstr "Nessun elemento del menu presente"

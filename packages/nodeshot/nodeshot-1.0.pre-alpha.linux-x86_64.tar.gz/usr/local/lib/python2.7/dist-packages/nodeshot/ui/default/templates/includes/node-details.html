@@ -1,0 +1,207 @@
+{% load i18n %}
+<article id="node-details" class="center-stage responsive-padding">
+    <h2>
+        <%= name %>
+        <% if(Ns.settings.votes && relationships && relationships.voting_allowed){ %>
+        <span class="vote">
+            <a href="#like"
+               class="icon-thumbs-up
+               <% if(relationships.voted === 1) { print('disabled') } %>
+               <% if(relationships.voted === -1) { print('fade') } %>"
+            ><%= relationships.counts.likes %></a>
+
+            <a href="#dislike"
+               class="icon-thumbs-down
+               <% if(relationships.voted === -1) { print('disabled') } %>
+               <% if(relationships.voted === 1) { print('fade') } %>"
+            ><%= relationships.counts.dislikes %></a>
+        </span>
+        <% } %>
+    </h2>
+
+    <p class="actions">
+        <% if(user) { %>
+            <a href="#users/<%= user %>"><% if(relationships){ %><img src="<%= relationships.user.avatar %>" alt=""><% } %><%= user %></a>
+            <% if (Ns.settings.contacting) { %>
+                <a href="#nodes/<%= slug %>/contact" class="icon-mail">{% trans 'contact' %}</a>
+            <% } %>
+        <% } %>
+        <a href="#permalink" class="icon-link" data-text="{% trans 'Press CTRL+C to copy' %}">{% trans 'permalink' %}</a>
+        <% if(Ns.db.user.isAuthenticated() && can_edit){ %>
+            <a href="#nodes/<%= slug %>/edit" class="icon-edit">{% trans 'edit' %}</a>
+        <% } %>
+    </p>
+
+    <ul class="nav nav-tabs hidden-xs" id="node-menu">
+        <li class="active"><a href="javascript:return false;)">{% trans 'General info' %}</a></li>
+        <!--<li><a href="javascript:$.createModal({message:'not implemented yet'})">Images (4)</a></li>
+        <li><a href="javascript:$.createModal({message:'not implemented yet'})">Devices (3)</a></li>-->
+    </ul>
+
+    <!--<ul class="nav nav-pills visible-xs" id="node-menu-mobile">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:$.createModal({message:'not implemented yet'})">
+                {% trans 'General info' %} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:$.createModal({message:'not implemented yet'})">Images (4)</a></li>
+                <li><a href="javascript:$.createModal({message:'not implemented yet'})">Devices (3)</a></li>
+            </ul>
+        </li>
+    </ul>-->
+
+    <div class="row">
+        <div class="col-sm-12 left" id="node-data-js">
+            <% if(description){ %>
+                <div class="description"><%= _.nl2br(description) %></div>
+            <% } %>
+            <table class="table table-striped left-labels nomargin">
+                <tr>
+                    <td class="left">
+                        {% trans 'Status' %}:
+                    </td>
+                    <td class="right">
+                        <span class="status <%= status %>">
+                            <%= status %>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        {% trans 'Layer' %}:
+                    </td>
+                    <td class="right">
+                        <a href="#layers/<%= layer %>"><%= layer_name %></a>
+                    </td>
+                </tr>
+                <% if(address){ %>
+                <tr>
+                    <td class="left">
+                        {% trans 'Address' %}:
+                    </td>
+                    <td class="right">
+                        <%= address %>
+                    </td>
+                </tr>
+                <% } %>
+                <% if(elev){ %>
+                <tr>
+                    <td class="left">
+                        {% trans 'Elevation' %}:
+                    </td>
+                    <td class="right">
+                        <%= elev %> {% trans 'meters' %}
+                    </td>
+                </tr>
+                <% } %>
+                <% _hstore_schema.forEach(function(field){
+                    value = _hstore_data[field.name] %>
+                    <% if(typeof value !== 'undefined' && value !== ''){ %>
+                        <tr>
+                            <td class="left">
+                                <%= field.label %>:
+                            </td>
+                            <td class="right">
+                                <% if (typeof value === 'boolean') { %>
+                                    <span class="icon-<%= value === true ? 'ok' : 'cancel' %>"></span>
+                                <% } else { %>
+                                    <%= value %>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% }); %>
+                <tr>
+                    <td class="left">
+                        {% trans 'Added' %}:
+                    </td>
+                    <td class="right">
+                        <%= _.formatDate(added) %>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">
+                        {% trans 'Updated' %}:
+                    </td>
+                    <td class="right">
+                        <%= _.formatDate(updated) %>
+                    </td>
+                </tr>
+                <% if(Ns.settings.ratings && relationships && relationships.rating_allowed){ %>
+                <tr>
+                    <td class="left">
+                        {% trans 'Rating' %}:
+                    </td>
+                    <td class="right" id="js-rating">
+                        <a href="#" class="rating">
+                            <% _.each(_.numberTo5Stars(relationships.counts.rating_avg / 2), function(value, i){ %>
+                                <span class="icon-star-<%= value %>"
+                                      data-original-class="icon-star-<%= value %>"
+                                      data-number="<%= i %>"></span>
+                            <% }) %>
+                        </a>
+                        <span class="rating-count">(<a class="hastip" title="{% trans 'number of ratings' %}"><%= relationships.counts.rating_count %></a>)<span>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+        <!--<div class="col-sm-6 right">
+            <div style="background:#333;min-height:400px;line-height:400px;color:#fff;text-align:center;font-size:18px">
+                Image gallery coming soon
+            </div>
+        </div>-->
+    </div>
+
+    <% if(Ns.settings.comments && relationships && relationships.comments_allowed){ %>
+    <div id="comments">
+        <h3>{% trans 'Comments' %}</h3>
+
+        <% if(Ns.db.user.isAuthenticated()){ %>
+        <form action="" class="new-comment" method="post">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <img class="avatar" src="<%= Ns.db.user.get('avatar') %>" alt="">
+                </span>
+                <div class="form-control">
+                    <textarea name="text"
+                              class="initial"
+                              placeholder="{% trans 'Join the discussion...' %}"
+                              rows="1"
+                              required></textarea>
+                </div>
+            </div>
+            <div class="submit-row">
+                <button type="submit" class="btn btn-primary icon-comments">{% trans 'leave comment' %}</button>
+            </div>
+        </form>
+        <% } else { %>
+        <div class="new-comment">
+            <a class="btn btn-primary icon-user" data-toggle="modal" data-target="#signin-modal">
+                {% trans 'Sign in to comment' %}
+            </a>
+        </div>
+        <% } %>
+
+        <% if(relationships.comments.length > 0){ %>
+            <% relationships.comments.forEach(function(comment, i){ %>
+                <div class="comment" id="c-<%= i %>">
+                    <a href="#/users/<%= comment.user.username %>">
+                        <img class="avatar" src="<%= comment.user.avatar %>" alt="">
+                    </a>
+                    <div class="meta-data">
+                        <a href="#/users/<%= comment.user.username %>"><%= comment.user.username %></a>
+                        <span class="separator">•</span>
+                        <span class="date"><%= $.format.prettyDate(comment.added) %></span>
+                    </div>
+                    <p class="text">
+                        <%= _.nl2br(comment.text) %>
+                    </p>
+                </div>
+            <% }); %>
+        <% } %>
+    </div>
+    <% } %>
+
+    <a href="#/close" class="icon-close"></a>
+</article>

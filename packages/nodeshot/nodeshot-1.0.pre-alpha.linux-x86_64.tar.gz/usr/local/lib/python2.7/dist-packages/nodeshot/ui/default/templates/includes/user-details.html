@@ -1,0 +1,41 @@
+{% load i18n %}
+<h1><%= username %></h1>
+
+<p class="actions">
+    <% if (Ns.db.user.isAuthenticated() && Ns.db.user.get('username') === username) { %>
+        <a href="#account" class="icon-config">{% trans 'my account' %}</a>
+    <% } %>
+    <% if (Ns.settings.contacting && Ns.db.user.get('username') !== username) { %>
+        <a href="#users/<%= username %>/contact" class="icon-mail">{% trans 'contact' %}</a>
+    <% } %>
+    <a href="#users/<%= username %>/nodes" class="icon-nodes">{% trans 'nodes' %}</a>
+    <a href="#permalink" class="icon-link" data-text="{% trans 'Press CTRL+C to copy' %}">{% trans 'permalink' %}</a>
+</p>
+
+<div class="row nomargin">
+    <img src="<%= avatar %>?s=200" alt="" class="avatar200">
+    <div class="col-sm-4 right nopadding">
+        <% if(full_name){ %><p><%= full_name %></p><% } %>
+        <% if(location){ %><p><%= location %></p><% } %>
+        <p>{% trans 'Joined on' %} <%= _.formatDate(date_joined) %></p>
+        <p>{% trans 'Last seen on' %} <%= _.formatDate(last_login) %></p>
+    </div>
+</div>
+
+<% if(about && about.length > 0){ %>
+<div class="row nomargin">
+    <h3>{% trans 'Bio' %}</h3>
+    <p><%= _.nl2br(about) %></p>
+</div>
+<% } %>
+
+<% if(social_links.length > 0){ %>
+<div class="row nomargin">
+    <h3>{% trans 'Links' %}</h3>
+    <% _.each(social_links, function(link){ %>
+        <p class="icon-link">
+            <a href="<%= link.url %>" target="_blank" title="<%= link.description %>"><%= link.url %></a>
+        </p>
+    <% }) %>
+</div>
+<% } %>
