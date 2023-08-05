@@ -1,0 +1,115 @@
+Metadata-Version: 1.1
+Name: pysyscmd
+Version: 0.1.0
+Summary: Utility to call git from python
+Home-page: https://github.com/onlynone/pysyscmd
+Author: Steven Willis
+Author-email: onlynone@gmail.com
+License: BSD
+Description: ===============================
+        System Git
+        ===============================
+        
+        .. image:: https://img.shields.io/pypi/v/pysyscmd.svg
+                :target: https://pypi.python.org/pypi/pysyscmd
+        
+        
+        Utility to call git from python. Examples::
+        
+          >>> from syscmd import *
+          >>> res = git('ls-files')
+          .editorconfig
+          .gitignore
+          AUTHORS.rst
+          CONTRIBUTING.rst
+          HISTORY.rst
+          LICENSE
+          MANIFEST.in
+          README.rst
+          docs/Makefile
+          docs/authors.rst
+          docs/conf.py
+          docs/contributing.rst
+          docs/history.rst
+          docs/index.rst
+          docs/installation.rst
+          docs/make.bat
+          docs/readme.rst
+          docs/usage.rst
+          requirements.txt
+          setup.cfg
+          setup.py
+          syscmd/__init__.py
+          tox.ini
+          >>> print res
+          0
+          >>> res = git('ls-files', f=CHECK_OUTPUT)
+          >>> print res
+          .editorconfig
+          .gitignore
+          AUTHORS.rst
+          CONTRIBUTING.rst
+          HISTORY.rst
+          LICENSE
+          MANIFEST.in
+          README.rst
+          docs/Makefile
+          docs/authors.rst
+          docs/conf.py
+          docs/contributing.rst
+          docs/history.rst
+          docs/index.rst
+          docs/installation.rst
+          docs/make.bat
+          docs/readme.rst
+          docs/usage.rst
+          requirements.txt
+          setup.cfg
+          setup.py
+          syscmd/__init__.py
+          tox.ini
+        
+          >>> res = git('blah', f=CHECK_OUTPUT)
+          git: 'blah' is not a git command. See 'git --help'.
+        
+          Did you mean this?
+                  blame
+          Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            File "syscmd/__init__.py", line 79, in git
+              return f(full_args, **full_kwargs)
+            File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.py", line 573, in check_output
+              raise CalledProcessError(retcode, cmd, output=output)
+          subprocess.CalledProcessError: Command '('git', 'blah')' returned non-zero exit status 1
+        
+        * Free software: BSD license
+        * Documentation: https://pysyscmd.readthedocs.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-01-11)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: syscmd
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
