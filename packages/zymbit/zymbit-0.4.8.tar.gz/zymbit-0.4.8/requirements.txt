@@ -1,0 +1,5 @@
+-e git+git@github.com:baremetal/python-backoff.git@4ffc0525140955a7d8d94c7be8bb734993194b96#egg=backoff-master
+python-dateutil==2.2
+websocket-client==0.26.0
+conversion==0.0.3
+requests==2.5.0
