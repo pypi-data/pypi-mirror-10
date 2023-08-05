@@ -1,0 +1,19 @@
+Metadata-Version: 1.0
+Name: thriftpl
+Version: 0.1.0
+Summary: a thrift client pool for python
+Home-page: http://git.oschina.net/hand515/python-thrift-pool
+Author: tanghd
+Author-email: hand515@gmail.com
+License: LGPL
+Description: #python-thrift-pool
+        
+        #base on：
+        * python2.7
+        * thrift 0.9.2 thrift lib
+        
+        #change 2014-12-05 :
+        * dependency thrift 0.9.2 while using thrift-TMultiplexedProtocol
+        
+        
+Platform: UNKNOWN
