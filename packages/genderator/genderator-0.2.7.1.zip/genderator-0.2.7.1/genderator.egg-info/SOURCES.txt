@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+genderator/__init__.py
+genderator/parser.py
+genderator.egg-info/PKG-INFO
+genderator.egg-info/SOURCES.txt
+genderator.egg-info/dependency_links.txt
+genderator.egg-info/requires.txt
+genderator.egg-info/top_level.txt
+genderator/data/name_surname_ratio.tsv
+genderator/data/names_ine.tsv
+genderator/data/surnames_ine.tsv
