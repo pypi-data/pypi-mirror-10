@@ -1,0 +1,6 @@
+include LICENSE
+include README.rst
+include changelog
+include examples/example-template.html
+recursive-include docs *.rst conf.py
+recursive-include tests *.py *.rst *.html
