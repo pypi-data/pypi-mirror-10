@@ -1,0 +1,398 @@
+commit 575b062cbd46957d31dd21fa94bacd1d507dbbee
+Author: Ricardo Carrillo Cruz <ricardo.carrillo.cruz@gmail.com>
+Date:   Sun Mar 9 19:51:57 2014 +0000
+
+    Add support for notification of releases on IRC
+    
+    Closes-Bug: #1227985
+    
+    Change-Id: I9b80b465d9d6b0e2793286cc8229b82b4389a08d
+
+commit cf56901920bf2461577bec8711ad4fd68997a6d0
+Author: James E. Blair <jeblair@openstack.org>
+Date:   Fri Mar 7 10:57:20 2014 -0800
+
+    Support SSL
+    
+    Change-Id: I0c98febc3bdf15b0f92b749fd3b1afd3d0e1edbb
+
+commit 4d99747b70b4f85cfa5a48e09e96779ce1230cd8
+Author: James E. Blair <jeblair@openstack.org>
+Date:   Fri Mar 7 07:22:31 2014 -0800
+
+    Don't crash on UTF8 errors
+    
+    https://bitbucket.org/jaraco/irc/issue/34/irc-client-should-not-crash-on-failed
+    
+    Change-Id: Ifb56ce80a170baf8c36a5fa1a2d0c88ea13885a5
+
+commit c67b4fcdceffec79ec0a44fa99abbbcad5fe3c06
+Author: Elizabeth Krumbach Joseph <lyz@princessleia.com>
+Date:   Wed Mar 5 12:34:10 2014 -0800
+
+    Some README fixups, including git url
+    
+    Update git url to point to git.openstack.org and some language
+    fixes.
+    
+    Change-Id: I4c27527b516ef3416e5a06b682b510550b4b1696
+
+commit d2c5ba1cb0c2a7fff26ba6718303f679a20eed30
+Author: Matthew Treinish <treinish@linux.vnet.ibm.com>
+Date:   Mon Jan 13 19:48:55 2014 +0000
+
+    Actually use super calls for init functions in bot.py
+    
+    This commit fixes the gerritbot __init__ methods to use a proper super
+    call instead of directly calling the parent class's __init__.
+    
+    Change-Id: I72894a978b7bcef782236f5d43f601697a89c50d
+
+commit bcb72904de3d59b1c78de635686eca8a2d6e3e3a
+Author: James E. Blair <jeblair@openstack.org>
+Date:   Mon Oct 7 16:01:26 2013 -0700
+
+    Reconnect to IRC on send error
+    
+    If any error is encountered while sending to IRC, try to reconnect.
+    
+    This is an attempt to deal with this exception:
+    
+    2013-10-07 23:00:00,937 ERROR gerritbot: Exception encountered in event loop
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/gerritbot/bot.py", line 225, in run
+        self._read(event)
+      File "/usr/local/lib/python2.7/dist-packages/gerritbot/bot.py", line 216, in _read
+        self.change_merged(channel, data)
+      File "/usr/local/lib/python2.7/dist-packages/gerritbot/bot.py", line 194, in change_merged
+        self.ircbot.send(channel, msg)
+      File "/usr/local/lib/python2.7/dist-packages/gerritbot/bot.py", line 98, in send
+        self.connection.privmsg(channel, msg)
+      File "/usr/local/lib/python2.7/dist-packages/irc/client.py", line 933, in privmsg
+        self.send_raw("PRIVMSG %s :%s" % (target, text))
+      File "/usr/local/lib/python2.7/dist-packages/irc/client.py", line 960, in send_raw
+        sender = self.ssl.write if self.ssl else self.socket.send
+    AttributeError: 'NoneType' object has no attribute 'send'
+    
+    Change-Id: I8c845626260ec7b9ee7f9e409adba4796dd367ee
+
+commit 14679c6f4449c5e12109f068106e6939b1012b7c
+Author: Joe Gordon <joe.gordon0@gmail.com>
+Date:   Tue Aug 6 18:36:33 2013 -0700
+
+    Make proposed and merged messages more terse
+    
+    The previous messages were wordy, when gerrit is very active, all these
+    wordy messages can clutter up a room.   This makes the messages more
+    terse.
+    
+    Change-Id: I7c941a871e3f1a09dd47c72aa32f93effc04250a
+
+commit d8969646f749f7d9c0af455a4abbff49d8df31d8
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Fri Jul 5 21:12:44 2013 -0400
+
+    Remove dependency on distribute.
+    
+    Change-Id: Id22f552dd67048b7f5b1f36d01dfe643e0a31e60
+
+commit e60ad273d0e0d21975b54e80c43eaad072124ab8
+Merge: 07f4edd 71448ad
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Thu Jun 20 16:50:27 2013 +0000
+
+    Merge "Renamed requirements files to standard names."
+
+commit 07f4eddf7c06791ac2f05b78016c09898ace12ae
+Merge: 12a367b 95ecb0f
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Thu Jun 20 16:50:26 2013 +0000
+
+    Merge "Use flake8 instead pep8."
+
+commit 12a367b778f21a718a0569973ad266092f6361d7
+Merge: a62ff34 6c07bb6
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Thu Jun 20 16:49:45 2013 +0000
+
+    Merge "Migrate to pbr."
+
+commit a62ff3471710adf49d153633137c756a05ed2585
+Author: Jeremy Stanley <fungi@yuggoth.org>
+Date:   Thu Jun 6 19:22:02 2013 +0000
+
+    Pause between joins to avoid flooding.
+    
+    * gerritbot/bot.py(GerritBot.on_welcome): Add a 0.5-second pause
+    between channel join commands to avoid being kicked for flooding.
+    
+    Change-Id: I8edad4b389683e62b58f5b6e81e5f4cb1e0dad97
+
+commit 71448ad1e3a0712cfd2480c58cc8a4af13e819e5
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Sun Jun 2 08:33:17 2013 -0400
+
+    Renamed requirements files to standard names.
+    
+    Change-Id: I439587c38c012653d6313e1860c9b8612a58d544
+
+commit 95ecb0fb29a67ef991a6c82882963572098897b5
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Sun Jun 2 08:27:20 2013 -0400
+
+    Use flake8 instead pep8.
+    
+    Change-Id: I9dd305cf06157094ea49b2f30cb8f1d28d170b8c
+
+commit 6c07bb6bc6333000da0a6604a22c86fbf90264c6
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Sun Jun 2 08:32:22 2013 -0400
+
+    Migrate to pbr.
+    
+    Change-Id: Id9c9837b040c634103bcc30d590e995c3b6c309d
+
+commit 6563e96c89e2aa237926aa98a4426513ff070ea0
+Author: Elizabeth Krumbach <lyz@princessleia.com>
+Date:   Wed Jan 9 14:06:01 2013 -0800
+
+    Update online documentation link
+    
+    README.rst referenced online documenation link that is now a 404, updated to
+    reflect current location
+    
+    Change-Id: I2703520c82429272a0f669b1c5c8acfcd6bf2d5b
+
+commit 59bf12d70d0758be6bf7acc760c586ddff69a17a
+Merge: 4a72743 9c0ccbf
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Sun Dec 16 20:29:53 2012 +0000
+
+    Merge "Updated .gitreview location"
+
+commit 4a72743f4cc647665ca68b1402b02fd1a5984085
+Author: Jeremy Stanley <fungi@yuggoth.org>
+Date:   Sun Dec 16 18:44:11 2012 +0000
+
+    Update README for project move.
+    
+    * README.rst: Correct clone URL.
+    
+    Change-Id: I5c89d101daab8ec70fc30ff8f0b10bfe7338812a
+
+commit 9c0ccbf033d4e0c3a997e3ec9f4329ae761b937b
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Sun Dec 16 10:40:21 2012 -0800
+
+    Updated .gitreview location
+    
+    Change-Id: I5fda46eef50e9d009bf71b9988ff08a42174e1c7
+
+commit 6d2dedfdd8ac08f3948e758abd8635e422729a49
+Merge: 10ed743 1ffe945
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Mon Nov 26 19:06:48 2012 +0000
+
+    Merge "Create initial sphinx documentation"
+
+commit 1ffe9457813d688201dd359fc3bc8bd6f78719e9
+Author: Paul Belanger <paul.belanger@polybeacon.com>
+Date:   Sat Nov 24 19:32:40 2012 -0500
+
+    Create initial sphinx documentation
+    
+    Change-Id: I79b4d880a8bf7021bb35b240ac040d78d78e3556
+    Signed-off-by: Paul Belanger <paul.belanger@polybeacon.com>
+
+commit 10ed743bb7364a6db973032bbe8f0efc3f105060
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Fri Nov 23 16:39:45 2012 -0800
+
+    Remove sitepackages=true
+    
+    We only need this for things that have non-virtualenv-able deps.
+    
+    Change-Id: I78f85445d9a2e786f058f624b72c86d30066ed44
+
+commit 4959423fd1a611b7748a5de11f9aae737009f86f
+Author: Erik Dalén <dalen@spotify.com>
+Date:   Wed Oct 31 15:00:18 2012 -0400
+
+    Add support for server passwords
+    
+    Change-Id: I0e623df8848b214ef715b2e265e97b71b16d666a
+
+commit 103f0987d0e681120360df828f621976e39f8826
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Fri Aug 24 13:44:41 2012 -0700
+
+    Fix Gerritbot leaking GerritLib Threads.
+    
+    Gerritbot previously leaked GerritLib threads because it did not check
+    if the preexisting thread was dead before starting new threads. Fix
+    that by checking the thread's is_alive() method.
+    
+    Change-Id: I7282debf5caeb73cbc46b240f10c62b75b683776
+
+commit 92b74689211e8ee4a9daadd988a78411abc799b0
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Fri Aug 24 13:28:46 2012 -0700
+
+    Handle KeyErrors when event data is not present.
+    
+    The bot previously assumed that all event stream JSON blobs would always
+    have the data that the bot is interested in. Handle KeyError exceptions
+    when that data is missing.
+    
+    Change-Id: I6ad034c5197c6778c39c334e3d9246c3b1356a81
+
+commit 383860d35279a7567d0f1b077a5bd03fe7b6fc26
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Fri Aug 24 09:36:30 2012 -0700
+
+    Log useful information.
+    
+    Logging was configured, but only gerritlib log info was captured. Add
+    logging to the things that the IRC bot is doing.
+    
+    Change-Id: Id38e49d95c2903ae28cfb7f2dc88d4fc201d8927
+
+commit 21b5546061019516cab1ddbe46209f9b86ea843d
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Wed Aug 15 13:48:55 2012 -0700
+
+    Remove Nova's description from setup.py.
+    
+    There was a copy pasta fail and Nova's project description was in
+    GerritBot's setup.py. Replace that description with one for GerritBot.
+    
+    Change-Id: I92011d228cd35db93febb8eaefa5e576adeccfef
+
+commit cc8a5240038c0e0b0c6eab4aede8429a8bccf153
+Merge: 6d6cd4a 552c3b1
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Fri Aug 3 16:34:20 2012 +0000
+
+    Merge "Add a README file."
+
+commit 6d6cd4ad293786d510d32f8ebabdd369d1323917
+Merge: ece8763 0fbd5d7
+Author: Jenkins <jenkins@review.openstack.org>
+Date:   Fri Aug 3 16:32:28 2012 +0000
+
+    Merge "Install gerritbot to /usr/local/bin."
+
+commit ece8763a7007b9435556c31a3425451c59db5e13
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Thu Aug 2 16:37:04 2012 -0700
+
+    Add Apache 2 license file.
+    
+    Add the full text of the Apache 2 license and add the license header
+    to gerritbot/bot.py.
+    
+    Change-Id: Ib3308d6400ba4ac7540331179e1266aa76258566
+
+commit 552c3b1c4aa6ffb5fc77e191ea2457f1e5677543
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Wed Aug 1 15:20:22 2012 -0700
+
+    Add a README file.
+    
+    Change-Id: I03060f9e3d5ab0f2366f364a9371ccfb18c7d9b1
+
+commit 0fbd5d7e84e67cf18c6502a1cf254e10873b95c5
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Tue Jul 31 14:06:48 2012 -0700
+
+    Install gerritbot to /usr/local/bin.
+    
+    Install gerritbot as an executable script to /usr/local/bin/gerritbot.
+    Also, update the gerritbot.init script to use this path.
+    
+    Change-Id: I7b2cb18e14d473427e58389548ea6a11aabd779e
+
+commit d15abaa25fc374830163147345ec3688102b2bb1
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Tue Jul 31 09:35:19 2012 -0700
+
+    Use gerritlib for event-stream consumption.
+    
+    Gerritlib is now available for Gerrit event stream consumption. Use
+    it. This should fix the bug where events are missed due to the
+    connection dying and the resulting wait for five seconds.
+    
+    Change-Id: I63e7c3064a42379c985f1a0a723d08c15a1be003
+
+commit b2be72e69d08c774989b2cc8c39748ed06ffb1bf
+Author: David Ostrovsky <David.Ostrovsky@gmx.de>
+Date:   Mon Jul 16 22:50:45 2012 +0200
+
+    Add setup.py to project.
+    
+    Add a setup.py for the gerritbot project. This incorporates
+    openstack.common.setup/version as well for versioning. This change
+    also adds a tox.ini file and its lists of dependencies to gerritbot:
+    pyyaml, python-daemon and python-irclib.
+    
+    Change-Id: Id9204a1ad452c8aa3c5ec5b697db4dd835e46405
+
+commit 98d4bbf5efb9ca5a77213fea6a57e68040f6a1f7
+Author: James E. Blair <jeblair@hp.com>
+Date:   Mon Jul 9 15:18:19 2012 -0700
+
+    Add gitreview
+
+commit 07662bab9a525658eeab35f382661b393ae9d913
+Author: Andrew Hutchings <andrew@linuxjedi.co.uk>
+Date:   Fri Jul 6 16:24:59 2012 +0100
+
+    Fix gerritbot init script
+    
+    Path to the executable was incorrect
+    
+    Change-Id: I990a7029f0ce84b308dc60ddbae8003f00106a81
+
+commit a8dc6f951acf1efc8e5c3f4e3340100b5995f672
+Author: Clark Boylan <clark.boylan@gmail.com>
+Date:   Thu Jul 5 11:54:19 2012 -0700
+
+    Allow GerritBot to talk on multiple channels.
+    
+    Fixes bug #1020987
+    
+    Update GerritBot with the ability to talk on multiple channels. This
+    way a single GerritBot instance can operate in multiple channels for
+    multiple projects. To make this work this change introduces a new
+    channel configuration file (yaml) for GerritBot that specifies each
+    channel that GerritBot should join and the changes that channel is
+    interested in.
+    
+    The config should look something like:
+    channel-foo:
+        events:
+          - patchset-created
+          - change-merged
+        projects:
+          - test/bar
+          - test/foo
+        branches:
+          - master
+    
+    Change-Id: I8e278f9be5182611981a3d912cc323bd3d386fc5
+
+commit cb9f595bc42a05d681de1809af5e28624b2edc31
+Author: Monty Taylor <mordred@inaugust.com>
+Date:   Wed May 16 22:36:30 2012 -0400
+
+    Update gerritbot to respond to VRFY +2/-2.
+    
+    Change-Id: Iece4652e00b665137061709b4d3545b2f37eb248
+
+commit 39d26a6b605c7b6ab85a4b7fa5271d9a25ee409b
+Author: James E. Blair <james.blair@rackspace.com>
+Date:   Tue May 1 17:25:16 2012 -0400
+
+    Initial gerritbot code.
+    
+    Change-Id: Ife98fa24e731bcbbe719f583b1788870433b7f10
