@@ -1,0 +1,13 @@
+tornado>3.2,<4.0
+toredis
+six
+
+[tests]
+mock
+nose
+coverage
+yanc
+preggy
+tox
+ipdb
+coveralls
