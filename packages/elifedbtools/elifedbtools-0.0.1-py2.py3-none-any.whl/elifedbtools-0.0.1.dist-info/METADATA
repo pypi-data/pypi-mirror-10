@@ -1,0 +1,60 @@
+Metadata-Version: 2.0
+Name: elifedbtools
+Version: 0.0.1
+Summary: Tools for article and production data storage
+Home-page: https://github.com/elifesciences/elife-db-tools
+Author: eLife Sciences Publications Ltd.
+Author-email: py@elifesciences.org
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: testtools (==0.9.34)
+Requires-Dist: lettuce (==0.2.20)
+Requires-Dist: boto (==2.34.0)
+Requires-Dist: elifetools (==0.1.2)
+
+elife-db-tools
+==============
+
+.. image:: https://travis-ci.org/elifesciences/elife-db-tools.svg?branch=master
+   :target: https://travis-ci.org/elifesciences/elife-db-tools
+   :alt: Latest Version
+
+Tools for article and production data storage
+
+Install for users
+=================
+
+For now, install directly from git
+
+.. code-block:: bash
+
+   $ pip install git+https://github.com/elifesciences/elife-db-tools.git@master
+
+or you can add it to your project's requirements.txt file
+
+.. code-block:: bash
+
+   git+https://github.com/elifesciences/elife-db-tools.git@master
+
+Testing
+=======
+
+`Lettuce <http://packages.python.org/lettuce/>`_ for testing.
+
+.. code-block:: bash
+
+   $ cd elifedbtools/tests
+   $ lettuce
+
+License
+=========
+
+`The MIT License <http://opensource.org/licenses/mit-license.php>`_
+
+
