@@ -1,0 +1,270 @@
+CHANGES
+=======
+
+0.1.0
+-----
+
+* Fix GetConsoleOutput and GetPasswordData
+* check right error codes in image operations
+* add test for checking validity of console output
+* fix bugs with project id in DB for public objects
+* add fixes to images
+* Handle invalid setting of public network
+* add test for bug #1215527
+* add network scenarios for rally
+* add template for documentation
+* Update setup.cfg with release information
+* try to skip first run in rally results
+* Optimized describing of instance
+* restrict listing neutrons' resources to one tenant for admin
+* Optimization for caching db instances during addresses describing
+* Added default flavor. Made flavors to be retrieved once in describe
+* Restart service at SIGHUP signal
+* Fix and rename get_item_ids
+* upgrade rally scenarios
+* Added state for instance disappeared after deletion
+* Make S3 server compatible with AWS cli
+* add tests for disassociation not associated address
+* change s3 endpoint from nova to ec2-api for devstack
+* Added repair default group feature
+* temporary install euca2ools
+* add filters 'encrypted' and 'volume-type' to volumes
+* Fixes in security_groups
+* Performance: leverage dict comprehension in PEP-0274
+* Fix KeyError for euca-describe-images
+* Don't add exception instance in LOG.exception
+* add absent filters
+* Copy S3 server implmenetation from Nova
+* port test for instances behavior in VPC
+* Added filtering for instance-state-* and the mechanism
+* Fix spelling
+* Refactor running of instances
+* add metadata test and fix metadata logic
+* Update requirements
+* Add metadata to services list for devstack plugin
+* add scenario test for vpc addresses
+* set current user as owner for LOGDIR
+* Add logging for an image registration
+* Remove get_admin_context function
+* Refresh config sample
+* Reorganize hierarchy of exception classes
+* Get partial compatibility with pre Kilo Nova release
+* Unit-tests for modify network interaces' delete_on_termination flag
+* Get rid of Nova DB access
+* Fix metadata setup
+* fix delete on termination behaviour for network interfaces
+* Add get_os_admin_context function in context module
+* Switch to usage of v21 compute API
+* Supress error logging for passed negative unit tests
+* Rework fake action execute interface
+* Do not use namedtuple to mock objects
+* add test for idempotent instance
+* Restrict fake OS calls exactly to OS clients' interfaces
+* Don't use mock shortcuts on novaclient object managers
+* Use oslo config fixture in unit tests
+* Move mock function generators to test tools
+* Simplify setting of mock db data in unit tests
+* create tags' tests
+* Restrict fake db_api calls to db_api interface exactly
+* Add images describing to rally scenarios
+* Enable a functional test on DeviceIndex==0
+* Fix groupSet output for VPC's instances
+* Bring more compatibility with oslo_db
+* Simplify usage of db_api.get_items_by_ids
+* Simplify usage of db_api.get_item_by_id
+* follow oslo
+* Simplify usage of ec2utils.get_db_item
+* Use importutils from oslo.utils instead of oslo incubator's one
+* Use excutils from oslo_utils instead of oslo incubator's one
+* Use timeutils from oslo.utils instead of oslo incubator
+* Remove unused oslo incubator's uuidutils
+* adding rally scenario
+* Fix translation of an image id in register image
+* Tests on network parameters in run instances
+* Add verbose output to randomly failed unit test
+* rework TODO due to new tempest_lib
+* Mandatory install euca2ools
+* Fix Image RootDeviceType detection for bdm v2
+* Common exception handling
+* add scenario tests
+* add tests for various cases with instance
+* fix botocore usage and do not limit botocore version
+* Remove typo
+* Port some of old ec2 scenario tests to current API tests
+* run functional tests in isolated tenant
+* Prepare EBS image for testing
+* Fix describing images with bdm
+* Handle OS and some input errors for network interfaces
+* Populated limitations list
+* Remove functional TODOes and fix code style
+* Add metadata service to devstack installation script
+* Reworked mechanism of disabling VPC tests
+* Implement DescribeAccountAttributes action
+* Handle OS errors for addresses, improve unit-tests
+* Add rest of api tests
+* Add more tests
+* Fix desribing an instance after its terminating
+* Fixed 'default' security group name translation for network interfaces
+* Adapted default security group to work for Kilo
+* Handle and log OS errors for subnets
+* Remove useless tests and TODOes for internet gateway
+* Handle and log OS errors for vpc
+* add first functional test with infrastructure
+* enable simple region definition in config
+* update test config before working with functional tests
+* Work toward Python 3.4 support and testing
+* move unit tests to subdirectory. part 2
+* move unit tests to subdirectory. part 1
+* convert devstack support to external plugin
+* Update to global requirements
+* Improve error output for associate address operation
+* create scripts for devstack
+* Delayed delete DB items for instances, volumes
+* rework v4 auth
+* Fix minor grammar in README file
+* Fix passing of bdm to run instances
+* some fixes to key pairs
+* Updated README
+* various fixes for snapshots
+* Generate unique name for an instance
+* Fix bug of unhandled exeption translation
+* Fix network engine loading bug
+* various fixes for volumes
+* Simple script for upgrade from existing data in nova DB
+* Register EBS image
+* Tests for show an item tags, filter by tags, selective describe
+* Implement device index for networ interfaces
+* Test filtering of route tables by subnet id
+* Fix delete local route bug
+* Test filtering is used correctly in all APIs
+* Fix test for OnCrashCleaner
+* Implement some absent tests for instances
+* Fixed bugs in filtering and routing
+* fix parameter name
+* fix filtering
+* Create ec2-api-metadata console script
+* Use describe_network_interface instead of formatting manually
+* Added various validation tests
+* Test for kernel and ramdisk images
+* fix ip address accounting
+* Test critical sequences of calls in rollback operations
+* Implement tests on OnCrashCleaner
+* Implement min-max logic for run-instances
+* Improve delete tags test
+* fix absent image error
+* Added validation for VPCController
+* Added all validators for main Controller
+* Implement tests for tags
+* Added validation for security groups except for IP permissions
+* Port sorting in describe instances
+* Port tests for instance volume manipulation
+* port rest of api request tests
+* Port test for describe instance attributes
+* Port create image tests
+* port test_middleware
+* port test_faults
+* port error's response tests
+* Port tests for instances
+* Added validation for Address parameters
+* Restore tests for instances with multiply networks
+* Port tests for block device mapping
+* Add instruction for running metadata service
+* Updated README. Added absent docstrings into cloud.py
+* EC2 metadata implementation
+* add simple snapshots' tests
+* Made instances work without neutron
+* add volume test for status
+* Metadata proxy service
+* remove validator
+* add volumes' tests
+* rename 'status' field to 'http_status_code' in tests
+* Reworked validation mechanism once more
+* Remove Glance to EC2 ID Nova mapping
+* Port S3 utils tests
+* Port tests for register, format images, copied bdm functions
+* Port tests for image attributes
+* remove access to nova's instance id mapping table
+* Add unit tests on tags manipulations in DB API layer
+* Add unit tests on items manipulations in DB API layer
+* Reworked initial parameters validation mechanism
+* remove proxy to ec2
+* Fix describe behavior of selected kinds
+* Use Describer for instances
+* Forbid VPC-related functionality for usage without Neutron
+* Added half the original ec2_validate tests
+* Added filtering by tags
+* Port describe image tests
+* EC2 classic mode unit tests for addresses
+* Add tags to describe output
+* Availability_zones unit tests
+* Refactor describe methods to use Describer class
+* Tags implementation
+* Use image DB items for instances
+* Extract image manipulation methods
+* Keypair unit tests
+* Added absent security groups unit tests and functionality
+* Extract describe images
+* support aws v4 signature
+* Fixed outstanding issues from 3 previous reviews comments
+* Use regular form of local identifiers for describe_instances
+* Use volume and snapshot DB items for instances
+* Convert instances describing and synchronization to common form
+* Use snapshot DB items for volumes
+* Extract snapshots implementation
+* Extract volumes implementation
+* Reworked universal describe and examples of its usage
+* Use auto create DB item feature for instances
+* Get DB item by os id with auto creation possibility
+* Added get_password_data and get_console_output
+* Added AvailabilityZones and Regions. Added universal describe
+* Reworked addresses to support EC2 classic without legacy EC2 code
+* Describe missed unused parameters for instances
+* Allow VPC and EC2 Classic in one project
+* Reworked SecurityGroups to work without legacy EC2
+* Filters in describe instances
+* Report client token in describe instances
+* Raise if any object isn't found in get_db_items. Use this for instances
+* Implement clent_token (idempotent run)
+* Call a function from network_interface_api instead of dublicate it
+* Extract describe_instance_attribute
+* Extract start/stop/reboot instances
+* Implement independent terminate_instaces
+* Implement describe_instances, store reservation_id
+* Use custom exceptions for Nova DB errors
+* Restored keypairs functionality. Fixed a bug in it
+* Fixed legacy groups behavior
+* Start of extract Nova EC2. Store instance object in DB
+* Update copyright
+* Add apirequest unit tests
+* Log traceback on unexpected errors
+* Removed keypair functionality for now. Fixed README
+* cleanup requirements
+* Clean up requirements
+* Workaround for Launchpad Bug #1384347
+* Fix passing of security groups to Nova's create instances
+* Add .gitignore
+* Clean up requirements
+* Store identifiers in DB in EC2 form instead of numeric form
+* Extracted keypairs functionality from nova
+* Implemented reset_network_interface_attribute
+* Added possibility to configure mtu for instances
+* Set connection_nova and external_network parameters in install.sh
+* Added source_dest_check functionality
+* Implement run_instance independently of Nova
+* Fixed bugs for vpc_scenario Tempest test
+* Reimplemented describe_addresses. Fixed bugs for Tempest
+* Added AssignUnassignPrivateIpTest. Fixed some other tests
+* Assign-unassign IP addresses functionality added. Filtering added
+* Added filters. Fixed some bugs to comply with Tempest tests
+* Fixed remote group usage
+* Security groups unit tests
+* Adding instances
+* Adding network interfaces and security groups
+* Adding addresses
+* Adding dhcp options
+* Adding subnets
+* Adding internet gateways
+* Adding VPC and Route tables functionality
+* Adding utils, tests for them and fixing some pep8
+* Initial EC2-API service commit
+* Added .gitreview
