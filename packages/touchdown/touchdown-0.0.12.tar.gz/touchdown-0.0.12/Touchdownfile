@@ -1,0 +1,49 @@
+#import json
+
+#aws = workspace.add_aws(
+#    region="eu-west-1",
+#    #access_key_id = "AKIAJ27I77EG3FVQLE6Q",
+#    #secret_access_key = "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",
+#    access_key_id="AKIAJ6XA6264JKEDZDNQ",
+#    secret_access_key="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",
+#)
+
+#queue = aws.add_queue(name="test-queue-2")
+#topic = aws.add_topic(name="test-topic")
+
+#pipeline = aws.add_pipeline(
+#    name="test",
+#)
+
+#bucket = aws.add_bucket(
+#    name="isotoma-test-bucket-",
+#)
+
+#bucket.add_folder(
+#    name="test",
+#    source="test",
+#)
+
+#aws.add_streaming_distribution(
+#    name="streaming.isotoma.com",
+#    comment="example.com",
+#)
+
+"""
+aws.add_image(
+    name="hello",
+    ami="ami-4276f235",
+)
+"""
+
+from touchdown.core import serializers
+
+local = workspace.add_local()
+provisioner = workspace.add_fuselage_bundle(
+    target=local,
+)
+
+provisioner.add_file(
+    name="/home/john/hello",
+    contents=serializers.Const("HELLO!!"),
+)
