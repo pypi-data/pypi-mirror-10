@@ -1,0 +1,30 @@
+Metadata-Version: 1.0
+Name: praatclasses
+Version: 0.1
+Summary: A bunch of praat object classes for python
+Home-page: http://github.com/jofrhwld/praatclasses
+Author: Josef Fruehwald
+Author-email: jofrhwld@gmail.com
+License: MIT
+Description: ``praatclasses``
+        ================
+        
+        This is just the ``praat.py`` module from
+        `FAVE <https://github.com/JoFrhwld/FAVE>`__, wrapped up in a python
+        package for ease of importing.
+        
+        This package contains classes for reading in and utilizing text output
+        of multiple praat files.
+        
+        -  .Formant
+        -  .LPC
+        -  .MFCC
+        -  .TextGrid
+        -  .IntervalTier
+        -  .PointTier
+        -  .Interval
+        -  .Point
+        
+        The TextGrid classes are especially useful.
+        
+Platform: UNKNOWN
