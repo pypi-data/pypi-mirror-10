@@ -1,0 +1,12 @@
+astropy>=1.0
+numpy
+scipy
+pillow
+ipython >2.0, < 3
+msumastro>=0.8
+ccdproc>=0.3
+
+[docs]
+numpydoc
+sphinx-argparse
+sphinx_rtd_theme
