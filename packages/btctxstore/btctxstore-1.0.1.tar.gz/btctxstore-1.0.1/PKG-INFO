@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: btctxstore
+Version: 1.0.1
+Summary: A simple library to store/retrieve information in bitcoin transactions using OP_RETURN.
+Home-page: https://github.com/F483/btctxstore/
+Author: Fabian Barkhau
+Author-email: fabian.barkhau@gmail.com
+License: MIT
+Download-URL: https://pypi.python.org/packages/source/a/btctxstore/btctxstore-1.0.1.tar.gz
+Description: ##########
+        btctxstore
+        ##########
+        
+        A library to read/write data to bitcoin transactions as nulldata outputs.
+        
+        ============
+        Installation
+        ============
+        
+        ::
+        
+          pip install btctxstore
+        
+        ============
+        python usage
+        ============
+        
+        Store data in bitcoin blockchain in new transaction with nulldata output.
+        Prints txid of transaction with stored data.
+        
+        .. code:: python
+        
+          from btctxstore import BtcTxStore
+          api = BtcTxStore()
+        
+          privatekeys = [privatekey_in_wif_format]
+          txid = api.store(hexdata, privatekeys, changeaddress)
+          print txid
+        
+        
+        Read data stored in bitcoin blockchain as nulldata output.
+        Prints stored data in hex format.
+        
+        .. code:: python
+        
+          from btctxstore import BtcTxStore
+          api = BtcTxStore()
+        
+          hexdata = api.retrieve(txid)
+          print hexdata
+        
+        
+Keywords: Bitcoin,OP_RETURN,store,tx,transaction
+Platform: UNKNOWN
