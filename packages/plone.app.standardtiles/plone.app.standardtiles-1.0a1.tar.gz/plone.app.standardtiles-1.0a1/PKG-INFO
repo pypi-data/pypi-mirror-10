@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: plone.app.standardtiles
+Version: 1.0a1
+Summary: Standard tiles for Plone Blocks page composition
+Home-page: http://plone.org
+Author: Rob Gietema
+Author-email: rob@fourdigits.nl
+License: GPL
+Description: Plone Standard Tiles
+        ====================
+        
+        This package contains standard tiles to be used with `Plone Mosaic`_ (or
+        as such with `Plone Blocks`_ composition).
+        
+        .. _Plone Mosaic: https://pypi.python.org/pypi/plone.app.mosaic
+        .. _Plone Blocks: https://pypi.python.org/pypi/plone.app.blocks
+        
+        Changelog
+        =========
+        
+        1.0a1 (2015-05-25)
+        ------------------
+        
+        - First alpha release.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Framework :: Plone :: 5.0
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
