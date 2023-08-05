@@ -1,0 +1,14 @@
+pytest
+ujson
+ply
+
+[sqla]
+sqlalchemy
+
+[psyco]
+psycopg2
+
+[redis]
+hiredis
+redis
+msgpack-python
