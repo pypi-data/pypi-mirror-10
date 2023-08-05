@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Moodle Block Installation &mdash; OppiaMobile 0.7.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.7.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OppiaMobile 0.7.1 documentation" href="index.html" />
+    <link rel="next" title="Local Settings" href="settings.html" />
+    <link rel="prev" title="Installing VirtualBox Image" href="virtualbox.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="settings.html" title="Local Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtualbox.html" title="Installing VirtualBox Image"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OppiaMobile 0.7.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="moodle-block-installation">
+<h1>Moodle Block Installation<a class="headerlink" href="#moodle-block-installation" title="Permalink to this headline">¶</a></h1>
+<p>There are 2 main methods for installing the OppiaMobile Export Moodle Block,
+depending on how you are able to access your Moodle server. After you have
+installed the block, please see the instructions below for setting up the
+connection to the OppiaMobile server (further below).</p>
+<div class="section" id="full-server-admin-rights-on-your-moodle-e-g-if-you-own-the-server">
+<h2>Full server admin rights on your Moodle (e.g. if you &#8216;own&#8217; the server)<a class="headerlink" href="#full-server-admin-rights-on-your-moodle-e-g-if-you-own-the-server" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>This would be the preferred approach</li>
+<li>Clone the GitHub repository <a class="reference external" href="https://github.com/DigitalCampus/moodle-block_oppia_mobile_export">https://github.com/DigitalCampus/moodle-block_oppia_mobile_export</a>
+into your <cite>moodle/blocks/</cite> directory</li>
+<li>You&#8217;ll need to rename the generated directory <cite>moodle-block_oppia_mobile_export</cite> to be just <cite>oppia_mobile_export</cite></li>
+<li>Visit the admin notifications page on your Moodle server to trigger installing the block</li>
+</ul>
+</div>
+<div class="section" id="local-rights-for-your-moodle-installation-e-g-on-shared-hosting">
+<h2>Local rights for your Moodle installation (e.g. on shared hosting)<a class="headerlink" href="#local-rights-for-your-moodle-installation-e-g-on-shared-hosting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Download the zip file of the latest release of the block at: <a class="reference external" href="https://github.com/DigitalCampus/moodle-block_oppia_mobile_export/releases">https://github.com/DigitalCampus/moodle-block_oppia_mobile_export/releases</a></li>
+<li>Open the zip file and rename the root directory to be <cite>oppia_mobile_export</cite> (instead of <cite>moodle-block_oppia_mobile_export</cite>) - you may need to unzip and re-zip this file depending on your operating system.</li>
+<li>In your Moodle server  under the site admin -&gt; plugins, select &#8216;install plugins&#8217;</li>
+<li>Upload your new zip file as a new block</li>
+</ul>
+</div>
+<div class="section" id="block-configuration-to-connect-to-an-oppiamobile-server">
+<h2>Block configuration to connect to an OppiaMobile server<a class="headerlink" href="#block-configuration-to-connect-to-an-oppiamobile-server" title="Permalink to this headline">¶</a></h2>
+<p>Once the block is installed you will need to provide some settings to connect your Moodle server to an OppiaMobile server.
+These settings are used to export the quiz and feedback activity questions, and also for directly publishing your course to OppiaMobile.
+A Moodle server can be set up to connect to a number of different OppiaMobile servers (conversely and OppiaMobile server can support courses from different Moodle servers).
+The basic set up is to provide a default OppiaMobile server for your Moodle server to connect to, so:</p>
+<ul class="simple">
+<li>in the oppia_mobile_export block settings, enter the url, username and api_key for your OppiaMobile server.</li>
+<li>for the url you only need to enter the base url (e.g. <cite>http://demo.oppia-mobile.org/</cite> rather than <cite>http://demo.oppia-mobile.org/api/v1/</cite>)</li>
+<li>for the username, use the username you use to log into the OppiaMobile server</li>
+<li>for the API key, you can obtain this when you log into the OppiaMobile server and visit your profile page</li>
+</ul>
+<p>This will allow any teachers/admins on your Moodle server to publish to the specified OppiaMobile server.</p>
+<p>You may wish to add other connections (e.g. on a user by user basis, or to other OppiaMobile servers), you can do this from the block:</p>
+<ul class="simple">
+<li>select the &#8216;add new server connection&#8217; option from the oppia_export_block</li>
+<li>enter the url, username and API key (as described in the info above)</li>
+<li>when you export your course using the block, you can select which connection you&#8217;d like to use.</li>
+</ul>
+<p>To add other connections</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Moodle Block Installation</a><ul>
+<li><a class="reference internal" href="#full-server-admin-rights-on-your-moodle-e-g-if-you-own-the-server">Full server admin rights on your Moodle (e.g. if you &#8216;own&#8217; the server)</a></li>
+<li><a class="reference internal" href="#local-rights-for-your-moodle-installation-e-g-on-shared-hosting">Local rights for your Moodle installation (e.g. on shared hosting)</a></li>
+<li><a class="reference internal" href="#block-configuration-to-connect-to-an-oppiamobile-server">Block configuration to connect to an OppiaMobile server</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtualbox.html"
+                        title="previous chapter">Installing VirtualBox Image</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Local Settings</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/block_install.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="settings.html" title="Local Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtualbox.html" title="Installing VirtualBox Image"
+             >previous</a> |</li>
+        <li><a href="index.html">OppiaMobile 0.7.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Alex Little, Digital Campus.
+      Last updated on Feb 24, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
