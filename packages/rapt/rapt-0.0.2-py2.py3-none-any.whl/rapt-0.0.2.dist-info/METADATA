@@ -1,0 +1,45 @@
+Metadata-Version: 2.0
+Name: rapt
+Version: 0.0.2
+Summary: Relational algebra parsing tools.
+Home-page: https://github.com/pyrapt/rapt
+Author: RAPT Team
+Author-email: olessia.karpova@gmail.com
+License: MIT
+Keywords: "relational algebra" ra sql parsing pyparsing
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: pyparsing (>=2.0.1)
+
+RAPT
+====
+
+RAPT uses a syntactic and semantic understanding of RA to transform input
+statements into a variety of outputs, including LATEX formatted queries,
+parse tree diagrams, and executable SQL statements.
+
+To use RAPT, create an instance of `rapt.rapt.Rapt`, and use the desired methods.
+Optionally, you can pass in keyword arguments that define the relational algebra
+grammar and syntax. `config/default.json` contains an example.
+
+Authors
+=======
+
+Current Authors
+---------------
+* Noel D'Souza (noel@noeldsouza.com)
+* Olessia Karpova (olessia.karpova@gmail.com)
+
+Contributions by
+----------------
+* Andrew Petersen (http://individual.utoronto.ca/apetersen)
+* Diane Horton (http://www.cs.toronto.edu/~dianeh)
+
