@@ -1,0 +1,10 @@
+{
+  "name": "fedora",
+  "type": "bare",
+  "image": "209.132.184.110",
+  "ram": 2048,
+  "user": "fedora",
+  "key": "/home/kdas/.ssh/id_rsa",
+  
+  "port": "22"
+}
