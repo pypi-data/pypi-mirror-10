@@ -1,0 +1,245 @@
+--- mrjob/emr.py	(original)
++++ mrjob/emr.py	(refactored)
+@@ -23,7 +23,7 @@
+ import signal
+ import socket
+ import time
+-import urllib2
++import urllib.request, urllib.error, urllib.parse
+ from collections import defaultdict
+ from datetime import datetime
+ from datetime import timedelta
+@@ -1597,7 +1597,7 @@
+ 
+                 if self._show_tracker_progress:
+                     try:
+-                        tracker_handle = urllib2.urlopen(self._tracker_url)
++                        tracker_handle = urllib.request.urlopen(self._tracker_url)
+                         tracker_page = ''.join(tracker_handle.readlines())
+                         tracker_handle.close()
+                         # first two formatted percentages, map then reduce
+--- mrjob/job.py	(original)
++++ mrjob/job.py	(refactored)
+@@ -43,7 +43,7 @@
+ from mrjob.step import JarStep
+ from mrjob.step import MRStep
+ from mrjob.step import _JOB_STEP_FUNC_PARAMS
+-from mrjob.py2 import long
++from mrjob.py2 import int
+ from mrjob.util import read_input
+ 
+ 
+@@ -390,7 +390,7 @@
+         with semicolons (commas confuse Hadoop streaming).
+         """
+         # don't allow people to pass in floats
+-        if not isinstance(amount, (int, long)):
++        if not isinstance(amount, int):
+             raise TypeError('amount must be an integer, not %r' % (amount,))
+ 
+         # Extra commas screw up hadoop and there's no way to escape them. So
+--- mrjob/parse.py	(original)
++++ mrjob/parse.py	(refactored)
+@@ -20,8 +20,8 @@
+ import re
+ import time
+ from io import BytesIO
+-from urlparse import ParseResult
+-from urlparse import urlparse as urlparse_buggy
++from urllib.parse import ParseResult
++from urllib.parse import urlparse as urlparse_buggy
+ 
+ from mrjob.compat import uses_020_counters
+ 
+--- mrjob/protocol.py	(original)
++++ mrjob/protocol.py	(refactored)
+@@ -18,7 +18,7 @@
+ """
+ # don't add imports here that aren't part of the standard Python library,
+ # since MRJobs need to run in Amazon's generic EMR environment
+-import cPickle
++import pickle
+ 
+ from mrjob.util import safeeval
+ 
+@@ -111,10 +111,10 @@
+     """
+ 
+     def _loads(self, value):
+-        return cPickle.loads(value.decode('string_escape'))
++        return pickle.loads(value.decode('string_escape'))
+ 
+     def _dumps(self, value):
+-        return cPickle.dumps(value).encode('string_escape')
++        return pickle.dumps(value).encode('string_escape')
+ 
+ 
+ class PickleValueProtocol(object):
+@@ -122,10 +122,10 @@
+     (``key`` is read in as ``None``).
+     """
+     def read(self, line):
+-        return (None, cPickle.loads(line.decode('string_escape')))
++        return (None, pickle.loads(line.decode('string_escape')))
+ 
+     def write(self, key, value):
+-        return cPickle.dumps(value).encode('string_escape')
++        return pickle.dumps(value).encode('string_escape')
+ 
+ 
+ # This was added in 0.3, so no @classmethod for backwards compatibility
+--- mrjob/py2.py	(original)
++++ mrjob/py2.py	(refactored)
+@@ -90,7 +90,7 @@
+ 
+ # `long`, for `isinstance(..., (int, long))`
+ if IN_PY2:
+-    long = long
++    long = int
+ else:
+     long = int
+ 
+@@ -105,6 +105,6 @@
+ # `StringIO`, for mocking out `sys.stdout`, etc. You probably won't need
+ # this outside of
+ if IN_PY2:
+-    from StringIO import StringIO
++    from io import StringIO
+ else:
+     from io import StringIO
+--- mrjob/examples/mr_text_classifier.py	(original)
++++ mrjob/examples/mr_text_classifier.py	(refactored)
+@@ -66,8 +66,8 @@
+     id -- a unique ID for the document (any kind of JSON-able value should
+         work). If not specified, we'll auto-generate one.
+     """
+-    text = unicode(text)
+-    cats = dict((unicode(cat), bool(is_in_cat))
++    text = str(text)
++    cats = dict((str(cat), bool(is_in_cat))
+                 for cat, is_in_cat
+                 in (cats or {}).iteritems())
+ 
+--- mrjob/examples/mr_travelling_salesman/mr_travelling_salesman.py	(original)
++++ mrjob/examples/mr_travelling_salesman/mr_travelling_salesman.py	(refactored)
+@@ -72,7 +72,7 @@
+     tour -- A list of integers representing a tour through the graph where each
+             entry is the index of a node on the graph.
+     """
+-    steps = zip(tour[0:-1], tour[1:])
++    steps = list(zip(tour[0:-1], tour[1:]))
+     cost = sum([graph[step_from, step_to] for step_from, step_to in steps])
+     return cost
+ 
+@@ -132,7 +132,7 @@
+         #description.
+         step_size = int(100 if num_tours < 100**2 else num_tours / 100)
+         steps = range(0, num_tours, step_size) + [num_tours]
+-        ranges = zip(steps[0:-1], steps[1:])
++        ranges = list(zip(steps[0:-1], steps[1:]))
+ 
+         for range_low, range_high in ranges:
+             #The key prepresents the range of tours to cost
+@@ -154,7 +154,7 @@
+         num_nodes = matrix.shape[0]
+ 
+         #The key prepresents the range of tours to cost
+-        range_low, range_high = map(int,key.split('-'))
++        range_low, range_high = list(map(int,key.split('-')))
+         for i in range(range_low,range_high):
+ 
+             tour = map_int_to_tour(num_nodes, i, sales_trip['start_node'])
+--- mrjob/tools/emr/collect_emr_stats.py	(original)
++++ mrjob/tools/emr/collect_emr_stats.py	(refactored)
+@@ -83,7 +83,7 @@
+     if options.pretty_print:
+         pretty_print(stats)
+     else:
+-        print(json.dumps(stats))
++        print((json.dumps(stats)))
+ 
+ 
+ def pretty_print(stats):
+@@ -92,9 +92,9 @@
+     :param stats: A dictionary returned by :py:func:`job_flows_to_stats`
+     """
+     s = stats
+-    print('                Timestamp: %s' % s['timestamp'])
+-    print('Number of active jobflows: %s' % s['num_jobflows'])
+-    print('Number of instance counts: %s' % s['total_instance_count'])
++    print(('                Timestamp: %s' % s['timestamp']))
++    print(('Number of active jobflows: %s' % s['num_jobflows']))
++    print(('Number of instance counts: %s' % s['total_instance_count']))
+     print('* The active jobflows are those in states of BOOTSTRAPPING,')
+     print('  STARTING, RUNNING, and WAITING.')
+ 
+--- setup.py	(original)
++++ setup.py	(refactored)
+@@ -16,7 +16,7 @@
+ from os.path import dirname
+ 
+ # get __version__
+-execfile(join(dirname(__file__), 'mrjob/__init__.py'))
++exec(compile(open(join(dirname(__file__), 'mrjob/__init__.py')).read(), join(dirname(__file__), 'mrjob/__init__.py'), 'exec'))
+ 
+ try:
+     from setuptools import setup
+--- tests/mockboto.py	(original)
++++ tests/mockboto.py	(refactored)
+@@ -236,7 +236,7 @@
+         self._pos += len(chunk)
+         return chunk
+ 
+-    def next(self):
++    def __next__(self):
+         chunk = self.read(SIMULATED_BUFFER_SIZE)
+         if chunk:
+             return chunk
+@@ -740,7 +740,7 @@
+ 
+         if self.simulation_iterator:
+             try:
+-                self.simulation_iterator.next()
++                next(self.simulation_iterator)
+             except StopIteration:
+                 raise AssertionError(
+                     'Simulated progress too many times; bailing out')
+--- tests/test_conf.py	(original)
++++ tests/test_conf.py	(refactored)
+@@ -290,7 +290,7 @@
+         self.assertEqual(combine_cmds('sort', ('grep', '-E')), ['grep', '-E'])
+ 
+     def test_unicode(self):
+-        self.assertEqual(combine_cmds(u'wunderbar!'), ['wunderbar!'])
++        self.assertEqual(combine_cmds('wunderbar!'), ['wunderbar!'])
+ 
+ 
+ class CombineCmdsListsCase(unittest.TestCase):
+--- tests/test_job.py	(original)
++++ tests/test_job.py	(refactored)
+@@ -159,12 +159,12 @@
+     def test_unicode_set_status(self):
+         mr_job = MRJob().sandbox()
+         # shouldn't raise an exception
+-        mr_job.set_status(u'💩')
++        mr_job.set_status('💩')
+ 
+     def test_unicode_counter(self):
+         mr_job = MRJob().sandbox()
+         # shouldn't raise an exception
+-        mr_job.increment_counter(u'💩', 'x', 1)
++        mr_job.increment_counter('💩', 'x', 1)
+ 
+     def test_negative_and_zero_counters(self):
+         mr_job = MRJob().sandbox()
+--- tests/test_protocol.py	(original)
++++ tests/test_protocol.py	(refactored)
+@@ -55,7 +55,7 @@
+     ('foo', 'bar'),
+     ([1, 2, 3], []),
+     ({'apples': 5}, {'oranges': 20}),
+-    (u'Qu\xe9bec', u'Ph\u1ede'),
++    ('Qu\xe9bec', 'Ph\u1ede'),
+     ('\t', '\n'),
+ ]
+ 
