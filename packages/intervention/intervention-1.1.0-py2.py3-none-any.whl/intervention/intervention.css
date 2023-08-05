@@ -1,0 +1,16 @@
+QLabel {
+  color: white;
+}
+
+#inputs QLineEdit {
+  background-color: white;
+  padding: 5px 10px;
+  color: black;
+  border: 0;
+}
+
+#inputs QLabel {
+  padding-left: 0;
+  margin-left: 1px;
+  margin-right: -1px;
+}
