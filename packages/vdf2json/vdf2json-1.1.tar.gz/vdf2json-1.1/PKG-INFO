@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: vdf2json
+Version: 1.1
+Summary: command line tool for converting VDF to JSON
+Home-page: https://github.com/rossengeorgiev/vdf-python
+Author: Rossen Georgiev
+Author-email: hello@rgp.io
+License: MIT
+Description: .. code:: text
+            usage: vdf2json [-h] [-p] [-ei encoding] [-eo encoding] [infile] [outfile]
+        
+            positional arguments:
+              infile        VDF
+              outfile       JSON (utf8)
+        
+            optional arguments:
+              -h, --help    show this help message and exit
+              -p, --pretty  pretty json output
+              -ei encoding  input encoding E.g.: utf8, utf-16le, etc
+              -eo encoding  output encoding E.g.: utf8, utf-16le, etc
+        
+Keywords: valve keyvalue vdf tf2 dota2 csgo cli commandline json
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Text Processing 
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
