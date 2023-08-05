@@ -1,0 +1,46 @@
+[
+    {
+        "model": "monocle_partners.partner",
+        "fields": {
+            "position": 0,
+            "image": "monocle_partners/python.png",
+            "name": "Python",
+            "isShown": true,
+            "url": "https://www.python.org/"
+        },
+        "pk": 1
+    },
+    {
+        "model": "monocle_partners.partner",
+        "fields": {
+            "position": 2,
+            "image": "monocle_partners/postgresql.png",
+            "name": "Postgres",
+            "isShown": true,
+            "url": "http://www.postgresql.org/"
+        },
+        "pk": 2
+    },
+    {
+        "model": "monocle_partners.partner",
+        "fields": {
+            "position": 3,
+            "image": "monocle_partners/sqlite-logo.png",
+            "name": "Sqlite",
+            "isShown": true,
+            "url": "http://www.sqlite.org/"
+        },
+        "pk": 3
+    },
+    {
+        "model": "monocle_partners.partner",
+        "fields": {
+            "position": 4,
+            "image": "monocle_partners/mysql.jpg",
+            "name": "MySql",
+            "isShown": true,
+            "url": "https://www.mysql.com/"
+        },
+        "pk": 4
+    }
+]
