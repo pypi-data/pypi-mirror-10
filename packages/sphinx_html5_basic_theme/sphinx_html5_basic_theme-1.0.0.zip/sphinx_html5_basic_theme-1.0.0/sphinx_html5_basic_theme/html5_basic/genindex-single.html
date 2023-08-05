@@ -1,0 +1,57 @@
+{#
+    basic/genindex-single.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Template for a "single" page of a split index.
+
+    :copyright: Copyright 2007-2015 by the Sphinx team, see AUTHORS.
+    :license: BSD, see LICENSE for details.
+#}
+{% macro indexentries(firstname, links, ifsubentries, subitems) %}
+<li{%- if ifsubentries %} class="subentries"{%- endif %}>
+    {%- if links -%}
+      <a href="{{ links[0][1] }}"{%- if links[0][0] %} class="main-index-name"{% endif -%}>{{ firstname|e }}</a>
+      {%- for ismain, link in links[1:] -%}
+        , <a href="{{ link }}" class="loop-index {%- if ismain %} main-index{% endif -%}">{{ loop.index }}</a>
+      {%- endfor -%}
+    {%- else -%}
+      {{ firstname|e }}
+    {%- endif -%}
+    {%- if ifsubentries -%}</li>{%- endif -%}
+{% endmacro %}
+
+{%- extends "layout.html" %}
+{% set title = _('Index') %}
+{% block body %}
+<!-- start genindex-single.html -->
+<article class="genindex-wrapper">
+<h1 id="index">{% trans key=key %}Index &ndash; {{ key }}{% endtrans %}</h1>
+<div class="genindex-multi-columns">
+<ul>
+  {%- for entryname, (links, subitems) in entries -%}
+    {{ indexentries(entryname, links, false, subitems) }}
+    {%- if subitems %}
+    <ul>
+      {%- for subentryname, subentrylinks in subitems -%}
+        {{ indexentries(subentryname, subentrylinks, true) }}
+      {%- endfor %}
+    </ul>
+    {%- endif -%}</li>
+  {%- endfor %}
+</ul>
+</div>
+</article>
+<!-- end genindex-single.html -->
+{% endblock %}
+
+{% block sidebarrel %}
+   <!-- start defined at genindex-single.html -->
+   <h4>{{ _('Index') }}</h4>
+   <p>{% for key, dummy in genindexentries -%}
+   <span></span><a href="{{ pathto('genindex-' + key) }}" class="genindex-sidebarrel">{{ key }}</a>
+   {%- endfor %}</p>
+
+   <p><a href="{{ pathto('genindex-all') }}" class="genindex-sidebarrel">{{ _('Full index on one page') }}</a></p>
+   <!-- end defined at genindex-single.html -->
+   {{ super() }}
+{% endblock %}

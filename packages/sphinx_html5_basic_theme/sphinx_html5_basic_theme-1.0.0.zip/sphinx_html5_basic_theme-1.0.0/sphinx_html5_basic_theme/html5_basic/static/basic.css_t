@@ -1,0 +1,711 @@
+@charset "utf-8";
+/*
+ * basic.css
+ * ~~~~~~~~~
+ *
+ * Sphinx stylesheet -- basic theme.
+ *
+ * :copyright: Copyright 2007-2015 by the Sphinx team, see AUTHORS.
+ * :license: BSD, see LICENSE for details.
+ *
+ */
+
+/* -- main layout ----------------------------------------------------------- */
+
+div.document {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+div.documentwrapper
+{
+    flex: 1 1 100%;
+}
+
+{%- if theme_sidebarwidth|float != 0.0 -%}
+{%- set calced_sidebarwidth = theme_sidebarwidth|toint|string + "px" -%}
+{%- else -%}
+{%- set calced_sidebarwidth = theme_sidebarwidth -%}
+{%- endif -%}
+
+div.sphinxsidebar
+{
+    flex: 0 0 auto;
+    width: {{ calced_sidebarwidth }};
+}
+
+div.clearer {
+    display: none;
+}
+
+/* -- relbar ---------------------------------------------------------------- */
+
+div.related {
+    width: 100%;
+    font-size: 90%;
+}
+
+div.related h3 {
+    display: none;
+}
+
+div.related ul {
+    margin: 0;
+    padding: 0 10px 0 10px;
+    display: flex;
+}
+
+div.related li {
+    list-style: none;
+}
+
+div.related li.right:first-child {
+    order: 98;
+    margin-left: auto;
+}
+
+div.related li.right {
+    order: 99;
+}
+
+div.related li.right + li.right:before {
+    content: "|";
+    padding-left: 0.25em;
+    padding-right: 0.1em;
+}
+
+div.related li.nav-item:after {
+    content: "»";
+    padding-left: 0.26em;
+    padding-right: 0.26em;
+}
+
+/* -- sidebar --------------------------------------------------------------- */
+
+div.sphinxsidebarwrapper {
+    padding: 10px 5px 0 10px;
+}
+
+div.sphinxsidebar {
+    font-size: 90%;
+}
+
+div.sphinxsidebar ul {
+    list-style: none;
+    padding-left: 1.7em;
+}
+
+div.sphinxsidebar ul ul,
+div.sphinxsidebar ul.want-points {
+    margin-left: 20px;
+    list-style: square;
+}
+
+div.sphinxsidebar ul ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div.sphinxsidebar input {
+    border: 1px solid #98dbcc;
+    font-family: sans-serif;
+    font-size: 1em;
+}
+
+div.sphinxsidebar #searchbox form {
+    margin: 1em 0 0.4em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.sphinxsidebar #searchbox input[type="text"] {
+    width: 70%;
+    margin-right: .5em;
+}
+
+div.sphinxsidebar #searchbox input[type="submit"] {
+    margin: 0;
+}
+
+div.sphinxsidebar #searchbox .searchtip {
+    font-size: 0.9em;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+}
+
+/* -- search page ----------------------------------------------------------- */
+
+ul.search {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+ul.search li {
+    padding: 5px 0 5px 20px;
+    background-image: url(file.png);
+    background-repeat: no-repeat;
+    background-position: 0 7px;
+}
+
+ul.search li a {
+    font-weight: bold;
+}
+
+ul.search li div.context {
+    color: #888;
+    margin: 2px 0 0 30px;
+    text-align: left;
+}
+
+ul.keywordmatches li.goodmatch a {
+    font-weight: bold;
+}
+
+/* -- index page ------------------------------------------------------------ */
+
+table.contentstable {
+    width: 90%;
+}
+
+table.contentstable p.biglink {
+    line-height: 150%;
+}
+
+a.biglink {
+    font-size: 1.3em;
+}
+
+span.linkdescr {
+    font-style: italic;
+    padding-top: 5px;
+    font-size: 90%;
+}
+
+/* -- general index --------------------------------------------------------- */
+
+.genindex-wrapper {
+    margin-bottom: 2em;
+}
+
+.genindex-multi-columns {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+.genindex-multi-columns .main-index,
+.genindex-multi-columns .main-index-name {
+    font-weight: bold;
+}
+
+.genindex-multi-columns .main-index:before,
+.genindex-multi-columns .loop-index:before {
+    content: "[";
+}
+
+.genindex-multi-columns .main-index:after,
+.genindex-multi-columns .loop-index:after {
+    content: "]";
+}
+
+.genindex-multi-columns ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.genindex-multi-columns ul > li {
+    margin; 0;
+    list-style: none;
+}
+
+.genindex-multi-columns li.subentries {
+    list-style: none;
+}
+
+.genindex-multi-columns li.subentries:before {
+    content: "- ";
+}
+
+tr.pcap {
+    height: 10px;
+}
+
+tr.cap {
+    margin-top: 10px;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+img.toggler {
+    margin-right: 3px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.modindex-jumpbox, .genindex-jumpbox {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 1em 0 1em 0;
+    padding: 0.4em;
+    display: flex;
+}
+
+.genindex-jumpbox a,
+.modindex-jumpbox a { font-weight: bold; margin-right: 0.26em; }
+.genindex-jumpbox a + span,
+.modindex-jumpbox a + span { margin-right: 0.26em; }
+.genindex-jumpbox a + span:before,
+.modindex-jumpbox a + span:before { content: "|"; }
+
+.genindex-jumpbox .to-full span:after { content: "|"; }
+.genindex-jumpbox .to-full span + a { margin-left: 0.26em; }
+
+a.genindex-sidebarrel { font-weight: bold; margin-right: 0.26em; }
+a.genindex-sidebarrel + span { margin-right: 0.26em; }
+a.genindex-sidebarrel + span:before { content: "|"; }
+
+/* -- general body styles --------------------------------------------------- */
+
+a.headerlink {
+    visibility: hidden;
+}
+
+h1:hover > a.headerlink,
+h2:hover > a.headerlink,
+h3:hover > a.headerlink,
+h4:hover > a.headerlink,
+h5:hover > a.headerlink,
+h6:hover > a.headerlink,
+dt:hover > a.headerlink,
+caption:hover > a.headerlink,
+p.caption:hover > a.headerlink,
+div.code-block-caption:hover > a.headerlink {
+    visibility: visible;
+}
+
+div.body p.caption {
+    text-align: inherit;
+}
+
+div.body td {
+    text-align: left;
+}
+
+.field-list ul {
+    padding-left: 1em;
+}
+
+.first {
+    margin-top: 0 !important;
+}
+
+p.rubric {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+img.align-left, .figure.align-left, object.align-left {
+    clear: left;
+    float: left;
+    margin-right: 1em;
+}
+
+img.align-right, .figure.align-right, object.align-right {
+    clear: right;
+    float: right;
+    margin-left: 1em;
+}
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+/* -- sidebars -------------------------------------------------------------- */
+
+div.sidebar {
+    margin: 0 0 0.5em 1em;
+    border: 1px solid #ddb;
+    padding: 7px 7px 0 7px;
+    background-color: #ffe;
+    width: 40%;
+    float: right;
+}
+
+p.sidebar-title {
+    font-weight: bold;
+}
+
+/* -- topics ---------------------------------------------------------------- */
+
+div.topic {
+    border: 1px solid #ccc;
+    padding: 7px 7px 0 7px;
+    margin: 10px 0 10px 0;
+}
+
+p.topic-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* -- admonitions ----------------------------------------------------------- */
+
+div.admonition {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+div.admonition dt {
+    font-weight: bold;
+}
+
+div.admonition dl {
+    margin-bottom: 0;
+}
+
+p.admonition-title {
+    margin: 0px 10px 5px 0px;
+    font-weight: bold;
+}
+
+div.body p.centered {
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* -- tables ---------------------------------------------------------------- */
+
+table.docutils {
+    border: 0;
+    border-collapse: collapse;
+}
+
+table caption span.caption-number {
+    font-style: italic;
+}
+
+table caption span.caption-text {
+}
+
+table.docutils td, table.docutils th {
+    padding: 1px 8px 1px 5px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #aaa;
+}
+
+table.field-list td, table.field-list th {
+    border: 0 !important;
+}
+
+table.footnote td, table.footnote th {
+    border: 0 !important;
+}
+
+th {
+    text-align: left;
+    padding-right: 5px;
+}
+
+table.citation {
+    border-left: solid 1px gray;
+    margin-left: 1px;
+}
+
+table.citation td {
+    border-bottom: none;
+}
+
+/* -- figures --------------------------------------------------------------- */
+
+div.figure {
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+div.figure p.caption {
+    padding: 0.3em;
+}
+
+div.figure p.caption span.caption-number {
+    font-style: italic;
+}
+
+div.figure p.caption span.caption-text {
+}
+
+/* -- other body styles ----------------------------------------------------- */
+
+ol.arabic {
+    list-style: decimal;
+}
+
+ol.loweralpha {
+    list-style: lower-alpha;
+}
+
+ol.upperalpha {
+    list-style: upper-alpha;
+}
+
+ol.lowerroman {
+    list-style: lower-roman;
+}
+
+ol.upperroman {
+    list-style: upper-roman;
+}
+
+dl {
+    margin-bottom: 15px;
+}
+
+dd p {
+    margin-top: 0px;
+}
+
+dd ul, dd table {
+    margin-bottom: 10px;
+}
+
+dd {
+    margin-top: 3px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+div:target > h1, div:target > h2, div:target > h3,
+div:target > h4, div:target > h5, div:target > h6,
+span:target > h1, span:target > h2, span:target > h3,
+span:target > h4, span:target > h5, span:target > h6,
+h1:target, h2:target, h3:target, h4:target, h5:target, h6:target,
+dt:target, .highlighted {
+    background-color: #fbe54e;
+}
+
+dl.glossary dt {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.field-list ul {
+    margin: 0;
+    padding-left: 1em;
+}
+
+.field-list p {
+    margin: 0;
+}
+
+.optional {
+    font-size: 1.3em;
+}
+
+.sig-paren {
+    font-size: larger;
+}
+
+.versionmodified {
+    font-style: italic;
+}
+
+.system-message {
+    background-color: #fda;
+    padding: 5px;
+    border: 3px solid red;
+}
+
+.footnote:target  {
+    background-color: #ffa;
+}
+
+.line-block {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.line-block .line-block {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1.5em;
+}
+
+.guilabel, .menuselection {
+    font-family: sans-serif;
+}
+
+.accelerator {
+    text-decoration: underline;
+}
+
+.classifier {
+    font-style: oblique;
+}
+
+abbr, acronym {
+    border-bottom: dotted 1px;
+    cursor: help;
+}
+
+.valign-top { vertical-align: top; }
+.valign-bottom { vertical-align: bottom; }
+.fn-backref:before { content: "["; }
+.fn-backref:after { content: "]"; }
+.footnote-reference:before { content: "["; }
+.footnote-reference:after { content: "]"; }
+.footnote-reference { vertical-align: super; font-size: 75%; }
+
+/* -- code displays --------------------------------------------------------- */
+
+pre {
+    overflow: auto;
+    overflow-y: hidden;  /* fixes display issues on Chrome browsers */
+}
+
+td.linenos pre {
+    padding: 5px 0px;
+    border: 0;
+    background-color: transparent;
+    color: #aaa;
+}
+
+table.highlighttable {
+    margin-left: 0.5em;
+}
+
+table.highlighttable td {
+    padding: 0 0.5em 0 0.5em;
+}
+
+div.code-block-caption {
+    padding: 2px 5px;
+    font-size: small;
+}
+
+div.code-block-caption code {
+    background-color: transparent;
+}
+
+div.code-block-caption + div > div.highlight > pre {
+    margin-top: 0;
+}
+
+div.code-block-caption span.caption-number {
+    padding: 0.1em 0.3em;
+    font-style: italic;
+}
+
+div.code-block-caption span.caption-text {
+}
+
+div.literal-block-wrapper {
+    padding: 1em 1em 0;
+}
+
+div.literal-block-wrapper div.highlight {
+    margin: 0;
+}
+
+code.descname {
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+code.descclassname {
+    background-color: transparent;
+}
+
+code.xref, a code {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+    background-color: transparent;
+}
+
+.viewcode-link {
+    float: right;
+}
+
+.viewcode-back {
+    float: right;
+    font-family: sans-serif;
+}
+
+div.viewcode-block:target {
+    margin: -1px -10px;
+    padding: 0 10px;
+}
+
+li > p {
+    margin-bottom: 0;
+}
+
+.qualifier {
+    font-style: bold;
+}
+
+.description {
+    font-style: italic;
+}
+
+.extra {
+    font-style: italic;
+}
+
+/* -- math display ---------------------------------------------------------- */
+
+img.math {
+    vertical-align: middle;
+}
+
+div.body div.math p {
+    text-align: center;
+}
+
+span.eqno {
+    float: right;
+}
+
+/* -- printout stylesheet --------------------------------------------------- */
+
+@media print {
+    div.document,
+    div.documentwrapper,
+    div.bodywrapper {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    div.sphinxsidebar,
+    div.related,
+    div.footer,
+    #top-link {
+        display: none;
+    }
+}
