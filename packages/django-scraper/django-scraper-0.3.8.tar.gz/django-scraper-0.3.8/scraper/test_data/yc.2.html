@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class='no-js'>
+<head>
+<title>
+Y Combinator Posthaven
+</title>
+
+<script src="//posthaven-assets.s3.amazonaws.com/assets/modernizr.custom-1c2b9226ae724b41504ca414e3a385d5.js" type="text/javascript"></script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="nDdTfuX4rWPO77BB9aLaZ0LczHMFQU+puITLZlmFbbk=" name="csrf-token" />
+<meta content='width=device-width,initial-scale=1' name='viewport'>
+<meta content='Y Combinator Posthaven' property='og:title'>
+<meta content='website' property='og:type'>
+<meta content='http://blog.ycombinator.com/?_=1352111173338&amp;page=3' property='og:url'>
+<meta content='Y Combinator Posthaven' property='og:site_name'>
+<meta content='' property='og:description'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344012/j5DO2XnrqgMwYmnd1ebbuLyWrTo/large_BqbuzspIAAEaZPi.jpg' property='og:image'>
+<meta content='1024' property='og:image:width'>
+<meta content='768' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/large_compmapus.jpg' property='og:image'>
+<meta content='738' property='og:image:width'>
+<meta content='491' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/large_screen-shot-2015-02-13-at-10-35-52-pm.png' property='og:image'>
+<meta content='738' property='og:image:width'>
+<meta content='357' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1342075/sVJhBpURAqpRFD1cIDZiB31bq50/large_10740003635_0345281c6b_z.jpg' property='og:image'>
+<meta content='640' property='og:image:width'>
+<meta content='425' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1340358/nrBfKrxM17ThPbsp3sj4ONClNs4/large_screen-shot-2015-02-10-at-11-29-21.png' property='og:image'>
+<meta content='738' property='og:image:width'>
+<meta content='386' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1339890/v0uTKTsjQ8RpNkvoYKqFHn2R_UY/large_mic2015_sidebarlogo.jpg' property='og:image'>
+<meta content='300' property='og:image:width'>
+<meta content='160' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1339888/IlObSUh5KZBFDRJe1GpAx6L4WX8/large_Screen_Shot_2015-02-09_at_2.57.34_PM.png' property='og:image'>
+<meta content='329' property='og:image:width'>
+<meta content='364' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1339838/He1hQ_IlX2HOPPyC35CxLYy22Jo/large_standard-cyborg.jpg' property='og:image'>
+<meta content='738' property='og:image:width'>
+<meta content='492' property='og:image:height'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/profile_pic/asset/1095067/z1Mvfb6GiEa405SoRjHKSEd4hFw/large_logo2000.png' property='og:image'>
+<meta content='200' property='og:image:width'>
+<meta content='200' property='og:image:height'>
+<meta content='gallery' property='twitter:card'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344012/j5DO2XnrqgMwYmnd1ebbuLyWrTo/large_BqbuzspIAAEaZPi.jpg' property='twitter:image0'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/large_compmapus.jpg' property='twitter:image1'>
+<meta content='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/large_screen-shot-2015-02-13-at-10-35-52-pm.png' property='twitter:image2'>
+
+<link href="/posts.atom" rel="alternate" title="ATOM" type="application/atom+xml" />
+<link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300|Crimson+Text:400,400italic&amp;subset=latin,latin-ext" media="screen" rel="stylesheet" type="text/css" />
+<link href="//posthaven-assets.s3.amazonaws.com/assets/blog-216cd592f9aba3e6ae098e40e5c2a6b5.css" media="screen" rel="stylesheet" type="text/css" />
+<style>
+  </style> 
+  
+  <script>
+      var _roost = _roost || [];
+      _roost.push(['appkey','aa87cbfa247e49e4849c54a93bcca585']);
+  
+      !function(d,s,id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s); js.id=id;
+              js.src='//get.roost.me/js/roost.js';
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document, 'script', 'roost-js');
+  </script>
+</style>
+
+</head>
+<body id='site_798'>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=488600357843531";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="posthaven-widget posthaven-widget-site-control" data-url="https://posthaven.com/widget/site_render/control/798?widget_token=YpR6FRZNuNgERPX0u4A9rSQYoId4xen8fSShP5EttAg%3D"></div>
+<div id='container'>
+<header id='topbar'>
+<a href="https://posthaven.com/"><div class='posthaven-tab'></div>
+</a></header>
+<div id='flash'>
+</div>
+<header id='header'>
+<h1>
+<a href="http://blog.ycombinator.com">Y Combinator Posthaven
+</a></h1>
+<h2>
+
+</h2>
+
+
+<script src="http://blog.ycombinator.com/counter/homepage/count.js" type="text/javascript"></script>
+
+</header>
+<div id='main_container'>
+<div id='main'>
+<article class='post'>
+<header>
+<div class='post-title'>
+<h2>
+<a href="http://blog.ycombinator.com/managing-your-restaurant-deliveries-with-trackin-yc-w15-is-like-playing-simcity">Managing Your Restaurant Deliveries With Trackin (YC W15) Is Like Playing SimCity</a>
+</h2>
+</div>
+</header>
+<div class='post-body' id='post_body_812339'>
+<p>        <div class="posthaven-gallery" id="posthaven_gallery[795082]">
+          <div class="posthaven-gallery-car">
+                    <p class="posthaven-file posthaven-file-image posthaven-file-state-processed">
+          <img class="posthaven-gallery-image" src="https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/medium_compmapus.jpg" data-posthaven-state='processed'
+data-medium-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/medium_compmapus.jpg'
+data-medium-width='738'
+data-medium-height='491'
+data-large-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/large_compmapus.jpg'
+data-large-width='738'
+data-large-height='491'
+data-thumb-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/thumb_compmapus.jpg'
+data-thumb-width='200'
+data-thumb-height='200'
+data-xlarge-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/xlarge_compmapus.jpg'
+data-xlarge-width='738'
+data-xlarge-height='491'
+data-orig-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344022/5Snx0Vmj0XHCKpO6V5wDjUB9y0c/compmapus.jpg'
+data-orig-width='738'
+data-orig-height='491'
+data-posthaven-id='1344022'/>
+        </p>
+
+          </div>
+          <div class="posthaven-gallery-cdr">
+            
+          </div>
+        </div>
+</p><blockquote>
+<p>"Meet <a href="http://trackin.co/" target="_blank">Trackin</a>, a complete software solution for restaurant managers to control your fleet of delivery persons in real time and easily accept online orders. Trackin provides a dashboard for your restaurants, a mobile app for your drivers and an online order widget for your customers. Thanks to this startup attending Y Combinator’s current batch, you will know when your driver is back and when to start cooking.</p>
+<p>“With Trackin, you can track your drivers like in Uber’s app, and your clients can do the same as well,” founder and CEO Bruno Didier told me in a phone interview. “We can tell you what are your best delivery zones, and we’re a white label service.”</p>
+<p>The dashboard centralizes all your orders, including on third-party websites. People can order on your website using Trackin’s online order widget, <a href="https://www.grubhub.com/" target="_blank">GrubHub</a>, <a href="http://eat24hours.com/" target="_blank">Eat24</a> and other online ordering platforms, and every order will end up in Trackin. And of course, if someone calls you, you can manually add an order to your dashboard." </p>
+</blockquote><div><a href="http://techcrunch.com/2015/02/16/managing-your-restaurant-deliveries-with-trackin-is-like-playing-simcity/">Read the full story on TechCrunch</a></div><p><br></p>
+</div>
+
+<footer class='homepage-post-footer'>
+<div class='share'>
+<div class='share-item'>
+<div class="posthaven-widget posthaven-widget-post-upvote" data-url="https://posthaven.com/widget/post_render/upvote/812339?widget_token=HKcGD3PxMr7c3FpPUXHBmms2a9ODgVnNARK0orwZ8Yk%3D"></div>
+</div>
+
+<div class='twitter share-item'>
+<a class='twitter-share-button share-item' data-text='Managing Your Restaurant Deliveries With Trackin (YC W15) Is Like Playing SimCity' data-url='http://blog.ycombinator.com/managing-your-restaurant-deliveries-with-trackin-yc-w15-is-like-playing-simcity' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='facebook share-item'>
+<div class='fb-share-button' data-href='http://blog.ycombinator.com/managing-your-restaurant-deliveries-with-trackin-yc-w15-is-like-playing-simcity' data-layout='button_count'></div>
+</div>
+
+</div><span class='response-count'>
+<a href="http://blog.ycombinator.com/managing-your-restaurant-deliveries-with-trackin-yc-w15-is-like-playing-simcity">2 responses</a>
+</span><span class='slash-divider'>
+&nbsp;&nbsp;//&nbsp;&nbsp;
+</span>
+<span class='display-date'>
+Posted
+<a href="http://blog.ycombinator.com/managing-your-restaurant-deliveries-with-trackin-yc-w15-is-like-playing-simcity">13 days ago</a>
+by
+<a href="/author/2030-y-combinator">Y Combinator</a>
+</span>
+</footer>
+</article>
+<article class='post'>
+<header>
+<div class='post-title'>
+<h2>
+<a href="http://blog.ycombinator.com/direct-match-yc-w15-aims-to-make-bond-trading-as-easy-as-stock-trading">Direct Match (YC W15) Aims To Make Bond Trading As Easy As Stock Trading</a>
+</h2>
+</div>
+</header>
+<div class='post-body' id='post_body_812342'>
+<p>        <div class="posthaven-gallery" id="posthaven_gallery[795091]">
+          <div class="posthaven-gallery-car">
+                    <p class="posthaven-file posthaven-file-image posthaven-file-state-processed">
+          <img class="posthaven-gallery-image" src="https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/medium_screen-shot-2015-02-13-at-10-35-52-pm.png" data-posthaven-state='processed'
+data-medium-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/medium_screen-shot-2015-02-13-at-10-35-52-pm.png'
+data-medium-width='738'
+data-medium-height='357'
+data-large-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/large_screen-shot-2015-02-13-at-10-35-52-pm.png'
+data-large-width='738'
+data-large-height='357'
+data-thumb-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/thumb_screen-shot-2015-02-13-at-10-35-52-pm.png'
+data-thumb-width='200'
+data-thumb-height='200'
+data-xlarge-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/xlarge_screen-shot-2015-02-13-at-10-35-52-pm.png'
+data-xlarge-width='738'
+data-xlarge-height='357'
+data-orig-src='https://phaven-prod.s3.amazonaws.com/files/image_part/asset/1344031/1HpP9akWYX7gfepaPpFxZ09wWd0/screen-shot-2015-02-13-at-10-35-52-pm.png'
+data-orig-width='738'
+data-orig-height='357'
+data-posthaven-id='1344031'/>
+        </p>
+
+          </div>
+          <div class="posthaven-gallery-cdr">
+            
+          </div>
+        </div>
+</p><blockquote>
+<p>"Jim Greco sat in front of his computer at Jeffries Investment Bank headquarters in New York and thought about the futility of his bond trading job. He was about to pull up a file on his PC and then make a physical phone call to another institution to place an order for a bond transaction. Something needed to be done.</p>
+<p>Unlike the stock market, the bond market doesn’t have a centralized system where traders can plainly see the fees involved in the trade. This means traders have to ask each bank, one by one, either by phone or electronically, what they are willing to sell a Treasury bond for.</p>
+<p>It seems pretty archaic, but it’s the way the bond market operates for the most part right now.</p>
+<p>This gave Greco an idea that might seem rather simple: put the bond market online. Greco and his co-founder Galen Simmons created the Y Combinator-backed <a href="http://www.directmatchx.com/" target="_blank">Direct Match</a>, an online bond trading platform that centralizes that information so it can be as easy to trade bonds as it is to trade stocks."</p>
+</blockquote><p><a href="http://techcrunch.com/2015/02/15/yc-startup-direct-match-aims-to-make-bond-trading-as-easy-as-stock-trading/">Read the full story on TechCrunch</a></p>
+</div>
+
+<footer class='homepage-post-footer'>
+<div class='share'>
+<div class='share-item'>
+<div class="posthaven-widget posthaven-widget-post-upvote" data-url="https://posthaven.com/widget/post_render/upvote/812342?widget_token=-j7px1jktxn2F2y_6BwR60zJcvtgYBTik1yFg_AR9UU%3D"></div>
+</div>
+
+<div class='twitter share-item'>
+<a class='twitter-share-button share-item' data-text='Direct Match (YC W15) Aims To Make Bond Trading As Easy As Stock Trading' data-url='http://blog.ycombinator.com/direct-match-yc-w15-aims-to-make-bond-trading-as-easy-as-stock-trading' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='facebook share-item'>
+<div class='fb-share-button' data-href='http://blog.ycombinator.com/direct-match-yc-w15-aims-to-make-bond-trading-as-easy-as-stock-trading' data-layout='button_count'></div>
+</div>
+
+</div><span class='response-count'>
+<a href="http://blog.ycombinator.com/direct-match-yc-w15-aims-to-make-bond-trading-as-easy-as-stock-trading">3 responses</a>
+</span><span class='slash-divider'>
+&nbsp;&nbsp;//&nbsp;&nbsp;
+</span>
+<span class='display-date'>
+Posted
+<a href="http://blog.ycombinator.com/direct-match-yc-w15-aims-to-make-bond-trading-as-easy-as-stock-trading">13 days ago</a>
+by
+<a href="/author/2030-y-combinator">Y Combinator</a>
+</span>
+</footer>
+</article>
+<div class='pagination'>
+<ul class='clearfix'>
+
+<li class=''>
+<a href="yc.1.html">1</a>
+</li>
+
+<li>
+<a href="yc.2.html" >2</a>
+</li>
+
+<li class='active'>
+<a href="#" >3</a>
+</li>
+
+<li class=''>
+<a href="yc.4.html" rel="next">4</a>
+</li>
+
+<li class=''>
+<a href="yc.5.html">5</a>
+</li>
+
+<li class='disabled gap'>
+<a href="#">&hellip;</a>
+</li>
+
+<li>
+<a href="yc.3.html" rel="next">Next &rsaquo;</a>
+</li>
+</ul>
+</div>
+
+
+</div>
+<aside id='sidebar'>
+
+<section id='bio'>
+<h3>
+<a href="/author/2030-y-combinator">Y Combinator</a>
+</h3>
+<p>Not your average fixed point combinator.</p><p><a href="http://ycombinator.com">ycombinator.com</a></p>
+<div class='profile-pic'>
+<img height='72' src='https://phaven-prod.s3.amazonaws.com/files/profile_pic/asset/1095067/z1Mvfb6GiEa405SoRjHKSEd4hFw/medium_logo2000.png' width='72'>
+</div>
+
+</section>
+
+<section class='search-archive'>
+<form action='/archive' method='GET'>
+<input class='archive-search small' name='query' type='text'>
+</form>
+<div class='archive-link'>
+<a href="/archive">Browse the Archive&nbsp;&raquo;
+</a></div>
+</section>
+<section id='contributors'>
+<h3>Contributors</h3>
+<ul>
+<li>
+<a href="/author/11241-alexis-ohanian">Alexis Ohanian</a>
+</li>
+<li>
+<a href="/author/11075-daniel-gackle">Daniel Gackle</a>
+</li>
+<li>
+<a href="/author/1-garry-tan">Garry Tan</a>
+</li>
+<li>
+<a href="/author/3341-jessica-livingston">Jessica Livingston</a>
+</li>
+<li>
+<a href="/author/8324-kat-manalac">Kat Manalac</a>
+</li>
+<li>
+<a href="/author/9838-kevin-hale">Kevin Hale</a>
+</li>
+<li>
+<a href="/author/13512-michael-seibel">Michael Seibel</a>
+</li>
+<li>
+<a href="/author/2608-nick-sivo">Nick Sivo</a>
+</li>
+<li>
+<a href="/author/344-paul-graham">Paul Graham</a>
+</li>
+<li>
+<a href="/author/13017-qasar-younis">Qasar Younis</a>
+</li>
+<li>
+<a href="/author/1989-sam-altman">Sam Altman</a>
+</li>
+</ul>
+</section>
+
+<section class='subscribe'>
+<div class="posthaven-widget posthaven-widget-site-subscribe" data-url="https://posthaven.com/widget/site_render/subscribe/798?widget_token=YpR6FRZNuNgERPX0u4A9rSQYoId4xen8fSShP5EttAg%3D"></div>
+</section>
+<section id='tag_list_menu'>
+<h3>Tags</h3>
+<ul>
+<li class=''>
+<a href="/tag/Startup%20School%202013">Startup School 2013
+</a><span class='measure tag-count'>2</span>
+</li>
+<li class=''>
+<a href="/tag/safe">safe
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/w14">w14
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/Watsi">Watsi
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/Partners">Partners
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/Panorama">Panorama
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/videos">videos
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/B2B">B2B
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/Founder%20Stories">Founder Stories
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class=''>
+<a href="/tag/App.net">App.net
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/Applebee&#x27;s">Applebee's
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/Startup%20Notes">Startup Notes
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/Cambly">Cambly
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/S13">S13
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/tablets">tablets
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/mobile%20advertising">mobile advertising
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/Broadcasts">Broadcasts
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/URX">URX
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/E%20la%20Carte">E la Carte
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/advice">advice
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='hidden-tag'>
+<a href="/tag/ZenPayroll">ZenPayroll
+</a><span class='measure tag-count'>1</span>
+</li>
+<li class='show-tags'>
+<a href="/tags/all">See all 21 tags&nbsp;&raquo;
+</a></li>
+</ul>
+</section>
+
+<section id='feed_link'>
+<a href="/posts.atom"><span class='feed-icon'></span>
+</a></section>
+
+
+</aside>
+</div>
+</div>
+<script>
+  var POSTHAVEN_SCRIBD_PUB_ID = 'pub-93932668657726994124';
+</script>
+<script src="//www.scribd.com/javascripts/scribd_api.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"></script>
+<script async="async" src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+<script src="//posthaven-assets.s3.amazonaws.com/assets/blog-c65809e16c8189433fa9f4d3d2854213.js" type="text/javascript"></script>
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38525690-2']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+</script>
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['b._setAccount', 'UA-44894215-1']);
+  _gaq.push(['b._trackPageview']);
+</script>
+<script>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+             '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</body>
+</html>
