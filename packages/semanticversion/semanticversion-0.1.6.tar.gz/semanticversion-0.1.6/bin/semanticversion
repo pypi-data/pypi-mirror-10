@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+import os
+
+import argument
+
+import semanticversion
+
+
+def get_repo():
+    p = get_repo_path()
+    j = ""
+
+    f = open(p)
+    j = f.read()
+    f.close()
+
+    r = semanticversion.Repository.loads(j)
+    return r
+
+
+def get_repo_path(p="."):
+    return os.path.join(p, ".semanticversion.json")
+
+
+def store(repo):
+    j = repo.dumps()
+    p = get_repo_path()
+    f = open(p, "w")
+    f.write(j)
+    f.close()
+
+
+def cmd_init(args):
+    r = semanticversion.Repository()
+    store(r)
+
+
+def cmd_add(parm):
+    r = get_repo()
+    r.add_change(parm["command"], parm["text"] or "")
+    store(r)
+
+
+def cmd_release(parm):
+    r = get_repo()
+    r.release(parm["text"])
+    store(r)
+
+def cmd_export(parm):
+    r = get_repo()
+    exports = {
+        'python' : r.export_python,
+        'json' : r.export_json,
+        'md' : r.export_md,
+        'version' : r.export_version,
+    }
+    fn = exports[parm["text"]]
+    print(fn())
+
+commands = {
+    'init': cmd_init,
+    'fix': cmd_add,
+    'change': cmd_add,
+    'new': cmd_add,
+    'release': cmd_release,
+    'export': cmd_export
+}
+
+f = argument.Arguments()
+f.require("command", "Help")
+f.process("command", lambda x: x.lower())
+
+f.validate("command", lambda x: x in commands)
+f.maybe("text")
+
+args, errors = f.parse()
+if len(errors) == 0:
+    cmd = commands[args["command"]]
+    cmd(args)
+else:
+    print f
