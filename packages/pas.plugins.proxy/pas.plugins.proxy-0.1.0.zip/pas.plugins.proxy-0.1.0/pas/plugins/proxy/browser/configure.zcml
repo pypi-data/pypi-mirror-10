@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="pas.plugins.proxy">
+
+    <browser:page
+        name="proxy-roles-settings"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.ProxyRolesControlPanel"
+        permission="pas.plugins.proxy.AccessProxyRolesPanel"
+        layer="pas.plugins.proxy.interfaces.IPasPluginsProxyLayer"
+        />
+
+    <browser:resourceDirectory
+         name="pas.plugins.proxy.static"
+         directory="static"
+         />
+
+    <browser:page
+        name="add-proxy-user-roles-plugin"
+        for="zope.browser.interfaces.IAdding"
+        class="..plugin.AddForm"
+		template="../addform.pt"
+        permission="zope2.ViewManagementScreens"
+        />
+
+</configure>

@@ -1,0 +1,9 @@
+setuptools
+Products.CMFPlone
+Products.PlonePAS
+plone.api
+plone.app.registry
+plone.directives.form
+
+[test]
+plone.app.testing

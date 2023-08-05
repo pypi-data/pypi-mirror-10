@@ -1,0 +1,100 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-05-14 14:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: pas.plugins.proxy\n"
+
+msgid "A PAS plugin for proxy user's roles to other users"
+msgstr ""
+
+#: ./browser/controlpanel.py:107
+msgid "Changes saved"
+msgstr ""
+
+#: ./browser/controlpanel.py:63
+msgid "Do not duplicate entries."
+msgstr ""
+
+#: ./browser/controlpanel.py:113
+msgid "Edit cancelled"
+msgstr ""
+
+msgid "Proxy Role PAS Plugin"
+msgstr ""
+
+#: ./browser/controlpanel.py:36
+#: ./profiles/default/controlpanel.xml
+msgid "Proxy Roles Settings"
+msgstr ""
+
+#: ./browser/controlpanel.py:71
+msgid "You cannot delegate other users."
+msgstr ""
+
+#: ./browser/controlpanel.py:66
+msgid "You should select an existent username."
+msgstr ""
+
+#. Default: "${delegator} cannot delegate ${delegated}.\nYou cannot cross-delegate:\na user can't be delegator and delegated of another"
+#: ./browser/controlpanel.py:76
+msgid "cross_delegation_error"
+msgstr ""
+
+#. Default: "Set proxy roles."
+#: ./browser/controlpanel.py:37
+msgid "help_proxyroles_settings_editform"
+msgstr ""
+
+#. Default: "Select which user should acquire delegator roles."
+#: ./custom_fields.py:143
+msgid "ppp_delegated_help"
+msgstr ""
+
+#. Default: "Delegated user"
+#: ./custom_fields.py:142
+msgid "ppp_delegated_label"
+msgstr ""
+
+#. Default: "Select which user should delegate his roles."
+#: ./custom_fields.py:136
+msgid "ppp_delegator_help"
+msgstr ""
+
+#. Default: "Delegator user"
+#: ./custom_fields.py:135
+msgid "ppp_delegator_label"
+msgstr ""
+
+#. Default: "Proxy"
+#: ./interfaces.py:29
+msgid "ppp_proxy"
+msgstr ""
+
+#. Default: "Proxy roles"
+#: ./interfaces.py:27
+msgid "ppp_proxy_roles"
+msgstr ""
+
+#. Default: "Changes become effective only after pressing the SAVE button."
+#: ./browser/controlpanel.pt:24
+msgid "warning_save_label"
+msgstr ""
+
+#. Default: "Warning"
+#: ./browser/controlpanel.pt:23
+msgid "warning_save_type"
+msgstr ""
+

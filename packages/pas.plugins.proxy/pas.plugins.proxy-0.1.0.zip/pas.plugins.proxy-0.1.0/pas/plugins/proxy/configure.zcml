@@ -1,0 +1,80 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:pas="http://namespaces.zope.org/pluggableauthservice"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="pas.plugins.proxy">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include package="plone.app.registry" />
+  <i18n:registerTranslations directory="locales" />
+
+  <permission 
+     id="pas.plugins.proxy.AccessProxyRolesPanel" 
+     title="pas.plugins.proxy: Access proxy roles panel"
+     />
+  <permission 
+     id="pas.plugins.proxy.ManageProxyRoles" 
+     title="pas.plugins.proxy: Manage proxy roles"
+     /> 
+
+  <five:registerClass 
+        class=".plugin.ProxyUserRolesManager" 
+        meta_type="Proxy User's Roles Manager"
+        permission="zope2.ViewManagementScreens" 
+        addview="add-proxy-user-roles-plugin"
+        /> 
+
+  <pas:registerMultiPlugin
+        meta_type="Proxy User's Roles Manager"
+      />
+
+  <include package=".browser" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Proxy Roles PAS Plugin"
+      directory="profiles/default"
+      description="A PAS plugin for proxy user's roles to other users"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="test"
+      title="Proxy Roles PAS Plugin: test profile"
+      directory="profiles/test"
+      description="Used on tests"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Proxy Roles PAS Plugin: uninstall"
+      directory="profiles/uninstall"
+      description="Uninstall pas.plugins.proxy"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+    name="pas.plugins.proxy-various"
+    title="Additional Rolex Proxy setup"
+    description="PAS plugin installer"
+    handler=".setuphandlers.importVarious">
+  </genericsetup:importStep>
+
+  <!-- CUSTOM MULTILINE WIDGET -->
+  <class class=".custom_fields.ProxyUsersMultiWidget">
+      <require
+          permission="zope.Public"
+          interface=".custom_fields.IProxyUsersMultiWidget"
+      />
+  </class>
+
+  <utility
+    component=".vocabularies.UsersVocabularyFactory"
+    name="pas.plugins.proxy.vocabularies.UsersVocabulary"
+    />
+
+</configure>
