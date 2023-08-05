@@ -1,0 +1,145 @@
+==========
+Change Log
+==========
+
+v1.0.0, 11-10-2013
+------------------
+
+- Initial release.
+
+v1.0.1,  4-20-2014
+------------------
+
+- changes to DataViewx.
+
+- changes to Fitter.
+
+v1.0.2, 12-14-2014
+------------------
+
+- some changes to skill code
+
+- added new basic modules:
+
+  o pattern_alignment: compare two bit-patterns
+
+  o syscall: simplified system call
+
+- added new classes:
+  
+  o DialogBase: dialog base class with fixed font
+
+  o MessageDialog: message dialog for analysis reports
+
+  o FormulaCalculator: formula gui calculator class
+
+- Calc:
+
+  o fix binding problem
+
+- Data:
+
+  o read_hspice : read binary, other fixes
+ 
+  o read_nutmeg : partially written data-file read-in
+
+  o added new methods: delays, skews, period_time_average
+
+  o modified jitter analysis
+
+- DataViewx:
+
+  o add analyses: INL/DNL, period-time-average
+
+  o added MessageDialog to DataViewx analysis reports
+
+- PlotBase:
+
+  o add new windowing bindings
+
+  o other minor fixes
+
+- Tckt:
+
+  o architectural changes
+
+  o fixed several issues
+
+- interpolate:
+
+  o fix dictionary issue
+
+- range_sample:
+
+  o fix random issue
+
+
+v1.0.3,  4-14-2014
+------------------
+
+- added new classes:
+
+  o StatusDialog
+
+  o Balloonhelp
+
+- Data.py
+
+  o fix csv file detector
+
+  o cxmag method: don't use set method which might have trouble with
+    names which are numbers
+
+  o add write_vcsv method: Cadence VCSV-format
+
+  o revise/fix read_psf method
+
+- DataViewx.py
+
+  o add file->write VCSV-format
+
+  o add file->rename columns
+
+  o revise command parameter to include -x directive 
+
+  o add y-target and x-target specifications for linear regression
+
+  o add hex report of analog to digital parameters
+
+- DialogBase.py
+
+  o revise windows, resizable height only
+
+- NGspice.py
+
+  o add simulator configuration option (HSpice, NGspice)
+
+  o file menu options: add write NGspice circuit file
+
+  o edit menu: add simulator radiobuttons
+
+  o fix xcol, ycols plotting 
+
+- Pattern.py
+
+  o revise/correct PRBS pattern generator
+
+- PlotBase.py
+
+  o add x- and y-spread to line-parameters report
+
+  o add more information for vertical lines
+
+- Report.py
+
+  o add date and user methods
+
+- SelectionDialog.py
+
+  o add entry_emacs_bindings to entry windows
+
+- Tckt.py
+
+  o Fix spectre instance regular expression
+
+  o Fix spectre sine source 
