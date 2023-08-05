@@ -1,0 +1,46 @@
+# DO NOT DIRECTLY MODIFY THIS FILE!
+#
+#
+# Purpose:
+#   a) default global hac configuration file,
+#   b) template for user configuration
+#
+#
+# Configuration instructions:
+#
+#   1) create user's local configuration:
+#
+#       $ hac --copy-config
+#
+#   2) modify ~/.config/hac/hacrc (user configuration overrides default global
+#      configuration)
+#
+#
+# Detailed tutorial: https://github.com/plesiv/hac#user-content-tutorial
+#
+
+
+# directory for every problem (no top-level directory for contest)
+--subdir-depth=2
+
+# create template source and runner for C++
+--lang=cpp
+
+# create POSIX-shell script runner
+--runner=sh
+
+# work in current directory (don't put literals for path)
+--workdir=.
+
+# download and prepare pre-tests
+--tests=1
+
+# warn if files exist already
+--no-force
+
+# reduce information that application prints
+--terse
+
+# default command ("prepare the environment") when no explicit command given
+prep
+
