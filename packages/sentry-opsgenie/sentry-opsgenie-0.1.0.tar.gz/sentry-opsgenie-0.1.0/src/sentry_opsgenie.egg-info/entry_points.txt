@@ -1,0 +1,6 @@
+[sentry.apps]
+sentry_opsgenie = sentry_opsgenie
+
+[sentry.plugins]
+sentry_opsgenie = sentry_opsgenie.plugin:OpsGeniePlugin
+

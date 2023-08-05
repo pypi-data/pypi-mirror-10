@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: sentry-opsgenie
+Version: 0.1.0
+Summary: A Sentry extension which posts notifications to OpsGenie (https://www.opsgenie.com/).
+Home-page: https://github.com/getsentry/sentry-opsgenie
+Author: David Cramer
+Author-email: dcramer@gmail.com
+License: Apache 2.0
+Description: sentry-opsgenie
+        ===============
+        
+        An extension for `OpsGenie <https://www.opsgenie.com>`_ which creates OpsGenie alerts our of Sentry events.
+        
+        Install
+        -------
+        
+        Install the package via ``pip``::
+        
+            pip install sentry-opsgenie
+        
+        You can now configure alerts via the plugin configuration panel within your project.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
