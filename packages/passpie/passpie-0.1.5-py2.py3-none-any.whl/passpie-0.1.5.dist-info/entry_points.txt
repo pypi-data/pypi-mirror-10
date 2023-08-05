@@ -1,0 +1,4 @@
+[console_scripts]
+passpie = passpie.cli:cli
+passpie-complete = passpie.cli:complete
+
