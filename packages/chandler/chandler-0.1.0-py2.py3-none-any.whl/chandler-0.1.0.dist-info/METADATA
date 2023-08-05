@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: chandler
+Version: 0.1.0
+Summary: A simple CLI utility displaying OAR cluster information retrieved from the API.
+Home-page: https://github.com/oar-team/chandler
+Author: Bruno Bzeznik
+Author-email: Bruno.Bzeznik@imag.fr
+License: GNU GPL v2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Clustering
+Requires-Dist: requests
+Requires-Dist: natsort
+Requires-Dist: colorama
+
+UNKNOWN
+
+
