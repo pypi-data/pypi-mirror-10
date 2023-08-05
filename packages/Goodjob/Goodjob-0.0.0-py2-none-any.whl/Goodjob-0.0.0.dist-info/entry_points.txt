@@ -1,0 +1,5 @@
+[console_scripts]
+gj-executor = goodjob.cli.executor:main
+gj-notifier = goodjob.cli.notifier:main
+gj-api = goodjob.cli.api:main
+
