@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: s3img-ipython-magic
+Version: 0.0.1
+Summary: s3 image line magic for ipython 2 and 3
+Home-page: https://github.com/AustinRochford/s3img-ipython-magic
+Author: Austin Rochford
+Author-email: austin.rochford@gmail.com
+License: MIT
+Description: This package provides a line magic for embedding images from Amazon S3 into an IPython notebook
+Keywords: ipython
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
