@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Flent
+Comment=The FLExible Network Tester
+Exec=flent --gui %F
+Icon=applications-internet
+Categories=Qt;Network;
+Terminal=false
+MimeType=application/vnd.flent.data;application/x-compressed-json;
