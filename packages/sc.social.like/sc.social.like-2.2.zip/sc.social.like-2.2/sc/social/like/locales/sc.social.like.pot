@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-04-30 19:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+msgid "A simple, yet useful, social networking integration for Plone"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:44
+msgid "Admins"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:54
+msgid "Application ID"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:65
+msgid "Button style"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.pt:123
+msgid "Configure each plugin."
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:90
+msgid "Configure settings for Facebook integration."
+msgstr ""
+
+#: ./sc/social/like/plugins/twitter/controlpanel.py:41
+msgid "Configure settings for Twitter integration."
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:104
+msgid "Configure settings for social like actions."
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:44
+msgid "Content types"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:63
+msgid "Facebook buttons"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:17
+msgid "Like"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.pt:119
+msgid "Plugin-Specific Configuration"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:55
+msgid "Plugins"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:18
+msgid "Recommend"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:23
+msgid "Share"
+msgstr ""
+
+#: ./sc/social/like/plugins/whatsapp/templates/plugin.pt:2
+msgid "Share in WhatsApp"
+msgstr ""
+
+#: ./sc/social/like/profiles/default/controlpanel.xml
+msgid "Social Like"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:89
+msgid "Social: Facebook settings"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:105
+msgid "Social: Like Actions"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:103
+msgid "Social: Like Actions settings"
+msgstr ""
+
+#: ./sc/social/like/plugins/twitter/controlpanel.py:40
+msgid "Social: Twitter settings"
+msgstr ""
+
+#: ./sc/social/like/plugins/twitter/controlpanel.py:19
+msgid "Twitter nick"
+msgstr ""
+
+#: ./sc/social/like/plugins/facebook/controlpanel.py:31
+msgid "Verb to display"
+msgstr ""
+
+#. Default: "A comma-separated list of either the Facebook IDs of page administrators."
+#: ./sc/social/like/plugins/facebook/controlpanel.py:45
+msgid "help_admins"
+msgstr ""
+
+#. Default: "A Facebook Platform application ID."
+#: ./sc/social/like/plugins/facebook/controlpanel.py:55
+msgid "help_appid"
+msgstr ""
+
+#. Default: "Please select which plugins will be used"
+#: ./sc/social/like/controlpanel/likes.py:56
+msgid "help_enabled_plugins"
+msgstr ""
+
+#. Default: "Select buttons to be shown"
+#: ./sc/social/like/plugins/facebook/controlpanel.py:64
+msgid "help_fbbuttons"
+msgstr ""
+
+#. Default: "Please select content types in which the viewlet will be applied."
+#: ./sc/social/like/controlpanel/likes.py:45
+msgid "help_portal_types"
+msgstr ""
+
+#. Default: "Choose your button style."
+#: ./sc/social/like/controlpanel/likes.py:66
+msgid "help_selected_buttons"
+msgstr ""
+
+#. Default: "The verb to display in the facebook button. Currently only 'like' and 'recommend' are supported."
+#: ./sc/social/like/plugins/facebook/controlpanel.py:32
+msgid "help_verb_display"
+msgstr ""
+
+#. Default: "Enter your twitter nick. eg. simplesconsultoria"
+#: ./sc/social/like/plugins/twitter/controlpanel.py:20
+msgid "help_your_twitter_nick"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:35
+msgid "horizontal"
+msgstr ""
+
+#: ./sc/social/like/controlpanel/likes.py:36
+msgid "vertical"
+msgstr ""
+
