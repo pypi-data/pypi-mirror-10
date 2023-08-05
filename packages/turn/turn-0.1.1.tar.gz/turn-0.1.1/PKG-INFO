@@ -1,0 +1,82 @@
+Metadata-Version: 1.0
+Name: turn
+Version: 0.1.1
+Summary: Turn is a distributed resource locking queue system using python and redis.
+Home-page: UNKNOWN
+Author: Arjan Verkerk
+Author-email: arjan.verkerk@nelen-schuurmans.nl
+License: GPL
+Description: Turn
+        ====
+        
+        Introduction
+        ------------
+        Turn is a distributed resource locking queue system using python and
+        redis. With it a process thread can request a lock on a shared resource
+        and wait for green light to do its work safely.
+        
+        Turn comes with a number of tools for inspection of the queues or the
+        pubsub system for one or more resources.
+        
+        Installation
+        ------------
+        
+        ::
+            $ pip install turn
+        
+        Usage
+        -----
+        
+        Basic usage goes like this::
+        
+            import turn
+            server = turn.Server()
+        
+            resource = 'my_valuable_resource'
+            label = 'This shows up in status reports and messages.'
+        
+            with server.lock(resource=resource, label=label):
+                pass  # do your careful work on the resource here
+        
+        Inspection can be done using the console script:
+        
+        .. code::
+        
+            $ turn status my_valuable_resource
+            my_valuable_resource                                       5
+            ------------------------------------------------------------
+            This shows up in status reports and messages.              5
+        
+        .. code::
+        
+            $ turn follow my_valuable_resource
+            my_valuable_resource: 5 drawn by "This shows up in status reports and messages."
+            my_valuable_resource: 5 starts
+            my_valuable_resource: 5 completed by "This shows up in status reports and messages."
+            my_valuable_resource: 6 can start now
+        
+        
+        Credits
+        =======
+        
+        - Arjan Verkerk started this library
+        
+        
+        Changelog of turn
+        ===================================================
+        
+        
+        0.1.1 (2015-04-23)
+        ------------------
+        
+        - U can use pip now.
+        
+        
+        0.1 (2015-04-23)
+        ----------------
+        
+        - Initial project structure created with nensskel 1.36.dev0.
+        
+        - First working version.
+        
+Platform: UNKNOWN
