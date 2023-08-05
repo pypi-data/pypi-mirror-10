@@ -1,0 +1,41 @@
+{#
+    basic/genindex-split.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Template for a "split" index overview page.
+
+    :copyright: Copyright 2007-2015 by the Sphinx team, see AUTHORS.
+    :license: BSD, see LICENSE for details.
+#}
+{%- extends "layout.html" %}
+{% set title = _('Index') %}
+{% block body %}
+<!-- start genindex-split.html -->
+   <h1 id="index">{{ _('Index') }}</h1>
+
+   <p>{{ _('Index pages by letter') }}:</p>
+
+   <div class="genindex-jumpbox">
+   <p>{% for key, dummy in genindexentries -%}
+   <span></span><a href="{{ pathto('genindex-' + key) }}">{{ key }}</a>
+   {%- endfor %}</p>
+
+   <p class="to-full"><span></span><a href="{{ pathto('genindex-all') }}">{{ _('Full index on one page') }}
+                                               ({{ _('can be huge') }})</a></p>
+   </div>
+<!-- end genidex-split.html -->
+{% endblock %}
+
+{% block sidebarrel %}
+{% if split_index %}
+   <!-- start defined at genindex-split.html -->
+   <h4>Index</h4>
+   <p>{% for key, dummy in genindexentries -%}
+   <span></span><a href="{{ pathto('genindex-' + key) }}" class="genindex-sidebarrel">{{ key }}</a>
+   {%- endfor %}</p>
+
+   <p><a href="{{ pathto('genindex-all') }}" class="genindex-sidebarrel">{{ _('Full index on one page') }}</a></p>
+   <!-- end defined at genindex-split.html -->
+{% endif %}
+   {{ super() }}
+{% endblock %}
