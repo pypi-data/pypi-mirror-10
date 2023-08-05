@@ -1,0 +1,16 @@
+# Python 2/3 compatibility library -- MIT license
+six
+# HTTP request library -- ASL license
+requests[security]
+# filesystem caching support for requests -- MIT license
+CacheControl >= 0.10.8
+# required for CacheControl.caches.FileCache -- MIT license
+lockfile
+# parses and standardizes phone numbers -- ASL license
+phonenumbers
+# date/time library -- ASL license
+arrow
+# another python sqlite wrapper -- zlib license (or any OSI-approved license)
+apsw
+# setup.py uses setuptools, various code uses pkg_resources
+setuptools

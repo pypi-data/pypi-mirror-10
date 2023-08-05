@@ -1,0 +1,21 @@
+six
+requests[security]
+CacheControl >= 0.10.8
+lockfile
+phonenumbers
+arrow
+apsw
+setuptools
+
+[dev]
+pytest-pep8
+pytest-cache
+pytest
+wsgi_intercept
+mock
+responses
+httpbin
+wheel
+
+[web]
+CherryPy
