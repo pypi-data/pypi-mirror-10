@@ -1,0 +1,15 @@
+venusian>=1.0a8
+docopt
+trollius
+futures
+ipaddress
+configparser
+
+[test]
+feedparser
+requests
+twitter
+aiocron
+redis
+mock
+pysendfile
