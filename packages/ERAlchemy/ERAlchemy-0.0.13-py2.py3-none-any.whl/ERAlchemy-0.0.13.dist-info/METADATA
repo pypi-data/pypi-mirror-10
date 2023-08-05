@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: ERAlchemy
+Version: 0.0.13
+Summary: Simple entity relation (ER) diagrams generation
+Home-page: https://github.com/Alexis-benoist/eralchemy
+Author: Alexis Benoist
+Author-email: alexis.benoist@gmail.com
+License: Apache License 2.0
+Keywords: sql relational databases ER diagram render
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: SQLAlchemy
+Requires-Dist: pygraphviz
+
+['Entity relation (ER) diagrams generator\n', '=======================================\n', '\n', 'ERAlchemy is integrated with SQLAlchemy and is able to generate the ER\n', 'digram from an existing database.\n', '\n', 'Example\n', '=======\n', '\n', '.. figure:: https://raw.githubusercontent.com/Alexis-benoist/eralchemy/master/graph_example.png?raw=true\n', '   :alt: Example for a graph\n', '\n', '   Example for a graph\n', '\n', 'Quick Start\n', '===========\n', '\n', 'Install\n', '-------\n', '\n', 'To install ERAlchemy, just do\n', '\n', '::\n', '\n', '    pip install eralchemy\n', '\n', '``ERAlchemy`` requires\n', '`GraphViz <http://www.graphviz.org/Download.php>`__ to generate the\n', 'graphs.\n', '\n', 'Use from python\n', '---------------\n', '\n', '.. code:: python\n', '\n', '    from eralchemy import draw_er\n', '    # Draw from SQLAlchemy base\n', "    draw_er(Base, 'erd_from_sqlalchemy.png')\n", '\n', '    # Draw from database\n', '    draw_er("sqlite:///relative/path/to/db.db", \'erd_from_sqlite.png\')\n', '\n', 'Use from the command line\n', '-------------------------\n', '\n', '::\n', '\n', '    $ eralchemy -i sqlite:///relative/path/to/db.db -o erd_from_sqlite.png\n', '\n', 'Architecture\n', '============\n', '\n', '.. figure:: https://raw.githubusercontent.com/Alexis-benoist/eralchemy/master/eralchemy_architecture.png?raw=true\n', '   :alt: Architecture schema\n', '\n', '   Architecture schema\n', '\n', "Thanks to it's modular architecture, it can be connected to other\n", 'ORMs/ODMs/OGMs/O\\*Ms.\n', '\n', 'Notes\n', '=====\n', '\n', 'ERAlchemy was inspired by `erd <https://github.com/BurntSushi/erd>`__.\n', '\n', 'Released under an Apache License 2.0\n', '\n', 'Creator: Alexis Benoist\n']
+
+
