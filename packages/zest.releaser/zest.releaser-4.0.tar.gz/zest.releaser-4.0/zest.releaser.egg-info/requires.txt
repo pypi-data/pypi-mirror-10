@@ -1,0 +1,12 @@
+setuptools
+colorama
+
+[recommended]
+check-manifest
+pyroma
+wheel
+twine
+
+[test]
+z3c.testsetup
+wheel
