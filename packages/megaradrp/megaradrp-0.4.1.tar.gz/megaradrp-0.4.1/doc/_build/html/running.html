@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Running the pipeline &mdash; MEGARA Data Reduction Pipeline 0.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="MEGARA Data Reduction Pipeline 0.4.0 documentation" href="index.html" />
+    <link rel="next" title="Observing modes" href="modes.html" />
+    <link rel="prev" title="Testing" href="testing.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modes.html" title="Observing modes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="testing.html" title="Testing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">MEGARA Data Reduction Pipeline 0.4.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="running-the-pipeline">
+<h1>Running the pipeline<a class="headerlink" href="#running-the-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>The MEGARA DRP is run through a command line interface
+provided by <strong class="program">numina</strong>.</p>
+<p>The run mode of numina requires:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A observation result file in <a class="reference external" href="http://www.yaml.org">YAML</a> format</li>
+<li>A requirements file in YAML format</li>
+<li>The raw images obtained in the observing block</li>
+<li>The calibrations required by the recipe</li>
+</ul>
+</div></blockquote>
+<p>The observation result file and the requirements file are created by the user,
+the format is described in the following sections.</p>
+<div class="section" id="format-of-the-observation-result">
+<h2>Format of the observation result<a class="headerlink" href="#format-of-the-observation-result" title="Permalink to this headline">¶</a></h2>
+<p>The contents of the file is a serialized dictionary with the
+following keys:</p>
+<dl class="docutils">
+<dt><em>id</em>: not required, integer, defaults to 1</dt>
+<dd>Unique identifier of the observing block</dd>
+<dt><em>instrument</em>: required, string</dt>
+<dd>Name of the instrument, as it is returned by <tt class="docutils literal"><span class="pre">numina</span> <span class="pre">show-instruments</span></tt></dd>
+<dt><em>mode</em>: required, string</dt>
+<dd>Name of the observing mode, as returned by <tt class="docutils literal"><span class="pre">numina</span> <span class="pre">show-modes</span></tt></dd>
+<dt><em>children</em>: not required, list of integers, defaults to empty list</dt>
+<dd>Identifications of nested observing blocks</dd>
+<dt><em>frames</em>: required, list of strings</dt>
+<dd>List of images names</dd>
+</dl>
+<p>This is an example of the observation result file</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">21</span>
+<span class="l-Scalar-Plain">instrument</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MEGARA</span>
+<span class="l-Scalar-Plain">mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dark_image</span>
+<span class="l-Scalar-Plain">frames</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0121.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0122.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0123.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0124.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0125.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0126.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0127.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0128.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0129.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0130.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0131.fits</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">r0132.fits</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="format-of-the-requirements-file">
+<h2>Format of the requirements file<a class="headerlink" href="#format-of-the-requirements-file" title="Permalink to this headline">¶</a></h2>
+<p>This file contains configuration parameters for the recipes that
+are not related to the particular instrument used.</p>
+<p>The contents of the file are serialized as a dictionary with the
+following keys:</p>
+<dl class="docutils">
+<dt>requirements: required, dictionary</dt>
+<dd>A dictionary of parameter names and values.</dd>
+<dt>products: optional, dictionary</dt>
+<dd>A dictionary with names for the products</dd>
+<dt>logger: optional, dictionary</dt>
+<dd>A dictionary used to configure the custom file logger</dd>
+</dl>
+<p>Example requirements file</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">master_bias</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">master_bias-1.fits</span>
+<span class="l-Scalar-Plain">products</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">darkframe</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">master_dark.fits</span>
+<span class="l-Scalar-Plain">logger</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">logfile</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">processing.log</span>
+  <span class="l-Scalar-Plain">format</span><span class="p-Indicator">:</span> <span class="s">&quot;%(asctime)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(name)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(levelname)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s&quot;</span>
+  <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<div class="section" id="generating-template-requirement-files">
+<h3>Generating template requirement files<a class="headerlink" href="#generating-template-requirement-files" title="Permalink to this headline">¶</a></h3>
+<p>Template requirement files can be generated by <strong class="program">numina show-recipes</strong>.</p>
+<p>The flag <tt class="docutils literal"><span class="pre">-t</span></tt> generates templates for the named recipe or for all the available
+recipes if no name is passed.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ numina show-recipes -t megaradrp.recipes.DarkRecipe
+# This is a numina 0.13dev template file
+# for recipe &#39;megaradrp.recipes.DarkRecipe&#39;
+#
+requirements: {master_bias: master_bias.fits}
+#products:
+# qc: QC.UNKNOWN
+# darkframe: darkframe.fits
+#logger:
+# logfile: processing.log
+# format: &quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;
+# enabled: true
+</pre></div>
+</div>
+<p>The # character is a comment, so every line starting with it can safely
+removed. The names of FITS files in the requirements section must be edited to
+point to existing files.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Running the pipeline<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong class="program">numina</strong> copies the images (calibrations and raw data) from directory
+<tt class="docutils literal"><span class="pre">datadir</span></tt> to directory <tt class="docutils literal"><span class="pre">workdir</span></tt>, where the processing happens.
+The result is stored in directory <tt class="docutils literal"><span class="pre">resultsdir</span></tt>.
+The default values are for each directory are``_data``, <tt class="docutils literal"><span class="pre">_work</span></tt> and <tt class="docutils literal"><span class="pre">_results</span></tt>.
+All these directories can be defined in the command line using flags:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ numina run --workdir /tmp/test1 --datadir /scrat/obs/run12222 obs.yaml -r requires.raml
+</pre></div>
+</div>
+<p>See <a class="reference external" href="http://numina.readthedocs.org/en/latest/user/cli.html#cli" title="(in Numina v0.14)"><em>Command Line Interface</em></a> for a full description of the command line interface.</p>
+<p>Following the example, we create a directory <tt class="docutils literal"><span class="pre">_data</span></tt> in our current directory and copy
+there the raw frames from <tt class="docutils literal"><span class="pre">r0121.fits</span></tt> to <tt class="docutils literal"><span class="pre">r0132.fits``and</span> <span class="pre">the</span> <span class="pre">master</span> <span class="pre">bias</span> <span class="pre">``master_bias-1.fits</span></tt>.</p>
+<p>The we run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ numina run obsresult.yaml -r requirements.yaml
+INFO: Numina simple recipe runner version 0.13dev
+INFO: Loading observation result from &#39;obsrun.yaml&#39;
+INFO: Identifier of the observation result: 1
+INFO: instrument name: MEGARA
+...
+numina.recipes.megara INFO stacking 4 images using median
+numina.recipes.megara INFO bias reduction ended
+INFO: result: BiasRecipeResult(qc=Product(type=QualityControlProduct(), dest=&#39;qc&#39;), biasframe=Product(type=MasterBias(), dest=&#39;biasframe&#39;))
+INFO: storing result
+</pre></div>
+</div>
+<p>We get information of what&#8217;s going on through logging messages. In the end, the result and log files are stored in <tt class="docutils literal"><span class="pre">_results</span></tt>.
+The working directory <tt class="docutils literal"><span class="pre">_work</span></tt> can be inspected too.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Running the pipeline</a><ul>
+<li><a class="reference internal" href="#format-of-the-observation-result">Format of the observation result</a></li>
+<li><a class="reference internal" href="#format-of-the-requirements-file">Format of the requirements file</a><ul>
+<li><a class="reference internal" href="#generating-template-requirement-files">Generating template requirement files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Running the pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="testing.html"
+                        title="previous chapter">Testing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modes.html"
+                        title="next chapter">Observing modes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/running.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modes.html" title="Observing modes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="testing.html" title="Testing"
+             >previous</a> |</li>
+        <li><a href="index.html">MEGARA Data Reduction Pipeline 0.4.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013-2015, Universidad Complutense de Madrid.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

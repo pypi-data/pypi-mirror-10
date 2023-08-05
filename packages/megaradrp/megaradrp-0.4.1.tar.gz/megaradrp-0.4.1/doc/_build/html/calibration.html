@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Calibration Modes &mdash; MEGARA Data Reduction Pipeline 0.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="MEGARA Data Reduction Pipeline 0.4.0 documentation" href="index.html" />
+    <link rel="up" title="Observing modes" href="modes.html" />
+    <link rel="next" title="Auxiliary Modes" href="auxiliary.html" />
+    <link rel="prev" title="Observing modes" href="modes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="auxiliary.html" title="Auxiliary Modes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="modes.html" title="Observing modes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">MEGARA Data Reduction Pipeline 0.4.0 documentation</a> &raquo;</li>
+          <li><a href="modes.html" accesskey="U">Observing modes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="calibration-modes">
+<h1>Calibration Modes<a class="headerlink" href="#calibration-modes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bias">
+<h2>Bias<a class="headerlink" href="#bias" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Bias</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.BiasRecipe" title="megaradrp.recipes.calibration.BiasRecipe"><tt class="xref py py-class docutils literal"><span class="pre">BiasRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<p>The actions to calibrate the zero (pedestal) level of the detector
+plus associated control electronic by taken images with null
+integration time.</p>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="18%" />
+<col width="14%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Default</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'master_bpm'</span></tt></td>
+<td>Product</td>
+<td>NA</td>
+<td>Master BPM frame</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="procedure">
+<h3>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h3>
+<p>The frames in the observed block are stacked together using the median of them as the final result.
+The variance of the result frame is computed using two different methods.
+The first method computes the variance across the pixels in the different frames stacked.
+The second method computes the variance en each channel in the result frame.</p>
+</div>
+<div class="section" id="products">
+<h3>Products<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'biasframe'</span></tt></td>
+<td><a class="reference internal" href="reference/dataproducts.html#megaradrp.dataproducts.MasterBias" title="megaradrp.dataproducts.MasterBias"><tt class="xref py py-class docutils literal"><span class="pre">MasterBias</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">'stats'</span></tt></td>
+<td><tt class="xref py py-class docutils literal"><span class="pre">ChannelLevelStatistics</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="dark">
+<h2>Dark<a class="headerlink" href="#dark" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Dark</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.DarkRecipe" title="megaradrp.recipes.calibration.DarkRecipe"><tt class="xref py py-class docutils literal"><span class="pre">DarkRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h3>Requirements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3>Procedure<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id3">
+<h3>Products<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="slit-flat">
+<h2>Slit-flat<a class="headerlink" href="#slit-flat" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Slit-flat</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">SlitFlatRecipe</span></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="requeriments">
+<h3>Requeriments<a class="headerlink" href="#requeriments" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>Procedure<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id5">
+<h3>Products<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="fiber-flat">
+<span id="ff-mode-label"></span><h2>Fiber-flat<a class="headerlink" href="#fiber-flat" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Fiber-flat</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.FiberFlatRecipe" title="megaradrp.recipes.calibration.FiberFlatRecipe"><tt class="xref py py-class docutils literal"><span class="pre">FiberFlatRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id6">
+<h3>Requirements<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id7">
+<h3>Procedure<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id8">
+<h3>Products<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="twilight-fiber-flat">
+<h2>Twilight fiber-flat<a class="headerlink" href="#twilight-fiber-flat" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Twilight fiber-flat</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">TwiligthFiberFlatRecipe</span></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id9">
+<h3>Requeriments<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3>Procedure<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id11">
+<h3>Products<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="arc">
+<h2>Arc<a class="headerlink" href="#arc" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Arc</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.ArcRecipe" title="megaradrp.recipes.calibration.ArcRecipe"><tt class="xref py py-class docutils literal"><span class="pre">ArcRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id12">
+<h3>Requirements<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id13">
+<h3>Procedure<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id14">
+<h3>Products<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="standard-star-with-the-lcb-ifu">
+<h2>Standard star with the LCB IFU<a class="headerlink" href="#standard-star-with-the-lcb-ifu" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Standard start with the LCB IFU</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.LCB_IFU_StdStarRecipe" title="megaradrp.recipes.calibration.LCB_IFU_StdStarRecipe"><tt class="xref py py-class docutils literal"><span class="pre">LCB_IFU_StdStarRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id15">
+<h3>Requirements<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id16">
+<h3>Procedure<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id17">
+<h3>Products<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="standard-star-with-the-fiber-mos">
+<h2>Standard star with the Fiber MOS<a class="headerlink" href="#standard-star-with-the-fiber-mos" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Standard start with the FIBER MOS</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.FiberMOS_StdStarRecipe" title="megaradrp.recipes.calibration.FiberMOS_StdStarRecipe"><tt class="xref py py-class docutils literal"><span class="pre">FiberMOS_StdStarRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id18">
+<h3>Requirements<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id19">
+<h3>Procedure<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id20">
+<h3>Products<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="bad-pixels-mask">
+<h2>Bad-pixels mask<a class="headerlink" href="#bad-pixels-mask" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Bad-pixels mask</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.BadPixelsMaskRecipe" title="megaradrp.recipes.calibration.BadPixelsMaskRecipe"><tt class="xref py py-class docutils literal"><span class="pre">BadPixelsMaskRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id21">
+<h3>Requirements<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id22">
+<h3>Procedure<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id23">
+<h3>Products<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="linearity-tests">
+<h2>Linearity tests<a class="headerlink" href="#linearity-tests" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Linearity tests</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.LinearityTestRecipe" title="megaradrp.recipes.calibration.LinearityTestRecipe"><tt class="xref py py-class docutils literal"><span class="pre">LinearityTestRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id24">
+<h3>Requirements<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id25">
+<h3>Procedure<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id26">
+<h3>Products<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="trace">
+<h2>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Trace</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body">Offline</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Recipe class:</th><td class="field-body"><a class="reference internal" href="reference/recipes.html#megaradrp.recipes.calibration.TraceMapRecipe" title="megaradrp.recipes.calibration.TraceMapRecipe"><tt class="xref py py-class docutils literal"><span class="pre">TraceMapRecipe</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id27">
+<h3>Requirements<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id28">
+<h3>Procedure<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id29">
+<h3>Products<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Calibration Modes</a><ul>
+<li><a class="reference internal" href="#bias">Bias</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#procedure">Procedure</a></li>
+<li><a class="reference internal" href="#products">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dark">Dark</a><ul>
+<li><a class="reference internal" href="#id1">Requirements</a></li>
+<li><a class="reference internal" href="#id2">Procedure</a></li>
+<li><a class="reference internal" href="#id3">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#slit-flat">Slit-flat</a><ul>
+<li><a class="reference internal" href="#requeriments">Requeriments</a></li>
+<li><a class="reference internal" href="#id4">Procedure</a></li>
+<li><a class="reference internal" href="#id5">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fiber-flat">Fiber-flat</a><ul>
+<li><a class="reference internal" href="#id6">Requirements</a></li>
+<li><a class="reference internal" href="#id7">Procedure</a></li>
+<li><a class="reference internal" href="#id8">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#twilight-fiber-flat">Twilight fiber-flat</a><ul>
+<li><a class="reference internal" href="#id9">Requeriments</a></li>
+<li><a class="reference internal" href="#id10">Procedure</a></li>
+<li><a class="reference internal" href="#id11">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#arc">Arc</a><ul>
+<li><a class="reference internal" href="#id12">Requirements</a></li>
+<li><a class="reference internal" href="#id13">Procedure</a></li>
+<li><a class="reference internal" href="#id14">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#standard-star-with-the-lcb-ifu">Standard star with the LCB IFU</a><ul>
+<li><a class="reference internal" href="#id15">Requirements</a></li>
+<li><a class="reference internal" href="#id16">Procedure</a></li>
+<li><a class="reference internal" href="#id17">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#standard-star-with-the-fiber-mos">Standard star with the Fiber MOS</a><ul>
+<li><a class="reference internal" href="#id18">Requirements</a></li>
+<li><a class="reference internal" href="#id19">Procedure</a></li>
+<li><a class="reference internal" href="#id20">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bad-pixels-mask">Bad-pixels mask</a><ul>
+<li><a class="reference internal" href="#id21">Requirements</a></li>
+<li><a class="reference internal" href="#id22">Procedure</a></li>
+<li><a class="reference internal" href="#id23">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linearity-tests">Linearity tests</a><ul>
+<li><a class="reference internal" href="#id24">Requirements</a></li>
+<li><a class="reference internal" href="#id25">Procedure</a></li>
+<li><a class="reference internal" href="#id26">Products</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#trace">Trace</a><ul>
+<li><a class="reference internal" href="#id27">Requirements</a></li>
+<li><a class="reference internal" href="#id28">Procedure</a></li>
+<li><a class="reference internal" href="#id29">Products</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modes.html"
+                        title="previous chapter">Observing modes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="auxiliary.html"
+                        title="next chapter">Auxiliary Modes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/calibration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="auxiliary.html" title="Auxiliary Modes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="modes.html" title="Observing modes"
+             >previous</a> |</li>
+        <li><a href="index.html">MEGARA Data Reduction Pipeline 0.4.0 documentation</a> &raquo;</li>
+          <li><a href="modes.html" >Observing modes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013-2015, Universidad Complutense de Madrid.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
