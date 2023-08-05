@@ -1,0 +1,41 @@
+#mainbanner{
+    padding: 0px;
+}
+#mainbanner .banner-img{
+    height: 400px;
+    background-size: cover !important;
+}
+
+#mainbanner .banner .banner-slider-text {
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 5px;
+    color: black;
+    width: 100%;
+    margin-top: -146px;
+}
+
+section#mainbanner .banner-text {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 5px;
+  color: black;
+  width: 400px;
+  margin: 150px 50px!important;
+  position: absolute;
+}
+
+#mainbanner .banner-header{
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+#mainbanner .banner-header .banner-header-inner{
+    padding: 25px;
+    border-radius: 5px;
+    color: white;
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
+}
+

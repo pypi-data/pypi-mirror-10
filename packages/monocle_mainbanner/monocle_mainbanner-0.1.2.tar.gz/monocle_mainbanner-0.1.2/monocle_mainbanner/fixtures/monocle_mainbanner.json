@@ -1,0 +1,38 @@
+[
+  {"pk": 1,
+    "fields":
+    {"text": "Текст главного баннер",
+      "name": "Главный Баннер",
+      "arrows": "false",
+      "width": true,
+      "elem_number": 1,
+      "isShown": true,
+      "pagination": "false"
+    },
+    "model": "monocle_mainbanner.mainbanner"
+  },
+  {
+    "pk": 1,
+    "fields":
+    {"text": "Текст слайда 1",
+      "name": "1",
+      "image": "monocle_mainbanner/сhrysanthemum.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 0
+    },
+    "model": "monocle_mainbanner.slide"
+  },
+  {
+    "pk": 2,
+    "fields":
+    {"text": "Текст слайда 2",
+      "name": "2",
+      "image": "monocle_mainbanner/сighthouse.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 1
+    },
+  "model": "monocle_mainbanner.slide"
+  }
+]
