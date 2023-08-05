@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: XStatic-NVD3
+Version: 1.7.1.0
+Summary: NVD3 1.7.1 (XStatic packaging standard)
+Home-page: http://nvd3.org/
+Author: Thai Tran
+Author-email: tqtran@us.ibm.com
+License: (same as NVD3)
+Description: 
+        XStatic-NVD3
+        -------------------
+        
+        NVD3 javascript library packaged for setuptools (easy_install) / pip.
+        
+        This package is intended to be used by **any** project that needs these files.
+        
+        It intentionally does **not** provide any extra code except some metadata
+        **nor** has any extra requirements. You MAY use some minimal support code from
+        the XStatic base package, if you like.
+        
+        You can find more info about the xstatic packaging way in the package
+        `XStatic`.
+        
+Keywords: xstatic javascript chart d3 nvd3
+Platform: any
