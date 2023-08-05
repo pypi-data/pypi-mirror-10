@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Authorization &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="../index.html" />
+    <link rel="next" title="Getting Verifier" href="verifier_callback.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="verifier_callback.html" title="Getting Verifier"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PyPump 0.6-dev documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="authorization">
+<h1>Authorization<a class="headerlink" href="#authorization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-you-need-to-know">
+<h2>What you need to know<a class="headerlink" href="#what-you-need-to-know" title="Permalink to this headline">¶</a></h2>
+<p>Pump.io uses OAuth 1.0 with dynamic client registration, this available through a lot of libraries, PyPump uses <a class="reference external" href="https://github.com/idan/oauthlib">oauthlib</a> and a wrapper around it to provide an provide an interface with the <a class="reference external" href="http://docs.python-requests.org/en/latest/">requests</a> library - <cite>requests-oauthlib &lt;https://github.com/requests/requests-oauthlib&gt;</cite>. All of that is handled by PyPump however there are some things to know.</p>
+<p>OAuth works by exchanging pre-established client credentials and token, you however have to provide those each time you make instantiate the PyPump object. You will have to provide a mechanism to store these so that you can you can provide them the next time.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The following will create (for the first time) a connection to a pump.io server for the user <a class="reference external" href="mailto:Tsyesika&#37;&#52;&#48;io&#46;theperplexingpariah&#46;co&#46;uk">Tsyesika<span>&#64;</span>io<span>&#46;</span>theperplexingpariah<span>&#46;</span>co<span>&#46;</span>uk</a> for my client named &#8220;Test.io&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pypump</span> <span class="kn">import</span> <span class="n">PyPump</span><span class="p">,</span> <span class="n">Client</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pypump.utils</span> <span class="kn">import</span> <span class="n">simple_verifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">webfinger</span><span class="o">=</span><span class="s">&quot;Tsyesika@io.theperplexingpariah.co.uk&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Test.io&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="nb">type</span><span class="o">=</span><span class="s">&quot;native&quot;</span>
+<span class="go">...)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pump</span> <span class="o">=</span> <span class="n">PyPump</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">verifier_callback</span><span class="o">=</span><span class="n">simple_verifier</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client_credentials</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">get_registration</span><span class="p">()</span> <span class="c"># will return [&lt;client key&gt;, &lt;client secret&gt;, &lt;expiry&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client_tokens</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span> <span class="c"># will return [&lt;token&gt;, &lt;secret&gt;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you&#8217;re not using CLI you will need to override the <em>get_access</em> method on PyPump to ask for their verification token</p>
+</div>
+<p>An example of then connecting again (using the same variable names as above). This will produce a PyPump object which will use the same credentials as established above:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">webfinger</span><span class="o">=</span><span class="s">&quot;Tsyesika@io.theperplexingpariah.co.uk&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Test.io&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="nb">type</span><span class="o">=</span><span class="s">&quot;native&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">key</span><span class="o">=</span><span class="n">client_credentials</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="c"># client key</span>
+<span class="gp">... </span>    <span class="n">secret</span><span class="o">=</span><span class="n">client_credentials</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c"># client secret</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pump</span> <span class="o">=</span> <span class="n">PyPump</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">token</span><span class="o">=</span><span class="n">client_tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="c"># the token key</span>
+<span class="gp">... </span>        <span class="n">secret</span><span class="o">=</span><span class="n">client_tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="c"># the token secret</span>
+<span class="gp">... </span>        <span class="n">verifier_callback</span><span class="o">=</span><span class="n">simple_verifier</span>
+<span class="gp">... </span>        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Authorization</a><ul>
+<li><a class="reference internal" href="#what-you-need-to-know">What you need to know</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="previous chapter">Tutorial</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="verifier_callback.html"
+                        title="next chapter">Getting Verifier</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gettingstarted/authentication.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/gettingstarted/authentication.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

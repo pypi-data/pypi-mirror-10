@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pypump.pypump &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">PyPump 0.6-dev documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pypump.pypump</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c">##</span>
+<span class="c">#   Copyright (C) 2013 Jessica T. (Tsyesika) &lt;xray7224@googlemail.com&gt;</span>
+<span class="c">#</span>
+<span class="c">#   This program is free software: you can redistribute it and/or modify</span>
+<span class="c">#   it under the terms of the GNU General Public License as published by</span>
+<span class="c">#   the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c">#   (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c">#   This program is distributed in the hope that it will be useful,</span>
+<span class="c">#   but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c">#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</span>
+<span class="c">#   GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c">#   You should have received a copy of the GNU General Public License</span>
+<span class="c">#   along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">##</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">six.moves.urllib</span> <span class="kn">import</span> <span class="n">parse</span>
+<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
+
+<span class="kn">from</span> <span class="nn">pypump.store</span> <span class="kn">import</span> <span class="n">JSONStore</span>
+<span class="kn">from</span> <span class="nn">pypump.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">pypump.exception</span> <span class="kn">import</span> <span class="n">PyPumpException</span>
+
+<span class="c"># load models</span>
+<span class="kn">from</span> <span class="nn">pypump.models.note</span> <span class="kn">import</span> <span class="n">Note</span>
+<span class="kn">from</span> <span class="nn">pypump.models.comment</span> <span class="kn">import</span> <span class="n">Comment</span>
+<span class="kn">from</span> <span class="nn">pypump.models.person</span> <span class="kn">import</span> <span class="n">Person</span>
+<span class="kn">from</span> <span class="nn">pypump.models.image</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">pypump.models.place</span> <span class="kn">import</span> <span class="n">Place</span>
+
+<span class="kn">from</span> <span class="nn">pypump.models.collection</span> <span class="kn">import</span> <span class="n">Collection</span><span class="p">,</span> <span class="n">Public</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="PyPump"><a class="viewcode-back" href="../../classref.html#pypump.PyPump">[docs]</a><span class="k">class</span> <span class="nc">PyPump</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Main class to interface with PyPump.</span>
+
+<span class="sd">    This class keeps everything together and is responsible for making</span>
+<span class="sd">    requests to the server on it&#39;s own behalf and on the behalf of the</span>
+<span class="sd">    other clients as well as handling the OAuth requests.</span>
+
+<span class="sd">    :param client: an instance of :class:`Client &lt;pypump.Client&gt;`.</span>
+<span class="sd">    :param verifier_callback: If this is our first time registering the</span>
+<span class="sd">      client, this function will be called with a single argument, the</span>
+<span class="sd">      url one can post to for completing verification.</span>
+<span class="sd">    :param store: this is the :class:`pypump.Store` instance to save</span>
+<span class="sd">      any data persistantly.</span>
+<span class="sd">    :param callback: the URI that is used for redirecting a user</span>
+<span class="sd">      after they authenticate this client... assuming this is</span>
+<span class="sd">      happening over the web.  If not, the callback is &quot;oob&quot;, or &quot;out</span>
+<span class="sd">      of band&quot;.</span>
+<span class="sd">    :param verify_requests: If this is set to False PyPump won&#39;t check SSL/TLS</span>
+<span class="sd">      certificates.</span>
+<span class="sd">    :param retries: number of times to retry if a request fails.</span>
+<span class="sd">    :param timeout: how long to give on a timeout for an http request, in</span>
+<span class="sd">      seconds.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">PARAM_VERIFER</span> <span class="o">=</span> <span class="n">six</span><span class="o">.</span><span class="n">b</span><span class="p">(</span><span class="s">&quot;oauth_verifier&quot;</span><span class="p">)</span>
+    <span class="n">PARAM_TOKEN</span> <span class="o">=</span> <span class="n">six</span><span class="o">.</span><span class="n">b</span><span class="p">(</span><span class="s">&quot;oauth_token&quot;</span><span class="p">)</span>
+    <span class="n">PARAM_TOKEN_SECRET</span> <span class="o">=</span> <span class="n">six</span><span class="o">.</span><span class="n">b</span><span class="p">(</span><span class="s">&quot;oauth_token_secret&quot;</span><span class="p">)</span>
+
+    <span class="n">URL_CLIENT_REGISTRATION</span> <span class="o">=</span> <span class="s">&quot;/api/client/register&quot;</span>
+
+    <span class="n">store_class</span> <span class="o">=</span> <span class="n">JSONStore</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">client</span><span class="p">,</span>
+                 <span class="n">verifier_callback</span><span class="p">,</span>
+                 <span class="n">store</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">callback</span><span class="o">=</span><span class="s">&quot;oob&quot;</span><span class="p">,</span>
+                 <span class="n">verify_requests</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                 <span class="n">retries</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_me</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="s">&quot;https&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">retries</span> <span class="o">=</span> <span class="n">retries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server_tokens</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verify_requests</span> <span class="o">=</span> <span class="n">verify_requests</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verifier_callback</span> <span class="o">=</span> <span class="n">verifier_callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span>
+
+        <span class="c"># Setup store object</span>
+        <span class="k">if</span> <span class="n">store</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_store</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span>
+
+        <span class="c"># Setup variables for client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">set_pump</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">&quot;client-key&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-key&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s">&quot;client-secret&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-secret&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s">&quot;client-expirey&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">expirey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-expirey&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">key</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+            <span class="c"># Save the info back to the store</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">key</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">secret</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-expirey&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">expirey</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_populate_models</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="s">&quot;oauth-request-token&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="ow">and</span> <span class="s">&quot;oauth-access-token&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">:</span>
+            <span class="c"># we Need to make a new oauth request</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">oauth_request</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns :class:`Person &lt;pypump.models.person.Person&gt;` instance of</span>
+<span class="sd">        the logged in user.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; pump.me</span>
+<span class="sd">            &lt;Person: bob@example.org&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_me</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_me</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_me</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;{username}@{server}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">username</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">nickname</span><span class="p">,</span>
+            <span class="n">server</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">,</span>
+        <span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_me</span>
+
+    <span class="k">def</span> <span class="nf">create_store</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Creates store object &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">store_class</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">store_class</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">webfinger</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You need to specify PyPump.store_class or override PyPump.create_store method.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_populate_models</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">factory</span><span class="p">(</span><span class="n">pypump</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">model</span><span class="p">(</span>
+                <span class="n">pypump</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&quot;pypump&quot;</span><span class="p">,</span> <span class="n">pypump</span><span class="p">),</span>
+                <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Note</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Note</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Collection</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Collection</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Comment</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Comment</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Image</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Image</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Person</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Place</span> <span class="o">=</span> <span class="n">factory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Place</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Public</span> <span class="o">=</span> <span class="n">Public</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_build_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns a fully qualified URL &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="s">&quot;://&quot;</span> <span class="ow">in</span> <span class="n">endpoint</span><span class="p">:</span>
+            <span class="c"># looks like an url, let&#39;s break it down</span>
+            <span class="n">server</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deconstruct_url</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">endpoint</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;{proto}://{server}/{endpoint}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">proto</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="p">,</span>
+            <span class="n">server</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span> <span class="k">if</span> <span class="n">server</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">server</span><span class="p">,</span>
+            <span class="n">endpoint</span><span class="o">=</span><span class="n">endpoint</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">url</span>
+
+    <span class="k">def</span> <span class="nf">_deconstruct_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Breaks down URL and returns server and endpoint &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;://&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">server</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_add_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Creates Client object with key and secret for server</span>
+<span class="sd">        and adds it to _server_cache if it doesnt already exist &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s">&quot;://&quot;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+            <span class="n">server</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deconstruct_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="n">url</span>
+
+        <span class="k">if</span> <span class="n">server</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">key</span> <span class="ow">and</span> <span class="n">secret</span><span class="p">):</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+                    <span class="n">webfinger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">webfinger</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="nb">type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">set_pump</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+                    <span class="n">webfinger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">webfinger</span><span class="p">,</span>
+                    <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
+                    <span class="n">secret</span><span class="o">=</span><span class="n">secret</span><span class="p">,</span>
+                    <span class="nb">type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">set_pump</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="n">server</span><span class="p">]</span> <span class="o">=</span> <span class="n">client</span>
+
+    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+                <span class="n">raw</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">retries</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Make request to endpoint with OAuth.</span>
+<span class="sd">        Returns dictionary with response data.</span>
+
+<span class="sd">        :param endpoint: endpoint path, or a fully qualified URL if raw=True.</span>
+<span class="sd">        :param method: GET (default), POST or DELETE.</span>
+<span class="sd">        :param data: data to send in the request body.</span>
+<span class="sd">        :param raw: use endpoint as entered without trying to modify it.</span>
+<span class="sd">        :param params: dictionary of parameters to send in the query string.</span>
+<span class="sd">        :param retries: number of times to retry if a request fails.</span>
+<span class="sd">        :param client: OAuth client data, if False do request without OAuth.</span>
+<span class="sd">        :param headers: dictionary of HTTP headers.</span>
+<span class="sd">        :param timeout: the timeout for a request, in seconds.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; pump.request(&#39;https://e14n.com/api/user/evan/profile&#39;, raw=True)</span>
+<span class="sd">            {u&#39;displayName&#39;: u&#39;Evan Prodromou&#39;,</span>
+<span class="sd">             u&#39;favorites&#39;: {u&#39;totalItems&#39;: 7227,</span>
+<span class="sd">              u&#39;url&#39;: u&#39;https://e14n.com/api/user/evan/favorites&#39;},</span>
+<span class="sd">             u&#39;id&#39;: u&#39;acct:evan@e14n.com&#39;,</span>
+<span class="sd">             u&#39;image&#39;: {u&#39;height&#39;: 96,</span>
+<span class="sd">              u&#39;url&#39;: u&#39;https://e14n.com/uploads/evan/2014/9/24/knyf1g_thumb.jpg&#39;,</span>
+<span class="sd">              u&#39;width&#39;: 96},</span>
+<span class="sd">             u&#39;liked&#39;: False,</span>
+<span class="sd">             u&#39;location&#39;: {u&#39;displayName&#39;: u&#39;Montreal, Quebec, Canada&#39;,</span>
+<span class="sd">              u&#39;objectType&#39;: u&#39;place&#39;},</span>
+<span class="sd">             u&#39;objectType&#39;: u&#39;person&#39;,</span>
+<span class="sd">             u&#39;preferredUsername&#39;: u&#39;evan&#39;,</span>
+<span class="sd">             u&#39;published&#39;: u&#39;2013-02-20T15:34:52Z&#39;,</span>
+<span class="sd">             u&#39;summary&#39;: u&#39;I wanna make it with you. http://payb.tc/evanp&#39;,</span>
+<span class="sd">             u&#39;updated&#39;: u&#39;2014-09-24T02:38:32Z&#39;,</span>
+<span class="sd">             u&#39;url&#39;: u&#39;https://e14n.com/evan&#39;}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">retries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retries</span> <span class="k">if</span> <span class="n">retries</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">retries</span>
+        <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">timeout</span>
+
+        <span class="c"># check client has been setup</span>
+        <span class="k">if</span> <span class="n">client</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup_oauth_client</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">client</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">params</span>
+
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">raw</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">endpoint</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span> <span class="ow">or</span> <span class="p">{</span><span class="s">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="n">fnc</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&quot;auth&quot;</span><span class="p">:</span> <span class="n">client</span><span class="p">,</span>
+            <span class="s">&quot;headers&quot;</span><span class="p">:</span> <span class="n">headers</span><span class="p">,</span>
+            <span class="s">&quot;params&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">,</span>
+            <span class="s">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&quot;POST&quot;</span><span class="p">:</span>
+            <span class="n">fnc</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">post</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">})</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&quot;PUT&quot;</span><span class="p">:</span>
+            <span class="n">fnc</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">put</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">})</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&quot;GET&quot;</span><span class="p">:</span>
+            <span class="n">fnc</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s">&quot;DELETE&quot;</span><span class="p">:</span>
+            <span class="n">fnc</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">,</span>
+                
+        <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">retries</span><span class="p">):</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requester</span><span class="p">(</span>
+                <span class="n">fnc</span><span class="o">=</span><span class="n">fnc</span><span class="p">,</span>
+                <span class="n">endpoint</span><span class="o">=</span><span class="n">endpoint</span><span class="p">,</span>
+                <span class="n">raw</span><span class="o">=</span><span class="n">raw</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">request</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="c"># huray!</span>
+                <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+                <span class="c"># can&#39;t do much</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;error&quot;</span><span class="p">]</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">error</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">IndexError</span>  <span class="c"># yesss i know.</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="s">&quot;400 - Bad request.&quot;</span>
+                <span class="k">raise</span> <span class="n">PyPumpException</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">response</span>
+
+        <span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Request Failed to {url} (response: {data} | status: {status})&quot;</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+        <span class="p">)</span>
+
+        <span class="k">raise</span> <span class="n">PyPumpException</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_requester</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fnc</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">raw</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">endpoint</span>
+
+        <span class="n">kwargs</span><span class="p">[</span><span class="s">&quot;verify&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verify_requests</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">fnc</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">==</span> <span class="s">&quot;http&quot;</span> <span class="ow">or</span> <span class="n">raw</span><span class="p">:</span>
+                <span class="k">raise</span>  <span class="c"># shoot this seems real.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_http</span><span class="p">()</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_https</span><span class="p">()</span>
+                <span class="n">raw</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requester</span><span class="p">(</span><span class="n">fnc</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_https</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Enforces protocol to be https &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="s">&quot;https&quot;</span>
+
+    <span class="k">def</span> <span class="nf">set_http</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Sets protocol to be http &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="s">&quot;http&quot;</span>
+
+    <span class="c">##</span>
+    <span class="c"># OAuth specific stuff</span>
+    <span class="c">##</span>
+    <span class="k">def</span> <span class="nf">oauth_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Makes a oauth connection &quot;&quot;&quot;</span>
+        <span class="c"># get tokens from server and make a dict of them.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server_tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_token</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-request-token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_tokens</span><span class="p">[</span><span class="s">&quot;token&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-request-secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_tokens</span><span class="p">[</span><span class="s">&quot;token_secret&quot;</span><span class="p">]</span>
+
+        <span class="c"># now we need the user to authorize me to use their pump.io account</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verifier_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">construct_oauth_url</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">verifier</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">construct_oauth_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Constructs verifier OAuth URL &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s">&quot;http://{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">is_redirect</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;location&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;oauth/authorize?oauth_token={token}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-request-token&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="s">&quot;{server}{path}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">server</span><span class="o">=</span><span class="n">server</span><span class="p">,</span>
+            <span class="n">path</span><span class="o">=</span><span class="n">path</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">verifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verifier</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Called once verifier has been retrieved. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_access</span><span class="p">(</span><span class="n">verifier</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setup_oauth_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Sets up client for requests to pump &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">url</span> <span class="ow">and</span> <span class="s">&quot;://&quot;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+            <span class="n">server</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deconstruct_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span>
+
+        <span class="k">if</span> <span class="n">server</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_add_client</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">server</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">oauth</span> <span class="o">=</span> <span class="n">OAuth1</span><span class="p">(</span>
+                <span class="n">client_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-key&quot;</span><span class="p">],</span>
+                <span class="n">client_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;client-secret&quot;</span><span class="p">],</span>
+                <span class="n">resource_owner_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-access-token&quot;</span><span class="p">],</span>
+                <span class="n">resource_owner_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-access-secret&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">OAuth1</span><span class="p">(</span>
+                <span class="n">client_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="n">server</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                <span class="n">client_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="n">server</span><span class="p">]</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">request_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Gets OAuth request token &quot;&quot;&quot;</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">OAuth1</span><span class="p">(</span>
+            <span class="n">client_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+            <span class="n">client_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">]</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
+            <span class="n">callback_uri</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;auth&quot;</span><span class="p">:</span> <span class="n">client</span><span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requester</span><span class="p">(</span>
+            <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">,</span>
+            <span class="s">&quot;oauth/request_token&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">request</span>
+        <span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">parse</span><span class="o">.</span><span class="n">parse_qs</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;token&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PARAM_TOKEN</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s">&#39;token_secret&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PARAM_TOKEN_SECRET</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">request_access</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verifier</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Get OAuth access token so we can make requests &quot;&quot;&quot;</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">OAuth1</span><span class="p">(</span>
+            <span class="n">client_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+            <span class="n">client_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">server</span><span class="p">]</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
+            <span class="n">resource_owner_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-request-token&quot;</span><span class="p">],</span>
+            <span class="n">resource_owner_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-request-secret&quot;</span><span class="p">],</span>
+            <span class="n">verifier</span><span class="o">=</span><span class="n">verifier</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;auth&quot;</span><span class="p">:</span> <span class="n">client</span><span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requester</span><span class="p">(</span>
+            <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">,</span>
+            <span class="s">&quot;oauth/access_token&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">request</span>
+        <span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">parse</span><span class="o">.</span><span class="n">parse_qs</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-access-token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PARAM_TOKEN</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s">&quot;oauth-access-secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PARAM_TOKEN_SECRET</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server_tokens</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># clean up code.</span>
+
+</div>
+<span class="k">class</span> <span class="nc">WebPump</span><span class="p">(</span><span class="n">PyPump</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is a PyPump class which is aimed at mainly web developers.</span>
+<span class="sd">        Allowing you to avoid the callbacks making the oauth portion of</span>
+<span class="sd">        PyPump instanciation blocking.</span>
+
+<span class="sd">        After initialisation you will be able to do `PyPump.verifier_url`</span>
+<span class="sd">        allowing you to get the url to direct your user to. That method</span>
+<span class="sd">        will return None if the oauth handshake was successful and no</span>
+<span class="sd">        verifier callback needs to be done.</span>
+
+<span class="sd">        Once you have the verifier instanciate this class again and</span>
+<span class="sd">        call the verifier method alike what you do using the PyPump class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is exactly the same as PyPump.__init__ apart from</span>
+<span class="sd">            verifier_callback is no longer an option for kwargs and</span>
+<span class="sd">            if specified will be ignored.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s">&quot;verifier_callback&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callback_verifier</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WebPump</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">construct_oauth_url</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_callback_verifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; This is used to catch the url and store it at `self.url` &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">logged_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return boolean if is logged in &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s">&quot;oauth-access-token&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="c"># if it redirects to the profile it&#39;ll raise an exception as</span>
+        <span class="c"># it doesn&#39;t sign the redirection request.</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;/api/whoami&quot;</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="c"># It should response with a redirect to our profile if it&#39;s logged in</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">302</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="c"># the location should be the profile we have</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&quot;location&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">links</span><span class="p">[</span><span class="s">&quot;self&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Store &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="index.html" />
+    <link rel="next" title="Upload Media" href="common/media.html" />
+    <link rel="prev" title="Web Development using PyPump" href="gettingstarted/webpump.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="common/media.html" title="Upload Media"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gettingstarted/webpump.html" title="Web Development using PyPump"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyPump 0.6-dev documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="store">
+<h1>Store<a class="headerlink" href="#store" title="Permalink to this headline">¶</a></h1>
+<p>Using store objects is the way PyPump handles the storing of certain
+data it gets that needs to be saved to disk. There is several pieces
+of data that might be stored such as:</p>
+<ul class="simple">
+<li>Client ID and secret</li>
+<li>OAuth request token and secret</li>
+<li>OAuth access token and secret</li>
+</ul>
+<p>There might be others in the future too. The store object has an
+interface like a dictionary. PyPump provides a disk JSON store which
+allows you to easily just save the data to disk. You should note that
+this data should be considered sensative as with it someone has access
+to the users pump.io account.</p>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>You probably want to provide your own storage object. There are two
+extra methods other than dictionary methods you need to implement
+are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">webfiger</span><span class="p">,</span> <span class="n">pump</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This should return an instance of the store object full of any</span>
+<span class="sd">    data that has been saved. It&#39;s your responsibility to set the</span>
+<span class="sd">    `prefix` attribute on the store object.</span>
+
+<span class="sd">    webfinger: String containing webfinger of user.</span>
+<span class="sd">    pump: PyPump object loading the store object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">store</span> <span class="o">=</span> <span class="n">cls</span><span class="p">()</span>
+    <span class="n">store</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">webfinger</span>
+    <span class="k">return</span> <span class="n">store</span>
+
+<span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This should save all the data to the storage.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>There is a <cite>prefix</cite> attribute will contain the webfinger of the user
+the data belongs to. All the data stored and loaded should relate to
+this webfinger.</p>
+<p>The save is called frequently and multiple times. The AbstractStore
+class will call the save method everytime something is set/changed on
+the object.</p>
+</div>
+<div class="section" id="pypump">
+<h2>PyPump<a class="headerlink" href="#pypump" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways to provide PyPump with a store object. You can
+pass it in when you create the PyPump object e.g:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_store</span> <span class="o">=</span> <span class="n">MyStore</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pump</span> <span class="o">=</span> <span class="n">PyPump</span><span class="p">(</span><span class="n">store</span><span class="o">=</span><span class="n">my_store</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If no storage object is passed, PyPump will call the .create_store
+method on itself. This will by default call .load(webfinger, pypump)
+on whatever class is in store_class on PyPump. You can provide your
+own class there:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyPump</span><span class="p">(</span><span class="n">PyPump</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">store_class</span> <span class="o">=</span> <span class="n">MyStore</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pump</span> <span class="o">=</span> <span class="n">MyPump</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will use the MyStore class. If you want to do something else you
+can always override the .create_store method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyPump</span><span class="p">(</span><span class="n">PyPump</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create_store</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; This should create and return the store object &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MyStore</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+            <span class="n">webfinger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">webfinger</span><span class="p">,</span>
+            <span class="n">pump</span><span class="o">=</span><span class="bp">self</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>For convenience, PyPump comes with a simple JSON store class,
+<cite>pypump.store.Store</cite>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Store</a><ul>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+<li><a class="reference internal" href="#pypump">PyPump</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gettingstarted/webpump.html"
+                        title="previous chapter">Web Development using PyPump</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="common/media.html"
+                        title="next chapter">Upload Media</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/store.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="_sources/store.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

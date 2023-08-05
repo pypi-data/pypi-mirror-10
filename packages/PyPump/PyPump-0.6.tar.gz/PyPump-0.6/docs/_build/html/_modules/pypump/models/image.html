@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pypump.models.image &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="../../../index.html" />
+    <link rel="up" title="pypump.models" href="../models.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">PyPump 0.6-dev documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../models.html" accesskey="U">pypump.models</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pypump.models.image</h1><div class="highlight"><pre>
+<span class="c">##</span>
+<span class="c"># Copyright (C) 2013 Jessica T. (Tsyesika) &lt;xray7224@googlemail.com&gt;</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">##</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">mimetypes</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">pypump.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PumpObject</span><span class="p">,</span> <span class="n">Addressable</span><span class="p">,</span> <span class="n">Likeable</span><span class="p">,</span> <span class="n">Commentable</span><span class="p">,</span>
+                           <span class="n">Deleteable</span><span class="p">,</span> <span class="n">Shareable</span><span class="p">,</span> <span class="n">Mapper</span><span class="p">)</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ImageContainer"><a class="viewcode-back" href="../../../classref.html#pypump.models.image.ImageContainer">[docs]</a><span class="k">class</span> <span class="nc">ImageContainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Container that holds information about an image.</span>
+
+<span class="sd">    :param url: URL to image file on the pump.io server.</span>
+<span class="sd">    :param width: Width of the image.</span>
+<span class="sd">    :param height: Height of the image.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;&lt;Image {width}x{height}&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+        <span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Image"><a class="viewcode-back" href="../../../classref.html#pypump.models.image.Image">[docs]</a><span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">PumpObject</span><span class="p">,</span> <span class="n">Likeable</span><span class="p">,</span> <span class="n">Shareable</span><span class="p">,</span> <span class="n">Commentable</span><span class="p">,</span> <span class="n">Deleteable</span><span class="p">,</span> <span class="n">Addressable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This object represents a pump.io **image**,</span>
+<span class="sd">    images are used to post image content with optional text (or html) messages</span>
+<span class="sd">    to the pump.io network.</span>
+
+<span class="sd">    :param content: (optional) Image text content.</span>
+<span class="sd">    :param display_name: (optional) Image title.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; myimage = pump.Image(display_name=&#39;Happy Caturday!&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; myimage.from_file(&#39;/path/to/kitteh.png&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">object_type</span> <span class="o">=</span> <span class="s">&#39;image&#39;</span>
+    <span class="n">_ignore_attr</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;summary&quot;</span><span class="p">,</span> <span class="s">&quot;image&quot;</span><span class="p">]</span>
+    <span class="n">_mapping</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&quot;thumbnail&quot;</span><span class="p">:</span> <span class="s">&quot;image&quot;</span><span class="p">,</span>
+        <span class="s">&quot;original&quot;</span><span class="p">:</span> <span class="s">&quot;fullImage&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">display_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;&lt;{type} by {webfinger}&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">object_type</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span>
+            <span class="n">webfinger</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="p">,</span> <span class="s">&#39;webfinger&#39;</span><span class="p">,</span> <span class="s">&#39;unknown&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">u&quot;{type} by {webfinger}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">object_type</span><span class="p">,</span>
+            <span class="n">webfinger</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="p">,</span> <span class="s">&#39;webfinger&#39;</span><span class="p">,</span> <span class="s">&#39;unknown&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Image.from_file"><a class="viewcode-back" href="../../../classref.html#pypump.models.image.Image.from_file">[docs]</a>    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Uploads an image from a filename on your system.</span>
+
+<span class="sd">        :param filename: Path to file on your system.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; myimage.from_file(&#39;/path/to/dinner.png&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mimetype</span> <span class="o">=</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_type</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="s">&quot;application/octal-stream&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="n">mimetype</span><span class="p">,</span>
+            <span class="s">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="c"># upload image file</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pump</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+            <span class="s">&quot;/api/user/{0}/uploads&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pump</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">nickname</span><span class="p">),</span>
+            <span class="n">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c"># now send it to the feed</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&quot;verb&quot;</span><span class="p">:</span> <span class="s">&quot;post&quot;</span><span class="p">,</span>
+            <span class="s">&quot;object&quot;</span><span class="p">:</span> <span class="n">image</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serialize</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_post_activity</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_post_activity</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">unserialize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+            <span class="c"># update image with display_name and content</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">:</span>
+                <span class="n">image</span><span class="p">[</span><span class="s">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span><span class="p">:</span>
+                <span class="n">image</span><span class="p">[</span><span class="s">&#39;displayName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">&quot;verb&quot;</span><span class="p">:</span> <span class="s">&quot;update&quot;</span><span class="p">,</span>
+                <span class="s">&quot;object&quot;</span><span class="p">:</span> <span class="n">image</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_post_activity</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+</div>
+    <span class="k">def</span> <span class="nf">unserialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">get_fileurl</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;pump_io&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;proxyURL&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;pump_io&quot;</span><span class="p">][</span><span class="s">&quot;proxyURL&quot;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;url&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s">&quot;fullImage&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">full_image</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;fullImage&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">original</span> <span class="o">=</span> <span class="n">ImageContainer</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="n">get_fileurl</span><span class="p">(</span><span class="n">full_image</span><span class="p">),</span>
+                <span class="n">height</span><span class="o">=</span><span class="n">full_image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;height&quot;</span><span class="p">),</span>
+                <span class="n">width</span><span class="o">=</span><span class="n">full_image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;width&quot;</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="s">&quot;image&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">save_point</span> <span class="o">=</span> <span class="s">&quot;original&quot;</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&quot;original&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="s">&quot;thumbnail&quot;</span>
+            <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&quot;image&quot;</span><span class="p">]</span>
+
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_point</span><span class="p">,</span> <span class="n">ImageContainer</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="n">get_fileurl</span><span class="p">(</span><span class="n">thumbnail</span><span class="p">),</span>
+                <span class="n">height</span><span class="o">=</span><span class="n">thumbnail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;height&quot;</span><span class="p">),</span>
+                <span class="n">width</span><span class="o">=</span><span class="n">thumbnail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;width&quot;</span><span class="p">)</span>
+            <span class="p">))</span>
+        <span class="n">Mapper</span><span class="p">(</span><span class="n">pypump</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pump</span><span class="p">)</span><span class="o">.</span><span class="n">parse_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_links</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

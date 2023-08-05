@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Activity &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="../index.html" />
+    <link rel="next" title="Class reference" href="../classref.html" />
+    <link rel="prev" title="Person" href="person.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../classref.html" title="Class reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="person.html" title="Person"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PyPump 0.6-dev documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="activity">
+<h1>Activity<a class="headerlink" href="#activity" title="Permalink to this headline">¶</a></h1>
+<p>This object represents pump.io&#8217;s activities, these are used in feeds like <cite>inbox</cite>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The pump variable is an instantiated PyPump class e.g. pump = PyPump(&#8220;&lt;webfinger&gt;&#8221;, client_name=&#8221;&lt;name&gt;&#8221;, etc...)</p>
+</div>
+<dl class="class">
+<dt id="Activity">
+<em class="property">class </em><code class="descname">Activity</code><a class="headerlink" href="#Activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>This represents an activity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;me = pump.Person(&quot;kabniel@microca.st&quot;)</span>
+<span class="go">&gt;&gt;&gt;my_inbox = me.inbox[:10]</span>
+<span class="go">&gt;&gt;&gt;my_activity = my_inbox[0]</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="Activity.id">
+<code class="descname">id</code><a class="headerlink" href="#Activity.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the id of the activity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">id</span>
+<span class="go">&quot;https://e14n.com/api/activity/Y7Lxll6jSGSqTjFT5dbaqQ&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.url">
+<code class="descname">url</code><a class="headerlink" href="#Activity.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the url of the activity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">url</span>
+<span class="go">&#39;https://e14n.com/evan/activity/Y7Lxll6jSGSqTjFT5dbaqQ&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.content">
+<code class="descname">content</code><a class="headerlink" href="#Activity.content" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the content of the activity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">content</span>
+<span class="go">&quot;&lt;a href=&#39;https://e14n.com/evan&#39;&gt;Evan Prodromou&lt;/a&gt; posted &lt;a href=&#39;https://e14n.com/evan/note/S8B6Y9i4SbS2rVw4sfb_5Q&#39;&gt;a note&lt;/a&gt;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.actor">
+<code class="descname">actor</code><a class="headerlink" href="#Activity.actor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is who posted the activity (Person object):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">actor</span>
+<span class="go">&lt;Person: evan@e14n.com&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.updated">
+<code class="descname">updated</code><a class="headerlink" href="#Activity.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is when the activity was last updated. this is a datetime.datetime object</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">updated</span>
+<span class="go">datetime.datetime(2013, 6, 15, 12, 31, 22, 134180)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.published">
+<code class="descname">published</code><a class="headerlink" href="#Activity.published" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is when the activity was first published, this is a datetime.datetime object</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">published</span>
+<span class="go">datetime.datetime(2013, 6, 15, 12, 31, 22, 134180)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.generator">
+<code class="descname">generator</code><a class="headerlink" href="#Activity.generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the client that generated the activity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_activity</span><span class="o">.</span><span class="n">generator</span>
+<span class="go">&lt;Generator: E14N Web&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Activity.obj">
+<code class="descname">obj</code><a class="headerlink" href="#Activity.obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the object that was affected by the activity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">obj</span>
+<span class="go">&lt;Note&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>No examples yet!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Activity</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="person.html"
+                        title="previous chapter">Person</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../classref.html"
+                        title="next chapter">Class reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/activity.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/models/activity.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

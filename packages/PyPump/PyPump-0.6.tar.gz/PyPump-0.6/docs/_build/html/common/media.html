@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Upload Media &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="../index.html" />
+    <link rel="next" title="Class reference" href="../classref.html" />
+    <link rel="prev" title="Store" href="../store.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../classref.html" title="Class reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../store.html" title="Store"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PyPump 0.6-dev documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="upload-media">
+<h1>Upload Media<a class="headerlink" href="#upload-media" title="Permalink to this headline">¶</a></h1>
+<p>Uploading images (and in the future other types of media) via PyPump is
+relatively easy. Firstly you will need to setup a Client and PyPump
+model, information for how to do that can be found in the quick and
+dirty guide.</p>
+<p>Once you&#8217;ve uploaded an image you will be able to do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_image</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_image</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;/home/jessica/my_image.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That is enough to post an image to pump (or MediaGoblin). You can now look at
+the URL on the image model:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_image</span><span class="o">.</span><span class="n">url</span>
+<span class="go">&#39;https://microca.st/Tsyesika/image/yZJCA42GTfCuaeEBqyc26Q&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="interacting-with-media">
+<h2>Interacting with Media<a class="headerlink" href="#interacting-with-media" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="commenting">
+<h3>Commenting<a class="headerlink" href="#commenting" title="Permalink to this headline">¶</a></h3>
+<p>You can then interact with this image:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;&gt; my_image.comment(&quot;Hai, this si my comment&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="liking">
+<h3>Liking<a class="headerlink" href="#liking" title="Permalink to this headline">¶</a></h3>
+<p>If you want to like some media you can use:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;&gt; my_image.like()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">MediaGoblin currently doesn&#8217;t support liking.</p>
+</div>
+</div>
+<div class="section" id="deleting">
+<h3>Deleting<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h3>
+<p>Deleting media is also easy:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;&gt; my_image.delete()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">MediaGoblin current doesn&#8217;t support deletion of media.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Upload Media</a><ul>
+<li><a class="reference internal" href="#interacting-with-media">Interacting with Media</a><ul>
+<li><a class="reference internal" href="#commenting">Commenting</a></li>
+<li><a class="reference internal" href="#liking">Liking</a></li>
+<li><a class="reference internal" href="#deleting">Deleting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../store.html"
+                        title="previous chapter">Store</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../classref.html"
+                        title="next chapter">Class reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/common/media.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/common/media.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Person &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="../index.html" />
+    <link rel="next" title="Activity" href="activity.html" />
+    <link rel="prev" title="Image" href="image.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="activity.html" title="Activity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="image.html" title="Image"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">PyPump 0.6-dev documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="person">
+<h1>Person<a class="headerlink" href="#person" title="Permalink to this headline">¶</a></h1>
+<p>This object represents a user on pump.io.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The pump variable is an instantiated PyPump class e.g. pump = PyPump(&#8220;&lt;webfinger&gt;&#8221;, client_name=&#8221;&lt;name&gt;&#8221;, etc...)</p>
+</div>
+<dl class="class">
+<dt id="Person">
+<em class="property">class </em><code class="descname">Person</code><a class="headerlink" href="#Person" title="Permalink to this definition">¶</a></dt>
+<dd><p>This represents a Person object, These are used in getting their inboxes, information on, etc...</p>
+<dl class="attribute">
+<dt id="Person.preferred_username">
+<code class="descname">preferred_username</code><a class="headerlink" href="#Person.preferred_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the username (you should display the display_name) (unicode):</p>
+<div class="highlight-python"><div class="highlight"><pre>    &gt;&gt;&gt; a_person.preferred_username
+u&#39;Tsyesika&#39;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.display_name">
+<code class="descname">display_name</code><a class="headerlink" href="#Person.display_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the username you should display (unicode):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">display_name</span>
+<span class="go">u&#39;Tsyesìka&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.updated">
+<code class="descname">updated</code><a class="headerlink" href="#Person.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is when their profile was updated (datetime.datetime):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">updated</span>
+<span class="go">    datetime.datetime(2013, 6, 15, 12, 31, 22, 134180)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.published">
+<code class="descname">published</code><a class="headerlink" href="#Person.published" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is when their profile was first published (datetime.datetime):</p>
+<div class="highlight-python"><div class="highlight"><pre>    &gt;&gt;&gt; a_person.published
+datetime.datetime(2013, 6, 15, 12, 31, 22, 134180)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.url">
+<code class="descname">url</code><a class="headerlink" href="#Person.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL to the profile (string):</p>
+<div class="highlight-python"><div class="highlight"><pre>    &gt;&gt;&gt; a_person.url
+&#39;https://pump.megworld.co.uk/Tsyesika&#39;
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.inbox">
+<code class="descname">inbox</code><a class="headerlink" href="#Person.inbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an iterable feed of inbox items (only available for the logged in person (Feed object):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">PyPump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">inbox</span><span class="p">)</span>
+<span class="go">[&lt;Activity&gt;, &lt;Activity&gt;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.outbox">
+<code class="descname">outbox</code><a class="headerlink" href="#Person.outbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an iterable feed of outbox items (Feed object):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a_person</span><span class="o">.</span><span class="n">outbox</span><span class="p">)</span>
+<span class="go">[&lt;Activity&gt;, &lt;Activity&gt;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.followers">
+<code class="descname">followers</code><a class="headerlink" href="#Person.followers" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an iterable feed of followers (Feed object):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a_person</span><span class="o">.</span><span class="n">followers</span><span class="p">)</span>
+<span class="go">[&lt;Person: person1@yep.org&gt;, &lt;Person: person2@pumpit.com&gt;, &lt;Person: someoneelse@example.com&gt;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.following">
+<code class="descname">following</code><a class="headerlink" href="#Person.following" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an iterable feed of all the people they&#8217;re following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">a_person</span><span class="o">.</span><span class="n">following</span><span class="p">)</span>
+<span class="go">[&lt;Person: TheBestPersonEvah@pump.megworld.co.uk&gt;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.location">
+<code class="descname">location</code><a class="headerlink" href="#Person.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the location of the user (Location object):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">location</span>
+<span class="go">&lt;Location: Manchester, UK&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.summary">
+<code class="descname">summary</code><a class="headerlink" href="#Person.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the summer of the user (unicode):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">summary</span>
+<span class="go">u&#39;The maker of this fabulous library!&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Person.image">
+<code class="descname">image</code><a class="headerlink" href="#Person.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the image of the person (Image object):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">image</span>
+<span class="go">&lt;Image: https://pump.megworld.co.uk/uploads/Tsyesika/2013/6/15/blahblah.png&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Person.follow">
+<code class="descname">follow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Person.follow" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will follow the user if you&#8217;re not already following them</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Person.unfollow">
+<code class="descname">unfollow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Person.unfollow" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will stop following the user if you were following them</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>This shows how to follow someone:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">follow</span><span class="p">()</span> <span class="c"># yay we&#39;re now following them!</span>
+</pre></div>
+</div>
+<p>What happens when i try and follow someone I am?:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">follow</span><span class="p">()</span> <span class="c"># nothing? yep.</span>
+</pre></div>
+</div>
+<p>Well, I don&#8217;t want to follow them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a_person</span><span class="o">.</span><span class="n">unfollow</span><span class="p">()</span> <span class="c"># awhh :(</span>
+</pre></div>
+</div>
+<p>You want to find <a class="reference external" href="mailto:yourfriend&#37;&#52;&#48;pumpity&#46;net">yourfriend<span>&#64;</span>pumpity<span>&#46;</span>net</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_friend</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;yourfriend@pumpity.net&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="n">blah</span> <span class="n">blah</span>
+    <span class="n">you</span> <span class="n">know</span> <span class="n">the</span> <span class="n">drill</span>
+<span class="gr">DoesNotExist</span>: <span class="n">Can&#39;t find yourfriend@pumpity.net</span>
+</pre></div>
+</div>
+<p>Oh that&#8217;s right they&#8217;re on pump.megworld.co.uk:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_friend</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;myfriend@pump.megworld.co.uk&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Awesome!</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Person</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="image.html"
+                        title="previous chapter">Image</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="activity.html"
+                        title="next chapter">Activity</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/person.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="../_sources/models/person.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

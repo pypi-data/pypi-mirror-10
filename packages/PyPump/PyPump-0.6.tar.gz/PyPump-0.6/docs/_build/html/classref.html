@@ -1,0 +1,1517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Class reference &mdash; PyPump 0.6-dev documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.6-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="PyPump 0.6-dev documentation" href="index.html" />
+    <link rel="prev" title="Upload Media" href="common/media.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="common/media.html" title="Upload Media"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PyPump 0.6-dev documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-reference">
+<h1>Class reference<a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="essentials">
+<h2>Essentials<a class="headerlink" href="#essentials" title="Permalink to this headline">¶</a></h2>
+<p>Classes doing most of the work.</p>
+<dl class="class">
+<dt id="pypump.PyPump">
+<em class="property">class </em><code class="descclassname">pypump.</code><code class="descname">PyPump</code><span class="sig-paren">(</span><em>client</em>, <em>verifier_callback</em>, <em>store=None</em>, <em>callback='oob'</em>, <em>verify_requests=True</em>, <em>retries=0</em>, <em>timeout=30</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/pypump.html#PyPump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.PyPump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class to interface with PyPump.</p>
+<p>This class keeps everything together and is responsible for making
+requests to the server on it&#8217;s own behalf and on the behalf of the
+other clients as well as handling the OAuth requests.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> &#8211; an instance of <a class="reference internal" href="#pypump.Client" title="pypump.Client"><code class="xref py py-class docutils literal"><span class="pre">Client</span></code></a>.</li>
+<li><strong>verifier_callback</strong> &#8211; If this is our first time registering the
+client, this function will be called with a single argument, the
+url one can post to for completing verification.</li>
+<li><strong>store</strong> &#8211; this is the <code class="xref py py-class docutils literal"><span class="pre">pypump.Store</span></code> instance to save
+any data persistantly.</li>
+<li><strong>callback</strong> &#8211; the URI that is used for redirecting a user
+after they authenticate this client... assuming this is
+happening over the web.  If not, the callback is &#8220;oob&#8221;, or &#8220;out
+of band&#8221;.</li>
+<li><strong>verify_requests</strong> &#8211; If this is set to False PyPump won&#8217;t check SSL/TLS
+certificates.</li>
+<li><strong>retries</strong> &#8211; number of times to retry if a request fails.</li>
+<li><strong>timeout</strong> &#8211; how long to give on a timeout for an http request, in
+seconds.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.Client">
+<em class="property">class </em><code class="descclassname">pypump.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>webfinger</em>, <em>type</em>, <em>name=None</em>, <em>contacts=None</em>, <em>redirect=None</em>, <em>logo=None</em>, <em>key=None</em>, <em>secret=None</em>, <em>expirey=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>This represents a client/application which is using the Pump API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>webfinger</strong> &#8211; webfinger id of this user, ie &#8220;<a class="reference external" href="mailto:mary&#37;&#52;&#48;example&#46;org">mary<span>&#64;</span>example<span>&#46;</span>org</a>&#8221;
+This is probably your username &#64; the domain of the pump instance
+you&#8217;re using.</li>
+<li><strong>type</strong> &#8211; whether this is a &#8220;web&#8221; or &#8220;native&#8221; client.  Unless you&#8217;re
+using pypump as part of a web service, you should choose &#8220;native&#8221;.</li>
+<li><strong>name</strong> &#8211; The name of this client, ie your application&#8217;s name.  For
+example, if you were using PyPump to write CoolCommunicator, you
+would put &#8220;CoolCommunicator&#8221; here.</li>
+<li><strong>contacts</strong> &#8211; Who wrote this application?  List of email addresses
+of those who authored this client.</li>
+<li><strong>redirect</strong> &#8211; a list of URIs as callbacks for the authorization
+server</li>
+<li><strong>logo</strong> &#8211; URI of your application&#8217;s logo.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, the following init args should only be supplied if
+you&#8217;ve already registered this client with the server.  If not,
+these will be filled in during the <cite>self.register()</cite> step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> &#8211; If This is the token (the <cite>client_id</cite>) we got back that
+identifies our client, assuming we&#8217;ve already registered our
+client.</li>
+<li><strong>secret</strong> &#8211; This is your secret token that authorizes you to connect
+to the pump instance (the <cite>client_secret</cite>).</li>
+<li><strong>expirey</strong> &#8211; When our token expires (<cite>espires_at</cite>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the above three are not the same as the oauth
+permissions verifying the user has access to post, this is related
+to permissions and identification of the client software to post.
+For the premission related to the access of the account, see
+PyPump.key and PyPump.secret.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pump-objects">
+<h2>Pump objects<a class="headerlink" href="#pump-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Classes representing pump.io objects:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#pypump.models.note.Note" title="pypump.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a></li>
+<li><a class="reference internal" href="#pypump.models.image.Image" title="pypump.models.image.Image"><code class="xref py py-class docutils literal"><span class="pre">Image</span></code></a></li>
+<li><a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a></li>
+<li><a class="reference internal" href="#pypump.models.person.Person" title="pypump.models.person.Person"><code class="xref py py-class docutils literal"><span class="pre">Person</span></code></a></li>
+<li><a class="reference internal" href="#pypump.models.feed.Inbox" title="pypump.models.feed.Inbox"><code class="xref py py-class docutils literal"><span class="pre">Inbox</span></code></a></li>
+<li><a class="reference internal" href="#pypump.models.feed.Outbox" title="pypump.models.feed.Outbox"><code class="xref py py-class docutils literal"><span class="pre">Outbox</span></code></a></li>
+<li><a class="reference internal" href="#pypump.models.feed.Lists" title="pypump.models.feed.Lists"><code class="xref py py-class docutils literal"><span class="pre">Lists</span></code></a></li>
+</ul>
+</dd>
+</dl>
+<dl class="class">
+<dt id="pypump.models.note.Note">
+<em class="property">class </em><code class="descclassname">pypump.models.note.</code><code class="descname">Note</code><span class="sig-paren">(</span><em>content=None</em>, <em>display_name=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/note.html#Note"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.note.Note" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>note</strong>,
+notes are used to post text (or html) messages to the pump.io network.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>content</strong> &#8211; (optional) Note content.</li>
+<li><strong>display_name</strong> &#8211; (optional) Note title.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s">&#39;&lt;b&gt;Hello&lt;/b&gt; world!&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="pypump.models.note.Note.cc">
+<code class="descname">cc</code><a class="headerlink" href="#pypump.models.note.Note.cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of secondary recipients.
+The object will show up in the recipients inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">cc</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Public</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.comment">
+<code class="descname">comment</code><span class="sig-paren">(</span><em>comment</em><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a <a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a>
+to the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comment</strong> &#8211; A <a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a>
+instance, text content is also accepted.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="n">pump</span><span class="o">.</span><span class="n">Comment</span><span class="p">(</span><span class="s">&#39;I agree!&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.note.Note.comments">
+<code class="descname">comments</code><a class="headerlink" href="#pypump.models.note.Note.comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the comments for the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">comments</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">comment by pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the object content on the server.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="go">datetime.datetime(2014, 10, 19, 9, 26, 39, tzinfo=tzutc())</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.favorite">
+<code class="descname">favorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.favorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Favorite the object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.note.Note.favorites">
+<code class="descname">favorites</code><a class="headerlink" href="#pypump.models.note.Note.favorites" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve liked the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">likes</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.like">
+<code class="descname">like</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">like</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.note.Note.likes">
+<code class="descname">likes</code><a class="headerlink" href="#pypump.models.note.Note.likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve liked the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">likes</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.send">
+<code class="descname">send</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the object to the server.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;Hello world!)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.share">
+<code class="descname">share</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Share the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">share</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.note.Note.shares">
+<code class="descname">shares</code><a class="headerlink" href="#pypump.models.note.Note.shares" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve shared the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">shares</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.note.Note.to">
+<code class="descname">to</code><a class="headerlink" href="#pypump.models.note.Note.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of primary recipients.
+If entry is a <code class="xref py py-class docutils literal"><span class="pre">Person</span></code> the object will show up
+in their direct inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello pypumptest1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;pypumptest1@pumpity.net&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span>
+<span class="go">[&lt;Person: pypumptest1@pumpity.net&gt;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.unfavorite">
+<code class="descname">unfavorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.unfavorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfavorite a previously favorited object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.unlike">
+<code class="descname">unlike</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.unlike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlike a previously liked object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">unlike</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.note.Note.unshare">
+<code class="descname">unshare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.note.Note.unshare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unshare a previously shared object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">unshare</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.image.Image">
+<em class="property">class </em><code class="descclassname">pypump.models.image.</code><code class="descname">Image</code><span class="sig-paren">(</span><em>display_name=None</em>, <em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/image.html#Image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.image.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>image</strong>,
+images are used to post image content with optional text (or html) messages
+to the pump.io network.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>content</strong> &#8211; (optional) Image text content.</li>
+<li><strong>display_name</strong> &#8211; (optional) Image title.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">myimage</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">display_name</span><span class="o">=</span><span class="s">&#39;Happy Caturday!&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myimage</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&#39;/path/to/kitteh.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="Image.thumbnail">
+<code class="descname">thumbnail</code><a class="headerlink" href="#Image.thumbnail" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.image.ImageContainer" title="pypump.models.image.ImageContainer"><code class="xref py py-class docutils literal"><span class="pre">ImageContainer</span></code></a>
+holding information about the thumbnail image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Image.original">
+<code class="descname">original</code><a class="headerlink" href="#Image.original" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.image.ImageContainer" title="pypump.models.image.ImageContainer"><code class="xref py py-class docutils literal"><span class="pre">ImageContainer</span></code></a>
+holding information about the original image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.image.Image.cc">
+<code class="descname">cc</code><a class="headerlink" href="#pypump.models.image.Image.cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of secondary recipients.
+The object will show up in the recipients inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">cc</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Public</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.comment">
+<code class="descname">comment</code><span class="sig-paren">(</span><em>comment</em><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a <a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a>
+to the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comment</strong> &#8211; A <a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a>
+instance, text content is also accepted.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="n">pump</span><span class="o">.</span><span class="n">Comment</span><span class="p">(</span><span class="s">&#39;I agree!&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.image.Image.comments">
+<code class="descname">comments</code><a class="headerlink" href="#pypump.models.image.Image.comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the comments for the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">comments</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">comment by pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the object content on the server.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="go">datetime.datetime(2014, 10, 19, 9, 26, 39, tzinfo=tzutc())</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.favorite">
+<code class="descname">favorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.favorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Favorite the object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.image.Image.favorites">
+<code class="descname">favorites</code><a class="headerlink" href="#pypump.models.image.Image.favorites" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve liked the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">likes</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.from_file">
+<code class="descname">from_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/image.html#Image.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.image.Image.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads an image from a filename on your system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> &#8211; Path to file on your system.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">myimage</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&#39;/path/to/dinner.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.like">
+<code class="descname">like</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">like</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.image.Image.likes">
+<code class="descname">likes</code><a class="headerlink" href="#pypump.models.image.Image.likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve liked the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">likes</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.share">
+<code class="descname">share</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Share the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">share</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.image.Image.shares">
+<code class="descname">shares</code><a class="headerlink" href="#pypump.models.image.Image.shares" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve shared the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">shares</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.image.Image.to">
+<code class="descname">to</code><a class="headerlink" href="#pypump.models.image.Image.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of primary recipients.
+If entry is a <code class="xref py py-class docutils literal"><span class="pre">Person</span></code> the object will show up
+in their direct inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello pypumptest1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;pypumptest1@pumpity.net&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span>
+<span class="go">[&lt;Person: pypumptest1@pumpity.net&gt;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.unfavorite">
+<code class="descname">unfavorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.unfavorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfavorite a previously favorited object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.unlike">
+<code class="descname">unlike</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.unlike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlike a previously liked object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">unlike</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.image.Image.unshare">
+<code class="descname">unshare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.image.Image.unshare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unshare a previously shared object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">unshare</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.comment.Comment">
+<em class="property">class </em><code class="descclassname">pypump.models.comment.</code><code class="descname">Comment</code><span class="sig-paren">(</span><em>content=None</em>, <em>in_reply_to=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/comment.html#Comment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.comment.Comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>comment</strong>,
+comments are used to post text (or html) messages in reply to other objects on the pump.io network.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>content</strong> &#8211; (optional) Comment content.</li>
+<li><strong>in_reply_to</strong> &#8211; (optional) Object to reply to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">catpic</span>
+<span class="go">&lt;Image by alice@example.org&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycomment</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Comment</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s">&#39;Best cat pic ever!&#39;</span><span class="p">,</span> <span class="n">in_reply_to</span><span class="o">=</span><span class="n">catpic</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mycomment</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="pypump.models.comment.Comment.cc">
+<code class="descname">cc</code><a class="headerlink" href="#pypump.models.comment.Comment.cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of secondary recipients.
+The object will show up in the recipients inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">cc</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Public</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.comment">
+<code class="descname">comment</code><span class="sig-paren">(</span><em>comment</em><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a <a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a>
+to the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comment</strong> &#8211; A <a class="reference internal" href="#pypump.models.comment.Comment" title="pypump.models.comment.Comment"><code class="xref py py-class docutils literal"><span class="pre">Comment</span></code></a>
+instance, text content is also accepted.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="n">pump</span><span class="o">.</span><span class="n">Comment</span><span class="p">(</span><span class="s">&#39;I agree!&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.comment.Comment.comments">
+<code class="descname">comments</code><a class="headerlink" href="#pypump.models.comment.Comment.comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the comments for the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">comments</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">comment by pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the object content on the server.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="go">datetime.datetime(2014, 10, 19, 9, 26, 39, tzinfo=tzutc())</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.favorite">
+<code class="descname">favorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.favorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Favorite the object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.comment.Comment.favorites">
+<code class="descname">favorites</code><a class="headerlink" href="#pypump.models.comment.Comment.favorites" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve liked the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">likes</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.like">
+<code class="descname">like</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">like</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.comment.Comment.likes">
+<code class="descname">likes</code><a class="headerlink" href="#pypump.models.comment.Comment.likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve liked the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">likes</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.send">
+<code class="descname">send</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the object to the server.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;Hello world!)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.share">
+<code class="descname">share</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Share the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">share</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.comment.Comment.shares">
+<code class="descname">shares</code><a class="headerlink" href="#pypump.models.comment.Comment.shares" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a>
+of the people who&#8217;ve shared the object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">mynote</span><span class="o">.</span><span class="n">shares</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">webfinger</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest1@pumpity.net</span>
+<span class="go">pypumptest2@pumpyourself.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.comment.Comment.to">
+<code class="descname">to</code><a class="headerlink" href="#pypump.models.comment.Comment.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of primary recipients.
+If entry is a <code class="xref py py-class docutils literal"><span class="pre">Person</span></code> the object will show up
+in their direct inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello pypumptest1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;pypumptest1@pumpity.net&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span>
+<span class="go">[&lt;Person: pypumptest1@pumpity.net&gt;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.unfavorite">
+<code class="descname">unfavorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.unfavorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfavorite a previously favorited object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.unlike">
+<code class="descname">unlike</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.unlike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlike a previously liked object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">unlike</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">liked</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.comment.Comment.unshare">
+<code class="descname">unshare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.comment.Comment.unshare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unshare a previously shared object.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">anote</span><span class="o">.</span><span class="n">unshare</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.person.Person">
+<em class="property">class </em><code class="descclassname">pypump.models.person.</code><code class="descname">Person</code><span class="sig-paren">(</span><em>webfinger=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/person.html#Person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.person.Person" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>person</strong>,
+a person is a user on the pump.io network.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>webfinger</strong> &#8211; User ID in <code class="docutils literal"><span class="pre">nickname&#64;hostname</span></code> format.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre>&gt;&gt;&gt; alice = pump.Person(&#39;alice@example.org&#39;)
+&gt;&gt;&gt; print(alice.summary)
+Hi, I&#39;m Alice
+&gt;&gt;&gt; mynote = pump.Note(&#39;Hey Alice, it&#39;s Bob!&#39;)
+&gt;&gt;&gt; mynote.to = alice
+&gt;&gt;&gt; mynote.send()
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="pypump.models.person.Person.cc">
+<code class="descname">cc</code><a class="headerlink" href="#pypump.models.person.Person.cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of secondary recipients.
+The object will show up in the recipients inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">cc</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Public</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.favorites">
+<code class="descname">favorites</code><a class="headerlink" href="#pypump.models.person.Person.favorites" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a> with all objects
+liked/favorited by the person.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">like</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">favorites</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">like</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">note by alice@example.org</span>
+<span class="go">image by bob@example.org</span>
+<span class="go">comment by evan@e14n.com</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.person.Person.follow">
+<code class="descname">follow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/person.html#Person.follow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.person.Person.follow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Follow person</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.followers">
+<code class="descname">followers</code><a class="headerlink" href="#pypump.models.person.Person.followers" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a> with all
+<a class="reference internal" href="#pypump.models.person.Person" title="pypump.models.person.Person"><code class="xref py py-class docutils literal"><span class="pre">Person</span></code></a> objects following the person.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">alice</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;alice@example.org&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">follower</span> <span class="ow">in</span> <span class="n">alice</span><span class="o">.</span><span class="n">followers</span><span class="p">[:</span><span class="mi">2</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">follower</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">acct:bob@example.org</span>
+<span class="go">acct:carol@example.org</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.following">
+<code class="descname">following</code><a class="headerlink" href="#pypump.models.person.Person.following" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a> with all
+<a class="reference internal" href="#pypump.models.person.Person" title="pypump.models.person.Person"><code class="xref py py-class docutils literal"><span class="pre">Person</span></code></a> objects followed by the person.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bob</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;bob@example.org&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">followee</span> <span class="ow">in</span> <span class="n">bob</span><span class="o">.</span><span class="n">following</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">followee</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">acct:alice@example.org</span>
+<span class="go">acct:duncan@example.org</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.inbox">
+<code class="descname">inbox</code><a class="headerlink" href="#pypump.models.person.Person.inbox" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Inbox" title="pypump.models.feed.Inbox"><code class="xref py py-class docutils literal"><span class="pre">Inbox</span> <span class="pre">feed</span></code></a> with all
+<code class="xref py py-class docutils literal"><span class="pre">activities</span></code>
+received by the person, can only be read if logged in as the owner.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">inbox</span><span class="p">[:</span><span class="mi">2</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">https://microca.st/api/activity/BvqXQOwXShSey1HxYuJQBQ</span>
+<span class="go">https://pumpyourself.com/api/activity/iQGdnz5-T-auXnbUUdXh-A</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.lists">
+<code class="descname">lists</code><a class="headerlink" href="#pypump.models.person.Person.lists" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Lists" title="pypump.models.feed.Lists"><code class="xref py py-class docutils literal"><span class="pre">Lists</span> <span class="pre">feed</span></code></a> with all lists
+owned by the person.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="nb">list</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">lists</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Acquaintances</span>
+<span class="go">Family</span>
+<span class="go">Coworkers</span>
+<span class="go">Friends</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.outbox">
+<code class="descname">outbox</code><a class="headerlink" href="#pypump.models.person.Person.outbox" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Outbox" title="pypump.models.feed.Outbox"><code class="xref py py-class docutils literal"><span class="pre">Outbox</span> <span class="pre">feed</span></code></a> with all
+<code class="xref py py-class docutils literal"><span class="pre">activities</span></code> sent by the person.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">outbox</span><span class="p">[:</span><span class="mi">2</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">pypumptest2 unliked a comment in reply to a note</span>
+<span class="go">pypumptest2 deleted a note</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.person.Person.to">
+<code class="descname">to</code><a class="headerlink" href="#pypump.models.person.Person.to" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of primary recipients.
+If entry is a <code class="xref py py-class docutils literal"><span class="pre">Person</span></code> the object will show up
+in their direct inbox when sent.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Note</span><span class="p">(</span><span class="s">&#39;hello pypumptest1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;pypumptest1@pumpity.net&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">to</span>
+<span class="go">[&lt;Person: pypumptest1@pumpity.net&gt;]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.person.Person.unfollow">
+<code class="descname">unfollow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/person.html#Person.unfollow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.person.Person.unfollow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfollow person</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.person.Person.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/person.html#Person.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.person.Person.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates person object</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.feed.Inbox">
+<em class="property">class </em><code class="descclassname">pypump.models.feed.</code><code class="descname">Inbox</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/feed.html#Inbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.feed.Inbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>inbox feed</strong>,
+it contains all activities posted to the owner of the inbox.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">inbox</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+<span class="go">Alice posted a note</span>
+<span class="go">Bob posted a comment in reply to a note</span>
+<span class="go">Alice liked a comment</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="pypump.models.feed.Inbox.direct">
+<code class="descname">direct</code><a class="headerlink" href="#pypump.models.feed.Inbox.direct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Direct inbox feed,
+contains activities addressed directly to the owner of the inbox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.feed.Inbox.items">
+<code class="descname">items</code><span class="sig-paren">(</span><em>offset=None</em>, <em>limit=20</em>, <em>since=None</em>, <em>before=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.feed.Inbox.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a feed&#8217;s items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> &#8211; Amount of items to skip before returning data</li>
+<li><strong>since</strong> &#8211; Return items added after this id (ordered old -&gt; new)</li>
+<li><strong>before</strong> &#8211; Return items added before this id (ordered new -&gt; old)</li>
+<li><strong>limit</strong> &#8211; Amount of items to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.feed.Inbox.major">
+<code class="descname">major</code><a class="headerlink" href="#pypump.models.feed.Inbox.major" title="Permalink to this definition">¶</a></dt>
+<dd><p>Major inbox feed, contains major activities such as notes and images.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.feed.Inbox.minor">
+<code class="descname">minor</code><a class="headerlink" href="#pypump.models.feed.Inbox.minor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minor inbox feed, contains minor activities such as likes, shares and follows.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.feed.Outbox">
+<em class="property">class </em><code class="descclassname">pypump.models.feed.</code><code class="descname">Outbox</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/feed.html#Outbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.feed.Outbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>outbox feed</strong>,
+it contains all activities posted by the owner of the outbox.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">activity</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">outbox</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">activity</span><span class="p">)</span>
+<span class="go">Bob posted a note</span>
+<span class="go">Bob liked an image</span>
+<span class="go">Bob followed Alice</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pypump.models.feed.Outbox.items">
+<code class="descname">items</code><span class="sig-paren">(</span><em>offset=None</em>, <em>limit=20</em>, <em>since=None</em>, <em>before=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.feed.Outbox.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a feed&#8217;s items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> &#8211; Amount of items to skip before returning data</li>
+<li><strong>since</strong> &#8211; Return items added after this id (ordered old -&gt; new)</li>
+<li><strong>before</strong> &#8211; Return items added before this id (ordered new -&gt; old)</li>
+<li><strong>limit</strong> &#8211; Amount of items to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.feed.Outbox.major">
+<code class="descname">major</code><a class="headerlink" href="#pypump.models.feed.Outbox.major" title="Permalink to this definition">¶</a></dt>
+<dd><p>Major outbox feed, contains major activities such as notes and images.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.feed.Outbox.minor">
+<code class="descname">minor</code><a class="headerlink" href="#pypump.models.feed.Outbox.minor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minor outbox feed, contains minor activities such as likes, shares and follows.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.feed.Lists">
+<em class="property">class </em><code class="descclassname">pypump.models.feed.</code><code class="descname">Lists</code><span class="sig-paren">(</span><em>url=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/feed.html#Lists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.feed.Lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>lists feed</strong>,
+it contains the <a class="reference internal" href="#pypump.models.collection.Collection" title="pypump.models.collection.Collection"><code class="xref py py-class docutils literal"><span class="pre">collections</span></code></a> (or lists) created by the owner.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">lists</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">Coworkers</span>
+<span class="go">Acquaintances</span>
+<span class="go">Family</span>
+<span class="go">Friends</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pypump.models.feed.Lists.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>display_name</em>, <em>content=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/feed.html#Lists.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.feed.Lists.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new user list <a class="reference internal" href="#pypump.models.collection.Collection" title="pypump.models.collection.Collection"><code class="xref py py-class docutils literal"><span class="pre">collection</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>display_name</strong> &#8211; List title.</li>
+<li><strong>content</strong> &#8211; (optional) List description.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">lists</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">display_name</span><span class="o">=</span><span class="s">&#39;Friends&#39;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s">&#39;List of friends&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfriends</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">lists</span><span class="p">[</span><span class="s">&#39;Friends&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">myfriends</span><span class="p">)</span>
+<span class="go">Friends</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.feed.Lists.items">
+<code class="descname">items</code><span class="sig-paren">(</span><em>offset=None</em>, <em>limit=20</em>, <em>since=None</em>, <em>before=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.feed.Lists.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a feed&#8217;s items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> &#8211; Amount of items to skip before returning data</li>
+<li><strong>since</strong> &#8211; Return items added after this id (ordered old -&gt; new)</li>
+<li><strong>before</strong> &#8211; Return items added before this id (ordered new -&gt; old)</li>
+<li><strong>limit</strong> &#8211; Amount of items to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="low-level-objects">
+<h2>Low level objects<a class="headerlink" href="#low-level-objects" title="Permalink to this headline">¶</a></h2>
+<p>Classes you probably don&#8217;t need to know about.</p>
+<dl class="class">
+<dt id="pypump.models.image.ImageContainer">
+<em class="property">class </em><code class="descclassname">pypump.models.image.</code><code class="descname">ImageContainer</code><span class="sig-paren">(</span><em>url</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/image.html#ImageContainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.image.ImageContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Container that holds information about an image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>url</strong> &#8211; URL to image file on the pump.io server.</li>
+<li><strong>width</strong> &#8211; Width of the image.</li>
+<li><strong>height</strong> &#8211; Height of the image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.feed.Feed">
+<em class="property">class </em><code class="descclassname">pypump.models.feed.</code><code class="descname">Feed</code><span class="sig-paren">(</span><em>url=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/feed.html#Feed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.feed.Feed" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a basic pump.io <strong>feed</strong>, which is used for
+navigating a list of objects (inbox,followers,shares,likes and so on).</p>
+<dl class="method">
+<dt id="pypump.models.feed.Feed.items">
+<code class="descname">items</code><span class="sig-paren">(</span><em>offset=None</em>, <em>limit=20</em>, <em>since=None</em>, <em>before=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/feed.html#Feed.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.feed.Feed.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a feed&#8217;s items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> &#8211; Amount of items to skip before returning data</li>
+<li><strong>since</strong> &#8211; Return items added after this id (ordered old -&gt; new)</li>
+<li><strong>before</strong> &#8211; Return items added before this id (ordered new -&gt; old)</li>
+<li><strong>limit</strong> &#8211; Amount of items to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypump.models.collection.Collection">
+<em class="property">class </em><code class="descclassname">pypump.models.collection.</code><code class="descname">Collection</code><span class="sig-paren">(</span><em>id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/collection.html#Collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.collection.Collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object represents a pump.io <strong>collection</strong>, collections have
+a members <a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a> and methods for adding
+and removing objects to that feed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; (optional) Collection id.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">friendlist</span> <span class="o">=</span> <span class="n">pump</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">lists</span><span class="p">[</span><span class="s">&#39;Friends&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">friendlist</span><span class="o">.</span><span class="n">members</span><span class="p">)</span>
+<span class="go">[&lt;Person: alice@example.org&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">friendlist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;bob@example.org&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pypump.models.collection.Collection.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/collection.html#Collection.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.collection.Collection.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a member to the collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; Object to add.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mycollection</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;bob@example.org&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.collection.Collection.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypump.models.collection.Collection.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the object content on the server.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mynote</span><span class="o">.</span><span class="n">deleted</span>
+<span class="go">datetime.datetime(2014, 10, 19, 9, 26, 39, tzinfo=tzutc())</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pypump.models.collection.Collection.members">
+<code class="descname">members</code><a class="headerlink" href="#pypump.models.collection.Collection.members" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#pypump.models.feed.Feed" title="pypump.models.feed.Feed"><code class="xref py py-class docutils literal"><span class="pre">Feed</span></code></a> of collection members.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypump.models.collection.Collection.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pypump/models/collection.html#Collection.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pypump.models.collection.Collection.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a member from the collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; Object to remove.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mycollection</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">pump</span><span class="o">.</span><span class="n">Person</span><span class="p">(</span><span class="s">&#39;bob@example.org&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Class reference</a><ul>
+<li><a class="reference internal" href="#essentials">Essentials</a></li>
+<li><a class="reference internal" href="#pump-objects">Pump objects</a></li>
+<li><a class="reference internal" href="#low-level-objects">Low level objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="common/media.html"
+                        title="previous chapter">Upload Media</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/classref.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Jessica Tallon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="_sources/classref.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
