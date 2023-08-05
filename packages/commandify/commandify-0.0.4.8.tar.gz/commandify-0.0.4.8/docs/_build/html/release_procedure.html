@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Release Procedure &mdash; Commandify 0.0.4.6-alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.4.6-alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Commandify 0.0.4.6-alpha documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="release-procedure">
+<h1>Release Procedure<a class="headerlink" href="#release-procedure" title="Permalink to this headline">¶</a></h1>
+<p>Before first release:</p>
+<ul class="simple">
+<li>[Check credentials in <tt class="docutils literal"><span class="pre">~/.pypirc</span></tt>]</li>
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">register</span></tt></li>
+</ul>
+<p>For each release:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Run tests:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></tt></li>
+<li>[or <tt class="docutils literal"><span class="pre">nosetests</span></tt>]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Update <tt class="docutils literal"><span class="pre">commandify/version.py</span></tt></p>
+</li>
+<li><p class="first">Update <tt class="docutils literal"><span class="pre">changelog.rst</span></tt></p>
+</li>
+<li><p class="first">[If <tt class="docutils literal"><span class="pre">commandify_examples.py</span></tt> has changed:] update <tt class="docutils literal"><span class="pre">README.rst</span></tt></p>
+</li>
+<li><dl class="first docutils">
+<dt>Build/upload docs:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">docs</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">zip_html</span></tt></li>
+<li>(Follow instructions to upload to PyPI)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Update PyPI project:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">bdist_wheel</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">dist/*</span></tt></li>
+<li>[OLD: don&#8217;t use: <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">upload</span></tt>]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>git commit and tag release:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">release_0.0.2</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span></tt></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/release_procedure.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mark Muetzelfeldt.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

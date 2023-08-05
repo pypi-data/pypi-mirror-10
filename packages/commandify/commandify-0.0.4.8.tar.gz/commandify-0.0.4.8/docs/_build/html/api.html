@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>commandify API &mdash; Commandify 0.0.4.6-alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.4.6-alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Commandify 0.0.4.6-alpha documentation" href="index.html" />
+    <link rel="next" title="Commandify Testing" href="tests.html" />
+    <link rel="prev" title="Commandify Documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tests.html" title="Commandify Testing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Commandify Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="commandify-api">
+<h1><a class="toc-backref" href="#id1">commandify API</a><a class="headerlink" href="#commandify-api" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#commandify-api" id="id1">commandify API</a><ul>
+<li><a class="reference internal" href="#module-commandify.commandify" id="id2"><tt class="xref py py-mod docutils literal"><span class="pre">commandify</span></tt> &#8211; turn functions into command line args</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="module-commandify.commandify">
+<span id="commandify-turn-functions-into-command-line-args"></span><h2><a class="toc-backref" href="#id2"><tt class="xref py py-mod docutils literal"><span class="pre">commandify</span></tt> &#8211; turn functions into command line args</a><a class="headerlink" href="#module-commandify.commandify" title="Permalink to this headline">¶</a></h2>
+<p>Decorators/functions for turning functions into command line arguments</p>
+<dl class="exception">
+<dt id="commandify.commandify.CommandifyError">
+<em class="property">exception </em><tt class="descclassname">commandify.commandify.</tt><tt class="descname">CommandifyError</tt><big>(</big><em>message</em>, <em>error_type='code'</em><big>)</big><a class="headerlink" href="#commandify.commandify.CommandifyError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exceptions thrown by commandify</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commandify.commandify.command">
+<tt class="descclassname">commandify.commandify.</tt><tt class="descname">command</tt><big>(</big><em>*dec_args</em>, <em>**dec_kwargs</em><big>)</big><a class="headerlink" href="#commandify.commandify.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator for adding to sub commands</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commandify.commandify.commandify">
+<tt class="descclassname">commandify.commandify.</tt><tt class="descname">commandify</tt><big>(</big><em>use_argcomplete=False</em>, <em>exit=True</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#commandify.commandify.commandify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns decorated functions into command line args</p>
+<p>Finds the main_command and all commands and generates command line args
+from these.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="commandify.commandify.main_command">
+<tt class="descclassname">commandify.commandify.</tt><tt class="descname">main_command</tt><big>(</big><em>*dec_args</em>, <em>**dec_kwargs</em><big>)</big><a class="headerlink" href="#commandify.commandify.main_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator for adding to main function (entry point)</p>
+<p>Should only be applied to one function</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">commandify API</a><ul>
+<li><a class="reference internal" href="#module-commandify.commandify"><tt class="docutils literal"><span class="pre">commandify</span></tt> &#8211; turn functions into command line args</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Commandify Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tests.html"
+                        title="next chapter">Commandify Testing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/api.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tests.html" title="Commandify Testing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Commandify Documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mark Muetzelfeldt.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
