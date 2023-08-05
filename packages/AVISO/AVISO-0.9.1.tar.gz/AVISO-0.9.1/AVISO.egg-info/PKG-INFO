@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: AVISO
+Version: 0.9.1
+Summary: A library to handle altimetric data produced by AVISO
+Home-page: https://pyaviso.castelao.net
+Author: Guilherme Castelao
+Author-email: guilherme@castelao.net
+License: MIT
+Description: PyAVISO
+        =======
+        
+        aviso
+        -----
+        
+        A small library to download data from AVISO. It uses the AVISO's DAP server, to
+        optimize the use of the net, downloading only the selected subset. For that,
+        you need to register a username and password at AVISO. It's free. The data is
+        downloaded in blocks, so don't overload AVISO's server, and run safe in unstable
+        networks.
+        
+        Fast aviso howto
+        ----------------
+        
+        Run this in the shell, outside Python, to install the library:
+        
+        pip install aviso
+        
+        Now try this, with proper username and password, to download some data into a NetCDF file:
+        
+        AVISO_download -R -5/310/15/350 -D 1999-01-01/1999-06-01 -u user_at_AVISO_DAP -p password_at_AVISO_DAP --map='msla' --timestep=30 -o aviso.nc
+        
+        Documentation
+        -------------
+        
+        The full documentation is at http://pyaviso.readthedocs.org
+        
+        ATENTION
+        --------
+        
+        This is not an official package, so please do not complain with AVISO if you have any trouble with it.
+        
+        
+        .
+Keywords: altimetry,AVISO,TOPEX,JASON,oceanography,Sea Surface Height
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License 
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
