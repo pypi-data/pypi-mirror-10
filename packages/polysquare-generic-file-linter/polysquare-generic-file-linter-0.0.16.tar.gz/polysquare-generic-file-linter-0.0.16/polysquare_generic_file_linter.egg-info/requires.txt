@@ -1,0 +1,8 @@
+whoosh<=2.6
+
+[test]
+coverage
+capture
+nose
+nose-parameterized
+testtools
