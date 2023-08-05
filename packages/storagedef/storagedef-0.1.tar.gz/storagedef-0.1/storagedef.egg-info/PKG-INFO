@@ -1,0 +1,76 @@
+Metadata-Version: 1.1
+Name: storagedef
+Version: 0.1
+Summary: Abstract storage interfaces
+Home-page: https://github.com/gjo/storagedef
+Author: OCHIAI, Gouji
+Author-email: gjo.ext@gmail.com
+License: BSD
+Description: .. -*- coding: utf-8 -*-
+        
+        ==========
+        storagedef
+        ==========
+        
+        Abstract storage layer
+        
+        
+        Install
+        =======
+        
+        from PyPI::
+        
+          pip install storagedef
+        
+        
+        from Source::
+        
+          pip install -e .
+        
+        
+        How to use
+        ==========
+        
+        If you use ``pyramid``::
+        
+          import storagedef
+        
+          def main(global_config, **settings):
+              storage_session = storagedef.Session.from_config(settings, prefix='mystorage.')
+              config = Configurator(settings=settings)
+        
+              # Some your configuration using storage_session
+        
+              return config.make_wsgi_app()
+        
+        
+        Configuration Keys
+        ==================
+        
+        Example ini-file if you use 'mystorage.' as prefix::
+        
+          mystorage.engine = storagedef.engines.s3:S3StorageEngine
+          mystorage.credentials_file = ~/.aws/credentials
+          mystorage.config_file = ~/.aws/config
+          mystorage.region = ap-northeast-1
+          mystorage.bucket = some-test-bucket
+          mystorage.acl = public-read
+        
+        another ini-file using localmem::
+        
+          mystorage.engine = storagedef.engines.localmemory:LocalMemoryStorageEngine
+        
+        
+        Change History
+        ==============
+        
+        0.1 - 2015-05-09
+        ----------------
+        - Initial release.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Paste
+Classifier: Framework :: Pyramid
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.4
