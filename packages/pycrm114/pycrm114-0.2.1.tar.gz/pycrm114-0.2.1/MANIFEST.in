@@ -1,0 +1,9 @@
+include README.rst
+include HISTORY.rst
+include LICENSE
+include NOTICE
+include versioneer.py
+recursive-include lib *.c
+recursive-include include *.h
+recursive-include src *.c
+recursive-include requirements *.txt
