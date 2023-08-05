@@ -1,0 +1,34 @@
+Welcome to the OrpHCA's web repository!
+=======================================
+
+For the latest documentation please see:
+http://orphhca.readthedocs.org/en/latest/index.html
+
+
+Quick installation guide:
+=========================
+
+
+After downdloading the zip:
+---------------------------
+
+Get the zip/tar archive at 
+http://ebbgit.uni-muenster.de/tbitardfeildel/orphhca
+
+Uncompress it (depending on the type file):
+unzip orphhca*.zip
+tar -xjf orphhca*.tar.bz
+
+and install orphhca:
+
+cd orphhca.git*
+
+python setup.py install --user
+
+
+Using git
+---------
+
+git clone ssh://git@ebbgit.uni-muenster.de:62246/tbitardfeildel/orphhca.git
+cd orphhca.git
+python setup.py install --user
