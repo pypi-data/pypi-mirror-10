@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: nagios-load-per-core
+Version: 0.1.1
+Summary: Nagios plugin to check load normalized by core count
+Home-page: https://github.com/carlf/nagios-load-per-core
+Author: Carl Flippin
+Author-email: carlf@photocarl.org
+License: MIT
+Description: ====================
+        nagios-load-per-core
+        ====================
+        Installation
+        ------------
+        Installation is simple:
+        
+        ::
+           
+           pip install nagios-load-per-core
+        
+        Alternatively:
+        
+        ::
+        
+           git clone https://github.com/carlf/nagios-load-per-core.git
+           python setup.py install
+        
+        Usage
+        -----
+        Simply call with warning and critical values. Please note that the
+        load average is normalized such that it is divided by the number of
+        cores on the host.
+        
+        ::
+           
+           check-load-by-core -w 1.3 -c 2.4
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Monitoring
+Classifier: License :: OSI Approved :: MIT License
