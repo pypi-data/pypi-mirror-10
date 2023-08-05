@@ -1,0 +1,39 @@
+Metadata-Version: 1.0
+Name: ps.diazo.vanilla
+Version: 0.2
+Summary: Propertyshelf Vanilla Theme.
+Home-page: https://github.com/propertyshelf/ps.diazo.vanilla
+Author: Propertyshelf, Inc.
+Author-email: development@propertyshelf.com
+License: GPL
+Download-URL: http://pypi.python.org/pypi/ps.diazo.vanilla
+Description: Propertyshelf Vanilla Theme
+        ===========================
+        
+        Changelog
+        =========
+        
+        0.2
+        -------------------
+        - improved default styles & icons
+        
+        0.1
+        -------------------
+        - Initial set of styles and rules
+        - Initial release [Solomonic].
+        - Use buildout.plonetest based package buildout. [tmassmann]
+        - Fixed codeanalysis error messages. [tmassman]
+        - Added documentation skeleton. [tmassman]
+        
+Keywords: plone diazo vanilla
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.2
+Classifier: Framework :: Plone :: 4.3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
