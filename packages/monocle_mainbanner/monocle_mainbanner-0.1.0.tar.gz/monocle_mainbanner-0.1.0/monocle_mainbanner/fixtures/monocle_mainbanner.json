@@ -1,0 +1,38 @@
+[
+  {"pk": 1,
+    "fields":
+    {"text": "Текст главного баннер",
+      "name": "Главный Баннер",
+      "arrows": "false",
+      "width": true,
+      "elem_number": 1,
+      "isShown": true,
+      "pagination": "false"
+    },
+    "model": "monocle_mainbanner.mainbanner"
+  },
+  {
+    "pk": 1,
+    "fields":
+    {"text": "<p style=\"margin-top: 0.5em; margin-bottom: 0.5em; line-height: 22.3999996185303px; color: rgb(37, 37, 37); font-family: sans-serif;\">his is a&nbsp;<b>list of&nbsp;<a href=\"http://en.wikipedia.org/wiki/Time_zone\" title=\"Time zone\" style=\"color: rgb(11, 0, 128); background-image: none; background-position: initial;\">time zones</a>&nbsp;in the&nbsp;<a href=\"http://en.wikipedia.org/wiki/Tz_database\" title=\"Tz database\" style=\"color: rgb(11, 0, 128); background-image: none; background-position: initial;\">tz database</a></b>&nbsp;release.&nbsp;The list is derived from the zones, links, and rules specified in&nbsp;<i>zone.tab</i>&nbsp;and the 7 \"continent files\"&nbsp;\u2013&nbsp;<i>africa</i>,&nbsp;<i>antarctica</i>,&nbsp;<i>asia</i>,&nbsp;<i>australasia</i>,&nbsp;<i>europe</i>,&nbsp;<i>northamerica</i>, and&nbsp;<i>southamerica</i>.</p><p style=\"margin-top: 0.5em; margin-bottom: 0.5em; line-height: 22.3999996185303px; color: rgb(37, 37, 37); font-family: sans-serif;\">The four columns in&nbsp;<i>zone.tab</i>&nbsp;are mapped into columns 1\u20134 (marked with *) in the table below. The file contains the following comments:</p>",
+      "name": "1",
+      "image": "monocle_mainbanner/chrysanthemum.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 0
+    },
+    "model": "monocle_mainbanner.slide"
+  },
+  {
+    "pk": 2,
+    "fields":
+    {"text": "Текст слайда 2",
+      "name": "2",
+      "image": "monocle_mainbanner/lighthouse.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 1
+    },
+  "model": "monocle_mainbanner.slide"
+  }
+]
