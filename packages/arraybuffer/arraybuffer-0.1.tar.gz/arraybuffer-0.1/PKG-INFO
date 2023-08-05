@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: arraybuffer
+Version: 0.1
+Summary: Cython based buffer for arrays and typed memoryviews.
+Home-page: https://bitbucket.org/intellimath/arraybuffer
+Author: Zaur Shibzukhov
+Author-email: szport@gmail.com
+License: MIT License
+Download-URL: https://bitbucket.org/intellimath/arraybuffer
+Description: ===========
+        arraybuffer
+        ===========
+        
+        **arraybuffer** is `MIT Licensed <http://opensource.org/licenses/MIT>`_ python library.
+        It implements types ``arraybuffer`` and ``arraybuffer_dsc`` for efficient creation of typed memoryviews and multidimensional arrays.
+        
+        * ``arraybuffer`` is buffer for multidimensional arrays and typed memoryviews. 
+        * ``arraybuffer_dsc`` is a type for desciption of buffers for creation of multidimensional arrays and typed memoryviews.
+        
+        Main repository for ``arraybuffer`` 
+        is on `bitbucket <https://bitbucket.org/intellimath/arraybuffer>`_.
+        
+        There are `example <http://nbviewer.ipython.org/urls/bitbucket.org/intellimath/arraybuffer/raw/default/examples/arraybuffer.ipynb>`_ and `benchmark <http://nbviewer.ipython.org/urls/bitbucket.org/intellimath/arraybuffer/raw/default/examples/arraybuffer_benchmarks.ipynb>`_.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
