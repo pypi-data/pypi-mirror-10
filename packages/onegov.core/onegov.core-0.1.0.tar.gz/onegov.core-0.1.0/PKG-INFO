@@ -1,0 +1,88 @@
+Metadata-Version: 1.1
+Name: onegov.core
+Version: 0.1.0
+Summary: Contains code shared by all OneGov applications.
+Home-page: http://github.com/seantis/onegov.core
+Author: Seantis GmbH
+Author-email: info@seantis.ch
+License: GPLv2
+Description: 
+        
+        Run the Tests
+        -------------
+            
+        Install tox and run it::
+        
+            pip install tox
+            tox
+        
+        Limit the tests to a specific python version::
+        
+            tox -e py27
+        
+        Conventions
+        -----------
+        
+        Onegov Core follows PEP8 as close as possible. To test for it run::
+        
+            tox -e pep8
+        
+        Onegov Core uses `Semantic Versioning <http://semver.org/>`_
+        
+        Build Status
+        ------------
+        
+        .. image:: https://travis-ci.org/OneGov/onegov.core.png
+          :target: https://travis-ci.org/OneGov/onegov.core
+          :alt: Build Status
+        
+        Coverage
+        --------
+        
+        .. image:: https://coveralls.io/repos/OneGov/onegov.core/badge.png?branch=master
+          :target: https://coveralls.io/r/OneGov/onegov.core?branch=master
+          :alt: Project Coverage
+        
+        Latests PyPI Release
+        --------------------
+        .. image:: https://pypip.in/v/onegov.core/badge.png
+          :target: https://crate.io/packages/onegov.core
+          :alt: Latest PyPI Release
+        
+        License
+        -------
+        onegov.core is released under GPLv2
+        
+        Changelog
+        ---------
+        
+        Unreleased
+        ~~~~~~~~~~
+        
+        0.1.0 (2015-05-06)
+        ~~~~~~~~~~~~~~~~~~~
+        
+        - The form directive now also accepts a factory function.
+          [href]
+        
+        0.0.2 (2015-05-05)
+        ~~~~~~~~~~~~~~~~~~~
+        
+        - The CSRF protection now associates a random secret with the session. The
+          random secret is then used to check if the CSRF token is valid.
+          [href]
+        
+        - Cache the translator on the request to be slightly more efficient.
+          [href]
+        
+        0.0.1 (2015-04-29)
+        ~~~~~~~~~~~~~~~~~~~
+        
+        - Initial Release [href]
+        
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
