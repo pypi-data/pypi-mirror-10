@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: gadapter
+Version: 0.0.1
+Summary: Adapter for Gcloud - python
+Home-page: https://github.com/RevelutionWind/gadapter.git
+Author: plasmashadow
+Author-email: plasmashadowx@gmail.com
+License: Apache 2.0
+Description: #G Adapter
+        
+        [![Build Status](https://travis-ci.org/RevelutionWind/gadapter.svg)](https://travis-ci.org/RevelutionWind/gadapter)
+        
+        ##Description
+        
+        Since gcloud python is constantly evolving into more powerfull library.
+        This evolution causes some api in that library to change on updated versions.
+        G adapter is made for providing standard set of api's over gcloud with
+        Change in gcloud versions.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
