@@ -1,0 +1,125 @@
+
+Distributed / Parallel Computing
+********************************
+
+"discoro" module provides API for sending computation fragments to
+remote asyncoro. Whereas "RCI" provides API for creating remote
+coroutines with pre-defined generator functions, discoro's API
+provides generic framework that can be used by clients to send
+different computaions to create coroutines at the remote server. There
+are two components in "discoro" module.
+
+class class discoro.Computation(computation, depends=[], cleanup=True)
+
+   Packages fragments that can then be sent to discoro servers for
+   execution. *computation* must be a generator function. This
+   function is used to create coroutine by the server. *depends* is a
+   list of other fragments that are used by *computation*. Each
+   element in this list can be a function, class, module or path name
+   of a file. *cleanup* indicates if the server(s) should remove the
+   files transferred after the computation is done.
+
+   The computation created as, for example, "compute =
+   Computation(func)", has following methods:
+
+   compute.setup(peer, timeout=None, func=None, args=(), kwargs={})
+
+      Note: This method must be used with *yield*.
+
+      Transfers the computation to the server at location given by
+      *peer*.  (Use "Coro.locate()" to get *peer*, for example; see
+      *Distributed / Parallel Computing* in tutorial for an example.
+      *timeout* is timeout in seconds to complete the transfer. If
+      successfull, the return value is 0. If *func* is a function,
+      then this function is transferred to the *peer* and executed
+      with *args* and *kwargs*; this can be used to prepare *peer* for
+      running coroutines with *computation*, such as loading modules.
+      "setup()" must be called once for each peer.
+
+   compute.run(peer, *args, **kwargs)
+
+      Note: This method must be used with *yield*.
+
+      Creates coroutine at *peer* with the computation that was
+      transferred earlier with *setup* and the arguments **args*,
+      ***kwargs*. If successful, the return value is a reference to
+      the remote coroutine. This coroutine can then be used for
+      messages passing, monitoring etc. "run()" can be called as many
+      times as necessary to create coroutines. Note that all the
+      coroutines will run in the same thread, so computations will not
+      take advantage of multiple processors. If multiple processors
+      are to be used (with compute intensive computations, for
+      example), then either discoro server can be started with
+      multiple CPUs (see below) or dispy project can be used.
+
+   compute.ping(peer)
+
+      Note: This method must be used with *yield*.
+
+      Checks if the peer (server) is reachable (i.e., it is running
+      and network communication is working). If the return value is 0,
+      peer is working.
+
+   compute.close(peer, func=None, args=(), kwargs={})
+
+      Note: This method must be used with *yield*.
+
+      Closes the computation at *peer*. If *cleanup* is "True" when
+      computation was created, then any files transferred for the
+      computation will be deleted. After the computation is closed,
+      "run()" and "ping()" will fail. If *func* is a function, it is
+      transferred to *peer* and executed with *args* and *kwargs*;
+      this can be used to perform any cleanup, such as unloading
+      modules, deleting global variables etc. See *Distributed /
+      Parallel Computing* for an example.
+
+discoro.discoro_server(name="discoro_server")
+
+   This generator method can be used to create a coroutine at each
+   computation node. It accepts computations from clients created with
+   "Computation", which can then create coroutines for distributed /
+   parallel computing.
+
+discoro can also be run as a program. This starts "discoro_server()"
+so clients can send computations to it. The program has a few options
+to initialize asyncoro scheduler:
+
+   * "-c" option specifies number of instances of "discoro_server()"
+     to run so that many processors are used to run compute intensive
+     tasks. If "-c" option is used with a positive number, then that
+     many instances of "discoro_server()" are run (so that many
+     processors can be used in parallel); if it is negative number,
+     then that many processors are not used (from available
+     processors) and if it is "0" (default value), then all available
+     processors are used.
+
+   * "-i" or "--ip_addr" is same as *node* option to "AsynCoro" of
+     "disasyncoro".
+
+   * "--ext_ip_addr" is same as *ext_ip_addr* option to "AsynCoro"
+     of "disasyncoro".
+
+   * "-u" or "--urp_port" is same as *udp_port* option to "AsynCoro"
+     of "disasyncoro".
+
+   * "-n" or "--name" is same as *name* option to "AsynCoro" of
+     "disasyncoro".
+
+   * "--dest_path" is same as *dest_path* option to "AsynCoro" of
+     "disasyncoro".
+
+   * "--max_file_size" is same as *max_file_size* option to
+     "AsynCoro" of "disasyncoro".
+
+   * "-s" or "--secret" is same as *secret* option to "AsynCoro" of
+     "disasyncoro".
+
+   * "--certfile" is same as *certfile* option to "AsynCoro" of
+     "disasyncoro".
+
+   * "--keyfile" is same as *keyfile* option to "AsynCoro" of
+     "disasyncoro".
+
+   * "-d" or "--debug" option enables debug log messages.
+
+See *Distributed / Parallel Computing* in tutorial for an example.

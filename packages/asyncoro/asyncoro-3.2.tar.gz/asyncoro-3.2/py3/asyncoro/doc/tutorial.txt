@@ -1,0 +1,464 @@
+
+Tutorial / Examples
+*******************
+
+Many examples are included in 'doc' directory where asyncoro module is
+installed (with PyPI / pip). See *README* file in that 'doc' directory
+for brief description of each of the programs. A few examples from
+them are explained below in more detail.
+
+
+Asynchronous Concurrent Programming
+===================================
+
+asyncoro's concurrency framework has some features similar to Actor
+Model. With asyncoro, computation units are created with coroutines.
+Each coroutine has a message queue from which it can receive message
+sent to it by other coroutines. In addition to this one-to-one
+communication between coroutines, asyncoro supports one-to-many
+communication with broadcasting channels.
+
+
+Coroutines
+----------
+
+Coroutine in asyncoro is a computational unit created with generator
+function, i.e., Python function with one or more *yield* statements.
+Creating coroutines is similar to creating threads, except that the
+process function must be generator function and coroutine is created
+with "Coro" instead of "threading.Thread". If the generator functions
+used for creating coroutines have default argument *coro=None*, "Coro"
+constructor sets this parameter set to coroutine instance created.
+This parameter, thus, can be used to call methods on it (e.g.,
+"receive()", "sleep()" etc.).
+
+An example program that creates coroutines is:
+
+   import asyncoro, random, time
+
+   def coro_proc(n, coro=None):
+       s = random.uniform(0.5, 3)
+       print('%f: coroutine %d sleeping for %f seconds' % (time.time(), n, s))
+       yield coro.sleep(s)
+       print('%f: coroutine %d terminating' % (time.time(), n))
+
+   # create 10 coroutines running generator function 'coro_proc'
+   for i in range(10):
+       # coroutine function is called with 'i'
+       asyncoro.Coro(coro_proc, i)
+
+Coroutines are created with "Coro" constructor.  The first argument
+must be a generator function and rest of the arguments should
+correspond to parameters in generator definition. In the above
+program, the generator function *coro_proc* has *coro=None* keyword
+argument, so "Coro" constructor sets *coro* to the coroutine created -
+this parameter should not be passed to the constructor. The
+constructor schedule execution of this coroutine in asncoro's
+scheduler. In *coro_proc*, the expression *coro.sleep(s)* suspends
+execution of running coroutine for given time. During that time other
+coroutines that are ready to execute will be executed. The total time
+taken by the above program should be roughly same as maximum of the
+sleep times (at most 3 seconds in the above program).
+
+Note that since "sleep()" is a generator function, it must be called
+with *yield* (otherwise, *coro.sleep* simply returns new generator
+instance and thus will not suspend the execution as desired).
+
+
+Message Passing
+---------------
+
+With the concurrent and asychronous behavior of coroutines in
+asyncoro, communication among them is accomplished by sending and
+receiving messages. A message can be any Python object. In case
+message is being sent to a remote coroutine (i.e., coroutine running
+with another program), the message must be serializable. A coroutine
+can either send a message to another coroutine (one-to-one
+communication) or broadcast a message over channel to many coroutines
+(one-to-many communication). At the reeciver coroutine the messages
+are stored in a queue (similar to what is called Mailbox in other
+concurrecy frameworks) in the order they are received so that a
+"receive()" returns oldest message, blocking until a message becomes
+available.
+
+With one-to-one communication, a coroutine invokes "send()" method on
+the receipient coroutine. Sending a message simply queues the message
+in recipient; it doesn't, for example, wait for recipient to process
+the message. If necessary, "deliver()" method may be used instead of
+"send()" when sending message over network; it indicates how many
+recipients received the message - see *Asynchronous Concurrenct
+Programming* for details.
+
+An example client/server program with asyncoro is:
+
+   import asyncoro, random
+
+   def server_proc(coro=None):
+       coro.set_daemon()
+       while True:
+           msg = yield coro.receive()
+           print('processing %s' % (msg))
+
+   msg_id = 0
+
+   def client_proc(server, n, coro=None):
+       global msg_id
+       for x in range(3):
+           yield coro.suspend(random.uniform(0.5, 3))
+           msg_id += 1
+           server.send('%d: %d / %d' % (msg_id, n, x))
+
+   server = asyncoro.Coro(server_proc)
+   for i in range(10):
+       asyncoro.Coro(client_proc, server, i)
+
+The main program first creates *server* coroutine with *server_proc*
+generator function, which has *coro=None* keyword parameter, so "Coro"
+constructor passes the coroutine instance as *coro* (thus, *server* in
+the main program is same as *coro* in *server_proc*). The main program
+creates 10 client coroutines with *client_proc*, passing *server* as
+the first argument and an identifier as second argument. The main
+program has no use for client coroutines, so it doesn't save them.
+Each of the client coroutines suspends itself for a brief period and
+sends a unique message to the server. Since server_proc never
+terminates on its own, we indicate that it is a daemon process so that
+asyncoro can terminate it once all non-daemon coroutines (in this case
+client coroutines) are terminated (after sending 3 messages each);
+otherwise, asyncoro's scheduler will never terminate as the server
+coroutine is still running.
+
+Unlike with threads, asyncoro's scheduler doesn't preempt running
+coroutine. Thus, locking is not required with asyncoro. To illustrate
+this concept, *msg_id*, a global, shared variable, is updated in
+*client_proc* without having to worry about non-deterministic values.
+asyncoro, however, provides all locking primitives similar to thread
+locking primitives. Some of the methods in these locking primitives
+are generator methods (blocking operations in synchronous threading
+module), so they must be used with *yield*.
+
+In this case the messages sent by clients are strings. If, say, server
+needs to send a reply back tot the client, then the messages can be in
+the form of dictionary, tuple, list etc. to pass client's coroutine
+instance (e.g., as list [coro, msg_id, n, x] from which server can
+retrieve the client coroutine that sent the message).
+
+
+Channels
+--------
+
+If one-to-many or broadcast communication is needed, asyncoro's
+Channel can be used. To receive messages on a channel, a coroutine
+must subscribe to it. After subscribing to a channel, any message sent
+to that channel will be received by each of its current subscribers.
+
+These concepts are used in the program below where a client sends a
+series of numbers over a channel. Two coroutines receive these numbers
+to compute sum and product of those numbers:
+
+   import asyncoro, random
+
+   def seqsum(coro=None):
+       # compute sum of numbers received over channel
+       result = 0
+       while True:
+           msg = yield coro.receive()
+           if msg is None:
+               break
+           result += msg
+       print('sum: %f' % result)
+
+   def seqprod(coro=None):
+       # compute product of numbers received over channel
+       result = 1
+       while True:
+           msg = yield coro.receive()
+           if msg is None:
+               break
+           result *= msg
+       print('prod: %f' % result)
+
+   def client_proc(coro=None):
+       channel = asyncoro.Channel('sum_prod')
+       # create two coroutines to compute sum and product of
+       # numbers sent over the channel
+       sum_coro = asyncoro.Coro(seqsum)
+       prod_coro = asyncoro.Coro(seqprod)
+       yield channel.subscribe(sum_coro)
+       yield channel.subscribe(prod_coro)
+       for x in range(4):
+           r = random.uniform(0.5, 3)
+           channel.send(r)
+           print('sent %f' % r)
+       channel.send(None)
+       yield channel.unsubscribe(sum_coro)
+       yield channel.unsubscribe(prod_coro)
+
+   asyncoro.Coro(client_proc)
+
+A coroutine can subscribe to as many channels as necessary. All such
+messages, as well as messages sent directly to a coroutine, are
+received with *coro.receive()* method.
+
+A channel, c2, may subscribe to another channel, c1, so that any
+message sent to c1 will also be received by all of its subscribers,
+including c2, which in turn causes its subscribers to receive that
+message as well. In this case, a message sent to c2 will not be
+receieved by c1. This way a hierarchy of channels can be created to
+reflect the heirarchy of components in a system.
+
+Care must be taken not to create cycles in subscription with channel
+hierarchy; e.g., channel c1 subscribing to channel c2 in the above
+example. asyncoro doesn't detect cycles in subscriptions and will
+cause runtime exception due to recursion.
+
+
+Asynchronous Network Programming
+================================
+
+Some of Python library's (synchronous) socket operations, such as
+*connect*, *accept* and *recv* are blocking operations; i.e., they
+wait for the operation complete. These blocking operations are not
+suitable with asyncoro, as during that time other eligible coroutines
+are also blocked from executing.
+
+asyncoro provides "AsyncSocket" class to convert Python's blocking
+socket to a non-blocking socket. Essentially "AsyncSocket" is a
+wrapper that implements blocking operations as generator functions
+that can be used in coroutines (with *yield*, as done with any
+generator function).
+
+For example, below is the server program that accepts connections and
+processes each connection:
+
+   import socket, sys, asyncoro
+
+   def process(conn, coro=None):
+       data = ''
+       while True:
+           data += yield conn.recv(128)
+           if data[-1] == '/':
+              break
+       conn.close()
+       print('received: %s' % data)
+
+   def server_proc(host, port, coro=None):
+       coro.set_daemon()
+       sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+       sock = asyncoro.AsyncSocket(sock)
+       sock.bind((host, port))
+       sock.listen(128)
+
+       while True:
+           conn, addr = yield sock.accept()
+           asyncoro.Coro(process, conn)
+
+   asyncoro.Coro(server_proc, '127.0.0.1', 8010)
+   while True:
+       cmd = sys.stdin.readline().strip().lower()
+       if cmd == 'exit' or cmd == 'quit':
+           break
+
+The two differences to note in 'server_proc' coroutine function
+compared to programming with threads: the TCP socket is converted to
+asynchronous socket with "AsyncSocket" so it can be used in
+coroutines, and *accept* is used with *yield* as this is a generator
+function (in AsyncSocket). Then a new coroutine is created to process
+the connection.  The socket returned from *accept* of an asynchronous
+socket is also an asychronous socket, so no need to convert it with
+"AsyncSocket". In the 'process' coroutine function, *recv* is used
+with *yield* as it is also a generator function of asynchronous
+socket.
+
+Below is a client program that creates 10 coroutines each of which
+connects to the server above and sends a message. Each message ends
+with a marker '/' so that the server can receive the full message.:
+
+   import socket, sys, asyncoro, random
+
+   def client_proc(host, port, n, coro=None):
+       sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+       sock = asyncoro.AsyncSocket(sock)
+       yield sock.connect((host, port))
+       msg = '%d: ' % n + '-' * random.randint(100,300) + '/'
+       yield sock.sendall(msg)
+       sock.close()
+
+   for n in range(1, 10):
+       asyncoro.Coro(client_proc, '127.0.0.1', 8010, n)
+
+Here again, the TCP socket is converted to asynchronous socket with
+"AsyncSocket" so it can be used in coroutines, and the operations
+*connect* and *sendall* are used with *yield* as these are generator
+functions.
+
+In essence, using asyncoro for asynchronous network programming is
+very similar to thread programming, except for creating coroutines
+with "Coro" instead of threads, converting Python library's sockets to
+asynchronous sockets with "AsyncSocket", and using *yield* with
+certain methods.
+
+
+Distributed Programming
+=======================
+
+asyncoro includes a scheduler (class AsynCoro) that runs coroutines,
+suspends them when necessary, deliver messages etc. When a coroutine
+is created with "Coro" as done in above programs, the scheduler is
+started if one has not been already started. The default behavior with
+the scheduler is to not start network services required for
+communication with coroutines or channels in another program. To use
+distributed programming, "disasyncoro" must be imported instead of
+"asyncoro".
+
+Coroutines and channels can be registered with asyncoro so that they
+can be located by coroutines running in a remote location. The
+reference (to remote coroutine or channel) obtained by locating can be
+used to send messages, monitor (in the case of coroutine) etc.
+
+Using these features, the above client/server program can be separated
+in to client and server programs that run on two different locations.
+The server program is:
+
+   import random, sys
+   import asyncoro.disasyncoro as asyncoro
+
+   def server_proc(coro=None):
+       coro.set_daemon()
+       coro.register('server_coro')
+       while True:
+           msg = yield coro.receive()
+           print('processing %s' % (msg))
+
+   server = asyncoro.Coro(server_proc)
+   while True:
+       cmd = sys.stdin.readline().strip().lower()
+       if cmd == 'quit' or cmd == 'exit':
+           break
+
+There are two differences with this version from the one in
+concurrency section above:
+
+   * "disasyncoro" is imported to start network services for
+     distributed programming.
+
+   * The server coroutine registers itself with the name
+     "server_coro" so that client can use that name to obtain a
+     reference to the this server which can be used to send messages.
+
+The client program is:
+
+   import random
+   import asyncoro.disasyncoro as asyncoro
+
+   def client_proc(n, coro=None):
+       global msg_id
+       server = yield Coro.locate('server_coro')
+       for x in range(3):
+           yield coro.suspend(random.uniform(0.5, 3))
+           msg_id += 1
+           server.send('%d: %d / %d' % (msg_id, n, x))
+
+   msg_id = 0
+   for i in range(10):
+       asyncoro.Coro(client_proc, i)
+
+In this case there are two differences compared to the version in
+concurrent programming section above:
+
+   * As is done in the server, "disasyncoro" is imported to start
+     network service.
+
+   * In the client coroutine a reference to remote server is
+     obtained using the name the server is registered with. "locate()"
+     is a generator function so it must be called with *yield*.
+
+The above client and server programs can be run either on the same
+computer or on different computers on the same network. Even if they
+are run on the same computer, the client and server coroutines are
+considered remote to each other. The client program can be run
+multiple instances simultaneously, if desired.
+
+If the client and server programs are run on computers on the same
+network (i.e., they share same router or gateway), then the schedulers
+discover each other. If the programs are on computers on different
+networks, the scheduler in the client program needs to be informed
+about the location of server's scheduler. This is done by adding the
+line "yield AsynCoro().peer('remote_node')" before using name
+location, where *remote_node* is either the IP address or name of the
+remote peer.
+
+
+Distributed / Parallel Computing
+================================
+
+While "RCI" provides API for creating pre-defined functionality that
+can be executed remotely, module "discoro" provides support for
+clients to send computations that can be executed remotely, optionally
+running them in parallel in separate processes to use multiple
+processors. See *Distributed / Parallel Computing* for details.
+
+Program below sends *compute* generator function to the server named
+"discoro_server" for creating coroutine to execute *compute* which
+simply sleeps for given number of seconds and sends back a square root
+of that number (as the result). Function *setup* prepares for
+executing *compute* (in this case by loading the module "math") and
+function *cleanup* removes the setup.:
+
+   import asyncoro.disasyncoro as asyncoro, asyncoro.discoro
+   # this generator function is sent to remote server to run
+   # coroutines there
+   def compute(n, client, coro=None):
+       yield coro.sleep(n)
+       # send result back to client
+       yield client.deliver(math.sqrt(n))
+
+   def setup(): # initialize for 'compute' (load 'math' module)
+       # import module in to global scope
+       globals()['math'] = __import__('math')
+
+   def cleanup():
+       del sys.modules['math']
+       del globlas()['math']
+
+   def schedule_computation(computation, coro=None):
+       server = yield asyncoro.Coro.locate('discoro_server')
+       if (yield computation.setup(server, func=setup)):
+           raise Exception('setup on %s failed' % server.location)
+       rcoro = yield computation.run(server, 5, coro)
+       if isinstance(rcoro, asyncoro.Coro):
+           result = yield coro.receive()
+           print('result: %s from %s' % (result, server.location))
+       else:
+           print('failed to run on %s' % server.location)
+       yield computation.close(server, func=cleanup)
+
+   if __name__ == '__main__':
+       scheduler = asyncoro.AsynCoro.instance(name='client')
+       computation = discoro.Computation(compute)
+       asyncoro.Coro(schedule_computation, computation)
+
+To test, run "discoro.py" program with "-c 1" on a computer in local
+network and this client program.
+
+This program schedules computation once on the only server (with the
+name "discoro_server"). To use multiple servers and multiple
+processors on each server, run "discoro.py" and use "peer_status()" in
+the client to schedule computations on each peer.
+
+discoro server imports *setup*, *cleanup* functions and all
+computations into global scope. It keeps track of all those variables
+and when computation is closed, those variables are removed from
+global scope.
+
+The computations (coroutines) execute in the same address space as the
+discoro server. The computations, for example, can use global
+variables, perhaps even creating them in *setup* function. However,
+care must be taken to remove them, for example, in *cleanup* function.
+To avoid name conflicts with computations, variables in discoro server
+start with *_discoro_*.
+
+See dispy project, which supports distributed computing where the
+tasks don't need to communicate with each other or the client. dispy
+supports many features not supported by discoro, such as built-in
+scheduler (so it is easier to use), fault-tolerance, sharing nodes in
+multiple programs simultaneously etc.
