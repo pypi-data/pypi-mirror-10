@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: substanced
+Version: 1.0a1
+Summary: An application server built using Pyramid
+Home-page: http://docs.pylonsproject.org
+Author: Chris McDonough
+Author-email: pylons-devel@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: Substance D
+        ===========
+        
+        .. image:: https://travis-ci.org/Pylons/substanced.png?branch=master
+                :target: https://travis-ci.org/Pylons/substanced
+        
+        .. image:: https://readthedocs.org/projects/substanced/badge?version=latest
+                :target: http://docs.pylonsproject.org/projects/substanced
+                :alt: Latest Documentation Status
+        
+        An application server built upon the Pyramid web framework.  It provides a
+        user interface for managing content as well as libraries and utilities which
+        make it easy to create applications.
+        
+        Visit the main website at http://substanced.net for FAQs and documentation.
+        
+        There is a mailing list: https://groups.google.com/group/substanced-users
+        
+        The code is at https://github.com/Pylons/substanced
+        
+        The IRC channel is at irc://freenode.net/#substanced
+        
+        
+        1.0a1 (2015-04-17)
+        ==================
+        
+        - Initial release.
+        
+Keywords: wsgi pylons pyramid zodb catalog zope
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: License :: Repoze Public License
