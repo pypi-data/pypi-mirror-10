@@ -1,0 +1,71 @@
+Metadata-Version: 1.1
+Name: pylons-sphinx-themes
+Version: 0.2.2
+Summary: Pylons Sphinx themes for documentation styling.
+Home-page: http://pylonsproject.org
+Author: Steve Piercy
+Author-email: pylons-discuss@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: Pylons Sphinx Themes
+        ====================
+        
+        This repository is a Python package that contains Sphinx themes for Pylons
+        related projects. This project is based on `Pylons Sphinx Theme
+        <https://github.com/Pylons/pylons_sphinx_theme>`_ (singular), but uses a
+        package implementation instead of git submodules and manual steps.
+        
+        To use a theme in your Sphinx documentation, follow this guide.
+        
+        Edit your Sphinx documentation's ``conf.py``
+        --------------------------------------------
+        1. Near the top, add the following.::
+        
+            import pylons_sphinx_themes
+        
+        2. Activate the theme::
+        
+            html_theme = 'pyramid'
+            html_theme_path = pylons_sphinx_themes.get_html_themes_path()
+        
+        3. If you were previously using the git submodule method to use the Pylons
+           theme, then comment or delete the block of code under the following
+           statement::
+        
+            # Add and use Pylons theme
+            if 'sphinx-build' in ' '.join(sys.argv):  # protect against dumb importers
+            ...
+        
+        4. (Optional) Set a canonical root URL::
+        
+            html_theme_options = dict(
+                canonical_url='http://the_root_domain/latest/docs/'
+            )
+           
+        The URL points to the root of the documentation, and requires a trailing
+        slash.
+        
+        The following themes exist.
+        
+        - **pylons** - the generic Pylons Project documentation theme
+        - **pyramid** - the specific Pyramid documentation theme
+        - **pylonsfw** - the specific Pylons Framework documentation theme
+        
+        
+        0.1 (2015-04-15)
+        ================
+        
+        - Convert from using git submodule used in
+          https://github.com/Pylons/pylons_sphinx_theme to a package. See
+          https://github.com/Pylons/pyramid/issues/1614
+        
+        - Initial commit.
+        
+Keywords: pylons web pyramid sphinx documentation
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Programming Language :: Python
+Classifier: License :: Repoze Public License
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Documentation
