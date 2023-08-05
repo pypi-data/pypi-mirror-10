@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+monocle_slider/__init__.py
+monocle_slider/admin.py
+monocle_slider/models.py
+monocle_slider/monocle.py
+monocle_slider.egg-info/PKG-INFO
+monocle_slider.egg-info/SOURCES.txt
+monocle_slider.egg-info/dependency_links.txt
+monocle_slider.egg-info/top_level.txt
+monocle_slider/fixtures/monocle_slider.json
+monocle_slider/static/monocle_slider/monocle_slider.css
+monocle_slider/static/monocle_slider/monocle_slider.js
+monocle_slider/templates/monocle_slider/monocle_slider.html
