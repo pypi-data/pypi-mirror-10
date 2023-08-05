@@ -1,0 +1,6 @@
+include pynic/*.h
+include CHANGELOG
+include DESCRIPTION.rst
+include LICENSE
+
+recursive-include examples *
