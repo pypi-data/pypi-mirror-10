@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: gpotato
+Version: 0.1
+Summary: GLib event loop for tulip (PEP 3156)
+Home-page: https://github.com/astronouth7303/gpotato
+Author: Jamie Bliss
+Author-email: astronouth7303@gmail.com
+License: Apache 2.0
+Description: Gbulb is a python library that implements a PEP 3156 interface for the GLib main event loop. It is designed to be used together with the tulip reference implementation.
+        
+        This is a work in progress. The code is experimental and may break at any time.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
