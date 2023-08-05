@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Setup configuration for the portal_css tool. -->
+
+<object name="portal_css">
+
+     <stylesheet
+        id="++resource++customer.lascatalinascr_com/portlet.css"
+        cacheable="True"
+        compression="safe"
+        cookable="False"
+        enabled="1"
+        rel="stylesheet"
+        />
+
+    <stylesheet
+        id="++resource++customer.lascatalinascr_com/photowall.css"
+        cacheable="True"
+        compression="safe"
+        cookable="False"
+        enabled="1"
+        rel="stylesheet"
+        />
+
+</object>
