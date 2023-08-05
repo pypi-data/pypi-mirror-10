@@ -1,0 +1,112 @@
+<section>
+    {% for model in monocle_map_models %}
+
+        <div class="row">
+            <h2 class="fancy"><span>{{ model.name }}</span></h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="MAP"></div>
+            </div>
+        </div>
+        {% if model.mapType == 'YM' %}
+            <script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+            <script>
+            function init() {
+                var lat = 92.872033;
+                var lng = 56.006886;
+                var zoom = {{model.zoom}};
+
+                if ('{{ model.map }}'.split(',').length == 2) {
+                    values = '{{ model.map }}'.split(',');
+                    lat = values[0];
+                    lng = values[1];
+                }
+
+                myMap = new ymaps.Map("MAP", {
+                    center: [lng, lat],
+                    zoom: zoom,
+                    controls: ['smallMapDefaultSet']
+                });
+
+
+                BalloonLayout = ymaps.templateLayoutFactory.createClass(
+                    '{{ model.baloon }}'
+               );
+                myPlacemark = new ymaps.Placemark([lng, lat], {
+                    balloonHeader: '{{ model.name }}',
+                    balloonContentBody: '{{ model.baloon }}',
+                    balloonShadow: false,
+                    hintContent: '{{ model.name }}'
+                },
+                {
+                    iconLayout: 'default#image',
+                    iconImageHref: 'media/{{ model.markerImg }}',
+                    iconImageSize: [32, 42]
+                }
+                );
+               myMap.geoObjects.add(myPlacemark);
+
+                $('body').on('click', '#ballon_close', function (e) {
+                    e.preventDefault();
+                    $('#ballon_close').parent('div').hide();
+                    myMap.geoObjects.add(myPlacemark);
+                });
+            }
+            $(document).ready(function () {
+                ymaps.ready(init);
+                var myMap, myPlacemark;
+            });
+        </script>
+
+        {% elif model.mapType == 'GM'%}
+            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+            <script>
+                function initialize() {
+                    var lat = 92.872033;
+                    var lng = 56.006886;
+                    var zoom = {{model.zoom}};
+
+                    if ('{{ model.map }}'.split(',').length == 2) {
+                        values = '{{ model.map }}'.split(',');
+                        lat = values[0];
+                        lng = values[1];
+                    }
+
+
+                    var myLatlng = new google.maps.LatLng(lng, lat);
+                    var myOptions = {
+                        zoom: zoom,
+                        center: myLatlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(document.getElementById("MAP"), myOptions);
+
+                    var contentString = '{{ model.baloon }}';
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+                    var image = new google.maps.MarkerImage('media/{{ model.markerImg }}',
+                      new google.maps.Size(32, 42)
+
+                    );
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        icon: image,
+                        title: '{{ model.name }}'
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map,marker);
+                    });
+                }
+                $(document).ready(function(){
+                    initialize();
+                });
+            </script>
+        {% endif %}
+{% endfor %}
+
+</section>
