@@ -1,0 +1,78 @@
+Metadata-Version: 1.1
+Name: djmailgun
+Version: 0.0.1
+Summary: A simple drop-in mail backend for Django
+Home-page: http://www.example.com/
+Author: Dmitry Yuzhakov
+Author-email: dmtry88@gmail.com
+License: MIT License
+Description: # djmailgun
+        
+        Package for sending emails via mailgun.
+        (This package based on [django-mailgun] package)
+        
+        Currently tested only on Python 3
+        
+        ## Overview
+        djmailgun is a drop-in mail backend for Django, 
+        per https://docs.djangoproject.com/en/1.8/topics/email/#email-backends
+        
+        ## Installation
+        Install django-mailgun::
+        
+            pip install django-mailgun
+        
+        ## Configuration
+        Depends on version you would like to use:
+        
+        ```
+        1) EMAIL_BACKEND = 'djmailgun.backends.v1.Backend'
+        2) EMAIL_BACKEND = 'djmailgun.backends.v2.Backend'
+        3) EMAIL_BACKEND = 'djmailgun.backends.v3.Backend'
+        ```
+        
+        Next you have to setup access key and server name and there are two ways of doing this.
+        
+        1) You could just add this in settings file
+        ```
+        MAILGUN_ACCESS_KEY  = 'ACCESS-KEY'
+        MAILGUN_SERVER_NAME = 'SERVER-NAME'
+        ```
+        
+        2) You could migrate all package migrations via
+        ```
+        ./manage.py migrate djmailgun
+        ```
+        Next you have to setup this table for example via admin part of the site.
+        You have to add two records:
+        * First
+          * key - MAILGUN_ACCESS_KEY 
+          * value - ACCESS-KEY
+        * Second
+          * key - MAILGUN_SERVER_NAME 
+          * value - SERVER-NAME
+        
+        Now, when you use ``django.core.mail.send_mail``, Mailgun will send the messages
+        
+        ## Links
+        
+        * Builtin Email Error Reporting
+        * Django
+        * Mailgun
+        
+        [Builtin Email Error Reporting]:https://docs.djangoproject.com/en/1.8/howto/error-reporting/
+        [Django]:http://djangoproject.com
+        [Mailgun]:http://mailgun.net
+        [django-mailgun]:https://docs.djangoproject.com/en/1.8/topics/email/#email-backends
+Keywords: django mailgun email
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
