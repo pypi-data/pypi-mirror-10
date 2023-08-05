@@ -1,0 +1,4 @@
+[console_scripts]
+hadoop_mock = hadoop_mock.hadoop_mock:cli
+hadoop_ssh = hadoop_mock.hadoop_ssh:cli
+
