@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="audit_trail_view_form">
+            <field name="model">audit_trail</field>
+            <field name="type">form</field>
+            <field name="name">audit_trail_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_audit_trail_form">
+            <field name="name">Audit Trail</field>
+            <field name="res_model">audit_trail</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_audit_trail_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="audit_trail_view_form"/>
+            <field name="act_window" ref="act_audit_trail_form"/>
+        </record>
+        <menuitem parent="ir.menu_administration" action="act_audit_trail_form"
+            id="menu_audit_trail_form"/>
+        <record model="ir.ui.menu-res.group"
+            id="menu_audit_trail_form_group_admin">
+            <field name="menu" ref="menu_audit_trail_form"/>
+            <field name="group" ref="res.group_admin"/>
+        </record>
+
+    </data>
+</tryton>
