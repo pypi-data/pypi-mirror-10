@@ -1,0 +1,60 @@
+WHAT IS IT?
+===========
+
+AuVyon collects little helpers to work with media data.
+
+See https://github.com/pyroscope/auvyon/wiki for more.
+
+
+INSTALLATION
+============
+
+First, install basic requirements as root, e.g. on Debian and similar distros:
+
+    sudo apt-get install \
+        imagemagick ffmpeg flac \
+        python-dev python-numpy python-scipy python-matplotlib \
+        libsndfile1-dev libmagickwand-dev ttf-dejavu-extra \
+        libatlas-dev liblapack-dev gfortran \
+        python-virtualenv virtualenvwrapper git bzip2
+
+If you can't find all of these packages for your distro, some features might not work.
+
+
+Then, for installing a release version, just call
+
+    easy_install auvyon
+
+[NB: There currently *is* no release version]
+
+
+Otherwise, to create a working directory from source, use
+
+    cd; mkdir -p src; cd src
+    git clone git://github.com/pyroscope/auvyon.git
+    cd auvyon; export AUVYON_HOME="$PWD"
+    . ./bootstrap.sh
+
+This creates a virtualenv with all dependencies and necessary tools installed.
+
+
+To test waveform creation, use
+    $AUVYON_HOME/bin/python -m auvyon.imaging.waveforms $AUVYON_HOME/src/tests/data/Parrot_sketch.ogg 
+    display $AUVYON_HOME/src/tests/data/waveforms.jpg
+    # on a headless system, use "identify" instead of "display"
+
+To test spectrogram creation, use
+    $AUVYON_HOME/bin/python -m auvyon.imaging.spectrograms $AUVYON_HOME/src/tests/data/Parrot_sketch.ogg 
+    display $AUVYON_HOME/src/tests/data/spectrogram.jpg
+    # on a headless system, use "identify" instead of "display"
+
+
+
+ACKNOWLEDGEMENTS
+================
+
+Repository hosting @ github.
+
+Test data sources:
+    http://en.wikipedia.org/wiki/File:Parrot_sketch.ogg
+
