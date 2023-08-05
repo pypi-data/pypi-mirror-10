@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import re
+import base64
+import StringIO
+from PIL import Image
+import argparse
+
+import serial
+from serial.tools import list_ports
+
+def get_ports():
+    pat = re.compile('ttyS.*')
+    ports = list_ports.comports()
+    ports = [p for p in ports if not pat.search(p[0])]
+    ports.sort()
+
+    return ports
+
+def serial_capture(port):
+    output = ""
+
+    ser = None
+    try:
+        ser = serial.Serial(port, 115200, timeout=2)
+    except serial.serialutil.SerialException:
+        print "Error: could not open port '"+args.port+"'\nrun with '--list' to get available ports"
+        sys.exit(1)
+
+    print "Listening for capture input on port '"+port+"'..."
+    on = False
+    while True:
+        data_raw = ser.readline().strip()
+
+        if '-----start' in data_raw:
+            output = ""
+            print "Receiving image download!"
+            on = True
+        elif '-----end' in data_raw:
+            on = False
+            break
+        elif on == True:
+            output += data_raw
+
+    ser.close()
+
+    return output
+
+
+def convert_to_image(data,scale=4):
+    data = data.strip()
+    data = base64.decodestring(data)
+    data = StringIO.StringIO(data)
+    
+    im = Image.open(data)
+
+    size = im.size
+    newsize = (im.size[0]*scale, im.size[1]*scale)
+
+    im = im.resize(newsize)
+    
+    return im
+
+
+def main():
+    defaultscale = 4
+
+    parser = argparse.ArgumentParser(description='Take screenshots of LameStation games! (epic!)')
+    parser.add_argument('port',metavar='PORT',nargs='?',help='Port to capture image')
+
+    parser.add_argument('-s','--scale',metavar='FACTOR',nargs=1,type=int,default=[defaultscale],
+            help='Integer factor by which to scale the output image (default: '+str(defaultscale)+')')
+
+    parser.add_argument('-o','--out',metavar='FILE',nargs=1,help="Specify output file name")
+    parser.add_argument('-l','--list',action='store_true',help="List ports available to capture from")
+    parser.add_argument('-d','--display',action='store_true',help="Show resulting image")
+
+    args = parser.parse_args()
+
+    if args.list:
+        ports = get_ports()
+        for p in ports:
+            print p[0]
+        sys.exit()
+
+    if not args.port:
+        print "Error: port not specified\nrun with '--list' to get available ports"
+        sys.exit(1)
+
+    data = serial_capture(args.port)
+    im = convert_to_image(data,args.scale[0])
+
+    if args.display:
+        im.show()
+
+    output = ""
+    if args.out:
+        output = args.out[0]
+    else:
+        index = 1
+        while True:
+            output = 'pic'+str(index)+'.png'
+            if not os.path.exists(output):
+                break
+            index += 1
+    
+    print "Generating "+output+"..."
+
+    im.save(output)
+
+if __name__ == '__main__':
+    main()
