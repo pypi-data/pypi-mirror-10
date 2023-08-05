@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="collective.glossary">
+
+  <five:registerPackage package="." />
+
+  <include package="plone.app.dexterity" />
+  <include package="plone.directives.form" file="meta.zcml" />
+  <include package="plone.directives.form" />
+
+  <permission
+      id="collective.glossary.AddGlossary"
+      title="collective.glossary: Add Glossary"
+      />
+
+  <permission
+      id="collective.glossary.AddTerm"
+      title="collective.glossary: Add Term"
+      />
+
+  <include package=".browser" />
+
+  <include file="profiles.zcml" />
+
+</configure>
