@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Current Events" %}{% endblock %}
+
+{% block page_header %}
+{% include "horizon/common/_page_header.html" with title=_("Current Events") %}
+{% endblock page_header %}
+
+{% block main %}
+{{ table.render }}
+{% endblock %}
+
+{% block js %}
+{% include "horizon/_scripts.html" %}
+<script type='text/javascript' charset='utf-8'>
+$( document ).ready(function() {
+  $('td.status_column:contains("3")').parent().addClass('unknown');
+  $('td.status_column:contains("2")').parent().addClass('danger');
+  $('td.status_column:contains("1")').parent().addClass('warning');
+  $('td.silenced_column').has("i.icon-ok").parent().addClass('silenced'); 
+});
+</script>
+<style type="text/css">
+  td { background-color: transparent!important; }
+
+  /*table td { color: #fff!important; }*/
+
+  td.centered { text-align: center; }
+
+  tr.danger {  background: rgba(231, 76, 60, 1); }
+  tr.danger.silenced {  background-color: #f8c9c4; }
+
+  tr.warning {  background-color: rgba(243, 156, 18, 1); }
+  tr.warning.silenced {  background-color: #fbe1b7; }
+
+</style>
+{% endblock %}
