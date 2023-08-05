@@ -1,0 +1,16 @@
+Home-page: https://github.com/histrio/python-couchdblogger
+Author: Rinat F Sabitov, Federico Gonzalez
+Author-email: rinat.sabitov@gmail.com, federicogonzalez761@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: couchdb logging logger handler
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Environment :: Web Environment
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
