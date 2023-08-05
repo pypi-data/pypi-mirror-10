@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+readme.rst
+setup.cfg
+setup.py
+ERAlchemy.egg-info/PKG-INFO
+ERAlchemy.egg-info/SOURCES.txt
+ERAlchemy.egg-info/dependency_links.txt
+ERAlchemy.egg-info/entry_points.txt
+ERAlchemy.egg-info/requires.txt
+ERAlchemy.egg-info/top_level.txt
+eralchemy/__init__.py
+eralchemy/cst.py
+eralchemy/main.py
+eralchemy/models.py
+eralchemy/sqla.py
