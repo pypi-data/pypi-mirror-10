@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+setup.py
+src/marathon_proxy_manager/__init__.py
+src/marathon_proxy_manager/__main__.py
+src/marathon_proxy_manager/nginx.py
+src/marathon_proxy_manager.egg-info/PKG-INFO
+src/marathon_proxy_manager.egg-info/SOURCES.txt
+src/marathon_proxy_manager.egg-info/dependency_links.txt
+src/marathon_proxy_manager.egg-info/pbr.json
+src/marathon_proxy_manager.egg-info/requires.txt
+src/marathon_proxy_manager.egg-info/top_level.txt
+src/marathon_proxy_manager/templates/__init__.py
+src/marathon_proxy_manager/templates/nginx.tmpl
