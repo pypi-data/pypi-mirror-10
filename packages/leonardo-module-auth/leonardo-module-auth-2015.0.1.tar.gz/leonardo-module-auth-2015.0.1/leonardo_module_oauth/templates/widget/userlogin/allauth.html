@@ -1,0 +1,26 @@
+{% extends widget.get_base_template %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<ul class="nav {% if widget.inline %}navbar-nav navbar-right{% else %}navbar-stacked{% endif %}">
+  {% if request.user.is_authenticated %}
+  {% if request.frontend_editing %}
+  <li><a href=".?frontend_editing=0">{% trans "Stop Editing" %}</a></li>
+  {% else %}
+  <li><a href=".?frontend_editing=1">{% trans "Start Editing" %}</a></li>
+  {% endif %}
+  <li><a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a></li>
+  {% else %}
+  {% if widget.type == 2 %}
+  <li><a class="ajax-modal" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
+  {% else %}
+  <li><a href="{% url 'admin:login' %}">{% trans "Sign In" %}</a></li>
+  {% endif %}
+  {% endif %}
+</ul>
+{% endblock %}

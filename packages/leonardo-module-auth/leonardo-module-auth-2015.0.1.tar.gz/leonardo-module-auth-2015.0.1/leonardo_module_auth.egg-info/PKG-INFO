@@ -1,0 +1,83 @@
+Metadata-Version: 1.1
+Name: leonardo-module-auth
+Version: 2015.0.1
+Summary: Authentication, registration, account management as 3rd party (social) account authentication and SAML support to your Leonardo sites
+Home-page: https://github.com/leonardo-modules/leonardo-module-auth.git
+Author: Michael Kuty
+Author-email: kutymichael@gmail.com
+License: UNKNOWN
+Description: =============
+        Leonardo Auth
+        =============
+        
+        Authentification backends for Leonardo, now supports
+        
+        * https://github.com/pennersr/django-allauth
+        * https://bitbucket.org/lgs/djangosaml2/overview which is based on https://github.com/onelogin/python-saml
+        
+        Installation
+        ============
+        
+        .. code-block:: bash
+        
+            pip install leonardo-module-auth
+        
+            # or as extras
+        
+            pip install django-leonardo[auth]
+        
+        Next steps depends on your case
+        
+        if you want use All Auth
+        
+        .. code-block:: python
+        
+            # leonardo apps
+            APPS += ['leonardo_module_oauth']
+        
+        .. code-block:: bash
+        
+            python manage.py migrate
+        
+        for more configuration providers visit http://django-allauth.readthedocs.org/en/latest/providers.html
+        
+        or SAML standard
+        
+        .. code-block:: bash
+        
+            pip install leonardo_module_auth[saml]
+        
+            pip install django-leonardo[saml]
+        
+        .. code-block:: python
+        
+            APPS += ['leonardo_module_saml']
+         
+        for SAML you must manually install SAML dependencies like this
+        
+        note: installation depends on ``libxmlsec1-dev`` library
+        
+        Read More
+        =========
+        
+        * https://github.com/django-leonardo/django-leonardo
+        * http://django-leonardo.readthedocs.org/en/develop/overview/modules.html
+        * https://github.com/pennersr/django-allauth
+        * https://github.com/onelogin/python-saml
+        * https://bitbucket.org/lgs/djangosaml2/overview
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
