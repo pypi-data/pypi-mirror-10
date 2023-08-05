@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+pathresolver/__init__.py
+pathresolver/exceptions.py
+pathresolver.egg-info/PKG-INFO
+pathresolver.egg-info/SOURCES.txt
+pathresolver.egg-info/dependency_links.txt
+pathresolver.egg-info/top_level.txt
+pathresolver/evaluator/__init__.py
+pathresolver/evaluator/base.py
+pathresolver/evaluator/find.py
+pathresolver/resolver/__init__.py
+pathresolver/resolver/base.py
+pathresolver/resolver/key.py
+pathresolver/resolver/multi.py
+pathresolver/resolver/predicate.py
+pathresolver/resolver/resolvers.py
