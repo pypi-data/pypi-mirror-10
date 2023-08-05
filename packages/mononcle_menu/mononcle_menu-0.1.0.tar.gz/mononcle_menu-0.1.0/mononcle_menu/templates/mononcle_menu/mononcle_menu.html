@@ -1,0 +1,16 @@
+<section id="menu">
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class='list-inline list-unstyled'>
+                        {% for item in mononcle_menu_items %}
+                            <li><a href="{{ item.anchor }}">{{ item.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</section>
