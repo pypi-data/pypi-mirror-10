@@ -1,0 +1,23 @@
+
+{% for f in answerform %}
+  <div class="panel panel-default">
+    {{ f.id }}
+    <div class="panel-heading"><h4 class="panel-title">{{ f.question.stem }}</h4></div>
+    <div class="panel-body
+        {% if f.answer.errors %} has-error {% endif %}">
+      {% for a in f.answer %}
+        <div class="radio">
+          <label>
+            {{ a.tag }}
+            {{ a.choice_label }}
+          </label>
+        </div>
+      {% endfor %}
+      <div class="help-block">
+        {% for err in f.answer.errors %}
+          <p>{{ err }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
