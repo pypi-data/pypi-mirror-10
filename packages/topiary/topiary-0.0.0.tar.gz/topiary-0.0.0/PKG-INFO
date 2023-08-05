@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: topiary
+Version: 0.0.0
+Summary: Predict cancer epitopes from cancer sequence data
+Home-page: https://github.com/hammerlab/topiary
+Author: Alex Rubinsteyn, Tavi Nathanson
+Author-email: alex {dot} rubinsteyn {at} gmail {dot} com
+License: http://www.apache.org/licenses/LICENSE-2.0.html
+Description: Topiary
+        =======
+        
+        Predict mutation-derived cancer T-cell epitopes from (1) somatic
+        variants (2) tumor RNA expression data, and (3) patient HLA type.
+        
+        Example
+        -------
+        
+        .. code:: sh
+        
+            /topiary
+              --vcf somatic.vcf
+              --mhc-pan
+              --mhc-alleles HLA-A*02:01,HLA-B*07:02
+              --ic50-cutoff 500
+              --percentile-cutoff 2.0
+              --mhc-epitope-lengths 8-11
+              --rna-gene-fpkm-file genes.fpkm_tracking
+              --rna-min-gene-expression 4.0
+              --rna-transcript-fpkm-file isoforms.fpkm_tracking
+              --rna-min-transcript-expression 1.5
+              --output-csv epitopes.csv
+              --output-html epitopes.html
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
