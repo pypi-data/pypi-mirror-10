@@ -1,0 +1,7 @@
+[console_scripts]
+pyac-chunk = analyticscloud.commandline:chunk
+pyac-dump = analyticscloud.commandline:dump
+pyac-metadata = analyticscloud.commandline:metadata
+pyac-table = analyticscloud.commandline:table
+pyac-upload = analyticscloud.commandline:upload
+
