@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: kaching
+Version: 0.1
+Summary: Notification sounds for test pass and failure.
+Home-page: https://github.com/crdoconnor/kaching
+Author: Colm O'Connor
+Author-email: colm.oconnor.github@gmail.com
+License: MIT
+Description: Kaching
+        =======
+        
+        Pass and fail sounds for test driven development.
+        
+        $ kaching pass
+        [ pass sound ]
+        
+        $ kaching fail
+        [ failure sound ]
+        
+Keywords: tests sound effects notifications
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
