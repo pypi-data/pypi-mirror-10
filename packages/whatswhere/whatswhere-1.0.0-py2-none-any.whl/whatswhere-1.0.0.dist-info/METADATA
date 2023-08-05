@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: whatswhere
+Version: 1.0.0
+Summary: Find out where you can test the functionality of a pull request.
+Home-page: https://github.com/simpleenergy/whatswhere
+Author: Piper Merriam
+Author-email: piper@simpleenergy.com
+License: BSD
+Keywords: murr
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: PyGithub (==1.25.2)
+Requires-Dist: GitPython (==1.0.0)
+Requires-Dist: requests (==2.6.0)
+Requires-Dist: npyscreen (==4.8.6)
+
+UNKNOWN
+
+
