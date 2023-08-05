@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tox.ini
+sourceparse/__init__.py
+sourceparse/sourceparse.py
+sourceparse.egg-info/PKG-INFO
+sourceparse.egg-info/SOURCES.txt
+sourceparse.egg-info/dependency_links.txt
+sourceparse.egg-info/not-zip-safe
+sourceparse.egg-info/top_level.txt
+tests/__init__.py
+tests/lorem.py
+tests/test_doctest.py
+tests/test_parser.py
