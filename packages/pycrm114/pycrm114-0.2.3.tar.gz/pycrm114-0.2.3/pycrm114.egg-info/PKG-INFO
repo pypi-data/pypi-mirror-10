@@ -1,0 +1,178 @@
+Metadata-Version: 1.1
+Name: pycrm114
+Version: 0.2.3
+Summary: Python interface to libcrm114
+Home-page: https://github.com/alisaifee/pycrm114
+Author: Ali-Akber Saifee
+Author-email: ali at indydevs.org
+License: Copyright (c) 2015 Ali-Akber Saifee 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Description: .. |travis-ci| image:: https://secure.travis-ci.org/alisaifee/pycrm114.png?branch=master
+            :target: https://travis-ci.org/#!/alisaifee/pycrm114?branch=master
+        .. |coveralls| image:: https://coveralls.io/repos/alisaifee/pycrm114/badge.png?branch=master
+            :target: https://coveralls.io/r/alisaifee/pycrm114?branch=master
+        .. |pypi| image:: https://pypip.in/v/pycrm114/badge.png
+            :target: https://crate.io/packages/pycrm114/
+        .. |license| image:: https://pypip.in/license/pycrm114/badge.png
+            :target: https://pypi.python.org/pypi/pycrm114/
+        .. _crm114: http://crm114.sourceforge.net/wiki/doku.php
+        
+        |travis-ci| |coveralls| |pypi| |license|
+        
+        ********
+        pycrm114
+        ********
+        
+        Pythonic bindings for `crm114`_
+        
+        CRM114 - the Controllable Regex Mutilator
+        =========================================
+        
+            CRM114 is a system to examine incoming e-mail, system log streams, data files or other
+            data streams, and to sort, filter, or alter the incoming files or data streams according
+            to the user's wildest desires.
+        
+            -- crm114.sourceforge.net
+        
+        
+        Quickstart
+        ==========
+        
+        No persistence
+        --------------
+        .. code-block:: python
+        
+            import pycrm114
+        
+            crm = pycrm114.CRM114(classes=["spam", "ham"])
+            crm.learn("spam", "foo bar")
+            crm.learn("ham", "bar is good")
+            assert crm.classify("is bar good")["class"] == "ham"
+            assert crm.classify("foo bar good")["class"] == "spam"
+            crm.forget("spam", "foo bar")
+            assert crm.classify("foo bar good")["class"] == "ham"
+        
+        
+        File System Persistence
+        -----------------------
+        
+        .. code-block:: python
+        
+            import pycrm114
+        
+            crm = pycrm114.CRM114(
+                classes=["spam", "ham"],
+                storage=pycrm.storage.FileSystemStorage("/var/tmp/crm-test")
+            )
+            crm.learn("spam", "foo bar")
+            crm.learn("ham", "bar is good")
+            crm.save()
+            new_crm = pycrm114.CRM114(
+                classes=["spam", "ham"],
+                storage=pycrm.storage.FileSystemStorage("/var/tmp/crm-test")
+            )
+            assert new_crm.classify("is bar good")["class"] == "ham"
+            assert new_crm.classify("foo bar good")["class"] == "spam"
+        
+        Dependencies
+        ============
+        
+        Debian/Ubuntu: ``sudo apt-get install libtre5 libtre-dev``
+        
+        OS X: ``brew install tre``
+        
+        Tests
+        =====
+        
+        Dependencies
+        ------------
+        
+        .. code-block:: bash 
+        
+          pip install -r requirements/test.txt
+        
+        To test against different python versions use tox::
+          
+          tox 
+        
+        To run the tests with the active python::
+        
+          python setup.py build && nosetests tests 
+        
+        
+        Building
+        ========
+        
+        .. code-block:: bash
+        
+          python setup.py build
+        
+        References
+        ==========
+        
+        * `crm114`_ 
+        
+        .. :changelog:
+        
+        Changelog
+        ---------
+        
+        0.2.3 2015-04-19
+        ================
+        * Documentation tweaks
+        
+        0.2.2 2015-04-18
+        ================
+        * Added a forget method to unlearn a text from a class
+        
+        0.2.0 2015-04-18
+        ================
+        * Python 3 compatibility
+        * Added a Pythonic wrapper with a potentially pluggable storage backend
+        * Support for dumping control block/data block to string instead of file
+        * Added basic tests
+        
+        0.1.0 2015-04-10
+        ================
+        * Initial import from `pmundkur/libcrm114 <https://github.com/pmundkur/libcrm114>`_
+        
+        
+        
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence

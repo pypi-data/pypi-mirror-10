@@ -1,0 +1,5 @@
+-r main.txt
+nose
+tox
+coveralls
+nose-cov
