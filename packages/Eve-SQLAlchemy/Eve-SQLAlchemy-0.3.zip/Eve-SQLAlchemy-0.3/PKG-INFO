@@ -1,0 +1,92 @@
+Metadata-Version: 1.1
+Name: Eve-SQLAlchemy
+Version: 0.3
+Summary: REST API framework powered by Flask, SQLAlchemy and good intentions.
+Home-page: http://github.com/redturtle/eve-sqlachemy
+Author: Andrew Mleczko
+Author-email: amleczko@redturtle.it
+License: GPL
+Description: Eve SQLAlchemy extension
+        ========================
+        
+        Powered by Eve, SQLAlchemy and good intentions this extenstion allows to 
+        effortlessly build and deploy highly customizable, fully featured RESTful Web 
+        Services with SQL-based backends.
+        
+        Eve SQLAlchemy is Simple
+        ------------------------
+        .. code-block:: python
+        
+            from eve import Eve
+            from eve_sqlalchemy import SQL
+        
+            app = Eve(data=SQL)
+            app.run()
+        
+        The API is now live, ready to be consumed:
+        
+        .. code-block:: console
+        
+            $ curl -i http://example.com/people
+            HTTP/1.1 200 OK
+        
+        All you need to bring your API online is a database, a configuration file
+        (defaults to ``settings.py``) and a launch script.  Overall, you will find that
+        configuring and fine-tuning your API is a very simple process.
+        
+        Eve is thoroughly tested under Python 2.6, 2.7, 3.3, 3.4 and PyPy.
+        
+        Make sure you check both these websites:
+        
+        - `Official Eve Website <http://python-eve.org/>`_
+        - `Eve-SQLAlchemy Tutorials and Howtos <http://eve-sqlalchemy.readthedocs.org/>`_
+        
+        Changelog
+        ---------
+        
+        0.3 (2015-04-17)
+        ~~~~~~~~~~~~~~~~
+        
+        - return everything as dicts instead of SQLAResult, remove SQLAResult [Leonidaz0r]
+        - fix update function, this closes #22 [David Durieux]
+        - fixed replaced method, we are compatible with Eve>=0.5.1 [Kevin Roy]
+        - fixed jsonify function [Leonidaz0r]
+        - update documentation [Alex Kerney]
+        - use id_field column from the config [Goneri Le Bouder]
+        - add flake8 in tox [Goneri Le Bouder]
+        
+        
+        0.2.1 (2015-02-25)
+        ~~~~~~~~~~~~~~~~~~
+        
+        - always wrap embedded documents [amleczko]
+        
+        
+        0.2 (2015-01-27)
+        ~~~~~~~~~~~~~~~~
+        
+        - various bugfixing [Arie Brosztein, toxsick]
+        - refactor sorting parser, add sql order by expresssions;
+          please check http://eve-sqlalchemy.readthedocs.org/#sqlalchemy-sorting 
+          for more details [amleczko]
+        
+        
+        0.1 (2015-01-13)
+        ~~~~~~~~~~~~~~~~
+        
+        - First public preview release. [amleczko]
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content

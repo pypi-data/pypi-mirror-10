@@ -1,0 +1,34 @@
+Changelog
+---------
+
+0.3 (2015-04-17)
+~~~~~~~~~~~~~~~~
+
+- return everything as dicts instead of SQLAResult, remove SQLAResult [Leonidaz0r]
+- fix update function, this closes #22 [David Durieux]
+- fixed replaced method, we are compatible with Eve>=0.5.1 [Kevin Roy]
+- fixed jsonify function [Leonidaz0r]
+- update documentation [Alex Kerney]
+- use id_field column from the config [Goneri Le Bouder]
+- add flake8 in tox [Goneri Le Bouder]
+
+
+0.2.1 (2015-02-25)
+~~~~~~~~~~~~~~~~~~
+
+- always wrap embedded documents [amleczko]
+
+
+0.2 (2015-01-27)
+~~~~~~~~~~~~~~~~
+
+- various bugfixing [Arie Brosztein, toxsick]
+- refactor sorting parser, add sql order by expresssions;
+  please check http://eve-sqlalchemy.readthedocs.org/#sqlalchemy-sorting 
+  for more details [amleczko]
+
+
+0.1 (2015-01-13)
+~~~~~~~~~~~~~~~~
+
+- First public preview release. [amleczko]
