@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: stopforumspam-api
+Version: 0.0.3
+Summary: Basic interface for Stop Forum Spam API
+Home-page: UNKNOWN
+Author: Stephen Paulger
+Author-email: stephen.paulger@newspeak.org.uk
+License: UNKNOWN
+Description: Overview
+        =======
+        
+        Designed to be a very basic but easy to use interface to the StopForumSpam API.
+        You can use this the query StopForumSpam and, provided you have a key, add data to the database too.
+        
+        It is important to read and understand StopForumSpam's terms before using this software.
+        
+        
+        Alternatives
+        ============
+        
+        If you're using Django you may wish to use the the more mature [django-stopforumspam](https://github.com/benjaoming/django-stopforumspam).
+        
+        
+        Installation
+        ============
+        
+            pip install stopforumspam_api
+        
+        
+        Example
+        =======
+        
+        ```python
+        >>> from stopforumspam_api import query
+        >>> response = query(ip="199.115.114.220")
+        >>> respone.appears()
+        True
+        >>> response.ip.appears
+        True
+        >>> response.ip.frequency
+        17
+        >>> response.ip.lastseen
+        datetime.datetime(2015, 5, 5, 20, 32, 35)
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
