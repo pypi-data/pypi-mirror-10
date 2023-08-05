@@ -1,0 +1,10 @@
+#!/home/naufraghi/Documents/comelz/plotter_new_nesting-virtualenv/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'sar-tool==1.0.1','console_scripts','sar'
+__requires__ = 'sar-tool==1.0.1'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('sar-tool==1.0.1', 'console_scripts', 'sar')()
+    )
