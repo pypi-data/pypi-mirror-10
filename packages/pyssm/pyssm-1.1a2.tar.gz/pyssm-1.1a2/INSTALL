@@ -1,0 +1,147 @@
+INSTALL instructions for PySSM (1.1a)
+====================================
+
+PySSM should build relatively easily under most linux/
+unix platforms. For example, under ubuntu, to prepare,
+run the commands:
+
+sudo apt-get install python-scipy libatlas3gf-sse2
+
+then build in the standard pythonic manner using
+sudo python setup.py install
+
+If your ATLAS libraries are in places that aren't detected by python,
+you may have to modify site.cfg. See the comments in that file for
+more information.
+
+After installation, you can run the tests that are found in the tests
+directory. These can be run individually, for example:
+
+python tests/test_system.py
+
+or using nosetests, which should find the tests directory and run each
+test script.
+
+There are also some binaries available, for both windows and
+debian/ubuntu. The ubuntu versions should be available by adding
+ppa:rjadenham/ppa to your system's Software Sources. You can then
+easily install/update the package, by, for example:
+
+sudo add-apt-repository ppa:rjadenham/ppa
+sudo apt-get update
+sudo apt-get install python-pyssm
+
+A windows binary may be available at
+https://bitbucket.org/christophermarkstrickland/pyssm/downloads/
+though this is not guarenteed to be up to date.
+
+Requirements:
+=============
+*Python*
+
+PySSM was primarily built and tested using Python 2.7. You will also
+need the following python packages:NumPy, SciPy (only required for
+examples as a dependency of PyMCMC), Matplotlib (only required for the
+examples).  Each of these should be relatively easy to install under
+most platforms. See the web pages for more information.
+
+*ATLAS*
+Some functions require blas/lapack. We recommend installing atlas for
+your platform to get the best performance. Most distributions will
+have precompiled versions available, but if you need to build your
+own, there are numerous web pages with instructions. 
+
+To build ATLAS  for Microsoft Windows, follow the  instructions in the
+INSTALL file for PyMCMC (see below). Note that we have found the Linux
+version to achieve better performance.
+
+
+Suggested:
+==========
+*PyMCMC*
+
+Although not required, PyMCMC is a useful Python package to have
+installed, and most of the examples packaged with PySSM make use of
+it. Get PyMCMC by:
+
+git clone https://bitbucket.org/christophermarkstrickland/pymcmc.git
+
+or
+
+git clone git@bitbucket.org:christophermarkstrickland/pymcmc.git
+
+and follow the instructions in INSTALL.
+
+Alternatively, use the the debian packages from the same ppa as
+pyssm (ie ppa:rjadenham/ppa), then
+
+sudo apt-get install python-pymcmc
+
+Building Under Windows
+======================
+
+** building under windows **
+First, follow the instructions for building pymcmc. 
+I had problems with lapack, and found it easiest to build
+using static libraries. Build lapack using cygwin (but probably
+would work using mingw too):
+
+tar xvfz lapack-3.4.0.tgz
+cd lapack-3.4.0
+cp make.inc.example make.inc
+cd BLAS/SRC/
+make
+cd ../..
+make
+
+Incorporate these into the atlas libraries you built for pymcmc, as
+described in http://www.scipy.org/scipylib/building/windows.html
+
+So, if you built your atlas libraries in
+s:\\BUILDS\\ATLAS\\build\\lib\\ then
+
+cp liblapack.a s:\\BUILDS\\ATLAS\\build\\lib\\liblapack_PLAIN.a
+cd s:\\BUILDS\\ATLAS\\build\\lib\\
+ar x liblapack.a
+ar r liblapack_PLAIN.a
+rm *.o
+mv liblapack_PLAIN.a liblapack.a
+
+
+Edit the site.cfg file to use the libraries you built, so for example,
+setting the library_dirs and libraries like:
+
+library_dirs = s:\\BUILDS\\ATLAS\\build\\lib\\
+libraries = lapack, cblas, f77blas, atlas
+
+You should also set the extra_link_args variable in the setup.py file
+to use static gfortran and gcc libraries, ie
+
+extra_link_args = ["-static-libgfortran","-static-libgcc"]
+
+Then, 
+
+python setup.py build
+python setup.py bdist --format=wininst
+
+Building DEB package
+====================
+
+See the instructions for pymcmc deb package building, but here is the
+general approach.
+
+VERSION=$(grep version setup.py |perl -pne "s@\s+version\=\'(.*?)\',@\$1@")
+DEBVERSION=1
+python setup.py sdist
+cd dist
+py2dsc -x ../stdeb.cfg pyssm-$VERSION.tar.gz
+cd deb_dist/pyssm-${VERSION}
+
+edit debian/rules so that it includes the following lines:
+
+LDFLAGS += -shared
+CFLAGS += -fPIC
+FFLAGS += -fPIC
+debuild -S -sa
+cd ..
+dput ppa:rjadenham/ppa pyssm_${VERSION}-${DEBVERSION}_source.changes

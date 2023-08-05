@@ -1,0 +1,24 @@
+PySSM: A Python Module for Bayesian Inference of Linear Gaussian State Space Models.
+====================================================================================
+**Authors**: Strickland C. M, Burdett R. L., Mengerson K. L, Denham R. J.
+
+PySSM is a Python package that has been developed for the analysis of
+time series using linear Gaussian state space models (SSM).
+
+PySSM is easy to use; models can be set up quickly and efficiently and
+a variety of different settings are available to the user.  It also
+takes advantage of scientific libraries Numpy and Scipy and other
+high level features of the Python language.
+
+PySSM default is also used as a platform for interfacing between
+optimised and parallelised FORTRAN routines.  These FORTRAN routines
+heavily utilise Basic Linear Algebra (BLAS) and Linear Algebra Package
+(LAPACK) functions for maximum performance.
+
+PySSM contains classes for filtering, classical smoothing as well as
+simulation smoothing.
+
+You can access the code from the `git repository
+<https://bitbucket.org/christophermarkstrickland/pyssm>`_ and submit
+bugs/requests viat `the issue
+tracker. <https://bitbucket.org/christophermarkstrickland/pyssm/issues/>`_

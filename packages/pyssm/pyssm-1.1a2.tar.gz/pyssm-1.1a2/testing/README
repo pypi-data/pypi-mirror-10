@@ -1,0 +1,8 @@
+This directory contains unittesting code. Run individually, like:
+
+python test_simsmoother.py
+
+or use nose to run all tests:
+
+nosetests
+
