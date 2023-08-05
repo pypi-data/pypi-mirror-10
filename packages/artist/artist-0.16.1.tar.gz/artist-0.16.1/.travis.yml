@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "2.7"
+  - "3.4"
+
+before_install:
+  - mkdir $HOME/.python-eggs
+  - chmod og-w $HOME/.python-eggs
+
+install:
+  - pip install flake8
+  - python setup.py develop
+
+script:
+  - flake8 artist
+  - make -C demo test
