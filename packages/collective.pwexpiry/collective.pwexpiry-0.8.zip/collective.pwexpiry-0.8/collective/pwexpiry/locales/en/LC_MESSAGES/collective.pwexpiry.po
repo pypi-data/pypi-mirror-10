@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-04-20 19:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./collective/pwexpiry/utils.py:18
+msgid "${days} days left to password expiration"
+msgstr ""
+
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:111
+msgid "Never"
+msgstr ""
+
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:107
+msgid "No users were unlocked"
+msgstr ""
+
+#: ./collective/pwexpiry/profiles/default/controlpanel.xml
+msgid "Password expiration"
+msgstr ""
+
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:103
+msgid "The following users were unlocked: %s, "
+msgstr ""
+
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
+msgid "User's password expiration panel"
+msgstr ""
+
+#: ./collective/pwexpiry/pwdisable_plugin.py:61
+msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr ""
+
+#: ./collective/pwexpiry/pwexpiry_plugin.py:93
+msgid "Your password has expired."
+msgstr ""
+
+#. Default: "View and manage user's password expiration properties"
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:50
+msgid "description_"
+msgstr ""
+
+#. Default: "Show all search results"
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:157
+msgid "description_pas_show_all_search_results"
+msgstr ""
+
+#. Default: "The date of performing the last notification fot the user"
+#: ./collective/pwexpiry/userdataschema.py:31
+msgid "help_last_notification_date"
+msgstr ""
+
+#. Default: "The date of setting the password"
+#: ./collective/pwexpiry/userdataschema.py:24
+msgid "help_password_date"
+msgstr ""
+
+#. Default: "Apply Changes"
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:169
+msgid "label_apply_changes"
+msgstr ""
+
+#. Default: "Last notification date"
+#: ./collective/pwexpiry/userdataschema.py:30
+msgid "label_last_notification_date"
+msgstr ""
+
+#. Default: "Password date"
+#: ./collective/pwexpiry/userdataschema.py:23
+msgid "label_password_date"
+msgstr ""
+
