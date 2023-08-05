@@ -1,0 +1,9 @@
+{% extends widget.get_base_template %}
+
+{% load i18n feincms_tags %}
+
+{% block content %}
+<p>
+    {{ content.html|safe }}
+</p><!-- last update: {{ response.modified }} -->
+{% endblock %}
