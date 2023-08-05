@@ -1,0 +1,74 @@
+Metadata-Version: 2.0
+Name: guacamole
+Version: 0.8
+Summary: Guacamole is an command line tool library for Python
+Home-page: https://github.com/zyga/guacamole
+Author: Zygmunt Krynicki
+Author-email: me@zygoon.pl
+License: LGPLv3
+Keywords: argparse cli tool command sub-command subcommand
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Polish
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows 7
+Classifier: Operating System :: Microsoft :: Windows :: Windows XP
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+
+==================================================
+Guacamole - a command line tool library for Python
+==================================================
+
+.. image:: https://badge.fury.io/py/guacamole.png
+    :target: http://badge.fury.io/py/guacamole
+
+.. image:: https://travis-ci.org/zyga/guacamole.png?branch=master
+        :target: https://travis-ci.org/zyga/guacamole
+
+.. image:: https://pypip.in/d/guacamole/badge.png
+        :target: https://pypi.python.org/pypi/guacamole
+
+Features
+========
+
+* Free software: LGPLv3 license
+* Documentation: https://guacamole.readthedocs.org.
+* Create command classes and run them from command line.
+* Group commands to create complex tools.
+
+
+
+
+
+History
+=======
+
+1.0 (YYYY-MM-DD)
+----------------
+
+* First release on PyPI.
+
+
+2012-2015
+---------
+
+* Released on PyPI as a part of plainbox as ``plainbox.impl.clitools``,
+  ``plainbox.impl.logging``, ``plainbox.i18n`` and
+  ``plainbox.impl.secure.plugins``.
+
+
