@@ -1,0 +1,74 @@
+[
+    {
+        "model": "warmama.Weapon",
+        "pk": 1,
+        "fields": {
+            "name": "gb",
+            "fullname": "Gunblade"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 2,
+        "fields": {
+            "name": "mg",
+            "fullname": "Machinegun"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 3,
+        "fields": {
+            "name": "rg",
+            "fullname": "Riotgun"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 4,
+        "fields": {
+            "name": "gl",
+            "fullname": "Grenade Launcher"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 5,
+        "fields": {
+            "name": "rl",
+            "fullname": "Rocket Launcher"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 6,
+        "fields": {
+            "name": "pg",
+            "fullname": "Plasma Gun"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 7,
+        "fields": {
+            "name": "lg",
+            "fullname": "Lasergun"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 8,
+        "fields": {
+            "name": "eb",
+            "fullname": "Electrobolt"
+        }
+    },
+    {
+        "model": "warmama.Weapon",
+        "pk": 9,
+        "fields": {
+            "name": "ig",
+            "fullname": "Instagun"
+        }
+    }
+]

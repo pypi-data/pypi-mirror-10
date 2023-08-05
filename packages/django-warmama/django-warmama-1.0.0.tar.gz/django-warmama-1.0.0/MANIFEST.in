@@ -1,0 +1,18 @@
+graft docs
+graft example-project
+graft warmama
+graft tests
+
+include .coveragerc
+include .editorconfig
+include .travis.yml
+
+include mkdocs.yml
+include requirements.txt
+include runtests.py
+include tox.ini
+
+include LICENSE
+include README.md
+
+global-exclude *.py[cod] __pycache__ *.so
