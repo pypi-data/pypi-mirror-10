@@ -1,0 +1,13 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+before_script: mkdir -p shippable/codecoverage shippable/testresults
+install: pip install -r requirements.txt
+install: pip install pytest-cov
+script:
+  py.test --cov-report term-missing --cov tai test
+notifications:
+  email:
+    on_success: always
+    on_failure: always
