@@ -1,0 +1,7 @@
+include AUTHORS.rst
+include CHANGELOG.rst
+include README.rst
+include LICENSE
+recursive-include superhero/migrations *
+recursive-include superhero/templates *
+recursive-include superhero/tests *
