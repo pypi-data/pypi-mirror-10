@@ -1,0 +1,32 @@
+{% for timer in monocle_timer_models %}
+<section id="timer_action">
+    <div class='row'>
+        <h2 class='fancy'><span>Акция</span></h2>
+    </div>
+    <div class="row">
+        <div id='timer-wrapper' class='row'>
+            <div class="col-xs-12">
+                <h3 class="big-white-bold-font">{{ timer.text|safe}}</h3>
+                <div id='timer-block'>
+                    <h4 class="timer_text">До конца акции осталось:</h4>
+                    <div id='timer'></div>
+                    <button id='make-order' data-toggle="modal" data-target="#timer"  class='btn btn-primary'>Заказать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% load static from staticfiles %}
+<link rel="stylesheet" href="{% static 'assets/flipclockjs/flipclock.css' %}" />
+
+<script type="text/javascript" src="{% static 'assets/flipclockjs/flipclock.min.js' %}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#timer').FlipClock({{ timer.get_countdown }}, {
+        clockFace: 'DailyCounter',
+        countdown: true
+    });
+});
+</script>
+{% endfor %}
