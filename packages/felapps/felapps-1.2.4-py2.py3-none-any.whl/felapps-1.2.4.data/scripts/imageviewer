@@ -1,0 +1,4 @@
+#!python
+
+import felapps
+felapps.imageviewer.run(maximize = True,logon = False)
