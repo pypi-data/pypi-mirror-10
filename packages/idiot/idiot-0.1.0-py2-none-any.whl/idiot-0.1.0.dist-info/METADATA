@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: idiot
+Version: 0.1.0
+Summary: IDIOT API for Python
+Home-page: https://github.com/tenevdev/python-idiot
+Author: Tencho Tenev
+Author-email: tenev.dev@outlook.com
+License: MIT
+Keywords: iot pi microcontroller api
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: requests
+
+# python-idiot
+Python wrapper over the IDIOT HTTP API
+
+
