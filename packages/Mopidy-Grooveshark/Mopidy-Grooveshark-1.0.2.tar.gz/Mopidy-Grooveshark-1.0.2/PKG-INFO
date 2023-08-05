@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: Mopidy-Grooveshark
+Version: 1.0.2
+Summary: Mopidy extension that plays sound from Grooveshark
+Home-page: https://github.com/camilonova/mopidy-grooveshark
+Author: Camilo Nova
+Author-email: camilo.nova@gmail.com
+License: MIT
+Description: # Mopidy-Grooveshark
+        
+        Play music from Grooveshark on mopidy.
+        
+        ## Installation
+        
+        Just run:
+        
+            $ pip install Mopidy-Grooveshark
+        
+        ## External libraries
+        
+        We are using pygrooveshark, is inside the project because the original repository
+        is too big to add as a requirement.
+        
+            https://github.com/koehlma/pygrooveshark
+        
+Platform: UNKNOWN
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
