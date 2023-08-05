@@ -1,0 +1,67 @@
+Metadata-Version: 1.1
+Name: solver
+Version: 0.0.3
+Summary: Math problem solver
+Home-page: https://github.com/bahrom-matyakubov/solver
+Author: Bahrom Matyakubov
+Author-email: bahrom.matyakubov@gmail.com
+License: UNKNOWN
+Description: ******
+        Solver
+        ******
+        
+        *A collection of various methods in order to solve mathematics problems step by step.*
+        
+        |build| |coverage| |pypi_downloads| |pypi_version|
+        
+        .. |build| image:: https://travis-ci.org/bahrom-matyakubov/solver.svg?branch=master
+            :target: https://travis-ci.org/bahrom-matyakubov/solver
+            :alt: Build status of the master branch
+        
+        .. |coverage| image:: https://coveralls.io/repos/bahrom-matyakubov/solver/badge.svg?branch=master
+            :target: https://coveralls.io/r/bahrom-matyakubov/solver?branch=master
+            :alt: Test coverage of the master branch
+        
+        .. |pypi_downloads| image:: https://img.shields.io/pypi/dm/solver.svg
+            :target: https://pypi.python.org/pypi/solver
+            :alt: PyPi downloads per month
+        
+        .. |pypi_version| image:: https://img.shields.io/pypi/v/solver.svg
+            :target: https://pypi.python.org/pypi/solver
+            :alt: PyPi latest version
+        
+        .. :changelog:
+        
+        Release History
+        ---------------
+        
+        0.0.1 (2015-04-30)
+        ++++++++++++++++++
+        
+        - Very first release! Being able to *pip install solver* made my day!
+        
+        0.0.2 (2015-05-01)
+        ++++++++++++++++++
+        
+        **Parsing**
+        
+        - Added basic parsing in order to be able to parse strings into numbers and operations (moved the code from PyParser_.
+        .. _PyParser: https://github.com/bahrom-matyakubov/PyParser
+        
+        
+Keywords: solver,education,mathematics
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education
+Classifier: Topic :: Education :: Computer Aided Instruction (CAI)
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
