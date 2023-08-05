@@ -1,0 +1,5 @@
+[console_scripts]
+omnomnom-worker = omnomnom.runners.run_worker:main
+omnomnom-queue = omnomnom.runners.run_queue:main
+omnomnom-service = omnomnom.runners.run_service:main
+
