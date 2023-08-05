@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: jma
+Version: 1.0.0
+Summary: Data downloader from Japan Meteorological Agency
+Home-page: https://bitbucket.org/i_kiwamu/jma_stat
+Author: Kiwamu Ishikura
+Author-email: ishikura.kiwamu@gmail.com
+License: UNKNOWN
+Download-URL: https://bitbucket.org/i_kiwamu/jma_stat/downloads/jma_stat_2.0.0.zip
+Description: jma: Data downloader from JMA (Japan Meteorological Agency)
+        ===========================================================
+        
+        * Author: Kiwamu Ishikura
+        * Version: 1.0.0
+        * Licence: GPLv3
+        
+        What's this?
+        ------------
+        This is the program to get 1-hour meteorological data from JMA web site. You can retrieve data and save as csv.
+        
+        Requirement
+        -----------
+        Python (>= 3.3)
+        *Beware that Python 2 can NOT work*
+        
+        Usage
+        -----
+        Download jma_stat, you can type the followings on your console::
+        
+        ```
+        $ python3 jma.py
+        ```
+        
+        Program will ask you the beginning/final date of data you want, locations, and file name. Please follow the explanations.
+        
+        If you put jmalib.py in your PYTHONLIB and put jma.py in your PATH, you can use these program anywhere. 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: Japanese
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities
