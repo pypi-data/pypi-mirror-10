@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+ <head>
+  <meta content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.12), see www.w3.org" name="generator">
+   <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>
+     RaspberrySTEM™ Instructor Manual
+    </title>
+    <link href="default.css" rel="stylesheet" type="text/css">
+     <link href="override.css" rel="stylesheet" type="text/css">
+     </link>
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <div class="project">
+   <h2>
+    Project 4: Lighting LEDs with GPIOs
+   </h2>
+   <table class="project_header_table">
+    <tbody>
+     <tr>
+      <td>
+       Description
+      </td>
+      <td>
+       LEDs and GPIOs
+       <br>
+        Connect individual LEDs to several GPIOs in order to
+            control them using a program.
+        <br>
+         Learn how to use a loop to repeat a section of code
+            multiple times
+         <br/>
+        </br>
+       </br>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Materials
+      </td>
+      <td>
+       RaspberrySTEM™ CREATOR kit with Raspberry
+            Pi
+       <br>
+        LEDs RaspberrySTEM™ Cell
+        <br/>
+       </br>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Prerequisites
+      </td>
+      <td>
+       None
+       <br/>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     What is a GPIO?
+     <ul>
+      <li>
+       General Purpose Input/Output.
+      </li>
+      <li>
+       A method for a computer to get or set the voltage
+            (to high (3.3V) or low (0V, i.e. Ground) on a pin.
+            Great for turning LEDS on/off, enabling devices (like
+            other ICs, motors, relays, etc), or reading the state
+            of sensors, buttons, switches, etc.
+      </li>
+      <li>
+       GPIO pin numbers are labelled on the
+            RaspberrySTEM™ Lid Connector.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Hook up and light an LED
+     <ul>
+      <li>
+       Choose any GPIO pin on the RaspberrySTEM™ Lid
+            Connector. The GPIO Pin numbers are written as the
+            first number next to each pin (not all pins are GPIO
+            pins).
+      </li>
+     </ul>
+     <ul>
+      <li>
+       Connect up the circuit as shown. GPIO 14 is used in
+            this example, but any other GPIO could be used as
+            well.
+      </li>
+     </ul>
+     <div style="margin-left: 80px;">
+      <img alt="Schematic" src="images/GPIO_to_LED_schem.png" style="width: 124px; height: 269px;">
+       <img alt="Breadboard" src="images/GPIO_to_LED_breadboard_bb.png" style="width: 343px; height: 275px;">
+       </img>
+      </img>
+     </div>
+     <ul>
+      <li>
+       Run the following program. The first line
+            initializes the GPIO software. The Output() function
+            makes the selected GPIO pin an output pin. The final
+            line is the critical line - it turns the GPIO on (and
+            the LED will go on as a result).
+      </li>
+     </ul>
+     <pre class="code">
+from rstem.gpio import Output<br><br>led = Output(14)<br>led.on()<br>
+</br></br></br></br></pre>
+     <ul>
+      <li>
+       To turn the LED off, you can modify the "on" to
+            "off". Rerun the program - this will turn the GPIO off,
+            which turns the LED off.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     Functions
+     <br>
+      <ul>
+       <li>
+        Functions are a named section of a program.
+       </li>
+       <li>
+        Functions a grouped together in collections called
+            libraries.
+       </li>
+       <li>
+        Functions are passed a list of parameters that
+            change how the function works.
+       </li>
+       <li>
+        The sleep function, that is part of the time
+            library, pauses for the amount of time given. It is
+            called with
+        <code>
+         time.sleep(seconds)
+        </code>
+        .
+       </li>
+      </ul>
+     </br>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     <ul>
+      <li>
+       Use the time.sleep() function to flash an LED. The
+            sleep function pauses the program for the amount
+            seconds you give it as a parameter.
+      </li>
+     </ul>
+     <ul>
+      <li>
+       To use the sleep function, you'll need to add the
+            following line to the top of your program:
+      </li>
+     </ul>
+     <pre class="code">
+import time<br>
+</br></pre>
+     <ul>
+      <li>
+       As an example, to sleep for two seconds, run:
+      </li>
+     </ul>
+     <pre class="code">
+time.sleep(2)<br>
+</br></pre>
+     <ul>
+      <li>
+       Change the previous program: Turn the LED ON, sleep
+            for one second, turn the LED OFF, sleep for one
+            second
+      </li>
+      <li>
+       Repeat the above multiple times, and the LED with
+            flash.
+      </li>
+      <li>
+       The sleep function accepts fractional values as
+            well - to sleep for half a second, you can use:
+      </li>
+     </ul>
+     <pre class="code">
+time.sleep(0.5)<br>
+</br></pre>
+     <ul>
+      <li>
+       Decrease the amount of time to have the LED flash
+            faster.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     Simple loops:
+     <ul>
+      <li>
+       Loops are used to run a section of code for a
+            specific number of times.
+      </li>
+      <li>
+       All code that is part of the loop must be indented
+            to the same level
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Loops allow a program to run the same section of code
+          multiple times. The simplest loop is a
+     <code>
+      for
+     </code>
+     loop that runs a specific number of times.
+     <ul>
+      <li>
+       Open a new file.
+      </li>
+      <li>
+       To print the word 'hello' five times, you can
+            use:
+      </li>
+     </ul>
+     <pre class="code">
+for i in range(5):<br>    print('hello')<br>
+</br></br></pre>
+     <ul>
+      <li>
+       The variable i in the above loop increases by one
+            each time the loop is run, starting at 0. To see the
+            value of i each loop, print it.
+      </li>
+     </ul>
+     <ul>
+      <li>
+       Finally, flash the LED 10 times by adding a for
+            loop to the previous program.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Two LED Siren
+     <ul>
+      <li>
+       Add another LED/resistor to a different GPIO, as
+            was done in the first activity.
+      </li>
+      <li>
+       setup() your new LED, and use output() to turn it
+            on, as was done in the first activity.
+      </li>
+      <li>
+       Write a program to flash each LED, in an
+            alternating fashion - when one LED is on, turn the
+            other LED off. Flash the LED 10 times.
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Four LED sweep
+     <ul>
+      <li>
+       Add two more LEDs as done above for a total of
+            four. Place them in a line.
+      </li>
+      <li>
+       In a loop, light each LED one at a time.
+      </li>
+      <li>
+       Back and forth: instead of lighting the LEDs just
+            in one direction, switch direction when you get to the
+            other side.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

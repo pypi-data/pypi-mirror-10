@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+ <head>
+  <meta content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.12), see www.w3.org" name="generator">
+   <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>
+     RaspberrySTEM™ Instructor Manual
+    </title>
+    <link href="default.css" rel="stylesheet" type="text/css">
+     <link href="override.css" rel="stylesheet" type="text/css">
+     </link>
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <div class="project">
+   <h2>
+    Project 15: Balancing Dot
+   </h2>
+   <table class="project_header_table">
+    <tbody>
+     <tr>
+      <td>
+       Description
+      </td>
+      <td>
+       Create a dot - a single point of light on the LED
+            Matrix - that moves around on the LED Matrix as you
+            tilt the screen. The effect is that it appears that the
+            user is balancing a dot on the lid of the
+            RaspberrySTEM.
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Materials
+      </td>
+      <td>
+       RaspberrySTEM™ Base with Raspberry Pi
+       <br>
+        RaspberrySTEM™ CREATOR Lid
+        <br>
+         LED Matrix RaspberrySTEM™ Cell
+         <br>
+          AccelerometerRaspberrySTEM™ Cell
+          <br/>
+         </br>
+        </br>
+       </br>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Prerequisites
+      </td>
+      <td>
+       Accelerometer &amp; LED Matrix Projects
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     <div class="summary">
+      Description of the LED dot app: 
+          Uses an LED Matrix and Accelerometer to move a dot around the LED
+          Matrix.
+     </div>
+     <div>
+      <input class="details" id="c411f52ce570d4fecbcfd33d75f8d8c8" type="checkbox">
+       <label for="c411f52ce570d4fecbcfd33d75f8d8c8">
+        More details
+       </label>
+       <div>
+        Only one of the LED Matrix drawing functions is needed: point().  The
+          point() function is used to draw a dot on the Matrix.  The program
+          continually reads the forces on the accelereometer, and when the
+          force passes a threshold, the point is moved.
+       </div>
+      </input>
+     </div>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     <center>
+      <img alt="Breadboard" src="images/LED_Matrix_Fully_Connected_bb.png" style="width: 600px; "/>
+     </center>
+     <p>
+      As in the previous LED Matrix examples, initialize the framebuffer:
+      <pre class="code">
+from rstem.led_matrix import FrameBuffer
+</pre>
+      <pre class="codespacer"></pre>
+      <pre class="code">
+fb = FrameBuffer()
+</pre>
+      Create an infinite loop that writes a point() to the display.
+      <pre class="code">
+fb.erase()
+fb.point(x, y)
+fb.show()
+</pre>
+      You should see the point displayed on the screen.
+      <p>
+       Didn't work - no worries.  Go back to the first LED Matrix Project to troubleshoot the circuit.
+       <p>
+       </p>
+      </p>
+     </p>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Hook as the Accelerometer the same way as was done in previous
+        examples.  The LED Matrix and Accelerometer circuits need to sit separately on the
+        breadboard - they don't interact with each other.
+     <p>
+      As in the previous Accelerometer examples, initialize the Accelerometer:
+      <pre class="code">
+from rstem.accel import Accel
+</pre>
+      <pre class="codespacer"></pre>
+      <pre class="code">
+accel = Accel()
+</pre>
+      As in the previous Accelerometer examples, you can get all the forces with:
+      <pre class="code">
+x_force, y_force, z_force = accel.forces()
+</pre>
+      As a quick check to make sure the accelerometer is working, just print out the forces
+        returned from the Accelerometer:
+      <pre class="code">
+print(x_force, y_force, z_force)
+</pre>
+     </p>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     In your game loop, check if the x_force is greater than some threshold.
+        If so, increase x a little bit.  Likewise, if the x_force is lower than
+        some threshold, decrease x.
+     <p>
+      What is a "threshold"?  ...
+      <p>
+       The effect should be that tilting the board left and right move the dot
+        to the left and right.  Adjust the threshold and step (the amount of
+        the increase or decrease) so that the dot moves at a reasonable
+        rate.
+       <p>
+        Note that the dot will just run right off the screen.  It'll come back,
+        though.
+       </p>
+      </p>
+     </p>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     How do you prevent the dot from falling off the screen?
+     <p>
+      Each time you 
+        In your game loop, check if the x_force is greater than some threshold.
+        If so, increase x a little bit.  Likewise, if the x_force is lower than
+        some threshold, decrease x.
+      <p>
+       The effect should be that tilting the
+        board left and right move the dot to the left and right.  Adjust the
+        threshold  and step (the amount of the increase or decrease) so that the dot moves at a
+        reasonable rate.
+       <p>
+        <pre class="code">
+from rstem.accel import Accel
+</pre>
+        Note that the dot will just run right off the screen.  It'll come back,
+        though.
+       </p>
+      </p>
+     </p>
+    </div>
+   </div>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     <div class="summary">
+      This is a summary of this thing
+     </div>
+     <div>
+      <input class="details" id="ff2967e43eb92281a1c8223253bc1f43" type="checkbox">
+       <label for="ff2967e43eb92281a1c8223253bc1f43">
+        More details
+       </label>
+       <div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing.
+       </div>
+      </input>
+     </div>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Connect the LED Matrix
+    </div>
+   </div>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     <div class="summary">
+      This is a summary of this thing
+     </div>
+     <div>
+      <input class="details" id="77c51440a5b5df65174a8cb0e56b22f4" type="checkbox">
+       <label for="77c51440a5b5df65174a8cb0e56b22f4">
+        More details
+       </label>
+       <div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing.
+       </div>
+      </input>
+     </div>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Connect the LED Matrix
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

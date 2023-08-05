@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+ <head>
+  <meta content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.12), see www.w3.org" name="generator">
+   <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>
+     RaspberrySTEM™ Instructor Manual
+    </title>
+    <link href="default.css" rel="stylesheet" type="text/css">
+     <link href="override.css" rel="stylesheet" type="text/css">
+     </link>
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <div class="project">
+   <h2>
+    Project 13: LED Matrix
+   </h2>
+   <table class="project_header_table">
+    <tbody>
+     <tr>
+      <td>
+       Description
+      </td>
+      <td>
+       Discover how to connect an LED Matrix to the
+            Raspberry Pi. The LED Matrix is a grid of 8 by 8 red
+            LEDs that can be individually lit at different
+            intensities, and forms the basis of a simple display.
+            The LED Matrix can be used for games, a clock, text
+            displays, histogram displays and many other uses.
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Materials
+      </td>
+      <td>
+       RaspberrySTEM™ Base with Raspberry Pi
+       <br>
+        RaspberrySTEM™ CREATOR Lid
+        <br>
+         LED Matrix RaspberrySTEM™ Cell
+         <br/>
+        </br>
+       </br>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       Prerequisites
+      </td>
+      <td>
+       Error: Reference source not found
+       <br>
+        Error: Reference source not found
+        <br/>
+       </br>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <div class="discussion">
+    <div class="header">
+    </div>
+    <div class="body">
+     What is the LED Matrix RaspberrySTEM™ Cell?
+     <br>
+      It consists of:
+      <ul>
+       <li>
+        A LED Matrix driver PCB – a circuit board,
+            that receives data from the Raspberry Pi, and displays
+            it on an LED Matrix using a small low-power
+            micro-controller (Atmel ATTiny48
+       </li>
+       <li>
+        An LED Matrix – a grid of LEDs, where for
+            each row the anode (positive-side) of the LEDs are
+            connected together. LED matrices can only show one
+            unique row of LEDs lit at one time, therefore the
+            micro-controller is required to sequence through each
+            row one at a time. This occurs faster than the eye can
+            perceive (through the eye's persistence of vision), and
+            therefore appears to be a solid image.
+       </li>
+       <li>
+        Communication from the Raspberry Pi to the LED
+            Matrix RaspberrySTEM™ Cell occurs over the SPI
+            bus
+       </li>
+       <li>
+        The SPI (Serial Peripheral Interface) is a common
+            interface for sending data between processors and other
+            ICs.
+       </li>
+       <li>
+        The micro-controller stores the brightness level of
+            each LED, on a scale from 0-15. In order to update the
+            full LED Matrix display, the Raspberry Pi must send 64
+            (i.e., 8 x 8) brightness levels, one for each LED, to
+            the LED Matrix RaspberrySTEM™ Cell.
+       </li>
+      </ul>
+     </br>
+    </div>
+   </div>
+   <div class="activity">
+    <div class="header">
+    </div>
+    <div class="body">
+     Connect the LED Matrix
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
