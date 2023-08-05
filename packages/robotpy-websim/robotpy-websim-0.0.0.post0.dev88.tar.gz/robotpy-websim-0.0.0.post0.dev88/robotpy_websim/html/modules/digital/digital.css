@@ -1,0 +1,25 @@
+#digital {
+
+}
+
+#digital .slider.slider-horizontal .slider-handle.round {
+  background: lightgray;
+}
+
+#digital #pwms {
+	width: 200px;
+}
+
+#digital #dios {
+	width: 200px;
+}
+
+#digital #relays {
+	width: 130px;
+}
+
+
+#digital .digital-io-holder, .relay-holder {
+	padding-left: 0px;
+	margin-bottom: 5px;
+}
