@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: django-warmama
+Version: 1.0.0
+Summary: Django app for qfusion authentication server
+Home-page: https://github.com/kalhartt/django-warmama
+Author: kalhartt
+Author-email: kalhartt@gmail.com
+License: GPLv2
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: django (>=1.7)
+Requires-Dist: django-ipware (>=1.0)
+Requires-Dist: djangorestframework (>=3.0)
+Requires-Dist: requests (>=2.5)
+Requires-Dist: six (>=1.9)
+
+UNKNOWN
+
+

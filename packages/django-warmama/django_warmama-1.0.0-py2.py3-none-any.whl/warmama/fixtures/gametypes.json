@@ -1,0 +1,98 @@
+[
+    {
+        "model": "warmama.Gametype",
+        "pk": 1,
+        "fields": {
+            "name": "dm",
+            "description": "Deathmatch"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 2,
+        "fields": {
+            "name": "ffa",
+            "description": "Free For All"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 3,
+        "fields": {
+            "name": "duel",
+            "description": "Duel"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 4,
+        "fields": {
+            "name": "tdm",
+            "description": "Team Deathmatch"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 5,
+        "fields": {
+            "name": "ctf",
+            "description": "Capture The Flag"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 6,
+        "fields": {
+            "name": "race",
+            "description": "Race"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 7,
+        "fields": {
+            "name": "ca",
+            "description": "Clan Arena"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 8,
+        "fields": {
+            "name": "bomb",
+            "description": "Bomb & Defuse"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 9,
+        "fields": {
+            "name": "ctftactics",
+            "description": "Capture The Flag Tactics"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 10,
+        "fields": {
+            "name": "headhunt",
+            "description": "Headhunt"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 11,
+        "fields": {
+            "name": "tdo",
+            "description": "Team Domination"
+        }
+    },
+    {
+        "model": "warmama.Gametype",
+        "pk": 12,
+        "fields": {
+            "name": "da",
+            "description": "Duel Arena"
+        }
+    }
+]
