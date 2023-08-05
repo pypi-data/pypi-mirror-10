@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: pstake
+Version: 0.3.2
+Summary: PSTricks converter
+Home-page: http://pstake.readthedocs.org/
+Author: Yung-Yu Chen
+Author-email: yyc@solvcon.net
+License: BSD
+Download-URL: http://bitbucket.org/yungyuc/pstake/downloads/
+Description: ==================
+        PSTricks Converter
+        ==================
+        
+        `Pstake <http://pstake.readthedocs.org/>`__ is a simple tool that turns
+        `PSTricks <http://tug.org/PSTricks/main.cgi/>`_ commands into an image file.
+        (PSTricks_ can draw `any
+        <http://tug.org/PSTricks/main.cgi?file=Examples/Gallery/Gallery>`__\ `thing
+        <http://tug.org/PSTricks/main.cgi?file=Examples/Gallery3D/Gallery3D>`__, but
+        needs TeX/LaTeX.  The quality of the drawings is unbeatable.)  Pstake uses
+        command line as the primary interface, but also works as a `Sphinx
+        <http://www.sphinx-doc.org>`__ extension and a `SCons <http://www.scons.org>`__
+        tool.  It is made as a single-file module.
+        
+        .. vim: set ff=unix ft=rst fenc=utf8:
+        
+Platform: Linux
+Platform: MacOSX
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
