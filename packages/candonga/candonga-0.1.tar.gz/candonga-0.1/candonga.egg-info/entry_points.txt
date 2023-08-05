@@ -1,0 +1,7 @@
+[candonga.commands]
+create-infra-project = candonga.command:CreateInfraProject
+create-project = candonga.command:CreateProject
+
+[console_scripts]
+candonga = candonga.main:main
+
