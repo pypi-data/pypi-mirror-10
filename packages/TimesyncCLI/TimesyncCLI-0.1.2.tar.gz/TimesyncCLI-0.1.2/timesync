@@ -1,0 +1,133 @@
+#! /usr/bin/env python
+
+import argparse
+import datetime
+import json
+import os
+
+import requests
+import pylev
+
+
+URL = 'http://localhost:3000/'
+
+
+def current_date():
+    """ Returns today's date with the time of day stripped off. """
+    return str(datetime.datetime.now()).split()[0]
+
+
+def currently_logged_in_user():
+    """ Returns the user running the command. """
+    return os.environ['USER']
+
+
+def get_list(endpoint):
+    """ Returns a list of items from an endpoint.
+        Ex. /projects will return a list of projects
+    """
+    r = requests.get(URL + endpoint)
+    if r.status_code != 200:
+        print 'Domain %s at endpoint: %s retrieved a non-200 status code.'
+        exit(1)
+    return r.json()
+
+
+def get_options(endpoint, key):
+    """ Returns a key from a list by endpoint. """
+    return map(lambda x: x[key], get_list(endpoint))
+
+
+def get_suggestion(arg, opts):
+    """ Returns a suggestion based on levenshtein distance. """
+    suggestions = map(lambda x: (x, pylev.levenshtein(arg, x)), opts)
+    suggestions = sorted(suggestions, key=lambda x: x[1])
+
+    # Grab the closest match < 2 characters off.
+    if suggestions[0][1] <= 2:
+        return suggestions[0][0]
+    return None
+
+
+def validate(arg, endpoint, key):
+    """ Validate an argument against a list of keys. """
+    opts = get_options(endpoint, key)
+    if arg in opts or not opts:
+        return (True, None)
+
+    suggestion = get_suggestion(arg, opts)
+    return (False, suggestion)
+
+
+def submit_time(args):
+    resp = requests.post(URL + 'time/add', params=args)
+    if resp.status_code != 200:
+        print 'Response did not return a 200 error code.'
+        print 'Response:'
+        print '\tStatus Code: %d' % resp.status_code
+        print '\tMessage: %s' % resp.text
+        exit(1)
+    return resp.text
+
+
+def parse_all_args():
+    """ Parse arguments. """
+    parser = argparse.ArgumentParser(prog="Timesync CLI")
+    parser.add_argument('-p', '--project',
+                        help='Project Name',
+                        required=True)
+    parser.add_argument('-d', '--duration',
+                        help='Duration (in minutes)',
+                        required=True,
+                        type=int)
+    parser.add_argument('-u', '--user',
+                        help='Username (Defaults to currently logged in user)',
+                        required=True,
+                        default=currently_logged_in_user())
+    parser.add_argument('-a', '--activity',
+                        help='Activity Slug (Meeting, Dev, Tickets, etc.)',
+                        required=True)
+    parser.add_argument('-n', '--notes',
+                        help='Notes on activity worked',
+                        default='')
+    parser.add_argument('-i', '--issue-uri',
+                        help='Issue URI (Default: None)',
+                        default='')
+    parser.add_argument('--date',
+                        help='Date Worked (Default is the current day)',
+                        default=current_date())
+    return parser.parse_args()
+
+
+if __name__ == '__main__':
+    args = parse_all_args()
+
+    # Validate correct projects, usernames, and activities
+    invalid_args = []
+    valid, suggestion = validate(args.project, 'projects', 'name')
+    if not valid:
+        invalid_args.append(('project', args.project, suggestion))
+
+    valid, suggestion = validate(args.user, 'users', 'username')
+    if not valid:
+        invalid_args.append(('username', args.user, suggestion))
+
+    valid, suggestion = validate(args.activity, 'activities', 'slug')
+    if not valid:
+        invalid_args.append(('activity', args.activity, suggestion))
+
+    # Show invalid arguments and give suggestions.
+    for arg, opt, suggestion in invalid_args:
+        print "Invalid argument '%s' for option '%s'" % (opt, arg)
+        if suggestion:
+            print '\tDid you mean: %s?' % suggestion
+        print
+    if invalid_args:
+        exit(1)
+
+    args = vars(args)
+    result = submit_time(args)
+    print 'Submission Successful!'
+    for k, v in args.items():
+        if v:
+            print '\t%s: %s' % (k.capitalize(), v)
