@@ -1,0 +1,35 @@
+Metadata-Version: 2.0
+Name: xcs
+Version: 1.0.0a5
+Summary: XCS (Accuracy-based Classifier System)
+Home-page: https://github.com/hosford42/xcs
+Author: Aaron Hosford
+Author-email: hosford42@gmail.com
+License: Revised BSD
+Keywords: xcs accuracy classifier lcs machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+
+xcs
+===
+
+Project home page: https://github.com/hosford42/xcs
+
+A Python implementation of the Accuracy-based Learning Classifier Systems (XCS),
+roughly as described in the 2001 paper "An algorithmic description of XCS" by 
+Martin Butz and Stewart Wilson.
+
+Butz, M. and Wilson, S. (2001). An algorithmic description of XCS.
+    In Lanzi, P., Stolzmann, W., and Wilson, S., editors, Advances in Learning
+    Classifier Systems: Proceedings of the Third International Workshop, volume
+    1996 of Lecture Notes in Artificial Intelligence, pages 253–272. Springer-Verlag
+    Berlin Heidelberg.
+
+
+
