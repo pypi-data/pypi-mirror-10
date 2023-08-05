@@ -1,0 +1,2 @@
+azure-elasticluster is a fork of elasticluster, modified to support Microsoft Azure. It is only published temporarily, for testing purposes.
+It requires azure-ansible instead of the standard ansible distribution.
