@@ -1,0 +1,23 @@
+<lensdatabase version="1">
+
+    <mount>
+        <name>Leica R</name>
+        <compat>M42</compat>
+        <compat>DKL</compat>
+        <compat>T2</compat>
+        <compat>Generic</compat>
+    </mount>
+
+    <mount>
+        <name>Leica S</name>
+        <compat>Generic</compat>
+    </mount>
+
+    <camera>
+        <maker>Leica</maker>
+        <model>Digilux 3</model>
+        <mount>4/3 System</mount>
+        <cropfactor>2.0</cropfactor>
+    </camera>
+
+</lensdatabase>
