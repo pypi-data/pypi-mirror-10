@@ -1,0 +1,13 @@
+<div>
+    <h1>{ title }</h1>
+    <ul>
+      <li rv-each-item="data">
+          <a rv-href="item.url">
+            <div><span class="sha">{ item.sha }</span><span class="author">{ item.author }</span></div>
+            <div class="message">{ item.message }</div>
+          </a>
+      </li>
+    </ul>
+    <p class="more-info" rv-if="moreInfo">{ moreInfo }</p>
+    <p class="updated-at" rv-if="updatedAt">{ updatedAt }</p>
+</div>
