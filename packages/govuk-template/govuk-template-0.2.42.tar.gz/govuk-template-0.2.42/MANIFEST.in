@@ -1,0 +1,4 @@
+recursive-include govuk_template/assets *
+recursive-include govuk_template/flask/mustache *
+recursive-include govuk_template/flask/assets *
+include README.md
