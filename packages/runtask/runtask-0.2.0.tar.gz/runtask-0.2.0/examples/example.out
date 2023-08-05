@@ -1,0 +1,22 @@
+Schedule 3 tasks for 10 seconds (system time) then terminate.
+Task #0 is scheduled every 5 seconds, epoch aligned, forever.
+Task #1 is scheduled every second, aligned at half second, forever.
+Task #2 is scheduled every second, aligned at half second, for 5 times.
+id     runtime        sys-runtime run number
+task 1 1430315429.500 0.051227093
+task 2 1430315429.500 0.051295996 5
+task 0 1430315430.000 0.051474094
+task 1 1430315430.500 0.051673889
+task 2 1430315430.500 0.051734924 4
+task 1 1430315431.500 0.051908016
+task 2 1430315431.500 0.051964998 3
+task 1 1430315432.500 0.052135944
+task 2 1430315432.500 0.052195072 2
+task 1 1430315433.500 0.052366972
+task 2 1430315433.500 0.052423000 1 this is the last run
+task 1 1430315434.500 0.052592993
+task 0 1430315435.000 0.052800894
+task 1 1430315435.500 0.053003073
+task 1 1430315436.500 0.053201914
+task 1 1430315437.500 0.053406954
+task 1 1430315438.500 0.053605080
