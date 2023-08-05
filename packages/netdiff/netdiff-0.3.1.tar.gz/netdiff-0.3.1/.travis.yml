@@ -1,0 +1,29 @@
+language: python
+
+python:
+  - "3.4"
+  - "2.7"
+
+branches:
+  only:
+    - master
+
+# command to install requirements
+install:
+  - python setup.py -q install
+  - pip install -r requirements-test.txt
+
+# command to run tests, e.g. python setup.py test
+script:
+  - nosetests --with-coverage --cover-package=netdiff
+  - pip uninstall netdiff && pip install --no-use-wheel netdiff && pip install netdiff
+
+after_success:
+  coveralls
+
+notifications:
+  email:
+    recipients:
+      - ninux-dev@ml.ninux.org
+    on_success: [always]
+    on_failure: [always]
