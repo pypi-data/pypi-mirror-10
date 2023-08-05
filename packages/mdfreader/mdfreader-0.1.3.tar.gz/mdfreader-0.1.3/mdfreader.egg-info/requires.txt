@@ -1,0 +1,14 @@
+numpy>=1.6
+sympy
+bitarray
+
+[converter]
+PyQt4
+
+[export]
+scipy
+h5py
+xlwt
+xlwt3
+openpyxl
+pandas
