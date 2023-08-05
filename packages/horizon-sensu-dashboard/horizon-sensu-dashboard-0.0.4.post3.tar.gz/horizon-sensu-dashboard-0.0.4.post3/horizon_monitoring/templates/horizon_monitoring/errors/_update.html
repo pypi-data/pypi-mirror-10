@@ -1,0 +1,19 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}vytvorit_ukol{% endblock %}
+{% block form_action %}{% url "horizon:monitoring:errors:update" error.id %}{% endblock %}
+
+{% block modal-header %}Update {{ error.name }}{% endblock %}
+
+{% block modal-body %}
+
+{% include "horizon/common/_form_fields.html" %}
+
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update" %}" />
+  <a href="{% url "horizon:monitoring:errors:index" %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}
