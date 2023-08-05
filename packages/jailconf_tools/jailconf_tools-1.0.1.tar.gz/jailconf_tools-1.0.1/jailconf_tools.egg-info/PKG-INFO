@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: jailconf-tools
+Version: 1.0.1
+Summary: A jail.conf python library to help making administration
+software
+Home-page: https://github.com/bougie/jailconf_tools
+Author: David Hymonnet
+Author-email: bougie@appartland.eu
+License: BSD
+Description: ==============
+        jailconf_tools
+        ==============
+        
+        **jailconf_tools** is a python package which includes a lot of tools to use with the new jail format on a freebsd host.
+        
+        Howto
+        -----
+        
+        This is an example of howto use jailconf parser :
+        
+        ::
+        
+            #!/usr/bin/env python
+            import sys
+            from jailconf_tools.parser import get_jails_config
+        
+        
+            def main():
+                """Main function"""
+        
+                try:
+                    print(get_jails_config())
+                except:
+                    return 1
+                else:
+                    return 0
+        
+            if __name__ == "__main__":
+                sys.exit(main())
+        
+        This peace of code returns a python dict which contains all jails definition.
+        
+Keywords: freebsd jail parser
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Terminals
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
