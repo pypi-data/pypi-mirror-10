@@ -1,0 +1,15 @@
+{
+    "redis_bin": "build/bdist.macosx-10.6-intel/wheel/redislite/bin/redis-server", 
+    "version": "1.0.237", 
+    "git_version": "1.0.237", 
+    "git_origin": "https://github.com/yahoo/redislite.git", 
+    "redis_server": {
+        "sha": "f1c71702:0", 
+        "malloc": "libc", 
+        "bits": "64", 
+        "build": "1ea1318a78c0174e", 
+        "v": "2.8.17"
+    }, 
+    "git_hash": "f1c71702dd95f0a66271f3a028835649197d385e", 
+    "git_branch": "master"
+}
