@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+UNLICENSE
+setup.py
+ipify/__init__.py
+ipify/exceptions.py
+ipify/ipify.py
+ipify/settings.py
+ipify.egg-info/PKG-INFO
+ipify.egg-info/SOURCES.txt
+ipify.egg-info/dependency_links.txt
+ipify.egg-info/not-zip-safe
+ipify.egg-info/requires.txt
+ipify.egg-info/top_level.txt
+tests/test_ipify.py
+tests/test_settings.py
