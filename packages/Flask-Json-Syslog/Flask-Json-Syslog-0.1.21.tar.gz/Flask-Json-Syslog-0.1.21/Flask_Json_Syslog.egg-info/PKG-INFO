@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: Flask-Json-Syslog
+Version: 0.1.21
+Summary: Output syslog of the json format.
+Home-page: https://github.com/nabetama/Flask-Json-Syslog
+Author: Mao Nabeta
+Author-email: mao.nabeta@gmail.com
+License: MIT
+Description: 
+        Flask-Json-SysLog
+        -----------------
+        
+        Output syslog of the json format.
+        
+        Installation
+        ````````````
+        
+        Use pip:
+        
+        .. code:: bash
+        
+            $ pip install flask-json-syslog
+        
+        In your app.py
+        ``````````````
+        
+        .. code:: python
+        
+            from flask import g
+            from flask_json_syslog import FlaskJsonSyslog
+        
+            app = Flask(__name__)
+            flask_json_syslog = FlaskJsonSyslog(app)
+        
+            ...
+        
+            @app.before_request
+            def before_request():
+                g.json_log = flask_json_syslog.put
+        
+        In your application code.
+        `````````````````````````
+        
+        .. code:: python
+        
+            g.json_log({'foo': 'bar'}, ...)
+        
+        (r)syslog.conf
+        ``````````````
+        
+        .. code:: sh
+        
+            $template json,"%msg%
+        "
+            local5.* /var/log/local5.log;json
+        
+        Links
+        `````
+        
+        * `website <https://github.com/nabetama/Flask-Json-Syslog>`_
+        
+Keywords: Flask,syslog,json
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides: Flask
+Provides: syslog
+Provides: json
