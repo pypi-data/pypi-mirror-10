@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: elementtreewriter
+Version: 1.2
+Summary: XML writer for elementtree with sane namespace support.
+Home-page: UNKNOWN
+Author: Martin Raspe, Jens Klein
+Author-email: hertzhaft@biblhertz.it, jens@bluedynamics.com
+License: D-FSL - German Free Software License
+Description: Introduction
+        ============
+        
+        XML writer for elementtree with sane namespace support.
+        
+        This is an alternative for the standard XMLWriter of elementtree. If you need a better namespace handling - with sane prefixes - go with this version.
+        
+        CHANGELOG
+        =========
+        
+        1.2 (2015-05-22)
+        ----------------
+        
+        * fix dependency on elementtree (was breaking newest buildouts)
+        * add README and CHANGELOG
+          [simahawk]
+        
+        
+        1.1 (2008-09-05)
+        ----------------
+        
+        * Release [jensens]
+        
+        
+        1.0 (2007-10-15)
+        ----------------
+        
+        * Release [jensens]
+        
+        
+        
+Keywords: xml elementtree
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Markup :: XML
