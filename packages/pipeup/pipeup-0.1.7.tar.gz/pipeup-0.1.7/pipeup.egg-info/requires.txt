@@ -1,0 +1,10 @@
+click
+websocket-client
+
+[server]
+tornado
+
+[server-pubnub]
+tornado
+pubnub
+redis
