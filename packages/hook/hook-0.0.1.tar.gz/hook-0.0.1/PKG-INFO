@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: hook
+Version: 0.0.1
+Summary: A config based hook framework for github and others
+Home-page: https://github.com/ssherar/hook
+Author: Sam Sherar
+Author-email: sbsherar@gmail.com
+License: MIT license
+Description: Untitled
+        ========
+        
+        A framework which receives GH requests and executes them depending on the config file you have given it
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
