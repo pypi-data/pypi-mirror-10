@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: relogger
+Version: 1.0.2
+Summary: A syslog sender, relay and receiver.
+Home-page: https://github.com/caesar0301/relogger
+Author: Xiaming Chen
+Author-email: chenxm35@gmail.com
+License: The MIT License
+Description: A relayer or replicator to send SYSLOG
+        from one or multiple sources to one or multiple destinations.
+Keywords: syslog,relay
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: Freely Distributable
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
