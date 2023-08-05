@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: pygrabbit
+Version: 0.3.0
+Summary: PyGrabbit is a simple URL scraper that will try to get the best image given the web page.
+Home-page: http://github.com/eka/pygrabbit
+Author: Esteban (Eka) Feldman
+Author-email: esteban.feldman@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: lxml (>=3.4.4)
+Requires-Dist: requests (>=2.7.0)
+
+>From the entrails of 'Skynet' comes PyGrabbit, a very clever bastard that will not stop at anything to fulfill its purpose.
+
+PyGrabbit is a simple URL scrapper inspired by the Ruby Grabbit https://github.com/rlarcombe/grabbit. It will try to return the best image(s) that represent the content on a given web page or not.
+
