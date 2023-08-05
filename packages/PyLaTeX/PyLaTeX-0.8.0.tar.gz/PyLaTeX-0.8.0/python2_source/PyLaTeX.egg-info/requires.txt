@@ -1,0 +1,17 @@
+ordered-set
+
+[all]
+pep8-naming
+numpy
+matplotlib
+flake8
+
+[matplotlib]
+matplotlib
+
+[matrices]
+numpy
+
+[testing]
+flake8
+pep8-naming
