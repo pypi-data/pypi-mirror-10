@@ -1,0 +1,14 @@
+CHANGES
+=======
+
+0.1.0
+-----
+
+* small packaging fixes
+* Seperate profile matching from instrospection
+* Rename to ahc-tools
+* Add rdo-discover-hardware script to be used on discovery ramdisk
+* Fix PBR not installing actual Python files
+* Add a CLI client to run cardiff against Ironic DB
+* Ignore pbr-generated files
+* Basic structure for the project
