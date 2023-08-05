@@ -1,0 +1,5 @@
+# Entries in this file will be copied from the build directory, into a mirrored
+# structure within the python egg created at install.
+
+recursive-include ezlogger *
+recursive-include tests *
