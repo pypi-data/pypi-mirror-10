@@ -1,0 +1,1 @@
+Django wrapper for Wechat API.
