@@ -1,0 +1,30 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+
+## [Unreleased] - [Unreleased]
+### Fixed
+- Fixed problems with repr and print functions on Python 3.
+
+### Changed
+- All variables were changed to class properties.
+
+### Added
+- It was added getter functions to fill the class properties' requirements
+- It was added more error checking
+- Exported constants, e.g., SIOCGIFFLAGS and SIOCSIFADDR.
+- Added getter and setter to flags
+- Added getter and setter to running and updown
+- Added getter to all variables (some variables are not able to use setters)
+
+
+## [0.4] - 2015-04-23
+### Fixed
+- Fixed problem with header files in distribution package
+
+
+## [0.3] - 2015-04-22
+### Fixed
+- Fixed issue with NIC's name when was updated tx and rx on Python 2.
+
+### Added
+- Added set_inet_addr() method.
