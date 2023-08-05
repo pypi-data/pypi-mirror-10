@@ -1,0 +1,69 @@
+Metadata-Version: 2.0
+Name: monocle-map
+Version: 0.1.7
+Summary: Maps module for monocle
+Home-page: UNKNOWN
+Author: @Langprism LTD
+Author-email: ak@langprism.com
+License: BSD License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+
+---
+### Модуль: monocle_menu
+---
+
+Модуль для отображения каты на сайте. Позволяет отобразить как Yandex карты, так и Google карты.
+Имеется множество настроек, такие как: зум, тип отображения карты, настройки метки и т.д.
+
+## **Пример отображения на сайте:**
+![Map](/images_readme/map.png)
+
+## **Пример отображения в панели администрирования:**
+![Map](/images_readme/map_admin.png)
+
+## **Файл models.py:**
+
+    from django.db import models
+    from . import widgets
+
+    from solo.models import SingletonModel
+    from filebrowser.fields import FileBrowseField
+
+    CHOICES_TYPE_OF_MAP = (('YM', 'Яндекс Карта',), ('GM', 'Google Карта',))
+    CHOICES_TYPE_OF_DISPLAY = (('ROADMAP', 'Карта',), ('HYBRID', 'Спутник',))
+
+    class Map(SingletonModel):
+        name = models.CharField(blank=False, null=False, max_length=255, verbose_name='Заголовок')
+        map = widgets.LocationField(blank=False, null=False, verbose_name='Карта')
+        zoom = models.IntegerField(blank=False, null=False, default='14', verbose_name='Зум')
+        mapDisplayType = models.CharField(max_length=7, choices=CHOICES_TYPE_OF_DISPLAY, default='ROADMAP', verbose_name='Тип Отображения карты')
+        baloon = models.TextField(blank=True, verbose_name='Текст балуна')
+        markerImg = FileBrowseField(max_length=300, directory="'marker", extensions=[".jpg", ".png", ".jpeg", ".ico", ], blank=False, null=False, verbose_name='Картинка для метки')
+        mapType = models.CharField(max_length=2, choices=CHOICES_TYPE_OF_MAP, default='YM', verbose_name='Тип карты')
+
+        def __str__(self):
+            return self.name
+
+        class Meta:
+            verbose_name_plural = 'Карта'
+            verbose_name = 'Карта'
+
+    from django.apps import AppConfig
+    class CustomAppConfig(AppConfig):
+            name = 'apps.monocle_map'
+            verbose_name = 'Карта'
+
+
+
+
