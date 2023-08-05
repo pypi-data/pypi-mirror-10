@@ -1,0 +1,79 @@
+Metadata-Version: 2.0
+Name: ERAlchemy
+Version: 0.0.7
+Summary: Simple entity relation (ER) diagrams generation
+Home-page: https://github.com/Alexis-benoist/eralchemy
+Author: Alexis Benoist
+Author-email: alexis.benoist@gmail.com
+License: Apache License 2.0
+Keywords: sql relational databases ER diagram render
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: SQLAlchemy
+Requires-Dist: pygraphviz
+
+ERAlchemy: Simple entity relation (ER) diagrams generation.
+===========================================================
+
+It's now integrated with SQLAlchemy.
+
+It's also able to generate the ER digram from an existing database.
+
+Quick Start
+===========
+
+Use from python
+---------------
+
+.. code:: python
+
+    from eralchemy import draw_er
+    # Draw from SQLAlchemy base
+    draw_er(Base, 'erd_from_sqlalchemy.png')
+
+    # Draw from database
+    draw_er("sqlite:///relative/path/to/db.db", 'erd_from_sqlite.png')
+
+Use from the command line
+-------------------------
+
+::
+
+    render_er -i sqlite:///relative/path/to/db.db -o erd_from_sqlite.png
+
+Install
+=======
+
+To install ERAlchemy, just do pip install eralchemy ``ERAlchemy``
+requires `GraphViz <http://www.graphviz.org/Download.php>`__ to generate
+the graphs.
+
+Install `graphviz <http://www.graphviz.org/Download.php>`__ for your
+system.
+
+Architecture
+============
+
+.. figure:: https://raw.githubusercontent.com/Alexis-benoist/eralchemy/master/eralchemy_architecture.png?raw=true
+   :alt: Architecture schema
+
+   Architecture schema
+
+Thanks to it's modular architecture, it's an extensible tool: it can
+also be connected to other ORMs/ODMs/OGMs.
+
+Notes
+=====
+
+ERAlchemy was inspired by `erd <https://github.com/BurntSushi/erd>`__.
+
+License
+=======
+
+Released under an Apache License 2.0
+
+Creator: Alexis Benoist
+
+
