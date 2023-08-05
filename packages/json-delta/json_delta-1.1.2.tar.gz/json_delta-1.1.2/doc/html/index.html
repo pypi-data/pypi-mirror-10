@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON-delta: a diff/patch pair for JSON-serialized data structures &mdash; json_delta 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="json_delta 1.1 documentation" href="#" />
+    <link rel="next" title="json_diff" href="json_diff.1.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="json_diff.1.html" title="json_diff"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">json_delta 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="json-delta-a-diff-patch-pair-for-json-serialized-data-structures">
+<h1>JSON-delta: a diff/patch pair for JSON-serialized data structures<a class="headerlink" href="#json-delta-a-diff-patch-pair-for-json-serialized-data-structures" title="Permalink to this headline">¶</a></h1>
+<p>This documentation is automatically generated from the docstrings in
+the source.  More polished documentation can be found at
+<a class="reference external" href="http://json_delta.readthedocs.org/">http://json_delta.readthedocs.org/</a></p>
+<div class="section" id="module-json_delta">
+<span id="json-delta"></span><h2>json_delta<a class="headerlink" href="#module-json_delta" title="Permalink to this headline">¶</a></h2>
+<p>This is the main &#8220;library&#8221; for json_delta&#8217;s functionality.  Functions
+available within the namespace of this module are to be considered
+part of json_delta&#8217;s stable API, subject to change only after a lot
+of noisy announcements and gnashing of teeth.</p>
+<p>The names of submodules begin with underscores because the same is not
+true of them: the functionality behind the main entry points diff,
+patch, udiff, upatch may be refactored at any time.</p>
+<p>Requires Python 2.7 or newer (including Python 3).</p>
+<dl class="function">
+<dt id="json_delta.diff">
+<tt class="descclassname">json_delta.</tt><tt class="descname">diff</tt><big>(</big><em>left_struc</em>, <em>right_struc</em>, <em>minimal=True</em>, <em>verbose=True</em>, <em>key=None</em><big>)</big><a class="headerlink" href="#json_delta.diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compose a sequence of diff stanzas sufficient to convert the
+structure <tt class="docutils literal"><span class="pre">left_struc</span></tt> into the structure <tt class="docutils literal"><span class="pre">right_struc</span></tt>.  (The
+goal is to add &#8216;necessary and&#8217; to &#8216;sufficient&#8217; above!).</p>
+<dl class="docutils">
+<dt>Flags:</dt>
+<dd><p class="first"><tt class="docutils literal"><span class="pre">verbose</span></tt>: if this is set <tt class="docutils literal"><span class="pre">True</span></tt> (the default), a line of
+compression statistics will be printed to stderr.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">minimal</span></tt>: if <tt class="docutils literal"><span class="pre">True</span></tt>, the function will try harder to find
+the diff that encodes as the shortest possible JSON string, at
+the expense of using more of both memory and processor time
+(as alternatives are computed and compared).</p>
+</dd>
+</dl>
+<p>The parameter <tt class="docutils literal"><span class="pre">key</span></tt> is present because this function is mutually
+recursive with <tt class="xref py py-func docutils literal"><span class="pre">needle_diff()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">keyset_diff()</span></tt>.
+If set to a list, it will be prefixed to every keypath in the
+output.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.patch">
+<tt class="descclassname">json_delta.</tt><tt class="descname">patch</tt><big>(</big><em>struc</em>, <em>diff</em>, <em>in_place=True</em><big>)</big><a class="headerlink" href="#json_delta.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the sequence of diff stanzas <tt class="docutils literal"><span class="pre">diff</span></tt> to the structure
+<tt class="docutils literal"><span class="pre">struc</span></tt>.</p>
+<p>By default, this function modifies <tt class="docutils literal"><span class="pre">struc</span></tt> in place; set
+<tt class="docutils literal"><span class="pre">in_place</span></tt> to <tt class="docutils literal"><span class="pre">False</span></tt> to return a patched copy of struc
+instead.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.udiff">
+<tt class="descclassname">json_delta.</tt><tt class="descname">udiff</tt><big>(</big><em>left</em>, <em>right</em>, <em>patch=None</em>, <em>indent=0</em>, <em>entry=True</em><big>)</big><a class="headerlink" href="#json_delta.udiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the difference between the structures <tt class="docutils literal"><span class="pre">left</span></tt> and
+<tt class="docutils literal"><span class="pre">right</span></tt> as a string in a fashion inspired by <strong class="command">diff -u</strong>.</p>
+<p>Generating a udiff is strictly slower than generating a normal
+diff, since the udiff is computed on the basis of a normal diff
+between <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>.  If such a diff has already been
+computed (e.g. by calling <a class="reference internal" href="#json_delta.diff" title="json_delta.diff"><tt class="xref py py-func docutils literal"><span class="pre">diff()</span></tt></a>), pass it as the
+<tt class="docutils literal"><span class="pre">patch</span></tt> parameter.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.upatch">
+<tt class="descclassname">json_delta.</tt><tt class="descname">upatch</tt><big>(</big><em>struc</em>, <em>udiff</em>, <em>reverse=False</em>, <em>in_place=True</em><big>)</big><a class="headerlink" href="#json_delta.upatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a patch of the form output by udiff() to the structure
+<tt class="docutils literal"><span class="pre">struc</span></tt>.</p>
+<p>By default, this function modifies <tt class="docutils literal"><span class="pre">struc</span></tt> in place; set
+<tt class="docutils literal"><span class="pre">in_place</span></tt> to <tt class="docutils literal"><span class="pre">False</span></tt> to return a patched copy of <tt class="docutils literal"><span class="pre">struc</span></tt>
+instead.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.load_and_diff">
+<tt class="descclassname">json_delta.</tt><tt class="descname">load_and_diff</tt><big>(</big><em>left=None</em>, <em>right=None</em>, <em>both=None</em>, <em>minimal=True</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#json_delta.load_and_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply <a class="reference internal" href="#json_delta.diff" title="json_delta.diff"><tt class="xref py py-func docutils literal"><span class="pre">diff()</span></tt></a> to strings or files representing
+JSON-serialized structures.</p>
+<p>Specify either <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>, or <tt class="docutils literal"><span class="pre">both</span></tt>, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">load_and_diff</span><span class="p">(</span><span class="s">&#39;{&quot;foo&quot;:&quot;bar&quot;}&#39;</span><span class="p">,</span> <span class="s">&#39;{&quot;foo&quot;:&quot;baz&quot;}&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">... </span> <span class="o">==</span> <span class="p">[[[</span><span class="s">&quot;foo&quot;</span><span class="p">],</span><span class="s">&quot;baz&quot;</span><span class="p">]])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">load_and_diff</span><span class="p">(</span><span class="n">both</span><span class="o">=</span><span class="s">&#39;[{&quot;foo&quot;:&quot;bar&quot;},{&quot;foo&quot;:&quot;baz&quot;}]&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">... </span> <span class="o">==</span> <span class="p">[[[</span><span class="s">&quot;foo&quot;</span><span class="p">],</span><span class="s">&quot;baz&quot;</span><span class="p">]])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">left</span></tt>, <tt class="docutils literal"><span class="pre">right</span></tt> and <tt class="docutils literal"><span class="pre">both</span></tt> may be either strings (instances
+of <cite>basestring</cite> in 2.7) or file-like objects.</p>
+<p><tt class="docutils literal"><span class="pre">minimal</span></tt> and <tt class="docutils literal"><span class="pre">verbose</span></tt> are passed through to <a class="reference internal" href="#json_delta.diff" title="json_delta.diff"><tt class="xref py py-func docutils literal"><span class="pre">diff()</span></tt></a>,
+which see.</p>
+<p>A call to this function with string arguments is strictly
+equivalent to calling <tt class="docutils literal"><span class="pre">diff(json.loads(left),</span> <span class="pre">json.loads(right),</span>
+<span class="pre">minimal=minimal,</span> <span class="pre">verbose=verbose)</span></tt> or <tt class="docutils literal"><span class="pre">diff(*json.loads(both),</span>
+<span class="pre">minimal=minimal,</span> <span class="pre">verbose=verbose)</span></tt>, as appropriate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.load_and_patch">
+<tt class="descclassname">json_delta.</tt><tt class="descname">load_and_patch</tt><big>(</big><em>struc=None</em>, <em>stanzas=None</em>, <em>both=None</em>, <em>in_place=True</em><big>)</big><a class="headerlink" href="#json_delta.load_and_patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply <a class="reference internal" href="#json_delta.patch" title="json_delta.patch"><tt class="xref py py-func docutils literal"><span class="pre">patch()</span></tt></a> to strings or files representing
+JSON-serialized structures.</p>
+<p>Specify either <tt class="docutils literal"><span class="pre">struc</span></tt> and <tt class="docutils literal"><span class="pre">stanzas</span></tt>, or <tt class="docutils literal"><span class="pre">both</span></tt>, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">load_and_patch</span><span class="p">(</span><span class="s">&#39;{&quot;foo&quot;:&quot;bar&quot;}&#39;</span><span class="p">,</span> <span class="s">&#39;[[[&quot;foo&quot;],&quot;baz&quot;]]&#39;</span><span class="p">)</span> <span class="o">==</span>
+<span class="gp">... </span> <span class="p">{</span><span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="s">&quot;baz&quot;</span><span class="p">})</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">load_and_patch</span><span class="p">(</span><span class="n">both</span><span class="o">=</span><span class="s">&#39;[{&quot;foo&quot;:&quot;bar&quot;},[[[&quot;foo&quot;],&quot;baz&quot;]]]&#39;</span><span class="p">)</span> <span class="o">==</span>
+<span class="gp">... </span> <span class="p">{</span><span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="s">&quot;baz&quot;</span><span class="p">})</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">struc</span></tt>, <tt class="docutils literal"><span class="pre">stanzas</span></tt> and <tt class="docutils literal"><span class="pre">both</span></tt> may be either strings (instances
+of <cite>basestring</cite> in 2.7) or file-like objects.</p>
+<p><tt class="docutils literal"><span class="pre">in_place</span></tt> is passed through to <a class="reference internal" href="#json_delta.patch" title="json_delta.patch"><tt class="xref py py-func docutils literal"><span class="pre">patch()</span></tt></a>, which see.</p>
+<p>A call to this function with string arguments is strictly
+equivalent to calling <tt class="docutils literal"><span class="pre">patch(json.loads(struc),</span> <span class="pre">json.loads(stanzas),</span>
+<span class="pre">in_place=in_place)</span></tt> or <tt class="docutils literal"><span class="pre">patch(*json.loads(both),</span>
+<span class="pre">in_place=in_place)</span></tt>, as appropriate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.load_and_udiff">
+<tt class="descclassname">json_delta.</tt><tt class="descname">load_and_udiff</tt><big>(</big><em>left=None</em>, <em>right=None</em>, <em>both=None</em>, <em>stanzas=None</em>, <em>indent=0</em><big>)</big><a class="headerlink" href="#json_delta.load_and_udiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply <a class="reference internal" href="#json_delta.udiff" title="json_delta.udiff"><tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt></a> to strings representing JSON-serialized
+structures.</p>
+<p>Specify either <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>, or <tt class="docutils literal"><span class="pre">both</span></tt>, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">udiff</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot; {</span>
+<span class="gp">... </span><span class="s">  &quot;foo&quot;:</span>
+<span class="gp">... </span><span class="s">-  &quot;bar&quot;</span>
+<span class="gp">... </span><span class="s">+  &quot;baz&quot;</span>
+<span class="gp">... </span><span class="s"> }&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">load_and_udiff</span><span class="p">(</span><span class="s">&#39;{&quot;foo&quot;:&quot;bar&quot;}&#39;</span><span class="p">,</span> <span class="s">&#39;{&quot;foo&quot;:&quot;baz&quot;}&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test</span><span class="p">)</span> <span class="o">==</span> <span class="n">udiff</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">load_and_udiff</span><span class="p">(</span><span class="n">both</span><span class="o">=</span><span class="s">&#39;[{&quot;foo&quot;:&quot;bar&quot;},{&quot;foo&quot;:&quot;baz&quot;}]&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test</span><span class="p">)</span> <span class="o">==</span> <span class="n">udiff</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">left</span></tt>, <tt class="docutils literal"><span class="pre">right</span></tt> and <tt class="docutils literal"><span class="pre">both</span></tt> may be either strings (instances
+of <cite>basestring</cite> in 2.7) or file-like objects.</p>
+<p><tt class="docutils literal"><span class="pre">stanzas</span></tt> and <tt class="docutils literal"><span class="pre">indent</span></tt> are passed through to <a class="reference internal" href="#json_delta.udiff" title="json_delta.udiff"><tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt></a>,
+which see.</p>
+<p>A call to this function with string arguments is strictly
+equivalent to calling <tt class="docutils literal"><span class="pre">udiff(json.loads(left),</span> <span class="pre">json.loads(right),</span>
+<span class="pre">stanzas=stanzas,</span> <span class="pre">indent=indent)</span></tt> or <tt class="docutils literal"><span class="pre">udiff(*json.loads(both),</span>
+<span class="pre">stanzas=stanzas,</span> <span class="pre">indent=indent)</span></tt>, as appropriate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta.load_and_upatch">
+<tt class="descclassname">json_delta.</tt><tt class="descname">load_and_upatch</tt><big>(</big><em>struc=None</em>, <em>json_udiff=None</em>, <em>both=None</em>, <em>reverse=False</em>, <em>in_place=True</em><big>)</big><a class="headerlink" href="#json_delta.load_and_upatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply <a class="reference internal" href="#json_delta.upatch" title="json_delta.upatch"><tt class="xref py py-func docutils literal"><span class="pre">upatch()</span></tt></a> to strings representing JSON-serialized
+structures.</p>
+<p>Specify either <tt class="docutils literal"><span class="pre">struc</span></tt> and <tt class="docutils literal"><span class="pre">json_udiff</span></tt>, or <tt class="docutils literal"><span class="pre">both</span></tt>, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">struc</span> <span class="o">=</span> <span class="s">&#39;{&quot;foo&quot;:&quot;bar&quot;}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">json_udiff</span> <span class="o">=</span> <span class="s">r&#39;&quot; {\n  \&quot;foo\&quot;:\n-  \&quot;bar\&quot;\n+  \&quot;baz\&quot;\n }&quot;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">both</span> <span class="o">=</span> <span class="s">r&#39;[{&quot;foo&quot;:&quot;baz&quot;},&quot; &#39;</span>\
+<span class="gp">... </span><span class="s">r&#39;{\n  \&quot;foo\&quot;:\n-  \&quot;bar\&quot;\n+  \&quot;baz\&quot;\n }&quot;]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">load_and_upatch</span><span class="p">(</span><span class="n">struc</span><span class="p">,</span> <span class="n">json_udiff</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="s">&quot;baz&quot;</span><span class="p">}</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">load_and_upatch</span><span class="p">(</span><span class="n">both</span><span class="o">=</span><span class="n">both</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="s">&quot;bar&quot;</span><span class="p">}</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">struc</span></tt>, <tt class="docutils literal"><span class="pre">json_udiff</span></tt> and <tt class="docutils literal"><span class="pre">both</span></tt> may be either strings
+(instances of <cite>basestring</cite> in 2.7) or file-like objects.  Note
+that <tt class="docutils literal"><span class="pre">json_udiff</span></tt> is so named because it must be a
+JSON-serialized representation of the udiff string, not the udiff
+string itself.</p>
+<p><tt class="docutils literal"><span class="pre">reverse</span></tt> and <tt class="docutils literal"><span class="pre">in_place</span></tt> are passed through to <a class="reference internal" href="#json_delta.upatch" title="json_delta.upatch"><tt class="xref py py-func docutils literal"><span class="pre">upatch()</span></tt></a>,
+which see.</p>
+<p>A call to this function with string arguments is strictly
+equivalent to calling <tt class="docutils literal"><span class="pre">upatch(json.loads(struc),</span>
+<span class="pre">json.loads(json_udiff),</span> <span class="pre">reverse=reverse,</span> <span class="pre">in_place=in_place)</span></tt> or
+<tt class="docutils literal"><span class="pre">upatch(*json.loads(both),</span> <span class="pre">reverse=reverse,</span> <span class="pre">in_place=in_place)</span></tt>,
+as appropriate.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-json_delta._diff">
+<span id="json-delta-diff"></span><h2>json_delta._diff<a class="headerlink" href="#module-json_delta._diff" title="Permalink to this headline">¶</a></h2>
+<p>Functions for computing JSON-format diffs.</p>
+<dl class="function">
+<dt id="json_delta._diff.append_key">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">append_key</tt><big>(</big><em>stanzas</em>, <em>left_struc</em>, <em>keypath=None</em><big>)</big><a class="headerlink" href="#json_delta._diff.append_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the appropriate key for appending to the sequence <tt class="docutils literal"><span class="pre">left_struc</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">stanzas</span></tt> should be a diff, some of whose stanzas may modify a
+sequence <tt class="docutils literal"><span class="pre">left_struc</span></tt> that appears at path <tt class="docutils literal"><span class="pre">keypath</span></tt>.  If any of
+the stanzas append to <tt class="docutils literal"><span class="pre">left_struc</span></tt>, the return value is the
+largest index in <tt class="docutils literal"><span class="pre">left_struc</span></tt> they address, plus one.
+Otherwise, the return value is <tt class="docutils literal"><span class="pre">len(left_struc)</span></tt> (i.e. the index
+that a value would have if it was appended to <tt class="docutils literal"><span class="pre">left_struc</span></tt>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">append_key</span><span class="p">([],</span> <span class="p">[])</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">append_key</span><span class="p">([[[</span><span class="mi">2</span><span class="p">],</span> <span class="s">&#39;Baz&#39;</span><span class="p">]],</span> <span class="p">[</span><span class="s">&#39;Foo&#39;</span><span class="p">,</span> <span class="s">&#39;Bar&#39;</span><span class="p">])</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">append_key</span><span class="p">([[[</span><span class="mi">2</span><span class="p">],</span> <span class="s">&#39;Baz&#39;</span><span class="p">],</span> <span class="p">[[</span><span class="s">&#39;Quux&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s">&#39;Foo&#39;</span><span class="p">]],</span> <span class="p">[],</span> <span class="p">[</span><span class="s">&#39;Quux&#39;</span><span class="p">])</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.commonality">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">commonality</tt><big>(</big><em>left_struc</em>, <em>right_struc</em><big>)</big><a class="headerlink" href="#json_delta._diff.commonality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a float between 0.0 and 1.0 representing the amount
+that the structures left_struc and right_struc have in common.</p>
+<p>If left_struc and right_struc are of the same type, this is
+computed as the fraction (elements in common) / (total elements).
+Otherwise, commonality is 0.0.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.compute_keysets">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">compute_keysets</tt><big>(</big><em>left_seq</em>, <em>right_seq</em><big>)</big><a class="headerlink" href="#json_delta._diff.compute_keysets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare the keys of <tt class="docutils literal"><span class="pre">left_seq</span></tt> vs. <tt class="docutils literal"><span class="pre">right_seq</span></tt>.</p>
+<p>Determines which keys <tt class="docutils literal"><span class="pre">left_seq</span></tt> and <tt class="docutils literal"><span class="pre">right_seq</span></tt> have in
+common, and which are unique to each of the structures.  Arguments
+should be instances of the same basic type, which must be a
+non-terminal: i.e. list or dict.  If they are lists, the keys
+compared will be integer indices.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>Return value is a 3-tuple of sets <tt class="docutils literal"><span class="pre">({overlap},</span> <span class="pre">{left_only},</span>
+<span class="pre">{right_only})</span></tt>.  As their names suggest, <tt class="docutils literal"><span class="pre">overlap</span></tt> is a set
+of keys <tt class="docutils literal"><span class="pre">left_seq</span></tt> have in common, <tt class="docutils literal"><span class="pre">left_only</span></tt> represents
+keys only found in <tt class="docutils literal"><span class="pre">left_seq</span></tt>, and <tt class="docutils literal"><span class="pre">right_only</span></tt> holds keys
+only found in <tt class="docutils literal"><span class="pre">right_seq</span></tt>.</dd>
+<dt>Raises:</dt>
+<dd>AssertionError if <tt class="docutils literal"><span class="pre">left_seq</span></tt> is not an instance of
+<tt class="docutils literal"><span class="pre">type(right_seq)</span></tt>, or if they are not of a non-terminal
+type.</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">compute_keysets</span><span class="p">({</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+<span class="go">(set([]), set([&#39;foo&#39;]), set([&#39;bar&#39;]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">compute_keysets</span><span class="p">({</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span> <span class="p">{</span><span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+<span class="go">(set([&#39;baz&#39;]), set([&#39;foo&#39;]), set([&#39;bar&#39;]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">compute_keysets</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">])</span>
+<span class="go">(set([0, 1]), set([]), set([]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">compute_keysets</span><span class="p">([</span><span class="s">&#39;foo&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">])</span>
+<span class="go">(set([0]), set([]), set([1]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">compute_keysets</span><span class="p">([],</span> <span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">])</span>
+<span class="go">(set([]), set([]), set([0, 1]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.diff">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">diff</tt><big>(</big><em>left_struc</em>, <em>right_struc</em>, <em>minimal=True</em>, <em>verbose=True</em>, <em>key=None</em><big>)</big><a class="headerlink" href="#json_delta._diff.diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compose a sequence of diff stanzas sufficient to convert the
+structure <tt class="docutils literal"><span class="pre">left_struc</span></tt> into the structure <tt class="docutils literal"><span class="pre">right_struc</span></tt>.  (The
+goal is to add &#8216;necessary and&#8217; to &#8216;sufficient&#8217; above!).</p>
+<dl class="docutils">
+<dt>Flags:</dt>
+<dd><p class="first"><tt class="docutils literal"><span class="pre">verbose</span></tt>: if this is set <tt class="docutils literal"><span class="pre">True</span></tt> (the default), a line of
+compression statistics will be printed to stderr.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">minimal</span></tt>: if <tt class="docutils literal"><span class="pre">True</span></tt>, the function will try harder to find
+the diff that encodes as the shortest possible JSON string, at
+the expense of using more of both memory and processor time
+(as alternatives are computed and compared).</p>
+</dd>
+</dl>
+<p>The parameter <tt class="docutils literal"><span class="pre">key</span></tt> is present because this function is mutually
+recursive with <a class="reference internal" href="#json_delta._diff.needle_diff" title="json_delta._diff.needle_diff"><tt class="xref py py-func docutils literal"><span class="pre">needle_diff()</span></tt></a> and <a class="reference internal" href="#json_delta._diff.keyset_diff" title="json_delta._diff.keyset_diff"><tt class="xref py py-func docutils literal"><span class="pre">keyset_diff()</span></tt></a>.
+If set to a list, it will be prefixed to every keypath in the
+output.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.keyset_diff">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">keyset_diff</tt><big>(</big><em>left_struc</em>, <em>right_struc</em>, <em>key</em>, <em>minimal=True</em><big>)</big><a class="headerlink" href="#json_delta._diff.keyset_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a diff between <tt class="docutils literal"><span class="pre">left_struc</span></tt> and <tt class="docutils literal"><span class="pre">right_struc</span></tt>.</p>
+<p>It is assumed that <tt class="docutils literal"><span class="pre">left_struc</span></tt> and <tt class="docutils literal"><span class="pre">right_struc</span></tt> are both
+non-terminal types (serializable as arrays or objects).  Sequences
+are treated just like mappings by this function, so the diffs will
+be correct but not necessarily minimal.  For a minimal diff
+between two sequences, use <a class="reference internal" href="#json_delta._diff.needle_diff" title="json_delta._diff.needle_diff"><tt class="xref py py-func docutils literal"><span class="pre">needle_diff()</span></tt></a>.</p>
+<p>This function probably shouldn&#8217;t be called directly.  Instead, use
+<tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt>, which will call <a class="reference internal" href="#json_delta._diff.keyset_diff" title="json_delta._diff.keyset_diff"><tt class="xref py py-func docutils literal"><span class="pre">keyset_diff()</span></tt></a> if appropriate
+anyway.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.needle_diff">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">needle_diff</tt><big>(</big><em>left_struc</em>, <em>right_struc</em>, <em>key</em>, <em>minimal=True</em><big>)</big><a class="headerlink" href="#json_delta._diff.needle_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a diff between <tt class="docutils literal"><span class="pre">left_struc</span></tt> and <tt class="docutils literal"><span class="pre">right_struc</span></tt>.</p>
+<p>If <tt class="docutils literal"><span class="pre">left_struc</span></tt> and <tt class="docutils literal"><span class="pre">right_struc</span></tt> are both serializable as
+arrays, this function will use Needleman-Wunsch sequence alignment
+to find a minimal diff between them.  Otherwise, the inputs are
+passed on to <a class="reference internal" href="#json_delta._diff.keyset_diff" title="json_delta._diff.keyset_diff"><tt class="xref py py-func docutils literal"><span class="pre">keyset_diff()</span></tt></a>.</p>
+<p>This function probably shouldn&#8217;t be called directly.  Instead, use
+<a class="reference internal" href="#json_delta._diff.diff" title="json_delta._diff.diff"><tt class="xref py py-func docutils literal"><span class="pre">diff()</span></tt></a>, which is mutually recursive with this function and
+<a class="reference internal" href="#json_delta._diff.keyset_diff" title="json_delta._diff.keyset_diff"><tt class="xref py py-func docutils literal"><span class="pre">keyset_diff()</span></tt></a> anyway.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.sort_stanzas">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">sort_stanzas</tt><big>(</big><em>stanzas</em><big>)</big><a class="headerlink" href="#json_delta._diff.sort_stanzas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort the stanzas in <tt class="docutils literal"><span class="pre">diff</span></tt>.</p>
+<p>Object changes can occur in any order, but deletions from arrays
+have to happen last node first: [&#8216;foo&#8217;, &#8216;bar&#8217;, &#8216;baz&#8217;] -&gt; [&#8216;foo&#8217;,
+&#8216;bar&#8217;] -&gt; [&#8216;foo&#8217;] -&gt; []; and additions to arrays have to happen
+leftmost-node-first: [] -&gt; [&#8216;foo&#8217;] -&gt; [&#8216;foo&#8217;, &#8216;bar&#8217;] -&gt; [&#8216;foo&#8217;,
+&#8216;bar&#8217;, &#8216;baz&#8217;].</p>
+<p>Note that this will also sort changes to objects (dicts) so that
+they occur first of all, then modifications/additions on
+arrays, followed by deletions from arrays.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.split_deletions">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">split_deletions</tt><big>(</big><em>stanzas</em><big>)</big><a class="headerlink" href="#json_delta._diff.split_deletions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a diff into modifications and deletions.</p>
+<p>Return value is a 3-tuple of lists: the first is a list of
+stanzas from <tt class="docutils literal"><span class="pre">stanzas</span></tt> that modify JSON objects, the second is
+a list of stanzas that add or change elements in JSON arrays, and
+the second is a list of stanzas which delete elements from
+arrays.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._diff.this_level_diff">
+<tt class="descclassname">json_delta._diff.</tt><tt class="descname">this_level_diff</tt><big>(</big><em>left_struc</em>, <em>right_struc</em>, <em>key=None</em>, <em>common=None</em><big>)</big><a class="headerlink" href="#json_delta._diff.this_level_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sequence of diff stanzas between the structures
+left_struc and right_struc, assuming that they are each at the
+key-path <tt class="docutils literal"><span class="pre">key</span></tt> within the overall structure.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">this_level_diff</span><span class="p">({</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">:</span> <span class="s">&#39;quux&#39;</span><span class="p">}</span>
+<span class="go">                    {&#39;foo&#39;: &#39;bar&#39;}, [&#39;quordle&#39;]),</span>
+<span class="go">[[[&#39;quordle&#39;, &#39;baz&#39;]]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-json_delta._patch">
+<span id="json-delta-patch"></span><h2>json_delta._patch<a class="headerlink" href="#module-json_delta._patch" title="Permalink to this headline">¶</a></h2>
+<p>Functions for applying JSON-format patches.</p>
+<dl class="function">
+<dt id="json_delta._patch.patch">
+<tt class="descclassname">json_delta._patch.</tt><tt class="descname">patch</tt><big>(</big><em>struc</em>, <em>diff</em>, <em>in_place=True</em><big>)</big><a class="headerlink" href="#json_delta._patch.patch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the sequence of diff stanzas <tt class="docutils literal"><span class="pre">diff</span></tt> to the structure
+<tt class="docutils literal"><span class="pre">struc</span></tt>.</p>
+<p>By default, this function modifies <tt class="docutils literal"><span class="pre">struc</span></tt> in place; set
+<tt class="docutils literal"><span class="pre">in_place</span></tt> to <tt class="docutils literal"><span class="pre">False</span></tt> to return a patched copy of struc
+instead.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._patch.patch_stanza">
+<tt class="descclassname">json_delta._patch.</tt><tt class="descname">patch_stanza</tt><big>(</big><em>struc</em>, <em>diff</em><big>)</big><a class="headerlink" href="#json_delta._patch.patch_stanza" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the diff stanza <tt class="docutils literal"><span class="pre">diff</span></tt> to the structure <tt class="docutils literal"><span class="pre">struc</span></tt> as
+a patch.</p>
+<p>Note that this function modifies <tt class="docutils literal"><span class="pre">struc</span></tt> in-place into the
+target of <tt class="docutils literal"><span class="pre">diff</span></tt>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-json_delta._udiff">
+<span id="json-delta-udiff"></span><h2>json_delta._udiff<a class="headerlink" href="#module-json_delta._udiff" title="Permalink to this headline">¶</a></h2>
+<p>Functions for computing udiffs.</p>
+<p>The data structure representing a udiff that these functions all
+manipulate is a pair of lists of iterators <tt class="docutils literal"><span class="pre">(left_lines,</span>
+<span class="pre">right_lines)</span></tt>.  These lists are expected (principally by
+generate_udiff_lines(), which processes them), to be of the same
+length.  A pair of iterators <tt class="docutils literal"><span class="pre">(left_lines[i],</span> <span class="pre">right_lines[i])</span></tt> may
+yield exactly the same sequence of output lines, each with <tt class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></tt>
+as the first character (representing parts of the structure the
+input and output have in common).  Alternatively, they may each
+yield zero or more lines (referring to parts of the structure that
+are unique to the inputs they represent).  In this case, all lines
+yielded by <tt class="docutils literal"><span class="pre">left_lines[i]</span></tt> should begin with <tt class="docutils literal"><span class="pre">'-'</span></tt>, and all
+lines yielded by <tt class="docutils literal"><span class="pre">right_lines[i]</span></tt> should begin with <tt class="docutils literal"><span class="pre">'+'</span></tt>.</p>
+<dl class="class">
+<dt id="json_delta._udiff.Gap">
+<em class="property">class </em><tt class="descclassname">json_delta._udiff.</tt><tt class="descname">Gap</tt><a class="headerlink" href="#json_delta._udiff.Gap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to represent gaps introduced by sequence alignment.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.add_matter">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">add_matter</tt><big>(</big><em>seq</em>, <em>matter</em>, <em>indent</em><big>)</big><a class="headerlink" href="#json_delta._udiff.add_matter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add material to <tt class="docutils literal"><span class="pre">seq</span></tt>, treating it appropriately for its
+type.</p>
+<p><tt class="docutils literal"><span class="pre">matter</span></tt> may be an iterator, in which case it is appended to
+<tt class="docutils literal"><span class="pre">seq</span></tt>.  If it is a sequence, it is assumed to be a sequence of
+iterators, the sequence is concatenated onto <tt class="docutils literal"><span class="pre">seq</span></tt>.  If
+<tt class="docutils literal"><span class="pre">matter</span></tt> is a string, it is turned into a patch band using
+<a class="reference internal" href="#json_delta._udiff.single_patch_band" title="json_delta._udiff.single_patch_band"><tt class="xref py py-func docutils literal"><span class="pre">single_patch_band()</span></tt></a>, which is appended.  Finally, if
+<tt class="docutils literal"><span class="pre">matter</span></tt> is None, an empty iterable is appended to <tt class="docutils literal"><span class="pre">seq</span></tt>.</p>
+<p>This function is a udiff-forming primitive, called by more
+specific functions defined within <a class="reference internal" href="#json_delta._udiff.udiff_dict" title="json_delta._udiff.udiff_dict"><tt class="xref py py-func docutils literal"><span class="pre">udiff_dict()</span></tt></a> and
+<a class="reference internal" href="#json_delta._udiff.udiff_list" title="json_delta._udiff.udiff_list"><tt class="xref py py-func docutils literal"><span class="pre">udiff_list()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.commafy">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">commafy</tt><big>(</big><em>gen</em>, <em>comma=True</em><big>)</big><a class="headerlink" href="#json_delta._udiff.commafy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields every result of <tt class="docutils literal"><span class="pre">gen</span></tt>, with a comma concatenated onto
+the final result iff <tt class="docutils literal"><span class="pre">comma</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.curry_functions">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">curry_functions</tt><big>(</big><em>local_ns</em><big>)</big><a class="headerlink" href="#json_delta._udiff.curry_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create partials of _add_common_matter, _add_differing_matter and
+_commafy_last, with values for left_lines, right_lines and (where
+appropriate) indent taken from the dictionary local_ns.</p>
+<p>Appropriate defaults are also included in the partials, namely
+left=None and right=None for _add_differing_matter and
+left_comma=True and right_comma=None for _commafy_last.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.generate_udiff_lines">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">generate_udiff_lines</tt><big>(</big><em>left</em>, <em>right</em><big>)</big><a class="headerlink" href="#json_delta._udiff.generate_udiff_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the diff lines from <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>, and
+generate the lines of the resulting udiff.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.patch_bands">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">patch_bands</tt><big>(</big><em>indent</em>, <em>material</em>, <em>sigil=u' '</em><big>)</big><a class="headerlink" href="#json_delta._udiff.patch_bands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate appropriately indented patch bands, with <tt class="docutils literal"><span class="pre">sigil</span></tt> as
+the first character.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.reconstruct_alignment">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">reconstruct_alignment</tt><big>(</big><em>left</em>, <em>right</em>, <em>stanzas</em><big>)</big><a class="headerlink" href="#json_delta._udiff.reconstruct_alignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstruct the sequence alignment between the lists <tt class="docutils literal"><span class="pre">left</span></tt>
+and <tt class="docutils literal"><span class="pre">right</span></tt> implied by <tt class="docutils literal"><span class="pre">stanzas</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.single_patch_band">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">single_patch_band</tt><big>(</big><em>indent</em>, <em>line</em>, <em>sigil=u' '</em><big>)</big><a class="headerlink" href="#json_delta._udiff.single_patch_band" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function returning an iterable that generates a
+single patch band.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.udiff">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">udiff</tt><big>(</big><em>left</em>, <em>right</em>, <em>patch=None</em>, <em>indent=0</em>, <em>entry=True</em><big>)</big><a class="headerlink" href="#json_delta._udiff.udiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the difference between the structures <tt class="docutils literal"><span class="pre">left</span></tt> and
+<tt class="docutils literal"><span class="pre">right</span></tt> as a string in a fashion inspired by <strong class="command">diff -u</strong>.</p>
+<p>Generating a udiff is strictly slower than generating a normal
+diff, since the udiff is computed on the basis of a normal diff
+between <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>.  If such a diff has already been
+computed (e.g. by calling <tt class="xref py py-func docutils literal"><span class="pre">diff()</span></tt>), pass it as the
+<tt class="docutils literal"><span class="pre">patch</span></tt> parameter.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.udiff_dict">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">udiff_dict</tt><big>(</big><em>left</em>, <em>right</em>, <em>stanzas</em>, <em>indent=0</em><big>)</big><a class="headerlink" href="#json_delta._udiff.udiff_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a pair of iterator sequences representing <tt class="docutils literal"><span class="pre">stanzas</span></tt> as
+a human-readable delta between dictionaries <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>.</p>
+<p>This function probably shouldn&#8217;t be called directly.  Instead, use
+<a class="reference internal" href="#json_delta._udiff.udiff" title="json_delta._udiff.udiff"><tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt></a> with the same arguments.  <a class="reference internal" href="#json_delta._udiff.udiff" title="json_delta._udiff.udiff"><tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt></a>
+and <a class="reference internal" href="#json_delta._udiff.udiff_dict" title="json_delta._udiff.udiff_dict"><tt class="xref py py-func docutils literal"><span class="pre">udiff_dict()</span></tt></a> are mutually recursive, anyway.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._udiff.udiff_list">
+<tt class="descclassname">json_delta._udiff.</tt><tt class="descname">udiff_list</tt><big>(</big><em>left</em>, <em>right</em>, <em>stanzas</em>, <em>indent=0</em><big>)</big><a class="headerlink" href="#json_delta._udiff.udiff_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a pair of iterator sequences representing <tt class="docutils literal"><span class="pre">stanzas</span></tt> as
+a delta between the lists <tt class="docutils literal"><span class="pre">left</span></tt> and <tt class="docutils literal"><span class="pre">right</span></tt>.</p>
+<p>This function probably shouldn&#8217;t be called directly.  Instead, use
+<a class="reference internal" href="#json_delta._udiff.udiff" title="json_delta._udiff.udiff"><tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt></a> with the same arguments.  <a class="reference internal" href="#json_delta._udiff.udiff" title="json_delta._udiff.udiff"><tt class="xref py py-func docutils literal"><span class="pre">udiff()</span></tt></a>
+and <a class="reference internal" href="#json_delta._udiff.udiff_list" title="json_delta._udiff.udiff_list"><tt class="xref py py-func docutils literal"><span class="pre">udiff_list()</span></tt></a> are mutually recursive, anyway.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-json_delta._upatch">
+<span id="json-delta-upatch"></span><h2>json_delta._upatch<a class="headerlink" href="#module-json_delta._upatch" title="Permalink to this headline">¶</a></h2>
+<p>Functions for applying udiffs as patches.</p>
+<dl class="function">
+<dt id="json_delta._upatch.extended_json_decoder">
+<tt class="descclassname">json_delta._upatch.</tt><tt class="descname">extended_json_decoder</tt><big>(</big><big>)</big><a class="headerlink" href="#json_delta._upatch.extended_json_decoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a decoder for the superset of JSON understood by the
+upatch function.</p>
+<p>The exact nature of this superset is documented in the manpage for
+json_patch(1).  Briefly, the string <tt class="docutils literal"><span class="pre">...</span></tt> is accepted where
+standard JSON expects a <tt class="docutils literal"><span class="pre">{&lt;property</span> <span class="pre">name&gt;}:</span> <span class="pre">{&lt;object&gt;}</span></tt>
+construction, and the string <tt class="docutils literal"><span class="pre">...</span></tt>, optionally followed by a
+number in parentheses, is accepted where standard JSON expects an
+array element.</p>
+<p>The superset is implemented by parsing <tt class="docutils literal"><span class="pre">...</span></tt> in JSON objects as
+a key/value pair <tt class="docutils literal"><span class="pre">Ellipsis:</span> <span class="pre">True</span></tt> in the resulting dictionary,
+and <tt class="docutils literal"><span class="pre">...({num}){?}</span></tt> as a subsequence of <tt class="docutils literal"><span class="pre">{num}</span></tt> <tt class="docutils literal"><span class="pre">Ellipsis</span></tt>
+objects, or one ellipsis object if <tt class="docutils literal"><span class="pre">({num})</span></tt> is not present.</p>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dec</span> <span class="o">=</span> <span class="n">extended_json_decoder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">dec</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;{&quot;foo&quot;: &quot;bar&quot;,...,&quot;baz&quot;: &quot;quux&quot;}&#39;</span><span class="p">)</span> <span class="o">==</span>
+<span class="gp">... </span> <span class="p">{</span><span class="s">&quot;foo&quot;</span><span class="p">:</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span> <span class="s">&quot;baz&quot;</span><span class="p">:</span> <span class="s">&quot;quux&quot;</span><span class="p">,</span> <span class="bp">Ellipsis</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dec</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;[...]&#39;</span><span class="p">)</span>
+<span class="go">[Ellipsis]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dec</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;[&quot;foo&quot;,...(3),&quot;bar&quot;]&#39;</span><span class="p">)</span>
+<span class="go">[u&#39;foo&#39;, Ellipsis, Ellipsis, Ellipsis, u&#39;bar&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._upatch.fill_in_ellipses">
+<tt class="descclassname">json_delta._upatch.</tt><tt class="descname">fill_in_ellipses</tt><big>(</big><em>struc</em>, <em>left_part</em>, <em>right_part</em><big>)</big><a class="headerlink" href="#json_delta._upatch.fill_in_ellipses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace Ellipsis objects parsed out of a udiff with elements
+from struc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._upatch.split_udiff_parts">
+<tt class="descclassname">json_delta._upatch.</tt><tt class="descname">split_udiff_parts</tt><big>(</big><em>udiff</em><big>)</big><a class="headerlink" href="#json_delta._upatch.split_udiff_parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split <tt class="docutils literal"><span class="pre">udiff</span></tt> into parts representing subsets of the left and
+right structures that were used to create it.</p>
+<p>The return value is a 2-tuple <tt class="docutils literal"><span class="pre">(left_json,</span> <span class="pre">right_json)</span></tt>.  If
+<tt class="docutils literal"><span class="pre">udiff</span></tt> is a string representing a valid udiff, then each member of
+the tuple will be a structure formatted in the superset of JSON that
+can be interpreted using <a class="reference internal" href="#json_delta._upatch.extended_json_decoder" title="json_delta._upatch.extended_json_decoder"><tt class="xref py py-func docutils literal"><span class="pre">extended_json_decoder()</span></tt></a>.</p>
+<p>The function itself works by stripping off the first character of
+every line in the udiff, and composing <tt class="docutils literal"><span class="pre">left_json</span></tt> out of those
+lines which begin with <tt class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></tt> or <tt class="docutils literal"><span class="pre">'-'</span></tt>, and <tt class="docutils literal"><span class="pre">right_json</span></tt> out
+of those lines which begin with <tt class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></tt> or <tt class="docutils literal"><span class="pre">'+'</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">udiff</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;--- &lt;stdin&gt;[0]</span>
+<span class="gp">... </span><span class="s">+++ &lt;stdin&gt;[1]</span>
+<span class="gp">... </span><span class="s"> {</span>
+<span class="gp">... </span><span class="s">  &quot;foo&quot;: &quot;bar&quot;</span>
+<span class="gp">... </span><span class="s">  ...</span>
+<span class="gp">... </span><span class="s">  &quot;baz&quot;:</span>
+<span class="gp">... </span><span class="s">-  &quot;quux&quot;,</span>
+<span class="gp">... </span><span class="s">+  &quot;quordle&quot;,</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s">- &quot;bar&quot;: null</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s">+ &quot;quux&quot;: false</span>
+<span class="gp">... </span><span class="s"> }&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">left_json</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;{</span>
+<span class="gp">... </span><span class="s"> &quot;foo&quot;: &quot;bar&quot;</span>
+<span class="gp">... </span><span class="s"> ...</span>
+<span class="gp">... </span><span class="s"> &quot;baz&quot;:</span>
+<span class="gp">... </span><span class="s">  &quot;quux&quot;,</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s"> &quot;bar&quot;: null</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s">}&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">right_json</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;{</span>
+<span class="gp">... </span><span class="s"> &quot;foo&quot;: &quot;bar&quot;</span>
+<span class="gp">... </span><span class="s"> ...</span>
+<span class="gp">... </span><span class="s"> &quot;baz&quot;:</span>
+<span class="gp">... </span><span class="s">  &quot;quordle&quot;,</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s"> &quot;quux&quot;: false</span>
+<span class="gp">... </span><span class="s">}&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">split_udiff_parts</span><span class="p">(</span><span class="n">udiff</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">left_json</span><span class="p">,</span> <span class="n">right_json</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._upatch.upatch">
+<tt class="descclassname">json_delta._upatch.</tt><tt class="descname">upatch</tt><big>(</big><em>struc</em>, <em>udiff</em>, <em>reverse=False</em>, <em>in_place=True</em><big>)</big><a class="headerlink" href="#json_delta._upatch.upatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a patch of the form output by udiff() to the structure
+<tt class="docutils literal"><span class="pre">struc</span></tt>.</p>
+<p>By default, this function modifies <tt class="docutils literal"><span class="pre">struc</span></tt> in place; set
+<tt class="docutils literal"><span class="pre">in_place</span></tt> to <tt class="docutils literal"><span class="pre">False</span></tt> to return a patched copy of <tt class="docutils literal"><span class="pre">struc</span></tt>
+instead.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-json_delta._util">
+<span id="json-delta-util"></span><h2>json_delta._util<a class="headerlink" href="#module-json_delta._util" title="Permalink to this headline">¶</a></h2>
+<p>Utility functions and constants used by all submodules.</p>
+<dl class="function">
+<dt id="json_delta._util._load_and_func">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">_load_and_func</tt><big>(</big><em>func</em>, <em>parm1=None</em>, <em>parm2=None</em>, <em>both=None</em>, <em>**flags</em><big>)</big><a class="headerlink" href="#json_delta._util._load_and_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode JSON-serialized parameters and apply func to them.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._util.all_paths">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">all_paths</tt><big>(</big><em>struc</em><big>)</big><a class="headerlink" href="#json_delta._util.all_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate key-paths to every node in <tt class="docutils literal"><span class="pre">struc</span></tt>.</p>
+<p>Both terminal and non-terminal nodes are visited, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">all_paths</span><span class="p">({</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;baz&#39;</span><span class="p">,</span> <span class="s">&#39;quux&#39;</span><span class="p">]})]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[]</span> <span class="ow">in</span> <span class="n">paths</span> <span class="c"># ([] is the path to struc itself.)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">paths</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">paths</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">paths</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">paths</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._util.check_diff_structure">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">check_diff_structure</tt><big>(</big><em>diff</em><big>)</big><a class="headerlink" href="#json_delta._util.check_diff_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">diff</span></tt> (or <tt class="docutils literal"><span class="pre">True</span></tt>) if it is structured as a sequence
+of <tt class="docutils literal"><span class="pre">diff</span></tt> stanzas.  Otherwise return <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">[]</span></tt> is a valid diff, so if it is passed to this function, the
+return value is <tt class="docutils literal"><span class="pre">True</span></tt>, so that the return value is always true
+in a Boolean context if <tt class="docutils literal"><span class="pre">diff</span></tt> is valid.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">check_diff_structure</span><span class="p">([])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_diff_structure</span><span class="p">([</span><span class="bp">None</span><span class="p">])</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_diff_structure</span><span class="p">([[[</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12815316313</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">],</span> <span class="bp">None</span><span class="p">]])</span>
+<span class="go">[[[&#39;foo&#39;, 6, 12815316313, &#39;bar&#39;], None]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_diff_structure</span><span class="p">([[[</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12815316313</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">],</span> <span class="bp">None</span><span class="p">],</span>
+<span class="gp">... </span>                      <span class="p">[[</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span> <span class="bp">True</span><span class="p">]])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._util.compact_json_dumps">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">compact_json_dumps</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#json_delta._util.compact_json_dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the most compact possible JSON representation of the
+serializable object <tt class="docutils literal"><span class="pre">obj</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s">&#39;baz&#39;</span><span class="p">:</span>
+<span class="gp">... </span>               <span class="p">[</span><span class="s">&#39;quux&#39;</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">,</span>
+<span class="gp">... </span>      <span class="s">&#39;eggs&#39;</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">compact_json_dumps</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="go">&#39;{&quot;foo&quot;:&quot;bar&quot;,&quot;baz&quot;:[&quot;quux&quot;,&quot;spam&quot;,&quot;eggs&quot;]}&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._util.decode_json">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">decode_json</tt><big>(</big><em>file_or_str</em><big>)</big><a class="headerlink" href="#json_delta._util.decode_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode a JSON file-like object or string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._util.follow_path">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">follow_path</tt><big>(</big><em>struc</em>, <em>path</em><big>)</big><a class="headerlink" href="#json_delta._util.follow_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value found at the key-path <tt class="docutils literal"><span class="pre">path</span></tt> within <tt class="docutils literal"><span class="pre">struc</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="json_delta._util.in_one_level">
+<tt class="descclassname">json_delta._util.</tt><tt class="descname">in_one_level</tt><big>(</big><em>diff</em>, <em>key</em><big>)</big><a class="headerlink" href="#json_delta._util.in_one_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the subset of <tt class="docutils literal"><span class="pre">diff</span></tt> whose key-paths begin with
+<tt class="docutils literal"><span class="pre">key</span></tt>, expressed relative to the structure at <tt class="docutils literal"><span class="pre">[key]</span></tt>
+(i.e. with the first element of each key-path stripped off).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">diff</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[[</span><span class="s">&#39;bar&#39;</span><span class="p">],</span> <span class="bp">None</span><span class="p">],</span>
+<span class="gp">... </span>         <span class="p">[[</span><span class="s">&#39;baz&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s">&#39;cheese&#39;</span><span class="p">],</span>
+<span class="gp">... </span>         <span class="p">[[</span><span class="s">&#39;baz&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;quux&#39;</span><span class="p">],</span> <span class="s">&#39;foo&#39;</span><span class="p">]</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">in_one_level</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">)</span>
+<span class="go">[[[3], &#39;cheese&#39;], [[4, &#39;quux&#39;], &#39;foo&#39;]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Manpages for CLI scripts:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="json_diff.1.html">json_diff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json_diff.1.html#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_diff.1.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_diff.1.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_diff.1.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="json_patch.1.html">json_patch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json_patch.1.html#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_patch.1.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_patch.1.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_patch.1.html#udiff-format">Udiff Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="json_cat.1.html">json_cat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json_cat.1.html#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_cat.1.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_cat.1.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON-delta: a diff/patch pair for JSON-serialized data structures</a><ul>
+<li><a class="reference internal" href="#module-json_delta">json_delta</a></li>
+<li><a class="reference internal" href="#module-json_delta._diff">json_delta._diff</a></li>
+<li><a class="reference internal" href="#module-json_delta._patch">json_delta._patch</a></li>
+<li><a class="reference internal" href="#module-json_delta._udiff">json_delta._udiff</a></li>
+<li><a class="reference internal" href="#module-json_delta._upatch">json_delta._upatch</a></li>
+<li><a class="reference internal" href="#module-json_delta._util">json_delta._util</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="json_diff.1.html"
+                        title="next chapter">json_diff</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="json_diff.1.html" title="json_diff"
+             >next</a> |</li>
+        <li><a href="#">json_delta 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012-2015, Phil Roberts &lt;himself@phil-roberts.name&gt;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
