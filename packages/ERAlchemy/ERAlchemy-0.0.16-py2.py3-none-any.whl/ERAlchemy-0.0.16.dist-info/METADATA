@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: ERAlchemy
+Version: 0.0.16
+Summary: Simple entity relation (ER) diagrams generation
+Home-page: https://github.com/Alexis-benoist/eralchemy
+Author: Alexis Benoist
+Author-email: alexis.benoist@gmail.com
+License: Apache License 2.0
+Keywords: sql relational databases ER diagram render
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: SQLAlchemy
+Requires-Dist: pygraphviz
+
+UNKNOWN
+
+
