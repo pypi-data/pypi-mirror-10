@@ -1,0 +1,200 @@
+#!/usr/bin/env python
+
+import xlrd,sys
+
+import MySQLdb as mdb
+from _mysql import OperationalError
+
+class Excel:
+    'process excel'
+    def __init__(self,excel_file):
+        self.sheet=None
+        self.date_time=None
+        self.book=self.open_book(excel_file)        
+        self.con=None #mdb.connect(host, username, password, database)
+        
+    def open_book(self,sheet_file):
+        """opens excel sheet for processing """
+        try:
+            wb = xlrd.open_workbook(filename=sheet_file)
+        except IOError:
+            print "File %s not found"%(sheet_file)
+            sys.exit()
+        except xlrd.biffh.XLRDError:
+            print "Only Supports Excel Files"
+            sys.exit()
+        return wb
+    
+    def get_book(self):
+        return self.book
+    
+    def set_sheet(self):
+        self.sheet=self.get_book().sheet_by_index(0)
+        
+    def set_connection(self,host, username, password, database):
+        try:
+            self.con=mdb.connect(host, username, password, database)
+        except OperationalError:
+            print "Database connection failed. \
+            Details: Host-> %s Username-> %s Password->%s Database->%s"%(host,username,password,database)
+            sys.exit()
+            
+    def get_connection(self):
+        return self.con
+    
+    def get_sheet(self):
+        return self.sheet
+    
+    def get_total_rows(self):
+        return self.get_sheet().nrows
+    
+    def get_row(self,row_num):
+        return self.get_sheet().row_values(row_num)
+    
+    def sanitize(self,string):#sanitize excel input
+        #string=str(string)
+        
+        if isinstance(string,basestring):
+            string=string.encode('utf8')
+        else:
+            string=unicode(string).encode('utf8')
+    
+        if (string.find('.0'))!=-1:
+            return string[:-2] #remove the .0 from any string
+        else:
+            return string
+        
+    
+    
+    def create_phone_number(self,phone):
+        return '254'+self.sanitize(phone)
+    
+   
+        
+    def set_date_time(self,val):
+        #year, month, day, hour, minute, second 
+        self.date_time=xlrd.xldate.xldate_as_datetime(val, self.get_book().datemode)
+    
+    def get_date_time(self):
+        return self.date_time
+    
+    def get_date(self,date_val):
+        """returns date from tuple """
+        self.set_date_time(date_val)
+        
+        return self.get_date_time().date()
+    
+    def get_time(self,time_val):
+        """returns time from tuple """
+        self.set_date_time(time_val)
+        return self.get_date_time().time()
+    
+    def process_excel(self):
+        
+        with self.get_connection():
+            message='Processing Completed successfully'
+            completed=1
+            last_row=0
+            
+            cur = self.con.cursor()
+            #select maximum user id
+            cur.execute('SELECT MAX(ID) FROM wp_users')
+            user_id=(cur.fetchone()[0])+1
+            
+            for row_num in range(1, self.get_total_rows()):
+                row = self.get_row(row_num)
+                #insert user password is admin
+                
+                try:
+                    
+                    #get data
+                    login=nicename=(self.sanitize(row[4])).lower()
+                    password='$P$B/YOboaN0clXnlAIh8.8L7jNaYdIYN/'
+                    email=self.sanitize(row[7])
+                
+                    #set date
+                    first_name=self.sanitize(row[4])+" "+self.sanitize(row[5])
+                    last_name=self.sanitize(row[6])
+                    display_name=first_name+" "+last_name
+                
+                    self.set_date_time(row[0])
+                    #get date
+                    registered_date=self.get_date_time()
+                    #insert
+                    cur.execute("INSERT INTO wp_users (user_login,user_pass,user_nicename,user_email,user_registered,display_name,user_status) \
+                    VALUES(%s,%s,%s,%s,%s,%s,1)",(login,password,nicename,email,registered_date,display_name))
+                
+                    #insert user metadata
+                    data=[
+                          (user_id,'nickname',nicename),
+                          (user_id,'first_name',first_name),
+                          (user_id,'last_name',last_name),
+                          (user_id,'description',''),
+                          (user_id,'rich_editing','true'),
+                          (user_id,'comment_shortcuts','false'),
+                          (user_id,'admin_color','fresh'),
+                          (user_id,'use_ssl','0'),
+                          (user_id,'show_admin_bar_front','true'),
+                          (user_id,'wp_capabilities','a:1:{s:7:"doctors";b:1;}'),
+                          (user_id,'wp_user_level','0'),
+                          (user_id,'dismissed_wp_pointers','wp360_locks,wp390_widgets'),
+                          (user_id,'gender',''),
+                          (user_id,'zipcode',''), 
+                          (user_id,'city',''), 
+                          (user_id,'state',''), 
+                          (user_id,'phone',''), 
+                          (user_id,'fax',''), 
+                          (user_id,'address',''), 
+                          (user_id,'primarysp',''),
+                          (user_id,'schools',''), 
+                          (user_id,'trainings',''), 
+                          (user_id,'major',''), 
+                          (user_id,'certifications',''),
+                        ] 
+                       
+                      
+                    stmt="INSERT INTO wp_usermeta ( user_id,meta_key,meta_value) VALUES(%s,%s,%s)"
+                
+                    cur.executemany(stmt,data)
+                    user_id=user_id+1
+                
+                    print "procesing row "+ str((row_num+1)) + " out of "+str(self.get_total_rows())+" rows"
+                except:
+                    message="Processing Error at row %s  with exception type %s and description is : %s"%((row_num+1),sys.exc_info()[0],sys.exc_info()[1])
+                    completed=0
+                    break
+                finally:
+                    last_row=(row_num+1)
+            #store message
+            cur.execute("INSERT INTO message (message,completed,last_row) VALUES (%s,%s,%s)",(message,completed,last_row))
+             
+class Process:
+    def __init__(self):
+        self.username=None
+        self.host_name=None
+        self.password=None
+        self.database_name=None
+        self.excel_file=None
+        
+       
+    def set_values(self,input):
+        if len(sys.argv)!=6:
+            print "Usage: wordpress host username password database excel_file"
+            sys.exit()
+        else:
+            self.host_name,self.username,self.password,self.database_name,self.excel_file=input[1],input[2],input[3],input[4],input[5]
+        
+    def run(self):
+        excel=Excel(self.excel_file)
+        excel.set_sheet()
+        excel.set_connection(host=self.host_name,username=self.username,password=self.password,database=self.database_name)
+        excel.process_excel()
+
+
+#processing
+process=Process()
+process.set_values(sys.argv)
+process.run()#execute
+
+
+
