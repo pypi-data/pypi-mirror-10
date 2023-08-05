@@ -1,0 +1,57 @@
+Metadata-Version: 1.1
+Name: telejson-installer
+Version: 0.1.0.1
+Summary: Project Description
+Home-page: https://nekmo.com
+Author: Nekmo
+Author-email: contacto@nekmo.com
+License: UNKNOWN
+Description: Python Telejson
+        ###############
+        Install and use Telejson eaisily for Python projects.
+        
+        Installation
+        ############
+        Installing from Pypi:
+        
+            pip install telejson
+        
+        Installing latest Hg version:
+        
+            pip install -e hg+https://Nekmo@bitbucket.org/Nekmo/python-telejson#egg=telejson
+        
+        Usage
+        #####
+        Create new Telejson instance:
+        
+            telejson = Telejson()
+        
+        Start telejson instance:
+        
+            telejson.start()
+        
+        That's all!! To use Pytg2 with Telejson easily:
+        
+            sender = self.telejson.get_sender()
+            def handler(msg):
+                if msg.text == u'ping':
+                    sender.send_msg(msg.sender.cmd, u"Pong!")
+            self.telejson.handler(handler)
+        
+        And yes, that's it! Please read the documentation of Pytg2. https://bitbucket.org/luckydonald/pytg2/overview It is to
+         him that you have to thank. This is just a wrapper.
+Platform: linux
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Provides: telejson
