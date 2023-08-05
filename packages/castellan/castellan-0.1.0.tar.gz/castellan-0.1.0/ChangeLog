@@ -1,0 +1,16 @@
+CHANGES
+=======
+
+0.1.0
+-----
+
+* Start using oslo.policy
+* Remove Python 3.3 from setup.cfg and tox.ini
+* Renames for consistent namespaces
+* Fixing some warning about oslo namespace
+* Remove placeholder test
+* Copy cinder.keymgr to castellan
+* Updating HACKING.rst
+* Add openstack/common log and policy modules
+* Workflow documentation is now in infra-manual
+* Initial Cookiecutter Commit
