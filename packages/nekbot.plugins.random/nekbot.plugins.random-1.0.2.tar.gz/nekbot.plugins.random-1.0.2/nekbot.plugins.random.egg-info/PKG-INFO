@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: nekbot.plugins.random
+Version: 1.0.2
+Summary: Randomness plugin for Nekbot, a modular multiprotocol bot.
+Home-page: http://nekmo.com
+Author: Nekmo 
+Author-email: contacto@nekmo.com
+License: UNKNOWN
+Download-URL: https://bitbucket.org/Nekmo/nekbot.plugins.random/get/default.tar.gz
+Description: NekBot Random Plugin
+        ####################
+        Randomness plugin for Nekbot, a modular and multiprotocol bot written in Python.
+        
+        Usage: 
+        
+            * !random -- Random number between 1 and 6.
+            * !random <number> -- Number between 1 and <number>
+            * !random <number A> <number B> -- Number between <number A> and <number B>
+            * !random <word 1> <word 2>[ <word 3>...] -- Random word.
+            * !veryrandom -- Random.org command    
+        
+        You need NekBot to use this plugin. This plugin does not work without NekBot.
+        
+        https://bitbucket.org/Nekmo/nekbot-mirai/
+Keywords: nekbot,bot,random,plugins,chat
+Platform: linux
+Provides: nekbot.plugins.random
