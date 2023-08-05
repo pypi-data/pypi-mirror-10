@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+aio/__init__.py
+aio.config.egg-info/PKG-INFO
+aio.config.egg-info/SOURCES.txt
+aio.config.egg-info/dependency_links.txt
+aio.config.egg-info/entry_points.txt
+aio.config.egg-info/namespace_packages.txt
+aio.config.egg-info/not-zip-safe
+aio.config.egg-info/requires.txt
+aio.config.egg-info/top_level.txt
+aio/config/__init__.py
+aio/config/tests/__init__.py
+aio/config/tests/test_config.py
