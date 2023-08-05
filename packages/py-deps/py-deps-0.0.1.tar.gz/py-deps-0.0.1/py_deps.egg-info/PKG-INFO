@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: py-deps
+Version: 0.0.1
+Summary: parsing the Python deps and generating graph data
+Home-page: https://github.com/mkouhei/py-deps
+Author: Kouhei Maeda
+Author-email: mkouhei@palmtb.net
+License: GNU General Public License version 3
+Description: ==============
+         About py-dep
+        ==============
+        
+        The ``py-dep`` provides parsing the dependencies of Python packages
+        and generating the metadata for graph.
+        
+        The graph data is for `Graphviz <http://www.graphviz.org/>`_, `blockdiag <http://blockdiag.com/>`_, `Linkdraw <https://github.com/mtoshi/linkdraw/wiki>`_, etc.
+        
+        Requirements
+        ============
+        
+        * Python 2.7 over or Python 3.4 over
+        * pip 1.5.6 over
+        * wheel 0.24.0 over
+          
+        History
+        =======
+        
+        0.0.1 (2015-04-29)
+        ------------------
+        
+        * First release
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
