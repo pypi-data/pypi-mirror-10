@@ -1,0 +1,71 @@
+Metadata-Version: 1.1
+Name: leonardo-module-forms
+Version: 2015.0.1
+Summary: Form Designer and Remote Forms for Leonardo CMS
+Home-page: https://github.com/leonardo-modules/leonardo-module-forms.git
+Author: Michael Kuty
+Author-email: kutymichael@gmail.com
+License: UNKNOWN
+Description: ==============
+        Leonardo Forms
+        ==============
+        
+        Form builder for Leonardo.
+        
+        Technicaly is only FeinCMS `Form Designer`_ and `Remote Forms`_.
+        
+        Visit `Demo Site`_
+        
+        .. contents::
+            :local:
+        
+        Installation
+        ------------
+        
+        .. code-block:: bash
+        
+            pip install leonardo_module_forms
+        
+        or as leonardo bundle
+        
+        .. code-block:: bash
+        
+            pip install django-leonardo["forms"]
+        
+        Add ``leonardo_module_forms`` to APPS list, in the ``local_settings.py``::
+        
+            APPS = [
+                ...
+                'forms'
+                ...
+            ]
+        
+        Load new template to db
+        
+        .. code-block:: bash
+        
+            python manage.py sync_all
+        
+        
+        See `Leonardo`_
+        
+        .. _`Demo Site`: http://demo.cms.robotice.cz
+        .. _`Leonardo`: https://github.com/django-leonardo/django-leonardo
+        .. _`Form Designer`: https://github.com/antiflu/form_designer
+        .. _`Remote Forms`: https://github.com/WiserTogether/django-remote-forms
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
