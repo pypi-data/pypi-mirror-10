@@ -1,0 +1,6 @@
+
+Create distribution
+python setup.py sdist bdist_wheel
+
+Upload with twine:
+$ twine upload dist/*
