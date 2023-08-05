@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: sibl
+Version: 0.1.0
+Summary: Ansible skeleton generator.
+Home-page: http://pypi.python.org/pypi/sibl/
+Author: David Greisen
+Author-email: dgreisen@gmail.com
+License: LICENSE
+Platform: UNKNOWN
+Requires-Dist: click (>=0.7.0)
+Requires-Dist: Jinja2 (>=2.7.0)
+Requires-Dist: PyYAML (>=3)
+
+sibl
+====
+
+Ansible skeleton generator.
+
+Generates directory and file structures based on:
+
+http://docs.ansible.com/playbooks_best_practices.html#directory-layout
+
+Type "sibl --help" for general help.
+
+Type "sibl [command] --help" for help on a specific command.
+
+

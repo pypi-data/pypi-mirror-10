@@ -1,0 +1,94 @@
+#!python
+
+import click
+import yaml
+import os
+from jinja2 import Environment, PackageLoader
+
+env = Environment(loader=PackageLoader('sibl', 'templates'))
+
+env.get_template('project.yml')
+
+def _get_root(path):
+    """
+    return the ansible root directory by looking up the tree for a
+    directory containing a roles dir
+    """
+    path = os.path.split(path)
+    while path:
+        roles_dir = os.path.join(*(path + ('roles',)))
+        if os.path.isdir(roles_dir):
+            return '/'.join(path)
+        path = path[:-1]
+    raise BaseException("not in ansible config directory")
+
+here = os.path.abspath(os.path.dirname(__file__))
+there = os.getcwd()
+
+def _create_dir_structure(path, contents):
+    """
+    recursively create directory structure. dictionary corresponds to a directory. string to a file
+    """
+    try:
+        os.mkdir(path)
+    except OSError as err:
+        if err.errno != 17:
+            raise
+    for child_path_part, child_contents in contents.items():
+        if child_path_part[0:1] == '..':
+            raise BaseException("'..' not supported by _create_dir_structure")
+        child_path = os.path.join(path, child_path_part)
+        if isinstance(child_contents, dict):
+            _create_dir_structure(child_path, child_contents)
+        elif os.path.exists(child_path):
+            raise BaseException("'{}' exists".format(child_path))
+        else:
+            with open(child_path, 'w') as f:
+                f.write(child_contents)
+
+def _templated_yaml_dir_structure(template_name, root=None, **context):
+    root = root or _get_root(there)
+    template = env.get_template('{}.yml'.format(template_name))
+    dir_str = template.render(**context)
+    dir_data = yaml.load(dir_str)
+    _create_dir_structure(root, dir_data)
+
+@click.group()
+def sibl():
+    """
+    Ansible skeleton generator.
+
+    Generates directory and file structures based on:
+
+    http://docs.ansible.com/playbooks_best_practices.html#directory-layout
+
+    Type "sibl [command] --help" for help on a specific command.
+    """
+    pass
+
+@sibl.command()
+@click.argument('proj_name')
+def project(**kwargs):
+    """ Create a new Ansible project directory named 'proj_name'. """
+    _templated_yaml_dir_structure('project', there, **kwargs)
+
+@sibl.command()
+@click.argument('role_name')
+def role(**kwargs):
+    """ Create a new Role named 'role_name'. """
+    _templated_yaml_dir_structure('role', **kwargs)
+
+@sibl.command()
+@click.argument('group_name')
+def group(**kwargs):
+    """ Create a new group_vars file for a group named 'group_name'. """
+    _templated_yaml_dir_structure('group', **kwargs)
+
+@sibl.command()
+@click.argument('host_name')
+def host(**kwargs):
+    """ Create a new host_vars file for a host named 'host_name'. """
+    _templated_yaml_dir_structure('group', **kwargs)
+
+if __name__ == "__main__":
+    sibl()
