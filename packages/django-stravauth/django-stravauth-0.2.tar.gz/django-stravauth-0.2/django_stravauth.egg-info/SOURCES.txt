@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_stravauth.egg-info/PKG-INFO
+django_stravauth.egg-info/SOURCES.txt
+django_stravauth.egg-info/dependency_links.txt
+django_stravauth.egg-info/top_level.txt
+stravauth/__init__.py
+stravauth/backend.py
+stravauth/client.py
+stravauth/models.py
+stravauth/utils.py
+stravauth/views.py
+stravauth/templatetags/__init__.py
+stravauth/templatetags/stravauth_tags.py
