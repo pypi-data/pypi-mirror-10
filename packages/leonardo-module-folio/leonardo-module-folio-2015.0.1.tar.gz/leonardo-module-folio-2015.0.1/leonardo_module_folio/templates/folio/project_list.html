@@ -1,0 +1,55 @@
+{% extends feincms_page.theme.template %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load leonardo_tags leonardo_app_url %}
+
+{% block body_main %}
+{% if object_list %}
+<div class="span-18">
+	<div class="object-grid ui-helper-clearfix">
+		{% for object in object_list %}
+		
+		<div class="col-md-3">
+			<div class="folio_item object-cell ui-helper-clearfix">
+				<a class="object-image" href="" title="{{ object }}">
+					{% if object.media_category %}
+					{% if object.media_category.get_featured_image.file %}
+					{% thumbnail object.media_category.get_featured_image.file "190x190" crop="center" format="PNG" as image %}
+					<img alt="{{ object }}" src="{{ image.url }}" />
+					{% endthumbnail %}
+					{% else %}
+					{% thumbnail request.webcms_options.no_image "190x190" crop="center" format="PNG" as alt_image %}
+					<img alt="{{ object }}" src="{{ alt_image.url }}" />
+					{% endthumbnail %}
+					{% endif %}
+					{% else %}
+					{% if object.get_main_file.file %}
+					{% thumbnail object.get_main_file.file.file "190x190" crop="center" format="PNG" as image %}
+					<img alt="{{ object }}" src="{{ image.url }}" />
+					{% endthumbnail %}
+					{% else %}
+					{% thumbnail request.webcms_options.no_image "190x190" crop="center" format="PNG" as alt_image %}
+					<img alt="{{ object }}" src="{{ alt_image.url }}" />
+					{% endthumbnail %}
+					{% endif %}
+					{% endif %}
+				</a>
+				<div class="object-text">
+					<h3><a href="{% app_reverse 'folio_project_detail' 'leonardo_module_folio.apps.folio' project_slug=object.translation.slug %}" title="{{ object }}">{{ object }}</a></h3>
+					{% if object.translation.summary %}
+					<p>{{ object.translation.summary }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<p>{% trans "No project in this category." %}</p>
+	{% endif %}
+</div>
+<div class="span-6">
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends widget.get_base_template %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load leonardo_tags %}
+
+{% block content %}
+<div class="object-grid">
+	{% for object in widget.get_projects %}
+	
+	<div class="col-md-12">
+		<div class="folio_item object-list ui-helper-clearfix">
+			<div class="object-text">
+				<h3><a href="{% url 'folio_project_detail' 'leonardo_module_folio.apps.folio' object.translation.slug %}" title="{{ object }}">{{ object }}</a></h3>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
