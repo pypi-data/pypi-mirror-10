@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n">
+
+    <!-- Archetypes partial -->
+    <adapter factory=".fields.ArchetypesFieldsPartial" name="fields"/>
+
+    <adapter factory=".base_fields.BaseFieldExtrator" />
+    <adapter factory=".date_field.DateFieldExtractor" />
+    <adapter factory=".file_field.FileBlobFieldExtractor" />
+    <adapter factory=".file_field.FileFieldExtractor" />
+    <adapter factory=".file_field.ImageBlobFieldExtractor" />
+    <adapter factory=".file_field.ImageFieldExtractor" />
+    <adapter factory=".lines_field.LinesFieldExtractor" />
+    <adapter factory=".reference_field.ReferenceFieldExtractor" />
+    <adapter factory=".text_field.TextFieldExtractor" />
+
+</configure>
