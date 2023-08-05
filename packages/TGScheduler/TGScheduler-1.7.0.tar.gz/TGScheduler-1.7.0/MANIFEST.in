@@ -1,0 +1,4 @@
+include *.rst
+include docs/Makefile
+recursive-include docs/source *
+recursive-include examples *.py
