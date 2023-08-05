@@ -1,0 +1,309 @@
+{% extends "assetcloud/base.html" %}
+{% load asset_large_image %}
+{% load compress %}
+{% load thumbnail %}
+{% load humanize_backports %}
+{% load taggit_utils %}
+{% load css_utils %}
+{% load resize %}
+{% block title %}Asset{% endblock %}
+
+{% block body-attr %}class="view"{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="span12 toolbar">
+
+        {% if nav.asset_list_url %}
+            <p class="pull-left "><a id="asset-back-link"  href="{{ nav.asset_list_url }}">&laquo; Back</a></p>
+        {% endif %}
+        
+        <div class="pull-right clearfix btn-toolbar">
+            
+            <div class="btn-group">
+                <a id="id_download_link" href="{% url 'asset-download-action' asset.id %}" title="Download {{ asset.filename }}" class="btn btn-primary"><i class="icon-download-alt icon-white"></i> Download</a>
+                
+                {% if asset.image_info %}
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li class="original">
+                        <a href="{% url 'asset-download-action' asset.id %}" title="Download {{ asset.filename }}">
+                            <span class="subtle pull-right">{{ asset.image_info.width }}&times;{{ asset.image_info.height }}</span>Original
+                        </a>
+                        </li>
+                        {% for width, height, name in sizes %}
+                        <li class="{{ name|lower }}">
+                            <a href="{% resize_url asset width height %}">
+                            <span class="subtle pull-right">
+                                {{ width }}&times;{{ height }}
+                            </span>
+                            {{ name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                        <li class="divider"></li>
+                        <li><a href="#resize-modal" data-toggle="modal">Custom size...</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="btn-group">
+                <span class="dropdown">
+    
+                    <a id="id_share" class="btn dropdown-toggle" data-toggle="dropdown"
+                        href="#" data-asset-share-url="{% url 'share_asset' id=asset.id %}"
+                        title="Share {{ asset.title }}" data-target="share-assets-dialog">
+                    <i class="icon-envelope"></i> Share <span class="caret"></span>
+                    </a>
+
+                    {% include "assetcloud/snippets/share_dropdown.html" %}
+
+                </span>
+       
+                <button id="add-to-folder"
+                    onclick="add_or_remove_from_folder()"
+                    {% if not asset_in_folder %}
+                    title="Add to favourites"
+                    {% else %}
+                    title="Remove from favourites"
+                    {% endif %}
+                    class="btn ">
+                    {% if not asset_in_folder %}
+                    <i class="icon-star"></i> Favourite
+                    {% else %}
+                    <i class="icon-star"></i> Remove from favourites
+                    {% endif %}
+                </button>
+            </div>
+                    
+        </div>
+
+
+    </div>
+
+</div>
+
+    
+
+<div class="row">
+    <div class="span8">
+        {% asset_large_image asset "580x580" %}
+        <div class="{% if can_edit_assets %}click-to-edit{% endif %} {% if form.errors or form.has_metadata_errors %}edit{% endif %}">
+            <div class="content">
+                {% if can_edit_assets %}
+                    <h2 data-linked="id_title" 
+                        {% if not asset.title %} 
+                        class="placeholder"
+                        {% endif %}>
+                        {{ asset.title|default:"Click to add a title..." }}
+                        </h2>
+
+                        <div data-linked="id_description"
+                        {% if not asset.description %} 
+                        class="placeholder"
+                        {% endif %}>
+                        {{ asset.description|default:"Click to add a description..."|linebreaks }}
+                        </div>
+                {% else %}
+                    <h2>{{ asset.title }}</h2>
+                    {{ asset.description|linebreaks }}
+                {% endif %}
+                {% include "assetcloud/snippets/asset_metadata.html" %}
+            </div>
+
+            {% if can_edit_assets %}
+                <hr class="no-script" />
+                <h3 class="no-script">Edit Title and Description:</h3>
+                {% include "assetcloud/forms/asset_form.html" %}
+            {% endif %}
+        </div>
+        
+
+    </div>
+
+    <div class="span4">
+
+
+
+        <div id="tagging" class="section tagging"
+            data-add-tags-url="{% url 'asset_add_tags_action' %}"
+            data-delete-tags-url="{% url 'asset_delete_tags_action' %}"
+                        data-asset-id="{{ asset.id }}">
+
+            <h3>Tagged with:</h3>
+            <ul class="tags unstyled clearfix">
+                {% for tag in asset.tags.all %}
+                {% include 'assetcloud/snippets/tag.html' %}
+                {% endfor %}
+            </ul>
+
+            <p class="subtle no-tags {% if asset.tags.all %}hidden{% endif %}"><em>Nothing</em></p>
+
+            {% if can_edit_assets %} 
+                <a href="#" class="show">Add tags...</a>
+
+                <form class="form-inline">
+                    <div class="clearfix">
+                        <label for="add_more_tags">Add tags:</label>
+                        <div class="input">
+                            <input type="text" value="" id="add_more_tags" class="add_more_tags span2" data-autocomplete-url="{% url 'tag_autocomplete_action' %}" />
+                            <button type="submit" class="btn">Add</button> &nbsp;<a href="#" class="subtle cancel">Cancel</a>
+                        <span class="hint">Separate tags with a comma</span>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+
+
+        <div class="section">
+            <p>
+                {% if asset.filename %}
+                <strong>{{ asset.filename }}</strong> uploaded
+                {% else %}
+                Uploaded 
+                {% endif %}
+                <strong title="{{ asset.added }}">{{ asset.added|naturaltime }}</strong>. 
+            </p>
+            
+            {% if can_edit_assets %}
+                <form action="{% url 'asset-delete-action' asset.id %}"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        data-confirm="Are you sure you want to delete this asset?" id="delete-asset">
+                    {% csrf_token %}
+                    
+                    <a href="#delete-modal" data-toggle="modal" data-target="#delete-modal" class="danger-link" title="Permanently delete this asset"><i class="icon-trash"></i> Delete this asset</a>
+                    
+                </form>
+            {% endif %}
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<div class="confirmation hide modal warning {{ fade_class }}" id="delete-modal" data-linked="delete-asset">
+    <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>Delete this asset?</h3>
+    </div>
+    <div class="modal-body">
+        <p>This asset will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn cancel">Cancel</button>
+        <button class="btn confirm btn-danger">Delete</button>
+    </div>
+</div>
+
+
+<div class="modal warning {{ fade_class }}" id="resize-modal" data-resize-url="{% url 'asset-resize-base-download-action' asset.id %}" data-linked="resize-asset">
+    <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>Specify image dimensions</h3>
+    </div>
+
+    <form id="custom-resize" class="form-horizontal no-bottom-margin">
+        <div class="modal-body clearfix">
+
+        
+            <fieldset class="pull-left clearfix">
+                <div class="control-group">
+                    <label class="control-label" for="resize-width">Width</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-small resize-width" id="resize-width" value="{{ asset.image_info.width }}" tabindex="1"><span class="add-on">px</span>
+                        </div>
+                        <p class="help-block hide">Values must be numeric</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="resize-height">Height</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-small resize-height" id="resize-height" value="{{ asset.image_info.height }}" tabindex="2"><span class="add-on">px</span>
+                        </div>
+                        <p class="help-block hide">Values must be numeric</p>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="aspect-lock pull-left">
+                <div class="linking-border"></div>
+                <a class="btn btn-mini" id="toggle-aspect-lock" title="Aspect ratio lock" tabindex="5"><i class="icon-aspect-lock"></i></a>
+            </div>
+
+        
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn confirm btn-primary" tabindex="3">Download</button>
+            <button class="btn cancel" tabindex="4">Cancel</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}
+
+
+{% block page_scripts %}
+    {% compress js %}
+        <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/asset.js"></script>
+    {% endcompress %}
+{% endblock %}
+
+
+{% block javascript %}
+var in_folder = {% if asset_in_folder %}true{% else %}false{% endif %};
+function add_or_remove_from_folder() {
+    if (in_folder) {
+        remove_from_folder();
+    }
+    else {
+        add_to_folder();
+    }
+}
+function add_to_folder() {
+    var url = "{% url 'add_to_folder_action' folder_id=user.get_profile.folder.id %}";
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: "asset_ids={{ asset.id }}",
+        success: function (data) {
+            in_folder = true;
+            var str = '<i class="icon-star"></i> Remove from favourites';
+            $("#add-to-folder").html(str).prop('title', str);
+            update_messages();
+        },
+        error: function(data) {
+            update_messages();
+        }
+    });
+}
+function remove_from_folder() {
+    var url = "{% url 'remove_from_folder_action' folder_id=user.get_profile.folder.id %}";
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: "asset_ids={{ asset.id }}",
+        success: function (data) {
+            in_folder = false;
+            var str = '<i class="icon-star"></i> Favourite';
+            $("#add-to-folder").html(str).prop('title', str);
+            update_messages();
+        },
+        error: function(data) {
+            update_messages();
+        }
+    });
+}
+    {% if asset.image_info %}
+        var assetDimensions = {width: {{ asset.image_info.width }}, height: {{asset.image_info.height}}};
+    {% endif %}
+    
+{% endblock %}

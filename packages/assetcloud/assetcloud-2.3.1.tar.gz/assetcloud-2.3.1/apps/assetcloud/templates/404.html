@@ -1,0 +1,24 @@
+{% extends "assetcloud/base.html" %}
+
+{% block title %}404: Page not found{% endblock %}
+
+{% comment %}
+Override the whole of the body block, not just the content block,
+because we don't want the navigation to show on the login page.
+{% endcomment %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="well box">
+            
+            <div class="page-header">
+                <h1>Error (404)</h1>
+            </div>
+            <h2>We can't find the page you're looking for</h2> 
+            <p>It's possible that you or someone else entered the URL incorrectly. You might want to head back to the <a href="{% url 'home' %}">home page</a>, or <a href="mailto:support@bright-interactive.com">contact us</a>.</p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

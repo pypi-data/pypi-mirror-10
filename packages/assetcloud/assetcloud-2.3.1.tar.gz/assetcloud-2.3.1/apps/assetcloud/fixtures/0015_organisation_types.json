@@ -1,0 +1,30 @@
+[
+  {
+    "pk": 1,
+    "model": "assetcloud.organisationtype",
+    "fields": {
+      "name": "Individual"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "assetcloud.organisationtype",
+    "fields": {
+      "name": "Small Company"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "assetcloud.organisationtype",
+    "fields": {
+      "name": "Large Company"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "assetcloud.organisationtype",
+    "fields": {
+      "name": "Not-for-profit"
+    }
+  }
+]

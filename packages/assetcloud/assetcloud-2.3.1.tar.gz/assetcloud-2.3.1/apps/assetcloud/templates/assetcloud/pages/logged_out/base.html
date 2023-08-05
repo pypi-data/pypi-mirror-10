@@ -1,0 +1,37 @@
+{% extends "assetcloud/base.html" %}
+{% load renderform %}
+
+{% block title %}Register{% endblock %}
+
+{% block body-attr %}{% endblock %}
+
+{% comment %}
+Override the whole of the body block, not just the content block,
+because we don't want the navigation to show on the login page.
+{% endcomment %}
+
+{% block body %}
+
+{% include 'assetcloud/snippets/logged_out/header.html' %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="{% block box_classes %}well box{% endblock %}">
+
+                {% block box_content %}
+                {% block content %}
+
+                {% endblock %}
+                {% endblock %}
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

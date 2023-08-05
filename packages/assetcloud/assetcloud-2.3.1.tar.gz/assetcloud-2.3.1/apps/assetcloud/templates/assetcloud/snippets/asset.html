@@ -1,0 +1,34 @@
+{% load thumbnail %}
+
+<li class="asset-instance" id="{{ asset.css_id }}" data-filename="{{ asset.basename }}">
+    <div class="inner">
+        {% with selector=asset.css_id|add:"_selector" %}
+            <label class="select-bar">
+                <input type="checkbox" id="{{ selector }}" data-asset-id="{{ asset.id }}" />
+            </label>
+        {% endwith %}
+        <a href="{% url 'asset' asset.id %}" title="{{ asset.filename }}" tabindex="-1">
+            {% include 'assetcloud/snippets/asset_display_thumbnail.html' %}
+        </a>
+    </div>
+
+    {% if can_edit_assets %}
+        <form class="ajax-form" action="{% url 'asset-title-action' asset.id %}" method="POST" target="no-refresh">
+            {% csrf_token %}
+            <a href="#" class="title-text {% if asset.title == '' %}placeholder{% endif %}">
+                {% if asset.title %}
+                    {{ asset.title|truncatechars:50 }}
+                {% else %}
+                    Click to add a title...
+                {% endif %}             
+            </a>
+        
+            <input class="title-field" type="text" name="title" value="{{ asset.title }}" />
+        </form>
+    {% else %}
+        <span class="title-text" >{{ asset.title|truncatechars:50 }}</span>
+    {% endif %}
+    <!-- Kept filename in here for selenium test, but didn't want it displaying on the page so put in a hidden span for now. -->
+    <span class="hidden filename">{{ asset.filename }}</span>
+
+</li>

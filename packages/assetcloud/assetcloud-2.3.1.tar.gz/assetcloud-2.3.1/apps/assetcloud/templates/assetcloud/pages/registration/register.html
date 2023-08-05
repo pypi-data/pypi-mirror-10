@@ -1,0 +1,67 @@
+{% extends "assetcloud/pages/logged_out/base.html" %}
+{% load renderform %}
+
+
+{% block title %}Register{% endblock %}
+
+
+{% block box_classes %}well box box-wide{% endblock %}
+
+
+{% block page_scripts %}
+    <script type="text/javascript">
+        $('.js-popover').popover();
+    </script>
+{% endblock %}
+
+
+{% block box_content %}
+
+    <h1>
+        {% block form_header %}
+            Sign up for an extended free trial
+        {% endblock %}
+    </h1>
+
+
+
+    {% block registration_forms %}
+        <div class="clearfix bottom-margin">
+            <div class="pull-left standard-account">
+                <form class="form-horizontal create-account narrow-label" method="post" action="{{ request.get_full_path }}"  style="">
+                    <h3 class="bottom-margin">Create an {{ PROJECT_NAME }} Account</h3>
+                    {% csrf_token %}
+                    <fieldset>
+                      {% render_field register_user_form.email "" "True" %}
+                      
+                        {% render_form account_form "" "True" %}
+
+                    </fieldset>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="pull-right social-account">
+                <h4 class="bottom-margin">Or, sign up with one of these</h4>
+
+                <ul class="unstyled social-links">
+                  <li><a href="{% url 'social_register_action' "facebook" %}" class="btn"><i class="icon-facebook"></i> Facebook</a></li>
+                  <li><a href="{% url 'social_register_action' "linkedin" %}" class="btn"><i class="icon-linked-in"></i> Linked-in</a></li>
+                  <li><a href="{% url 'social_register_action' "twitter" %}" class="btn"><i class="icon-twitter"></i> Twitter</a></li>
+                </ul>
+
+                <p><a href="#" data-placement="left" data-trigger="hover" data-title="Why use an existing account?" data-content="If you login using a social network account then you don't need to remember yet another password.&lt;br /&gt;We won't use any of your personal details, except your email address, and we will not post any content to your social network." class="js-popover popover-link">Why would I want to do this?</a></p>
+            </div>
+          
+        </div>
+    {% endblock %}
+    <br />
+    <p class="pull-right">Already have an account? <a href="{% url 'login' %}">Log in here</a>.</p>
+    <p><strong>*</strong> indicates a required field</p>
+
+
+
+{% endblock %}

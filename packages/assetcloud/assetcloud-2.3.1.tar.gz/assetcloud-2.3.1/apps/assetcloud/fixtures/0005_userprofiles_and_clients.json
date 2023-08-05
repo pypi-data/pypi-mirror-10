@@ -1,0 +1,61 @@
+[
+  {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin@bright-interactive.co.uk",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2011-08-23 14:54:47",
+      "groups": [],
+      "user_permissions": [],
+      "password": "sha1$65f34$771f6c5aa5e0be3d20502c32a62cfc5e1a4e056e",
+      "email": "admin@bright-interactive.co.uk",
+      "date_joined": "2011-08-23 14:54:47"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "auth.user",
+    "fields": {
+      "username": "selenium-admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2011-08-23 14:54:47",
+      "groups": [],
+      "user_permissions": [],
+      "password": "sha1$15b62$f3bf08ec8ac81cab05a94b305a46017639072b01",
+      "email": "selenium@bright-interactive.co.uk",
+      "date_joined": "2011-08-23 14:54:47"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "assetcloud.account",
+    "fields": {
+      "name": "bright"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "assetcloud.userprofile",
+    "fields": {
+      "account": 1,
+      "user": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "assetcloud.userprofile",
+    "fields": {
+      "account": 1,
+      "user": 2
+    }
+  }
+]

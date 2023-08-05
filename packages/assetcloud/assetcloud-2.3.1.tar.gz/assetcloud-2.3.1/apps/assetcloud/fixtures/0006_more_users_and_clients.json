@@ -1,0 +1,70 @@
+[
+  {
+    "pk": 3,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin@best-photo.com",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2011-08-30 11:22:51",
+      "groups": [],
+      "user_permissions": [],
+      "password": "sha1$02461$5c228550c41eddfaf23fb1e931c36b412f29a392",
+      "email": "admin@best-photo.com",
+      "date_joined": "2011-08-30 11:22:06"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin@best-design.com",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2011-08-30 11:25:03",
+      "groups": [],
+      "user_permissions": [],
+      "password": "sha1$d6c1f$7e968d3297342cf5a14578382592b97a33ebf325",
+      "email": "admin@best-design.com",
+      "date_joined": "2011-08-30 11:24:26"
+    }
+  },
+
+  {
+    "pk": 2,
+    "model": "assetcloud.account",
+    "fields": {
+      "name": "Best Photography"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "assetcloud.account",
+    "fields": {
+      "name": "Best Design"
+    }
+  },
+
+  {
+    "pk": 3,
+    "model": "assetcloud.userprofile",
+    "fields": {
+      "account": 2,
+      "user": 3
+    }
+  },
+  {
+    "pk": 4,
+    "model": "assetcloud.userprofile",
+    "fields": {
+      "account": 3,
+      "user": 4
+    }
+  }
+]

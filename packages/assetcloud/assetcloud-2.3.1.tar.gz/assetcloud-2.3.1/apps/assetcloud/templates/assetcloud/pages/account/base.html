@@ -1,0 +1,28 @@
+{% extends "assetcloud/base.html" %}
+{% load navigation %}
+
+{% block title %}{{ section|capfirst }}{% endblock %}
+
+{% block subnav %}
+
+    
+    <div class="subnav">
+        <div class="container"> 
+            <ul class="nav nav-tabs">
+                <li class="{% nav_subsection_classes "users" %}">
+                    <a href="{% url 'account-users' %}">Users</a>
+                </li>
+                <li class="{% nav_subsection_classes "customise" %}">
+                    <a id="id_subnav_customise_account" href="{% url 'customise-account' %}">Customise</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    
+    
+{% endblock %}
+
+{% block content %}
+    {% block admin-content %}{% endblock %}
+{% endblock %}

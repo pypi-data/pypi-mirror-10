@@ -1,0 +1,13 @@
+{% load renderform %}
+
+<form class="" action="{% url 'asset-update-action' id=form.instance.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="edit-asset-details">
+        {% render_asset_form form %}
+
+        <div class="actions">
+            <input id="save-asset" class="btn btn-primary" type="submit" value="Save" />
+            <input id="cancel-save-asset" class="btn cancel" type="submit" value="Cancel" />
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,4 @@
+{% autoescape off %}
+{% if num_assets == 1 %}Asset{% else %}{{ num_assets }} assets{% endif%} 
+added to <a href="{% url 'favourites' %}">{{ folder.name }}</a>
+{% endautoescape %}

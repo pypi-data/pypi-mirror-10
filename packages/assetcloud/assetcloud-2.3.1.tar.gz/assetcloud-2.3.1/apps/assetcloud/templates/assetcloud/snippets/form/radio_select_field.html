@@ -1,0 +1,21 @@
+
+<div class="control-group {% if field.errors %}error{% endif %}">
+    {% if field.label %}
+        <label class="control-label">{{ field.label }}</label>
+    {% endif %}
+    <div class="controls">
+        {% for choice in field.field.choices %}
+            <label class="radio">
+                <input type="radio" {% if field.value == choice.0 %}checked=""{% endif %} value="{{ choice.0 }}" id="{{ choice.0 }}" name="{{ field.name }}" />
+                {{ choice.1 }}
+                {% if mark_required and field.field.required %}
+                    <strong>*</strong>
+                {% endif %}
+                {% if choice.2 %}
+                    <span class="subtle">&mdash; {{ choice.2 }}</span>
+                {% endif %}
+            </label>
+        {% endfor %}
+        {{ field.errors }}
+    </div>
+</div>

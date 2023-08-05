@@ -1,0 +1,54 @@
+{% block start %}
+{% endblock %}
+<div id="main-actions" class="pull-right bulk-actions">
+    <div class="btn-group">
+
+        {% include 'assetcloud/snippets/download_zip_action.html' %}
+
+        {% include 'assetcloud/snippets/share_action.html' %}
+
+        {% include 'assetcloud/snippets/tag_action.html' %}
+
+        
+        
+{% block favourite_action %}
+        <a class="action btn disabled"
+         href="#"
+         data-post-url="{% url 'add_to_folder_action' folder_id=user.get_profile.folder.pk %}"
+         data-redirect="">
+        <i class="icon-star"></i> Favourite
+        </a>
+{% endblock %}
+
+        {% if can_edit_assets %}
+          <a class="btn"
+             id="bulk-delete-action"
+             href="#delete-modal"
+             data-toggle="modal">
+            <i class="icon-trash"></i> Delete
+          </a>
+        {% endif %}
+    </div>
+    
+</div>
+
+<div class="confirmation hide modal warning {{ fade_class }}" id="delete-modal">
+    <div class="modal-header">
+        <a href="#" class="close" data-dismiss="modal">&times;</a>
+        <h3>Delete selected assets?</h3>
+    </div>
+    <div class="modal-body">
+        <p>Assets will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn cancel">Cancel</button>
+        <button class="action btn confirm btn-danger"
+            data-waiting-text="Deleting..."
+            data-target="{% url 'delete_assets_action' %}"
+            data-post-url="{% url 'delete_assets_action' %}"
+            data-redirect="{{ request.get_full_path }}">
+        Delete
+        </button>
+    </div>
+</div>
+

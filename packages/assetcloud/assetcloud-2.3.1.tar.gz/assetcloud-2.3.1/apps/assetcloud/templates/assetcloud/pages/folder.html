@@ -1,0 +1,23 @@
+{% extends 'assetcloud/pages/search.html' %}
+
+{% block title %}Favourites{% endblock %}
+
+{% block heading %}
+<div class="page-header no-top-margin">
+    <div class="btn-group pull-right">
+        <a class="action btn download-all"
+           href="#"
+           data-post-url="{% url 'prepare_folder_zip_action' %}"
+           data-redirect="{% url 'download_folder_zip_action' %}"
+           data-waiting-text="Preparing Zip..."
+           title="Download all as Zip archive">
+            <i class="icon-download-alt"></i> Download all
+        </a>
+    </div>
+    <h1 class="no-top-margin">Favourites</h1>
+</div>
+{% endblock %}
+
+{% block actions %}
+    {% include 'assetcloud/snippets/folder_actions.html' %}
+{% endblock %}

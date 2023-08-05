@@ -1,0 +1,55 @@
+{% extends "assetcloud/pages/logged_out/base.html" %}
+{% load renderform %}
+
+{% block title %}Login{% endblock %}
+
+{% comment %}
+Override the whole of the body block, not just the content block,
+because we don't want the navigation to show on the login page.
+{% endcomment %}
+
+{% block box_content %}
+
+
+    <h1>Please log in</h1>
+    
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ fade_class }} in alert-{{ message.tags }}" data-alert="alert"><a class="close" data-dismiss="alert">&times;</a>{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="clearfix bottom-margin ">
+        <div class="pull-left standard-account">
+            <form method="post" class="login-form clearfix form-horizontal narrow-label">
+                {% csrf_token %}
+
+                <fieldset>
+                    {% render_form form %}
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="login-submit">Log in</button>
+                        <a class="subtle" href="{% url 'forgotten-password' %}">Forgot password?</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        {% block social_options %}
+            <div class="pull-right social-account">
+
+                <ul class="unstyled social-links">
+                    <li><a href="{% url 'social_login_action' "facebook" %}" class="btn"><i class="icon-facebook"></i> Log in with Facebook</a></li>
+                    <li><a href="{% url 'social_login_action' "linkedin" %}" class="btn"><i class="icon-linked-in"></i> Log in with Linked-in</a></li>
+                    <li><a href="{% url 'social_login_action' "twitter" %}" class="btn"><i class="icon-twitter"></i> Log in with Twitter</a></li>
+                </ul>
+            </div>
+        {% endblock %}
+    </div>
+    <br /><br />
+    {% if not subdomain_matches_account %}
+        <p class="align-right">Don't have an account? <a href="{% url 'register' %}">Sign up now</a>.</p>
+    {% endif %}
+
+
+{% endblock %}

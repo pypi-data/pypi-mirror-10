@@ -1,0 +1,22 @@
+{# N.B. this is used by both snippets/actions.html and pages/asset.html #}
+<ul class="dropdown-menu dropdown-large dropdown-offset" id="share-assets-dialog">
+    <li class="dialog">
+
+        <h4>
+            {% if asset.title %}
+                Share: {{ asset.title|truncatechars:20 }}
+            {% else %}
+                Sharing <strong class="selected-count">X</strong> items
+            {% endif %}
+        </h4>
+
+        <div>
+            <span class="loading">Loading...</span>
+        </div>
+
+        <li class="dialog dialog-actions">
+            <a href="#" data-toggle="dropdown">Cancel</a>
+        </li>
+    </li>
+
+</ul>

@@ -1,0 +1,20 @@
+{% if asset_metadata %}
+    <table class="metadata">
+        {% for attribute in asset_metadata %}
+            <tr {% if can_edit_assets %}
+                data-linked="id_{{ attribute.name }}"
+            {% endif %}>
+                <th>
+                    {{ attribute.label|capfirst }}:
+                </th>
+                <td {% if can_edit_assets and not attribute.value %}class="placeholder"{% endif %}>
+                    {% if can_edit_assets %}
+                        {{ attribute.value|default:"Click to add value..." }}
+                    {% else %}
+                        {{ attribute.value|default:"None" }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}

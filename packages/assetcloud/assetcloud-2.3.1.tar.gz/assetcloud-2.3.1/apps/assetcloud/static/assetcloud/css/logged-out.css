@@ -1,0 +1,138 @@
+/* ===================================================================
+    Login/Regster forms
+    - also covers password reminder, etc
+----------------------------------------------------------------------*/
+
+.box {
+    margin: 30px auto 20px auto;
+    padding: 30px;
+    width: 640px;
+}
+
+.box h1 {
+    margin-bottom: 30px;
+}
+
+.box .page-header {
+    margin-top:0;
+    border-color: #e4e4e4;
+}
+
+.box form {
+    margin-bottom:0;
+}
+
+.box .form-actions {
+    border:0;
+    margin:0;
+}
+
+.box a.subtle{
+    margin-left: 10px;
+}
+
+
+.box .standard-account {
+    width: 360px;
+    padding-right: 40px;
+    border-right: 1px solid #d4d4d4;
+}
+
+.box .social-account {
+    width: 200px;
+}
+
+.box-wide {
+    width: 690px;
+}
+
+.box-wide .standard-account {
+    width: 378px;
+    padding-right: 40px;
+    border-right: 1px solid #d4d4d4;
+}
+.box-wide .social-account {
+    width: 220px
+}
+.box-wide .social-account h4 {
+    line-height: 27px;
+    margin-top: 17px;
+    margin-bottom: 22px;
+}
+.box-wide #id_subdomain {
+    width: 140px;
+}
+
+/* Social auth buttons ---------- */
+
+ul.social-links li {
+    margin-bottom: 15px;
+}
+ul.social-links a.btn {
+    min-width:165px;
+    text-align:left;
+}
+.icon-facebook,.icon-twitter,.icon-linked-in {
+    background: url('../img/icons/icon-sprite.png') 0 -40px no-repeat;
+    width: 17px;
+    height: 18px;
+    margin-right: 5px;
+}
+.icon-linked-in {
+    background-position: -20px -40px;
+}
+.icon-twitter {
+    background-position: -40px -40px;
+}
+
+
+
+/* More reliable popover display when trigger is block level */
+.popover-link {
+    display:inline-block;
+}
+
+/* Shared assets ---------- */
+
+.shared {
+    list-style:none; 
+    margin: 0; 
+    padding: 0;
+}
+
+.shared > li {
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.shared > li:last-child {
+    border:0;
+    padding:0;
+    margin-bottom:0;
+}
+
+.shared .file {
+    margin-bottom: 0;
+}
+.shared .img {
+    min-width: 120px;
+
+}
+
+.message {
+    border: 1px solid #eee;
+    padding: 20px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+.message .message-label {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+}
+.message p:last-child {
+    margin-bottom: 0;
+}

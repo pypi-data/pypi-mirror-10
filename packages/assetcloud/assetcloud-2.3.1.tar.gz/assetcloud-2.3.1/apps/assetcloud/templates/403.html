@@ -1,0 +1,27 @@
+{% extends "assetcloud/base.html" %}
+
+{% block title %}403: Request forbidden{% endblock %}
+
+{% comment %}
+** This template is not in use yet as it's implementation 
+ will be far easier once we upgrade to django 1.4 **
+
+Override the whole of the body block, not just the content block,
+because we don't want the navigation to show on the login page.
+{% endcomment %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="well box">
+            
+    
+            <h1>Request forbidden (403)</h1>
+    
+            <p>Sorry, you don't have permission to access that page.</p> 
+            <p><a href="{% url 'home' %}">&larr; Back to the home page</a></p>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

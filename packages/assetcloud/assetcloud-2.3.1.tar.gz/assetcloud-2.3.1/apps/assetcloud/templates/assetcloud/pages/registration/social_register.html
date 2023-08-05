@@ -1,0 +1,29 @@
+{% extends "assetcloud/pages/registration/register.html" %}
+
+{% load renderform %}
+
+{% block title %}Register{% endblock %}
+{% block form_header %}
+  Nearly done!
+{% endblock %}
+
+{% block box_classes %}well box{% endblock %}
+
+{% block registration_forms %}
+    <div class="clearfix bottom-margin">
+    
+        <p>Please provide a few more details so we can finish creating your account:</p>
+        <form class="form-horizontal create-account top-margin narrow-label" method="post" action="{{ request.get_full_path }}">
+                
+                {% csrf_token %}
+                <fieldset>
+
+                    {% render_form register_user_form "" "True" %}
+                    {% render_form account_form  %}
+                </fieldset>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Finish sign-up</button>
+                </div>
+            </form>      
+    </div>
+{% endblock %}

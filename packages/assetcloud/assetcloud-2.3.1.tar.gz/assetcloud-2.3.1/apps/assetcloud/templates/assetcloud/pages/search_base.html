@@ -1,0 +1,56 @@
+{% extends "assetcloud/base.html" %}
+{% load humanize %}
+
+{% block body-attr %}id="results"{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    {% block sidebar %}{% endblock %}
+
+    <div class="{% block primary_col_class %}span9 column{% endblock %}">
+
+        {% block heading %}{% endblock %}
+
+        {% block intro_text %}{% endblock %}
+
+        {% if no_assets_at_all and can_edit_assets %}
+            <div class="hero-unit">
+                <h2>Get Started</h2>
+                <p>
+                    You don't have any files uploaded yet. Get started now by uploading images, videos, documents and more.
+                </p>
+                <h3>
+                    <a href="{% url 'asset-upload' %}" class="">Start uploading files...</a>
+                </h3>
+            </div>
+        {% else %}
+            {% block has-assets %}
+                <div class="clearfix toolbar">
+                    {% if results %}
+                        {% block actions %}
+                            {% include 'assetcloud/snippets/actions.html' %}
+                        {% endblock %}    
+                    {% endif %}
+
+                    {% block search-count %}
+                        {% include "assetcloud/snippets/search_count.html" %}
+                    {% endblock search-count%}
+                </div>
+                {% block has-assets-pre-results %}{% endblock %}
+
+                {% block search-results %}
+                    {% include "assetcloud/snippets/search_results.html" %}
+                {% endblock %}
+
+                {% block paging %}
+                    {% include "assetcloud/snippets/paging.html" %}
+                {% endblock %}
+                
+            {% endblock %}
+        {% endif %}
+    </div>
+    
+</div>
+{% endblock %}

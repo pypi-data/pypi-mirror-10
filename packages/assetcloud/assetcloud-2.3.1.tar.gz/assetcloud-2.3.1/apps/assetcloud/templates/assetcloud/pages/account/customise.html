@@ -1,0 +1,140 @@
+{% extends "assetcloud/pages/account/base.html" %}
+
+{% load i18n %}
+{% load renderform %}
+
+{% block css_files %}
+<link type="text/css" href="{{ STATIC_URL }}assetcloud/css/jquery-miniColors/jquery.miniColors.css" rel="stylesheet" />
+{% endblock %}
+
+{% block admin-content %}
+<form id="id_customise_account_form" enctype="multipart/form-data" action="{{ request.get_full_path }}" method="post" class="form-horizontal wide-label">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <fieldset>
+        <div class="control-group {% if form.subdomain.errors %}error{% endif %}">
+          <label class="control-label" for="id_subdomain">
+            <strong class="big">Your {{ PROJECT_NAME }} URL</strong><br />
+            <span class="subtle">customise your URL</span>
+          </label>
+          <div class="controls">
+            <div class="input-prepend input-append">
+                {{ form.subdomain }}<span class="add-on">.{{ domain_suffix }}</span>
+            </div>
+            <span class="help-inline available-no hide">Sorry, this URL is not available.</span>
+            <span class="help-inline available-yes hide">URL available!</span>
+            <span class="help-inline available-invalid hide">Enter a valid value (no spaces or special characters).</span>
+
+            {{ form.subdomain.errors }}
+          </div>
+        </div>
+    </fieldset>
+
+
+    <fieldset>
+        <div class="control-group">
+            <label for="id_welcome_text" class="control-label">
+                <strong class="big">Welcome text</strong><br />
+                <span class="subtle">shown at the top of the homepage</span>
+            </label>
+
+            <div class="controls">
+                {{ form.welcome_text.errors }}
+                <textarea name="welcome_text" cols="40" rows="10" id="id_welcome_text" class="span7" placeholder="Enter optional welcome text...">{{ form.welcome_text.value }}</textarea>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label for="id_logo" class="control-label">
+                <strong class="big">Logo</strong><br />
+                <span class="subtle">shown top left of every page</span>
+            </label>
+            <div class="controls">
+
+                {{ form.logo.errors }}
+                {{ form.logo }}
+
+                <p class="help-block subtle">Maximum file size of {{ max_logo_image_size|filesizeformat }}. Image should be JPG, GIF or PNG.</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">
+                <strong class="big">Header colours</strong>
+                <span class="subtle"></span>
+            </label>
+
+
+            {% for field in form.colour_fields %}
+                <div class="controls color-input">
+                    {{ field.label_tag }}
+                    {{ field.errors }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <div class="controls"><a href="#" id="reset-colors">Revert to default colours</a></div>
+
+        </div>
+
+        <div class="control-group">
+            <label for="tagging" class="control-label">
+                <strong class="big">Homepage tags</strong><br />
+                <span class="subtle">promote your assets on the homepage</span>
+            </label>
+
+            <div class="controls">
+                {{ form.homepage_tags_json.errors }}
+                {{ form.homepage_tags.errors }}
+
+                {{ form.homepage_tags_json }}
+
+                <div id="tagging" data-tag-html-url="{% url 'render_tag_action' %}" style="float:left;">
+                    <ul class="tags unstyled clearfix">{% for tag in form.instance.homepage_tags.all %}{% include 'assetcloud/snippets/tag.html' %}{% endfor %}</ul>
+                    <div class="clearfix" style="clear:left;">
+                        <div class="input">
+                            <input type="text" value="" id="add_more_tags" class="add_more_tags" data-autocomplete-url="{% url 'tag_autocomplete_action' %}" />
+                            <button type="button" class="btn" id="id_add_tag_button">Add Tag</button>
+                            <p class="help-block subtle">Each tag you specify will generate a strip of matching assets on the homepage</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </fieldset>
+
+
+
+    <div class="form-actions">
+      <input id="save-customise"
+             class="btn btn-primary autosave-tags" type="submit" value="Save" />
+    </div>
+
+</form>
+{% endblock %}
+
+
+{% block page_scripts %}
+    <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/lib/jquery-miniColors/jquery.miniColors.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}assetcloud/js/customise-account.js"></script>
+{% endblock %}
+
+{% block javascript %}
+
+    $(function() {
+        $('.color-input input').miniColors();
+
+        // Link to revert colors to default values
+        $('#reset-colors').click(function(){
+            $('#id_header_background').miniColors('value', '{{ default_header_background }}');
+            $('#id_header_links').miniColors('value', '{{ default_header_links }}');
+            $('#id_header_links_active').miniColors('value', '{{ default_header_links_active }}');
+
+            return false;
+        });
+    });
+
+{% endblock %}

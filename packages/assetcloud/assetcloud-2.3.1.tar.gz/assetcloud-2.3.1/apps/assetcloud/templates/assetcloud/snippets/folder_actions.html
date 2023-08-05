@@ -1,0 +1,10 @@
+{% extends 'assetcloud/snippets/actions.html' %}
+
+
+{% block favourite_action %}
+    {# Replace add to favourites button with remove from favourites button #}
+    <a class="action btn"
+       href="#"
+       data-post-url="{% url 'remove_from_folder_action' folder_id=user.get_profile.folder.pk %}"
+       data-redirect="{% url 'favourites' %}" title="Remove selected items from favourites"><i class="icon-star"></i> Remove</a>
+{% endblock %}

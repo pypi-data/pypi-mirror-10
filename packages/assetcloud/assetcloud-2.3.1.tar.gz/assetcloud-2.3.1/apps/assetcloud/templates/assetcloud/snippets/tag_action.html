@@ -1,0 +1,13 @@
+
+{% if can_edit_assets %}
+    <span class="dropdown">
+        <a class="btn dropdown-toggle" data-toggle="dropdown"
+             id="bulk-tag-action"
+             data-common-tags-url="{% url 'common_tags_action' %}"
+             href="#"
+             title="Tag selected">
+            <i class="icon-tag"></i> Tag <span class="caret"></span>
+        </a>
+        {% include 'assetcloud/snippets/tag_dropdown.html' %}
+    </span>
+{% endif %}

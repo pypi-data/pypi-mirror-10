@@ -1,0 +1,97 @@
+
+/* Tag filter ---------- */
+
+
+
+
+/* Adding tags form ---------- */
+
+#tagging form {
+    padding-left:0;
+}
+.js #tagging form {
+    display:none;
+}
+.no-js #tagging a.show,
+.no-js #tagging a.cancel {
+    display:none;
+}
+
+#tagging h3 {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.tagging input {
+    margin-bottom:0;
+}
+.working input[type="text"] {
+    background: url("../img/working.gif") 93% center no-repeat;
+}
+
+.tagging .hint {
+    color: #999;
+    float:none;
+    font-size: 11px;
+    display:block;
+}
+
+
+
+
+/* Bulk tagging ---------- */
+
+
+
+#bulk-tag h4{
+    margin: 5px 0 15px 0;
+}
+
+#bulk-tag form {
+    margin-bottom:0;
+}
+
+/* Tags ---------- */
+
+ul.tags {
+    margin: 9px 0 0 0;
+    list-style:none;
+}
+ul.tags li {
+    float:left;
+    margin-right: 10px;
+    margin-bottom:10px;
+    padding: 0 8px;
+    background: #eee;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+
+ul.tags li a {
+    display:block;
+    line-height: 28px;
+    float:left;
+}
+ul.tags li a.tag {
+    color: #808080;
+}
+ul.tags li a.tag:hover {
+    color: #404040;
+    text-decoration:none;
+}
+ul.tags li a.user {
+    margin-right: 5px;
+}
+ul.tags a.close {
+    font-size: 18px;
+    line-height: 24px;
+    float:right;
+    margin-left:8px;
+}
+
+
+
+
+

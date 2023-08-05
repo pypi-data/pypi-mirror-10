@@ -1,0 +1,15 @@
+<ul class="asset-list clearfix">
+  {% for result in results %}
+    {% with asset=result.object %}
+      {% if asset %}
+        {% include "assetcloud/snippets/asset.html" %}
+      {% else %}
+        {% with asset=result %}
+          {% if asset %}
+            {% include "assetcloud/snippets/asset.html" %}
+          {% endif %}
+        {% endwith %}
+      {% endif %}
+    {% endwith %}
+  {% endfor %}
+</ul>

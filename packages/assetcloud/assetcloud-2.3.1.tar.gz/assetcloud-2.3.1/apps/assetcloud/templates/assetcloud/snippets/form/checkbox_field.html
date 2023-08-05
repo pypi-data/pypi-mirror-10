@@ -1,0 +1,15 @@
+<div class="control-group {% if field.errors %}error{% endif %}">
+    <div class="controls">
+
+        <label class="checkbox" for="{{ field.auto_id }}">
+            {{ field }}
+            <span>{{ field.label }}</span>
+            {% if mark_required and field.field.required %}
+                <strong>*</strong>
+            {% endif %}
+
+        </label>
+
+        {{ field.errors }}
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="control-group {% if form.subdomain.errors %}error{% endif %}">
+  <label class="control-label" for="{{ field.auto_id }}">
+    {{ field.label }}
+  </label> 
+  <div class="controls">
+    <div class="input-prepend input-append">
+      {{ field }}<span class="add-on">.{{ DOMAIN_SUFFIX }}</span>
+      <div class="help-block available-no hide">Sorry, this URL is not available.</div>
+      <div class="help-block available-yes hide">URL available!</div>
+      <div class="help-block available-invalid hide">Enter a valid value (no spaces or special characters).</div>
+    </div>
+    
+    {{ field.errors }}
+  </div>
+</div>

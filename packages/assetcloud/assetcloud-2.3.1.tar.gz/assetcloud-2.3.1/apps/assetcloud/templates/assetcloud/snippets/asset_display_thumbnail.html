@@ -1,0 +1,16 @@
+{% load css_utils %}
+
+{% if asset.display_thumbnail %}
+    {% with asset.get_list_thumbnail as image %}
+        {% if image %}
+            <img height="{{ image.height }}" width="{{ image.width }}"
+                 src="{{ image.url }}" alt="{{ asset.title }}"/>
+        {% else %}
+            <span class="file broken">{{ asset.filename }}</span>
+        {% endif %}
+    {% endwith %}
+{% else %}
+    <span class="file {% file_icon_class asset.filename %}">
+        {{ asset.filename }}
+    </span>
+{% endif %}

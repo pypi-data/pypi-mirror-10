@@ -1,0 +1,28 @@
+<div id="header" class="clearfix" >
+
+
+
+        <div class="navbar navbar-inverse navbar-static-top {% if user.get_profile.account.logo %}custom-logo-used{% endif %}" >
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <ul class="nav nav-primary">
+                        <li class="logo">
+                            {% if header_logo %}
+                                <a  href="{% url 'home' %}">
+                                    <img src="{{ header_logo.url }}" />
+                                </a> 
+                            {% else %}
+                                <a href="{% url 'home' %}" >
+                                    <img src="{{ STATIC_URL }}assetcloud/img/asset-share-logo.png" class="as-logo" alt="Asset Share" />
+                                </a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    
+</div>

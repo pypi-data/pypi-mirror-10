@@ -1,0 +1,13 @@
+{% extends "assetcloud/emails/base.html" %}
+
+{% block subject %}Welcome to {{ PROJECT_NAME }}!{% endblock %}
+
+{% block html_content %}
+<p>Congratulations, your {{ PROJECT_NAME }} account is now active!</p>
+<p><strong><a href="{{ login_url }}">Log in to your account</a><strong>.</p>
+{% endblock %}
+
+{% block plain_content %}
+Congratulations, your {{ PROJECT_NAME }} account is now active!
+To log in to your account go to: {{ login_url }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% load thumbnail %}
+{% load css_utils %}
+
+{% if asset.display_large_image %}
+    {% thumbnail asset.file geometry as image %}
+        <img height="{{ image.height }}" width="{{ image.width }}"
+            src="{{ image.url }}" alt="{{ asset.title }}" title="{{ asset.filename }}" class="main" />
+    {% empty %}
+        <span class="file broken">{{ asset.filename }}</span>
+    {% endthumbnail %}
+{% else %}
+    <span class="file {% file_icon_class asset.filename %}" >{{ asset.filename }}</span>
+{% endif %}

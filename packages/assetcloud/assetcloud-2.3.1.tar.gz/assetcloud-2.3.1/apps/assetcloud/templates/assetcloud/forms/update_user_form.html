@@ -1,0 +1,72 @@
+{% load renderform %}
+{% load taggit_utils %}
+
+<div class="modal-header">
+  <a href="#" class="close" data-dismiss="modal">&times;</a>
+  {% if form.user %}
+    <h3>Edit user</h3>
+  {% else %}
+    <h3>Add user</h3>
+  {% endif %}
+</div>
+
+<form class="form-horizontal narrow-label no-bottom-margin" id="update-user-form"
+      {% if form.user %}
+        action="{% url 'user_update' id=form.user.id %}"
+      {% else %}
+        action="{% url 'user_add' %}"
+      {% endif %}
+      method="POST">
+  {% csrf_token %}
+  <div class="modal-body">
+    <fieldset>
+      <div class="control-group">
+        {% if form.user %}
+          <label class="control-label">Email</label>
+          <div class="controls">
+            <span class="field-value {% if not form.user.is_active %}inactive{% endif %}"
+                  {% if not form.user.is_active %}title="This user has yet to activate their account"{% endif %}>
+              {{ form.user.email }} {% if not form.user.is_active %}- Inactive{% endif %}
+            </span>
+          </div>
+        {% else %}
+          {% render_field form.email %}
+        {% endif %}
+      </div>
+      {% render_field form.role %}
+      {{ form.tags }}
+      <div class="control-group {% if not form.user.get_profile.tags_allowed and not form.role.value == 'viewer' %}hide{% endif %}" id="view-options">
+        <label class="control-label" for="viewOptions">Can see</label>
+        <div class="controls">
+          <label class="radio">
+            <input type="radio" {% if not form.user.get_profile.visible_tags.exists and not form.tags.value %}checked=""{% endif %} value="all" id="view-all" name="viewOptions" />
+            All assets
+          </label>
+          <label class="radio">
+            <input type="radio" value="tagged" {% if form.user.get_profile.visible_tags.exists or form.tags.value %}checked=""{% endif %} id="view-tagged" name="viewOptions" />
+            Only assets tagged with...
+          </label>
+          <div class="hide clearfix" id="user-tagging">
+            <div id="tagging" data-tag-html-url="{% url 'render_tag_action' %}">
+              <ul class="tags unstyled clearfix">
+                {% for tag in form.get_tags %}
+                  {% include 'assetcloud/snippets/tag.html' %}
+                {% endfor %}
+              </ul>
+              <div class="clearfix">
+                <div class="input">
+                  <input type="text" value="" id="add_more_tags" class="add_more_tags span2" data-autocomplete-url="{% url 'tag_autocomplete_action' %}" />
+                  <button type="button" class="btn">Add Tag</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="form-actions">
+    <button id="id_save_user_button" type="submit" class="btn confirm btn-primary autosave-tags">Save</button>
+    <button class="btn cancel btn-secondary" data-dismiss="modal">Cancel</button>
+  </div>
+</form>
