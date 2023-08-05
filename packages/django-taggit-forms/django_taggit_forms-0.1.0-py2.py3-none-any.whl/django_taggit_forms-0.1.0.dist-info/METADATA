@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: django-taggit-forms
+Version: 0.1.0
+Summary: Tag-creation forms for django-taggit
+Home-page: https://github.com/akiraakaishi/django-taggit-forms
+Author: Akira Akaishi
+Author-email: akira.akaishi@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+
+django-taggit-forms
+=============
+
+``django-taggit-forms`` handles form submissions to create a tag by use of ``django-taggit`` package.
+
+detailed docs will be described here.
+
+
