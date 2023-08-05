@@ -1,0 +1,304 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import re, sys, os
+import fnmatch
+import subprocess
+
+re_empty_line       = "^[ \t]*$"
+re_eatline          = "[ \t]*$"
+
+re_macro_start      = "<<[ \t]*"
+re_macro_end        = "[ \t]*>>" 
+
+re_identifier       = "([a-zA-Z0-9_.]*|[*])"
+re_path             = '([a-zA-Z0-9_.]+)' \
+                    + '(\\.[a-zA-Z0-9]+)'
+re_command          = "!\"(.*?)\""
+
+re_macro            = re_macro_start + re_identifier + re_macro_end
+re_shell            = "<<#![ \t]*(.*?)" + re_macro_end
+re_write            = "<<![ \t]*(.*?)" + re_macro_end
+
+re_macro_assign     = re_macro + "="    + re_eatline
+re_macro_value      = re_macro +          re_eatline
+re_macro_append     = re_macro + "\\+=" + re_eatline
+
+re_include          = "^#include[ \t]*\"" \
+                    + re_path \
+                    + "\"[ \t]*$"
+
+def error(text, filename, linenum):
+    print "Error ("+filename+":"+str(linenum)+"): "+text
+
+def abort(text, filename, linenum):
+    error(text, filename, linenum)
+    sys.exit(1)
+
+def getindent(line):
+    return len(line) - len(line.lstrip(' '))
+
+
+def compress_blank_lines(container):
+    last_line_empty = False
+
+    newcontainer = []
+
+    for line in container:
+        line = line.rstrip()
+        if (re.match(re_empty_line, line)):
+            if last_line_empty == True:
+                pass
+            else:
+                newcontainer.append(line)
+
+            last_line_empty = True
+        else:
+            newcontainer.append(line)
+            last_line_empty = False
+
+    return newcontainer
+
+
+def preprocess_includes(container, filename):
+    linenum = 0
+
+    newcontainer= []
+    for line in container:
+        linenum += 1
+        value  = re.match(re_include,  line)
+        if (value):
+            include_file = os.path.join(os.path.dirname(filename),value.group(1)+value.group(2))
+            if os.path.isfile(include_file):
+                for s in open(include_file).readlines():
+                    newcontainer.append(s.rstrip())
+            else:
+                abort("Included file not found: "+include_file,filename, linenum)
+        else:
+            newcontainer.append(line.rstrip())
+
+    return newcontainer
+
+
+def process_file(filename, shell_enabled=False):
+    code_container = {}
+    code_container["*"] = []
+
+    doc_container = []
+
+    indentLevel = indent = 0
+    macro_identifier = None
+
+    last_line_empty = False
+
+    def get_include_container(identifier):
+#        print "INCLUDE MACRO", identifier
+
+        include_container = None
+
+        path = re.match('^'+re_path+'$', identifier)
+        if (path):
+            include_file = os.path.join(os.path.dirname(filename), identifier)
+            if os.path.isfile(include_file):
+                include_container = open(include_file).readlines()
+            else:
+                abort("Invalid filename in macro reference: "+identifier+"'", filename, linenum)
+        else:
+            try:
+                include_container = code_container[identifier]
+            except KeyError:
+                abort("Invalid macro reference: '"+identifier+"'",filename,linenum)
+
+        return include_container
+
+    content = open(filename).readlines()
+    content = preprocess_includes(content, filename)
+
+    # main processing
+    linenum = 0
+    for line in content:
+        linenum += 1
+
+        line = line.rstrip()
+        indent = getindent(line)
+
+        add_line = True
+
+        if indent > 0:
+
+            re_indent = "^" + "[ ]"*indent
+
+            assign = re.match(re_indent + re_macro_assign, line)
+            value  = re.match(re_indent + re_macro_value,  line)
+            append = re.match(re_indent + re_macro_append, line)
+            shell  = re.match(re_indent + re_shell, line)
+            write  = re.match(re_indent + re_write, line)
+
+            if (assign):
+                indentLevel = indent
+                macro_identifier = assign.group(1)
+
+                code_container[macro_identifier] = []
+
+                doc_container.append("\n")
+#                print "MACRO ASSIGN", assign.group(1)
+
+                add_line = False
+
+            elif (append):
+                indentLevel = indent
+                macro_identifier = append.group(1)
+
+                if not macro_identifier in code_container:
+                    code_container[macro_identifier] = []
+
+                doc_container.append("\n")
+#                print "MACRO APPEND", append.group(1)
+
+                add_line = False
+
+
+            elif (value):
+                for s in get_include_container(value.group(1)):
+                    code_container[macro_identifier].append(s)
+                add_line = False
+
+            elif (shell):
+                doc_container.append((" "*indent)+"$ "+shell.group(1))
+
+                if shell_enabled:
+                    out = ""
+                    try:
+                        out = subprocess.check_output(shell.group(1),
+                                stderr=subprocess.STDOUT,
+                                shell=True)
+                    except subprocess.CalledProcessError as e:
+                        error("Command failed: '"+shell.group(1)+"'",filename, linenum)
+                        out = e.output
+
+                    for s in out.splitlines():
+                        doc_container.append((" "*indent)+s)
+
+                add_line = False
+
+            elif (write):
+                if write.group(1) in code_container:
+                    write_container(os.path.join(os.path.dirname(filename), write.group(1)),
+                            code_container[write.group(1)])
+                else:
+                    abort("Write container is empty: "+write.group(1), filename, linenum)
+
+                add_line = False
+
+        else:
+            value  = re.match(re_macro_value,  line)
+
+            if (value):
+                for s in get_include_container(value.group(1)):
+                    doc_container.append((" "*4)+s)
+                add_line = False
+
+            if not (re.match(re_empty_line, line)):
+                if last_line_empty == True:
+                    if indentLevel > 0:
+                        try:
+                            code_container[macro_identifier].pop()
+                        except IndexError:
+                            pass
+
+                    indentLevel = 0
+
+                doc_container.append("\n")
+
+        if add_line == True:
+            doc_container.append(line)
+
+            if indentLevel > 0:
+                code_container[macro_identifier].append(line[indentLevel:])
+
+#        print str(indent),str(indentLevel*"@")+line
+
+        if (re.match(re_empty_line, line)):
+            last_line_empty = True
+        else:
+            last_line_empty = False
+
+
+    return code_container, doc_container
+
+def write_container(filename, container):
+
+    f = open(filename,"w")
+
+    container = compress_blank_lines(container)
+    for l in container:
+#        print l
+        f.write(l+"\n")
+
+    f.close()
+
+def scan_directory(dirname):
+    matches = []
+    for root, dirnames, filenames in os.walk(dirname):
+        for filename in fnmatch.filter(filenames, '*.lit'):
+            filepath = os.path.join(root, filename)
+            if os.path.isfile(filepath):
+                matches.append(filepath)
+
+    return matches
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='A sequential literate processor.')
+    parser.add_argument('filename', metavar='PATH', nargs=1, help='path to lit file to process (dir or file)')
+    parser.add_argument('-c','--code', action='store_true', help='build final source file')
+    parser.add_argument('-d','--doc', action='store_true', help='build markdown documentation')
+    parser.add_argument('-s','--shell', action='store_true', help='enable shell code execution')
+    parser.add_argument('--build-directory', action='store_true', help='scan directory and build every literate file')
+
+    args = parser.parse_args()
+
+    filename = args.filename[0]
+
+    files = []
+
+    if os.path.isdir(filename):
+        for f in scan_directory(filename):
+            files.append(f)
+
+    elif os.path.isfile(filename):
+        if not (os.path.splitext(filename)[1] == '.lit'):
+            print "Error: not a lit file!"
+            sys.exit(1)
+        files.append(filename)
+
+    if (not args.code) and (not args.doc):
+        print "Error: Current selection will do nothing!"
+        print "Add '-c' to generate code or '-d' for documentation"
+        sys.exit(1)
+
+    shell_enabled=False
+
+    if (args.shell):
+        shell_enabled=True
+
+
+    for f in files:
+        code, doc = process_file(f, shell_enabled)
+
+        codefile = os.path.splitext(f)[0]
+        codedir = os.path.dirname(f)
+
+        if args.doc:
+            write_container(codefile+".md",doc)
+
+        if args.code:
+            for c in code.keys():
+                path = re.match('^'+re_path+'$', c)
+#                print "KEY:",c,"\n"+(80*"=")
+                if (path):
+                    write_container(os.path.join(codedir, c), code[c])
+                elif c == '*': 
+                    write_container(codefile, code[c])
+#                print (80*"-")
+
