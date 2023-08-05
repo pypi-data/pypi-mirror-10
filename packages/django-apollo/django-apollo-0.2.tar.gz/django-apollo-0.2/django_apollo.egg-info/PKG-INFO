@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: django-apollo
+Version: 0.2
+Summary: A simple landing page Django app with quick setup, minimal dependencies, but still managable from Django admin pages.
+Home-page: https://github.com/dbroudy/django-apollo/
+Author: David Broudy
+Author-email: dave@broudy.net
+License: MIT
+Description: ############################
+        django-apollo Documentation
+        ############################
+        
+        About
+        =====
+        
+        The best way to prove an idea is to test it. Whether you want to test a new
+        feature in an existing application or prove an entirely new concept,
+        django-apollo helps you quickly add a landing page to your existing Django
+        site or create a new landing page based MVP site.
+        
+        Usage
+        =====
+        
+        Settings
+        --------
+        
+        * Add 'apollo' to your ``INSTALLED_APPS``
+        * Create a list of ``LANDING_PAGE_TEMPLATES`` that will be used in your landing
+          pages. You must create at least one. Typically these will be in your site's
+          root template directory.
+        
+        Admin Configuration
+        -------------------
+        
+        * Configure your **Site** as appropriate.
+        * Create a **Page** including key and landing template.
+        * Add **Question** if needed.
+        
+        Templates
+        =========
+        
+        The templates include a flexible layout scheme that allows you to define named
+        blocks in your template file and type the content into the **Page** using the
+        Django Admin.
+        
+Keywords: landing page mvp minimum viable project launch
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

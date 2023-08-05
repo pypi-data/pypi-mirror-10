@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{ button.confirm|safe }}
+  </div>
+</div>
+
+
+
+{% if button.questions %}
+  <form novalidate id="questionsForm" action="{% url 'apollo.views.questions' surveyform.instance.id %}">
+    {% include 'apollo/forms.html' %}
+  </form>
+{% endif %}
