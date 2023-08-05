@@ -1,0 +1,54 @@
+Metadata-Version: 2.0
+Name: prodiguer-client
+Version: 0.1.0.1
+Summary: prodiguer-client is a python client library for interacting with prodiguer web services.
+Home-page: https://github.com/Prodiguer/prodiguer-client
+Author: Mark Anthony Greenslade
+Author-email: momipsl@ipsl.jussieu.fr
+License: CeCILL
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: arrow
+Requires-Dist: requests
+
+prodiguer-client
+================
+
+Client side prodiguer python library.
+
+
+What is prodiguer-client ?
+--------------------------------------
+
+prodiguer-client is a python client library for interacting with prodiguer web services.  It supports pcmdi-metrics management.
+
+
+Why prodiguer-client ?
+--------------------------------------
+
+To simplify & streamline interaction with prodiguer web services.
+
+
+Who uses prodiguer-client ?
+--------------------------------------
+
+IPSL researchers & engineers.
+
+
+What are the contents of prodiguer-client ?
+--------------------------------------
+
+prodiguer_client		Python library.
+shell			        Bash scripts.
+
+
+
