@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="{{ language }}">
+  <head>
+    <meta charset="{{ encoding }}" />
+    <title>{% trans version=version|e, docstitle=docstitle|e %}Changes in Version {{ version }} &mdash; {{ docstitle }}{% endtrans %}</title>
+  </head>
+  <frameset cols="45%,*">
+    <frame name="main" src="changes.html">
+    <frame name="src" src="about:blank">
+  </frameset>
+</html>
