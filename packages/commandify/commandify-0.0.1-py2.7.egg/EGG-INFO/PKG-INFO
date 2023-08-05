@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: commandify
+Version: 0.0.1
+Summary: Simple commands through decorators
+Home-page: https://github.com/markmuetz/commandify
+Author: Mark Muetzelfeldt
+Author-email: markmuetz@gmail.com
+License: UNKNOWN
+Description: Commandify
+        ==========
+        
+        Allows simple creation of Python command line utilities through defining functions with decorators.
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install commandify
+        
+        Running example and usage
+        =========================
+        
+        ::
+        
+            commandify_examples --help
+            cat `which commandify_examples`
+        
+        
+Keywords: command line argument arguments
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
