@@ -1,0 +1,31 @@
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.selectednode circle {
+  fill: steelblue;
+  stroke: #335E82;
+  stroke-width: 1.5px;
+}
+
+.node, text {
+  font: 10px sans-serif;
+}
+
+.selectednode {
+  font: bold 12px sans-serif;
+  background-color: #ff0000;
+}
+
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+text {
+  fill: #000;
+}
