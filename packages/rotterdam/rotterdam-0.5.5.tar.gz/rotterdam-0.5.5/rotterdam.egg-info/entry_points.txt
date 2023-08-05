@@ -1,0 +1,4 @@
+[console_scripts]
+rotterdamctl = rotterdam.scripts.controller:run [server]
+rotterdam = rotterdam.scripts.server:run [server]
+
