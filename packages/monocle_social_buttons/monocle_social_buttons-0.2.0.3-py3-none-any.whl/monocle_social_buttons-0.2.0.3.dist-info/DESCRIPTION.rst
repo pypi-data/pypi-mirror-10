@@ -1,0 +1,33 @@
+---
+### Модуль: monocle_social_buttons
+
+Модуль для отображения на странице ссылок на социальные сети.
+
+---
+
+## **Пример отображения на сайте:**
+![Social](/images_readme/social.png)
+
+## **Пример отображения в панели администрирования:**
+![Social](/images_readme/social_admin1.png)
+
+![Social](/images_readme/social_admin2.png)
+
+## **Файл models.py:**
+
+    from django.db import models
+
+    class SocialButton(models.Model):
+        name = models.CharField(max_length=255, verbose_name= 'Название социальной сети')
+        icon = models.ImageField(upload_to='models/%Y/%m/%d', verbose_name= 'Иконка соцсети')
+        url = models.URLField()
+        position = models.PositiveIntegerField(default=0, verbose_name='Порядок')
+
+        def __str__(self):
+            return self.name
+
+        class Meta:
+            verbose_name_plural = u'Социальные кнопки'
+            verbose_name = u'Социальная кнопка'
+            ordering = ['position']
+
