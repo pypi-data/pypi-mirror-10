@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="aocr.xsl"?>
+<asprise-ocr input="C:\J\dev-projects\asprise\ocr\projects\res\image-processing\deskew\skewed.gif" time-start="2015-04-16 18:42:51 Malay Peninsula Standard Time" version-format="15" runtime="Asprise OCR 15.3 - Evaluation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://asprise.com/ocr/files/schema/15/aocr.xsd">
+  <page no="0" width="600" height="367" words="30" confidence="79" time-taken="0.676">
+    <block id="2" type="text" subtype="line" x="31" y="61" width="403" height="51" words="4" confidence="67" font-name="Times_New_Roman" font-size="71" font-bold="0" font-italic="0" font-serif="1">IllIIHIIIIHIIIIIIHIIHIIHHIIHHIIIHIIII</block>
+    <block id="3" type="text" subtype="line" x="99" y="120" width="256" height="36" words="2" confidence="80" font-name="Times_New_Roman" font-size="37" font-bold="0" font-italic="0" font-serif="1">GMSE Imaging</block>
+    <block id="4" type="text" subtype="line" x="25" y="167" width="575" height="36" words="8" confidence="81" font-name="Times_New_Roman" font-size="37" font-bold="0" font-italic="0" font-serif="1">Deskewing an image can help a lot, if</block>
+    <block id="5" type="text" subtype="line" x="26" y="211" width="562" height="36" words="7" confidence="82" font-name="Times_New_Roman" font-size="37" font-bold="0" font-italic="0" font-serif="1">you want to do OCR, OMR, barcode</block>
+    <block id="6" type="text" subtype="line" x="26" y="255" width="438" height="36" words="5" confidence="82" font-name="Times_New_Roman" font-size="38" font-bold="0" font-italic="0" font-serif="1">detection or just improve the</block>
+    <block id="7" type="text" subtype="line" x="26" y="299" width="460" height="36" words="4" confidence="82" font-name="Times_New_Roman" font-size="37" font-bold="0" font-italic="0" font-serif="1">readability of scanned images.</block>
+  </page>
+</asprise-ocr>
