@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+django_rest_signature.egg-info/PKG-INFO
+django_rest_signature.egg-info/SOURCES.txt
+django_rest_signature.egg-info/dependency_links.txt
+django_rest_signature.egg-info/top_level.txt
+rest_signature/__init__.py
+rest_signature/admin.py
+rest_signature/middleware.py
+rest_signature/models.py
+rest_signature/serializers.py
+rest_signature/tests.py
+rest_signature/urls.py
+rest_signature/views.py
