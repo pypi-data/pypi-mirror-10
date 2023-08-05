@@ -1,0 +1,494 @@
+Metadata-Version: 1.1
+Name: aio.app
+Version: 0.0.9
+Summary: Aio application runner
+Home-page: http://github.com/phlax/aio.app
+Author: Ryan Northey
+Author-email: ryan@3ca.org.uk
+License: GPL
+Description: Detailed documentation
+        **********************
+        
+        aio.app
+        =======
+        
+        Application runner for the aio_ asyncio framework
+        
+        .. _aio: https://github.com/phlax/aio
+        
+        
+        Build status
+        ------------
+        
+        .. image:: https://travis-ci.org/phlax/aio.app.svg?branch=master
+        	       :target: https://travis-ci.org/phlax/aio.app
+        
+        
+        Installation
+        ------------
+        
+        Install with:
+        
+        .. code:: bash
+        
+          pip install aio.app
+        
+        
+        Configuration
+        -------------
+        
+        By default the aio command will look for the following configuration files
+        
+        - aio.conf
+        
+        - etc/aio.conf
+        
+        - /etc/aio.conf
+        
+        Once it has found a config file it uses that one
+        
+        A custom configuration file can also be provide with "-c", eg
+        
+        .. code:: bash
+        
+        	  aio -c custom.conf run
+        
+        A basic configuration with the 2 provided commands, test and run is
+        
+        .. code:: ini
+        
+        	  [aio:commands]
+        	  run = aio.app.cmd.cmd_run
+        	  test = aio.app.testing.cmd.cmd_test
+        
+        aio run
+        -------
+        
+        With the above configuration the app server can be run with
+        
+        .. code:: bash
+        
+        	  aio run
+        
+        On startup the app server sets up the following
+        
+        - Configuration - system-wide read-only configuration
+        - Modules - known modules
+        - Schedulers - functions called at set times
+        - Servers - listening on tcp/udp or other type of socket
+        - Signals - functions called in response to events
+        
+        Configuration
+        ~~~~~~~~~~~~~
+        
+        The system configuration is importable from aio.app
+        
+        .. code:: python
+        
+        	  from aio.app import config
+        
+        
+        Modules
+        ~~~~~~~
+        
+        You can list any modules that should be imported at runtime in the configuration
+        
+        .. code:: ini
+        
+        	  [aio]
+        	  modules = aio.app
+        	          aio.signals
+        
+        The system modules can be accessed from aio.app
+        
+        .. code:: python
+        
+        	  from aio.app import modules
+        
+        
+        Schedulers
+        ----------
+        
+        Any sections in the configuration that start with schedule: will create a scheduler.
+        
+        Specify the frequency and the function to call. The function should be a co-routine.
+        
+        .. code:: ini
+        
+        	  [schedule:example]
+        	  every = 2
+        	  func = my.scheduler.example_scheduler
+        
+        The scheduler function takes 1 argument the name of the scheduler
+        
+        .. code:: python
+        
+        	  @asyncio.coroutine
+        	  def example_scheduler(name):
+        	      # do something
+        	      pass
+        
+        Servers
+        -------
+        
+        Any sections in the configuration that start with server: will create a server
+        
+        The server requires either a factory or a protocol to start
+        
+        Protocol configuration example:
+        
+        
+        .. code:: ini
+        
+        	  [server:example]
+        	  protocol = my.example.ServerProtocol
+        	  address = 127.0.0.1
+        	  port = 8888
+        
+        Protocol example code:
+        
+        .. code:: python
+        
+        	  class ServerProtocol(asyncio.Protocol):
+        
+        	      def connection_made(self, transport):
+        	          self.transport = transport
+        
+        	      def data_received(self, data):
+        	          # do stuff
+        	          self.transport.close()
+        
+        If you need further control over how the protocol is created and attached you can specify a factory method
+        
+        Factory configuration example:
+        
+        .. code:: ini
+        
+        	  [server:example]
+        	  factory = my.example.server_factory
+        	  address = 127.0.0.1
+        	  port = 8080
+        
+        Factory code example:
+        
+        .. code:: python
+        
+        	  @asyncio.coroutine
+        	  def server_factory(name, protocol, address, port):
+        	      loop = asyncio.get_event_loop()
+        	      return (
+        	          yield from loop.create_server(
+        		     ServerProtocol, address, port))
+        
+        
+        Signals
+        ~~~~~~~
+        
+        Any section in the configuration that starts with listen: will subscribe listed functions to given events
+        
+        An example listen configuration section
+        
+        .. code:: ini
+        
+        	  [listen:example]
+        	  example-signal = my.example.listener
+        
+        And an example listener function
+        
+        .. code:: python
+        
+        	  @asyncio.coroutine
+        	  def listener(signal, message):
+        	      print(message)
+        
+        	  yield from app.signals.emit(
+                      'example-signal', "BOOM!")
+        
+        You can add multiple subscriptions within the section
+        
+        .. code:: ini
+        
+        	  [listen:example]
+        	  example-signal = my.example.listener
+        	  example-signal-2 = my.example.listener2
+        
+        You can also subscribe multiple functions to a signal
+        
+        .. code:: ini
+        
+        	  [listen:example]
+        	  example-signal = my.example.listener
+        	                 my.example.listener2
+        
+        
+        aio test
+        --------
+        
+        Include the test command in your config
+        
+        .. code:: ini
+        
+        	  [aio]
+        	  modules = aio.app
+        	           aio.signals
+        
+        	  [aio:commands]
+        	  test = aio.app.testing.cmd.cmd_test
+        
+        
+        The aio test runner will then test all modules listed in the aio config section
+        
+        .. code:: bash
+        
+        	  aio test
+        
+        You can also specify a module
+        
+        .. code:: bash
+        
+        	  aio test aio.app
+        
+        
+        Dependencies
+        ------------
+        
+        aio.app depends on the following packages
+        
+        - aio.core_
+        - aio.signals_
+        - aio.config_
+        
+        
+        Related software
+        ----------------
+        
+        - aio.http_
+        - aio.web_
+        
+        
+        .. _aio.core: https://github.com/phlax/aio.core
+        .. _aio.signals: https://github.com/phlax/aio.signals
+        .. _aio.config: https://github.com/phlax/aio.config
+        
+        .. _aio.http: https://github.com/phlax/aio.http
+        .. _aio.web: https://github.com/phlax/aio.web
+        
+        
+        
+        
+        The aio command runner
+        ----------------------
+        
+        The aio command can be run with any commands listed in the [aio:commands] section of its configuration
+        
+        
+        Initially aio.app does not have any config, signals, modules or servers
+        
+         >>> import aio.app
+        
+         >>> print(aio.app.config)
+         None
+        
+         >>> print(aio.app.signals)
+         None
+        
+         >>> print(aio.app.modules)
+         ()
+        
+         >>> print(aio.app.servers)
+         {}
+        
+        Lets start the app runner in a test loop with a minimal configuration
+        
+          >>> config = """
+          ... [aio:commands]
+          ... run: aio.app.cmd.cmd_run
+          ... """
+        
+          >>> from aio.app.runner import runner
+        
+          >>> def run_app():
+          ...     yield from runner(['run'], config_string=config)
+          ...     print(aio.app.signals)
+          ...     print(aio.app.config)
+        
+          >>> from aio.testing import aiotest
+          >>> aiotest(run_app)()
+          <aio.signals.Signals object ...>
+          <configparser.ConfigParser ...>
+        
+        
+        Clear the app
+        -------------
+        
+        We can clear the app vars
+        
+          >>> aio.app.clear()
+        
+          >>> print(aio.app.signals)
+          None
+        
+          >>> print(aio.app.config)
+          None
+        
+          >>> print(aio.app.modules)
+          ()
+        
+          >>> print(aio.app.servers)
+          {}
+        
+        
+        Adding a signal listener
+        ------------------------
+        
+        Lets create a test listener and make it importable
+        
+          >>> def test_listener(signal, message):
+          ...     print("Listener received: %s" % message)
+        
+        The listener needs to be a coroutine
+        
+          >>> import asyncio
+          >>> aio.app.tests._test_listener = asyncio.coroutine(test_listener)
+        
+          >>> config = """
+          ... [aio:commands]
+          ... run: aio.app.cmd.cmd_run
+          ...
+          ... [listen:testlistener]
+          ... test-signal: aio.app.tests._test_listener
+          ... """
+        
+          >>> def run_app_test_emit(msg):
+          ...     yield from runner(['run'], config_string=config)
+          ...     yield from aio.app.signals.emit('test-signal', msg)
+        
+          >>> aiotest(run_app_test_emit)('BOOM!')
+          Listener received: BOOM!
+        
+          >>> aio.app.clear()
+        
+        
+        Adding app modules
+        ------------------
+        
+        We can make the app runner aware of any modules that we want to include
+        
+          >>> config = """
+          ... [aio]
+          ... modules = aio.app
+          ...          aio.core
+          ...
+          ... [aio:commands]
+          ... run: aio.app.cmd.cmd_run
+          ... """
+        
+          >>> def run_app_print_modules():
+          ...     yield from runner(['run'], config_string=config)
+          ...     print(aio.app.modules)
+        
+          >>> aiotest(run_app_print_modules)()
+          [<module 'aio.app' from ...>, <module 'aio.core' from ...>]
+        
+          >>> aio.app.clear()
+        
+        
+        Running a scheduler
+        -------------------
+        
+        Lets create a scheduler function. It needs to be a coroutine
+        
+          >>> def test_scheduler(name):
+          ...      print('HIT: %s' % name)
+        
+          >>> aio.app.tests._test_scheduler = asyncio.coroutine(test_scheduler)
+        
+        We need to use a aiofuturetest to wait for the scheduled events to occur
+        
+          >>> from aio.testing import aiofuturetest
+        
+          >>> config = """
+          ... [aio:commands]
+          ... run: aio.app.cmd.cmd_run
+          ... 
+          ... [schedule:test-scheduler]
+          ... every: 2
+          ... func: aio.app.tests._test_scheduler
+          ... """
+        
+          >>> def run_app_scheduler():
+          ...     yield from runner(['run'], config_string=config)
+        
+        Running the test for 5 seconds we get 3 hits
+        
+          >>> aiofuturetest(run_app_scheduler, timeout=5)()
+          HIT: test-scheduler
+          HIT: test-scheduler
+          HIT: test-scheduler
+        
+          >>> aio.app.clear()
+          >>> del aio.app.tests._test_scheduler
+        
+        
+        Running a server
+        ----------------
+        
+        Lets run an addition server
+        
+          >>> class AdditionServerProtocol(asyncio.Protocol):
+          ...
+          ...     def connection_made(self, transport):
+          ...         self.transport = transport
+          ...
+          ...     def data_received(self, data):
+          ...         self.transport.write(
+          ...             str(
+          ...                 sum([
+          ...                     int(x.strip()) for x in
+          ...         data.decode("utf-8").split("+")])).encode())
+          ...         self.transport.close()
+        
+          >>> def addition_server(name, protocol, address, port):
+          ...     loop = asyncio.get_event_loop()
+          ...     return (
+          ...         yield from loop.create_server(
+          ...            AdditionServerProtocol,
+          ...            address, port))
+        
+          >>> aio.app.tests._test_addition_server = asyncio.coroutine(addition_server)
+        
+          >>> config = """
+          ... [aio:commands]
+          ... run: aio.app.cmd.cmd_run
+          ... 
+          ... [server:additiontest]
+          ... factory: aio.app.tests._test_addition_server
+          ... address: 127.0.0.1
+          ... port: 8888
+          ... """
+        
+          >>> def run_app_addition(addition):
+          ...     yield from runner(['run'], config_string=config)
+          ...
+          ...     @asyncio.coroutine
+          ...     def call_addition_server():
+          ...          reader, writer = yield from asyncio.open_connection(
+          ...              '127.0.0.1', 8888)
+          ...          writer.write(addition.encode())
+          ...          yield from writer.drain()
+          ...
+          ...          result = yield from reader.read()
+          ...          print(int(result))
+          ...
+          ...     return call_addition_server
+        
+          >>> aiofuturetest(run_app_addition, timeout=5)('2 + 2 + 3')
+          7
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
