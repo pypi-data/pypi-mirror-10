@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.py
+qdatum/__init__.py
+qdatum/client.py
+qdatum/const.py
+qdatum/driver.py
+qdatum/errors.py
+qdatum/puller.py
+qdatum/pusher.py
+qdatum.egg-info/PKG-INFO
+qdatum.egg-info/SOURCES.txt
+qdatum.egg-info/dependency_links.txt
+qdatum.egg-info/requires.txt
+qdatum.egg-info/top_level.txt
+qdatum/tests/__init__.py
+qdatum/tests/test_client.py
