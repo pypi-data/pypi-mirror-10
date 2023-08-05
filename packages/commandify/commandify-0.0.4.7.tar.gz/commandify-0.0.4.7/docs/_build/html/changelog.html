@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Change Log &mdash; Commandify 0.0.4.6-alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.4.6-alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Commandify 0.0.4.6-alpha documentation" href="index.html" />
+    <link rel="prev" title="Commandify Testing" href="tests.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tests.html" title="Commandify Testing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="change-log">
+<h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-0-0-4-5-alpha-may-17-2015">
+<h2>Version 0.0.4.5 (Alpha) - May 17, 2015<a class="headerlink" href="#version-0-0-4-5-alpha-may-17-2015" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add support for <tt class="docutils literal"><span class="pre">argcomplete</span></tt></li>
+</ul>
+</div>
+<div class="section" id="version-0-0-4-3-alpha-may-15-2015">
+<h2>Version 0.0.4.3 (Alpha) - May 15, 2015<a class="headerlink" href="#version-0-0-4-3-alpha-may-15-2015" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add in unit tests for main command only</li>
+<li>Change handling of <tt class="docutils literal"><span class="pre">parse_args</span></tt> in main parser so that the NS returned
+has had e.g. <tt class="docutils literal"><span class="pre">not_some_arg=True</span></tt> replaced by <tt class="docutils literal"><span class="pre">some_arg=False</span></tt></li>
+</ul>
+</div>
+<div class="section" id="version-0-0-4-2-alpha-may-15-2015">
+<h2>Version 0.0.4.2 (Alpha) - May 15, 2015<a class="headerlink" href="#version-0-0-4-2-alpha-may-15-2015" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fix serious bug that meant that all local vars in func were counted as arguments</li>
+<li>Auto setting of type=&lt;type&gt; for default args based on default&#8217;s type</li>
+<li>Handle some_arg=[True|False] in natural way</li>
+</ul>
+</div>
+<div class="section" id="version-0-0-4-1-alpha-may-14-2015">
+<h2>Version 0.0.4.1 (Alpha) - May 14, 2015<a class="headerlink" href="#version-0-0-4-1-alpha-may-14-2015" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Change <tt class="docutils literal"><span class="pre">VERSION.txt</span></tt> to <tt class="docutils literal"><span class="pre">commandify/version.py</span></tt></li>
+<li>Allow for providing arguments for all functions</li>
+<li>Update setup.py to be able to run tests</li>
+</ul>
+</div>
+<div class="section" id="version-0-0-3-1-alpha-may-13-2015">
+<h2>Version 0.0.3.1 (Alpha) - May 13, 2015<a class="headerlink" href="#version-0-0-3-1-alpha-may-13-2015" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Switch to subclassing <tt class="docutils literal"><span class="pre">argparse.ArgumentParser</span></tt> to allow more flexibility.</li>
+<li>Allow for providing arguments for all functions</li>
+</ul>
+</div>
+<div class="section" id="version-0-0-2-2-alpha-may-13-2015">
+<h2>Version 0.0.2.2 (Alpha) - May 13, 2015<a class="headerlink" href="#version-0-0-2-2-alpha-may-13-2015" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Initial Python3 support</li>
+<li>Added example command (in docstrings) test</li>
+<li>Fixed some bad example commands</li>
+<li>Added a release procedure</li>
+<li>Allowed <tt class="docutils literal"><span class="pre">_commands</span></tt> and <tt class="docutils literal"><span class="pre">_main_command</span></tt> to be accessed though module</li>
+</ul>
+</div>
+<div class="section" id="version-0-0-1-alpha-may-12-2015">
+<h2>Version 0.0.1 (Alpha) - May 12, 2015<a class="headerlink" href="#version-0-0-1-alpha-may-12-2015" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Basic functionality in place</dt>
+<dd><ul class="first last simple">
+<li>Decorators for functions converted to command line args</li>
+<li>Adding options to decorators</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Python project started</p>
+</li>
+<li><p class="first">Uploaded to PyPI</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Change Log</a><ul>
+<li><a class="reference internal" href="#version-0-0-4-5-alpha-may-17-2015">Version 0.0.4.5 (Alpha) - May 17, 2015</a></li>
+<li><a class="reference internal" href="#version-0-0-4-3-alpha-may-15-2015">Version 0.0.4.3 (Alpha) - May 15, 2015</a></li>
+<li><a class="reference internal" href="#version-0-0-4-2-alpha-may-15-2015">Version 0.0.4.2 (Alpha) - May 15, 2015</a></li>
+<li><a class="reference internal" href="#version-0-0-4-1-alpha-may-14-2015">Version 0.0.4.1 (Alpha) - May 14, 2015</a></li>
+<li><a class="reference internal" href="#version-0-0-3-1-alpha-may-13-2015">Version 0.0.3.1 (Alpha) - May 13, 2015</a></li>
+<li><a class="reference internal" href="#version-0-0-2-2-alpha-may-13-2015">Version 0.0.2.2 (Alpha) - May 13, 2015</a></li>
+<li><a class="reference internal" href="#version-0-0-1-alpha-may-12-2015">Version 0.0.1 (Alpha) - May 12, 2015</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tests.html"
+                        title="previous chapter">Commandify Testing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/changelog.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tests.html" title="Commandify Testing"
+             >previous</a> |</li>
+        <li><a href="index.html">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mark Muetzelfeldt.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

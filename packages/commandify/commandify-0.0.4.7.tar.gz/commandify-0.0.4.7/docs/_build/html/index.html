@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Commandify Documentation &mdash; Commandify 0.0.4.6-alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.4.6-alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Commandify 0.0.4.6-alpha documentation" href="#" />
+    <link rel="next" title="commandify API" href="api.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="commandify API"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="commandify-documentation">
+<h1><a class="toc-backref" href="#id1">Commandify Documentation</a><a class="headerlink" href="#commandify-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#commandify-documentation" id="id1">Commandify Documentation</a><ul>
+<li><a class="reference internal" href="#commandify" id="id2">Commandify</a></li>
+<li><a class="reference internal" href="#installation" id="id3">Installation</a></li>
+<li><a class="reference internal" href="#running-example-and-usage" id="id4">Running example and usage</a></li>
+<li><a class="reference internal" href="#commandify-api" id="id5">Commandify API</a></li>
+<li><a class="reference internal" href="#commandify-testing" id="id6">Commandify Testing</a></li>
+<li><a class="reference internal" href="#change-log" id="id7">Change Log</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="commandify">
+<h2><a class="toc-backref" href="#id2">Commandify</a><a class="headerlink" href="#commandify" title="Permalink to this headline">¶</a></h2>
+<p>Allows simple creation of Python command line utilities through decorating functions. Builds on the <tt class="docutils literal"><span class="pre">argparse</span></tt> module in the standard library. Optionally uses the <tt class="docutils literal"><span class="pre">argcomplete</span></tt> module to provide command line tab-completion for bash/zsh.</p>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id3">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>pip install commandify
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-example-and-usage">
+<h2><a class="toc-backref" href="#id4">Running example and usage</a><a class="headerlink" href="#running-example-and-usage" title="Permalink to this headline">¶</a></h2>
+<p>Once commandify has been installed, it can be run with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">commandify_examples</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">commandify_examples</span></tt> code:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># Only required if you want to use argcomplete:</span>
+<span class="c"># PYTHON_ARGCOMPLETE_OK</span>
+<span class="sd">&#39;&#39;&#39;Examples of a simple set of functions that use commandify</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples --help</span>
+<span class="sd">        commandify_examples &lt;command&gt; --help</span>
+<span class="sd">        commandify_examples --main-arg=22 &lt;command&gt;</span>
+<span class="sd">        commandify_examples -m=22 &lt;command&gt;</span>
+<span class="sd">        commandify_examples cmd_no_args</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">commandify</span> <span class="kn">import</span> <span class="n">commandify</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">main_command</span>
+
+
+<span class="nd">@main_command</span><span class="p">(</span><span class="n">main_arg</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;flag&#39;</span><span class="p">:</span> <span class="s">&#39;-m&#39;</span><span class="p">})</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">main_arg</span><span class="o">=</span><span class="mi">345</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Example of how to use commandify</span>
+<span class="sd">    Main command, called before any other command</span>
+<span class="sd">    Can be used to set any global variables before any other commands executed.</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples --help</span>
+<span class="sd">        commandify_examples --main-arg=22 cmd_no_args</span>
+<span class="sd">        commandify_examples -m=22 cmd_no_args</span>
+<span class="sd">        commandify_examples cmd_no_args</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">main_arg</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Main command: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">main_arg</span><span class="p">))</span>
+
+
+<span class="nd">@command</span>
+<span class="k">def</span> <span class="nf">cmd_no_args</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Simplest command</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples cmd_no_args</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;cmd_no_args called&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@command</span>
+<span class="k">def</span> <span class="nf">cmd1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Simple command with argument</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples cmd1 --name=a1</span>
+<span class="sd">        commandify_examples cmd1 --name a3</span>
+<span class="sd">        commandify_examples cmd1 --name &#39;a4&#39;</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;cmd1 running&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="nd">@command</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;flag&#39;</span><span class="p">:</span> <span class="s">&#39;-n&#39;</span><span class="p">})</span>
+<span class="k">def</span> <span class="nf">cmd2</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">userid</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Command with 2 args and a short flag set for name</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples cmd2 --username=steve --userid=55</span>
+<span class="sd">        commandify_examples cmd2 -n=sarah --userid=56</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{0}: {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">username</span><span class="p">))</span>
+
+
+<span class="nd">@command</span><span class="p">(</span><span class="n">some_arg</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="mi">377</span><span class="p">})</span>
+<span class="k">def</span> <span class="nf">cmd3</span><span class="p">(</span><span class="n">some_arg</span><span class="p">,</span> <span class="n">arg_with_default</span><span class="o">=</span><span class="s">&#39;arg_default&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Command with defaults set in two ways</span>
+<span class="sd">    first through decorator and second through function arguments.</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples cmd3</span>
+<span class="sd">        commandify_examples cmd3 --arg-with-default=default_overridden</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c"># Type of some_arg will be int:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">some_arg</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">some_arg</span><span class="p">,</span> <span class="n">arg_with_default</span><span class="p">)</span>
+
+
+<span class="nd">@command</span>
+<span class="k">def</span> <span class="nf">cmd4</span><span class="p">(</span><span class="n">some_arg</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Command with False bool default</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples cmd4</span>
+<span class="sd">        commandify_examples cmd4 --some-arg</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c"># Type of some_arg will be bool:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">some_arg</span><span class="p">))</span>
+    <span class="c"># If it is called specifying --some-arg, it will be True.</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">some_arg</span><span class="p">)</span>
+
+
+<span class="nd">@command</span>
+<span class="k">def</span> <span class="nf">cmd5</span><span class="p">(</span><span class="n">some_arg</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Command with True bool default</span>
+<span class="sd">    Command line argument gets turned into negative to handle this.</span>
+<span class="sd">    usage::</span>
+
+<span class="sd">        commandify_examples cmd5</span>
+<span class="sd">        commandify_examples cmd5 --not-some-arg</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c"># Type of some_arg will be bool:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">some_arg</span><span class="p">))</span>
+    <span class="c"># If it is called without specifying --not-some-arg, it will be True.</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">some_arg</span><span class="p">)</span>
+
+
+<span class="nd">@command</span>
+<span class="k">def</span> <span class="nf">cmd6</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;cmd6 called&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">argcomplete</span>
+        <span class="n">commandify</span><span class="p">(</span><span class="n">suppress_warnings</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;default_true&#39;</span><span class="p">],</span> <span class="n">use_argcomplete</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">commandify</span><span class="p">(</span><span class="n">suppress_warnings</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;default_true&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="commandify-api">
+<h2><a class="toc-backref" href="#id5">Commandify API</a><a class="headerlink" href="#commandify-api" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">commandify API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-commandify.commandify"><tt class="docutils literal"><span class="pre">commandify</span></tt> &#8211; turn functions into command line args</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="commandify-testing">
+<h2><a class="toc-backref" href="#id6">Commandify Testing</a><a class="headerlink" href="#commandify-testing" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Commandify Testing</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="change-log">
+<h2><a class="toc-backref" href="#id7">Change Log</a><a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-4-5-alpha-may-17-2015">Version 0.0.4.5 (Alpha) - May 17, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-4-3-alpha-may-15-2015">Version 0.0.4.3 (Alpha) - May 15, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-4-2-alpha-may-15-2015">Version 0.0.4.2 (Alpha) - May 15, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-4-1-alpha-may-14-2015">Version 0.0.4.1 (Alpha) - May 14, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-3-1-alpha-may-13-2015">Version 0.0.3.1 (Alpha) - May 13, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-2-2-alpha-may-13-2015">Version 0.0.2.2 (Alpha) - May 13, 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1-alpha-may-12-2015">Version 0.0.1 (Alpha) - May 12, 2015</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Commandify Documentation</a><ul>
+<li><a class="reference internal" href="#commandify">Commandify</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#running-example-and-usage">Running example and usage</a></li>
+<li><a class="reference internal" href="#commandify-api">Commandify API</a></li>
+<li><a class="reference internal" href="#commandify-testing">Commandify Testing</a></li>
+<li><a class="reference internal" href="#change-log">Change Log</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api.html"
+                        title="next chapter">commandify API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="commandify API"
+             >next</a> |</li>
+        <li><a href="#">Commandify 0.0.4.6-alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mark Muetzelfeldt.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
