@@ -1,0 +1,179 @@
+Metadata-Version: 1.1
+Name: django-secure-js-login
+Version: 0.1.0
+Summary: JavaScript Challenge-handshake authentication django app
+Home-page: https://github.com/jedie/django-secure-js-login
+Author: Jens Diemer
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: ======================
+        django-secure-js-login
+        ======================
+        
+        JavaScript Challenge-handshake authentication django app.
+        
+        First:
+        The JS-SHA1-Login is not a simple *"send username + SHA(password)"*
+        It is more a `Challenge-handshake authentication protocol <http://en.wikipedia.org/wiki/Challenge-handshake_authentication_protocol>`_!
+        
+        TODO:
+        
+        * code cleanup
+        
+        * cleanup templates
+        
+        * fix "next_url" and all links in example project
+        
+        * add unittests for using old challange value again
+        
+        * add unittests for using old cnonce value again
+        
+        --------------
+        The procedure:
+        --------------
+        
+        Save a new user password:
+        -------------------------
+        
+        client browser / JavaScript part::
+        
+        #. user input a password
+        
+        #. ``init_pbkdf2_salt = SHA1(random data)``
+        
+        #. ``pbkdf2_hash = pbkdf2("Plain Password", salt=init_pbkdf2_salt)``
+        
+        #. Client send **init_pbkdf2_salt** and **pbkdf2_hash** to the server
+        
+        Server part:
+        
+        #. Server split **pbkdf2_hash** into: **first_pbkdf2_part** and **second_pbkdf2_part**
+        
+        #. ``encrypted_part = xor_encrypt(first_pbkdf2_part, key=second_pbkdf2_part)``
+        
+        #. Save only **encrypted_part** and given **init_pbkdf2_salt** from client
+        
+        Login - client browser / JavaScript part:
+        -----------------------------------------
+        
+        #. Use request login
+        
+        #. server send html login form with a random **server_challenge** value
+        
+        #. User enters his **username** and **password**
+        
+        #. Ajax Request the **init_pbkdf2_salt** from server with the given **username**
+        
+        #. generate the auth data:
+        
+            #. ``pbkdf2_temp_hash = pbkdf2("Plain Password", init_pbkdf2_salt)``
+        
+            #. split **pbkdf2_temp_hash** into **first_pbkdf2_part** and **second_pbkdf2_part**
+        
+            #. ``cnonce = SHA1(random data)``
+        
+            #. ``pbkdf2_hash = pbkdf2(first_pbkdf2_part, salt=cnonce + server_challenge)``
+        
+        #. send **pbkdf2_hash**, **second_pbkdf2_part** and **cnonce** to the server
+        
+        validation on the server
+        ------------------------
+        
+        #. client POST data: **pbkdf2_hash**, **second_pbkdf2_part** and **cnonce**
+        
+        #. get transmitted **server_challenge** value from session
+        
+        #. get **encrypted_part** and **salt** from database via given **username**
+        
+        #. ``first_pbkdf2_part = xor_decrypt(encrypted_part, key=second_pbkdf2_part)``
+        
+        #. ``test_hash = pbkdf2(first_pbkdf2_part, key=cnonce + server_challenge)``
+        
+        #. compare **test_hash** with transmitted **pbkdf2_hash**
+        
+        secure?
+        =======
+        
+        JS-SHA1 Login is not really secure in comparison to https! e.g. the client can't validate if he really communicate with the server or with a `Man-in-the-middle <http://en.wikipedia.org/wiki/Man-in-the-middle>`_. JS-SHA1-Login does not protect you against an `Session Hijacking <http://en.wikipedia.org/wiki/Session_Hijacking>`_
+        
+        However the used procedure is safer than plain-text authentication. In addition, on the server no plain-text passwords are stored. With the data that are stored on the server, can not be used alone.
+        
+        If you have `https <http://en.wikipedia.org/wiki/HTTPS>`_, you can combine it with JS-SHA1 login, similar to combine a digest auth with https.
+        
+        More information: `Warum JS-SHA-Login Sinn macht... <http://www.pylucid.org/permalink/35/warum-js-sha-login-sinn-macht>`_ (german only, sorry)
+        
+        why?
+        ====
+        
+        Many, if not even all CMS/wiki/forum, used unsecure Login. User name and password send in **plaintext** over the Internet. A reliable solution offers only `https`_.
+        
+        The Problem: No Provider offers secured HTTP connection for little money :( We have been thinking, how can we still accomplish a secure authentication.
+        
+        alternative solutions
+        =====================
+        
+        * `Digest access authentication <http://en.wikipedia.org/wiki/Digest_access_authentication>`_ (implementation in django exist: `django-digest <http://bitbucket.org/akoha/django-digest/wiki/Home>`_):
+        
+            * pro
+        
+                * Browser implemented it, so no additional JavaScript needed
+        
+            * cons
+        
+                * Password hash must be saved on the server, without any salt! The hash can be used for login, because: ``hash = MD5(username:realm:password)``
+        
+                * used old MD5 hash
+        
+        Used JavaScript Implementations
+        ===============================
+        
+        * SHA1 - JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined in FIPS 180-1
+        
+            * `http://pajhome.org.uk/crypt/md5/sha1.html <http://pajhome.org.uk/crypt/md5/sha1.html>`_
+        
+            * Implemented by Paul Johnston
+        
+            * Distributed under the BSD License
+        
+            * Stored under: `secure_js_login/static/secure_js_login/sha.js <https://github.com/jedie/django-secure-js-login/blob/master/secure_js_login/static/secure_js_login/sha.js>`_
+        
+        * PBKDF2 - JavaScript implementation of Password-Based Key Derivation Function 2 as defined in RFC 2898
+        
+            * `http://anandam.name/pbkdf2/ <http://anandam.name/pbkdf2/>`_
+        
+            * Implemented by Parvez Anandam
+        
+            * Distributed under the BSD license
+        
+            * Stored under: `secure_js_login/static/secure_js_login/pbkdf2.js <https://github.com/jedie/django-secure-js-login/blob/master/secure_js_login/static/secure_js_login/pbkdf2.js>`_
+        
+        Links
+        =====
+        
+        * `SHA1 JavaScript implementation by Paul Johnston <http://pajhome.org.uk/crypt/md5/sha1.html>`_ (BSD License)
+        
+        * Python-Forum Threads (de):
+        
+            * `Digest auth als Alternative? <http://www.python-forum.de/viewtopic.php?f=7&t=22163>`_ (03.2010)
+        
+            * `Sinn oder Unsinn des PyLucids JS-SHA1-Login... <http://www.python-forum.de/viewtopic.php?f=3&t=8180>`_ (12.2006)
+        
+            * `Wie Session-Hijacking verhindern? <http://www.python-forum.de/topic-8182.html>`_ (12.2006)
+        
+            * `html-LogIn: Passwort mit SHA1 <http://www.python-forum.de/viewtopic.php?t=3345>`_ (06.2005)
+        
+        * `Diskussion auf de.comp.lang.python <http://groups.google.de/group/de.comp.lang.python/browse_thread/thread/8c06df736e8183f9/64b7183d860c4bf9?#64b7183d860c4bf9>`_ (08.2006)
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+Classifier: Framework :: Django
+Classifier: Topic :: Database :: Front-Ends
+Classifier: Topic :: Documentation
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Operating System :: OS Independent
