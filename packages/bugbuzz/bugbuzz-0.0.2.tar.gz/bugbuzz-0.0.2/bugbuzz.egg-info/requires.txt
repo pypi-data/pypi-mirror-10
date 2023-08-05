@@ -1,0 +1,9 @@
+pycrypto
+
+[tests]
+mock
+pytest
+pytest-cov
+pytest-xdist
+pytest-capturelog
+pytest-mock
