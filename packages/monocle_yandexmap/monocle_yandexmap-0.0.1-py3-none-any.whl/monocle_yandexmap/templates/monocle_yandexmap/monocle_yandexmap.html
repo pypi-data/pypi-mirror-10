@@ -1,0 +1,91 @@
+<script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+<section>
+    <div class='row'>
+        <h2><span>Список объектов</span></h2>
+    </div>
+    {% for model in monocle_yandexmap_models %}
+
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="round-border-helper"></div>
+                </div>
+                <div class='col-xs-9'>
+                    <h3>
+                        {{ model.name }}
+                    </h3>
+                </div>
+                <div id="YMAP"></div>
+            </div>
+        </div>
+
+        <script>
+        function init() {
+            var lat = 92.872033;
+            var lng = 56.006886;
+            var coords = '{{ model.map }}';
+            if (coords.split(',').length == 2){
+                values = coords.split(',');
+                lat = values[0];
+                lng = values[1];
+            }
+
+            myMap = new ymaps.Map("YMAP", {
+                center: [lng, lat],
+                zoom: 15,
+                controls: []
+            });
+
+
+            BalloonLayout = ymaps.templateLayoutFactory.createClass(
+                '<div id="ballon">'
+        //<a style="margin: 0px -190px;" id="ballon_close" class="close" href="javascript:void(0)">&times;</a>'
+                   + '<div>'+
+                   '<img id="ballon_img" src="../wp-content/themes/twentytwelve/content/los.png"><div id="ballon_text"><p id="ballon_head">ул. Маерчака</p><p>  д. 38, оф. 10 00</p></div></div></div>'
+           );
+            myPlacemark = new ymaps.Placemark([lng, lat], {
+               // balloonHeader: 'Заголовок балуна',
+               // balloonContent: 'content',
+               // balloonContentBody:
+              //      '<div class="row"><p style="padding-bottom: 30px;">ул. Маерчака</p><p>  д. 38, оф. 10 00</p></div>',
+        //<div><img src="../wp-content/themes/twentytwelve/content/los.png"></div>
+                //balloonLayout: BalloonLayout,
+            },
+                {
+                    balloonShadow: false,
+                //hintContent: 'ПСК-Восток',
+                //balloonContent: 'ПСК-Восток',
+                    balloonLayout: BalloonLayout,
+              //      balloonContentLayout: MyBalloonContentLayout,
+                iconLayout: 'default#image',
+               // iconImageHref: "../wp-content/themes/twentytwelve/content/los.png",
+              //  iconImageSize: [510, 600],
+
+            }
+            );
+            /*
+            var balloon = myMap.balloon.open(myMap.getCenter(), {
+            content: 'Содержимое балуна'
+            }  , { closeButton: false });
+            console.log(balloon);
+            placemark = new ymaps.Placemark([lng, lat]);
+            */
+           myMap.geoObjects.add(myPlacemark);
+           myPlacemark.balloon.open();
+
+            $('body').on('click', '#ballon_close', function (e) {
+                e.preventDefault();
+                $('#ballon_close').parent('div').hide();
+        myMap.geoObjects.add(myPlacemark);
+            });
+        }
+        $(document).ready(function () {
+            ymaps.ready(init);
+            var myMap, myPlacemark;
+        });
+        </script>
+
+{% endfor %}
+
+</section>
