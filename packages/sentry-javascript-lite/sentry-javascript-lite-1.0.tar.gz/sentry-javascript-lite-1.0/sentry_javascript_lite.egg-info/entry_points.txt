@@ -1,0 +1,6 @@
+[sentry.apps]
+sentry_javascript_lite = sentry_javascript_lite
+
+[sentry.plugins]
+sentry_javascript_lite = sentry_javascript_lite.plugin:JavascriptPlugin
+

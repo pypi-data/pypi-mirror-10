@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: sentry-javascript-lite
+Version: 1.0
+Summary: A Sentry extension to expand raw js stacktraces.
+Home-page: http://github.com/banno/getsentry-javascript-lite
+Author: Chad Killingsworth - Jack Henry and Associates, Inc.
+Author-email: chad.killingsworth@banno.com
+License: Apache-2.0
+Download-URL: https://github.com/banno/getsentry-javascript-lite/tarball/1.0
+Description: 
+        sentry-javascript-lite
+        ==============
+        
+        An extension for Sentry which expands raw javascript stacktraces on the server
+        allowing for lighter clients.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
