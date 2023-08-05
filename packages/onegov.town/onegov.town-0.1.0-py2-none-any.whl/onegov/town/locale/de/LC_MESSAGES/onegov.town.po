@@ -1,0 +1,316 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2015-05-07 14:32+0200\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:9
+msgid "Link"
+msgstr "Verknüpfung"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:10
+msgid "New Link"
+msgstr "Neue Verknüpfung"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:11
+msgid "Added a new link"
+msgstr "Eine neue Verknüpfung wurde hinzugefügt"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:12
+msgid "Edit Link"
+msgstr "Verknüpfung Bearbeiten"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:13
+msgid "The link was deleted"
+msgstr "Die Verknüpfung wurde gelöscht"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:14
+msgid "Delete link"
+msgstr "Verknüpfung Löschen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:15
+#, python-format
+msgid "Do you really want to delete the link \"${title}\"?"
+msgstr "Möchten Sie die Verknüpfung \"${title}\" wirklich löschen?"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:19
+msgid "Topic"
+msgstr "Thema"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:20
+msgid "New Topic"
+msgstr "Neues Thema"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:21
+msgid "Added a new topic"
+msgstr "Das neue Thema wurde hinzugefügt"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:22
+msgid "Edit Topic"
+msgstr "Thema Bearbeiten"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:23
+msgid "The topic was deleted"
+msgstr "Das Thema wurde gelöscht"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:24
+msgid "Delete topic"
+msgstr "Thema Löschen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:25
+#, python-format
+msgid "Do you really want to delete the topic \"${title}\"?"
+msgstr "Möchten Sie das Thema \"${title}\" wirklich löschen?"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:29
+msgid "News"
+msgstr "Nachricht"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:30
+msgid "Add News"
+msgstr "Nachricht hinzufügen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:31
+msgid "Added news"
+msgstr "Eine neue Nachricht wurde hinzugefügt"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:32
+msgid "Edit News"
+msgstr "Nachricht bearbeiten"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:33
+msgid "The news was deleted"
+msgstr "Die Nachricht wurde gelöscht"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:34
+msgid "Delete news"
+msgstr "Nachricht löschen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/const.py:35
+#, python-format
+msgid "Do you really want to delete the news \"${title}\"?"
+msgstr "Möchten Sie die Nachricht \"${title}\" wirklich löschen?"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:175
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:229
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/images.py:25
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:74
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:99
+msgid "Homepage"
+msgstr "Startseite"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:198
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:205
+msgid "Logout"
+msgstr "Logout"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:199
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:206
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/images.py:31
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/images.py:26
+msgid "Images"
+msgstr "Bilder"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:207
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:105
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:100
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/layout.py:213
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:75
+msgid "Login"
+msgstr "Login"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/translations.py:9
+msgid "Not a valid color."
+msgstr "Ungültige Farbe."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/models/page.py:135
+msgid "Title"
+msgstr "Titel"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/models/page.py:140
+msgid "URL"
+msgstr "URL"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/models/page.py:156
+msgid "Lead"
+msgstr "Einleitung"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/models/page.py:157
+msgid "Describes what this page is about"
+msgstr "Beschreibt kurz um was es bei diesem Thema geht"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/models/page.py:161
+msgid "Text"
+msgstr "Text"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/forbidden.pt:6
+msgid "You are trying to open a page for which you are not authorized."
+msgstr "Ihnen felt die nötige Berechtigung um diese Seite zu öffnen."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/forbidden.pt:11
+msgid "Please follow this link to login with a different user."
+msgstr ""
+"Bitte folgen Sie diesem Link um sich mit einem anderen Benutzer anzumelden."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/forbidden.pt:14
+msgid "Please follow this link to login."
+msgstr "Bitte folgen Sie diesem Link um sich anzumelden."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/homepage.pt:25
+msgid "Latest news"
+msgstr "Aktuelles"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/images.pt:8
+msgid "Upload"
+msgstr "Hochladen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/images.pt:14
+msgid "All Images"
+msgstr "Alle Bilder"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/images.pt:23
+msgid "Do you really want to delete the image?"
+msgstr "Möchten Sie das Bild wirklich löschen?"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/images.pt:24
+msgid "Delete Image"
+msgstr "Bild Löschen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/images.pt:25
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/page.py:131
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/images.pt:30
+msgid "No images uploaded yet"
+msgstr "Noch keine Bilder hochgeladen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/layout.pt:31
+msgid "Town Logo"
+msgstr "Logo der Gemeinde"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/layout.pt:91
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:33
+msgid "Contact"
+msgstr "Kontakt"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/layout.pt:95
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:38
+msgid "Opening Hours"
+msgstr "Öffnungszeiten"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/macros.pt:52
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/macros.pt:89
+msgid "Submit"
+msgstr "Absenden"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/macros.pt:82
+msgid "Drop files to upload"
+msgstr "Dateien hierhin ziehen um sie hochzuladen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/macros.pt:104
+msgid "read on..."
+msgstr "weiterlesen..."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/page.pt:17
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/page.pt:76
+msgid ""
+"You've reached this site because you are logged in. Visitors are "
+"automatically redirected to the following link:"
+msgstr ""
+"Sie sehen diese Seite weil Sie eingeloggt sind. Besucher werden automatisch "
+"auf den folgende Verweis weitergeleitet:"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/templates/page.pt:83
+msgid ""
+"You are not automatically redirected so you have a chance to edit or delete "
+"this link."
+msgstr ""
+"Sie wurden nicht automatisch weitergeleitet damit Sie eine Chance haben den "
+"Verweis zu bearbeiten oder zu löschen."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/editor.py:51
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:89
+msgid "Your changes were saved."
+msgstr "Ihre Änderungen wurden gespeichert."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/exceptionviews.py:25
+msgid "Access Denied"
+msgstr "Zugriff verweigert"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:20
+msgid "Email Address"
+msgstr "E-Mail Adresse"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:21
+msgid "Password"
+msgstr "Passwort"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:80
+#, python-format
+msgid "Login to ${town}"
+msgstr "${town} Login"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:94
+msgid "You have been logged out."
+msgstr "Sie wurden ausgeloggt."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:66
+msgid "You have been logged in."
+msgstr "Sie wurden eingeloggt."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/login.py:69
+msgid "Wrong username or password."
+msgstr "Unbekannter Benutzername oder falsches Passwort."
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/page.py:115
+msgid "Please note that this page has subpages which will also be deleted!"
+msgstr ""
+"Bitte beachten Sie dass die Unterthemen dieses Themas ebenfalls gelöscht "
+"werden!"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/page.py:106
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/page.py:123
+msgid "Delete"
+msgstr "Löschen"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:19
+msgid "Name"
+msgstr "Name"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:24
+msgid "Primary Color"
+msgstr "Primärfarbe"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:21
+msgid "Logo"
+msgstr "Logo"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:22
+msgid "URL pointing to the logo"
+msgstr "Link zum Logo"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:26
+msgid "Homepage Images"
+msgstr "Bilder auf der Startseite"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:27
+msgid "Up to six URLs pointing to images for the tiles on the homepage."
+msgstr "Bis zu sechs Links zu Bildern für die Kacheln auf der Startseite"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:34
+msgid "The address and phone number of the municipality"
+msgstr "Die Adresse, Telefonnummer und E-Mail Adresse der Gemeindeverwaltung"
+
+#: /Users/denis/Code/onegov/src/onegov.town/onegov/town/views/settings.py:39
+msgid "The opening hours of the municipality"
+msgstr "Die Öffnungszeiten der Gemeindeverwaltung"
