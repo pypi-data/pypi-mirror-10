@@ -1,0 +1,16 @@
+include LICENSE
+include *.rst
+include *.md
+include *.json
+include *.txt
+include .bowerrc
+
+recursive-include . *.ipynb
+recursive-include ipytangle/static/ipytangle *.*
+
+recursive-exclude . __pycache__
+recursive-exclude . *.py[co]
+recursive-exclude ipytangle/static/ipytangle/lib/mathjs/lib *.*
+recursive-exclude ipytangle/static/ipytangle/lib/mathjs/docs *.*
+recursive-exclude ipytangle/static/ipytangle/lib/mathjs/examples *.*
+recursive-exclude ipytangle/static/ipytangle/lib/numeral/tests *.*

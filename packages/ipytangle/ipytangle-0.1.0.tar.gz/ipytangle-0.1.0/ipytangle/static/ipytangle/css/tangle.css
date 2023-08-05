@@ -1,0 +1,28 @@
+.widget-tangle.docked {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  height: 200px;
+  overflow-y: auto;
+}
+.widget-tangle.docked .variable {
+  float: left;
+  padding: 5px;
+}
+.widget-tangle.docked .variable h6 {
+  text-align: center;
+  font-family: monospace;
+}
+code.tangle-updated {
+  transition: all 0.5s linear;
+  background-color: rgba(0, 0, 255, 0.5);
+}
+code.tangle-downdated {
+  transition: all 0.5s linear;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+code.tangle-unupdated {
+  transition: all 0.5s linear;
+  background-color: rgba(255, 255, 255, 0.25);
+}
