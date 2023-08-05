@@ -1,0 +1,29 @@
+#partners .owl-controls , #photo .owl-controls {
+    position: absolute;
+    width: 900px;
+}
+
+#partners-wrap {
+    width: 900px;
+    margin: 0px auto;
+}
+
+#partners h2 {
+    margin-bottom: 45px;
+}
+
+#partners {
+    padding-bottom: 45px;
+}
+
+.a_parnter {
+    height: 130px;
+    text-align: center;
+    padding: 5px;
+}
+
+.a_parnter img{
+    display: inline-block;
+    max-height: 100%;
+    width: auto;
+}
