@@ -1,0 +1,552 @@
+@charset "utf-8";
+html{
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    color: #000;
+    min-width: 1000px;
+    background-color: #fff;
+    position: relative;
+    height: 100%;
+}
+
+table{
+    border: none !important;
+}
+
+table tr{
+    border-bottom: solid 1px #2C3E50;
+}
+
+td{
+    padding: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea{
+    outline: none;
+    border: solid 2px #2c3e50;
+    border-radius: 2px;
+    padding: 5px 10px;
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 1px solid #2C3E50;
+}
+
+#main{
+    width: 90%;
+    margin: 0 auto;
+    min-width: 960px;
+    position: relative;
+    color: #2c3e50;
+}
+
+#main h1{
+    font-size: 112.5%;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#main ul li,
+#main h2{
+    font-size: 112.5%;
+    margin-bottom: 15px;
+}
+
+#main a{
+    display: inline-block;
+}
+
+#main p{
+    margin-bottom: 20px;
+    height: auto;
+    position: relative;
+}
+
+#main form{
+    vertical-align: top;
+}
+
+#main form select{
+    display: inline-block;
+}
+
+#main form input[type='button'],
+#main form input[type='submit'],
+.button{
+    background: #fff;
+    border: solid 2px #2c3e50;
+    font-weight: 600;
+    color: #2c3e50;
+    border-radius: 2px;
+    text-transform: uppercase;
+    outline: none !important;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+#main form div{
+    margin-bottom: 20px;
+}
+
+#task-create-form p{
+    display: block !important;
+    margin: 20px 0;
+}
+
+label,
+#item-create-form th{
+    text-align: left;
+    margin-right: 30px;
+    width: 150px !important;
+    display: inline-block;
+    line-height: 140%;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+#item-create-form td,
+#item-create-form th{
+    padding: 15px 0;
+}
+
+#login-form{
+    margin-top: 100px;
+}
+
+#login-form td{
+    text-align: left;
+    margin-right: 30px;
+    width: 100px !important;
+    display: inline-block;
+    line-height: 140%;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.helptext{
+    margin-left: 30px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.selectBox-dropdown{
+    border: 2px solid #2c3e50 !important;
+    border-radius: 2px;
+    margin-right: 0 !important;
+    background: #fff !important;
+    min-width: 200px !important;
+}
+
+.selectBox-inline{
+    border: 2px solid #2c3e50 !important;
+    border-radius: 2px;
+}
+
+.selectBox-options{
+    border: solid 2px #2C3E50 !important;
+    border-top: none !important;
+}
+
+.selectBox-options LI A {
+    color: #2c3e50;
+}
+
+.selectBox-arrow{
+    border-left: 2px solid #2c3e50 !important;
+}
+
+.custom-checkbox label {
+    background: url("../plugins/jQuery-Custom-Input-master/images/checkbox_pm.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+    padding-right: 80px !important;
+}
+
+.custom-checkbox input, .custom-radio input {
+    left: 190px !important;
+}
+
+
+.custom-checkbox label,.custom-radio label { background-position: 70px -13px !important; }
+.custom-checkbox label.hover,.custom-checkbox label.focus,.custom-radio label.hover,.custom-radio label.focus { background-position:70px -114px !important; }
+.custom-checkbox label.checked,.custom-radio label.checked { background-position:70px -214px !important; }
+.custom-checkbox label.checkedHover,.custom-checkbox label.checkedFocus { background-position:70px -314px !important; }
+/*----------------------------------header------------------------------------*/
+.header{
+    padding: 0 5%;
+    background: #2c3e50;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.header .button{
+    display: none;
+}
+
+.logo{
+    padding-left: 60px;
+    width: 65px;
+    height: 60px;
+    line-height: 60px;
+    background-image: url("../images/main/logo.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 47px 54px;
+    background-color: #566573;
+    display: inline-block;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    vertical-align: top;
+    margin-right: 5%;
+    border: none;
+}
+
+.menu{
+    display: inline-block;
+}
+
+.menu li{
+    display: inline-block;
+    margin: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.menu li a{
+    color: #fff;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.menu li.active a{
+    text-transform: uppercase;
+}
+
+.menu a:first-child{
+    margin-left: 0;
+}
+
+/*------------------------------left----------------------------------*/
+.left{
+    width: 20%;
+    min-height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.left li{
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 35px 10px 10px;
+    line-height: 120%;
+    box-sizing: border-box;
+    border-bottom: solid 1px #2c3e50;
+    background: url("../images/main/arrow-down.png") 95% 10px no-repeat;
+    cursor: pointer;
+}
+
+.left li.active{
+    background: url("../images/main/arrow-right.png") 95% 10px no-repeat;
+}
+
+/*------------------------------center---------------------------------*/
+.center{
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin: 0 5%;
+}
+
+#main .deadline-wrapper{
+    display: table;
+    margin-bottom: 30px;
+}
+
+#main .deadline-wrapper p{
+    display: table-cell !important;
+    vertical-align: bottom;
+}
+
+#main .deadline{
+    padding-left: 440px;
+    height: 80px;
+    background: url("../images/deadline.png") 20px center no-repeat;
+}
+
+.detail-label{
+    display: inline-block;
+    max-width: 200px;
+    width: 200px;
+    font-weight: bold;
+}
+
+/*------------------------------filter---------------------------------*/
+
+#filter{
+    width: 20%;
+    min-height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#filter h3{
+    background: #2c3e50;
+    color: #FFFFFF;
+    padding: 10px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#filter p{
+    display: inline-block;
+    margin: 10px 15px;
+    cursor: pointer;
+}
+
+#filter .button{
+    display: block;
+}
+
+.pop-up{
+    display: none;
+    padding: 10px;
+}
+
+.visible{
+    display: block;
+}
+
+.add-user,
+.add-res,
+.task-create-master{
+    position: absolute;
+    top: 150px;
+    left: 10%;
+    width: 80%;
+    min-height: 200px;
+    background: #ededed;
+    z-index: 999;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.pop-up .header{
+    display: none;
+}
+
+#item-create-form p label.short-label{
+    width: 20px !important;
+}
+
+.logout{
+    text-align: right;
+    position: absolute;
+    text-transform: none !important;
+    top: 0;
+    right: 5%;
+    margin: 20px 0;
+    line-height: 20px;
+    color: #fff;
+}
+
+.logout a.user{
+    background: url("../images/main/user.png") left center no-repeat;
+    padding-left: 15px;
+}
+
+.logout a{
+    margin-left: 10px;
+    color: #fff;
+    display: inline-block;
+    border-bottom: solid 1px #fff;
+}
+
+/*----------------------------------------errors----------------------------------------------------*/
+.errorlist{
+    color: #c0392b;
+}
+
+/*-----------------------------------------zaglushka------------------------------------------------*/
+.promo{
+    background: url("../images/promo/erp.png") center center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.promo a{
+    position: absolute;
+    top: 15px;
+    right: 10%;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    padding: 0 0 3px 15px;
+    border-bottom: solid 1px #fff;
+    background: url("../images/promo/user.png") left top no-repeat;
+}
+
+.promo div{
+    width: 265px;
+    position: absolute;
+    top: 35%;
+    text-align: right;
+    right: 10%;
+}
+
+.promo div p{
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.promo div form{
+    text-align: right;
+    margin-top: 40px;
+}
+
+.promo div form input{
+    border: solid 3px rgba(255,255,255,0.8);
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.5);
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #403f3f;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    display: block;
+    width: 265px !important;
+    box-sizing: border-box;
+}
+
+.promo div form input::-webkit-input-placeholder{
+   color: #403f3f;  
+}
+.promo div form input:-moz-placeholder{
+   color: #403f3f;  
+}
+.promo div form input::-moz-placeholder{
+   color: #403f3f;  
+}
+.promo div form input:-ms-input-placeholder{
+   color: #403f3f;  
+}
+
+.promo div form input[type='submit']{
+    background-image: url("../images/promo/send.png");
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+.promo .view-public,
+.promo .reg{
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    background: none;
+    text-align: right;
+    margin-bottom: 5px;
+    right: 0;
+}
+
+@media (max-width: 960px) {
+    body,#main {
+        min-width: 640px;
+    }
+    
+    .logout{
+        font-size: 14px;
+    }
+    
+    
+    .menu li {
+        margin: 20px 10px;
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width: 640px){
+    body,#main {
+        min-width: 320px;
+    }
+    
+    .header .button{
+        display: inline-block;
+        background: none;
+        border: none;
+        margin: 20px 10px;
+        color: #fff;
+        text-transform: none;
+    }
+    
+    .menu{
+        display: none;
+    }
+    
+    .menu.visible{
+        position: absolute;
+        top: 60px;
+        left: 25%;
+        width: 30%;
+        display: block;
+        background: #2C3E50;
+        z-index: 999999;
+        overflow: hidden;
+    }
+    
+    .menu li{
+        display: block;
+    }
+    
+    .logo {
+        background-size: 30px 35px;
+        font-size: 16px;
+        padding-left: 45px;
+        width: 35px;
+    }
+    
+    .left, #filter{
+        width: 40%;
+    }
+    
+    .left li,
+    #filter{
+        font-size: 12px;
+    }
+    
+    #filter{
+        margin-top: 10px;
+    }
+    
+    .content{
+        width: 35%;
+    }
+}

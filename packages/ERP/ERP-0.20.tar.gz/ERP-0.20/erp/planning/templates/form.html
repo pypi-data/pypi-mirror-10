@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block main %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select').selectBox();
+        $(this).find('input').customInput();
+      });
+    </script>
+    <form id="item-create-form ajaxform" action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <div class="loading" style="display:none;">
+        <span id="load_text">{% trans 'Загрузка...' %}</span>
+    </div>
+    <div class="form_ajax" style="display:none;">
+        <span>{% trans 'Форма успешно отправлена.' %}</span>
+    </div>
+    <div class="form_ajax_error" style="display:none;">
+        <span>{% trans 'Форма не отправлена из-за следующих ошибок.' %}</span>
+    </div>
+    <p class="sendwrapper"><input type="submit" value="{% trans 'Submit' %}"></p>
+    </form>
+{% endblock main %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+        <h1>{{object.title}}</h1>
+        <p>{{object.lat}} {{object.lng}}</p>
+        <p>{{object.city}}</p>
+        <p>{{object.street}}</p>
+        <p>{{object.building }}</p>
+{% endblock main %}
+{% block content %}
+{% endblock content %}

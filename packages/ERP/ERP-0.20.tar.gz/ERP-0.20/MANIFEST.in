@@ -1,0 +1,9 @@
+include LICENSE
+include README.rst
+recursive-include docs *
+recursive-include erp/planning/static *
+recursive-include erp/planning/templates *
+recursive-include erp/enterprise/static *
+recursive-include erp/enterprise/templates *
+recursive-include erp/directory/static *
+recursive-include erp/directory/templates *

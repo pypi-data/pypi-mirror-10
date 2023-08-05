@@ -1,0 +1,36 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <link href="{% static "css/reset.css" %}"  rel="stylesheet" type="text/css" />
+    <link href="{% static "css/common.css" %}"  rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <link href="{% static "plugins/jquery-selectBox-master/jquery.selectBox.css" %}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{% static "plugins/jquery-selectBox-master/jquery.selectBox.js" %}"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300&subset=cyrillic-ext' rel='stylesheet' type='text/css' />
+    <title>
+        {% block title %}
+            ERP
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+<div class="promo">
+            <div>
+                {% if form.errors %}
+                    <p>{% trans "Your username and password didn't match. Please try again." %}</p>
+                {% endif %}
+                
+                <form id="login-form" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <input class="button" type="submit" value="{% trans 'Войти' %}" />
+                </form>
+                <a class="reg" href="/structure/register/">{% trans "Регистрация" %}</a>
+            </div>
+</div>
+
+</body>
+</html>

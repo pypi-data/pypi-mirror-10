@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".pop-up-on-click.add-user-button").click(function(){
+            $(".pop-up.add-user").addClass('visible');
+            $("#add-user-content").load("/pm/task/assign/user", 
+                function() {
+                    $("select").selectBox();
+                    
+                    $("#add-user-content form").append("<input type='hidden' name='task' value='{{task.id}}' />");
+                    
+                    $(".add-user .close").click(function(){
+                        $(".add-user.pop-up").removeClass('visible');
+                    })
+                    
+                    function block_form() {
+                        $(".loading").show();
+                        $('textarea').attr('disabled', 'disabled');
+                        $('input').attr('disabled', 'disabled');
+                    }
+            
+                    function unblock_form() {
+                        $('.loading').hide();
+                        $('textarea').removeAttr('disabled');
+                        $('input').removeAttr('disabled');
+                        $('.errorlist').remove();
+                    }
+            
+                    // prepare Options Object for plugin
+                    var options = {
+                        beforeSubmit: function(form, options) {
+                            // return false to cancel submit
+                            block_form();
+                        },
+                        success: function() {
+                            unblock_form();
+                            $(".form_ajax").show();
+                            //var userString = '{{request.user}}';
+                            //$(".user-field").html(userString);
+                            setTimeout(function() {
+                                $(".form_ajax").hide();
+                            }, 5000);
+                        },
+                        error:  function(resp) {
+                            unblock_form();
+                            $(".form_ajax_error").show();
+                            // render errors in form fields
+                            var errors = JSON.parse(resp.responseText);
+                            for (error in errors) {
+                                var classError = '.class_' + error;
+                                $(classError).parent('p').prepend(errors[error]);
+                            }
+                            setTimeout(function() {
+                                $(".form_ajax_error").hide();
+                            }, 5000);
+                        }
+                    };
+            
+                    $('.ajaxform').ajaxForm(options);
+                });
+        });
+        $(".pop-up-on-click.add-res-button").click(function(){
+            $(".pop-up.add-res").addClass('visible');
+            $("#add-res-content").load("/pm/task/assign/res", 
+                function() {
+                    $("select").selectBox();
+                    
+                    $("#add-user-content form").append("<input type='hidden' name='task' value='{{task.id}}' />");
+                    
+                    $(".add-user .close").click(function(){
+                        $(".add-user.pop-up").removeClass('visible');
+                    })
+                    
+                    function block_form() {
+                        $(".loading").show();
+                        $('textarea').attr('disabled', 'disabled');
+                        $('input').attr('disabled', 'disabled');
+                    }
+            
+                    function unblock_form() {
+                        $('.loading').hide();
+                        $('textarea').removeAttr('disabled');
+                        $('input').removeAttr('disabled');
+                        $('.errorlist').remove();
+                    }
+            
+                    // prepare Options Object for plugin
+                    var options = {
+                        beforeSubmit: function(form, options) {
+                            // return false to cancel submit
+                            block_form();
+                        },
+                        success: function() {
+                            unblock_form();
+                            $(".form_ajax").show();
+                            //var userString = '{{request.user}}';
+                            //$(".user-field").html(userString);
+                            setTimeout(function() {
+                                $(".form_ajax").hide();
+                            }, 5000);
+                        },
+                        error:  function(resp) {
+                            unblock_form();
+                            $(".form_ajax_error").show();
+                            // render errors in form fields
+                            var errors = JSON.parse(resp.responseText);
+                            for (error in errors) {
+                                var classError = '.class_' + error;
+                                $(classError).parent('p').prepend(errors[error]);
+                            }
+                            setTimeout(function() {
+                                $(".form_ajax_error").hide();
+                            }, 5000);
+                        }
+                    };
+            
+                    $('.ajaxform').ajaxForm(options);
+                });
+        });
+      })
+    </script>
+        <h1>{% trans 'Название задачи' %}: {{task.title}}</h1>
+        <p>{% trans 'Описание' %}: {{task.desc}}</p>
+        <p>{% trans 'Задачу создал' %}: {{task.owner}}</p>
+        {% if task.public == true %}
+            <p>
+                {% trans 'Закрытая задача' %}
+            </p>
+        {% endif %}
+        {% if task.task_in %}
+            <p>
+                {% trans 'Перед тем, как выполнить эту задачу, выполните' %} {{task.task_in}}
+            </p>
+        {% endif %}
+        {% if task.task_out %}
+            <p>
+                {% trans 'После того, как выполните эту задачу, выполните' %} {{task.task_out}}
+            </p>
+        {% endif %}
+        {% if task.responsible %}
+            <p>
+                {% trans 'Ответственная за задачу группа' %}: {{task.responsible}}
+            </p>
+        {% endif %}
+        <p>{% trans 'Исполнитель' %}: {{task.performer}}</p>
+        <p>{% trans 'Начата' %}: {{task.started_at}}</p>
+        {% if task.deadline %}
+            <p>{% trans 'Должна быть закончена' %}: {{task.deadline}}</p>
+        {% endif %}
+        {% if task.done_at %}
+            <p>
+                {% trans 'Закончена' %}: {{task.done_at }}
+            </p>
+        {% endif %}
+        {% if task.status %}
+            <p>
+                {% trans 'Статус' %}: {{task.status }}
+            </p>
+        {% endif %}
+        {% if task.prj %}
+            <p>
+                {% trans 'Проект' %}: {{task.prj }}
+            </p>
+        {% endif %}
+        {% if task.users %}
+            <p>{% trans 'Связанные пользователи' %}:
+                <ul>
+                    {% for user in task.users.all %}
+                        <li>{{user}}</li>
+                    {% endfor %}
+                </ul>
+            </p>
+        {% endif %}
+        {% if task.item_type  %}
+            <p>
+                {% trans 'Тип задачи' %}: {{task.item_type}}
+            </p>
+        {% endif %}
+        {% if task.item_id   %}
+            <p>
+                {% trans 'ID задачи' %}: {{task.item_id }}
+            </p>
+        {% endif %}
+        {% if data %}
+          <p>
+            {% trans 'Данные' %}:
+            <table>
+              {% for name, value in data %}
+              {% if value %}
+                <tr>
+                <td>{{ name }}</td><td>{{ value }}</td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+            </table>
+          </p>
+        {% endif %}
+        <p>
+            <span class="button add-user-button pop-up-on-click">{% trans 'Добавить пользователя' %}</span>
+            <span class="button add-res-button pop-up-on-click">{% trans 'Добавить ресурс' %}</span>
+            {% if not data %}
+              <a href="#" class="button">Добавить данные</a>
+            {% endif %}
+        </p>
+        <div class="add-user pop-up">
+            <div class="close">х</div>
+            <div id="add-user-content"></div>
+        </div>
+        <div class="add-res pop-up">
+            <div class="close">х</div>
+            <div id="add-res-content"></div>
+        </div>
+{% endblock main %}
+{% block content %}
+{% endblock content %}

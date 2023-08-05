@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <div class="left">
+        {% if object.avatar %}
+            <p><img src="{{MEDIA_URL}}{{object.avatar }}"></p>
+        {% endif %}
+    </div>
+    <div class="center">
+        <h1>{{object.username}}</h1>
+        {% if object.is_admin %}<p>Администратор</p>{% endif %}
+        <a href="{{request.get_full_path}}edit" class="button">Редактировать профиль</a>
+        <p>{{object.first_name}} {{object.mid_name}} {{object.last_name}}</p>
+        <p>{{object.date_of_birth  }}</p>
+        <p>{{object.phone  }}</p>
+    </div>
+{% endblock main %}
+{% block content %}
+{% endblock content %}

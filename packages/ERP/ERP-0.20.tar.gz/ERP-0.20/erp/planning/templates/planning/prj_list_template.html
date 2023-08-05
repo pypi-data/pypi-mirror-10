@@ -1,0 +1,17 @@
+{% load i18n %}
+<h1>{% trans 'Ваши проекты:' %}</h1>
+<ul>
+{% for prj in prjs %}
+  <li>
+    <span>{{prj.status}}</span>
+    <a href="{{ prj.get_absolute_url }}">
+      {{ prj.title }}
+    </a>
+    {% if request.user = prj.owner %}
+      <a href="{{prj.get_absolute_url}}/edit">{% trans 'Редактировать' %}</a>
+    {% endif %}
+  </li>
+{% empty %}
+    <li>{% trans 'Нет проектов в этой секции' %}</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('ul.left li').click(function(){
+      var url = $(this).attr('class') + '/';
+      $(".center").load(url);
+    })
+  });
+</script>
+<ul class="left">
+  <li class='objs'>
+    {% trans 'Объекты' %}
+  </li>
+  <li class="units">
+    {% trans 'Юниты' %}
+  </li>
+  <li class="users">
+    {% trans 'Пользователи' %}
+  </li>
+</ul><div class="center">{% trans 'Контент' %}</div>
+</div>
+{% endblock main %}
+{% block content %}
+{% endblock content %}

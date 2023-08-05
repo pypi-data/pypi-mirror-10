@@ -1,0 +1,13 @@
+{% load i18n %}
+<h1>{% trans 'Пользователи' %}:</h1>
+<ul>
+{% for obj in object_list %}
+  <li>
+    <a href="{{ obj.get_absolute_url }}">
+      {{ obj.username }}
+    </a>
+  </li>
+{% empty %}
+    <li>{% trans 'Нет объектов в этой секции' %}</li>
+{% endfor %}
+</ul>

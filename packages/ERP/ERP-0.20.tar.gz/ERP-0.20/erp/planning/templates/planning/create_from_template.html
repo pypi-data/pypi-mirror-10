@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block main %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').selectBox();
+            
+            $( "#id_deadline" ).datepicker();
+        });
+    </script>
+<form label="PRJ_Create" id="item-create-form" action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    {% if 'prj' in request.get_full_path %}
+        {% if template.req_tasks %}
+            <h3>{% trans 'Обязательные задачи' %}</h3>
+        {% endif %}
+        {% for task_template in template.req_tasks.all %}
+            <p>{{task_template.title}}</p>
+        {% empty %}
+            <p>{% trans 'Обязательных задач нет.' %}</p>
+        {% endfor %}
+        {% if template.opt_tasks %}
+            <h3>{% trans 'Опциональные задачи' %}</h3>
+        {% endif %}
+        {% for task_template in template.opt_tasks.all %}
+            <p>
+                <input type="checkbox" name="opt_tasks" value="{{task_template.id}}">{{task_template.title}}
+            </p>
+        {% empty %}
+            <p>{% trans 'Опциональных задач нет.' %}</p>
+        {% endfor %}
+        <p>
+            {% trans 'Публичный проект:' %}
+            <input type="radio" name="private" id="radio1" value="True"><label class="short-label" for="radio1">{% trans 'Да' %}</label>
+            <input type="radio" name="private" id="radio1" value="False"><label class="short-label" for="radio2">{% trans 'Нет' %}</label><br>
+        </p>
+        <input type='hidden' name='tmpl_id' value='{{template.id}}' />
+    {% endif %}
+    <p>Дополнительные данные</p>
+    {{ data_form.as_p }}
+    <p><input type="submit" class="button" value="{% trans 'Создать' %}"></p>
+</form>
+{% endblock main %}

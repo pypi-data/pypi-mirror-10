@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".pop-up-on-click.task-create-button").click(function(){
+            $(".pop-up.task-create-master").addClass('visible');
+            $("#task-create-content").load("/pm/task/create", 
+                function() {
+                    $("select").selectBox();
+                    
+                    $("#create-choice-form").append("<input type='hidden' name='prj' value='{{project.id}}' />");
+                    
+                    $('#create-choice-form select').selectBox().change(function () {
+                        if ($(this).val() != '') {
+                          $('#create-choice-form').attr('action','/pm/prj/create/from_template');
+                          console.log("шаблон");
+                        }
+                        else{
+                          $('#create-choice-form').attr('action','/pm/prj/create/form');
+                          console.log("умолчание");
+                        }
+                    });
+                });
+            $(".task-create-master .close").click(function(){
+                $(".pop-up.task-create-master").removeClass('visible');
+            })
+        });
+        
+        $(".pop-up-on-click.add-user-button").click(function(){
+            $(".pop-up.add-user").addClass('visible');
+            $("#add-user-content").load("/pm/prj/assign/user", 
+                function() {
+                    $("select").selectBox();
+                    
+                    $("#add-user-content form").append("<input type='hidden' name='prj' value='{{prj.id}}' />");
+                    
+                    $(".add-user .close").click(function(){
+                        $(".add-user.pop-up").removeClass('visible');
+                    })
+                    
+                    function block_form() {
+                        $(".loading").show();
+                        $('textarea').attr('disabled', 'disabled');
+                        $('input').attr('disabled', 'disabled');
+                    }
+            
+                    function unblock_form() {
+                        $('.loading').hide();
+                        $('textarea').removeAttr('disabled');
+                        $('input').removeAttr('disabled');
+                        $('.errorlist').remove();
+                    }
+            
+                    // prepare Options Object for plugin
+                    var options = {
+                        beforeSubmit: function(form, options) {
+                            // return false to cancel submit
+                            block_form();
+                        },
+                        success: function() {
+                            unblock_form();
+                            $(".form_ajax").show();
+                            //var userString = '{{request.user}}';
+                            //$(".user-field").html(userString);
+                            setTimeout(function() {
+                                $(".form_ajax").hide();
+                            }, 5000);
+                        },
+                        error:  function(resp) {
+                            unblock_form();
+                            $(".form_ajax_error").show();
+                            // render errors in form fields
+                            var errors = JSON.parse(resp.responseText);
+                            for (error in errors) {
+                                var classError = '.class_' + error;
+                                $(classError).parent('p').prepend(errors[error]);
+                            }
+                            setTimeout(function() {
+                                $(".form_ajax_error").hide();
+                            }, 5000);
+                        }
+                    };
+            
+                    $('.ajaxform').ajaxForm(options);
+                });
+        });
+      })
+    </script>
+    <h1>{% trans 'Название проекта' %}: {{project.title}}</h1>
+    <div class="left">
+      {% if data %}
+        <p>
+          {% trans 'Данные' %}:
+          <table>
+            {% for name, value in data %}
+            {% if value %}
+              <tr>
+              <td>{{ name }}</td><td>{{ value }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+          </table>
+        </p>
+      {% endif %}
+    </div><div class="center">
+      <div class="deadline-wrapper">
+        <p>{{project.started_at}}</p> <p class="deadline">{{project.deadline}}</p>
+      </div>
+      <p><span class="detail-label">{% trans 'Описание' %}:</span> {{project.desc}}</p>
+      <p><span class="detail-label">{% trans 'Проект создал' %}:</span> {{project.owner}}</p>
+      {% if project.public == true %}
+          <p>
+              {% trans 'Закрытый проект' %}
+          </p>
+      {% endif %}
+      {% if project.responsible %}
+          <p>
+              <span class="detail-label">{% trans 'Ответственная за проект группа' %}:</span> {{project.responsible}}
+          </p>
+      {% endif %}
+      <p><span class="detail-label">{% trans 'Исполнитель' %}:</span> {{project.performer}}</p>
+      {% if project.done_at %}
+          <p>
+              <span class="detail-label">{% trans 'Закончен' %}:</span> {{project.done_at }}
+          </p>
+      {% endif %}
+      {% if project.users %}
+          <p><span class="detail-label">{% trans 'Связанные пользователи' %}:</span>
+              <ul>
+                  {% for user in project.users.all %}
+                      <li>{{user}}</li>
+                  {% endfor %}
+              </ul>
+          </p>
+      {% endif %}
+      {% if project.item_type  %}
+          <p>
+              <span class="detail-label">{% trans 'Тип проекта' %}:</span> {{project.item_type}}
+          </p>
+      {% endif %}
+    </div><div id="filter">
+          <input type="button" class="button pop-up-on-click task-create-button" value="{% trans 'Добавить задачу' %}">
+          <span class="button add-user-button pop-up-on-click">{% trans 'Добавить пользователя' %}</span>
+          {% if not data %}
+            <a href="#" class="button">Добавить данные</a>
+          {% endif %}
+    </div>
+    <div class="task-create-master pop-up">
+        <div class="close">х</div>
+        <div id="task-create-content"></div>
+    </div>
+    <div class="add-user pop-up">
+        <div class="close">х</div>
+        <div id="add-user-content"></div>
+    </div>
+{% endblock main %}
+{% block content %}
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% load i18n %}
+<h1>{% trans 'Ваши задачи' %}:</h1>
+<ul>
+{% for task in tasks %}
+  <li>
+    <span>{{task.status}}</span>
+    <a href="{{ task.get_absolute_url }}">
+      {{ task.title }}
+    </a>
+    {% if request.user = task.owner %}
+      <a href="{{task.get_absolute_url}}/edit">{% trans 'Редактировать' %}</a>
+    {% endif %}
+  </li>
+{% empty %}
+    <li>{% trans 'Нет задач в этой секции' %}</li>
+{% endfor %}
+</ul>
