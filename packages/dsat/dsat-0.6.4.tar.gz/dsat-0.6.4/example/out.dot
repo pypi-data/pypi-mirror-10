@@ -1,0 +1,12 @@
+digraph G {
+	graph [labelloc=b, rankdir=LR, fontsize=14, labeljust=t, ranksep="0.5", size="18x10", label="DSAT connexion graph"];
+	node [label="\N"];
+	graph [lp="360,13",
+		bb="0,0,720,480"];
+    "Julu" -> "maison";
+    "maison" -> "toto";
+    "maison" -> "tat"
+"Julu" -> "maison2";
+"maison2" -> "toto div";
+"maison2" -> "tat"
+}
