@@ -1,0 +1,11 @@
+setuptools
+
+[forwarder]
+gevent
+greenlet
+elasticsearch
+
+[test]
+gevent
+greenlet
+p01.checker
