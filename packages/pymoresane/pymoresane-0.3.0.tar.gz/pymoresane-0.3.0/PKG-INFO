@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: pymoresane
+Version: 0.3.0
+Summary: CUDA-accelerated implementation of the MORESANE deconvolution algorithm
+Home-page: https://github.com/ratt-ru/PyMORESANE
+Author: JSKenyon
+Author-email: jonosken@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: numpy
+Requires: scipy
+Requires: pyfits
+Requires: pycuda
