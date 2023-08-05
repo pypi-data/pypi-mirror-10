@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: pannenkoek
+Version: 0.1.0
+Summary: A wrapper for Qiime and LEfSe analysis. Split an OTU table by time and make certain comparisons with ease.
+Home-page: https://bitbucket.org/twbattaglia/pannenkoek
+Author: Thomas W. Battaglia
+Author-email: tb1280@nyu.com
+License: MIT
+Description: Pannenkoek
+        =======================
+        
+        A tool to create lefse ready tables from your main OTU table in QIIME. LEfSe is a great tool for microbial diversity analysis, but there are many repetitive steps if you want to analyze multiple time points between two groups. Pannenkoek was made to simplify that process. You can input your main OTU biom file, Treatment group column name and Timepoint column name and it will do the hard work summarizing the table, removing the unused metadata fields, and create multiple tables based on time.
+        
+Keywords: Biology Microbiome LEFSE QIIME Formatting Diversity Python Bioinformatics
+Platform: UNKNOWN
