@@ -1,0 +1,54 @@
+#mainbanner{
+    padding: 0px;
+}
+#mainbanner .banner-img{
+    height: 600px;
+    background-size: cover !important;
+}
+
+#mainbanner .banner .banner-slider-text {
+    z-index: 10;
+    background: rgba(45, 208, 228, 0.8);
+    padding: 25px;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    margin-top: -70px;
+}
+
+#mainbanner .banner-text {
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 5px;
+    color: white;
+    width: 500px;
+    margin: 150px 0px 0px 800px!important;
+    position: absolute;
+}
+
+#mainbanner .banner-header{
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+#mainbanner .banner-header .banner-header-inner{
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 26px;
+    font-weight: bold;
+    color: black;
+    margin: 40px;
+    position: absolute;
+    z-index: 1;
+}
+
+#mainbanner .owl-buttons {
+  position: absolute;
+  bottom: 54px;
+  right: 15px;
+}
+
+#mainbanner .owl-prev, .owl-next {
+  display: inline-block;
+}
