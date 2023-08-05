@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: sgeparse
+Version: 0.0.1
+Summary: For parsing running SGE jobs
+Home-page: https://pypi.python.org/pypi/sgeparse
+Author: Simon Walker
+Author-email: s.r.walker101@googlemail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+
+========
+sgeparse
+========
+
+Simple python module for parsing the output of SGE qstat
+
+
