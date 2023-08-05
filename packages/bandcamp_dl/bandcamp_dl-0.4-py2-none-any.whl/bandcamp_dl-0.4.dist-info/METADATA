@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: bandcamp-dl
+Version: 0.4
+Summary: Download audio from bandcamp.com
+Home-page: http://github.com/sam09/bandcamp-dl
+Author: Sam Radhakrishnan
+Author-email: sk09idm@gmail@gmail.com
+License: MIT
+Keywords: songs bandcamp_dl bandcamp audio downloader
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+
+A module that can download tracks and albums from bandcamp.com.
+
+
