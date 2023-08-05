@@ -1,0 +1,83 @@
+Metadata-Version: 2.0
+Name: python-hipchat-v1
+Version: 0.3.3
+Summary: Easy peasy wrapper for HipChat's v1 API (modified version and credits to kurttheviking)
+Home-page: https://github.com/greenietea/python-hipchat-v1
+Author: Greenie
+Author-email: hello@greenie.ninja
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+
+(Super simple) Python HipChat
+=============================
+
+Description
+-----------
+
+Easy peasy wrapper for the `HipChat API v1 <https://www.hipchat.com/docs/api>`_. Exposes core URI endpoint wrapper and some basic methods for common integrations.
+
+
+Dependencies
+------------
+None beyond the Python standard library.
+
+
+Usage
+-----
+
+Install::
+
+    pip install python-hipchat-v1
+
+Instantiate::
+
+    import hipchat
+    hipster = hipchat.HipChat(token=YourHipChatToken)
+
+Request a URI endpoint as described in the HipChat API docs::
+
+    hipster.method(url='method/url/', method="GET/POST", parameters={'name':'value', })
+
+Example::
+
+    # List rooms
+    hipster.method('rooms/list')
+
+    # Post a message to a HipChat room
+    hipster.method('rooms/message', method='POST', parameters={'room_id': 8675309, 'from': 'HAL', 'message': 'All your base...'})
+
+    # Get history from a room 
+    hipster.room_history(room_id='', date=)
+
+
+
+
+Changelog
+---------
+
+**v0.3.x**
+
+- Added shortcut method for listing users (thanks @Raizex)
+- Added shortcut method for finding user by name (thanks @Raizex)
+- Added shortcut method for finding room by name (thanks @Raizex)
+- `Added trove classifiers <https://pypi.python.org/pypi?%3Aaction=list_classifiers>`_ (thanks @ghickman)
+
+**v0.2.x**
+
+- `Added Python 3 support without losing support for Python 2 <https://github.com/kurttheviking/python-simple-hipchat/pull/9>`_ (thanks @pimterry)
+- `Expose timeout for safer synchronous use <https://github.com/kurttheviking/python-simple-hipchat/pull/3>`_ (thanks @zachsnow)
+
+**v0.1.x**
+
+- Added shortcut method for messaging a room
+- Added shortcut method for listing rooms
+
+
