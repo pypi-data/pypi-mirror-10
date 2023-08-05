@@ -1,0 +1,75 @@
+Metadata-Version: 1.1
+Name: django-analystnotes
+Version: 0.1.0
+Summary: Security analyst notes.
+Home-page: https://github.com/jpleger/django-analystnotes
+Author: django-analystnotes
+Author-email: james.pleger@riskiq.net
+License: BSD
+Description: =============================
+        django-analystnotes
+        =============================
+        
+        .. image:: https://badge.fury.io/py/django-analystnotes.png
+            :target: https://badge.fury.io/py/django-analystnotes
+        
+        .. image:: https://travis-ci.org/jpleger/django-analystnotes.png?branch=master
+            :target: https://travis-ci.org/jpleger/django-analystnotes
+        
+        .. image:: https://coveralls.io/repos/jpleger/django-analystnotes/badge.png?branch=master
+            :target: https://coveralls.io/r/jpleger/django-analystnotes?branch=master
+        
+        Security analyst notes.
+        
+        Documentation
+        -------------
+        
+        The full documentation is at https://django-analystnotes.readthedocs.org.
+        
+        Quickstart
+        ----------
+        
+        Install django-analystnotes::
+        
+            pip install django-analystnotes
+        
+        Then use it in a project::
+        
+            import django-analystnotes
+        
+        Setup analystnotes and rest_framework in settings.py
+        
+            INSTALLED_APPS = (
+                ...
+                'rest_framework',
+                'analystnotes',
+            )
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-07-01)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+        
+Keywords: django-analystnotes
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
