@@ -1,0 +1,10 @@
+PyYAML
+watchdog
+python-termstyle
+six
+
+[:python_version=="2.6"]
+unittest2
+
+[gntp]
+gntp>=0.7
