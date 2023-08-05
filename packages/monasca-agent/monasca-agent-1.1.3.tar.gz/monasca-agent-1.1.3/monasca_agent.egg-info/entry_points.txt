@@ -1,0 +1,12 @@
+[console_scripts]
+monasca-setup = monasca_setup.main:main
+monasca-collector = monasca_agent.collector.daemon:main
+monasca-statsd = monasca_agent.statsd.daemon:main
+monasca-forwarder = monasca_agent.forwarder.daemon:main
+
+[monasca_agent.collector.virt]
+libvirt = monasca_agent.collector.virt.libvirt.inspector:LibvirtInspector
+hyperv = monasca_agent.collector.virt.hyperv.inspector:HyperVInspector
+xenapi = monasca_agent.collector.virt.xenapi.inspector:XenapiInspector
+vsphere = monasca_agent.collector.virt.vmware.inspector:VsphereInspector
+
