@@ -1,0 +1,6 @@
+[console_scripts]
+benchmark-actions = charmbenchmark.cli.actions:main
+benchmark-composite = charmbenchmark.cli.composite:main
+benchmark-finish = charmbenchmark.cli.finish:main
+benchmark-start = charmbenchmark.cli.start:main
+
