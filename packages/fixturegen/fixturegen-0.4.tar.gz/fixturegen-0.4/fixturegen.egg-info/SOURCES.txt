@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+fixturegen/__init__.py
+fixturegen/cli.py
+fixturegen/exc.py
+fixturegen/generator.py
+fixturegen.egg-info/PKG-INFO
+fixturegen.egg-info/SOURCES.txt
+fixturegen.egg-info/dependency_links.txt
+fixturegen.egg-info/entry_points.txt
+fixturegen.egg-info/not-zip-safe
+fixturegen.egg-info/requires.txt
+fixturegen.egg-info/top_level.txt
+fixturegen/templates/fixture.mako
