@@ -1,0 +1,29 @@
+CHANGES
+=======
+
+0.0.2
+-----
+
+* fixup namedtuple for NodeInfo
+* add scripts to create/destroy local disque clusters
+* Add data type for `CLUSTER NODES` command
+* pass {posargs} to py.test for easier control of which tests run
+* add HELLO command
+* Add first tests (only for HELLO)
+* Use six to get rid of redis._compat
+* Update README and add stub for unimplemented QSTAT command
+* Add the rest of the job commands (DEL/SHOW/ENQUEUE/DEQUEUE)
+* add `CLIENT PAUSE [msec]` command
+* add CLUSTER and CONFIG commands
+* Remove SSL as it is also unsupported
+* Remove DB number option since it is not a part of disque
+* update licensing
+* fix markdown links in README
+
+0.0.1
+-----
+
+* Add FASTACK, ACKJOB, and QPEEK commands
+* add license and initial module
+* add gitignore and readme
+* initial commit
