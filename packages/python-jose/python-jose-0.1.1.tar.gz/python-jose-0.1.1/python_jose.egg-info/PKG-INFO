@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: python-jose
+Version: 0.1.1
+Summary: JOSE implementation in Python
+Home-page: http://github.com/mpdavis/jose
+Author: Michael Davis
+Author-email: mike.philip.davis@gmail.com
+License: MIT
+Description: # python-jose
+        
+        A JOSE implementation in Python
+        
+        [![Build Status](https://travis-ci.org/mpdavis/jose.svg?branch=master)](https://travis-ci.org/mpdavis/jose) [![Coverage Status](https://coveralls.io/repos/mpdavis/jose/badge.svg)](https://coveralls.io/r/mpdavis/jose)
+        
+        ## Principles
+        
+        This is a JOSE implementation that is meant to be simple to use, both on and off of AppEngine.
+        
+        ## Examples
+        
+        #### Signing tokens
+        
+        ```python
+        >>> from jose import jws
+        >>> signed = jws.sign({'a': 'b'}, 'secret', algorithm='HS256')
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8'
+        ```
+        
+        #### Verifying token signatures
+        
+        ```python
+        >>> jws.verify(signed, 'secret', algorithms=['HS256'])
+        {'a': 'b'}
+        ```
+        
+        ## Algorithms
+        
+        The following algorithms are currently supported.
+        
+        Algorithm Value | Digital Signature or MAC Algorithm
+        ----------------|----------------------------
+        HS256 | HMAC using SHA-256 hash algorithm
+        HS384 | HMAC using SHA-384 hash algorithm
+        HS512 | HMAC using SHA-512 hash algorithm
+        RS256 | RSASSA using SHA-256 hash algorithm
+        RS384 | RSASSA using SHA-384 hash algorithm
+        RS512 | RSASSA using SHA-512 hash algorithm
+        
+        ## Thanks
+        
+        This library is based heavily on the work of the guys over at [PyJWT](https://github.com/jpadilla/pyjwt).
+        
+Keywords: jose jws jwe jwt json web token security signing
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Utilities
