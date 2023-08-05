@@ -1,0 +1,32 @@
+Metadata-Version: 2.0
+Name: whatodo
+Version: 0.1.0a2
+Summary: Python app to help developers manage development tasks using TODO's
+Home-page: https://github.com/masterkoppa/whatodo
+Author: Monika McKeown, Andres Ruiz, Jared Smith
+Author-email: UNKNOWN
+License: MIT
+Keywords: development tools task_management
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: pygments
+Provides-Extra: dev
+Requires-Dist: pytest; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
+
+Whatodo
+=======
+
+![Build Status](https://travis-ci.org/masterkoppa/whatodo.svg)
+# Usage
+TODO: Fill me with info!
+
+
