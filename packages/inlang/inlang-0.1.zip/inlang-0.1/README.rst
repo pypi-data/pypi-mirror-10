@@ -1,0 +1,1 @@
+This file is just to extract states according to their respecive language codes.
