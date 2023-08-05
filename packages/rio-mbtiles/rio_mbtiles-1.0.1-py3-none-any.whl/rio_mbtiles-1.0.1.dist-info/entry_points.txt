@@ -1,0 +1,4 @@
+
+      [rasterio.rio_commands]
+      mbtiles=rio_mbtiles.scripts.cli:cli
+      
