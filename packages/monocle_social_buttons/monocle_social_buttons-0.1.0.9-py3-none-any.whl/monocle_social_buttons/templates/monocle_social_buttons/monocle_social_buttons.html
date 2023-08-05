@@ -1,0 +1,22 @@
+{% load thumbnail %}
+
+<section id="social-buttons">
+    <div class='row'>
+        <h2 class='fancy'><span>Мы в социальных сетях</span></h2>
+    </div>
+
+    <div class="row">
+        <div id='social-buttons-content'>
+            {% for button in monocle_social_buttons %}
+            <div class="social-button">
+                <a href="{{ button.url }}" target="_blank">
+                    <div class="text-center">
+                        {%  thumbnail button.icon 100x100 upscale as thumb %}
+                        <img class="img-circle" src="{{ thumb.url }}">
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
