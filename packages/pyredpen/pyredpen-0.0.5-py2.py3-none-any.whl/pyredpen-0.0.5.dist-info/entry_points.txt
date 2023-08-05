@@ -1,0 +1,5 @@
+[console_scripts]
+redpen-flymake = redpen.shell:flymake
+redpen-sublimelinter = redpen.shell:sublimelinter
+redpen-validate = redpen.shell:commandline
+
