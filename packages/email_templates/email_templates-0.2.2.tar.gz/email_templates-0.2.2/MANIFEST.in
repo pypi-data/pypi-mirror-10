@@ -1,0 +1,3 @@
+recursive-include emailtemplates/templates *
+recursive-include emailtemplates/static *
+global-include *.txt
