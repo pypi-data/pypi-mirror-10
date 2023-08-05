@@ -1,0 +1,22 @@
+=======
+Changes
+=======
+
+0.1a3 (2015-05-08)
+==================
+
+Brown bag.  The previous release was unusable do to this bug:
+
+* Make sure not to include unicode strings in the headers passed to
+  ``start_response``.
+
+0.1a2 (2015-05-08)
+==================
+
+* Py3k, pypy compatibility: the tests now run under python 2.6, 2.7,
+  3.2, 3.3, 3.4, pypy and pypy3.
+
+0.1a1 (2013-12-11)
+==================
+
+Initial Release
