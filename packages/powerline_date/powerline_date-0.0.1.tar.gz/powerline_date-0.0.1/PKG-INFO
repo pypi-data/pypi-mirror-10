@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: powerline_date
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://bitbucket.org/colinbits/powerline-date
+Author: Colin Wood
+Author-email: cwood06@gmail.com
+License: UNKNOWN
+Download-URL: https://bitbucket.org/colinbits/powerline-date
+Description: Powerline Date Segment
+        =======================
+        This just has the minor feature of allowing time zones.
+        
+        Powerline date segment is a drop in replacement for the regular date segment.
+        
+        Usage:
+        ---------------------------
+        
+        
+        ```json
+        {
+            "function": "powerline_date.date",
+            "name": "sydney_time",
+            "args": {
+                "format": "%H:%M %Z",
+                "istime": true,
+                "timezone": "Australia/Sydney"
+            }
+        },
+        {
+            "function": "powerline_date.date",
+            "name": "utc_time",
+            "args": {
+                "format": "%H:%M %Z",
+                "istime": true,
+                "timezone": "UTC"
+            }
+        },
+        {
+            "function": "powerline_date.date",
+            "name": "edt_time",
+            "args": {
+                "format": "%H:%M %Z",
+                "istime": true,
+                "timezone": "America/New_York"
+            }
+        },
+        ```
+        
+Platform: UNKNOWN
