@@ -1,0 +1,9 @@
+[zest.releaser.releaser.middle]
+asv.release.releaser.middle = asv._release:releaser_middle
+
+[zest.releaser.postreleaser.before]
+asv.release.postreleaser.before = asv._release:postreleaser_before
+
+[console_scripts]
+asv = asv.main:main
+
