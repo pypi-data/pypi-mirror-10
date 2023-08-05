@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: domcheck
+Version: 1.0
+Summary: Domain Ownership Checker
+Home-page: https://github.com/rs/domcheck
+Author: Olivier Poitrey
+Author-email: rs@dailymotion.com
+License: MIT
+Keywords: domain,validation,verification,check,ownership,dns,txt,cname,meta
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Classifier: Topic :: Security
+Requires-Dist: dnspython
+
+UNKNOWN
+
+
