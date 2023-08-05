@@ -1,0 +1,30 @@
+#compdef xprofile
+
+_known_profiles() {
+    _call_program path xprofile list 2> /dev/null | cut -f1 | xargs
+}
+
+_xprofile() {
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments '1: :->subcommand'
+
+
+    case "$state" in
+        subcommand)
+            _arguments '1:Subcommands:(list current generate activate -h --help --verbose --config --version)'
+            ;;
+        *)
+            case $words[2] in
+                activate)
+                    compadd "$@" $(_known_profiles)
+                    ;;
+                generate) =
+                    compadd "$@" '--description --profile'
+                    ;;
+            esac
+    esac
+}
+
+_xprofile "$@"
