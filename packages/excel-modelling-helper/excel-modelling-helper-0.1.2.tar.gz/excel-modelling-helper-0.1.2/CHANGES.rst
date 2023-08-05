@@ -1,0 +1,1 @@
+15.5.2015   0.1.1   Renamed class to ParameterLoader
