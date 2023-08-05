@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: pinax-eventlog
+Version: 1.0.0
+Summary: an event logger for Django projects
+Home-page: http://pinax-eventlog.rtfd.org/
+Author: Pinax Team
+Author-email: developers@pinaxproject.com
+License: MIT
+Description: ========
+        pinax-eventlog
+        ========
+        
+        .. image:: https://img.shields.io/travis/pinax/pinax-eventlog.svg
+            :target: https://travis-ci.org/pinax/pinax-eventlog
+        
+        .. image:: https://img.shields.io/coveralls/pinax/pinax-eventlog.svg
+            :target: https://coveralls.io/r/pinax/pinax-eventlog
+        
+        .. image:: https://img.shields.io/pypi/dm/pinax-eventlog.svg
+            :target:  https://pypi.python.org/pypi/pinax-eventlog/
+        
+        .. image:: https://img.shields.io/pypi/v/pinax-eventlog.svg
+            :target:  https://pypi.python.org/pypi/pinax-eventlog/
+        
+        .. image:: https://img.shields.io/badge/license-MIT-blue.svg
+            :target:  https://pypi.python.org/pypi/pinax-eventlog/
+        
+        
+        ``pinax-eventlog`` is a simple app that provides an easy and clean
+        interface for logging diagnostic as well as business intelligence
+        data about activity that occurs in your site.
+        
+        Out of the box using this does write to the database.
+        
+        For small sites, it should be good enough to use inline but you might at some
+        point want to consider wrapping calls to the ``log()`` method and queue them in
+        a job manager like ``celery`` or ``pyres`` so that the calls become asynchronous.
+        
+        
+        Documentation
+        -------------
+        
+        Documentation can be found at http://pinax-eventlog.rtfd.org/
+        
+        
+        History
+        -------
+        
+        This project was originally named `eventlog` and was created by the team at
+        Eldarion. It was later donated to Pinax and at that time renamed to
+        `pinax-eventlog`.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
