@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: cisco-zeus
+Version: 0.1.0
+Summary: Python client for CiscoZeus.io. It allows a user to post/query logs and metrics using Zeus.
+Home-page: https://github.com/CiscoZeus/python-zeusclient.git
+Author: Marc Solanas Tarre
+Author-email: msolanas@cisco.com
+License: Apache License 2.0
+Description: ===============================
+        Zeus Python Client
+        ===============================
+        
+        .. image:: https://magnum.travis-ci.com/CiscoZeus/python-zeusclient.svg?token=Ehc2A9GF6FzDURskVXsm&branch=master
+            :target: https://magnum.travis-ci.com/CiscoZeus/python-zeusclient
+        .. image:: https://img.shields.io/pypi/v/cisco-zeus.svg
+                :target: https://pypi.python.org/pypi/cisco-zeus
+        
+        
+        Python client for CiscoZeus.io. It allows a user to send and receive data to and from Zeus.
+        
+        * Free software: Apache License
+        * Documentation: https://cisco-zeus.readthedocs.org.
+        
+        Features
+        --------
+        
+        * Send logs and metrics to Zeus
+        * Query both logs and metrics
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-04-30)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: zeus
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
