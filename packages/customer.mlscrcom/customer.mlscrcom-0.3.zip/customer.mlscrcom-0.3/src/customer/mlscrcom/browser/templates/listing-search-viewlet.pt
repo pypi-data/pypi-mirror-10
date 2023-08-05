@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="customer.mlscrcom"
+      tal:omit-tag="">
+
+  <div id="home-search-map-wrapper"
+       tal:condition="view/available | nothing"
+       tal:on-error="nothing">
+    <article id="home-search-map">
+      <section class="map">
+        <hgroup>
+          <h1 i18n:translate="heading_find_your_home">Find your home in Costa Rica!</h1>
+          <h2 i18n:translate="heading_verified_listings">The only source for verified Real Estate Listings in the country!</h2>
+        </hgroup>
+        <img usemap="#imagemap" id="map-image" src="images/map.png" alt="Choose your region." title="Choose you region"
+             tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++customer.mlscrcom.images/map.png" />
+        
+        <map id="imagemap" name="imagemap">
+          <area onmouseout="clearbg();" onclick="fillselect('Puntarenas'); return false;"
+                onmouseover="hoverme('Puntarenas');"
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=Puntarenas;"
+                shape="poly"
+                coords="78,93,75,90,78,88,79,88,78,83,85,75,87,72,92,80,96,76,96,78,95,86,105,97,97,104,96,107,100,108,105,110,106,114,103,117,102,125,111,131,116,131,120,132,121,127,126,127,137,128,139,133,143,133,153,145,156,146,162,155,168,159,175,160,179,168,188,172,193,166,193,162,189,158,194,148,200,150,203,146,208,149,210,151,214,151,222,156,223,164,229,167,230,169,236,171,239,171,252,181,247,185,238,189,238,194,235,196,238,199,243,207,242,219,240,221,236,221,226,229,226,232,230,231,235,236,239,244,239,252,236,253,235,243,232,237,226,232,218,229,218,225,223,221,218,213,220,209,217,205,212,206,208,203,205,203,201,196,191,200,194,203,194,206,197,210,203,212,206,214,208,221,207,226,195,221,183,220,176,210,172,209,172,203,179,200,179,196,180,194,180,191,182,190,179,171,177,171,167,162,164,161,162,158,159,156,153,151,147,148,143,146,140,146,136,141,132,138,131,135,128,137,123,138,121,135,110,133,105,132,101,129,97,123,98,120,102,116,96,109,94,106,94,101,91,100,89,96,82,96,76,102,78,104,78,109,82,111,77,116,74,118,71,118,73,121,66,123,64,132,62,132,58,125,54,119,57,116,57,109,55,105,52,101,52,101,49,101,50,98,58,98,63,99,68,98,70,100,75,102,81,95,81,95,76,92,76,92"
+                href="?form.widgets.location_state%3Alist=Puntarenas" alt="Puntarenas" title="Puntarenas">
+           <area onmouseout="clearbg();" onclick="fillselect('SanJose'); return false;"
+                onmouseover="hoverme('SanJose');"
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=San+Jos%5Cxe9"
+                shape="poly"
+                coords="194,148,188,158,192,163,192,167,187,171,179,166,175,159,164,157,158,145,154,145,145,135,144,132,140,132,139,127,129,126,127,125,126,126,121,126,118,131,117,130,110,129,103,123,105,116,108,115,106,111,107,110,115,105,124,105,128,107,135,103,147,100,153,98,150,90,155,88,160,99,146,103,147,108,141,112,147,120,151,117,156,124,162,124,169,129,169,132,176,133,179,132,190,138,193,148"
+                href="form.widgets.location_state%3Alist=San+Jos%5Cxe9" alt="San Jos&eacute;" title="San Jos&eacute;">
+           <area onmouseout="clearbg();" onclick="fillselect('Cartago'); return false;"
+                onmouseover="hoverme('Cartago');"
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=Cartago"
+                shape="poly"
+                coords="155,88,182,100,200,99,201,111,187,131,187,135,177,130,174,132,171,132,171,129,164,126,163,123,156,122,152,115,146,117,143,111,151,108,150,103,162,100,156,88"
+                href="?form.widgets.location_state%3Alist=Cartago" alt="Cartago" title="Cartago">
+          <area onmouseout="clearbg();" onclick="fillselect('Limon'); return false;"
+                onmouseover="hoverme('Limon');" 
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=Lim%5Cxf3n"
+                shape="poly" 
+                coords="173,34,176,35,176,22,182,30,190,61,223,98,226,95,227,103,246,123,253,123,260,128,264,133,260,134,260,142,256,138,251,133,247,130,245,130,242,127,237,130,242,137,235,139,235,169,232,168,226,164,224,163,223,155,219,154,217,152,214,151,210,151,208,149,206,148,203,145,200,149,195,147,187,132,195,123,202,113,202,98,184,100,154,86,165,72,161,65,167,59,167,48,172,42,171,38,172,33"
+                href="?form.widgets.location_state%3Alist=Lim%5Cxf3n" alt="Lim&oacute;n" title="Lim&oacute;n">
+          <area onmouseout="clearbg();" onclick="fillselect('Heredia'); return false;"
+                onmouseover="hoverme('Heredia');"
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=Heredia"
+                shape="poly"
+                coords="139,37,139,103,152,98,147,91,163,72,159,65,164,61,164,49,169,44,171,33,157,41,147,34,143,37,140,38,138,38"
+                href="?form.widgets.location_state%3Alist=Heredia" alt="Heredia" title="Heredia">
+          <area onmouseout="clearbg();" onclick="fillselect('Alajuela'); return false;"
+                onmouseover="hoverme('Alajuela');"
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=Alajuela"
+                shape="poly"
+                coords="55,12,79,24,96,10,113,19,118,21,123,16,125,25,134,29,134,34,138,36,138,102,127,103,118,103,106,108,97,107,107,97,96,86,99,76,96,75,92,79,89,72,91,56,65,37,53,32,41,25,45,14,51,16,55,12"
+                href="?form.widgets.location_state%3Alist=Alajuela" alt="Alajuela" title="Alajuela">
+          <area nmouseout="clearbg();" onclick="fillselect('Guanacaste'); return false;"
+                onmouseover="hoverme('Guanacaste');"
+                tal:attributes="href string:${view/form/action}?form.widgets.location_state%3Alist=Guanacaste"
+                shape="poly"
+                coords="51,12,24,0,18,12,22,14,16,16,17,23,1,23,7,30,18,32,21,41,19,51,19,53,12,55,8,56,14,60,5,66,7,73,4,77,22,105,45,110,55,118,56,111,53,103,49,102,49,98,58,97,58,92,55,91,50,88,50,84,56,82,67,84,70,82,76,87,81,79,89,70,89,56,74,48,65,41,53,35,39,24,41,19,46,14,53,14,51,12,48,12"
+                href="?form.widgets.location_state%3Alist=Guanacaste" alt="Guanacaste" title="Guanacaste">
+        </map>
+
+        <div tal:replace="structure view/form/render | nothing" tal:on-error="nothing"></div>
+
+        <div class='more-options'><a href="#" i18n:translate="text_more_options" tal:attributes="href view/form/action | nothing">Advanced Search</a></div>
+      </section>
+      <div id="search-steps-wrapper">
+        <section class="search-steps">
+          <h1 class="hide" i18n:translate="text_4steps_to_find">4 steps to find your home</h1>
+          <figure>
+            <img src="images/search-steps.jpg" alt="4 steps to find your home" title="4 steps to find your home"
+                 tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++customer.mlscrcom.images/search-steps.jpg" />
+            <figcaption><small i18n:translate="text_4steps_to_find">4 steps to find your home</small></figcaption>
+          </figure>
+          <ol>
+            <li class="button-01"><div><a i18n:translate="text_search_properties" tal:attributes="href string:${view/stepone |nothing}">Search properties</a></div></li>
+            <li class="button-02"><div><a i18n:translate="text_contact_agent" >Contact agent</a><small i18n:translate="text_coming_soon">(coming soon)</small></div></li>
+            <li class="button-03"><div><a i18n:translate="text_select_lawyer">Select lawyer</a> <small i18n:translate="text_coming_soon">(coming soon)</small></div></li>
+            <li class="last button-04"><div><a i18n:translate="text_find_mortage" >Find mortgage</a> <small i18n:translate="text_coming_soon">(coming soon)</small></div></li>
+          </ol>
+        </section>
+      </div>
+    </article>
+  </div>
+
+</html>

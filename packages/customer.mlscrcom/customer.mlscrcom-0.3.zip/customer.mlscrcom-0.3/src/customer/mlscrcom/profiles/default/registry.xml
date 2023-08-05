@@ -1,0 +1,233 @@
+<registry>
+  <records interface="customer.mlscrcom.interfaces.IMLSCRComSettings" />
+
+  <!-- customer.mlscrcom settings. -->
+  <!-- =========================== -->
+  <record
+      field="articles_count"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.articles_count">
+    <value>8</value>
+  </record>
+
+  <record
+      field="articles_url_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.articles_url_en">
+    <value>articles</value>
+  </record>
+
+  <record
+      field="articles_url_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.articles_url_es">
+    <value>articulos</value>
+  </record>
+
+  <record
+      field="events_count"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.events_count">
+    <value>3</value>
+  </record>
+
+  <record
+      field="events_state"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.events_state">
+    <value>
+      <element>published</element>
+    </value>
+  </record>
+
+  <record
+      field="heading_agent_locator_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_agent_locator_en">
+    <value>Agent Locator</value>
+  </record>
+
+  <record
+      field="heading_agent_locator_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_agent_locator_es">
+    <value>Localizador de Agente</value>
+  </record>
+
+  <record
+      field="heading_articles_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_articles_en">
+    <value>Articles</value>
+  </record>
+
+  <record
+      field="heading_articles_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_articles_es">
+    <value>Art&#237;culos</value>
+  </record>
+
+  <record
+      field="heading_latest_listings_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_latest_listings_en">
+    <value>Latest Listings</value>
+  </record>
+
+  <record
+      field="heading_latest_listings_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_latest_listings_es">
+    <value>Ultimos Listados</value>
+  </record>
+
+  <record
+      field="heading_news_events_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_news_events_en">
+    <value>News &amp; Events</value>
+  </record>
+
+  <record
+      field="heading_news_events_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_news_events_es">
+    <value>Noticias y Eventos</value>
+  </record>
+
+  <record
+      field="heading_offering_seekings_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_offering_seekings_en">
+    <value>Offering / Seeking Requests</value>
+  </record>
+
+  <record
+      field="heading_offering_seekings_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.heading_offering_seekings_es">
+    <value>Ofreciendo / Buscando</value>
+  </record>
+
+  <record
+      field="news_count"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.news_count">
+    <value>3</value>
+  </record>
+
+  <record
+      field="news_state"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.news_state">
+    <value>
+      <element>published</element>
+    </value>
+  </record>
+
+  <record
+      field="recent_listings_count"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.recent_listings_count">
+    <value>5</value>
+  </record>
+
+  <record
+      field="recent_listings_url_en"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.recent_listings_url_en">
+    <value>recent-listings</value>
+  </record>
+
+  <record
+      field="recent_listings_url_es"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.recent_listings_url_es">
+    <value>ultimas-listados</value>
+  </record>
+
+  <record
+      field="show_listing_quick_search"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.show_listing_quick_search">
+    <value>False</value>
+  </record>
+
+  <record
+      field="show_listing_search"
+      interface="customer.mlscrcom.interfaces.IMLSCRComSettings"
+      name="customer.mlscrcom.interfaces.IMLSCRComSettings.show_listing_search">
+    <value>True</value>
+  </record>
+
+
+  <!-- plone.mls.core settings. -->
+  <!-- ======================== -->
+  <record
+      field="agency_id"
+      interface="plone.mls.core.interfaces.IMLSSettings"
+      name="plone.mls.core.interfaces.IMLSSettings.agency_id">
+    <value>cccbr</value>
+  </record>
+
+  <record
+      field="mls_key"
+      interface="plone.mls.core.interfaces.IMLSSettings"
+      name="plone.mls.core.interfaces.IMLSSettings.mls_key">
+    <value>IULtjlczY6l5zHZLi6jbGPUUqc2jCvD93kxBbnl1ueA</value>
+  </record>
+
+  <record
+      field="mls_site"
+      interface="plone.mls.core.interfaces.IMLSSettings"
+      name="plone.mls.core.interfaces.IMLSSettings.mls_site">
+    <value>http://mls.mls-cr.com/</value>
+  </record>
+
+
+  <!-- plone.mls.listing settings. -->
+  <!-- =========================== -->
+  <record
+      field="geographic_types_priority"
+      interface="plone.mls.listing.interfaces.IMLSVocabularySettings"
+      name="plone.mls.listing.interfaces.IMLSVocabularySettings.geographic_types_priority">
+    <value>highland_forest, dry_forest, swamp_forest, rain_forest, cloud_forest</value>
+  </record>
+
+  <record
+      field="listing_types_priority"
+      interface="plone.mls.listing.interfaces.IMLSVocabularySettings"
+      name="plone.mls.listing.interfaces.IMLSVocabularySettings.listing_types_priority">
+    <value>rs, ll, cs, rl, cl</value>
+  </record>
+
+  <record
+      field="location_types_priority"
+      interface="plone.mls.listing.interfaces.IMLSVocabularySettings"
+      name="plone.mls.listing.interfaces.IMLSVocabularySettings.location_types_priority">
+    <value>urban, oceanfront, riverfront, rural, oceanvicinity, lakefront, mountain</value>
+  </record>
+
+  <record
+      field="object_types_priority"
+      interface="plone.mls.listing.interfaces.IMLSVocabularySettings"
+      name="plone.mls.listing.interfaces.IMLSVocabularySettings.object_types_priority">
+    <value>apartment, agricultural_land, office_condo, condominium, construction_site, commercial_condo, house, development_land, mixed_use_building, freestanding_villa, protected_area, strip_center_unit, townhouse, hotel_hostel, strip_center_complex, freestanding_building, restaurant, multiplex, multi_unit_building, bar_nightclub, retail_singleplex, half_duplex, medical_facility, warehouse</value>
+  </record>
+
+  <record
+      field="ownership_types_priority"
+      interface="plone.mls.listing.interfaces.IMLSVocabularySettings"
+      name="plone.mls.listing.interfaces.IMLSVocabularySettings.ownership_types_priority">
+    <value>fee_simple, fractional, bank_owned, concession</value>
+  </record>
+
+  <record
+      field="view_types_priority"
+      interface="plone.mls.listing.interfaces.IMLSVocabularySettings"
+      name="plone.mls.listing.interfaces.IMLSVocabularySettings.view_types_priority">
+    <value>beach_view, city_view, northern_view, ocean_view, mountain_view, southern_view, bay_view, valley_view, western_view, lake_view, greenbelt_view, eastern_view, river_view, garden_view, wooded_view, pond_view</value>
+  </record>
+
+</registry>

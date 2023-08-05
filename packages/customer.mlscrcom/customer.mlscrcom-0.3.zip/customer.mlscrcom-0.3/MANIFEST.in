@@ -1,0 +1,8 @@
+recursive-include src *
+include README.txt
+include docs/HISTORY.txt
+include docs/INSTALL.txt
+include docs/LICENSE.txt
+include docs/LICENSE.GPL
+global-exclude *pyc *.rb *.zip
+prune src/customer/mlscrcom/resources/sass
