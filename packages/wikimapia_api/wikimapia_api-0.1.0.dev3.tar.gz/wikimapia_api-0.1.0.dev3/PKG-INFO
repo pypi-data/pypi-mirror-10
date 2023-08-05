@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: wikimapia_api
+Version: 0.1.0.dev3
+Summary: Wikimapia API Python Implementation
+Home-page: https://github.com/plandex/wikimapia-api-py/
+Author: Alexey Ovchinnikov
+Author-email: alexey.ovchinnikov@yandex.ru
+License: MIT
+Description: Wikimapia API for Python
+        ========================
+        
+        Wikimapia_ is an open-content collaborative map project. This library is a
+        Python (2.7, 3.3 and 3.4) implementation of wikimapia api_.
+        
+        Documentation available in tutorial_.
+        
+        .. _Wikimapia: http://wikimapia.org
+        .. _api: http://wikimapia.org/api
+        .. _tutorial: http://wikimapia-api-py.readthedocs.org/en/latest/tutorial.html
+        
+Keywords: wikimapia api geo map
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
