@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: Lekha
+Version: 0.2.0
+Summary: A simple PDF viewer
+Home-page: http://www.enlightenment.org/
+Author: Kai Huuhko
+Author-email: kai.huuhko@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: efl enlightenment pdf
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: X11 Applications
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Other/Nonlisted Topic
+Requires: efl (>=1.14.0)
+Requires: PyPDF2
+Requires: xdg
