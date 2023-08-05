@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.py
+monocle_googlemap/__init__.py
+monocle_googlemap/admin.py
+monocle_googlemap/models.py
+monocle_googlemap/monocle.py
+monocle_googlemap/widgets.py
+monocle_googlemap.egg-info/PKG-INFO
+monocle_googlemap.egg-info/SOURCES.txt
+monocle_googlemap.egg-info/dependency_links.txt
+monocle_googlemap.egg-info/top_level.txt
+monocle_googlemap/fixtures/monocle_googlemap.json
+monocle_googlemap/static/monocle_googlemap/monocle_googlemap.css
+monocle_googlemap/static/monocle_googlemap/monocle_googlemap.js
+monocle_googlemap/templates/monocle_googlemap/monocle_googlemap.html
