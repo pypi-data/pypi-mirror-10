@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: django-rest-framework-timedeltafield
+Version: 0.0.2
+Summary: Django Rest Framework serializer field for timedelta fields.
+Home-page: https://github.com/RyanPineo/django-rest-framework-timedelta-field
+Author: Ryan Pineo
+Author-email: ryanpineo@gmail.com
+License: UNKNOWN
+Description: django-rest-framework-timedelta-field
+        ======================================
+        
+        A django rest framework serializer field to be used with
+        django-timedelta-field_.
+        
+        .. _django-tiedelta-field: https://pypi.python.org/pypi/django-timedeltafield
+        
+Platform: UNKNOWN
