@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: check-graylog-lag
+Version: 1.0.1
+Summary: Nagios plugin to check graylog lag
+Home-page: https://github.com/fungusakafungus/check-graylog-lag
+Author: Ilya Margolin
+Author-email: ilya@jimdo.com
+License: UNKNOWN
+Description: # check-graylog-lag
+        Nagios plugin to check graylog lag
+        
+        Checks graylog lag (and general availability), by searching for recent messages and inspecting the
+        timestamp of latest message.
+        
+Platform: UNKNOWN
+Classifier: Topic :: System :: Monitoring
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
