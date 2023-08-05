@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Setup e gestione progetti &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../index.html" />
+    <link rel="next" title="Struttura e Workflow" href="workflow.html" />
+    <link rel="prev" title="Documentation" href="../jumbo/docs.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="workflow.html" title="Struttura e Workflow"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../jumbo/docs.html" title="Documentation"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="setup-e-gestione-progetti">
+<span id="management"></span><h1>Setup e gestione  progetti<a class="headerlink" href="#setup-e-gestione-progetti" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Struttura e Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buildout.html">Installazione con buildout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buildout.html#possibili-alternative">Possibili alternative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout.html#buildout-in-pratica">Buildout in pratica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout.html#configurazioni-una-tantum">Configurazioni una tantum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout.html#struttura-cartelle">Struttura cartelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout.html#buildout-cfg">buildout.cfg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildout.html#setup-py">setup.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buildout-manual.html">Buildout: installazione manuale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#jmb-start">jmb-start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#dj">dj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#py">py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#ipy">ipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#jmb-test-setup">jmb-test-setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#jmb-prepare">jmb-prepare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#jmb-go">jmb-go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#jmb-sync">jmb-sync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#jmb-deps">jmb-deps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#wsgi">wsgi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#creazione-link-simbolici">Creazione link simbolici</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#documentazione">Documentazione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#test">Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#default-settings">Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#jmb-core-settings">jmb.core settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#reset-password">reset_password</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../jumbo/docs.html"
+                          title="Previous page">&larr; Documentation</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="workflow.html"
+                          title="Next page">&rarr; Struttura e Workflow</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/management/content.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="workflow.html" title="Struttura e Workflow"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../jumbo/docs.html" title="Documentation"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

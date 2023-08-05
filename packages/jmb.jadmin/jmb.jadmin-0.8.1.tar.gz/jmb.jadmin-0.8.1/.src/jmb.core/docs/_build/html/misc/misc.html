@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenOffice Utils via appy.pod &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../index.html" />
+    <link rel="up" title="Misc: info ed utilità varie" href="content.html" />
+    <link rel="next" title="OpenOffice utils" href="old_ooo.html" />
+    <link rel="prev" title="Misc: info ed utilità varie" href="content.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="old_ooo.html" title="OpenOffice utils"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="content.html" title="Misc: info ed utilità varie"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" accesskey="U">Misc: info ed utilità varie</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="module-jmb.core.utils.appypod"></span><div class="section" id="openoffice-utils-via-appy-pod">
+<span id="appypod"></span><h1>OpenOffice Utils via <tt class="docutils literal"><span class="pre">appy.pod</span></tt><a class="headerlink" href="#openoffice-utils-via-appy-pod" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Nuovo</p>
+<p class="last">Questo modulo rimpiazza <a class="reference internal" href="old_ooo.html#ooutils"><em>OpenOffice utils</em></a></p>
+</div>
+<p>Il modulo utilizza la libreria <a class="reference external" href="http://appyframework.org/">appy.pod</a> per generare documenti a partire da 
+un template in formato <tt class="docutils literal"><span class="pre">.odt</span></tt>.</p>
+<p>Esempio d&#8217;uso:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="kn">from</span> <span class="nn">jmb.core.utils.appypod</span> <span class="kn">import</span> <span class="n">AppyPodTemplate</span>
+
+<span class="k">def</span> <span class="nf">example_view_pdf</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s">&quot;&lt;name&gt;&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">&quot;&lt;last_name&gt;&quot;</span><span class="p">)</span>
+    <span class="n">appy_pod_template</span> <span class="o">=</span> <span class="n">AppyPodTemplate</span><span class="p">(</span><span class="s">&#39;admin/fax/cover.odt&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">appy_pod_template</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span> <span class="n">content_type</span><span class="o">=</span><span class="s">&quot;application/pdf&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">example_view_odt</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s">&quot;&lt;name&gt;&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">&quot;&lt;last_name&gt;&quot;</span><span class="p">)</span>
+    <span class="n">appy_pod_template</span> <span class="o">=</span> <span class="n">AppyPodTemplate</span><span class="p">(</span><span class="s">&#39;admin/fax.cover.odt&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">appy_pod_template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">file_type</span><span class="o">=</span><span class="s">&quot;odt&quot;</span><span class="p">),</span> 
+                        <span class="n">content_type</span><span class="o">=</span><span class="s">&quot;application/vnd.oasis.opendocument.text&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="views">
+<h2>views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<p>jmb.core also provides <a class="reference internal" href="#class-based-odt"><em>Class Based Views</em></a></p>
+</div>
+<div class="section" id="conversion">
+<h2>conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h2>
+<p>A conversion utility is provided that uses OpenOffice/LibreOffice to
+convert among possible formats. Tipical usage allows to convert bunch
+of documents toghether, passing both patterns of directory to
+transverse and patterns:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">jmb.core.utils</span> <span class="kn">import</span> <span class="n">appypod</span>
+
+<span class="n">appypod</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">name_pattern</span><span class="o">=</span><span class="s">&#39;/tmp/report.odt&#39;</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="s">&#39;doc&#39;</span><span class="p">)</span>
+<span class="n">appypod</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="s">&#39;/home/data/fax&#39;</span><span class="p">,</span> <span class="n">name_pattern</span><span class="o">=</span><span class="s">&quot;*doc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">JMB_OOO_SERVER_POR:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">port at which OpenOffice/LibreOffice is listening. Default: 8100</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">JMB_OOO_UNO_PYTHON_PATH:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">Alternative python interpreter that has &#8216;uno&#8217; python module</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="jmb.core.utils.appypod.AppyPodTemplate">
+<em class="property">class </em><tt class="descclassname">jmb.core.utils.appypod.</tt><tt class="descname">AppyPodTemplate</tt><big>(</big><em>template=None</em>, <em>context=None</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/utils/appypod.html#AppyPodTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.utils.appypod.AppyPodTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface to get handle templates in .odt, .ods</p>
+<p>Object init function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>template</strong> &#8211; (string) template file to render. Std django search is performed</li>
+<li><strong>context</strong> &#8211; context to be used on template rendering</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="jmb.core.utils.appypod.AppyPodTemplate.render">
+<tt class="descname">render</tt><big>(</big><em>file_type='pdf'</em>, <em>context=None</em>, <em>forceOoCall=False</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/utils/appypod.html#AppyPodTemplate.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.utils.appypod.AppyPodTemplate.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instance render function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>file_type</strong> &#8211; output file extension</li>
+<li><strong>context</strong> &#8211; context (default: self.context)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">generated file stream if created, else None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.utils.appypod.AppyPodTemplate.save_as">
+<tt class="descname">save_as</tt><big>(</big><em>output_path=None</em>, <em>file_type=None</em>, <em>context=None</em>, <em>forceOoCall=False</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/utils/appypod.html#AppyPodTemplate.save_as"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.utils.appypod.AppyPodTemplate.save_as" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the template into file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>output_path</strong> &#8211; the output path</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the open handler of the generated file</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">templ</span> <span class="o">=</span> <span class="n">AppyPodTemplate</span><span class="p">(</span><span class="s">&#39;admin/fax/cover.odt&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="n">templ</span><span class="o">.</span><span class="n">save_as</span><span class="p">(</span><span class="s">&#39;/tmp/fax.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.utils.appypod.AppyPodTemplate.set_template">
+<tt class="descname">set_template</tt><big>(</big><em>template_names</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/utils/appypod.html#AppyPodTemplate.set_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.utils.appypod.AppyPodTemplate.set_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set template. The first existing template according to standard django search is used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>template</strong> &#8211; (string or list) template file to render.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="jmb.core.utils.appypod.convert">
+<tt class="descclassname">jmb.core.utils.appypod.</tt><tt class="descname">convert</tt><big>(</big><em>name_pattern</em>, <em>result_type='pdf'</em>, <em>tree=None</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/utils/appypod.html#convert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.utils.appypod.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call LibreOffice in server mode to convert or update the result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name_pattern</strong> &#8211; the file name to be converted. A list,
+a set, a tuple of filenames or a glob pattern is accepted. If <cite>tree</cite> is defined
+<cite>name_pattern</cite> is interpreted as a pattern.</li>
+<li><strong>file_type</strong> &#8211; the resul_type desired (default: pdf)</li>
+<li><strong>tree</strong> &#8211; if tree is defined the whole directory is traversed for pattern
+and name_pattern is interpreted as a pattern</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<span class="target" id="module-jmb.core.views.odt"></span><div class="section" id="odttemplateview">
+<span id="class-based-odt"></span><h1>OdtTemplateView<a class="headerlink" href="#odttemplateview" title="Permalink to this headline">¶</a></h1>
+<p>these views are Class Views implementation that return a response to serve 
+<tt class="docutils literal"><span class="pre">pdf</span></tt>, <tt class="docutils literal"><span class="pre">odt</span></tt> or <tt class="docutils literal"><span class="pre">ods</span></tt> files. It&#8217;s pretty easy to create a view that 
+is <a class="reference internal" href="#appypod"><em>not class based</em></a> so I&#8217;m not stating this is really needed, 
+but you may prefere this approach.</p>
+<div class="section" id="variants">
+<h2>variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2"><a class="reference internal" href="#jmb.core.views.odt.PdfTemplateView" title="jmb.core.views.odt.PdfTemplateView"><tt class="xref py py-class docutils literal"><span class="pre">PdfTemplateView</span></tt></a>:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">return a Pdf object</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2"><a class="reference internal" href="#jmb.core.views.odt.OdtTemplateView" title="jmb.core.views.odt.OdtTemplateView"><tt class="xref py py-class docutils literal"><span class="pre">OdtTemplateView</span></tt></a>:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">return a Odt object</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2"><a class="reference internal" href="#jmb.core.views.odt.OdsTemplateView" title="jmb.core.views.odt.OdsTemplateView"><tt class="xref py py-class docutils literal"><span class="pre">OdsTemplateView</span></tt></a>:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">return a Ods object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>A simple example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyPdfTemplateView</span><span class="p">(</span><span class="n">PdfTemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="n">app_label</span><span class="o">/</span><span class="n">template</span><span class="o">.</span><span class="n">odt</span>
+
+<span class="k">class</span> <span class="nc">MyOdtTemplateView</span><span class="p">(</span><span class="n">PdfTemplateView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="n">app_label</span><span class="o">/</span><span class="n">template</span><span class="o">.</span><span class="n">odt</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+     <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^pdf/(?P&lt;slug&gt;[a-zA-Z-]+)/$&#39;</span><span class="p">,</span> <span class="n">MyPdfTemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>  <span class="n">name</span><span class="o">=</span><span class="s">&#39;pdf_detail&#39;</span><span class="p">)</span>
+     <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^odt/(?P&lt;slug&gt;[a-zA-Z-]+)/$&#39;</span><span class="p">,</span> <span class="n">MyOdtTemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>  <span class="n">name</span><span class="o">=</span><span class="s">&#39;odt_detail&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="debug">
+<h2>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
+<p>Since it&#8217;s pretty standard to create the .odt template via try and fix 
+you can create a method named debug_template to step into and just lanch 
+creation of the file w/o recreating the context:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">debug_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+      <span class="n">template</span><span class="o">.</span><span class="n">save_as</span><span class="p">(</span><span class="s">&#39;/tmp/output.odt&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+      <span class="kn">import</span> <span class="nn">ipdb</span><span class="p">;</span> <span class="n">ipdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>API<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin">
+<em class="property">class </em><tt class="descclassname">jmb.core.views.odt.</tt><tt class="descname">OdtTemplateResponseMixin</tt><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdtTemplateResponseMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A mixin class that implements Odt rendering and Django response construction.</p>
+<dl class="attribute">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.attachment">
+<tt class="descname">attachment</tt><em class="property"> = False</em><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.attachment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean. Add &#8216;attachment;&#8217; to Content-Disposition so that a popup queringwhat to do
+is triggerend rather that in-browser representation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.forceOoCall">
+<tt class="descname">forceOoCall</tt><em class="property"> = False</em><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.forceOoCall" title="Permalink to this definition">¶</a></dt>
+<dd><p>forces use of openoffice even if the output is and odt file (passed to appyod render)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.get_output_filename">
+<tt class="descname">get_output_filename</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdtTemplateResponseMixin.get_output_filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.get_output_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="xref py py-attr docutils literal"><span class="pre">pdf_filename</span></tt> value by default.</p>
+<p>If left blank the browser will display the Odt inline.
+Otherwise it will pop up the &#8220;Save as..&#8221; dialog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.get_response">
+<tt class="descname">get_response</tt><big>(</big><em>context</em>, <em>**response_kwargs</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdtTemplateResponseMixin.get_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.get_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders Odt document and prepares response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>context</strong> &#8211; the context</li>
+<li><strong>response_kwargs</strong> &#8211; received from <a class="reference internal" href="#jmb.core.views.odt.OdtTemplateResponseMixin.render_to_response" title="jmb.core.views.odt.OdtTemplateResponseMixin.render_to_response"><tt class="xref py py-meth docutils literal"><span class="pre">render_to_response()</span></tt></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a rendered template (.pdf, .odt or .ods document)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.get_template_names">
+<tt class="descname">get_template_names</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdtTemplateResponseMixin.get_template_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.get_template_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the template names (string or list)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.output_type">
+<tt class="descname">output_type</tt><em class="property"> = None</em><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.output_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of the output; used to set content-type appropriately</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.views.odt.OdtTemplateResponseMixin.render_to_response">
+<tt class="descname">render_to_response</tt><big>(</big><em>context</em>, <em>**response_kwargs</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdtTemplateResponseMixin.render_to_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateResponseMixin.render_to_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a rendered template as an HttpRespons
+:rtype: <tt class="xref py py-class docutils literal"><span class="pre">django.http.HttpResponse</span></tt></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jmb.core.views.odt.PdfTemplateView">
+<em class="property">class </em><tt class="descclassname">jmb.core.views.odt.</tt><tt class="descname">PdfTemplateView</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#PdfTemplateView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.PdfTemplateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete view for serving Pdf files.</p>
+<p>Constructor. Called in the URLconf; can contain helpful extra
+keyword arguments, and other things.</p>
+<dl class="method">
+<dt id="jmb.core.views.odt.PdfTemplateView.get">
+<tt class="descname">get</tt><big>(</big><em>request</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#PdfTemplateView.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.PdfTemplateView.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles GET request and returns HTTP response.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="jmb.core.views.odt.OdtTemplateView">
+<em class="property">class </em><tt class="descclassname">jmb.core.views.odt.</tt><tt class="descname">OdtTemplateView</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdtTemplateView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdtTemplateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete view for serving Odt files.</p>
+<p>Constructor. Called in the URLconf; can contain helpful extra
+keyword arguments, and other things.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="jmb.core.views.odt.OdsTemplateView">
+<em class="property">class </em><tt class="descclassname">jmb.core.views.odt.</tt><tt class="descname">OdsTemplateView</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/jmb/core/views/odt.html#OdsTemplateView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.views.odt.OdsTemplateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete view for serving Ods files.</p>
+<p>Constructor. Called in the URLconf; can contain helpful extra
+keyword arguments, and other things.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">OpenOffice Utils via <tt class="docutils literal"><span class="pre">appy.pod</span></tt></a><ul>
+<li><a class="reference internal" href="#views">views</a></li>
+<li><a class="reference internal" href="#conversion">conversion</a></li>
+<li><a class="reference internal" href="#settings">settings</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#odttemplateview">OdtTemplateView</a><ul>
+<li><a class="reference internal" href="#variants">variants</a></li>
+<li><a class="reference internal" href="#examples">examples</a></li>
+<li><a class="reference internal" href="#debug">debug</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">API</a></li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="content.html"
+                          title="Previous page">&larr; Misc: info ed utilità varie</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="old_ooo.html"
+                          title="Next page">&rarr; OpenOffice utils</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/misc/misc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="old_ooo.html" title="OpenOffice utils"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="content.html" title="Misc: info ed utilità varie"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" >Misc: info ed utilità varie</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

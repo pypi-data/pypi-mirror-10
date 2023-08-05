@@ -1,0 +1,59 @@
+{%- macro render_entry(name, info) %}
+   {% if name == '--' %}
+        <li class="divider">
+   {% else %}
+       {%- if info.sub %}
+	 {% set href="#" %}
+	 {% set cl='class="dropdown"' %}
+	 {% set span='<span class="caret"></span>' %}
+	 {% set cldropdown='class="dropdown-toggle" data-toggle="dropdown"' %}
+       {% elif info.href %}
+	 {% set href=pathto(info.href, info.static) %}
+       {% elif info.ref %}
+	 {% set href=linkto(info.ref) %}
+       {% endif %}
+       <li {{cl}} >
+	 <a href="{{href}}" {{cldropdown}}>{{ name }}{{span}}</a>  
+       {%- if info.sub %}
+	  <ul class="dropdown-menu" role="menu">   
+	  {%- for link in info.sub %}
+	       {{render_entry(link[0], link[1])}}
+	  {% endfor %}
+	  </ul>
+       {% endif %}
+   {% endif -%}
+   </li>
+{% endmacro %}
+  <nav id="navbar" class="{{ theme_navbar_class }} navbar-default {%
+			  if theme_navbar_fixed_top|tobool -%}
+			  navbar-fixed-top{%- endif -%}" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% if theme_logo_link -%}{{theme_logo_link}}
+				  {%else-%}{{ pathto(master_doc) }}{%- endif%}">
+          {%- if logo -%}<img src="{{ pathto('_static/' + logo, 1)}}">
+          {%- elif theme_logo -%}<img src="{{ pathto('_static/' + theme_logo, 1)}}">
+          {%- endif -%}
+          {%- if theme_navbar_title -%}{{ theme_navbar_title|e }}{%- endif -%}
+        </a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+            {%- if theme_navbar_links %}
+              {%- for link in theme_navbar_links %}
+	        {{ render_entry(link[0], link[1]) }}
+              {%- endfor %}
+            {% endif %}
+          </ul>
+
+        </div>
+    </div>
+  </nav>

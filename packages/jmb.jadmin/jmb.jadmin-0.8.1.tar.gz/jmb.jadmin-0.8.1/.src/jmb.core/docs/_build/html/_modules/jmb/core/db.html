@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>jmb.core.db &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for jmb.core.db</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">.. _model-mixin:</span>
+
+<span class="sd">===========</span>
+<span class="sd">ModelMixin</span>
+<span class="sd">===========</span>
+
+<span class="sd">the problem</span>
+<span class="sd">============</span>
+
+<span class="sd">Each application needs to enrich models of other application with methods that should live </span>
+<span class="sd">on the &quot;foreign&quot; application. As an example, suppose to have application ``jmb.fax`` that</span>
+<span class="sd">need to define ``get_fax_description`` on the the :class:`Organization` instances to </span>
+<span class="sd">properly display fax information in its completion widget.</span>
+
+<span class="sd">Since ``jmb.organization`` may well live w/o ``jmb.fax`` (does not depend on it) it&#39;s a </span>
+<span class="sd">mistake to add that method to Organization *unless* ``jmb.fax`` is declared in the</span>
+<span class="sd">``INSTALLED_APPS``.</span>
+
+<span class="sd">the solution</span>
+<span class="sd">============</span>
+
+<span class="sd">Each application can create a file called ``mixins`` that holds all mixins that want</span>
+<span class="sd">foreign application to provide. Let&#39;s continue with the previous example. ``jmb.fax`` will </span>
+<span class="sd">provide :file:`jmb.fax.mixins`::</span>
+
+<span class="sd">  class OrganizationOrganizationMixin(object):</span>
+<span class="sd">      def get_fax_description(self):</span>
+<span class="sd">          return &quot;%s [%s]&quot; % (</span>
+<span class="sd">              self.name, self.fax</span>
+<span class="sd">          )</span>
+
+<span class="sd">and ``jmb.organization.models`` will define Organization models as::</span>
+
+<span class="sd">  from jmb.core import db</span>
+
+<span class="sd">  OrganizationMixin = db.get_mixin(&#39;OrganizationOrganizationMixin&#39;)</span>
+<span class="sd">  class Organization (DateModel, UserModel, StatusModel, OrderedModel, OrganizationMixin):</span>
+<span class="sd">     ...</span>
+
+<span class="sd">Clearly this is based on the name convention that mixins area called in an univocal way. </span>
+<span class="sd">We choose to use app_label, model_name, Mixin as in ``OrganizationOrganizationMixin``.</span>
+
+<span class="sd">The mixin module is read when models are written, it&#39;s important to prevent any circular </span>
+<span class="sd">dependency. It&#39;s probably a good idea to make all imports within methods. No check is done </span>
+<span class="sd">that method names don&#39;t clash eash other, that&#39;s up to the programmer</span>
+
+<span class="sd">The result is::</span>
+
+<span class="sd">  In [1]: from jmb.organization import models</span>
+<span class="sd">  In [2]: thu = models.Organization.objects.get(name=&#39;Thunder Systems Srl&#39;)</span>
+<span class="sd">  In [3]: t1.get_fax_description()</span>
+<span class="sd">  Out[3]: u&#39;Thunder Systems Srl -  [02.58018012]&#39;</span>
+
+<span class="sd">API</span>
+<span class="sd">===</span>
+
+<span class="sd">.. autofunction:: get_mixin</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">imp</span>
+
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span> 
+
+<span class="k">class</span> <span class="nc">EmptyMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+
+<div class="viewcode-block" id="get_mixin"><a class="viewcode-back" href="../../../django/conf/db.html#jmb.core.db.get_mixin">[docs]</a><span class="k">def</span> <span class="nf">get_mixin</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a Mixin that collect all Mixins for a specific Model. It tries to import it </span>
+<span class="sd">    from all INSTALLED_APPS in module app.mixin. An empty Mixin is returned if no app </span>
+<span class="sd">    provides anything</span>
+
+<span class="sd">    :arg name: the name of the Mixin that must be looked for in all apps</span>
+<span class="sd">    :return: a mixin </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">create_mixin_list</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="p">{})</span>
+</div>
+<span class="k">def</span> <span class="nf">create_mixin_list</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">mixins</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">settings</span><span class="o">.</span><span class="n">INSTALLED_APPS</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mix</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.mixins&quot;</span> <span class="o">%</span> <span class="n">app</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="n">mixins</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">mix</span><span class="p">,</span> <span class="n">name</span><span class="p">)]</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">mixins</span> <span class="ow">or</span> <span class="p">[</span><span class="n">EmptyMixin</span><span class="p">])</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

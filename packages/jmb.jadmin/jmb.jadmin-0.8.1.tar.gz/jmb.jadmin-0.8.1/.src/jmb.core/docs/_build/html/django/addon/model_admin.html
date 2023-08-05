@@ -1,0 +1,667 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JumboModelAdmin &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../index.html" />
+    <link rel="up" title="Addon &amp; layout" href="content.html" />
+    <link rel="next" title="Admin actions" href="admin_actions.html" />
+    <link rel="prev" title="Addon &amp; layout" href="content.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="admin_actions.html" title="Admin actions"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="content.html" title="Addon &amp; layout"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../content.html" >Django: aggiunte e standardizzazioni.</a> &raquo;</li>
+          <li><a href="content.html" accesskey="U">Addon &amp; layout</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-jmb.core.admin.options">
+<span id="jumbomodeladmin"></span><span id="model-admin"></span><h1>JumboModelAdmin<a class="headerlink" href="#module-jmb.core.admin.options" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin">
+<em class="property">class </em><tt class="descclassname">jmb.core.admin.options.</tt><tt class="descname">ExtendibleModelAdmin</tt><big>(</big><em>model</em>, <em>admin_site</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.export_data_view">
+<tt class="descname">export_data_view</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.export_data_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.export_data_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>The &#8216;export data&#8217; admin view for this model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.get_action_form_instance">
+<tt class="descname">get_action_form_instance</tt><big>(</big><em>request</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.get_action_form_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.get_action_form_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an <tt class="docutils literal"><span class="pre">action_form</span></tt></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.get_changelist_instance">
+<tt class="descname">get_changelist_instance</tt><big>(</big><em>request</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.get_changelist_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.get_changelist_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a chagelist instance suitable to find out the real queryset represented bu result_list
+This function can be used in actions when the queryset is much faster then
+using the list of single ids</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.get_changelist_queryset">
+<tt class="descname">get_changelist_queryset</tt><big>(</big><em>request</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.get_changelist_queryset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.get_changelist_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a queryset that was correctly filtered by any filter (q= and filterset_class)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.get_list_per_page">
+<tt class="descname">get_list_per_page</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.get_list_per_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.get_list_per_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set how many items appear on each paginated admin change list page.
+This value is conditioned by settings.LIST_PER_PAGE.
+Example:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>LIST_PER_PAGE = {</dt>
+<dd>&#8216;content_content&#8217;: 50,
+&#8216;content&#8217;: 10,
+&#8216;all&#8217;: 100,</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.get_list_per_page_form">
+<tt class="descname">get_list_per_page_form</tt><big>(</big><em>request</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.get_list_per_page_form"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.get_list_per_page_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns number of items appear on each paginated admin change list page</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.import_data_view">
+<tt class="descname">import_data_view</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.import_data_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.import_data_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>The &#8216;import data&#8217; admin view for this model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.message_user">
+<tt class="descname">message_user</tt><big>(</big><em>request</em>, <em>message</em>, <em>level=20</em>, <em>extra_tags=''</em>, <em>fail_silently=False</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#ExtendibleModelAdmin.message_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.message_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a message to the user. The default implementation
+posts a message using the django.contrib.messages backend.</p>
+<p>Exposes almost the same API as messages.add_message(), but accepts the
+positional arguments in a different order to maintain backwards
+compatibility. For convenience, it accepts the <cite>level</cite> argument as
+a string rather than the usual level number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.tabs_show_empty">
+<tt class="descname">tabs_show_empty</tt><em class="property"> = True</em><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.tabs_show_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>tabs: show tabs even if they&#8217;re empty</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="jmb.core.admin.options.ExtendibleModelAdmin.tabs_sticky_on_top">
+<tt class="descname">tabs_sticky_on_top</tt><em class="property"> = False</em><a class="headerlink" href="#jmb.core.admin.options.ExtendibleModelAdmin.tabs_sticky_on_top" title="Permalink to this definition">¶</a></dt>
+<dd><p>tabs: show tab lables sticky on top of the page</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="jmb.core.admin.options.export_csv">
+<tt class="descclassname">jmb.core.admin.options.</tt><tt class="descname">export_csv</tt><big>(</big><em>modeladmin</em>, <em>request</em>, <em>queryset</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#export_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.export_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>action to export selected items of a changelist_view in .csv</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="jmb.core.admin.options.export_xls">
+<tt class="descclassname">jmb.core.admin.options.</tt><tt class="descname">export_xls</tt><big>(</big><em>modeladmin</em>, <em>request</em>, <em>queryset</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/options.html#export_xls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.options.export_xls" title="Permalink to this definition">¶</a></dt>
+<dd><p>action to export selected items of a changelist_view in .xls</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="../../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">JumboModelAdmin</a><ul>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="content.html"
+                          title="Previous page">&larr; Addon &amp; layout</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="admin_actions.html"
+                          title="Next page">&rarr; Admin actions</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/django/addon/model_admin.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="admin_actions.html" title="Admin actions"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="content.html" title="Addon &amp; layout"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../content.html" >Django: aggiunte e standardizzazioni.</a> &raquo;</li>
+          <li><a href="content.html" >Addon &amp; layout</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

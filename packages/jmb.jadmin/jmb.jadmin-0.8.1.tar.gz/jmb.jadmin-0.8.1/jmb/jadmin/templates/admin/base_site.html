@@ -1,0 +1,12 @@
+{% extends "django.contrib.admin:admin/base_site.html" %}
+{% load i18n  admin_static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jmb/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jmb/css/ui/jquery-ui-1.10.3.custom.css "/>
+    <script src="{{ STATIC_URL }}jmb/js/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}jmb/js/jquery.ui.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}jmb/js/jmb.core.js"></script>
+{% endblock %}

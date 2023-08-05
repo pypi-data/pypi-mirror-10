@@ -1,0 +1,758 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>jmb.core.utils.appypod &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for jmb.core.utils.appypod</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. _appypod:</span>
+
+<span class="sd">OpenOffice Utils via ``appy.pod``</span>
+<span class="sd">=================================</span>
+
+<span class="sd">.. note:: Nuovo</span>
+
+<span class="sd">   Questo modulo rimpiazza :ref:`ooutils`</span>
+
+
+<span class="sd">Il modulo utilizza la libreria appy.pod_ per generare documenti a partire da </span>
+<span class="sd">un template in formato ``.odt``. </span>
+
+<span class="sd">Esempio d&#39;uso::</span>
+
+<span class="sd">    from django.http import HttpResponse</span>
+
+<span class="sd">    from jmb.core.utils.appypod import AppyPodTemplate</span>
+
+<span class="sd">    def example_view_pdf(request):</span>
+<span class="sd">        context = dict(first_name=&quot;&lt;name&gt;&quot;, last_name=&quot;&lt;last_name&gt;&quot;)</span>
+<span class="sd">        appy_pod_template = AppyPodTemplate(&#39;admin/fax/cover.odt&#39;, context)</span>
+<span class="sd">        return HttpResponse(appy_pod_template.render(), content_type=&quot;application/pdf&quot;)</span>
+
+<span class="sd">    def example_view_odt(request):</span>
+<span class="sd">        context = dict(first_name=&quot;&lt;name&gt;&quot;, last_name=&quot;&lt;last_name&gt;&quot;)</span>
+<span class="sd">        appy_pod_template = AppyPodTemplate(&#39;admin/fax.cover.odt&#39;, context)</span>
+<span class="sd">        return HttpResponse(appy_pod_template.render(file_type=&quot;odt&quot;), </span>
+<span class="sd">                            content_type=&quot;application/vnd.oasis.opendocument.text&quot;)</span>
+
+<span class="sd">views</span>
+<span class="sd">------</span>
+
+<span class="sd">jmb.core also provides :ref:`Class Based Views &lt;class-based-odt&gt;`</span>
+
+<span class="sd">conversion</span>
+<span class="sd">----------</span>
+
+<span class="sd">A conversion utility is provided that uses OpenOffice/LibreOffice to</span>
+<span class="sd">convert among possible formats. Tipical usage allows to convert bunch</span>
+<span class="sd">of documents toghether, passing both patterns of directory to</span>
+<span class="sd">transverse and patterns::</span>
+
+<span class="sd">   from jmb.core.utils import appypod</span>
+
+<span class="sd">   appypod.convert(name_pattern=&#39;/tmp/report.odt&#39;, result_type=&#39;doc&#39;)</span>
+<span class="sd">   appypod.convert(tree=&#39;/home/data/fax&#39;, name_pattern=&quot;*doc&quot;)</span>
+
+<span class="sd">settings</span>
+<span class="sd">---------</span>
+
+<span class="sd">:JMB_OOO_SERVER_POR: port at which OpenOffice/LibreOffice is listening. Default: 8100</span>
+
+<span class="sd">:JMB_OOO_UNO_PYTHON_PATH: Alternative python interpreter that has &#39;uno&#39; python module</span>
+
+
+<span class="sd">API</span>
+<span class="sd">---</span>
+
+<span class="sd">.. autoclass:: AppyPodTemplate</span>
+<span class="sd">   :members:</span>
+
+<span class="sd">.. autofunction:: convert</span>
+
+<span class="sd">.. _appy.pod: http://appyframework.org/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">fnmatch</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
+
+<span class="kn">import</span> <span class="nn">appy.pod</span>
+<span class="kn">from</span> <span class="nn">appy.pod.converter</span> <span class="kn">import</span> <span class="n">Converter</span><span class="p">,</span> <span class="n">ConverterError</span>
+<span class="kn">from</span> <span class="nn">appy.shared.utils</span> <span class="kn">import</span> <span class="n">executeCommand</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">TemplateDoesNotExist</span>
+<span class="kn">from</span> <span class="nn">jmb.core.utils.functions</span> <span class="kn">import</span> <span class="n">get_template_abspath</span>
+<span class="kn">from</span> <span class="nn">appy.pod.renderer</span> <span class="kn">import</span> <span class="n">Renderer</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;jmb.core&#39;</span><span class="p">)</span>
+
+<span class="c"># inject_app_defaults does not work here.</span>
+<span class="n">PY_PATH</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s">&#39;JMB_OOO_UNO_PYTHON_PATH&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">OOO_PORT</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s">&#39;JMB_OOO_SERVER_PORT&#39;</span><span class="p">,</span> <span class="mi">8100</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AppyPodTemplate"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.utils.appypod.AppyPodTemplate">[docs]</a><span class="k">class</span> <span class="nc">AppyPodTemplate</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface to get handle templates in .odt, .ods</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Object init function.</span>
+
+<span class="sd">        :param template: (string) template file to render. Std django search is performed</span>
+<span class="sd">        :param context: context to be used on template rendering</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
+
+<div class="viewcode-block" id="AppyPodTemplate.set_template"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.utils.appypod.AppyPodTemplate.set_template">[docs]</a>    <span class="k">def</span> <span class="nf">set_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template_names</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set template. The first existing template according to standard django search is used.</span>
+
+<span class="sd">        :arg template: (string or list) template file to render. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">template_names</span><span class="p">:</span>
+            <span class="k">return</span> 
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">template_names</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+            <span class="n">template_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">template_names</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">templ</span> <span class="ow">in</span> <span class="n">template_names</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">templ</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">template</span> <span class="o">=</span> <span class="n">get_template_abspath</span><span class="p">(</span><span class="n">templ</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">TemplateDoesNotExist</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">templ</span><span class="p">):</span>
+                    <span class="n">template</span> <span class="o">=</span> <span class="n">templ</span>
+            <span class="k">if</span> <span class="n">template</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">template</span> <span class="o">=</span> <span class="n">template</span>
+                <span class="k">return</span> <span class="n">template</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Template </span><span class="si">%s</span><span class="s"> was not found&quot;</span> <span class="o">%</span> <span class="n">template_names</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">TemplateDoesNotExist</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AppyPodTemplate.render"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.utils.appypod.AppyPodTemplate.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s">&quot;pdf&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">forceOoCall</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Instance render function.</span>
+
+<span class="sd">        :arg file_type: output file extension</span>
+<span class="sd">        :arg context: context (default: self.context)</span>
+<span class="sd">        :return: generated file stream if created, else None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">with</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s">&#39;rwb&#39;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s">&#39;.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">file_type</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">renderer</span> <span class="o">=</span> <span class="n">Renderer</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">template</span><span class="p">,</span> <span class="n">context</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> 
+                <span class="n">ooPort</span><span class="o">=</span><span class="n">OOO_PORT</span><span class="p">,</span> 
+                <span class="n">overwriteExisting</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                <span class="n">pythonWithUnoPath</span><span class="o">=</span><span class="n">PY_PATH</span><span class="p">,</span>
+                <span class="n">forceOoCall</span><span class="o">=</span><span class="n">forceOoCall</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">renderer</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">output</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="AppyPodTemplate.save_as"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.utils.appypod.AppyPodTemplate.save_as">[docs]</a>    <span class="k">def</span> <span class="nf">save_as</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">forceOoCall</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save the template into file</span>
+
+<span class="sd">        :arg output_path: the output path</span>
+<span class="sd">        :return: the open handler of the generated file</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">          templ = AppyPodTemplate(&#39;admin/fax/cover.odt&#39;, context)</span>
+<span class="sd">          templ.save_as(&#39;/tmp/fax.pdf&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">file_type</span> <span class="ow">or</span> <span class="n">output_path</span><span class="p">,</span> <span class="s">&quot;At least one of output_path or file_type must be provided&quot;</span> 
+        <span class="n">file_type</span> <span class="o">=</span> <span class="n">file_type</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">output_path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">output_path</span><span class="p">:</span>
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s">&#39;.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">file_type</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#39;ooo_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">file_type</span><span class="o">=</span><span class="n">file_type</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">forceOoCall</span><span class="o">=</span><span class="n">forceOoCall</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">f</span>
+
+</div></div>
+<div class="viewcode-block" id="convert"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.utils.appypod.convert">[docs]</a><span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">name_pattern</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="s">&#39;pdf&#39;</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Call LibreOffice in server mode to convert or update the result.</span>
+<span class="sd">    </span>
+<span class="sd">    :arg name_pattern: the file name to be converted. A list, </span>
+<span class="sd">         a set, a tuple of filenames or a glob pattern is accepted. If `tree` is defined </span>
+<span class="sd">         `name_pattern` is interpreted as a pattern.</span>
+<span class="sd">    :arg file_type: the resul_type desired (default: pdf)</span>
+<span class="sd">    :arg tree: if tree is defined the whole directory is traversed for pattern  </span>
+<span class="sd">         and name_pattern is interpreted as a pattern</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">tree</span><span class="p">:</span>
+        <span class="n">file_names</span> <span class="o">=</span> <span class="n">recursive_glob</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">name_pattern</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_pattern</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">name_pattern</span><span class="p">):</span>
+            <span class="n">file_names</span> <span class="o">=</span> <span class="p">[</span> <span class="n">name_pattern</span> <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">file_names</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">name_pattern</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">file_names</span> <span class="o">=</span> <span class="n">name_pattern</span>
+
+    <span class="n">output_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">PY_PATH</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">Converter</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">result_type</span><span class="p">,</span> <span class="n">OOO_PORT</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+            <span class="k">except</span> <span class="n">ConverterError</span><span class="p">,</span> <span class="n">ce</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">PodError</span><span class="p">(</span><span class="n">CONVERT_ERROR</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">ce</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">PY_PATH</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">PodError</span><span class="p">(</span><span class="n">PY_PATH_NOT_FILE</span> <span class="o">%</span> <span class="n">PY_PATH</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">file_name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">qResultName</span> <span class="o">=</span> <span class="s">&#39;&quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span> <span class="o">%</span> <span class="n">file_name</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">qResultName</span> <span class="o">=</span> <span class="n">file_name</span>
+            <span class="n">convScript</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">/converter.py&#39;</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">appy</span><span class="o">.</span><span class="n">pod</span><span class="o">.</span><span class="n">__file__</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">convScript</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">convScript</span> <span class="o">=</span> <span class="s">&#39;&quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span> <span class="o">%</span> <span class="n">convScript</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> -p</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> \
+                  <span class="p">(</span><span class="n">PY_PATH</span><span class="p">,</span> <span class="n">convScript</span><span class="p">,</span> <span class="n">qResultName</span><span class="p">,</span> <span class="n">result_type</span><span class="p">,</span> <span class="n">OOO_PORT</span><span class="p">)</span>
+            <span class="n">loOutput</span> <span class="o">=</span> <span class="n">executeCommand</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+                            
+        <span class="n">output_files</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">result_type</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">output_files</span>
+</div>
+<span class="k">def</span> <span class="nf">recursive_glob</span><span class="p">(</span><span class="n">treeroot</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">base</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">treeroot</span><span class="p">):</span>
+    <span class="n">goodfiles</span> <span class="o">=</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">goodfiles</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -1,0 +1,831 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Utilities &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../index.html" />
+    <link rel="up" title="Setup e gestione progetti" href="content.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Buildout: installazione manuale" href="buildout-manual.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="buildout-manual.html" title="Buildout: installazione manuale"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" accesskey="U">Setup e gestione  progetti</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="utilities">
+<span id="buildout-utilities"></span><h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jmb-start">
+<span id="id1"></span><h2>jmb-start<a class="headerlink" href="#jmb-start" title="Permalink to this headline">¶</a></h2>
+<p>Per rendere più facile ed immediato partire con un nuovo progetto, ed in
+attesa di creare un vero sistema di templating, ho creato
+una semplice script che prende un mini-template per un progetto ed inserisce
+già la configurazione per <tt class="docutils literal"><span class="pre">buildout.cfg</span></tt>, <tt class="docutils literal"><span class="pre">setup.py</span></tt>, <tt class="docutils literal"><span class="pre">MANIFEST.in</span></tt> ed
+una intera struttura. Per un progetto sarà:</p>
+<div class="highlight-python"><div class="highlight"><pre>jmb-start -t cms -vbm nome-progetto
+</pre></div>
+</div>
+<p>o alternativamente per una app:</p>
+<div class="highlight-python"><div class="highlight"><pre>jmb-start -t japp jmb.miapp
+</pre></div>
+</div>
+<p>es:</p>
+<div class="highlight-python"><div class="highlight"><pre>jmb-start -t japp jmb.timereport
+</pre></div>
+</div>
+<p>Volendo aggiungere la struttura buildout ad un progetto esistente è
+possibile usare l&#8217;opzione <tt class="docutils literal"><span class="pre">-e</span></tt>, questa sovrascrive i file esistenti (che
+sono sicuramente sotto controllo di versione), rendendo immediato capire
+cosa va fatto per aggiornare il progetto/applicazione esistente all&#8217;ultma
+versione del relativo template</p>
+<p>È importante scrivere le dipendenze per ogni project/application direttamente
+nel <tt class="file docutils literal"><span class="pre">setup.py</span></tt> come scritto sopra piuttosto che nel file
+<tt class="file docutils literal"><span class="pre">buildout.cfg</span></tt> così che vengano correttamente ereditate da ogni altro
+progetto che dichiari questo come dipendenza. Le dipendenze espresse in
+<tt class="file docutils literal"><span class="pre">buildout.cfg</span></tt> devono servire o per integrare pacchetti di terze parti
+non ben configurate (es.: manca dipendenza da PIL in <tt class="docutils literal"><span class="pre">sorl-thunmbnail</span></tt>) o
+per imporre una determinata versione, nel qual caso occorre usare la sezione
+<tt class="docutils literal"><span class="pre">[versions]</span></tt> (attenzione al case):</p>
+<div class="highlight-python"><div class="highlight"><pre>[versions]
+Django == 1.4.3-sd
+django == 1.4.3-sd   # mi pare siano letti solo in minuscolo
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">jmb-start</span></tt> copia anche una versione di <tt class="file docutils literal"><span class="pre">.hgignore</span></tt>, ed un
+tsettings.py che viene usato come default, sta a voi correggere a mano.</p>
+</div>
+<div class="section" id="dj">
+<span id="id2"></span><h2>dj<a class="headerlink" href="#dj" title="Permalink to this headline">¶</a></h2>
+<p>il comando di gran lunga più utilizzato sarà <tt class="docutils literal"><span class="pre">bin/django</span></tt> che è
+l&#8217;equivalente di <tt class="docutils literal"><span class="pre">manage.py</span></tt>. Con lo script <tt class="docutils literal"><span class="pre">dj</span></tt>
+sarà possibile chiamarlo anche da sottocartelle del progetto nel modo
+corretto. Senza argomenti è equivalente a <tt class="docutils literal"><span class="pre">bin/django</span> <span class="pre">shell</span></tt>.</p>
+<p>La documentazione può essere prodotta da:</p>
+<div class="highlight-python"><div class="highlight"><pre>dj docs
+</pre></div>
+</div>
+<p>e può essere uploadata sul sito <a class="reference external" href="http://docs.thux.it">ufficiale</a> con:</p>
+<div class="highlight-python"><div class="highlight"><pre>dj -u docs   # nota l&#39;opzione prima del pacchetto!!!
+</pre></div>
+</div>
+<p>Leggere l&#8217;help prodotto da <tt class="docutils literal"><span class="pre">dj</span> <span class="pre">-h</span></tt> per ulteriori scorciatoie.</p>
+</div>
+<div class="section" id="py">
+<span id="id3"></span><h2>py<a class="headerlink" href="#py" title="Permalink to this headline">¶</a></h2>
+<p>Lancia l&#8217;interprete Python dell&#8217;ambiente virtuale.
+Analogamente a <tt class="docutils literal"><span class="pre">dj</span></tt>, <tt class="docutils literal"><span class="pre">py</span></tt> chiama bin/py in ogni sotto cartella</p>
+</div>
+<div class="section" id="ipy">
+<span id="id4"></span><h2>ipy<a class="headerlink" href="#ipy" title="Permalink to this headline">¶</a></h2>
+<p>Lancia l&#8217;interprete IPython dell&#8217;ambiente virtuale. Utile quando <tt class="docutils literal"><span class="pre">dj</span></tt> non
+parte per problemi di configurazione di <tt class="docutils literal"><span class="pre">django</span></tt>.
+Analogamente a <tt class="docutils literal"><span class="pre">dj</span></tt>, <tt class="docutils literal"><span class="pre">ipy</span></tt> chiama bin/py in ogni sotto cartella</p>
+</div>
+<div class="section" id="jmb-test-setup">
+<span id="id5"></span><h2>jmb-test-setup<a class="headerlink" href="#jmb-test-setup" title="Permalink to this headline">¶</a></h2>
+<p>Questa script permette di mostrare quali versione dei pacchetti sono incluse
+nell&#8217;ambiente virtuale.</p>
+</div>
+<div class="section" id="jmb-prepare">
+<span id="id6"></span><h2>jmb-prepare<a class="headerlink" href="#jmb-prepare" title="Permalink to this headline">¶</a></h2>
+<p>Questa script permette di testare una aspetto della configurazione che può
+facilmente sfuggire:  che siano inclusi nella distribuzione i file di dati,
+ovvero quelli che non sono moduli python: css, html, png, js, txt. Crea una
+distribuzione binaria e controlla quali file vengono effettivamente
+inclusi. I file inclusi sono controllati da MANIFEST.in e dalla apposita
+funzione get_data_files in setup.py.</p>
+<p>Le opzioni -m e -b permettono di creare la distro binaria e sorgente e di
+metterla nella cache di buildout (vedi help):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">jmb</span><span class="o">-</span><span class="n">prepare</span> <span class="o">-</span><span class="n">m</span>    <span class="c"># crea .tar.gz nella cache locale</span>
+<span class="n">jmb</span><span class="o">-</span><span class="n">prepare</span> <span class="o">-</span><span class="n">u</span>    <span class="c"># carica in pypi.thundersystems.it (via ssh)</span>
+<span class="n">jmb</span><span class="o">-</span><span class="n">prepare</span> <span class="o">-</span><span class="n">b</span>    <span class="c"># crea egg per locale</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jmb-go">
+<span id="id7"></span><h2>jmb-go<a class="headerlink" href="#jmb-go" title="Permalink to this headline">¶</a></h2>
+<p>Questa banale script esegue una serie di piccole operazioni che portano il
+repo appena clonato o generato a funzionare:</p>
+<div class="highlight-python"><div class="highlight"><pre>dj syncdb --all --noinput
+dj migrate --all --fake
+dj createsuperuser --username $SUPERUSER --email $EMAIL
+dj collectstatic --noinput $LINK
+</pre></div>
+</div>
+<p>In sviluppo usa l&#8217;opzione <tt class="docutils literal"><span class="pre">-l</span></tt> di collectstatic, così facendo</p>
+<ul class="simple">
+<li>usa meno disco</li>
+<li>non è necessario lanciarlo nuovamente in caso di <em>modifica</em> dei file
+statici (l&#8217;aggiunta invece lo richiede ugualmente, così come la modifica
+dei file di dajax/dajaxice)</li>
+</ul>
+</div>
+<div class="section" id="jmb-sync">
+<span id="id8"></span><h2>jmb-sync<a class="headerlink" href="#jmb-sync" title="Permalink to this headline">¶</a></h2>
+<p>Questa script permette di sincronizzare un db remoto in uno locale facendo
+un dump del remoto, un eventuale dump del locale ed usando rsync fra i due,
+in questo modo è estremamente efficace.</p>
+<p>Si basa su un file di configurazione (<tt class="docutils literal"><span class="pre">.sync</span></tt>) nella cartella del progetto
+e NON legge la configurazione dai settings di django ed opera solo via ssh
+(quindi è necessario avere la chiave di root sulla macchina remota).</p>
+<p>È in grado di instaurare un ponte ssh in modo da sincronizzare anche db
+dietro firewall.</p>
+</div>
+<div class="section" id="jmb-deps">
+<span id="id9"></span><h2>jmb-deps<a class="headerlink" href="#jmb-deps" title="Permalink to this headline">¶</a></h2>
+<p>Fa un report delle dipendenze di un pacchetto basandosi su</p>
+<ul class="simple">
+<li>l&#8217;analisi del log di <tt class="docutils literal"><span class="pre">buildout</span> <span class="pre">-Nv</span></tt></li>
+<li>il file setup.py del progetto e di tutte le sottocartele di .src</li>
+<li>il file buildout.cfg</li>
+<li>le informazioni delle eggs dichiarate nelle dipendenze sopra citate</li>
+</ul>
+<p>Può essere utile in alcune circostanze, ma sicuramente fallisce in altre.</p>
+</div>
+<div class="section" id="wsgi">
+<span id="id10"></span><h2>wsgi<a class="headerlink" href="#wsgi" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://pypi.python.org/pypi/djangorecipe/1.3">djangorecipe</a> crea una configurazione di wsgi che è incompatibile con il
+virtualenv. La versione modificata da me (sandro) mette la versione corretta.</p>
+<p>La motivazione è che il modulo indicato nella configurazione di
+apache, viene importato da una istanza di python che non è isolata, mentre
+il meccanismo necessario per rendere disponibili i pacchetti del porgetto
+(le eggs) e basato sull&#8217;uso dei file <tt class="docutils literal"><span class="pre">.pth</span></tt> che risiedono solo in alcune
+cartelle definite in fase di compilazione. È possibile aggiungere altre
+cartelle con il comando <tt class="docutils literal"><span class="pre">site.addsitedir()</span></tt>. La mia versione aggiunge:</p>
+<div class="highlight-python"><div class="highlight"><pre>import site
+site.addsitedir(${buildout:directory} + \
+                &#39;/parts/vpython/lib/python2.x/site-packages&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="creazione-link-simbolici">
+<span id="link-statici"></span><h2>Creazione link simbolici<a class="headerlink" href="#creazione-link-simbolici" title="Permalink to this headline">¶</a></h2>
+<p>Questa sezione è obsoleta. Con <tt class="docutils literal"><span class="pre">jmb.*</span></tt> non è più necessaria.</p>
+<p>La configurazione di default crea automaticamente una cartella site-packages
+con i link simbolici agli egg che contengono il pacchetto. Viene creata
+dalla ricetta links per cui vanno solo messi i nomi dei pacchetti per cui si
+vuole creare il link, ad esempio:</p>
+<div class="highlight-python"><div class="highlight"><pre>[links]
+targets = jumbo-core
+          jumbo-timereport
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentazione">
+<h2>Documentazione<a class="headerlink" href="#documentazione" title="Permalink to this headline">¶</a></h2>
+<p>La documentazione sta in docs. Nella configurazione standard viene
+automaticamente creata <tt class="docutils literal"><span class="pre">bin/docs</span></tt> una script che genera la documentazione
+e rigenera docs/Makefile in modo che punti ai file corretti con l&#8217;ambiente
+corretto.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">al momento viene creata con un nome errato per la variabile
+<tt class="docutils literal"><span class="pre">DJANGO_SETTINGS_MODULE</span></tt>. Per le apps occorre lasciare solo <tt class="docutils literal"><span class="pre">tsettings</span></tt>.</p>
+</div>
+<p>Può essere chiamato semplicemente con:</p>
+<div class="highlight-python"><div class="highlight"><pre>dj docs
+</pre></div>
+</div>
+<p>Per le application occorre dichiarare come settings: tsettings nella
+sezione [django] ed aggiungere:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">absolute_path</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>È possibile fare l&#8217;upload in <a class="reference external" href="http://docs.thux.it">http://docs.thux.it</a> semplicemete aggiungendo
+l&#8217;opzione -u  <tt class="docutils literal"><span class="pre">dj</span> <span class="pre">-u</span> <span class="pre">docs</span></tt></p>
+</div>
+<div class="section" id="test">
+<h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<p>i test per le application stanno in nome_application/tests/__init__.py e
+possono essere lanciati con:</p>
+<div class="highlight-python"><div class="highlight"><pre>dj t
+</pre></div>
+</div>
+<p>equivalente a <tt class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">test</span></tt>.</p>
+</div>
+<div class="section" id="troubleshooting">
+<span id="id11"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>Esistono alcuni problemi tipici quando si crea un ambiente con
+buildout. Vediamo di capirli e di capire come risolverli:</p>
+<div class="section" id="python-bootstrap-py">
+<h3>python bootstrap.py<a class="headerlink" href="#python-bootstrap-py" title="Permalink to this headline">¶</a></h3>
+<p>Attualmente questo comando non dà problemi se si usa l&#8217;utima versione di
+<a class="reference external" href="http://downloads.buildout.org/1/bootstrap.py">bootstrap.py</a>. Alcun progetti/application più vecchi hanno una versione
+precedente che va aggiornata e che scarica buildout &gt;= 2.0 che non è
+compatibile con la ricetta <a class="reference internal" href="buildout.html#tl-buildout-virtual"><em>tl.buildout_virtual</em></a></p>
+</div>
+<div class="section" id="bin-buildout-n">
+<h3>bin/buildout -N<a class="headerlink" href="#bin-buildout-n" title="Permalink to this headline">¶</a></h3>
+<p>Questo può dare molti errori differenti, in generale imputabili ad errori
+di configurazione dei pacchetti da cui dipende il singolo progetto.</p>
+<div class="section" id="jmb-organization-light">
+<h4>jmb.organization-light<a class="headerlink" href="#jmb-organization-light" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><div class="highlight"><pre>Error: There is a version conflict.
+We already have: jmb.organization-light 0.2.1
+</pre></div>
+</div>
+<p>Questo è causato dal fatto che abbiamo 2 pacchetti che forniscono il package
+jmb.organization, uno con nome jmb.organization ed uno con nome
+<tt class="docutils literal"><span class="pre">jmb.organization-light</span></tt>. Il secondo viene trovato per primo e installato e
+questo confligge con la richiesta di installare <tt class="docutils literal"><span class="pre">jmb.organization</span></tt>.</p>
+<p>L&#8217;unica soluzione funzionante che ho trovato è stato di installare il
+pacchetto <tt class="docutils literal"><span class="pre">jmb.organization</span></tt> come sorgente:</p>
+<div class="highlight-python"><div class="highlight"><pre>jmb.organization = hg ${thunder:jmb2}/jmb.organization
+</pre></div>
+</div>
+</div>
+<div class="section" id="error-bad-constraint-0-6-1-django-sekizai-0-7">
+<h4>Error: Bad constraint 0.6.1 django-sekizai&gt;=0.7<a class="headerlink" href="#error-bad-constraint-0-6-1-django-sekizai-0-7" title="Permalink to this headline">¶</a></h4>
+<p>Questo errore viene introdotto da django-cms. non essendo io un eperto di
+django-cms e finchè non ci sarà una spiegazione chiara ho trovato che
+imponendo <tt class="docutils literal"><span class="pre">django-cms&gt;=2.3,&lt;2.4</span></tt> si bypassa il problema</p>
+</div>
+<div class="section" id="source-url-for-existing-package-jmb-organization-differs-expected">
+<h4>Source URL for existing package &#8216;jmb.organization&#8217; differs. Expected<a class="headerlink" href="#source-url-for-existing-package-jmb-organization-differs-expected" title="Permalink to this headline">¶</a></h4>
+<p>Errore che capita solo se si usa la versione che scarica i pacchetti
+sorgente via http, non via ssh. Il motivo sta nel fatto che hg clone
+nasconde la password nel file <tt class="file docutils literal"><span class="pre">.hg/hgrc</span></tt> e quando successivamente va a
+vedere quale URL abbia il repository, non trova corrispondenza.</p>
+<p>La soluzione (brutta), è di aggiungere a mano la password nel repository</p>
+</div>
+<div class="section" id="non-installa-un-pacchetto">
+<h4>Non installa un pacchetto<a class="headerlink" href="#non-installa-un-pacchetto" title="Permalink to this headline">¶</a></h4>
+<p>Se siete sicuri che il pacchetto sia dichiarato nelle dipendenze, provate a
+cancellare il file <tt class="file docutils literal"><span class="pre">.installed.cfg</span></tt> nella cartella del progetto e
+rilanciate <strong class="command">bin/buildout</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Utilities</a><ul>
+<li><a class="reference internal" href="#jmb-start">jmb-start</a></li>
+<li><a class="reference internal" href="#dj">dj</a></li>
+<li><a class="reference internal" href="#py">py</a></li>
+<li><a class="reference internal" href="#ipy">ipy</a></li>
+<li><a class="reference internal" href="#jmb-test-setup">jmb-test-setup</a></li>
+<li><a class="reference internal" href="#jmb-prepare">jmb-prepare</a></li>
+<li><a class="reference internal" href="#jmb-go">jmb-go</a></li>
+<li><a class="reference internal" href="#jmb-sync">jmb-sync</a></li>
+<li><a class="reference internal" href="#jmb-deps">jmb-deps</a></li>
+<li><a class="reference internal" href="#wsgi">wsgi</a></li>
+<li><a class="reference internal" href="#creazione-link-simbolici">Creazione link simbolici</a></li>
+<li><a class="reference internal" href="#documentazione">Documentazione</a></li>
+<li><a class="reference internal" href="#test">Test</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#python-bootstrap-py">python bootstrap.py</a></li>
+<li><a class="reference internal" href="#bin-buildout-n">bin/buildout -N</a><ul>
+<li><a class="reference internal" href="#jmb-organization-light">jmb.organization-light</a></li>
+<li><a class="reference internal" href="#error-bad-constraint-0-6-1-django-sekizai-0-7">Error: Bad constraint 0.6.1 django-sekizai&gt;=0.7</a></li>
+<li><a class="reference internal" href="#source-url-for-existing-package-jmb-organization-differs-expected">Source URL for existing package &#8216;jmb.organization&#8217; differs. Expected</a></li>
+<li><a class="reference internal" href="#non-installa-un-pacchetto">Non installa un pacchetto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="buildout-manual.html"
+                          title="Previous page">&larr; Buildout: installazione manuale</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="settings.html"
+                          title="Next page">&rarr; Settings</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/management/utilities.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="buildout-manual.html" title="Buildout: installazione manuale"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" >Setup e gestione  progetti</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -1,0 +1,990 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Sandro Dentella <sandro@e-den.it>, 2013.
+# Luca <lzacchetti@thundersystems.it>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: jmb.core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-02 07:46-0500\n"
+"PO-Revision-Date: 2015-04-02 14:58+0200\n"
+"Last-Translator: Luca <lzacchetti@thundersystems.it>\n"
+"Language-Team: thunder\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: admin/ajax_inlines.py:189
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was added successfully."
+msgstr "%(name)s \"%(obj)s\" è stato aggiunto correttamente."
+
+#: admin/ajax_inlines.py:235
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was changed successfully."
+msgstr "%(name)s \"%(obj)s\" è stato modificato correttamente."
+
+#: admin/ajax_inlines.py:305 admin/options.py:589
+#, python-format
+msgid "%(name)s object with primary key %(key)r does not exist."
+msgstr "L'oggetto %(name)s con la primary key %(key)r non esiste."
+
+#: admin/ajax_inlines.py:321
+#, python-format
+msgid "The %(name)s \"%(obj)s\" was deleted successfully."
+msgstr "%(name)s \"%(obj)s\" è stato cancellato correttamente."
+
+#: admin/ajax_inlines.py:357
+msgid "D"
+msgstr "Elimina"
+
+#: admin/ajax_inlines.py:386 admin/ajax_inlines.py:402
+msgid "E"
+msgstr "Modifica"
+
+#: admin/ajax_inlines.py:410
+msgid "X"
+msgstr "X"
+
+#: admin/forms.py:11
+msgid "File Data to upload"
+msgstr "File dati da caricate"
+
+#: admin/forms.py:16
+msgid "Upload excel file"
+msgstr "File excel da caricare"
+
+#: admin/options.py:168
+#, python-format
+msgid "Set %(verbose_name_plural)s as active"
+msgstr "Imposta %(verbose_name_plural)s come attivi"
+
+#: admin/options.py:184
+#, python-format
+msgid "Set %(verbose_name_plural)s as disactive"
+msgstr "Imposta %(verbose_name_plural)s come inattivi"
+
+#: admin/options.py:229 admin/options.py:316
+msgid "Yes"
+msgstr "si"
+
+#: admin/options.py:229 admin/options.py:316
+msgid "No"
+msgstr "No"
+
+#: admin/options.py:337
+#, python-format
+msgid "%(name)s not cloned: %(id)d"
+msgstr "%(name)s non clonato: %(id)d"
+
+#: admin/options.py:350
+#, python-format
+msgid "%(name)s not cloned: %(number)s"
+msgstr "%(name)s not cloned: %(number)s"
+
+#: admin/options.py:355 admin/options.py:358
+#, python-format
+msgid "%(name)s cloned: %(number)s"
+msgstr "%(name)s clonato: %(number)s"
+
+#: admin/options.py:359
+#, python-format
+msgid "Clone selected %(verbose_name_plural)s"
+msgstr "Clona selezionati %(verbose_name_plural)s"
+
+#: admin/options.py:368
+#, python-format
+msgid "Export selected %(verbose_name_plural)s in csv"
+msgstr "Esportare %(verbose_name_plural)s selezionati/e in csv"
+
+#: admin/options.py:378
+#, python-format
+msgid "Export selected %(verbose_name_plural)s in xls"
+msgstr "Esportare %(verbose_name_plural)s selezionati/e in xls"
+
+#: admin/options.py:384
+msgid "general admin"
+msgstr "Informazioni Generali"
+
+#: admin/options.py:399
+msgid "List per page"
+msgstr "Elementi per pagina"
+
+#: admin/options.py:437
+#, python-format
+msgid "No %s selected."
+msgstr "Nessun %s selezionato."
+
+#: admin/options.py:680
+#, python-format
+msgid "Detail %s"
+msgstr "Dettaglio %s"
+
+#: admin/options.py:719 admin/options.py:781
+msgid "Home"
+msgstr "Home"
+
+#: admin/options.py:745
+#, python-format
+msgid "Import %s"
+msgstr "Importa %s"
+
+#: admin/options.py:796
+#, python-format
+msgid "Export %s"
+msgstr "Esporta %s"
+
+#: admin/options.py:908
+msgid ""
+"Items must be selected in order to perform actions on them. No items have "
+"been changed."
+msgstr ""
+"Degli elementi devono essere selezionati per eseguire azioni su di essi. "
+"Nessun elemento modificato."
+
+#: admin/options.py:939
+msgid "No action selected."
+msgstr "Nessuna azione selezionato."
+
+#: admin/options.py:1037
+msgid "V"
+msgstr "Dettaglio"
+
+#: admin/options.py:1041
+msgid "ST"
+msgstr "Stato"
+
+#: admin/options.py:1121
+msgid "up"
+msgstr "su"
+
+#: admin/options.py:1125
+msgid "down"
+msgstr "giu"
+
+#: admin/options.py:1127
+msgid "move"
+msgstr "sposta"
+
+#: conf/admin_menu.py:42
+#, python-format
+msgid "List %s"
+msgstr "Lista %s"
+
+#: conf/admin_menu.py:51
+#, python-format
+msgid "Add %s"
+msgstr "Aggiungi %s"
+
+#: conf/settings.py:30
+msgid "Italian"
+msgstr "Italiano"
+
+#: conf/settings.py:31
+msgid "English"
+msgstr "Inglese"
+
+#: db/cmsmodels.py:11 db/fields.py:9 db/models.py:31
+msgid "Active"
+msgstr "Attivo"
+
+#: db/cmsmodels.py:13
+msgid "if not checked, plugin content will not be rendered"
+msgstr "Se non selezionato, il contenuto del plugin non verrà renderizzato"
+
+#: db/cmsmodels.py:25
+msgid "Wrap content"
+msgstr "Racchiudi contenuto"
+
+#: db/cmsmodels.py:27
+msgid "if checked, plugin content will be rendered inside a container div"
+msgstr ""
+"Se selezionato, il contenuto del plugin sarà renderizzato in un div "
+"contenitore"
+
+#: db/cmsmodels.py:30
+msgid "id"
+msgstr "id"
+
+#: db/cmsmodels.py:34
+msgid ""
+"(Optional) if populated, the container will have this id instead of the "
+"default"
+msgstr ""
+"(Opzionale) se popolato, il contenitore avrà questo id invece che quello di "
+"default"
+
+#: db/cmsmodels.py:38
+msgid "classes"
+msgstr "Classi contenitore"
+
+#: db/cmsmodels.py:42
+msgid "(Optional) if populated, these classes will be added to container"
+msgstr ""
+"(Opzionale) se popolato, le classi inserite saranno aggiunte al contenitore"
+
+#: db/fields.py:8 db/models.py:30
+msgid "Inactive"
+msgstr "Inattivo"
+
+#: db/fields.py:14 db/models.py:35
+msgid "Status"
+msgstr "Stato"
+
+#: db/models.py:16
+msgid "date create"
+msgstr "Data Creazione"
+
+#: db/models.py:17
+msgid "date last modify"
+msgstr "Data Ultima Modifica"
+
+#: db/models.py:42
+msgid "Default"
+msgstr "Predefinito"
+
+#: db/models.py:51
+msgid "ordering"
+msgstr "Ordinamento"
+
+#: db/models.py:112 db/models.py:113
+msgid "parent node"
+msgstr "nodo padre"
+
+#: db/models.py:126
+msgid "creator"
+msgstr "Creato da"
+
+#: db/models.py:127
+msgid "last modifier"
+msgstr "Ultima modifica"
+
+#: db/models.py:143
+msgid "description"
+msgstr "Descrizione"
+
+#: db/models.py:146
+msgid "keywords"
+msgstr "parole chiave"
+
+#: db/models.py:149
+msgid "title"
+msgstr "Titolo"
+
+#: db/models.py:150
+msgid "overwrite the title (html title tag)"
+msgstr "Sovrascrive il titolo (html title tag)"
+
+#: forms/widgets.py:90
+msgid "Date:"
+msgstr "Data:"
+
+#: forms/widgets.py:90
+msgid "Time:"
+msgstr "Ora:"
+
+#: templates/admin/actions.html:28
+msgid "Run the selected action"
+msgstr "Esegui l'azione selezionata"
+
+#: templates/admin/actions.html:28
+msgid "Go"
+msgstr "Vai"
+
+#: templates/admin/actions.html:35
+msgid "Click here to select the objects across all pages"
+msgstr "Clicca quì per selezionare gli elementi di tutte le pagine"
+
+#: templates/admin/actions.html:35
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr "Seleziona tutti %(total_count)s %(module_name)s"
+
+#: templates/admin/actions.html:37
+msgid "Clear selection"
+msgstr "Azzera selezione"
+
+#: templates/admin/ajax_inline.html:9
+msgid "Add"
+msgstr "Aggiungi"
+
+#: templates/admin/base_site.html:6
+msgid "Jumbo"
+msgstr "Jumbo"
+
+#: templates/admin/base_site.html:24
+msgid "Jumbo administration"
+msgstr "Amministrazione Jumbo"
+
+#: templates/admin/change_list.html:82 templates/admin/change_list.html:86
+#, python-format
+msgid "Add %(name)s"
+msgstr "Aggiungi %(name)s"
+
+#: templates/admin/change_list_results.html:17
+msgid "Remove from sorting"
+msgstr "Rimuovi dall'ordinamento"
+
+#: templates/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr "Priorità ordinamento: %(priority_number)s"
+
+#: templates/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: templates/admin/pagination.html:16
+msgid "Show all"
+msgstr "Mostra tutti"
+
+#: templates/admin/pagination.html:17 templates/admin/submit_line2.html:3
+msgid "Save"
+msgstr "Salva"
+
+#: templates/admin/submit_line2.html:4
+msgid "Delete"
+msgstr "Elimina"
+
+#: templates/admin/submit_line2.html:5
+msgid "Save as new"
+msgstr "Salva come nuovo"
+
+#: templates/admin/submit_line2.html:6
+msgid "Save and add another"
+msgstr "Salva e aggiungi un altro"
+
+#: templates/admin/submit_line2.html:7
+msgid "Save and continue editing"
+msgstr "Salva e continua le modifiche"
+
+#: templates/jmb/advanced_search_form.html:17
+msgid "Search"
+msgstr "Cerca"
+
+#: templates/jmb/advanced_search_form.html:18
+msgid "Reset"
+msgstr "Reset"
+
+#: templates/jmb/forbidden.html:7
+msgid "Attention. You don't have permissions to view this page"
+msgstr "Attenzione. Non hai i permessi per visualizzare questa pagina"
+
+#: templates/jmb/forbidden.html:11
+msgid "Turn BACK"
+msgstr "Torna indietro"
+
+#: utils/functions.py:42
+msgid "Sheet 1"
+msgstr "Foglio 1"
+
+#: utils/mailup.py:41 utils/mailup.py:130
+msgid "MAILUP WS functionalitySetting USE_MAILUP_WEBSERVICE is set to FALSE"
+msgstr ""
+
+#: utils/models_utils.py:50 utils/models_utils.py:98
+msgid "Clonation done"
+msgstr "Clonazione eseguita"
+
+#: utils/models_utils.py:52 utils/models_utils.py:100
+#, python-format
+msgid "Error in clonation for %s: %s"
+msgstr "Errori nella clonazione di %s: %s"
+
+#: views/generic/create_oo_file.py:36
+msgid "Error: ambiguos"
+msgstr "Errore: ambiguo"
+
+#: views/generic/create_oo_file.py:39
+msgid "Model param is required."
+msgstr "Parametro richiesto"
+
+#: views/generic/create_oo_file.py:42
+msgid "File Model param is required if model param is not set."
+msgstr "Parametro richiesto"
+
+#: views/generic/create_oo_file.py:49
+msgid "The object does not exists."
+msgstr "L'oggetto non esiste"
+
+#~ msgid "Cannot delete %(name)s"
+#~ msgstr "Impossibile cancellare %(name)s"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Sei sicuro?"
+
+#, fuzzy
+#~ msgid "ul"
+#~ msgstr "url"
+
+#, fuzzy
+#~ msgid "p"
+#~ msgstr "su"
+
+#~ msgid "Django site admin"
+#~ msgstr "Sito di amministrazione di Django"
+
+#~ msgid "Advanced Search"
+#~ msgstr "Ricerca Avanzata"
+
+#~ msgid "Turn back"
+#~ msgstr "Torna indietro"
+
+#~ msgid "Filters"
+#~ msgstr "Filtri"
+
+#~ msgid "%(counter)s result"
+#~ msgid_plural "%(counter)s results"
+#~ msgstr[0] "%(counter)s risultato"
+#~ msgstr[1] "%(counter)s risultati"
+
+#~ msgid "%(full_result_count)s total"
+#~ msgstr "%(full_result_count)s totali"
+
+#~ msgid "Page"
+#~ msgstr "Pagina"
+
+#~ msgid "of"
+#~ msgstr "di"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Correggere l'errore riportato sotto"
+#~ msgstr[1] "Correggere gli errori riportati sotto"
+
+#~ msgid "Filter"
+#~ msgstr "Filtro"
+
+#~ msgid "Show Filters"
+#~ msgstr "Mostra Filtri"
+
+#~ msgid "Welcome,"
+#~ msgstr "Benvenuto,"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentazione"
+
+#~ msgid "Change password"
+#~ msgstr "Modifica Password"
+
+#~ msgid "Log out"
+#~ msgstr "Esci"
+
+#~ msgid "History"
+#~ msgstr "Storia"
+
+#~ msgid "View on site"
+#~ msgstr "Vedi nel sito"
+
+#~ msgid "Models available in the %(name)s application."
+#~ msgstr "Modelli disponibili nell'applicazione %(name)s."
+
+#~ msgid "%(name)s"
+#~ msgstr "%(name)s"
+
+#~ msgid "Change"
+#~ msgstr "Modifica"
+
+#~ msgid "You don't have permission to edit anything."
+#~ msgstr ""
+#~ "Non hai nessun permesso. Non puoi visualizzare ne modificare alcun tipo "
+#~ "di oggetto."
+
+#~ msgid "Recent Actions"
+#~ msgstr "Azioni Recenti"
+
+#~ msgid "My Actions"
+#~ msgstr "Le mie azioni"
+
+#~ msgid "None available"
+#~ msgstr "Nessuna disponibilità"
+
+#~ msgid "Unknown content"
+#~ msgstr "Contenuto Sconosciuto"
+
+#~ msgid "Username:"
+#~ msgstr "Username:"
+
+#~ msgid "Password:"
+#~ msgstr "Password:"
+
+#~ msgid "Log in"
+#~ msgstr "Login"
+
+#~ msgid "Hide Filters"
+#~ msgstr "Nascondi Filtri"
+
+#~ msgid "Applications"
+#~ msgstr "Applicazioni"
+
+#~ msgid "Administration"
+#~ msgstr "Amministrazione"
+
+#~ msgid "Disactive"
+#~ msgstr "Inattivo"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Agency"
+#~ msgstr "Agenzia"
+
+#~ msgid "Locality"
+#~ msgstr "Localitá"
+
+#~ msgid "logs admin"
+#~ msgstr "Log di amministrazione"
+
+#~ msgid "general information"
+#~ msgstr "informazioni generali"
+
+#~ msgid "abi"
+#~ msgstr "ABI"
+
+#~ msgid "cab"
+#~ msgstr "CAB"
+
+#~ msgid "agency"
+#~ msgstr "agenzia"
+
+#~ msgid "address"
+#~ msgstr "indirizzo"
+
+#~ msgid "zip code"
+#~ msgstr "CAP"
+
+#~ msgid "locality"
+#~ msgstr "localitá"
+
+#~ msgid "province"
+#~ msgstr "provincia"
+
+#~ msgid "country"
+#~ msgstr "nazione"
+
+#~ msgid "bank"
+#~ msgstr "banca"
+
+#~ msgid "banks"
+#~ msgstr "banche"
+
+#~ msgid "Type in a search term"
+#~ msgstr "Inserire un termine di ricerca"
+
+#~ msgid "No results"
+#~ msgstr "Nessun Risultato"
+
+#~ msgid "Searching..."
+#~ msgstr "Ricerca in corso..."
+
+#~ msgid "Calendar"
+#~ msgstr "Calendario"
+
+#~ msgid "Comment"
+#~ msgstr "Commento"
+
+#~ msgid "full name"
+#~ msgstr "nome completo"
+
+#~ msgid "nationality"
+#~ msgstr "nazionalita'"
+
+#~ msgid "language"
+#~ msgstr "lingua"
+
+#~ msgid "languages"
+#~ msgstr "lingue"
+
+#~ msgid "translation"
+#~ msgstr "traduzione"
+
+#~ msgid "Africa"
+#~ msgstr "Africa"
+
+#~ msgid "North America"
+#~ msgstr "Nord America"
+
+#~ msgid "Europe"
+#~ msgstr "Europa"
+
+#~ msgid "Asia"
+#~ msgstr "Asia"
+
+#~ msgid "Oceania"
+#~ msgstr "Oceania"
+
+#~ msgid "South America"
+#~ msgstr "Sud America"
+
+#~ msgid "Antarctica"
+#~ msgstr "Antartide"
+
+#~ msgid "Another"
+#~ msgstr "Altro"
+
+#~ msgid "Island"
+#~ msgstr "Isola"
+
+#~ msgid "Atoll"
+#~ msgstr "Atollo"
+
+#~ msgid "County"
+#~ msgstr "Contea"
+
+#~ msgid "Department"
+#~ msgstr "Dipartimento"
+
+#~ msgid "Division"
+#~ msgstr "Divisione"
+
+#~ msgid "Emirate"
+#~ msgstr "Emirati"
+
+#~ msgid "Kingdom"
+#~ msgstr "Regno"
+
+#~ msgid "Prefecture"
+#~ msgstr "Prefettura"
+
+#~ msgid "Province"
+#~ msgstr "Provincia"
+
+#~ msgid "Region"
+#~ msgstr "Regione"
+
+#~ msgid "Republic"
+#~ msgstr "Repubblica"
+
+#~ msgid "State"
+#~ msgstr "Stato"
+
+#~ msgid "Territory"
+#~ msgstr "Territorio"
+
+#~ msgid "Continent"
+#~ msgstr "Continente"
+
+#~ msgid "Administrative Area"
+#~ msgstr "Area Amministrativa"
+
+#~ msgid "Country"
+#~ msgstr "Paese"
+
+#~ msgid "Countries"
+#~ msgstr "Paesi"
+
+#~ msgid "Area is active"
+#~ msgstr "Area attiva"
+
+#~ msgid "Administrative Areas"
+#~ msgstr "Aree Amministrative"
+
+#~ msgid "visualization admin"
+#~ msgstr "visualizzazione"
+
+#~ msgid "Icon"
+#~ msgstr "Icona"
+
+#~ msgid "Icons"
+#~ msgstr "Icone"
+
+#~ msgid "User Permission"
+#~ msgstr "Permesso Utente"
+
+#~ msgid "Open in same window"
+#~ msgstr "Aprire nella stessa finestra"
+
+#~ msgid "Open in new window"
+#~ msgstr "Aprire nella stessa finestra"
+
+#~ msgid "Open in popup"
+#~ msgstr "Aprire in un popup"
+
+#~ msgid "Call javascript"
+#~ msgstr "Chiama javascript"
+
+#~ msgid "Don't open"
+#~ msgstr "Non aprire"
+
+#~ msgid "category name"
+#~ msgstr "Categoria"
+
+#~ msgid "Default category"
+#~ msgstr "Categoria di default"
+
+#~ msgid "Is the default one?"
+#~ msgstr "default?"
+
+#~ msgid "Menu Category"
+#~ msgstr "Categoria Menu"
+
+#~ msgid "Menu Categories"
+#~ msgstr "Categorie Menu"
+
+#~ msgid "parent menu"
+#~ msgstr "menu padre"
+
+#~ msgid "name for this node"
+#~ msgstr "nome per questo nodo"
+
+#~ msgid "category menu"
+#~ msgstr "categoria menu"
+
+#~ msgid "open in"
+#~ msgstr "apri in"
+
+#~ msgid "Application Name"
+#~ msgstr "Applicazione"
+
+#~ msgid "slug"
+#~ msgstr "slug"
+
+#~ msgid "template to render"
+#~ msgstr "template da renderizzazre"
+
+#~ msgid "permission"
+#~ msgstr "permesso"
+
+#~ msgid "Organization"
+#~ msgstr "Azienda"
+
+#~ msgid "Start Date"
+#~ msgstr "Data Inizio"
+
+#~ msgid "End Date"
+#~ msgstr "Fata Fine"
+
+#~ msgid "Project"
+#~ msgstr "Progetto"
+
+#~ msgid "Description"
+#~ msgstr "Descrizione"
+
+#~ msgid "Projects"
+#~ msgstr "Progetti"
+
+#~ msgid "Add Project"
+#~ msgstr "Aggiungi Progetto"
+
+#~ msgid "Change Project"
+#~ msgstr "Modifica Progetto"
+
+#~ msgid "General Information"
+#~ msgstr "Informazioni Generali"
+
+#~ msgid "List Project"
+#~ msgstr "Lista Progetti"
+
+#~ msgid "Product"
+#~ msgstr "Prodotto"
+
+#~ msgid "Store Cause"
+#~ msgstr "Causale di vendita"
+
+#~ msgid "Qty"
+#~ msgstr "Qta"
+
+#~ msgid "Price"
+#~ msgstr "Prezzo"
+
+#~ msgid "Fee"
+#~ msgstr "Commissioni"
+
+#~ msgid "Total"
+#~ msgstr "Totale"
+
+#~ msgid "Vat"
+#~ msgstr "IVA"
+
+#~ msgid "Edit Invoice Row"
+#~ msgstr "Modifica Riga Fattura"
+
+#~ msgid "Totals"
+#~ msgstr "Totali"
+
+#~ msgid "Template Preview"
+#~ msgstr "Anteprima Template"
+
+#~ msgid "Dashboard"
+#~ msgstr "Dashboard"
+
+#~ msgid "user"
+#~ msgstr "utente"
+
+#~ msgid "occasional"
+#~ msgstr "occasionale"
+
+#~ msgid "series"
+#~ msgstr "serie"
+
+#~ msgid "daily"
+#~ msgstr "giornaliero"
+
+#~ msgid "weekly"
+#~ msgstr "settimanale"
+
+#~ msgid "monthly"
+#~ msgstr "mensile"
+
+#~ msgid "yearly"
+#~ msgstr "annuale"
+
+#~ msgid "type"
+#~ msgstr "tipo"
+
+#~ msgid "mon"
+#~ msgstr "lun"
+
+#~ msgid "tue"
+#~ msgstr "mar"
+
+#~ msgid "wed"
+#~ msgstr "mer"
+
+#~ msgid "thu"
+#~ msgstr "gio"
+
+#~ msgid "fri"
+#~ msgstr "ven"
+
+#~ msgid "sat"
+#~ msgstr "sab"
+
+#~ msgid "sun"
+#~ msgstr "dom"
+
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#~ msgid "Invalid captcha"
+#~ msgstr "Captcha non valido"
+
+#~ msgid "You will be automatically redirect in %(seconds)s second"
+#~ msgstr "Sarai automaticamente rediretto in %(seconds)s secondi"
+
+#~ msgid "Continue"
+#~ msgstr "Continua"
+
+#~ msgid "Ooops. The object you've requested does not exists."
+#~ msgstr "Ooops. L'oggetto che hai richiesto non esiste"
+
+#~ msgid "Dropping database %(database)s..."
+#~ msgstr "Cancellando il database %(database)s..."
+
+#~ msgid "done"
+#~ msgstr "fatto"
+
+#~ msgid "Creating database %(database)s..."
+#~ msgstr "Creando il database %(database)s..."
+
+#~ msgid "no database found, going on"
+#~ msgstr "Nessun database trovato, vado avanti"
+
+#~ msgid "Oooops. The page you have requested does not exists."
+#~ msgstr "Oooops. La pagina che hai richiesto non esiste."
+
+#~ msgid ""
+#~ "Oooops. There was an error on this page. Please contact the administrator."
+#~ msgstr ""
+#~ "Oooops. C'e' stato un errore in questa pagina. Si prega di contattare "
+#~ "l'amministratore."
+
+#~ msgid ""
+#~ "Deleting the %(object_name)s '%(escaped_object)s' would result in "
+#~ "deleting related objects, but your account doesn't have permission to "
+#~ "delete the following types of objects:"
+#~ msgstr ""
+#~ "La cancellazione dell'oggetto %(object_name)s '%(escaped_object)s' "
+#~ "comporterebbe anche la cancellazione degli oggetti corretlati, ma la tua "
+#~ "utenza non hai i permessi per poter cancellarei seguenti tipi di oggetti:"
+
+#~ msgid ""
+#~ "Are you sure you want to delete the %(object_name)s \"%(escaped_object)s"
+#~ "\"? All of the following related items will be deleted:"
+#~ msgstr ""
+#~ "Sei sicuro di volere cancellare l'oggetto %(object_name)s "
+#~ "\"%(escaped_object)s\"? Anche tutti gli oggetti correlati saranno "
+#~ "cancellati:"
+
+#~ msgid "No, Turn Back"
+#~ msgstr "No, Torna Indietro"
+
+#~ msgid "Yes, I'm sure"
+#~ msgstr "Si, sono sicuro"
+
+#~ msgid ""
+#~ "Deleting the %(object_name)s would result in deleting related objects, "
+#~ "but your account doesn't have permission to delete the following types of "
+#~ "objects:"
+#~ msgstr ""
+#~ "La cancellazione dell'oggetto %(object_name)s comporterebbe anche la "
+#~ "cancellazione degli oggetti corretlati, ma la tua utenza non hai i "
+#~ "permessi per poter cancellarei seguenti tipi di oggetti:"
+
+#~ msgid ""
+#~ "Are you sure you want to delete the selected %(object_name)s objects? All "
+#~ "of the following objects and their related items will be deleted:"
+#~ msgstr ""
+#~ "Sei sicuro di volere cancellare l'oggetto %(object_name)s? Anche tutti "
+#~ "gli oggetti correlati saranno cancellati:"
+
+#~ msgid "Detail"
+#~ msgstr "Dettaglio"
+
+#~ msgid "Welcome!"
+#~ msgstr "Benvenuto!"
+
+#~ msgid "Insert Username and Password."
+#~ msgstr "Inserisci nome utente e password"
+
+#~ msgid "Add %(verbose_name)s"
+#~ msgstr "Aggiungi %(verbose_name)s"
+
+#~ msgid "Remove"
+#~ msgstr "Rimuovi"
+
+#~ msgid "Delete?"
+#~ msgstr "Elimina?"
+
+#~ msgid "\"%s\" does not exist"
+#~ msgstr "\"%s\" non esiste"
+
+#~ msgid "Clone"
+#~ msgstr "Clona"
+
+#~ msgid "Clone and continue editing"
+#~ msgstr "Clona e continua le modifiche"
+
+#~ msgid "Clone and add another"
+#~ msgstr "Clona e aggiungi un altro"
+
+#~ msgid "Change %s"
+#~ msgstr "Modifica %s"
+
+#~ msgid "You don't have permissions to delete the object."
+#~ msgstr "Non hai i permessi per poter cancellare l'oggetto."
+
+#~ msgid "The %(verbose_name)s %(object_name)s was deleted."
+#~ msgstr "%(verbose_name)s %(object_name)s e' stato cancellato correttamente."
+
+#~ msgid "%s"
+#~ msgstr "%s"
+
+#~ msgid "Ask For Support"
+#~ msgstr "Richiedi Assistenza"
+
+#~ msgid "Search Parameters"
+#~ msgstr "Ricerca Avanzata"
+
+#~ msgid "List aaa"
+#~ msgstr "Lista bbb"
+
+#~ msgid "Set Objects as active"
+#~ msgstr "Segna gli oggetti come attivi"
+
+#~ msgid "Set Objects as disactive"
+#~ msgstr "Segna gli oggetti come inattivi"

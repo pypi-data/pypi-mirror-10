@@ -1,0 +1,38 @@
+Metadata-Version: 1.1
+Name: jmb.jadmin
+Version: 0.8.1
+Summary: jumbo admin
+Home-page: https://bitbucket.org/jumboteam/jmb.jadmin
+Author: ThunderSystems
+Author-email: dev@thundersystems.it
+License: UNKNOWN
+Description: .. jmb.jadmin documentation master file, created by
+           sphinx-quickstart on Wed Apr 15 10:48:23 2015.
+           You can adapt this file completely to your liking, but it should at least
+           contain the root `toctree` directive.
+        
+        .. _index:
+        
+        Welcome to jmb.jadmin's documentation!
+        ===========================================
+        
+        Contents:
+        
+        .. toctree::
+           :maxdepth: 2
+        
+           jadmin/content
+        
+        Indices and tables
+        ==================
+        
+        * :ref:`genindex`
+        * :ref:`modindex`
+        * :ref:`search`
+        
+        
+Platform: any
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Framework :: Django

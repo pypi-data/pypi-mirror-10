@@ -1,0 +1,110 @@
+{% extends "jmb.filters:admin/change_list.html" %}
+{% load result_list admin_static admin_list i18n %}
+{% load url from future %}
+{% load admin_urls %}
+
+
+{% block bodyclass %}change-list {{ module_name }}{% endblock %}
+{% block extrahead %}
+{{ block.super }}
+<script>
+	//fix width cols edit and delete
+	jmb.fix_width_edit_delete()
+	//jmb iframe & hjson
+	jmb.iframe_hjson_link()
+	//gestione del action con gli extra
+	jmb.extra_action_fields_init()
+</script>
+
+
+<!-- LIST FOR PAGE BEGIN -->
+<script type="text/javascript">
+    // Writes URL ecc.
+    function setUrlVars(params){
+        url = $(location).attr('protocol') + '//' + $(location).attr('host') + $(location).attr('pathname') + '?';
+
+        for (var key in params) {
+            if (params.hasOwnProperty(key)) {
+                url += key+'='+params[key]+'&';
+            };
+        }
+        // remove last '&'
+        return url.replace(/&+$/, '');;
+    };
+
+    // Reads a page's GET URL variables and return them as an associative array.
+    function getUrlVars(){
+        var vars = {}, hash;
+        var hashes = $(location).attr('search').replace('?', '').split('&');
+        if (hashes != ''){
+            for(var i = 0; i < hashes.length; i++){
+                hash = hashes[i].split('=');
+                vars[hash[0]] = hash[1];
+            }
+        }
+        return vars;
+    };
+
+    // Override value in list_per_page select
+    function setOptionListPerPage(){
+        var params = getUrlVars();
+        $("#id_list_per_page").val(params["_list_per_page"]);
+    };
+
+    $(document).ready(function($) {
+        setOptionListPerPage();
+        $('#id_list_per_page').on('change', function (e) {
+            e.preventDefault();
+            var params = getUrlVars();
+
+            var optionSelected = $(this).find("option:selected");
+            var valueSelected  = optionSelected.val();
+            if (valueSelected == 0){
+                delete params["_list_per_page"];
+            } else {
+                params["_list_per_page"] = valueSelected;
+            }
+            var newUrl = setUrlVars (params);
+            window.location.href = newUrl;
+        });
+    });
+</script>
+<!-- LIST FOR PAGE END -->
+
+{% endblock %}
+{% block object-tools %}
+{% if has_add_permission %}
+<ul class="object-tools">
+    {% block object-tools-items %}
+    <li>
+        {% if add_url %}
+        <a href="{% url add_url %}{% if is_popup %}?_popup=1{% endif %}" class="addlink">
+            {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
+        </a>
+        {% else %}
+        <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="addlink">
+            {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
+        </a>
+        {% endif %}
+    </li>
+    {% endblock %}
+</ul>
+{% endif %}
+{% endblock %}
+
+
+{% block result_list %}
+    {% admin_extra_actions 'admin/actions.html' %}
+    {% if paginator_on_top %}
+        {% block pagination_top %}
+            {% pagination cl %}
+        {% endblock %}
+    {% endif %}
+    {% result_list cl %}
+    {% if action_form and actions_on_bottom and cl.full_result_count %}
+        {% admin_extra_actions 'admin/actions.html' %}
+    {% endif %}
+{% endblock %}
+{% if paginator_on_bottom %}
+    {% block pagination %}{% pagination cl %}{% endblock %}
+{% endif %}

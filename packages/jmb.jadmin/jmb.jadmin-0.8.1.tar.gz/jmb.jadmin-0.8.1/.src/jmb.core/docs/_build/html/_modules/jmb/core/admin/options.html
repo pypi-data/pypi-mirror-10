@@ -1,0 +1,1438 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>jmb.core.admin.options &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for jmb.core.admin.options</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">API</span>
+<span class="sd">===</span>
+
+<span class="sd">.. autoclass:: ExtendibleModelAdmin</span>
+<span class="sd">   :members:</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="nb">reduce</span><span class="p">,</span> <span class="n">update_wrapper</span>
+
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span><span class="p">,</span> <span class="n">VERSION</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">template</span>
+<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">transaction</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext</span> <span class="k">as</span> <span class="n">ugt</span>
+<span class="kn">from</span> <span class="nn">django.contrib.admin.util</span> <span class="kn">import</span> <span class="n">unquote</span><span class="p">,</span> <span class="n">lookup_field</span><span class="p">,</span> <span class="n">display_for_field</span><span class="p">,</span> <span class="n">get_deleted_objects</span>
+<span class="kn">from</span> <span class="nn">django.utils.encoding</span> <span class="kn">import</span> <span class="n">force_unicode</span><span class="p">,</span> <span class="n">smart_unicode</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render_to_response</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">Http404</span><span class="p">,</span> <span class="n">HttpResponseRedirect</span><span class="p">,</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.contrib.admin</span> <span class="kn">import</span> <span class="n">helpers</span>
+
+<span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">escape</span><span class="p">,</span> <span class="n">strip_tags</span>
+<span class="kn">from</span> <span class="nn">django.views.decorators.csrf</span> <span class="kn">import</span> <span class="n">csrf_protect</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.utils.decorators</span> <span class="kn">import</span> <span class="n">method_decorator</span>
+<span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">PermissionDenied</span><span class="p">,</span> <span class="n">ValidationError</span>
+<span class="kn">from</span> <span class="nn">django.utils.http</span> <span class="kn">import</span> <span class="n">urlquote</span>
+<span class="kn">from</span> <span class="nn">django.contrib.admin.util</span> <span class="kn">import</span> <span class="n">flatten_fieldsets</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">jmb.core.utils.functions</span> <span class="kn">import</span> <span class="n">render_csv</span><span class="p">,</span> <span class="n">render_xls</span>
+<span class="kn">from</span> <span class="nn">jmb.core.db.utils</span> <span class="kn">import</span> <span class="n">clone</span>
+<span class="kn">from</span> <span class="nn">ajax_inlines</span> <span class="kn">import</span> <span class="n">AjaxParentModelAdmin</span>
+
+<span class="n">csrf_protect_m</span> <span class="o">=</span> <span class="n">method_decorator</span><span class="p">(</span><span class="n">csrf_protect</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">atomic</span> <span class="o">=</span> <span class="n">transaction</span><span class="o">.</span><span class="n">atomic</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span> <span class="c"># django &gt;= 1.6</span>
+    <span class="n">atomic</span> <span class="o">=</span> <span class="n">transaction</span><span class="o">.</span><span class="n">commit_on_success</span>
+
+<span class="c"># GET parameter for the URL to return to after change/add views. This lets the</span>
+<span class="c"># admin save the state of the changelist page through the change/add page.</span>
+<span class="c">#RETURN_GET_PARAM = &#39;_return_to&#39;</span>
+
+<span class="k">def</span> <span class="nf">set_active</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+    <span class="n">rows_updated</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">queryset</span><span class="p">:</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">rows_updated</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">rows_updated</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">message_bit</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="s">&quot;1 object was&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">message_bit</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(row)s</span><span class="s"> objects were&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;row&#39;</span><span class="p">:</span> <span class="n">rows_updated</span><span class="p">}</span>
+    <span class="n">modeladmin</span><span class="o">.</span><span class="n">message_user</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">ugt</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(msg)s</span><span class="s"> successfully actived.&quot;</span><span class="p">)</span> <span class="o">%</span> \
+                                                  <span class="p">{</span><span class="s">&#39;msg&#39;</span><span class="p">:</span> <span class="n">message_bit</span><span class="p">})</span>
+<span class="n">set_active</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Set </span><span class="si">%(verbose_name_plural)s</span><span class="s"> as active&quot;</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">set_active</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">set_disactive</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+    <span class="n">rows_updated</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">queryset</span><span class="p">:</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">rows_updated</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">rows_updated</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">message_bit</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="s">&quot;1 object was&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">message_bit</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(row)s</span><span class="s"> objects were&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;row&#39;</span><span class="p">:</span> <span class="n">rows_updated</span><span class="p">}</span>
+    <span class="n">modeladmin</span><span class="o">.</span><span class="n">message_user</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">ugt</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(msg)s</span><span class="s"> successfully disactived.&quot;</span><span class="p">)</span> <span class="o">%</span> \
+                                                  <span class="p">{</span><span class="s">&#39;msg&#39;</span><span class="p">:</span> <span class="n">message_bit</span><span class="p">})</span>
+<span class="n">set_disactive</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Set </span><span class="si">%(verbose_name_plural)s</span><span class="s"> as disactive&quot;</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">set_disactive</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_export_data</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ritorna un generatore di liste contenenti i valori degli item del queryset</span>
+<span class="sd">    :arg modeladmin: the modeladmin. </span>
+<span class="sd">    :arg request: the request, not used</span>
+<span class="sd">    :arg queryset: the queryset or a list of</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="s">&#39;list_display_csv&#39;</span><span class="p">):</span>
+        <span class="n">fields_list</span> <span class="o">=</span> <span class="n">modeladmin</span><span class="o">.</span><span class="n">list_display_csv</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fields_list</span> <span class="o">=</span> <span class="n">modeladmin</span><span class="o">.</span><span class="n">list_display</span>
+
+    <span class="n">plural_name</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">verbose_name_plural</span><span class="p">)</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fields_list</span><span class="p">)</span>
+    <span class="n">title</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s">&#39;action_checkbox&#39;</span> <span class="ow">in</span> <span class="n">title</span><span class="p">:</span>
+        <span class="n">title</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#39;action_checkbox&#39;</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="n">title</span>
+
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">queryset</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">field_name</span> <span class="ow">in</span> <span class="n">fields_list</span><span class="p">:</span>
+                
+            <span class="k">if</span> <span class="n">field_name</span> <span class="o">==</span> <span class="s">&#39;action_checkbox&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">field</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">lookup_field</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">modeladmin</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">field</span><span class="p">:</span>
+                <span class="c"># try to interpret it as a modeladmin&#39;s function</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">field_name</span><span class="p">):</span>
+                    <span class="n">result_repr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)(</span><span class="n">obj</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">field_name</span><span class="p">):</span>
+                    <span class="n">result_repr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)()</span>
+            <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">,</span> 
+                                      <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">NullBooleanField</span><span class="p">)):</span>
+                    <span class="n">result_repr</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+                <span class="k">elif</span> <span class="n">field</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">result_repr</span> <span class="o">=</span> <span class="n">strip_tags</span><span class="p">(</span><span class="n">smart_unicode</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">NullBooleanField</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">)):</span>
+                    <span class="n">result_repr</span> <span class="o">=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Yes&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;No&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">result_repr</span> <span class="o">=</span> <span class="n">display_for_field</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+            <span class="c"># Tolgo eventuali &#39;a capo&#39;</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">result_repr</span><span class="p">))</span>
+        <span class="k">yield</span> <span class="n">row</span>
+
+<span class="k">class</span> <span class="nc">ExportData</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modeladmin</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ritorna un generatore di liste contenenti i valori degli item del queryset</span>
+<span class="sd">        :arg modeladmin: the modeladmin. </span>
+<span class="sd">        :arg request: the request, not used</span>
+<span class="sd">        :arg queryset: the queryset or a list of</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span> <span class="o">=</span> <span class="n">modeladmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span>
+
+    <span class="k">def</span> <span class="nf">get_field_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;return the applicable field list</span>
+<span class="sd">        </span>
+<span class="sd">        A field can be a callable, an attribute of the model or an attribute of modeladmin</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="p">,</span> <span class="s">&#39;list_display_csv&#39;</span><span class="p">):</span>
+            <span class="n">field_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">list_display_csv</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">field_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">get_list_display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s">&#39;action_checkbox&#39;</span> <span class="ow">in</span> <span class="n">field_list</span><span class="p">:</span>
+            <span class="n">field_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#39;action_checkbox&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">field_list</span>
+
+    <span class="k">def</span> <span class="nf">get_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        return a translated list. If field is a callable, test if short_description exists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">descr</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">short_description</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">item</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">short_description</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">item</span>
+            <span class="k">return</span> <span class="n">item</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">descr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">field_list</span><span class="p">]</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">plural_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ugt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">verbose_name_plural</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># Attempt to split into a simple part that uses modeladmin that is difficult to </span>
+        <span class="c"># serialize and another that can be serialized so as to use it when passing over</span>
+        <span class="c"># to celery</span>
+        <span class="n">field_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_field_list</span><span class="p">()</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_headers</span><span class="p">(</span><span class="n">field_list</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">queryset</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">field_name</span> <span class="ow">in</span> <span class="n">field_list</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="n">field_name</span> <span class="o">==</span> <span class="s">&#39;action_checkbox&#39;</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">field</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">lookup_field</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">field</span><span class="p">:</span>
+                    <span class="c"># try to interpret it as a modeladmin&#39;s function</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">field_name</span><span class="p">):</span>
+                        <span class="n">result_repr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)(</span><span class="n">obj</span><span class="p">)</span>
+                    <span class="c"># try to interpret it as a class&#39; function</span>
+                    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">field_name</span><span class="p">):</span>
+                        <span class="n">result_repr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)()</span>
+                <span class="k">elif</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">,</span> 
+                                          <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">NullBooleanField</span><span class="p">)):</span>
+                        <span class="n">result_repr</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+                    <span class="k">elif</span> <span class="n">field</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">result_repr</span> <span class="o">=</span> <span class="n">strip_tags</span><span class="p">(</span><span class="n">smart_unicode</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">NullBooleanField</span><span class="p">,</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">)):</span>
+                        <span class="n">result_repr</span> <span class="o">=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Yes&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;No&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result_repr</span> <span class="o">=</span> <span class="n">display_for_field</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+                <span class="c"># Tolgo eventuali &#39;a capo&#39;</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">result_repr</span><span class="p">))</span>
+            <span class="k">yield</span> <span class="n">row</span>
+
+
+<span class="k">def</span> <span class="nf">clone_action</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">verbose_name</span><span class="p">)</span>
+    <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">ugt</span><span class="p">(</span><span class="n">modeladmin</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">verbose_name_plural</span><span class="p">)</span>
+    <span class="n">cloned</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">not_cloned</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">queryset</span><span class="p">:</span>
+        <span class="c"># TODO: da trasformare in funzione</span>
+        <span class="n">cloned_obj</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="c"># TODO: da fixare in funzione di cosa restituisce la funzione</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">not_cloned</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(name)s</span><span class="s"> not cloned: </span><span class="si">%(id)d</span><span class="s">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span>
+                    <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">verbose_name</span><span class="p">,</span>
+                    <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">pk</span>
+                 <span class="p">}</span>
+            <span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cloned</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">not_cloned</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">verbose_name</span>
+        <span class="k">if</span> <span class="n">not_cloned</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">verbose_name_plural</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(name)s</span><span class="s"> not cloned: </span><span class="si">%(number)s</span><span class="s">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;number&#39;</span><span class="p">:</span> <span class="n">not_cloned</span><span class="p">})</span>
+    <span class="k">if</span> <span class="n">cloned</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">verbose_name</span>
+        <span class="k">if</span> <span class="n">cloned</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">verbose_name_plural</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(name)s</span><span class="s"> cloned: </span><span class="si">%(number)s</span><span class="s">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;number&#39;</span><span class="p">:</span> <span class="n">cloned</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">verbose_name_plural</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(name)s</span><span class="s"> cloned: </span><span class="si">%(number)s</span><span class="s">&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;number&#39;</span><span class="p">:</span> <span class="n">cloned</span><span class="p">})</span>
+<span class="n">clone_action</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Clone selected </span><span class="si">%(verbose_name_plural)s</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="c">#admin.site.add_action(clone_action)</span>
+
+<div class="viewcode-block" id="export_csv"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.export_csv">[docs]</a><span class="k">def</span> <span class="nf">export_csv</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    action to export selected items of a changelist_view in .csv</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">export</span> <span class="o">=</span> <span class="n">ExportData</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">queryset</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_csv</span><span class="p">(</span><span class="n">export</span><span class="o">.</span><span class="n">get_data</span><span class="p">(),</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">.csv&#39;</span> <span class="o">%</span> <span class="n">export</span><span class="o">.</span><span class="n">plural_name</span><span class="p">)</span></div>
+<span class="n">export_csv</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Export selected </span><span class="si">%(verbose_name_plural)s</span><span class="s"> in csv&quot;</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">export_csv</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="export_xls"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.export_xls">[docs]</a><span class="k">def</span> <span class="nf">export_xls</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    action to export selected items of a changelist_view in .xls</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">export</span> <span class="o">=</span> <span class="n">ExportData</span><span class="p">(</span><span class="n">modeladmin</span><span class="p">,</span> <span class="n">queryset</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_xls</span><span class="p">(</span><span class="n">export</span><span class="o">.</span><span class="n">get_data</span><span class="p">(),</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">.xls&#39;</span> <span class="o">%</span> <span class="n">export</span><span class="o">.</span><span class="n">plural_name</span><span class="p">)</span></div>
+<span class="n">export_xls</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;Export selected </span><span class="si">%(verbose_name_plural)s</span><span class="s"> in xls&quot;</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">export_xls</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SettingsAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;general admin&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s">&#39;fields&#39;</span><span class="p">:</span> <span class="p">((</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;type&#39;</span><span class="p">),</span> <span class="s">&#39;value&#39;</span><span class="p">,</span>
+                                          <span class="s">&#39;description&#39;</span><span class="p">)}),</span>
+    <span class="p">)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;value&#39;</span><span class="p">,</span> <span class="s">&#39;type&#39;</span><span class="p">,</span> <span class="s">&#39;description&#39;</span><span class="p">)</span>
+    <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">list_per_page</span> <span class="o">=</span> <span class="mi">30</span>
+
+
+<span class="k">class</span> <span class="nc">JumboListPerPageForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">LIST_PER_PAGE_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;---&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">choices</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s">&#39;LIST_PER_PAGE_CHOICES&#39;</span><span class="p">,</span> <span class="n">LIST_PER_PAGE_CHOICES</span><span class="p">)</span>
+    <span class="n">list_per_page</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;List per page&#39;</span><span class="p">),</span> <span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ExtendibleModelAdmin"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin">[docs]</a><span class="k">class</span> <span class="nc">ExtendibleModelAdmin</span><span class="p">(</span><span class="n">AjaxParentModelAdmin</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Media</span><span class="p">:</span>
+
+        <span class="n">js</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;jmb/js/collapsed_stacked_inlines.js&#39;</span><span class="p">,</span>
+              <span class="c">#&#39;jmb/js/detail_fancybox.js&#39;</span>
+              <span class="p">]</span>
+
+    <span class="c">#: tabs: show tabs even if they&#39;re empty</span>
+    <span class="n">tabs_show_empty</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="c">#: tabs: show tab lables sticky on top of the page</span>
+    <span class="n">tabs_sticky_on_top</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="n">no_display_links</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">list_per_page</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">save_on_top</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">use_fancybox</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">father_foreignkey_fancybox</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">list_per_page_form</span> <span class="o">=</span> <span class="n">JumboListPerPageForm</span>
+    <span class="n">paginator_on_top</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s">&#39;PAGINATOR_ON_TOP&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">paginator_on_bottom</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s">&#39;PAGINATOR_ON_BUTTOM&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ExtendibleModelAdmin.get_action_form_instance"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.get_action_form_instance">[docs]</a>    <span class="k">def</span> <span class="nf">get_action_form_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return an ``action_form``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c">###########  Django&#39;s official code 1.7 -- begin ##############</span>
+        <span class="c"># There can be multiple action forms on the page (at the top</span>
+        <span class="c"># and bottom of the change list, for example). Get the action</span>
+        <span class="c"># whose button was pushed.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">action_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;index&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">action_index</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c"># Construct the action form.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">helpers</span><span class="o">.</span><span class="n">ACTION_CHECKBOX_NAME</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&quot;index&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+        <span class="c"># Use the action whose button was pushed</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s">&#39;action&#39;</span><span class="p">)[</span><span class="n">action_index</span><span class="p">]})</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="c"># If we didn&#39;t get an action from the chosen form that&#39;s invalid</span>
+            <span class="c"># POST data, so by deleting action it&#39;ll fail the validation check</span>
+            <span class="c"># below. So no need to do anything here</span>
+            <span class="k">pass</span>
+
+        <span class="n">action_form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_form</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">auto_id</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+        <span class="c">###########  Django&#39;s official code 1.7 -- end ##############</span>
+        <span class="n">action_form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&#39;action&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_action_choices</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">action_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">action_form</span>
+</div>
+<div class="viewcode-block" id="ExtendibleModelAdmin.get_list_per_page_form"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.get_list_per_page_form">[docs]</a>    <span class="k">def</span> <span class="nf">get_list_per_page_form</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns number of items appear on each paginated admin change list page</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_per_page_form</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+</div>
+    <span class="k">def</span> <span class="nf">get_list_display_links</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">list_display</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s">&#39;get_edit_icon&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="ExtendibleModelAdmin.get_list_per_page"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.get_list_per_page">[docs]</a>    <span class="k">def</span> <span class="nf">get_list_per_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set how many items appear on each paginated admin change list page.</span>
+<span class="sd">        This value is conditioned by settings.LIST_PER_PAGE.</span>
+<span class="sd">        Example:</span>
+<span class="sd">            LIST_PER_PAGE = {</span>
+<span class="sd">                &#39;content_content&#39;: 50,</span>
+<span class="sd">                &#39;content&#39;: 10,</span>
+<span class="sd">                &#39;all&#39;: 100,</span>
+<span class="sd">            }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="s">&#39;LIST_PER_PAGE&#39;</span><span class="p">):</span>
+            <span class="n">list_per_page</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">LIST_PER_PAGE</span>
+            <span class="n">app_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">model_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">verbose_name_raw</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+            <span class="n">key</span> <span class="o">=</span> <span class="n">app_label</span> <span class="o">+</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_name</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">list_per_page</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">list_per_page</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="n">key</span> <span class="o">=</span> <span class="n">app_label</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">list_per_page</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">list_per_page</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="n">key</span> <span class="o">=</span> <span class="s">&#39;all&#39;</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">list_per_page</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">list_per_page</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="mi">50</span>
+</div>
+    <span class="k">def</span> <span class="nf">get_readonly_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">readonly</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">declared_fieldsets</span><span class="p">:</span>
+            <span class="n">fields</span> <span class="o">=</span> <span class="n">flatten_fieldsets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">declared_fieldsets</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s">&#39;creator&#39;</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="n">readonly</span> <span class="o">=</span> <span class="n">readonly</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;creator&#39;</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="s">&#39;date_create&#39;</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="n">readonly</span> <span class="o">=</span> <span class="n">readonly</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;date_create&#39;</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="s">&#39;last_modifier&#39;</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="n">readonly</span> <span class="o">=</span> <span class="n">readonly</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;last_modifier&#39;</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="s">&#39;date_last_modify&#39;</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="n">readonly</span> <span class="o">=</span> <span class="n">readonly</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;date_last_modify&#39;</span><span class="p">,)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">readonly_fields</span> <span class="o">+</span> <span class="n">readonly</span>
+
+<div class="viewcode-block" id="ExtendibleModelAdmin.get_changelist_instance"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.get_changelist_instance">[docs]</a>    <span class="k">def</span> <span class="nf">get_changelist_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a chagelist instance suitable to find out the real queryset represented bu result_list</span>
+<span class="sd">        This function can be used in actions when the queryset is much faster then</span>
+<span class="sd">        using the list of single ids</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">list_display</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_display</span><span class="p">,</span>
+            <span class="n">list_display_links</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_display_links</span><span class="p">,</span> <span class="n">list_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_filter</span><span class="p">,</span>
+            <span class="n">date_hierarchy</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">date_hierarchy</span><span class="p">,</span> <span class="n">search_fields</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">search_fields</span><span class="p">,</span> <span class="n">list_select_related</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_select_related</span><span class="p">,</span>
+            <span class="n">list_per_page</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_per_page</span><span class="p">,</span> <span class="n">list_max_show_all</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_max_show_all</span><span class="p">,</span>
+            <span class="n">list_editable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">list_editable</span><span class="p">,</span> <span class="n">model_admin</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_changelist</span><span class="p">(</span><span class="n">request</span><span class="p">)(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_getobj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">object_id</span><span class="p">):</span>
+            <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+            <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queryset</span><span class="p">(</span><span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">unquote</span><span class="p">(</span><span class="n">object_id</span><span class="p">))</span>
+            <span class="k">except</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="bp">None</span>
+
+            <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%(name)s</span><span class="s"> object with primary key </span><span class="si">%(key)r</span><span class="s"> does not exist.&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">force_unicode</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">verbose_name</span><span class="p">),</span> <span class="s">&#39;key&#39;</span><span class="p">:</span> <span class="n">escape</span><span class="p">(</span><span class="n">object_id</span><span class="p">)})</span>
+            <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">_wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">admin_view</span><span class="p">(</span><span class="n">view</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">wrapper</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_view_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">VERSION</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">module_name</span><span class="p">,</span> <span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">name</span>
+        <span class="k">return</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">info</span>
+
+    <span class="k">def</span> <span class="nf">has_change_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">has_change_permission</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ExtendibleModelAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">has_change_permission</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">VERSION</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+            <span class="n">model_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">module_name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">model_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">model_name</span>
+
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">has_change_permission</span> <span class="ow">or</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span> <span class="o">+</span> <span class="s">&#39;view_</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">model_name</span><span class="p">)</span> <span class="ow">or</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span> <span class="o">+</span> <span class="s">&#39;list_</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s">&quot;can_be_modified&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">can_be_modified</span><span class="p">():</span>
+                    <span class="k">return</span> <span class="bp">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="n">has_change_permission</span>
+
+    <span class="k">def</span> <span class="nf">has_delete_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">has_delete_permission</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ExtendibleModelAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">has_delete_permission</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s">&quot;can_be_delete&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">can_be_delete</span><span class="p">():</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">has_delete_permission</span>
+
+    <span class="k">def</span> <span class="nf">get_value_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)(</span><span class="n">obj</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">detail_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">object_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getobj</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">object_id</span><span class="p">)</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">verbose_name</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">object_name</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">object_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="n">detail_fields</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">d_values</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c">#ricordarsi di aggiungere nel progetto</span>
+        <span class="c">#(r&#39;^comments/&#39;, include(&#39;django.contrib.comments.urls&#39;)), </span>
+        <span class="n">template_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;template_name&#39;</span><span class="p">,</span> <span class="s">&#39;detail.html&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;detail_display&#39;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">detail_display</span><span class="p">:</span>
+                <span class="c"># Se e&#39; una lista aggiunga tt i suoi campi ai detail_fields</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([])</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(()):</span>
+                    <span class="n">detail_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">subf</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                        <span class="n">d_values</span><span class="p">[</span><span class="n">subf</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_obj</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">subf</span><span class="p">)</span>
+                <span class="c"># Se la funzione e&#39; presente nell&#39;admin la chiamo e aggiungo il</span>
+                <span class="c"># valore ai detail fields</span>
+                <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+                    <span class="n">detail_fields</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">f</span><span class="p">])</span>
+                    <span class="n">d_values</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">)(</span><span class="n">obj</span><span class="p">)</span>
+                <span class="c"># altrimenti cerco il valore dell&#39;oggetto in maniera normale</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">detail_fields</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">f</span><span class="p">])</span>
+                    <span class="n">d_values</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value_obj</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Detail </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">force_unicode</span><span class="p">(</span><span class="n">verbose_name</span><span class="p">),</span>
+            <span class="s">&#39;object_id&#39;</span><span class="p">:</span> <span class="n">object_id</span><span class="p">,</span>
+            <span class="s">&#39;obj&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="p">,</span>
+            <span class="s">&#39;is_popup&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">REQUEST</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;_popup&#39;</span><span class="p">),</span>
+            <span class="s">&#39;app_label&#39;</span><span class="p">:</span> <span class="n">app_label</span><span class="p">,</span>
+            <span class="s">&#39;opts&#39;</span><span class="p">:</span> <span class="n">opts</span><span class="p">,</span>
+            <span class="s">&#39;detail_fields&#39;</span><span class="p">:</span> <span class="n">detail_fields</span><span class="p">,</span>
+            <span class="s">&#39;d_values&#39;</span><span class="p">:</span> <span class="n">d_values</span><span class="p">,</span>
+            <span class="s">&#39;has_change_permission&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_change_permission</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="n">context_instance</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">RequestContext</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">current_app</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">render_to_response</span><span class="p">([</span>
+            <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">app_label</span><span class="p">,</span> <span class="n">object_name</span><span class="p">,</span> <span class="n">template_name</span><span class="p">),</span>
+            <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">app_label</span><span class="p">,</span> <span class="n">template_name</span><span class="p">),</span>
+            <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">template_name</span>
+        <span class="p">],</span> <span class="n">context</span><span class="p">,</span> <span class="n">context_instance</span><span class="o">=</span><span class="n">context_instance</span><span class="p">)</span>
+
+    <span class="c">#nuovo nome, retrocompatibilità</span>
+    <span class="n">detail</span> <span class="o">=</span> <span class="n">detail_view</span>
+
+    <span class="nd">@csrf_protect_m</span>
+    <span class="nd">@atomic</span>
+<div class="viewcode-block" id="ExtendibleModelAdmin.import_data_view"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.import_data_view">[docs]</a>    <span class="k">def</span> <span class="nf">import_data_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">form_url</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">extra_context</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s">&quot;The &#39;import data&#39; admin view for this model.&quot;</span>
+        <span class="kn">from</span> <span class="nn">jmb.core.admin.forms</span> <span class="kn">import</span> <span class="n">ImportDataForm</span>
+        <span class="kn">from</span> <span class="nn">jmb.core.admin.import_data</span> <span class="kn">import</span> <span class="n">ImportData</span>
+        <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">force_unicode</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">verbose_name</span><span class="p">)</span>
+
+<span class="c">#        if not self.has_change_permission(request, obj):</span>
+<span class="c">#            raise PermissionDenied</span>
+
+        <span class="n">template_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;template_name&#39;</span><span class="p">,</span> <span class="s">&#39;import_data.html&#39;</span><span class="p">)</span>
+        <span class="n">breadcrumbs</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Home&#39;</span><span class="p">),</span> <span class="s">&#39;/admin/&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="n">app_label</span><span class="p">),</span> <span class="s">&#39;/admin/</span><span class="si">%s</span><span class="s">/&#39;</span> <span class="o">%</span> <span class="n">app_label</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="n">verbose_name</span><span class="p">),</span> <span class="s">&#39;/admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">/&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">app_label</span><span class="p">,</span> <span class="n">verbose_name</span><span class="p">)),</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ImportDataForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                <span class="n">file_source</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s">&#39;import_file&#39;</span><span class="p">]</span>
+                <span class="n">import_data</span> <span class="o">=</span> <span class="n">ImportData</span><span class="p">(</span>
+                    <span class="n">file_contents</span><span class="o">=</span><span class="n">file_source</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">auto</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span>
+                <span class="p">)</span>
+                <span class="n">import_data</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">import_data</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="s">&#39;inserted&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> righe inserite correttamente&quot;</span> <span class="o">%</span> <span class="n">import_data</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="s">&#39;inserted&#39;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">import_data</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="s">&#39;modified&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> righe modificate correttamente&quot;</span> <span class="o">%</span> <span class="n">import_data</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="s">&#39;modified&#39;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">import_data</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="s">&#39;errors&#39;</span><span class="p">]:</span>
+                    <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">import_data</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="s">&#39;errors&#39;</span><span class="p">]:</span>
+                        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;Correggi l&#39;errore qui sotto&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ImportDataForm</span><span class="p">()</span>
+
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Import </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">verbose_name</span><span class="p">,</span>
+            <span class="s">&#39;is_popup&#39;</span><span class="p">:</span> <span class="s">&quot;_popup&quot;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">REQUEST</span><span class="p">,</span>
+            <span class="s">&#39;app_label&#39;</span><span class="p">:</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span>
+            <span class="s">&#39;breadcrumbs&#39;</span><span class="p">:</span> <span class="n">breadcrumbs</span><span class="p">,</span>
+            <span class="s">&#39;import_form&#39;</span><span class="p">:</span> <span class="n">form</span>
+        <span class="p">}</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">extra_context</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="n">context_instance</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">RequestContext</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">current_app</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">opts</span><span class="o">.</span><span class="n">object_name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">template_name</span><span class="p">),</span>
+                <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">template_name</span><span class="p">),</span>
+                <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">template_name</span>
+            <span class="p">],</span>
+            <span class="n">context</span><span class="p">,</span>
+            <span class="n">context_instance</span><span class="o">=</span><span class="n">context_instance</span>
+        <span class="p">)</span>
+</div>
+    <span class="nd">@csrf_protect_m</span>
+    <span class="nd">@atomic</span>
+<div class="viewcode-block" id="ExtendibleModelAdmin.export_data_view"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.export_data_view">[docs]</a>    <span class="k">def</span> <span class="nf">export_data_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">form_url</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">extra_context</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s">&quot;The &#39;export data&#39; admin view for this model.&quot;</span>
+        <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+        <span class="kn">from</span> <span class="nn">jmb.core.admin.forms</span> <span class="kn">import</span> <span class="n">ExportDataForm</span>
+        <span class="kn">from</span> <span class="nn">jmb.core.admin</span> <span class="kn">import</span> <span class="n">tasks</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">force_unicode</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">verbose_name</span><span class="p">)</span>
+
+        <span class="c">#        if not self.has_change_permission(request, obj):</span>
+        <span class="c">#            raise PermissionDenied</span>
+
+        <span class="n">template_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;template_name&#39;</span><span class="p">,</span> <span class="s">&#39;export_data.html&#39;</span><span class="p">)</span>
+        <span class="n">breadcrumbs</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Home&#39;</span><span class="p">),</span> <span class="s">&#39;/admin/&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="n">app_label</span><span class="p">),</span> <span class="s">&#39;/admin/</span><span class="si">%s</span><span class="s">/&#39;</span> <span class="o">%</span> <span class="n">app_label</span><span class="p">),</span>
+            <span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="n">verbose_name</span><span class="p">),</span> <span class="s">&#39;/admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">/&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">app_label</span><span class="p">,</span> <span class="n">verbose_name</span><span class="p">)),</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ExportDataForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">tasks</span><span class="o">.</span><span class="n">create_xls</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;Correggi l&#39;errore qui sotto&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ExportDataForm</span><span class="p">()</span>
+
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Export </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">verbose_name</span><span class="p">,</span>
+            <span class="s">&#39;is_popup&#39;</span><span class="p">:</span> <span class="s">&quot;_popup&quot;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">REQUEST</span><span class="p">,</span>
+            <span class="s">&#39;app_label&#39;</span><span class="p">:</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span>
+            <span class="s">&#39;breadcrumbs&#39;</span><span class="p">:</span> <span class="n">breadcrumbs</span><span class="p">,</span>
+            <span class="s">&#39;export_form&#39;</span><span class="p">:</span> <span class="n">form</span>
+        <span class="p">}</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">extra_context</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="n">context_instance</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">RequestContext</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">current_app</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">opts</span><span class="o">.</span><span class="n">object_name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">template_name</span><span class="p">),</span>
+                <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="n">template_name</span><span class="p">),</span>
+                <span class="s">&quot;admin/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">template_name</span>
+            <span class="p">],</span>
+            <span class="n">context</span><span class="p">,</span>
+            <span class="n">context_instance</span><span class="o">=</span><span class="n">context_instance</span>
+        <span class="p">)</span></div>
+    <span class="nd">@csrf_protect_m</span>
+    <span class="k">def</span> <span class="nf">changelist_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">extra_context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">extra_context</span> <span class="o">=</span> <span class="n">extra_context</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">extra_context</span><span class="p">[</span><span class="s">&#39;is_popup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;_popup&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="c">#        extra_context[&#39;action_form&#39;] = self.get_action_form(request)</span>
+        <span class="n">extra_context</span><span class="p">[</span><span class="s">&#39;list_per_page_form&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list_per_page_form</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">extra_context</span><span class="p">[</span><span class="s">&#39;paginator_on_top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">paginator_on_top</span>
+        <span class="n">extra_context</span><span class="p">[</span><span class="s">&#39;paginator_on_bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">paginator_on_bottom</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">list_per_page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list_per_page</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ExtendibleModelAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">changelist_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">extra_context</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_urls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ExtendibleModelAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_urls</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">admin_view</span><span class="p">(</span><span class="n">view</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">wrapper</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">VERSION</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">module_name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">model_name</span>
+
+        <span class="n">my_urls</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span>
+            <span class="s">&#39;&#39;</span><span class="p">,</span>
+            <span class="n">url</span><span class="p">(</span>
+                <span class="s">r&#39;^(.+)/detail/$&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">detail</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_view_name</span><span class="p">(</span><span class="s">&#39;detail&#39;</span><span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">url</span><span class="p">(</span>
+                <span class="s">r&#39;^import_data/$&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">admin_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">import_data_view</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_import_data&#39;</span> <span class="o">%</span> <span class="n">info</span>
+            <span class="p">),</span>
+            <span class="n">url</span><span class="p">(</span>
+                <span class="s">r&#39;export_data/$&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">admin_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">export_data_view</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_export_data&quot;</span> <span class="o">%</span> <span class="n">info</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">my_urls</span> <span class="o">+</span> <span class="n">urls</span>
+
+
+    <span class="c"># def response_action(self, request, queryset):</span>
+    <span class="c">#     &quot;&quot;&quot;</span>
+    <span class="c">#     Handle an admin action. This is called if a request is POSTed to the</span>
+    <span class="c">#     changelist; it returns an HttpResponse if the action was handled, and</span>
+    <span class="c">#     None otherwise.</span>
+    <span class="c">#     &quot;&quot;&quot;</span>
+    <span class="c">#     response = super(ExtendibleModelAdmin, self).response_action(request, queryset)</span>
+    <span class="c">#         msg = &quot;&quot;</span>
+    <span class="c">#         if hasattr(self, &#39;fields_map&#39;) and self.fields_map:</span>
+    <span class="c">#             if &#39;action&#39; in action_form.cleaned_data:</span>
+    <span class="c">#                 selected_action = action_form.cleaned_data[&#39;action&#39;]</span>
+    <span class="c">#                 if selected_action in self.fields_map:</span>
+    <span class="c">#                     selected_action_args =  self.fields_map[selected_action]</span>
+    <span class="c">#                     for selected_action_argument in selected_action_args:</span>
+    <span class="c">#                         if  &quot;:&quot; in selected_action_argument:</span>
+    <span class="c">#                             field, required = selected_action_argument.split(&quot;:&quot;)</span>
+    <span class="c">#                             msg = action_form.fields[field].error_messages[field+&quot;_error&quot;]</span>
+    <span class="c">#                             self.message_user(request, msg, messages.WARNING)</span>
+    <span class="c">#         if not msg:</span>
+    <span class="c">#             msg = _(&quot;No action selected.&quot;)</span>
+    <span class="c">#             self.message_user(request, msg, messages.WARNING)</span>
+    <span class="c">#         return None</span>
+
+
+<div class="viewcode-block" id="ExtendibleModelAdmin.message_user"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.message_user">[docs]</a>    <span class="k">def</span> <span class="nf">message_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">messages</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">extra_tags</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+                     <span class="n">fail_silently</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send a message to the user. The default implementation</span>
+<span class="sd">        posts a message using the django.contrib.messages backend.</span>
+
+<span class="sd">        Exposes almost the same API as messages.add_message(), but accepts the</span>
+<span class="sd">        positional arguments in a different order to maintain backwards</span>
+<span class="sd">        compatibility. For convenience, it accepts the `level` argument as</span>
+<span class="sd">        a string rather than the usual level number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="c"># attempt to get the level if passed a string</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">level</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">messages</span><span class="o">.</span><span class="n">constants</span><span class="p">,</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">levels</span> <span class="o">=</span> <span class="n">messages</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_TAGS</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+                <span class="n">levels_repr</span> <span class="o">=</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#39;`</span><span class="si">%s</span><span class="s">`&#39;</span> <span class="o">%</span> <span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">levels</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Bad message level string: `</span><span class="si">%s</span><span class="s">`. &#39;</span>
+                        <span class="s">&#39;Possible values are: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">levels_repr</span><span class="p">))</span>
+
+        <span class="n">messages</span><span class="o">.</span><span class="n">add_message</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">extra_tags</span><span class="o">=</span><span class="n">extra_tags</span><span class="p">,</span>
+                <span class="n">fail_silently</span><span class="o">=</span><span class="n">fail_silently</span><span class="p">)</span>
+
+<span class="c">#     def get_edit_icon(self, obj):</span>
+
+<span class="c">#         opts = self.model._meta</span>
+<span class="c">#         can_be_modified = False</span>
+<span class="c">#         # Se il modello ha la funzione can_be_modified la chiamo per fare</span>
+<span class="c">#         # i controlli relativi a quel modello</span>
+<span class="c">#         if hasattr(obj, &quot;can_be_modified&quot;):</span>
+<span class="c">#             if obj.can_be_modified():</span>
+<span class="c">#                 can_be_modified = True</span>
+<span class="c">#         # Se non ce l&#39;ha non faccio controlli e visualizzo l&#39;icona</span>
+<span class="c">#         else:</span>
+<span class="c">#             can_be_modified = True</span>
+
+<span class="c">#         request = get_request()</span>
+        
+<span class="c">#         if can_be_modified:</span>
+<span class="c">#             dj_reverse_url = reverse(&#39;admin:%s_%s_change&#39; % (opts.app_label, opts.object_name.lower()), args=(obj.pk,)) </span>
+<span class="c"># ##            print &quot;Debug: Puo essere modificato&quot;, obj</span>
+<span class="c">#             return &quot;&lt;a href=%(reverse_url)s&gt;&lt;img src=&#39;%(url)sjmb/images/edit.gif&#39; alt=&#39;%(window_title)s&#39; title=&#39;%(window_title)s&#39;/&gt;&lt;/a&gt;&quot; % {</span>
+<span class="c">#             &#39;reverse_url&#39;: &quot;%s&quot; % (dj_reverse_url, ),</span>
+<span class="c">#             &#39;url&#39;:settings.STATIC_URL,</span>
+<span class="c">#             &#39;window_title&#39;:ugt(&quot;Edit %s&quot; % opts.object_name.lower())</span>
+<span class="c">#         }</span>
+<span class="c">#         return &quot;&quot;</span>
+<span class="c">#     get_edit_icon.short_description = _(&quot;E&quot;)</span>
+<span class="c">#     get_edit_icon.allow_tags = True</span>
+
+
+<span class="c">#     def get_delete_icon(self, obj):</span>
+<span class="c">#         opts = self.model._meta</span>
+<span class="c">#         can_be_delete = False</span>
+<span class="c">#         # Se il modello ha la funzione can_be_modified la chiamo per fare</span>
+<span class="c">#         # i controlli relativi a quel modello</span>
+<span class="c">#         if hasattr(obj, &quot;can_be_delete&quot;):</span>
+<span class="c">#             if obj.can_be_delete():</span>
+<span class="c">#                 can_be_delete = True</span>
+<span class="c">#         # Se non ce l&#39;ha non faccio controlli e visualizzo l&#39;icona</span>
+<span class="c">#         else:</span>
+<span class="c">#             can_be_delete = True</span>
+
+<span class="c">#         if can_be_delete:</span>
+<span class="c">#             param = &quot;&quot;</span>
+<span class="c">#             if self.use_fancybox:</span>
+<span class="c">#                 param=&#39;?_popup=1&amp;nobuttons=1&#39;</span>
+<span class="c">#             return &quot;&lt;a href=%(reverse_url)s%(param)s&gt;&lt;img src=&#39;%(url)sjmb/images/del.gif&#39; alt=&#39;%(window_title)s&#39; title=&#39;%(window_title)s&#39;/&gt;&lt;/a&gt;&quot; % {</span>
+<span class="c">#                 &#39;reverse_url&#39;:reverse(&#39;admin:%s_%s_delete&#39; % (opts.app_label, opts.object_name.lower()), args=(obj.pk,)),</span>
+<span class="c">#                 &#39;param&#39;: param,</span>
+<span class="c">#                 &#39;url&#39;:settings.STATIC_URL,</span>
+<span class="c">#                 &#39;window_title&#39;:ugt(&quot;Delete %s&quot; % opts.object_name.lower())</span>
+<span class="c">#             }</span>
+<span class="c">#         return &quot;&quot;</span>
+<span class="c">#     get_delete_icon.short_description = _(&quot;D&quot;)</span>
+<span class="c">#     get_delete_icon.allow_tags = True</span>
+</div>
+    <span class="k">def</span> <span class="nf">get_detail_icon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">object_name</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">object_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">            &lt;a class=&#39;iframe&#39; href=</span><span class="si">%(reverse_url)s</span><span class="s">?_popup=1&amp;nobuttons=1&gt;</span>
+<span class="s">                &lt;img src=&#39;</span><span class="si">%(url)s</span><span class="s">jmb/images/search.png&#39; alt=&#39;</span><span class="si">%(window_title)s</span><span class="s">&#39; title=&#39;</span><span class="si">%(window_title)s</span><span class="s">&#39;/&gt;</span>
+<span class="s">            &lt;/a&gt;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">{</span>
+                <span class="s">&#39;reverse_url&#39;</span><span class="p">:</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_detail&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">app_label</span><span class="p">,</span> <span class="n">object_name</span><span class="p">),</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">pk</span><span class="p">,)</span>
+                <span class="p">),</span>
+                <span class="s">&#39;url&#39;</span><span class="p">:</span><span class="n">settings</span><span class="o">.</span><span class="n">STATIC_URL</span><span class="p">,</span>
+                <span class="s">&#39;window_title&#39;</span><span class="p">:</span><span class="n">ugt</span><span class="p">(</span><span class="s">&quot;Detail </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">object_name</span><span class="p">)</span>
+            <span class="p">}</span>
+    <span class="n">get_detail_icon</span><span class="o">.</span><span class="n">allow_tags</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">get_detail_icon</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;V&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_status_icon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">status</span>
+    <span class="n">get_status_icon</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&quot;ST&quot;</span><span class="p">)</span>
+    <span class="n">get_status_icon</span><span class="o">.</span><span class="n">boolean</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">get_status_icon</span><span class="o">.</span><span class="n">admin_order_field</span> <span class="o">=</span> <span class="s">&#39;status&#39;</span>
+
+<div class="viewcode-block" id="ExtendibleModelAdmin.get_changelist_queryset"><a class="viewcode-back" href="../../../../django/addon/model_admin.html#jmb.core.admin.options.ExtendibleModelAdmin.get_changelist_queryset">[docs]</a>    <span class="k">def</span> <span class="nf">get_changelist_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a queryset that was correctly filtered by any filter (q= and filterset_class)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># stolen from changelist_view in Django 1.5</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="n">opts</span><span class="o">.</span><span class="n">app_label</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_change_permission</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">PermissionDenied</span>
+
+        <span class="n">list_display</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list_display</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">list_display_links</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list_display_links</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">list_display</span><span class="p">)</span>
+        <span class="n">list_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list_filter</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="n">ChangeList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_changelist</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="n">ChangeList</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">list_display</span><span class="p">,</span>
+                        <span class="n">list_display_links</span><span class="p">,</span> <span class="n">list_filter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_hierarchy</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">search_fields</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_select_related</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">list_per_page</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_max_show_all</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_editable</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cl</span><span class="o">.</span><span class="n">queryset</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>  <span class="c"># pre Django 1.6</span>
+            <span class="k">return</span> <span class="n">cl</span><span class="o">.</span><span class="n">query_set</span>
+
+</div></div>
+<span class="k">class</span> <span class="nc">OrderedModelAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_view_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">module_name</span><span class="p">,</span> <span class="n">name</span>
+        <span class="k">return</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">info</span>
+
+
+    <span class="k">def</span> <span class="nf">_wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">admin_view</span><span class="p">(</span><span class="n">view</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">wrapper</span><span class="p">,</span> <span class="n">view</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">get_urls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">OrderedModelAdmin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_urls</span><span class="p">()</span>
+
+        <span class="n">my_urls</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+            <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^(.+)/up/$&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">up</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_view_name</span><span class="p">(</span><span class="s">&#39;up&#39;</span><span class="p">)),</span>
+            <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^(.+)/down/$&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">down</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_view_name</span><span class="p">(</span><span class="s">&#39;down&#39;</span><span class="p">)),</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">my_urls</span> <span class="o">+</span> <span class="n">urls</span>
+
+
+    <span class="k">def</span> <span class="nf">up</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">redirect_to</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="p">[</span><span class="s">&#39;HTTP_REFERER&#39;</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">redirect_to</span> <span class="o">=</span> <span class="s">&#39;../../&#39;</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">redirect_to</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">down</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">down</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">redirect_to</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="p">[</span><span class="s">&#39;HTTP_REFERER&#39;</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">redirect_to</span> <span class="o">=</span> <span class="s">&#39;../../&#39;</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">redirect_to</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">move_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_site</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">app_label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">module_name</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">is_first</span><span class="p">():</span> <span class="c"># up node</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">u&#39;&lt;a href=&quot;</span><span class="si">%s</span><span class="s">&quot; class=&quot;nodes-up&quot;&gt;</span><span class="si">%s</span><span class="s">&lt;/a&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_up&#39;</span> <span class="o">%</span> <span class="n">info</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;up&#39;</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">is_last</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">is_first</span><span class="p">():</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">u&#39;&lt;span style=&quot;font-weight:normal&quot;&gt; | &lt;/span&gt;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node</span><span class="o">.</span><span class="n">is_last</span><span class="p">():</span> <span class="c"># down node</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">u&#39;&lt;a href=&quot;</span><span class="si">%s</span><span class="s">&quot; class=&quot;nodes-down&quot;&gt;</span><span class="si">%s</span><span class="s">&lt;/a&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">_</span><span class="si">%s</span><span class="s">_down&#39;</span> <span class="o">%</span> <span class="n">info</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;down&#39;</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="s">u&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">move_actions</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;move&#39;</span><span class="p">)</span>
+    <span class="n">move_actions</span><span class="o">.</span><span class="n">allow_tags</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

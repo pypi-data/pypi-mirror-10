@@ -1,0 +1,18 @@
+{% extends "cloud/layout.html" %}
+{% from "basic/layout.html" import relbar with context %}
+{% set script_files = script_files + ["_static/bootstrap.js"] %}
+{% set css_files    = ["_static/bootstrap.css"] + css_files  %}
+{%- block sidebarlogo %}
+{%- endblock %}
+{% macro navBar() %}
+{% include "navbar.html"  %}
+{% endmacro %}
+
+{%- block relbar1 %}
+    <div class="relbar-top">
+        {{ navBar() }}
+        {{ relbar() }}
+    </div>
+{% endblock %}
+
+

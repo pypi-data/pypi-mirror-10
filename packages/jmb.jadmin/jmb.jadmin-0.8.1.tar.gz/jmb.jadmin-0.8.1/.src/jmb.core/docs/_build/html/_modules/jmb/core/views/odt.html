@@ -1,0 +1,710 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>jmb.core.views.odt &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for jmb.core.views.odt</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. _class-based-odt:</span>
+
+<span class="sd">OdtTemplateView</span>
+<span class="sd">================</span>
+
+<span class="sd">these views are Class Views implementation that return a response to serve </span>
+<span class="sd">``pdf``, ``odt`` or ``ods`` files. It&#39;s pretty easy to create a view that </span>
+<span class="sd">is :ref:`not class based &lt;appypod&gt;` so I&#39;m not stating this is really needed, </span>
+<span class="sd">but you may prefere this approach.</span>
+
+<span class="sd">variants</span>
+<span class="sd">--------</span>
+
+<span class="sd">:|PdfTemplateView|: return a Pdf object</span>
+
+<span class="sd">:|OdtTemplateView|: return a Odt object</span>
+
+<span class="sd">:|OdsTemplateView|: return a Ods object</span>
+
+<span class="sd">examples</span>
+<span class="sd">--------</span>
+
+<span class="sd">A simple example:</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">  class MyPdfTemplateView(PdfTemplateView):</span>
+<span class="sd">      template_name = app_label/template.odt</span>
+
+<span class="sd">  class MyOdtTemplateView(PdfTemplateView):</span>
+<span class="sd">      template_name = app_label/template.odt</span>
+
+<span class="sd">  urlpatterns = patterns(&#39;&#39;,</span>
+<span class="sd">       url(r&#39;^pdf/(?P&lt;slug&gt;[a-zA-Z-]+)/$&#39;, MyPdfTemplateView.as_view(),  name=&#39;pdf_detail&#39;)</span>
+<span class="sd">       url(r&#39;^odt/(?P&lt;slug&gt;[a-zA-Z-]+)/$&#39;, MyOdtTemplateView.as_view(),  name=&#39;odt_detail&#39;)</span>
+<span class="sd">  )</span>
+
+<span class="sd">debug</span>
+<span class="sd">-----</span>
+
+<span class="sd">Since it&#39;s pretty standard to create the .odt template via try and fix </span>
+<span class="sd">you can create a method named debug_template to step into and just lanch </span>
+<span class="sd">creation of the file w/o recreating the context::</span>
+
+<span class="sd">  def debug_template(self, template, context):</span>
+<span class="sd">        template.save_as(&#39;/tmp/output.odt&#39;, context=context)</span>
+<span class="sd">        import ipdb; ipdb.set_trace()</span>
+
+<span class="sd">API</span>
+<span class="sd">===</span>
+
+<span class="sd">.. autoclass:: OdtTemplateResponseMixin</span>
+<span class="sd">   :members:</span>
+
+<span class="sd">.. autoclass:: PdfTemplateView</span>
+<span class="sd">   :members:</span>
+
+<span class="sd">.. autoclass:: OdtTemplateView</span>
+
+<span class="sd">.. autoclass:: OdsTemplateView</span>
+
+<span class="sd">.. |PdfTemplateView| replace:: :class:`PdfTemplateView`</span>
+<span class="sd">.. |OdtTemplateView| replace:: :class:`OdtTemplateView`</span>
+<span class="sd">.. |OdsTemplateView| replace:: :class:`OdsTemplateView`</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateResponseMixin</span><span class="p">,</span> <span class="n">ContextMixin</span><span class="p">,</span> <span class="n">View</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="kn">from</span> <span class="nn">jmb.core.utils.appypod</span> <span class="kn">import</span> <span class="n">AppyPodTemplate</span>
+
+
+<div class="viewcode-block" id="OdtTemplateResponseMixin"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdtTemplateResponseMixin">[docs]</a><span class="k">class</span> <span class="nc">OdtTemplateResponseMixin</span><span class="p">(</span><span class="n">TemplateResponseMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A mixin class that implements Odt rendering and Django response construction.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c">#: Type of the output; used to set content-type appropriately</span>
+    <span class="n">output_type</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c">#: forces use of openoffice even if the output is and odt file (passed to appyod render)</span>
+    <span class="n">forceOoCall</span> <span class="o">=</span> <span class="bp">False</span>
+    
+    <span class="c">#: Boolean. Add &#39;attachment;&#39; to Content-Disposition so that a popup queringwhat to do</span>
+    <span class="c">#: is triggerend rather that in-browser representation</span>
+    <span class="n">attachment</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">output_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">template_name</span><span class="p">))[</span><span class="mi">0</span><span class="p">],</span> 
+                          <span class="bp">self</span><span class="o">.</span><span class="n">output_type</span><span class="p">)</span>
+
+<div class="viewcode-block" id="OdtTemplateResponseMixin.get_template_names"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdtTemplateResponseMixin.get_template_names">[docs]</a>    <span class="k">def</span> <span class="nf">get_template_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the template names (string or list)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_name</span>
+</div>
+<div class="viewcode-block" id="OdtTemplateResponseMixin.get_output_filename"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdtTemplateResponseMixin.get_output_filename">[docs]</a>    <span class="k">def</span> <span class="nf">get_output_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns :attr:`pdf_filename` value by default.</span>
+
+<span class="sd">        If left blank the browser will display the Odt inline.</span>
+<span class="sd">        Otherwise it will pop up the &quot;Save as..&quot; dialog.</span>
+
+<span class="sd">        :rtype: :func:`str`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_filename</span>
+</div>
+    <span class="k">def</span> <span class="nf">get_mime_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s">&#39;pdf&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">&#39;pdf&#39;</span> <span class="p">:</span> <span class="s">&#39;application/pdf&#39;</span><span class="p">,</span>
+            <span class="s">&#39;odt&#39;</span> <span class="p">:</span> <span class="s">&#39;application/vnd.oasis.opendocument.text&#39;</span><span class="p">,</span>
+            <span class="s">&#39;ods&#39;</span> <span class="p">:</span> <span class="s">&#39;application/vnd.oasis.opendocument.spreadsheet&#39;</span><span class="p">,</span>
+        <span class="p">}[</span><span class="n">output_type</span><span class="p">]</span>
+
+<div class="viewcode-block" id="OdtTemplateResponseMixin.get_response"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdtTemplateResponseMixin.get_response">[docs]</a>    <span class="k">def</span> <span class="nf">get_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">response_kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renders Odt document and prepares response.</span>
+
+<span class="sd">        :arg context: the context</span>
+<span class="sd">        :arg response_kwargs: received from :meth:`render_to_response`</span>
+<span class="sd">        :returns: a rendered template (.pdf, .odt or .ods document)</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="n">template</span> <span class="o">=</span> <span class="n">AppyPodTemplate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_template_names</span><span class="p">())</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">debug_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+            <span class="n">file_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_type</span><span class="p">,</span> 
+            <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
+            <span class="n">forceOoCall</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">forceOoCall</span>
+        <span class="p">)</span>
+</div>
+<div class="viewcode-block" id="OdtTemplateResponseMixin.render_to_response"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdtTemplateResponseMixin.render_to_response">[docs]</a>    <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">response_kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a rendered template as an HttpRespons</span>
+<span class="sd">        :rtype: :class:`django.http.HttpResponse`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">HttpResponse</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_response</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">response_kwargs</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_mime_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_type</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">output_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_output_filename</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">output_filename</span><span class="p">:</span>
+            <span class="n">response</span><span class="p">[</span><span class="s">&#39;Content-Disposition&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">filename=&quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attachment</span> <span class="ow">and</span> <span class="s">&#39;attachment; &#39;</span> <span class="ow">or</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">output_filename</span>
+            <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">response</span>
+</div></div>
+<div class="viewcode-block" id="PdfTemplateView"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.PdfTemplateView">[docs]</a><span class="k">class</span> <span class="nc">PdfTemplateView</span><span class="p">(</span><span class="n">OdtTemplateResponseMixin</span><span class="p">,</span> <span class="n">ContextMixin</span><span class="p">,</span> <span class="n">View</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Concrete view for serving Pdf files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output_type</span> <span class="o">=</span> <span class="s">&#39;pdf&#39;</span>
+
+<div class="viewcode-block" id="PdfTemplateView.get"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.PdfTemplateView.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles GET request and returns HTTP response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_context_data</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_to_response</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="OdtTemplateView"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdtTemplateView">[docs]</a><span class="k">class</span> <span class="nc">OdtTemplateView</span><span class="p">(</span><span class="n">PdfTemplateView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Concrete view for serving Odt files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output_type</span> <span class="o">=</span> <span class="s">&#39;odt&#39;</span>
+    </div>
+<div class="viewcode-block" id="OdsTemplateView"><a class="viewcode-back" href="../../../../misc/misc.html#jmb.core.views.odt.OdsTemplateView">[docs]</a><span class="k">class</span> <span class="nc">OdsTemplateView</span><span class="p">(</span><span class="n">PdfTemplateView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Concrete view for serving Ods files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output_type</span> <span class="o">=</span> <span class="s">&#39;ods&#39;</span>
+    </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

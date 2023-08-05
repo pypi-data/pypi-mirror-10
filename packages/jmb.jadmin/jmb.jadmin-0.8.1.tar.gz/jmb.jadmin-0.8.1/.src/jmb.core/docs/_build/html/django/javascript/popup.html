@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Popup via iframe &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../index.html" />
+    <link rel="up" title="Javascript" href="content.html" />
+    <link rel="next" title="picker" href="picker.html" />
+    <link rel="prev" title="javascript" href="javascript.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="picker.html" title="picker"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="javascript.html" title="javascript"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../content.html" >Django: aggiunte e standardizzazioni.</a> &raquo;</li>
+          <li><a href="content.html" accesskey="U">Javascript</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="popup-via-iframe">
+<span id="show-in-popup"></span><h1>Popup via iframe<a class="headerlink" href="#popup-via-iframe" title="Permalink to this headline">¶</a></h1>
+<p>Lo scopo è far aprire un popup, in jquery-ui chiamata dialog o modale
+al click di un link, con un iframe con sorgente il link stesso.
+Si può attivare su qualsiasi link della change_list
+aggiungendo la classe iframe.
+Il sistema aggiunge automaticamente il parametro _popup=1
+la dimenensione della finestra per default è 1000x500.
+questi parametri sono configurabili mettendoli come attributo del link</p>
+<div class="section" id="classi">
+<h2>classi<a class="headerlink" href="#classi" title="Permalink to this headline">¶</a></h2>
+<p>Nel creare il link possiamo usare le seguenti classi:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">iframe:</th><td class="field-body"><p class="first">forza il rendering in una modale, il sistema aggiunge
+<tt class="docutils literal"><span class="pre">_popup=1</span></tt></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">hjson:</th><td class="field-body"><p class="first">forza l&#8217;output come json. Viene aggiunto <tt class="docutils literal"><span class="pre">_json=1&amp;_popup=1</span></tt> all&#8217;URL.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">refresh:</th><td class="field-body"><p class="first">forza l&#8217;utilizzo del <tt class="docutils literal"><span class="pre">json</span></tt> per fare un refresh del dato anche
+quando si passi da un redirect di un oggetto <em>diverso</em>. Ad esempio
+nella <tt class="docutils literal"><span class="pre">changelist</span></tt> dei ticket, aggiungiamo un intervento e
+vogliamo che al salvataggio venga riletta la singola riga <em>del
+ticket</em>.  Aggiunge all&#8217;url <tt class="docutils literal"><span class="pre">_refresh=1</span></tt></p>
+<p>In questo caso deve essere implementato a mano il redirect
+all&#8217;interno della <tt class="docutils literal"><span class="pre">response_add</span></tt>/<tt class="docutils literal"><span class="pre">response_change</span></tt>:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;_refresh&quot;</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span>
+       <span class="n">reverse</span><span class="p">(</span><span class="s">&#39;admin:ticket_ticket_json&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">obj</span><span class="o">.</span><span class="n">ticket</span><span class="o">.</span><span class="n">pk</span><span class="p">])</span><span class="o">+</span><span class="s">&quot;?_refresh=1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>La modifica del link viene fatta da jQuery all&#8217;interno della funzione
+<tt class="docutils literal"><span class="pre">jmb.core.js</span></tt> da <tt class="docutils literal"><span class="pre">iframe_hjson_link</span></tt> con <tt class="docutils literal"><span class="pre">on(&quot;click&quot;)</span></tt> in modo da
+garantire che non sino applicati se decidiamo di aprire il link in una
+finestra separata.</p>
+<p>Ogni ModelAdmin che erediti da
+<a class="reference internal" href="../addon/ajax_inlines.html#jmb.core.admin.ajax_inlines.AjaxParentModelAdmin" title="jmb.core.admin.ajax_inlines.AjaxParentModelAdmin"><tt class="xref py py-class docutils literal"><span class="pre">AjaxParentModelAdmin</span></tt></a> ha
+automaticamente definita una vista con name <tt class="docutils literal"><span class="pre">&lt;app_label&gt;_&lt;model_name&gt;_json</span></tt>
+che crea una <a class="reference internal" href="../addon/ajax_inlines.html#jmb.core.admin.ajax_inlines.ChildrenChangeList" title="jmb.core.admin.ajax_inlines.ChildrenChangeList"><tt class="xref py py-class docutils literal"><span class="pre">ChildrenChangeList</span></tt></a>
+composta di un solo oggetto e la renderizza
+come un normale elemento della change_list e poi la ritorna in un json
+così composto:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data_json</span> <span class="o">=</span> <span class="p">[{</span>
+       <span class="s">&quot;pk&quot;</span><span class="p">:</span> <span class="mi">9134</span><span class="p">,</span>
+       <span class="s">&quot;model&quot;</span><span class="p">:</span> <span class="s">&quot;Ticket&quot;</span><span class="p">,</span>
+       <span class="s">&quot;fields&quot;</span><span class="p">:</span> <span class="s">&quot;&lt;tr class=</span><span class="se">\&quot;</span><span class="s">row1</span><span class="se">\&quot;</span><span class="s">&gt;...&lt;/tr&gt;</span><span class="se">\n\n</span><span class="s">&quot;</span>
+<span class="p">}</span> <span class="p">]</span>
+<span class="n">data_json</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="n">action</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+</pre></div>
+</div>
+<p>Vedi libreria jmb completa <a class="reference internal" href="javascript.html#jmb-javascript"><em>javascript</em></a></p>
+</div>
+<div class="section" id="chiamata-singola">
+<h2>chiamata singola<a class="headerlink" href="#chiamata-singola" title="Permalink to this headline">¶</a></h2>
+<p>Nel caso si voglia utilizzare la funzione singolarmente
+si può utilizzare:</p>
+<div class="highlight-python"><div class="highlight"><pre>jmb.show_in_popup(src, title, width=1000, height=500, callback = function(){})
+</pre></div>
+</div>
+<ul class="simple">
+<li>src -&gt; sorgente dell iframe</li>
+<li>title -&gt; titolo della modale</li>
+<li>width e height -&gt; altezza e larghezza della modale</li>
+<li>callback -&gt; funzione triggerata alla chiusura della modale</li>
+<li>ritorna l&#8217;apertura dell iframe nella modale (true)</li>
+</ul>
+</div>
+<div class="section" id="esempio">
+<h2>esempio<a class="headerlink" href="#esempio" title="Permalink to this headline">¶</a></h2>
+<p>in admin.py:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">get_add_assistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">               &lt;a class=&#39;iframe hjson refresh&#39; href=&#39;</span><span class="si">%(reverse_url)s</span><span class="s">?_popup=1&amp;ticket=</span><span class="si">%(ticket_id)s</span><span class="s">&#39;</span>
+<span class="s">               &lt;/a&gt;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">{</span>
+                        <span class="s">&#39;reverse_url&#39;</span><span class="p">:</span> <span class="n">reverse</span><span class="p">(</span><span class="s">&#39;admin:ticket_ticketassistance_add&#39;</span><span class="p">),</span>
+                        <span class="s">&#39;ticket_id&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">id</span>
+               <span class="p">}</span>
+
+<span class="n">get_add_assistance_</span><span class="o">.</span><span class="n">allow_tags</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>aggiungere nella change_list.html:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;script&gt;
+    // classe predefinita a.iframe
+    jmb.auto_popup(classe, callback)
+&lt;/script&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="dipendenze">
+<h2>dipendenze<a class="headerlink" href="#dipendenze" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>jQuery e jQuery ui</li>
+<li>popup.js e jmb.core.js</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="../../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Popup via iframe</a><ul>
+<li><a class="reference internal" href="#classi">classi</a></li>
+<li><a class="reference internal" href="#chiamata-singola">chiamata singola</a></li>
+<li><a class="reference internal" href="#esempio">esempio</a></li>
+<li><a class="reference internal" href="#dipendenze">dipendenze</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="javascript.html"
+                          title="Previous page">&larr; javascript</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="picker.html"
+                          title="Next page">&rarr; picker</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/django/javascript/popup.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="picker.html" title="picker"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="javascript.html" title="javascript"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../content.html" >Django: aggiunte e standardizzazioni.</a> &raquo;</li>
+          <li><a href="content.html" >Javascript</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

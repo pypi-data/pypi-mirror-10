@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Buildout: installazione manuale &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../index.html" />
+    <link rel="up" title="Setup e gestione progetti" href="content.html" />
+    <link rel="next" title="Utilities" href="utilities.html" />
+    <link rel="prev" title="Installazione con buildout" href="buildout.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="utilities.html" title="Utilities"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="buildout.html" title="Installazione con buildout"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" accesskey="U">Setup e gestione  progetti</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="buildout-installazione-manuale">
+<span id="buildout-manual"></span><h1>Buildout: installazione manuale<a class="headerlink" href="#buildout-installazione-manuale" title="Permalink to this headline">¶</a></h1>
+<p>Per chi usa debian/ubuntu nn ha senso fare l&#8217;installazione manuale
+altro che per comprender i passaggi. Queste istruzioni dovrebbero
+funzionare su tutte le distro Linux e Mac Os fatte le debite modifiche
+sulle librerie da installare e sulle modalità specifiche di ogni distro.</p>
+<ol class="arabic">
+<li><p class="first">Per potere compilare i vari pacchetti che possono servire
+suggeriscodi installare:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">python</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span> <span class="n">libpq</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span>  <span class="n">postgresql</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="mf">8.4</span> <span class="o">|</span> <span class="n">postgresql</span><span class="o">-</span><span class="n">dev</span> <span class="p">,</span>
+<span class="n">libxslt1</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span> <span class="n">libsasl2</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span> <span class="n">libjpeg62</span> <span class="o">|</span> <span class="n">libjpeg8</span><span class="p">,</span>
+<span class="n">libjpeg8</span><span class="o">-</span><span class="n">dev</span> <span class="o">|</span> <span class="n">libjpeg62</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span> <span class="n">libfreetype6</span><span class="p">,</span>
+<span class="n">libfreetype6</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span><span class="p">,</span> <span class="n">python</span><span class="o">-</span><span class="n">uno</span><span class="p">,</span> <span class="n">mercurial</span><span class="p">,</span> <span class="n">libldap2</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>in particolare:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">libsasl2-dev:</th><td class="field-body">serve per compilare ldap, richiesto da django-ldap-groups
+e fornisce <tt class="file docutils literal"><span class="pre">sasl.h</span></tt></td>
+</tr>
+<tr class="field-even field"><th class="field-name">libxslt1-dev:</th><td class="field-body">è necessario per compilare lxml</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">libpq-dev:</th><td class="field-body">è necessario per compilare psycopg2</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">libjpeg62 | libjpeg8:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">per PIL con render jpg</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Occorre configurare una cache locale ed il puntatore ai repository</p>
+<div class="highlight-ini"><div class="highlight"><pre>~ $ cat ~/.buildout/default.cfg-
+
+[buildout]
+eggs-directory = /home/tuonome/.buildout/eggs
+download-cache = /home/tuonome/.buildout/download-cache
+
+[thunder]
+jmb2 = /usr/local/src/hg/thunder/jmb2
+# jmb2 = http://dev@hg.thundersystems.it/jumbo2/
+# jmb2 = http://read:letmeread@hg.thundersystems.it/jumbo2/
+extra-paths = /home/local/.buildout/extra-path
+</pre></div>
+</div>
+<p>La sezione <tt class="docutils literal"><span class="pre">[thunder]</span></tt> imposta invece la posizione dei
+repository. Delle 3 versioeni proposte
+per la variabile jmb2:</p>
+<ul class="simple">
+<li>la prima punta alla copia locale invece che a quella
+remota per ovvii vantaggi di velocità. Ricordate che così facendo
+non esiste un meccanismo automatico per aggiornare la copia
+locale</li>
+<li>la seconda suppone che abbiate una chiave sul server di Thunder</li>
+<li>la terza è una opzione in sola lettura</li>
+</ul>
+</li>
+<li><p class="first">Crea una cartella con dei link a librerie che vuoi vengano viste dal
+sistema isolato ma che non vuoi dovere compilare in buildout. Useremo
+questa princialmente per evitare di ricompilare la libreria <tt class="docutils literal"><span class="pre">uno</span></tt> di
+OpenOffice/LibreOffice:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir ~/.buildout/extra-path
+cd  ~/.buildout/extra-path
+ln -s /usr/lib/python2.7/dist-packages/uno.py
+ln -s /usr/lib/python2.7/dist-packages/unohelper.py
+</pre></div>
+</div>
+<p>Nota che buildout NON espande <tt class="docutils literal"><span class="pre">~</span></tt> che va quindi scritta
+in esplicito. La cartella della cache e quella delle egg non sono
+indispensabili ma accelerano immensamente il deploy.</p>
+</li>
+<li><p class="first">Mettete in una cartella locale che sia nel PATH di sistema o che
+sia stata da voi aggiunta nel PATH (ad es. in .bashrc
+PATH=$PATH:~/.jmb-bin) una copia di tutte le <a class="reference external" href="http://hg.thundersystems.it/tools/thunder-buildout/file/8aac78356773/bin">script da noi usate</a></p>
+<p>Ad esempio:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/src/jmb
+cd ~/src/jmb
+hg clone http://read@hg.thundersystems.it/tools/thunder-buildout
+echo &#39;PATH=$PATH:~/src/jmb/thunder-buildout/bin&#39; &gt;&gt; ~/.bashrc
+. ~/.bashrc
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="buildout.html"
+                          title="Previous page">&larr; Installazione con buildout</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="utilities.html"
+                          title="Next page">&rarr; Utilities</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/management/buildout-manual.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="utilities.html" title="Utilities"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="buildout.html" title="Installazione con buildout"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="content.html" >Setup e gestione  progetti</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

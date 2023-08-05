@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Admin actions &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../index.html" />
+    <link rel="up" title="Addon &amp; layout" href="content.html" />
+    <link rel="next" title="Admin Tabs in change form" href="admin_tabs.html" />
+    <link rel="prev" title="JumboModelAdmin" href="model_admin.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="admin_tabs.html" title="Admin Tabs in change form"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="model_admin.html" title="JumboModelAdmin"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../content.html" >Django: aggiunte e standardizzazioni.</a> &raquo;</li>
+          <li><a href="content.html" accesskey="U">Addon &amp; layout</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-jmb.core.admin.actions">
+<span id="id1"></span><span id="admin-actions"></span><h1>Admin actions<a class="headerlink" href="#module-jmb.core.admin.actions" title="Permalink to this headline">¶</a></h1>
+<img alt="../../_images/actions.png" id="action-forms" src="../../_images/actions.png" />
+<div class="section" id="extra-action-form">
+<h2>Extra Action Form<a class="headerlink" href="#extra-action-form" title="Permalink to this headline">¶</a></h2>
+<p>Admin <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/contrib/admin/actions/#admin-actions">Actions</a> in daily usage often require one or more
+arguments. This extension provides an easy way to display a form to
+fill in what needs to be passed to the actions. Namely:</p>
+<ol class="arabic">
+<li><p class="first">Create a form that holds all the fields needed for any action and
+set <tt class="docutils literal"><span class="pre">action_form</span></tt> on your ExtendibleModelAdmin pointing to that
+form.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Set any additional field as <tt class="docutils literal"><span class="pre">required</span> <span class="pre">=</span> <span class="pre">False</span></tt>
+otherwise all actions that don&#8217;t define that will will not let
+the form validate and you&#8217;ll get &#8220;No action selected&#8221;. See below
+the syntax to declare a required field just for one action</p>
+</div>
+</li>
+<li><p class="first">Configure which fields are needed for any action
+(<tt class="docutils literal"><span class="pre">fields_map</span></tt> dict) and set attribute
+<tt class="docutils literal"><span class="pre">fields_map</span></tt> on your ExtendibleModelAdmin</p>
+</li>
+<li><p class="first">Modify <tt class="docutils literal"><span class="pre">change_list.html</span></tt> template to add</p>
+<blockquote>
+<div><ul class="simple">
+<li>templatetag to render <tt class="docutils literal"><span class="pre">admin/actions.html</span></tt> (inluded in
+<tt class="docutils literal"><span class="pre">{jmb.core}result_list</span></tt>)</li>
+<li>javascript to toggle visibility of the fields</li>
+</ul>
+</div></blockquote>
+<p>this step is already done in <em>jmb.core</em> provided template</p>
+</li>
+</ol>
+<div class="section" id="the-actionform">
+<h3>The ActionForm<a class="headerlink" href="#the-actionform" title="Permalink to this headline">¶</a></h3>
+<p>When ModelAdmin has actions enabled, Django creates a form and attaches it to 
+attribute <tt class="docutils literal"><span class="pre">action_form</span></tt>, thought is not officially documented.
+This action will hold</p>
+<ul class="simple">
+<li>the selected action</li>
+<li>the selected ids or <tt class="docutils literal"><span class="pre">select_across</span></tt> boolean to say all records
+where selected.</li>
+</ul>
+<p>Entending and modifying that form we make available any fields defined
+in it.  The selected row will be available as a queryset, as usual.</p>
+<p>You can use <tt class="xref py py-meth docutils literal"><span class="pre">ExtendibleModelAdmin.get_action_form_instance()</span></tt> to
+get an already validated form instance.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">if the form does not validate, you don&#8217;t even get to the action and
+the error message will be: &#8220;No action selected&#8221;.</p>
+</div>
+<p>This is used to specify a different form to add extra action fields.
+To use this you need override class <tt class="docutils literal"><span class="pre">JumboActionForm</span></tt>. A good practice 
+is to define these forms in <tt class="docutils literal"><span class="pre">admin_forms.py</span></tt> or in <tt class="docutils literal"><span class="pre">admin/forms.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">jmb.core.admin</span> <span class="kn">import</span> <span class="n">ExtendibleModelForm</span><span class="p">,</span> <span class="n">JumboActionForm</span>
+
+
+<span class="k">class</span> <span class="nc">NewsletterActionForm</span><span class="p">(</span><span class="n">JumboActionForm</span><span class="p">):</span>
+
+    <span class="n">fields_map</span> <span class="o">=</span> <span class="p">{</span>    
+       <span class="s">&#39;clone&#39;</span><span class="p">:</span> <span class="p">[],</span>
+       <span class="s">&#39;send_newsletter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;mailing_list&#39;</span><span class="p">],</span>
+       <span class="s">&#39;resend_newsletter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;mailing_list:required&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+    <span class="n">mailing_list</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ModelChoiceField</span><span class="p">(</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">MailingList</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;Mailing list&#39;</span><span class="p">),</span>
+        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="s">&#39;mailing_list&#39;</span><span class="p">})</span>
+    <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">NewsletterAdmin</span><span class="p">(</span><span class="n">ExtendibleModelAdmin</span><span class="p">):</span>
+
+   <span class="k">def</span> <span class="nf">send_newsletter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+       <span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_form_action_instance</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+       <span class="o">...</span>
+
+   <span class="n">action_form</span> <span class="o">=</span> <span class="n">NewsletterActionForm</span>
+</pre></div>
+</div>
+<p id="action-form-fields">A dictionary to specify action and its extra fields to complete operation:</p>
+<p>key is the action and value can be [] if there is not any extra fields
+or a list of extra fields.  <tt class="docutils literal"><span class="pre">required</span></tt> it&#8217;s used to specify that
+that field is required. Example: <tt class="docutils literal"><span class="pre">send_newsletter</span></tt>:
+<tt class="docutils literal"><span class="pre">['mailing_list:required']</span></tt>.  When user select <tt class="docutils literal"><span class="pre">send</span> <span class="pre">newsletter</span></tt>
+action is required specify <tt class="docutils literal"><span class="pre">mailing_list</span></tt> to whom to send newsletter.</p>
+</div>
+<div class="section" id="field-map">
+<h3>field_map<a class="headerlink" href="#field-map" title="Permalink to this headline">¶</a></h3>
+<p>This defines the mapping between action names and fields to be 
+displayed. You can set a field as required using the 
+<tt class="docutils literal"><span class="pre">:required</span></tt> syntax as shown above.</p>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="jmb.core.admin.actions.JumboActionForm">
+<em class="property">class </em><tt class="descclassname">jmb.core.admin.actions.</tt><tt class="descname">JumboActionForm</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/actions.html#JumboActionForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.actions.JumboActionForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default ActionForm with some logic to implement
+required fields according to selected action.</p>
+<dl class="method">
+<dt id="jmb.core.admin.actions.JumboActionForm.clean">
+<tt class="descname">clean</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/actions.html#JumboActionForm.clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jmb.core.admin.actions.JumboActionForm.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check  that any :required</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="jmb.core.admin.actions.JumboActionForm.field_map">
+<tt class="descname">field_map</tt><em class="property"> = {}</em><a class="headerlink" href="#jmb.core.admin.actions.JumboActionForm.field_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>mapping between action name and fields needed for the action</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">jmb.core.admin.actions.</tt><tt class="descname">JumboActionForm</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/actions.html#JumboActionForm"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>The default ActionForm with some logic to implement
+required fields according to selected action.</p>
+<dl class="method">
+<dt>
+<tt class="descname">clean</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/jmb/core/admin/actions.html#JumboActionForm.clean"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Check  that any :required</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<tt class="descname">field_map</tt><em class="property"> = {}</em></dt>
+<dd><p>mapping between action name and fields needed for the action</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="clone-action">
+<h2>clone_action<a class="headerlink" href="#clone-action" title="Permalink to this headline">¶</a></h2>
+<p>permette di duplicare gli item selezionati nella <tt class="docutils literal"><span class="pre">changelist_view</span></tt> con una nuova pk.
+Questa action va abilitata esplicitamente nell&#8217;ExtendibleModelAdmin.</p>
+<div class="section" id="utilizzo">
+<h3>Utilizzo<a class="headerlink" href="#utilizzo" title="Permalink to this headline">¶</a></h3>
+<p>effettuare l&#8217;import dell&#8217;action:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">jmb.core.admin.options</span> <span class="kn">import</span> <span class="n">clone_action</span>
+</pre></div>
+</div>
+<p>ridefinire o aggiungere la action tra le actions presenti:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">actions</span> <span class="o">=</span> <span class="p">(</span><span class="n">clone_action</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="../../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Admin actions</a><ul>
+<li><a class="reference internal" href="#extra-action-form">Extra Action Form</a><ul>
+<li><a class="reference internal" href="#the-actionform">The ActionForm</a></li>
+<li><a class="reference internal" href="#field-map">field_map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api">API</a></li>
+<li><a class="reference internal" href="#clone-action">clone_action</a><ul>
+<li><a class="reference internal" href="#utilizzo">Utilizzo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="model_admin.html"
+                          title="Previous page">&larr; JumboModelAdmin</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="admin_tabs.html"
+                          title="Next page">&rarr; Admin Tabs in change form</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/django/addon/admin_actions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="admin_tabs.html" title="Admin Tabs in change form"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="model_admin.html" title="JumboModelAdmin"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../content.html" >Django: aggiunte e standardizzazioni.</a> &raquo;</li>
+          <li><a href="content.html" >Addon &amp; layout</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

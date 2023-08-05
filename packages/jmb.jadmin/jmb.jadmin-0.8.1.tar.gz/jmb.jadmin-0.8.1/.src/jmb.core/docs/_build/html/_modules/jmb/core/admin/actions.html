@@ -1,0 +1,715 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>jmb.core.admin.actions &mdash; jmb.core 0.7.6 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/jumbo.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.7.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../../../_static/cloud.js"></script>
+    <link rel="top" title="jmb.core 0.7.6 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+
+  <nav id="navbar" class=" navbar-default " role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.thundersystems.it
+				  "><img src="../../../../_static/logo-thunder.png"></a>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav">
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jumbo<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../index.html#index" >Framework</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/buildout.html#buildout-env" >Buildout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#buildout-utilities" >Utils</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#troubleshooting" >Troubleshooting</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../jumbo/docs.html#use-sphinx" >Writing Documentation</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Packages<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.core</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.jadmin" >jmb.jadmin</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.filters" >jmb.filters</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.async" >jmb.async</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.fax" >jmb.fax</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.ticket" >jmb.ticket</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.webposte" >jmb.webposte</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/jmb.newsletter" >jmb.newsletter</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="http://docs.thux.it/poste-online" >poste-online</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Django<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/content.html#django" >Django</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/conf/content.html#django-conf" >Configurazioni</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/content.html#django-addon" >Addon & layout</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/ajax_inlines.html#ajax-inline" >Ajax-inline</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/addon/admin_tabs.html#admin-tabs" >Admin Tabs</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../django/javascript/content.html#django-js" >Javascript</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/content.html#misc" >Misc</a>
+   </li>
+
+	  
+	       
+   
+        <li class="divider">
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/misc.html#appypod" >OpenOffice</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/data_import.html#id1" >Data Import</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/ics.html#ics" >Calendar</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../misc/mail_backend.html#mail-backend" >EmailBackend</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+	        
+   
+	 
+	 
+	 
+	 
+       
+       <li class="dropdown" >
+	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utils<span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#dj" >dj</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#ipy" >ipy</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-go" >jmb-go</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-sync" >jmb-sync</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-test-setup" >jmb-test-setup</a>
+   </li>
+
+	  
+	       
+   
+	 
+       
+       <li  >
+	 <a href="../../../../management/utilities.html#jmb-prepare" >jmb-prepare</a>
+   </li>
+
+	  
+	  </ul>
+       
+   </li>
+
+            
+          </ul>
+
+        </div>
+    </div>
+  </nav>
+
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for jmb.core.admin.actions</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;.. _action-forms:</span>
+
+<span class="sd">.. image:: ../../images/actions.png</span>
+
+
+<span class="sd">Extra Action Form</span>
+<span class="sd">==================</span>
+
+<span class="sd">Admin Actions_ in daily usage often require one or more</span>
+<span class="sd">arguments. This extension provides an easy way to display a form to</span>
+<span class="sd">fill in what needs to be passed to the actions. Namely:</span>
+
+<span class="sd">#. Create a form that holds all the fields needed for any action and</span>
+<span class="sd">   set ``action_form`` on your ExtendibleModelAdmin pointing to that</span>
+<span class="sd">   form. </span>
+
+<span class="sd">   .. caution:: Set any additional field as ``required = False``</span>
+<span class="sd">      otherwise all actions that don&#39;t define that will will not let</span>
+<span class="sd">      the form validate and you&#39;ll get &quot;No action selected&quot;. See below</span>
+<span class="sd">      the syntax to declare a required field just for one action</span>
+
+<span class="sd">#. Configure which fields are needed for any action</span>
+<span class="sd">   (``fields_map`` dict) and set attribute</span>
+<span class="sd">   ``fields_map`` on your ExtendibleModelAdmin</span>
+
+<span class="sd">#. Modify ``change_list.html`` template to add </span>
+
+<span class="sd">    + templatetag to render ``admin/actions.html`` (inluded in</span>
+<span class="sd">      ``{jmb.core}result_list``) </span>
+
+<span class="sd">    + javascript to toggle visibility of the fields</span>
+
+<span class="sd">   this step is already done in *jmb.core* provided template</span>
+
+
+<span class="sd">The ActionForm</span>
+<span class="sd">--------------------------------</span>
+
+<span class="sd">When ModelAdmin has actions enabled, Django creates a form and attaches it to </span>
+<span class="sd">attribute ``action_form``, thought is not officially documented.</span>
+<span class="sd">This action will hold </span>
+
+<span class="sd">* the selected action</span>
+
+<span class="sd">* the selected ids or ``select_across`` boolean to say all records</span>
+<span class="sd">  where selected.</span>
+
+<span class="sd">Entending and modifying that form we make available any fields defined</span>
+<span class="sd">in it.  The selected row will be available as a queryset, as usual.</span>
+
+<span class="sd">You can use :meth:`ExtendibleModelAdmin.get_action_form_instance` to</span>
+<span class="sd">get an already validated form instance.</span>
+
+<span class="sd">.. caution::</span>
+
+<span class="sd">   if the form does not validate, you don&#39;t even get to the action and</span>
+<span class="sd">   the error message will be: &quot;No action selected&quot;.</span>
+
+
+<span class="sd">This is used to specify a different form to add extra action fields.</span>
+<span class="sd">To use this you need override class ``JumboActionForm``. A good practice </span>
+<span class="sd">is to define these forms in ``admin_forms.py`` or in ``admin/forms.py``::</span>
+
+<span class="sd">    from jmb.core.admin import ExtendibleModelForm, JumboActionForm</span>
+
+
+<span class="sd">    class NewsletterActionForm(JumboActionForm):</span>
+<span class="sd"> </span>
+<span class="sd">        fields_map = {    </span>
+<span class="sd">           &#39;clone&#39;: [],</span>
+<span class="sd">           &#39;send_newsletter&#39;: [&#39;mailing_list&#39;],</span>
+<span class="sd">           &#39;resend_newsletter&#39;: [&#39;mailing_list:required&#39;],</span>
+<span class="sd">        }</span>
+<span class="sd">        mailing_list = forms.ModelChoiceField(</span>
+<span class="sd">            queryset=MailingList.objects.filter(status=1),</span>
+<span class="sd">            label=_(&#39;Mailing list&#39;),</span>
+<span class="sd">            required=False,</span>
+<span class="sd">            widget=forms.Select(attrs={&#39;id&#39;: &#39;mailing_list&#39;})</span>
+<span class="sd">        )</span>
+
+
+<span class="sd">    class NewsletterAdmin(ExtendibleModelAdmin):</span>
+
+<span class="sd">       def send_newsletter(self, request, queryset):</span>
+<span class="sd">           form = self.get_form_action_instance(request)</span>
+<span class="sd">           ...</span>
+
+<span class="sd">       action_form = NewsletterActionForm</span>
+
+<span class="sd">.. _action-form-fields:</span>
+
+
+<span class="sd">A dictionary to specify action and its extra fields to complete operation::</span>
+
+
+<span class="sd">key is the action and value can be [] if there is not any extra fields</span>
+<span class="sd">or a list of extra fields.  ``required`` it&#39;s used to specify that</span>
+<span class="sd">that field is required. Example: ``send_newsletter``:</span>
+<span class="sd">``[&#39;mailing_list:required&#39;]``.  When user select ``send newsletter``</span>
+<span class="sd">action is required specify ``mailing_list`` to whom to send newsletter.</span>
+
+<span class="sd">field_map</span>
+<span class="sd">--------------------------------------------</span>
+
+<span class="sd">This defines the mapping between action names and fields to be </span>
+<span class="sd">displayed. You can set a field as required using the </span>
+<span class="sd">``:required`` syntax as shown above. </span>
+
+
+
+<span class="sd">API</span>
+<span class="sd">===</span>
+
+<span class="sd">.. autoclass:: JumboActionForm</span>
+<span class="sd">   :members:</span>
+
+<span class="sd">.. _Actions: https://docs.djangoproject.com/en/dev/ref/contrib/admin/actions/#admin-actions</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib.admin</span> <span class="kn">import</span> <span class="n">helpers</span>
+
+<div class="viewcode-block" id="JumboActionForm"><a class="viewcode-back" href="../../../../django/addon/admin_actions.html#jmb.core.admin.actions.JumboActionForm">[docs]</a><span class="k">class</span> <span class="nc">JumboActionForm</span><span class="p">(</span><span class="n">helpers</span><span class="o">.</span><span class="n">ActionForm</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The default ActionForm with some logic to implement </span>
+<span class="sd">    required fields according to selected action.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c">#: mapping between action name and fields needed for the action</span>
+    <span class="n">field_map</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">JumboActionForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">field_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;action&#39;</span><span class="p">,</span> <span class="s">&#39;select_across&#39;</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field_name</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">&#39;class&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39; extra_action_field&#39;</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;extra_action_field&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parse_fields_map</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_fields_for_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;:required&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields_map</span><span class="p">[</span><span class="n">action</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">fields</span>
+
+    <span class="k">def</span> <span class="nf">get_required_fields_for_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;:required&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields_map</span><span class="p">[</span><span class="n">action</span><span class="p">]</span>
+                      <span class="k">if</span> <span class="n">fname</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;:required&quot;</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">fields</span>
+        
+        
+
+    <span class="k">def</span> <span class="nf">parse_fields_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+                
+<div class="viewcode-block" id="JumboActionForm.clean"><a class="viewcode-back" href="../../../../django/addon/admin_actions.html#jmb.core.admin.actions.JumboActionForm.clean">[docs]</a>    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check  that any :required</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cleaned_data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">JumboActionForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;fields_map&#39;</span><span class="p">)</span> <span class="ow">and</span>
+            <span class="s">&#39;action&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span>
+        <span class="p">):</span>
+            <span class="n">extra_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s">&#39;action&#39;</span><span class="p">]</span>
+            <span class="n">all_extra_actions_args_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields_map</span>
+            <span class="k">if</span> <span class="n">extra_action</span> <span class="ow">in</span> <span class="n">all_extra_actions_args_dict</span><span class="p">:</span>
+                <span class="n">selected_action_extra_fields</span> <span class="o">=</span> <span class="n">all_extra_actions_args_dict</span><span class="p">[</span><span class="n">extra_action</span><span class="p">]</span>
+                <span class="n">error_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">for</span> <span class="n">selected_action_arg</span> <span class="ow">in</span> <span class="n">selected_action_extra_fields</span><span class="p">:</span>
+                    <span class="n">required_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                    <span class="n">field</span> <span class="o">=</span> <span class="n">selected_action_arg</span>
+                    <span class="k">if</span>  <span class="s">&quot;:&quot;</span> <span class="ow">in</span> <span class="n">selected_action_arg</span><span class="p">:</span>
+                        <span class="n">field</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="n">selected_action_arg</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">required</span> <span class="ow">and</span> <span class="n">required</span> <span class="o">==</span> <span class="s">&quot;required&quot;</span><span class="p">:</span>
+                            <span class="n">required_flag</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">if</span> <span class="n">required_flag</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="n">field</span><span class="p">]:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">error_messages</span><span class="p">[</span><span class="n">field</span> <span class="o">+</span> <span class="s">&quot;_error&quot;</span><span class="p">]</span> <span class="o">=</span> \
+                            <span class="n">_</span><span class="p">(</span><span class="s">&quot;No </span><span class="si">%s</span><span class="s"> selected.&quot;</span> <span class="o">%</span> <span class="n">field</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">))</span>
+                            <span class="n">error_flag</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">if</span> <span class="n">error_flag</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">cleaned_data</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../../../../contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../../../../index.html">jmb.core 0.7.6 documentation</a> &raquo;</li>
+
+          <li><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Thunder Systems.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
