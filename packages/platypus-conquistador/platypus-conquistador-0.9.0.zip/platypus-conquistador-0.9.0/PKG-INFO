@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: platypus-conquistador
+Version: 0.9.0
+Summary: Platypus Conquistador: Confirming specific taxonomic groups within your metagenomic samples.
+Home-page: http://github.com/biocore/platypus
+Author: Antonio Gonzalez Pena
+Author-email: antgonza@gmail.com
+License: BSD
+Description: Platypus Conquistador
+        =====================
+        
+        |Build Status| |Coverage Status|
+        
+        Platypus Conquistador is a bioinformatic command line tool for the confirmation
+        of the presence/absence of a specific taxon (or set of taxa) in environmental
+        shotgun sequence reads. Platypus uses two reference databases: an interest
+        database (containing sequences of interest) and an other database (containing
+        all reference library sequences). Platypus uses these databases to generate
+        data showing the number of sequences to those that are closest to the sequences
+        of interest, based on similarity, and their sequence match; this information is
+        also provided for the rest (other) reference database.
+        
+        To start using Platypus, please refer to the `installation notes <https://github.com/biocore/Platypus-Conquistador/blob/master/INSTALL.md>`__;
+        also check the `tutorial <https://github.com/biocore/Platypus-Conquistador/blob/master/TUTORIAL.md>`__.
+        
+        .. |Build Status| image:: https://travis-ci.org/biocore/Platypus-Conquistador.svg
+           :target: https://travis-ci.org/biocore/Platypus-Conquistador
+        .. |Coverage Status| image:: https://coveralls.io/repos/biocore/Platypus-Conquistador/badge.svg
+           :target: https://coveralls.io/r/biocore/Platypus-Conquistador
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
