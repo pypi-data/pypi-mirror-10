@@ -1,0 +1,4 @@
+[console_scripts]
+redpen-flymake = redpen.shell:flymake
+redpen-validate = redpen.shell:commandline
+
