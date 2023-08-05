@@ -1,0 +1,4 @@
+include COPYING
+include LICENSE.txt
+include mcmandelbrot.py
+recursive-include asynqueue/test *.py

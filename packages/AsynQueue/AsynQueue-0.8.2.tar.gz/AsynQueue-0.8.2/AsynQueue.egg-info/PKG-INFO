@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: AsynQueue
+Version: 0.8.2
+Summary:  Asynchronous task queueing based on the Twisted framework. 
+Home-page: http://edsuom.com/AsynQueue.html
+Author: Edwin A. Suominen
+Author-email: valueprivacy-foss@yahoo.com
+License: GPL
+Description:  Asynchronous task queueing based on the Twisted framework, with task prioritization and a powerful worker interface. Worker implementations are included for running tasks asynchronously in the main thread, in separate threads, and in separate Python interpreters (multiprocessing). 
+Keywords: Twisted,asynchronous,threads,taskqueue,queue,priority,tasks,jobs,nodes,cluster
+Platform: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Twisted
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: Software Development :: Object Brokering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
