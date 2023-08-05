@@ -1,0 +1,153 @@
+<script type="text/javascript" src="https://mandrillapp.com/api/docs/js/mandrill.js"></script>
+
+{% for modal in monocle_modals_models %}
+
+<a class="btn btn-success" data-toggle="modal" data-target="#{{ modal.underscored_id }}">Показать модальное окно '{{ modal.name }}'</a>
+
+<!-- Modals -->
+<form id="form_{{ modal.underscored_id }}">
+    <div class="modal fade" id="{{ modal.underscored_id }}" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close btn btn-success" data-dismiss="modal"><div aria-hidden="true">X</div></button>
+                </div>
+                {% if modal.type == 'send' %}
+                <div class="modal-body">
+                    <h2 class="modal-title">{{ modal.name|safe }}</h2>
+
+                    <div class="form-group">
+                        <input type="text" name="name_{{ modal.underscored_id }}"  class="form-control" placeholder="Имя">
+                    </div>
+
+                    {% if modal.showPhone == True %}
+                    <div class="form-group">
+                        <input type="text" name="phone_{{ modal.underscored_id }}"  class="form-control" placeholder="Номер телефона">
+                    </div>
+                    {% endif %}
+
+                    {% if modal.showEmail == True %}
+                    <div class="form-group">
+                        <input type="text" name="email_{{ modal.underscored_id }}"  class="form-control" placeholder="Email">
+                    </div>
+                    {% endif %}
+
+                    {% if modal.showMessage == True %}
+                    <div class="form-group">
+                        <textarea name="message_{{ modal.underscored_id }}" class="form-control" placeholder="Сообщение"></textarea>
+                    </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <div class="modal-text">{{ modal.text|safe }}</div>
+                    </div>
+                </div>
+                <div class="modal-footer dl_footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn btn-success btn-lg btn-block">{{ modal.buttonText|safe }}</button>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if modal.type == 'text' %}
+                <div class="modal-body">
+                    <h2 class="modal-title">{{ modal.name|safe }}</h2>
+                    <div class="modal-text">{{ modal.text|safe }}</div>
+                </div>
+                {% endif %}
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</form>
+
+{% if modal.resModal == True %}
+<div class="modal fade" id="modal-feedback-{{ modal.underscored_id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close btn btn-success" data-dismiss="modal"><div aria-hidden="true">X</div></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">{{ modal.resModalText|safe }}</div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+{% endif %}
+<!-- /Modals -->
+
+{% if modal.type == 'send' %}
+<script>
+/* Заказать звонок */
+function log(obj) {
+  /*  $('#response').text(JSON.stringify(obj));*/
+};
+var m = new mandrill.Mandrill('{{ modal.mandrill_api_key }}');
+
+function sendTheMailWithComments(fl, title) {
+	var mes = "{{ modal.name }}";
+		mes += "\nИмя: " + $(fl).find('input[name=name_{{ modal.underscored_id }}]').val()
+                {% if modal.showEmail == True %} + ";\nEmail: " + $(fl).find('input[name=email_{{ modal.underscored_id }}]').val() {% endif %}
+                {% if modal.showPhone == True %} + ";\nТелефон: " + $(fl).find('input[name=phone_{{ modal.underscored_id }}]').val() {% endif %}
+                {% if modal.showMessage == True %} + ";\nСообщение: " + $(fl).find('textarea[name=message_{{ modal.underscored_id }}]').val() {% endif %}
+        ;
+
+		var params = {
+			"message": {
+					"from_email": "{{ modal.email }}",
+			"to": [{"email": "{{ modal.email }}"}],
+					"subject": title,
+					"text": mes
+			}
+	};
+	m.messages.send(params, function (res) {
+			log(res);
+	}, function (err) {
+			log(err);
+	});
+};
+
+var finishOrder_{{ modal.underscored_id }} = function(obj){
+	$(obj).find('.modal').modal('hide');
+	$('#modal-feedback-{{ modal.underscored_id }}').modal('show');
+};
+
+$(document).ready(function(){
+	$('#form_{{ modal.underscored_id }}').on('submit', function (e) {
+		e.preventDefault();
+		var form = $(this);
+		form.validate({rules: {
+                        name_{{ modal.underscored_id }}: {required: true, maxlength: 50, minlength: 2},
+
+                        {% if modal.showEmail == True %}
+                        email_{{ modal.underscored_id }}: {{% if modal.requiredEmail == True %}required: true,{% endif %}email: true, maxlength: 50, minlength: 2},
+                        {% endif %}
+
+                        {% if modal.showPhone == True %}
+                        phone_{{ modal.underscored_id }}: {{% if modal.requiredPhone == True %}required: true,{% endif %}digits: true, maxlength: 30, minlength: 4},
+                        {% endif %}
+
+                        {% if modal.showMessage == True %}
+                        message_{{ modal.underscored_id }}: {{% if modal.requiredMessage == True %}required: true,{% endif %}maxlength: 500}
+                        {% endif %}
+        }});
+
+		if (form.valid()) {
+			sendTheMailWithComments(this, "{{ modal.name }}");
+
+            {% if modal.resModal == True %}
+			finishOrder_{{ modal.underscored_id }}(this);
+            {% else %}
+            $(this).find('.modal').modal('hide');
+            {% endif %}
+
+		}
+	});
+	/* /Заказать звонок */
+});
+
+/* /My Scripts */
+</script>
+{% endif %}
+
+{% endfor %}
