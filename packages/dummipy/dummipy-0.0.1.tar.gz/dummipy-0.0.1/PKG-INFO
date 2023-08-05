@@ -1,0 +1,77 @@
+Metadata-Version: 1.1
+Name: dummipy
+Version: 0.0.1
+Summary: Categorical variable friendly pandas data frames
+Home-page: https://github.com/yhat/dummipy/
+Author: Greg Lamp
+Author-email: greg@yhathq.com
+License: BSD
+Description: dummipy
+        =======
+        
+        Quickstart
+        ----------
+        
+        .. code:: bash
+        
+            $ pip install dummipy
+        
+        Let it out of the box...
+        
+        ::
+        
+            from sklearn.linear_model import LinearRegression
+            from dummipy import cereal
+        
+            type(cereal)
+            # CategoricalDataFrame
+        
+            cereal.head()
+            reg = LinearRegression()
+            reg.fit(cereal[['mfr', 'vitamins', 'fat']], cereal.calories)
+        
+        Installation
+        ------------
+        
+        You'll need ```pandas`` <http://pandas.pydata.org/>`__, but any old
+        version will do the trick. There is no ``pandas`` version pegged in the
+        ``setup.py`` file so installing ``dummipy`` won't mess up your existing
+        sci-py setup.
+        
+        .. code:: bash
+        
+            $ pip install dummipy
+        
+        Use
+        ---
+        
+        Just use it like any old data frame. That's really all there is to it.
+        
+        ::
+        
+            import dummipy as dp
+        
+            df = dp.CategoricalDataFrame({
+                "x": range(5),
+                "y": ["a", "b", "c", "a", "b"]
+            })
+        
+        
+            df = pd.read_csv("foo.csv")
+            df = dp.CategoricalDataFrame(df)
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
