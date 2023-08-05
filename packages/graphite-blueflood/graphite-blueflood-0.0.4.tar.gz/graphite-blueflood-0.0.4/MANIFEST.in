@@ -1,0 +1,5 @@
+recursive-include bluefloodserver *
+recursive-include twisted/plugins *
+include README.md
+include MANIFEST.in
+
