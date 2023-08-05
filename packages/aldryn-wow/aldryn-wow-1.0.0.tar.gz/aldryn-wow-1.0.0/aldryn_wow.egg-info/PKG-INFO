@@ -1,0 +1,83 @@
+Metadata-Version: 1.1
+Name: aldryn-wow
+Version: 1.0.0
+Summary: Plugin for aldryn to include awesome animations from WOW.js and Animate.css
+Home-page: https://github.com/narayanaditya95/aldryn-wow
+Author: Aditya Narayan
+Author-email: narayanaditya95@gmail.com
+License: LICENSE
+Description: =============
+        aldryn-wow
+        =============
+        
+        .. image:: https://badge.fury.io/py/aldryn-wow.svg
+            :target: http://badge.fury.io/py/aldryn-wow
+        .. image:: https://travis-ci.org/narayanaditya95/aldryn-wow.svg?branch=master
+            :target: https://travis-ci.org/narayanaditya95/aldryn-wow
+        .. image:: https://coveralls.io/repos/narayanaditya95/aldryn-wow/badge.svg?branch=master
+            :target: https://coveralls.io/r/narayanaditya95/aldryn-wow?branch=master
+        .. image:: https://landscape.io/github/narayanaditya95/aldryn-wow/master/landscape.svg?style=flat
+            :target: https://landscape.io/github/narayanaditya95/aldryn-wow/master
+            :alt: Code Health
+        
+        ------------
+        
+        Plugin for django-cms to include awesome animations from `WOW <http://mynameismatthieu.com/WOW/>`_.js and `Animate <http://daneden.github.io/animate.css/>`_.css
+        
+        Installation
+        ------------
+        
+        This plugin requires `django CMS` 3.0 or higher to be properly installed.
+        
+        * In your projects `virtualenv`, run ``pip install aldryn-wow``
+        * If using Django 1.6 add ``'aldryn_wow': 'aldryn_wow.south_migrations',``
+          to ``SOUTH_MIGRATION_MODULES``  (or define ``SOUTH_MIGRATION_MODULES`` if it does not exists);
+        * Run ``manage.py migrate aldryn_wow``
+        
+        
+        Usage
+        -----
+        
+        Default content in Placeholder
+        ******************************
+        
+        If you use Django-CMS >= 3.0, you can use ``Animation`` and ``Wow Animation`` in "default_plugins"
+        (see docs about the CMS_PLACEHOLDER_CONF setting in Django CMS 3.0).
+        
+        Changelog
+        ---------
+        
+        Version 1.0.0
+        *************
+        * Drop backward compatibilty.
+        * Tested and status upgraded to Production/Stable.
+        
+        Version 0.0.3
+        *************
+        * Make parameter fields in WOW animations optional.
+        
+        Version 0.0.2
+        *************
+        * Fixed packaging issues.
+        * Added tests to cover all plugins.
+        * Add south and django migrations.
+        * Drop support for Python 2.6.
+        
+        Version 0.0.1
+        *************
+        * Initial Release.
+        
+Platform: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Message Boards
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
