@@ -1,0 +1,23 @@
+=======
+CHANGES
+=======
+
+0.5.0 (2015-04-15)
+------------------
+
+- bugfix: parse given buildout parts content as is and only rstrip continue
+  lines. This allows to use any content in parts like script content etc.
+  without any intend troubles. The parse concept is similar and compatible with
+  the one used in zc.buildout > 2.0
+
+- This package provides a product build, release and installation system based
+  on package versions using zc.buildout. The core concept is taken from
+  keas.build and provides the same configuration syntax. The main difference
+  is that we don't setup the install script as ``install`` because there is a
+  conflict with the gnu install script call on ubuntu (pycairo, python waf
+  install) used by a popen recipe (p01.recipe.setup:popen). This implementation
+  will offer the install script as a ``deploy`` entry_point. You can simply
+  install the deploy script with ``easy_install p01.build`` on your server.
+  For more information see p01/build/README.txt.
+
+- initial branch of keas.build 0.4.1
