@@ -1,0 +1,38 @@
+Metadata-Version: 1.1
+Name: django-cache-management
+Version: 1.0.0
+Summary: Cache management for Django.
+Home-page: https://github.com/lddubeau/django-cache-management
+Author: Louis-Dominique Dubeau
+Author-email: ldd@lddubeau.com
+License: MPL 2.0
+Description: This is a Django application that adds management commands for
+        managing your caches.
+        
+        It has been tested with Python 2.7 and Python 3.4, and with Django
+        1.6, 1.7 and 1.8. This code is currently used in production.
+        
+        It provides these commands:
+        
+        * ``listcaches``: lists the caches configured in your Django project.
+        
+        * ``pingcache``: verifies that one or more caches are accessible
+          ("pings" them).
+        
+        * ``clearcache``: clears one or more caches.
+        
+Keywords: Django,caching
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: POSIX
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.6
+Classifier: Framework :: Django :: 1.7
+Classifier: Framework :: Django :: 1.8
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
