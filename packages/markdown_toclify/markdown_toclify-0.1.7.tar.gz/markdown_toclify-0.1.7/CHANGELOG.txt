@@ -1,0 +1,75 @@
+CHANGELOG
+=========
+
+Version 1.7.0
+----------------
+
+- added --exlude_h argument to exclude specified header levels from the table of contents.
+- added --placeholder argument to insert the table of contents at a particular
+  position in the document.
+- added --no_toc_header argument to suppress the table of contents header
+- added markdown_toclify wrapper function and added markdown_toclify.
+  as module to PyPI.
+
+
+Version 1.6.0
+----------------
+
+- changes to comply with the new markdown standard 09/03/2014 (http://jgm.github.io/stmd/spec.htm)
+
+1) More than six # characters is not a header 
+2) Space is required between the # characters and the header’s contents
+3) Headers can be indented by at most 3 spaces:
+
+
+Version 1.5.1
+----------------
+
+- handling special GitHub case "&", which is now substituted by a "--"
+
+
+Version 1.5.0
+----------------
+
+- code refactoring
+- removes old back-to-top links
+
+Version 1.4.0
+----------------
+
+- smart re-indentation: Table of contents will be shifted one tab to the left if no level-1 heading can be found
+
+
+Version 1.3.2
+----------------
+
+- improved GitHub-compatibility (stripping of slashes instead of dash-replacement)
+
+
+Version 1.3.1
+----------------
+
+- improved GitHub-compatibility (removal of colons, duplicate dashes)
+
+
+
+Version 1.3.0
+----------------
+
+- Create Github-compatible links via the `-g` tag.
+
+
+Version 1.2.1
+----------------
+
+- turn headlines with 7 pounds (`####### headline`) or more into a 
+level 6-nested headline since HTML only supports headlines
+1-6 (`<h1>, <h2>, ... , <h6>`)
+
+
+
+Version 1.2.0
+----------------
+
+- support for "closed" atx-style headers, 
+  e.g., `### This is an H3 ######`
