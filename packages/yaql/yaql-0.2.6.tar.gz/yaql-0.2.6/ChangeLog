@@ -1,0 +1,71 @@
+CHANGES
+=======
+
+0.2.6
+-----
+
+* Update requirements from global-requirements
+
+0.2.5
+-----
+
+* Ply version pinned to <=3.4
+
+0.2.4
+-----
+
+* Context data evaluation fixed
+* Toxify 0.2 branch
+* Fix issue with fixed name for parser tables
+
+0.2.3
+-----
+
+* Context data fetching improvements
+* Added a "get" function with a dictionary get-by-key semantics. Differs from dictionary attribution ("dict.key") because allows dynamic key generation ("dict.get(part1+part2)")
+* Added ability to pre-resolve methods
+* CLI is now called as "yaql" command, not "yaql-cli" Incremented version to 0.2.1
+* Modified some builtin functions (attribution, filtering) etc to handle objects and dictionary properly: Strings are not treated as collections anymore. Exception is now thrown if an unknown property is attempted to be retrieved for an object. Filtering with non-boolean predicates is no longer possible
+
+0.2
+---
+
+* Bumped version to 0.2
+* Switch function added
+* Temporary workaround to make boolean function weekly-typed again
+* Temporary functions removed
+* parent functions removed, root function finalized
+* Pushed data now properly added to the context of function (not the parent context)
+* Generator sequences are now limited
+* Boolean functions now require strong typing list(*args) function now properly unwraps generators type conversion functions added
+* Context-tree reversing added
+* Added support for varargs in context-aware functions
+* Attempt to add context-manipulation functions (work in progress yet, most probably parent will be removed and root dramatically modified)
+* Get context data ($-char) can now be followed by letters as well as digits
+* extensions renamed to cli_functions
+* Test-data became closer to real-world
+* extensiions.py renamed to cli_functions, some temporary debug functions added Console history supoort added
+* Collection-collection attribution now properly flattens properties
+* Set output dir for parser_table.py in a platform independent way
+* Write parser_table_py to a different location
+* Empty input is now properly handled in CLI
+* Context default data assignment now assigns $1 as well
+* Fix precedence for IN operator
+* Merge
+* Add 'in' operator to YAQL
+* CLI will handle all runtime exceptions
+* Added ability to run yaql-cli right after setup
+* Added license to setup.py
+* Separated grammar and lexical exceptions
+* Added cli module
+* Added 'examples' package
+* Generated grammar added to .gitignore
+* Updated README
+* Added simple setup.py
+* Added gitignore
+* Updated license notes
+* Used @wrap decorator to copy the arguments of context-aware function
+* Update LICENSE.txt
+* Add Apache 2.0 license
+* Initial commit of YAQL: lexical tokenizer, grammar parser and expression executor of the context-based pluggable functions for basic YAQL operations. Implemented basic set of functions: - loading of data from context - attribute access (including collection iteration) - scoping - collection filtering - comparison operators - arithmetic operators - boolean operators - generation of simple data structures (list, dictionary, tuple)
+* Initial commit
