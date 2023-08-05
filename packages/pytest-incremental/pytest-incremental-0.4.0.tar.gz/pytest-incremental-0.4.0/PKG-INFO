@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: pytest-incremental
+Version: 0.4.0
+Summary: an incremental test runner (pytest plugin)
+Home-page: http://pytest-incremental.readthedocs.org
+Author: Eduardo Naufel Schettino
+Author-email: schettino72@gmail.com
+License: MIT
+Description: ================
+        README
+        ================
+        
+        
+        pytest-incremental
+        ====================
+        
+        an incremental test runner (pytest plug-in)
+        
+        
+        .. image:: https://travis-ci.org/pytest-dev/pytest-incremental.svg?branch=master
+          :target: https://travis-ci.org/pytest-dev/pytest-incremental
+        
+        .. image:: https://coveralls.io/repos/pytest-dev/pytest-incremental/badge.svg
+          :target: https://coveralls.io/r/pytest-dev/pytest-incremental
+        
+        *pytest-incremental* analyses your project structure and file
+        modifications between test-runs
+        to modify the order tests are executed and de-select tests.
+        This allows a much faster feedback for interactive test execution.
+        
+        
+        Project Details
+        ===============
+        
+         - Website & docs - http://pytest-incremental.readthedocs.org
+         - Project code + issue track on github - https://github.com/pytest-dev/pytest-incremental
+         - PyPI - https://pypi.python.org/pypi/pytest-incremental
+         - Discussion group - http://groups.google.co.in/group/python-doit
+        
+        
+        license
+        =======
+        
+        The MIT License
+        Copyright (c) 2015 Eduardo Naufel Schettino
+        
+        see LICENSE file
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Testing
