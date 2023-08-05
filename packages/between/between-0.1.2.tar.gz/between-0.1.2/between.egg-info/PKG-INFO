@@ -1,0 +1,87 @@
+Metadata-Version: 1.1
+Name: between
+Version: 0.1.2
+Summary: Between of VCNC for Python
+Home-page: https://github.com/carpedm20/between/
+Author: Taehoon Kim
+Author-email: carpedm20@gmail.com
+License: BSD License
+Description: ========
+        betweeen
+        ========
+        
+        `Between <https://between.us/?lang=en>`__ of `VCNC <https://between.us/about>`__ for Python.
+        
+        *How to be loved?* this is the answer for your question.
+        
+        
+        How to use
+        ==========
+        
+        1. Date with somebody
+        2. Install `Between <https://between.us/download/mobile/>`__
+        3. Write a fun bot
+        4. **Be loved** by your lover
+        
+        
+        Installation
+        ============
+        
+        Simple.
+        
+        .. code-block:: console
+        
+            $ pip install betweeen
+        
+        
+        Example
+        =======
+        
+        .. code-block:: console
+        
+            import betweeen
+        
+            client = betweeen.Client("YOUR_ID", "YOUR_PASSWORD")
+            client.send("Carpe diem!")
+            client.send_sticker()
+            client.send_image("./test.jpg")
+        
+        
+        To do
+        =====
+        
+        - [x] Login, Authentication
+        - [x] Send a message
+        - [x] Send a sticker
+        - [x] Send an image
+        - [x] Get recent messages
+        - [ ] Get uploaded image lists
+        - [ ] Message long polling
+        
+        
+        Authors
+        =======
+        
+        Taehoon Kim / `@carpedm20 <http://carpedm20.github.io/about/>`__
+Keywords: between vcnc chat
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Communications :: Chat
