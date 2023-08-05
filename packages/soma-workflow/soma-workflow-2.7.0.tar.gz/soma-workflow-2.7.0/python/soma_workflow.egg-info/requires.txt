@@ -1,0 +1,11 @@
+
+
+[doc]
+sphinx>=1.0
+
+[client]
+Pyro
+paramiko
+
+[plotting]
+matplotlib
