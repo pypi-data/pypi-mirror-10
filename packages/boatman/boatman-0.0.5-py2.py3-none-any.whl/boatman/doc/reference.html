@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reference &mdash; boatman 0.0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="boatman 0.0.5 documentation" href="index.html" />
+    <link rel="next" title="ChangeLog" href="changelog.html" />
+    <link rel="prev" title="boatman" href="readme.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="changelog.html" title="ChangeLog"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="boatman"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">boatman 0.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-ansi">
+<span id="ansi"></span><h2>ansi<a class="headerlink" href="#module-ansi" title="Permalink to this headline">¶</a></h2>
+<p>ANSI helper functions.</p>
+<dl class="function">
+<dt id="ansi.clear_line">
+<code class="descclassname">ansi.</code><code class="descname">clear_line</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ansi.html#clear_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ansi.clear_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear line.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansi.clear_screen">
+<code class="descclassname">ansi.</code><code class="descname">clear_screen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ansi.html#clear_screen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ansi.clear_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear screen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansi.print_at">
+<code class="descclassname">ansi.</code><code class="descname">print_at</code><span class="sig-paren">(</span><em>line</em>, <em>col</em>, <em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ansi.html#print_at"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ansi.print_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print at line and column. Requires colorama.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansi.set_print_pos">
+<code class="descclassname">ansi.</code><code class="descname">set_print_pos</code><span class="sig-paren">(</span><em>line</em>, <em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ansi.html#set_print_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ansi.set_print_pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define priting position. Requires colorama.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-boatman">
+<span id="boatman"></span><h2>boatman<a class="headerlink" href="#module-boatman" title="Permalink to this headline">¶</a></h2>
+<p>A simple logic game.
+A boatman is comissioned to take a Wolf, a Goat and some Pasture to the other
+margin.
+He can only take one at the time.
+While he is on the dock, nothing happens.
+As soon as he leaves, the animals will try to eat.
+The order of transportation is important because the Wolf eats the Goat and
+the Goat eats the Pasture, but the Wolf doesn&#8217;t eat the Pasture.</p>
+<p>Portuguese</p>
+<p>Um jogo de lógica simples.
+Um barqueiro é contratado para levar um Lobo, uma Cabra e Pasto para a outra
+margem.
+Só pode levar um de cada vez.
+Enquanto está na doca nada acontece.
+Assim que saí, os animais tentam comer.
+A ordem de transporte é importante porque o Lobo come a Cabra e a Cabra come o
+Pasto, mas o Lobo não come o Pasto.</p>
+<dl class="function">
+<dt id="boatman.fireworks">
+<code class="descclassname">boatman.</code><code class="descname">fireworks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/boatman.html#fireworks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boatman.fireworks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print fireworks.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boatman.main">
+<code class="descclassname">boatman.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/boatman.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boatman.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear screen, draw scenario, request input and select correct action.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boatman.move_boat">
+<code class="descclassname">boatman.</code><code class="descname">move_boat</code><span class="sig-paren">(</span><em>to_pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/boatman.html#move_boat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boatman.move_boat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move boat to right/left dock, and returns position after move.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boatman.move_left">
+<code class="descclassname">boatman.</code><code class="descname">move_left</code><span class="sig-paren">(</span><em>item</em>, <em>boat_pos</em>, <em>left_items</em>, <em>right_items</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/boatman.html#move_left"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boatman.move_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move item to left dock.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boatman.move_right">
+<code class="descclassname">boatman.</code><code class="descname">move_right</code><span class="sig-paren">(</span><em>item</em>, <em>boat_pos</em>, <em>left_items</em>, <em>right_items</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/boatman.html#move_right"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boatman.move_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move item to right dock.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boatman.upd_status">
+<code class="descclassname">boatman.</code><code class="descname">upd_status</code><span class="sig-paren">(</span><em>cur_boat_pos</em>, <em>left_items</em>, <em>right_items</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/boatman.html#upd_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boatman.upd_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update game status, showing a message and if won some fireworks.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-localization">
+<span id="localization"></span><h2>localization<a class="headerlink" href="#module-localization" title="Permalink to this headline">¶</a></h2>
+<p>Localization.</p>
+<dl class="function">
+<dt id="localization.sys_lang">
+<code class="descclassname">localization.</code><code class="descname">sys_lang</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/localization.html#sys_lang"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#localization.sys_lang" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get system language.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-utils">
+<span id="utils"></span><h2>utils<a class="headerlink" href="#module-utils" title="Permalink to this headline">¶</a></h2>
+<p>Utilities.</p>
+<dl class="function">
+<dt id="utils.run">
+<code class="descclassname">utils.</code><code class="descname">run</code><span class="sig-paren">(</span><em>win_cmd=u''</em>, <em>x_cmd=u''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run OS command.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Reference</a><ul>
+<li><a class="reference internal" href="#module-ansi">ansi</a></li>
+<li><a class="reference internal" href="#module-boatman">boatman</a></li>
+<li><a class="reference internal" href="#module-localization">localization</a></li>
+<li><a class="reference internal" href="#module-utils">utils</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="readme.html"
+                        title="previous chapter">boatman</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="changelog.html"
+                        title="next chapter">ChangeLog</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2009-2015, Joao Carlos Roseta Matos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="_sources/reference.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
