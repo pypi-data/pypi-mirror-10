@@ -1,0 +1,47 @@
+Metadata-Version: 1.1
+Name: better-bencode
+Version: 0.1
+Summary: Bencode implemented as Python C Extension
+Home-page: https://github.com/kosqx/better-bencode
+Author: Krzysztof Kosyl
+Author-email: krzysztof.kosyl@gmail.com
+License: BSD
+Description: ==============
+        Better Bencode
+        ==============
+        
+        :author: Krzysztof Kosyl
+        :version: 0.1.0
+        :date: 2015-04-20
+        
+        Still alpha!
+        
+        
+        Install
+        -------
+        
+        ::
+        
+           $ pip install better-bencode
+        
+        
+        Example
+        -------
+        
+        .. code-block:: pycon
+        
+            >>> import better_bencode
+            >>> dumped = better_bencode.dumps(['spam', 42])
+            >>> better_bencode.loads(dumped)
+            ['spam', 42]
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
