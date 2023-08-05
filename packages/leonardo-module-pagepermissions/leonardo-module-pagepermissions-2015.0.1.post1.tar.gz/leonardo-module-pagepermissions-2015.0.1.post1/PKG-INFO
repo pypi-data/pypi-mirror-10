@@ -1,0 +1,68 @@
+Metadata-Version: 1.1
+Name: leonardo-module-pagepermissions
+Version: 2015.0.1.post1
+Summary: Page Permissions for Leonardo CMS
+Home-page: https://github.com/django-leonardo/leonardo-module-pagepermissions.git
+Author: Michael Kuty
+Author-email: kutymichael@gmail.com
+License: UNKNOWN
+Description: =========================
+        Leonardo Page Permissions
+        =========================
+        
+        Leonardo Page Permissions based on https://github.com/ebrelsford/feincms-pagepermissions
+        
+        This plugin extends Leonardo Page and provide new Navigation templates which repsect your permissions.
+        
+        *Check whether the user has permission to view the page. If the user has any of the page's permissions, they have permission. If the page has no set permissions, they have permission.*
+        
+        .. contents::
+            :local:
+        
+        Installation
+        ------------
+        
+        .. code-block:: bash
+        
+            pip install leonardo_module_pagepermissions
+        
+        or as leonardo bundle
+        
+        .. code-block:: bash
+        
+            pip install django-leonardo["pagepermissions"]
+        
+        Add ``leonardo_module_sentry`` to APPS list, in the ``local_settings.py``::
+        
+            APPS = [
+            	...
+                'leonardo_module_pagepermissions'
+                ...
+            ]
+        
+        Load new template to db
+        
+        .. code-block:: bash
+        
+        	python manage.py sync_all
+        
+        Read more
+        ---------
+        
+        * https://github.com/ebrelsford/feincms-pagepermissions
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
