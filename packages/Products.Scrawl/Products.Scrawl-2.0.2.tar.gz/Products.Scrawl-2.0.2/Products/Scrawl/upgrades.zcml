@@ -1,0 +1,16 @@
+<configure
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="scrawl">
+        
+    <genericsetup:upgradeStep
+        source="*"
+        destination="2000"
+        title="Common upgrade"
+        description=""
+        profile="Products.Scrawl:default"
+        handler="Products.Scrawl.upgrades.common"
+        />
+
+</configure>
