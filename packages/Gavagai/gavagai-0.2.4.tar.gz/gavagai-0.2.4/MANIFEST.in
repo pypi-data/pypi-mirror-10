@@ -1,0 +1,6 @@
+include *.md
+include *.txt
+include Makefile
+recursive-include examples *.py
+recursive-include test *.json
+recursive-include test *.py
