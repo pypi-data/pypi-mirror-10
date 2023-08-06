@@ -1,0 +1,84 @@
+Metadata-Version: 2.0
+Name: pyshaker
+Version: 0.0.8
+Summary: Distributed data-plane performance testing tool
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: pbr (>=0.6,!=0.7,<1.0)
+Requires-Dist: iso8601 (>=0.1.9)
+Requires-Dist: Jinja2 (>=2.6)
+Requires-Dist: oslo.concurrency (>=1.4.1)
+Requires-Dist: oslo.config (>=1.6.0)
+Requires-Dist: oslo.i18n (>=1.3.0)
+Requires-Dist: oslo.log (>=0.4.0)
+Requires-Dist: oslo.serialization (>=1.2.0)
+Requires-Dist: oslo.utils (>=1.2.0)
+Requires-Dist: psutil (>=1.1.1,<2.0.0)
+Requires-Dist: python-glanceclient (>=0.15.0)
+Requires-Dist: python-keystoneclient (>=1.1.0)
+Requires-Dist: python-neutronclient (>=2.3.11,<3)
+Requires-Dist: python-novaclient (>=2.18.0,!=2.21.0)
+Requires-Dist: python-heatclient (>=0.3.0)
+Requires-Dist: python-subunit (>=0.0.18)
+Requires-Dist: PyYAML (>=3.1.0)
+Requires-Dist: pyzmq (>=14.3.1)
+Requires-Dist: six (>=1.9.0)
+
+Shaker
+======
+
+The distributed data-plane testing tool for OpenStack.
+
+Features
+--------
+
+    * User-defined topology via Heat templates
+    * Simultaneously test execution on multiple instances
+    * Pluggable tools
+    * Interactive report with stats and charts
+
+Requirements
+------------
+
+    * Shaker server routable from OpenStack cloud
+    * Admin-user access to OpenStack API
+
+Setup
+-----
+
+ 1. ``pip install pyshaker`` - installs the tool and all its python dependencies
+ 2. ``shaker-image-builder`` - builds shaker image and stores it in Glance
+
+
+Run
+---
+
+ ``shaker --server-endpoint <host:port> --scenario <scenario.yaml> --report <report.html>``
+
+ where:
+    * ``<host:port>`` - address of machine where Shaker is deployed and any free port
+    * ``<scenario.yaml>`` - the scenario to execute; L2, L3 east-west and L3 north-south already included
+    * ``<report.html>`` - file to store the report
+
+
+Links
+-----
+ * Launchpad - https://launchpad.net/shaker/
+ * Docs - http://pyshaker.readthedocs.org/
+ * PyPi - https://pypi.python.org/pypi/pyshaker/
+
+
+
