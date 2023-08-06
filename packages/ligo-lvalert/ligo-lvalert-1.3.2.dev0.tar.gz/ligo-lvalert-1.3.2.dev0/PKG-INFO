@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: ligo-lvalert
+Version: 1.3.2.dev0
+Summary: LIGO-Virgo Alert Network Client Tools
+Home-page: http://www.lsc-group.phys.uwm.edu/daswg/lvalert.html
+Author: Branson Stephens
+Author-email: branson.stephens@ligo.org
+License: GPLv3
+Description: The LIGO-Virgo Alert Network (LVAlert) is a notification service built on XMPP to provide a basic notification tool which allows multiple producers and consumers of notifications. This package provides client tools for listening, sending, and managing subscriptions.
+Platform: UNKNOWN
+Requires: pyxmpp
+Requires: libxml2
+Requires: M2Crypto
+Requires: dnspython
+Provides: ligo.lvalert
