@@ -1,0 +1,12 @@
+[console_scripts]
+pyramid_walrus = pyramid_walrus.cli:main
+
+[paste.app_factory]
+main = pyramid_walrus.wsgi:app_factory
+
+[zc.buildout]
+default = pyramid_walrus.recipe:Recipe
+
+[zc.buildout.uninstall]
+default = pyramid_walrus.recipe:uninstall
+
