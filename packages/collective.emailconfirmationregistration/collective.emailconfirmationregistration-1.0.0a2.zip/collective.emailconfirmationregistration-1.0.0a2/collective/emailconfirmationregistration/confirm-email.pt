@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-title">
+  <metal:content-core define-macro="content-title">
+    <h1 tal:condition="not: view/sent">Confirm your email address</h1>
+  </metal:content-core>
+</metal:content-core>
+
+<metal:content-core fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+    <p class="discreet" tal:condition="view/sent">Please verify your email address.</p>
+    <tal:form tal:condition="not: view/sent">
+      <p class="discreet">Before you can begin the registration process, you need to
+                          verify your email address.</p>
+      <form method="POST">
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+        <div class="field">
+          <label for="form.email">
+            Email
+            <span class="fieldRequired" title="Required">
+            (Required)
+            </span>
+            <span class="formHelp">Email to send verification.</span>
+          </label>
+          <div class="widget">
+            <input class="textType" id="form.email" name="form.email" size="30" type="text" value="">
+          </div>
+        </div>
+        <div id="actionsView" class="formControls">
+          <span class="actionButtons">
+            <input type="submit" id="form.actions.verify" name="form.actions.save" value="Verify" class="context">
+          </span>
+        </div>
+      </form>
+    </tal:form>
+  </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
