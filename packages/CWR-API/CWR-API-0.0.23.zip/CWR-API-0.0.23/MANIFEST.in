@@ -1,0 +1,12 @@
+# Miscellany files
+include LICENSE
+include README.rst
+# The tests folder is removed
+prune tests
+# Data files are added
+include data_cwr/*.py
+include data_cwr/*.csv
+include data_cwr/*.yml
+# Configuration files are added
+include config_cwr/*.yml
+include config_cwr/*.cml
