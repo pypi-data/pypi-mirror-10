@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: pynaco
+Version: 0.1.0
+Summary: Python implementation of the NACO normalization rules.
+Home-page: https://github.com/unt-libraries/pynaco
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: OCLC Research Public License 2.0
+Description: # pynaco [![Build Status](https://travis-ci.org/unt-libraries/pynaco.svg?branch=master)](https://travis-ci.org/unt-libraries/pynaco)
+        Python Implementation of NACO Normalization Rules
+        
+        # Background
+        This repository is a fork of the sample code found on the OCLC Research Website. 
+        http://www.oclc.org/research/themes/data-science/naco.html
+        
+        The goal of this fork is to bring this package into pep8 compliance, add a suite of 
+        tests and to make it easier to deploy in a variety of settings.
+        
+        We thank OCLC research for making this available under an Open-Source License.
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
