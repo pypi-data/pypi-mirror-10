@@ -1,0 +1,5 @@
+[console_scripts]
+slapcache-conf = slapcache.conf:do_conf
+slapcache-upload = slapcache.upload:main
+slapcache-download = slapcache.download:main
+
