@@ -1,0 +1,56 @@
+Metadata-Version: 2.0
+Name: mul.recipe.appengine
+Version: 0.1.0
+Summary: Buildout recipes for App Engine.
+Home-page: https://github.com/michaellenaghan/mul.recipe.appengine
+Author: Michael Lenaghan
+Author-email: metamul -@- gmail.com
+License: BSD
+Keywords: app appengine buildout engine gae mul recipe zc.buildout
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: Buildout
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: setuptools (>=8.0)
+Requires-Dist: zc.buildout (>=2.3.1)
+Requires-Dist: zc.recipe.egg (>=2.0.1)
+
+===============================
+MuL App Engine Recipes
+===============================
+
+.. image:: https://img.shields.io/travis/michaellenaghan/mul.recipe.appengine.svg
+        :target: https://travis-ci.org/michaellenaghan/mul.recipe.appengine
+
+.. image:: https://img.shields.io/pypi/v/mul.recipe.appengine.svg
+        :target: https://pypi.python.org/pypi/mul.recipe.appengine
+
+
+Buildout recipes for App Engine.
+
+* Documentation: https://mul.recipe.appengine.readthedocs.org.
+* License: BSD
+
+.. include:: ./mul/recipe/appengine/sdk.rst
+.. include:: ./mul/recipe/appengine/lib.rst
+
+
+
+
+History
+-------
+
+0.1.0 (2015-05-31)
+---------------------
+
+* First release on PyPI.
+
+
