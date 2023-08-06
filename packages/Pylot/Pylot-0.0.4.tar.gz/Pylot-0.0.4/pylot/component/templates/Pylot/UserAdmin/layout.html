@@ -1,0 +1,25 @@
+
+{% assets  "pylot/css/components/admin.css" -%}
+<link href="{{ ASSET_URL }}" rel="stylesheet">
+{% endassets -%}
+
+<div class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">User Admin // {% block page_title %}{% endblock %}</h2>
+                <div class="text-center">
+                    <a href="{{ url_for('UserAdmin:index') }}"><i class="fa fa-"></i>All Users</a>
+                    - <a href="{{ url_for('UserAdmin:roles') }}">Roles</a>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

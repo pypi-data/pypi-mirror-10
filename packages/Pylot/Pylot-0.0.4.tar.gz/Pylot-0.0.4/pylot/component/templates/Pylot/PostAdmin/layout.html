@@ -1,0 +1,42 @@
+
+{% assets  "pylot/css/components/admin.css" -%}
+<link href="{{ ASSET_URL }}" rel="stylesheet">
+{% endassets -%}
+
+<div id="PostAdmin" class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Post Admin // {% block page_title %}{% endblock %}</h2>
+
+                <div class="text-center">
+                    <a href="{{ url_for('PostAdmin:index') }}"><i class="fa fa-"></i>All Posts</a>
+                    - <a href="{{ url_for('PostAdmin:new') }}">New Post</a>
+                    - <a href="{{ url_for('PostAdmin:categories') }}">Categories</a>
+                    - <a href="{{ url_for('PostAdmin:types') }}">Types</a>
+                </div>
+
+                <hr>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                {% block content %}{% endblock %}
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% assets
+        "pylot/js/vendor/jquery-slugify.js",
+        "pylot/js/components/post-manager.js"
+-%}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets -%}

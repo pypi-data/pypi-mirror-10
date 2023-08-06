@@ -1,0 +1,61 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+body {
+  font-family: 'Lato', sans-serif !important; }
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400; }
+
+p, div, span, th, td {
+  font-size: 16px; }
+
+.link {
+  cursor: pointer; }
+
+#PostManager2 .header {
+  border-bottom: 5px solid #ccc;
+  margin-bottom: 20px; }
+  #PostManager2 .header:before, #PostManager2 .header:after {
+    content: " ";
+    display: table; }
+  #PostManager2 .header:after {
+    clear: both; }
+#PostManager2 .page-title {
+  font-size: 32px;
+  padding-bottom: 10px; }
+#PostManager2 ul.menu {
+  margin: 0px;
+  border: 0px;
+  list-style: none; }
+  #PostManager2 ul.menu:before, #PostManager2 ul.menu:after {
+    content: " ";
+    display: table; }
+  #PostManager2 ul.menu:after {
+    clear: both; }
+  #PostManager2 ul.menu li {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    margin-left: 10px; }
+#PostManager2 .block-title {
+  font-size: 18px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+  margin-top: 30px; }
+#PostManager2 .page-category ul.list,
+#PostManager2 .page-type ul.list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px; }
+  #PostManager2 .page-category ul.list li,
+  #PostManager2 .page-type ul.list li {
+    border-bottom: 1px dotted #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer; }
+    #PostManager2 .page-category ul.list li span,
+    #PostManager2 .page-type ul.list li span {
+      font-style: italic; }
+
+/*# sourceMappingURL=admin.css.map */
