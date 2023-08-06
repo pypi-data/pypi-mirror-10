@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>RTS AutoSubmit</title>
+</head>
+<body>
+    {% if intro_text %}
+    <p>{{ intro_text }}</p>
+    {% endif %}
+    <form method="{{ method }}" action="{{ action }}" name="autopost">
+        <input type="hidden" name="{{ field }}" value="{{ data }}">
+        <button>{{ send_button_text }}</button>
+    </form>
+    <script type="text/javascript">
+        document.forms['autopost'].submit()
+    </script>
+</body>
+</html>
