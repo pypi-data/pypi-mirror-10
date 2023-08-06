@@ -1,0 +1,16 @@
+.sselect-message {
+    color: #888888;
+    display: none;
+    position: absolute;
+    top: 6px;
+    z-index: 0;
+}
+
+.staggered-select {
+    position: relative;
+    z-index: 2;
+}
+
+.staggered-select + input {
+    display: none;
+}
