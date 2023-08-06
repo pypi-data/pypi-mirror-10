@@ -1,0 +1,33 @@
+INFO| Starting the graphical interface...::__main__.py:56
+DEBUG| GUI aTXT::window.py:93
+DEBUG| Starting process::window.py:361
+WARNING| Warning: scan a folder can take long time if is a big one::window.py:362
+INFO| ::window.py:368
+DEBUG| created QThread for Scan::scan.py:26
+INFO| ::window.py:369
+INFO|   1 | /Users/usuario/Dropbox/Administrativo Observatorio Restitución de tierras/Formatos/jonathan-papeles/2015/Enero/reporte_mensual.xls::scan.py:38
+INFO| Number of files estimates : 1::scan.py:48
+INFO| Size on disk estimates : 149.0 kB::scan.py:49
+DEBUG| --to: /Users/usuario/Desktop::window.py:309
+DEBUG| _start()::window.py:383
+DEBUG| Starting process::window.py:389
+DEBUG| created QThread for Start::start.py:22
+DEBUG| ready to start atxt conversion::lib.py:37
+DEBUG| <path>: ['/Users/usuario/Dropbox/Administrativo Observatorio Restitucio\xcc\x81n de tierras/Formatos/jonathan-papeles/2015/Enero']::run_path.py:29
+DEBUG| --depth: 0::run_path.py:32
+DEBUG| {'--ocr': False, '<source>': ['/Users/usuario/Dropbox/Administrativo Observatorio Restitucio\xcc\x81n de tierras/Formatos/jonathan-papeles/2015/Enero'], '--file': False, '--path': True, '<file>': [], '--depth': 0, 'tfiles': ['xlsx', 'xls'], 'hero-docx': 'xml', '--from': '', '-l': u'spa', '-o': True, '<path>': ['/Users/usuario/Dropbox/Administrativo Observatorio Restitucio\xcc\x81n de tierras/Formatos/jonathan-papeles/2015/Enero'], 'hero-pdf': 'xpdf', '-u': False, '--use-temp': False, '--to': '/Users/usuario/Desktop', '--ocr-necessary': False}::run_path.py:44
+DEBUG| working over: /Users/usuario/Dropbox/Administrativo Observatorio Restitución de tierras/Formatos/jonathan-papeles/2015/Enero::run_path.py:80
+DEBUG| searching for: ['xlsx', 'xls']::run_path.py:86
+DEBUG| path=/Users/usuario/Dropbox/Administrativo Observatorio Restitución de tierras/Formatos/jonathan-papeles/2015/Enero::run_path.py:93
+DEBUG| --------------------------------------------------::run_path.py:99
+DEBUG| extracting metadata from file: /Users/usuario/Dropbox/Administrativo Observatorio Restitución de tierras/Formatos/jonathan-papeles/2015/Enero/reporte_mensual.xls::infofile.py:31
+DEBUG| file name: reporte_mensual.xls::lib.py:89
+DEBUG| extracting metadata from file: /Users/usuario/Desktop/reporte_mensual.txt::infofile.py:31
+DEBUG| calling bot = xls::__init__.py:59
+DEBUG| saving text data::_utils.py:53
+INFO|   1 | [OK] | /Users/usuario/Dropbox/Administrativo Observatorio Restitución de tierras/Formatos/jonathan-papeles/2015/Enero/reporte_mensual.xls::run_path.py:104
+DEBUG| Start finished::start.py:43
+INFO| Total Files: 1::start.py:44
+INFO| Files Finished: 1::start.py:45
+INFO| Files Unfinished: 0::start.py:46
+DEBUG| Exit::window.py:266
