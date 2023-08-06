@@ -1,0 +1,110 @@
+Metadata-Version: 1.1
+Name: microstacknode
+Version: 0.4.3
+Summary: The Microstack node functions module.
+Home-page: https://github.com/microstack/microstacknode
+Author: Thomas Preston
+Author-email: thomas.preston@openlx.org.uk
+License: GPLv3+
+Description: microstack-node
+        ================
+        Common functions for interacting with Microstack node boards (Accelerometer,
+        GPS, etc).
+        
+        Documentation
+        =============
+        [http://microstack-iot.github.io/](http://microstack-iot.github.io/)
+        
+        You can also find the documentation installed at:
+        
+            /usr/share/doc/python3-microstacknode/
+        
+        Install
+        =======
+        Make sure you are using the lastest version of Raspbian:
+        
+            $ sudo apt-get update
+            $ sudo apt-get upgrade
+        
+        Install `microstacknode` for Python 3 with the following command:
+        
+            $ sudo apt-get install python3-microstacknode
+        
+        
+        Enable Serial Port on Raspberry Pi for GPS
+        ==========================================
+        1. Disable serial port login
+           Comment out `T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100` in
+           `/etc/inittab`
+        
+        2. Disable bootup info. Remove references to `ttyAMA0` in `/boot/cmdline.txt`.
+        
+          That is, change from:
+        
+               dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p6 rootfstype=ext4 elevator=deadline rootwait
+        
+           to:
+        
+                dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p6 rootfstype=ext4 elevator=deadline rootwait
+        
+        3. Reboot.
+        
+        
+        Controlling the on board OK LED (Raspberry Pi)
+        ==============================================
+        
+            # disable mmc0 for led
+            echo none >/sys/class/leds/led0/trigger
+        
+            # enable mmc0 for led
+            echo mmc0 >/sys/class/leds/led0
+        
+            # turn on led
+            echo 1 >/sys/class/leds/led0
+        
+            # turn off led
+            echo 0 >/sys/class/leds/led0
+        Change Log
+        ==========
+        
+        v0.4.0
+        ------
+        - mma8452 accelerometer now returns dictionary for xyz instead of tuple.
+          This was confusing as it's unexpected for a method to return three values.
+          *Explicit is better than implicit.*
+        - Improved docs -- uploaded to readthedocs.
+        
+        v0.3.0
+        ------
+        - Fixed mma8452 accelerometer bug. `get_xyz()` now returns values in Gs no
+          matter what the range is set as. That is, set the range to be 8G and the
+          `get_xyz()` will return 1 is the accelerometer is only experiencing 1G.
+        - Changed mma8452 register implementation.
+        - Added mma8452 SI units method.
+        
+        v0.2.0
+        ------
+        - Moved internal hardware drivers to hardware directory.
+        - Added display and humidity/temperature sensor drivers.
+        - Added examples for drivers.
+        - NOT updated HTML docs for new changes. This will be done in the next
+          update.
+        
+        v0.1.1
+        ------
+        - Changed docs for new install instructions (altered name) and also
+          changed default address for accelerometer.
+        
+        v0.1.0
+        ------
+        - Inital structure.
+        
+Keywords: microstack raspberrypi openlx
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires: microstackcommon (>=0.2.0)
