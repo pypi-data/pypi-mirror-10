@@ -1,0 +1,29 @@
+# This file exists so you can easily regenerate your project.
+#
+# Unfortunatelly cookiecutter can't use this right away so
+# you have to copy this file to ~/.cookiecutterrc
+
+default_context:
+
+    c_extension_optional:      'c_extension_optional'
+    c_extension_support:       'c_extension_support'
+    codecov:                   'codecov'
+    command_line_interface:    'command_line_interface'
+    coveralls:                 'coveralls'
+    distribution_name:         'distribution_name'
+    email:                     'email'
+    full_name:                 'full_name'
+    github_username:           'github_username'
+    landscape:                 'landscape'
+    package_name:              'package_name'
+    project_name:              'project_name'
+    project_short_description: 'project_short_description'
+    release_date:              'release_date'
+    repo_name:                 'repo_name'
+    scrutinizer:               'scrutinizer'
+    sphinx_theme:              'sphinx_theme'
+    test_matrix_configurator:  'test_matrix_configurator'
+    test_runner:               'test_runner'
+    version:                   'version'
+    website:                   'website'
+    year:                      'year'
