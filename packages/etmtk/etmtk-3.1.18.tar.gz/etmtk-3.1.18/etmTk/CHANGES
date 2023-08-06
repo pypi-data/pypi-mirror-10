@@ -1,0 +1,286 @@
+# Changes in the 4 weeks preceding Sun Jun 21 11:27:42 EDT 2015:
+- 2015-06-21 11:27:44 -0400 (HEAD, tag: 3.1.18, master): Dan Graham
+   tagged version 3.1.18
+- 2015-06-21 10:07:44 -0400 (origin/master): Dan Graham
+   Added early_hours to options and a warning to the save confirmation
+   for events or actions with starting times before this 24-hour time.
+- 2015-06-20 11:48:00 -0400 (tag: 3.1.17): Dan Graham
+   tagged version 3.1.17
+- 2015-06-20 11:42:10 -0400: Dan Graham
+   Restored Radiobutton.
+- 2015-06-20 08:24:20 -0400 (tag: 3.1.16): Dan Graham
+   tagged version 3.1.16
+- 2015-06-20 08:24:06 -0400: Dan Graham
+   Added ttk import to dialog. Removed unused Radiobutton.
+- 2015-06-20 07:28:37 -0400: Dan Graham
+   Added unicode = str to the >= 3 part of dialog, Removed unused
+   utf8.
+- 2015-06-19 10:48:50 -0400 (tag: 3.1.15): Dan Graham
+   tagged version 3.1.15
+- 2015-06-19 08:05:05 -0400: Dan Graham
+   Fixed bug in cli under python2 comparing unicode and non-unicode
+   strings.
+- 2015-06-17 13:52:58 -0400 (tag: 3.1.14): Dan Graham
+   tagged version 3.1.14
+- 2015-06-17 13:51:37 -0400: Dan Graham
+   Fixed bug in which scrollToDate would move the selection in month
+   view to the current weekday number instead of the current month day
+   number.
+- 2015-06-16 15:07:21 -0400 (tag: 3.1.13, braeburn/master): Dan Graham
+   tagged version 3.1.13
+- 2015-06-16 13:51:47 -0400: Dan Graham
+   Split timer status into title and status and pack the status part
+   first to avoid it disappearing with resize. Allow @e 0m in actions.
+   In kloneTimer use summary as the starting value in selectTimer and
+   allow editing.
+- 2015-06-15 13:31:14 -0400 (tag: 3.1.12): Dan Graham
+   tagged version 3.1.12
+- 2015-06-15 13:29:04 -0400: Dan Graham
+   Added klone as timer (kloneTimer) command to item menu.  Confirm
+   quit even without running timer. Pause timer when quitting to avoid
+   accumulating down time in running timer.
+- 2015-06-14 18:22:22 -0400 (tag: 3.1.11): Dan Graham
+   tagged version 3.1.11
+- 2015-06-14 18:21:48 -0400: Dan Graham
+   removed edit.py
+- 2015-06-14 15:03:45 -0400 (tag: 3.1.10): Dan Graham
+   tagged version 3.1.10
+- 2015-06-14 15:01:54 -0400: Dan Graham
+   removed erroneous call to getStatus.
+- 2015-06-14 14:17:41 -0400 (timers): Dan Graham
+   Removed old timer class.
+- 2015-06-14 13:59:19 -0400 (origin/timers): Dan Graham
+   Move timer items to a new menu under File.  Update menu states
+   based on active timers.  Bail on selection if new is false and
+   there are no active timers. Make selection window title reflect
+   purpose of selection, e.g., delete, finish, ... Set minsize for
+   selection window. Update status line on Save and Load timers.
+- 2015-06-14 12:22:02 -0400: Dan Graham
+   Call newDay on load if active date has changed. Save old timers to
+   inbox. Restart a running timer with 0 minutes for the new day.
+   Cleaned up print statements.
+- 2015-06-14 09:39:00 -0400: Dan Graham
+   Save timer state on quit. Reload on start. On new day, save timers
+   as inbox items and, if there is a currently running timer, also
+   start a new timer with the same summary for the new day. Use the
+   wm_delete_window protocol to call quit in view.py. Warn if a timer
+   is running and if affirmed, pause timer and save timers state.
+- 2015-06-13 21:41:43 -0400: Dan Graham
+   Fixed import statements. Added wait_window to selectTimers.
+- 2015-06-13 16:29:10 -0400 (braeburn/timers): Dan Graham
+   Timer completion window works. Moved contents of edit.py to
+   dialog.py.
+- 2015-06-13 10:31:42 -0400: Dan Graham
+   Added class Timers - first step to multiple timers.
+- 2015-06-12 17:07:09 -0400: Dan Graham
+   Added self.canvas_date to use date selected in week and month view
+   for new items.
+- 2015-06-11 12:38:17 -0400 (tag: 3.1.9): Dan Graham
+   tagged version 3.1.9
+- 2015-06-11 12:37:54 -0400: Dan Graham
+   Removed ETMLOGO and the use of self.iconphoto.
+- 2015-06-11 10:06:21 -0400 (tag: 3.1.8): Dan Graham
+   tagged version 3.1.8
+- 2015-06-11 10:05:53 -0400: Dan Graham
+   Moved conflict identification from data.py to view.py where it
+   respects active calendar setting.
+- 2015-06-11 09:03:26 -0400 (tag: 3.1.7): Dan Graham
+   tagged version 3.1.7
+- 2015-06-11 09:02:48 -0400: Dan Graham
+   Added updateDay to reschedule and schedule new.
+- 2015-06-09 08:36:36 -0400: Dan Graham
+   Added ICONLOGO - doesn't work on OSX. Improved debug logging for
+   showWeek parameters.
+- 2015-06-08 14:30:39 -0400 (tag: 3.1.6): Dan Graham
+   tagged version 3.1.6
+- 2015-06-08 14:03:14 -0400: Dan Graham
+   Fixed bug in CLI ignoring -w and -W options.
+- 2015-06-08 08:32:53 -0400: Dan Graham
+   Allow toggle labels and print tree in week and month view.
+- 2015-06-07 21:48:27 -0400 (tag: 3.1.5): Dan Graham
+   tagged version 3.1.5
+- 2015-06-07 21:45:43 -0400: Dan Graham
+   When reporting item hsh errors, add file name and line number
+   information.
+- 2015-06-07 10:59:55 -0400 (tag: 3.1.4): Dan Graham
+   tagged version 3.1.4
+- 2015-06-07 10:59:34 -0400: Dan Graham
+   Set focus on mouse click in week or month view canvas.
+- 2015-06-07 10:40:17 -0400: Dan Graham
+   Added new screenshots
+- 2015-06-07 09:52:30 -0400 (tag: 3.1.3): Dan Graham
+   tagged version 3.1.3
+- 2015-06-07 09:52:07 -0400: Dan Graham
+   In custom view, replace the filter with the combo box.
+- 2015-06-07 08:09:23 -0400 (tag: 3.1.2): Dan Graham
+   tagged version 3.1.2
+- 2015-06-07 08:09:05 -0400 (tag: 3.1.1): Dan Graham
+   tagged version 3.1.1
+- 2015-06-07 08:08:04 -0400 (tag: 3.1.0-5): Dan Graham
+   Add icons to the etmTk directory itself for python2.
+- 2015-06-07 07:42:35 -0400: Dan Graham
+   tagged version 3.1.2
+- 2015-06-07 07:42:06 -0400: Dan Graham
+   Fixed bug in setting path to icons.
+- 2015-06-07 00:01:57 -0400 (tag: 3.1.0-2): Dan Graham
+   tagged version 3.1.1
+- 2015-06-07 00:01:34 -0400: Dan Graham
+   Corrected icon path.
+- 2015-06-06 23:42:57 -0400 (tag: 3.1.0): Dan Graham
+   tagged version 3.1.0
+- 2015-06-06 23:33:31 -0400 (tag: 3.0.74-7): Dan Graham
+   tagged version 3.1.1
+- 2015-06-06 23:32:56 -0400: Dan Graham
+   Added icons to MANIFEST.in
+- 2015-06-06 18:33:47 -0400 (tag: 3.1.1-4): Dan Graham
+   tagged version 3.1.0
+- 2015-06-06 18:30:54 -0400: Dan Graham
+   Merged dayweek
+- 2015-06-06 18:22:20 -0400 (tag: 3.0.62): Dan Graham
+   tagged version 3.0.62
+- 2015-06-06 18:17:00 -0400 (dayweek): Dan Graham
+   tagged version 3.1.0
+- 2015-06-06 18:15:51 -0400: Dan Graham
+   tagged version 3.1.1
+- 2015-06-06 16:21:31 -0400 (tag: 3.0.74, origin/dayweek, braeburn/dayweek): Dan Graham
+   tagged version 3.0.74
+- 2015-06-06 16:20:49 -0400: Dan Graham
+   Added space bar binding for goHome to canvas.
+- 2015-06-06 12:43:24 -0400 (tag: 3.0.73): Dan Graham
+   tagged version 3.0.73
+- 2015-06-06 12:39:28 -0400: Dan Graham
+   Fixed bug in setting canvas height in week and month views. Fixed 
+   bug in creating new items with empty data directory.
+- 2015-06-05 13:06:34 -0400 (tag: 3.0.72): Dan Graham
+   tagged version 3.0.72
+- 2015-06-05 13:06:03 -0400: Dan Graham
+   Removed day from menu and key bindings.
+- 2015-06-05 12:05:44 -0400 (tag: 3.0.71): Dan Graham
+   tagged version 3.0.71
+- 2015-06-05 12:04:02 -0400: Dan Graham
+   Don't try to set new item time from week view.
+- 2015-06-05 11:41:28 -0400: Dan Graham
+   Added updateDay to refresh the day list in week and month views.
+- 2015-06-03 20:39:05 -0400 (tag: 3.0.70): Dan Graham
+   tagged version 3.0.70
+- 2015-06-03 20:37:55 -0400: Dan Graham
+   Make right/left cursor keys at end/beginning of week or month move
+   to next/prior week or month.
+- 2015-06-03 20:24:21 -0400 (tag: 3.0.69): Dan Graham
+   tagged version 3.0.69
+- 2015-06-03 20:23:49 -0400: Dan Graham
+   Removed border from week and month views and extended verticals -
+   simpler and nicer.
+- 2015-06-03 18:37:46 -0400 (tag: 3.0.68): Dan Graham
+   tagged version 3.0.68
+- 2015-06-03 18:35:43 -0400: Dan Graham
+   Refresh day list on item/file change.
+- 2015-06-03 14:39:06 -0400 (tag: 3.0.67): Dan Graham
+   tagged version 3.0.67
+- 2015-06-03 14:24:46 -0400 (tag: 3.0.66): Dan Graham
+   tagged version 3.0.66
+- 2015-06-03 14:00:56 -0400 (tag: 3.0.65): Dan Graham
+   tagged version 3.0.65
+- 2015-06-03 13:58:51 -0400 (tag: 3.0.64): Dan Graham
+   tagged version 3.0.64
+- 2015-06-03 13:40:33 -0400 (tag: 3.0.63): Dan Graham
+   tagged version 3.0.63
+- 2015-06-03 13:16:34 -0400: Dan Graham
+   tagged version 3.0.62
+- 2015-06-03 12:41:30 -0400: Dan Graham
+   Tweaked idpos in week and month views.
+- 2015-06-03 09:02:56 -0400: Dan Graham
+   Tweaked scrolling in week view.
+- 2015-06-02 20:56:59 -0400: Dan Graham
+   Replaced "x" and "y" (tuples) with "x_" and "y_" in showWeek.
+- 2015-06-02 19:08:25 -0400: Dan Graham
+   Much menu refactoring and comment removal.
+- 2015-06-01 16:17:02 -0400: Dan Graham
+   Removed refresh button (toggle active) and search button.
+- 2015-06-01 15:56:35 -0400: Dan Graham
+   Removed configureCanvas and binding to <Configure>. Added binding
+   to newItem for newbutton. Removed call to configure calbutton from
+   updateCalendars.
+- 2015-06-01 11:06:41 -0400: Dan Graham
+   Selected item in week view now shows details.
+- 2015-06-01 10:57:15 -0400: Dan Graham
+   Mouse click selection now works in week view.
+- 2015-06-01 06:59:18 -0400: Dan Graham
+   Only nag about the oldest pastdue instance of repeating tasks with
+   overdue restart. Prevent buttons from taking focus so tab switches
+   back and forth from canvas to tree in week and month views.
+- 2015-05-31 17:58:39 -0400: Dan Graham
+   In week and month view, up/down cursor keys now move through dates
+   and select them in the day list.
+- 2015-05-31 14:08:08 -0400: Dan Graham
+   added icons
+- 2015-05-31 14:05:59 -0400: Dan Graham
+   Remove leading zeros from month days (day, week, month views). Week
+   and month views now sync with their day lists. Jump to date selects
+   day in both week and month but cursor keys select week and month
+   begin.
+- 2015-05-30 22:53:43 -0400: Dan Graham
+   Without conficts, draw the conflict square in the background color
+   (white, OCCASIONFILL or CURRENTFILL).
+- 2015-05-30 22:30:22 -0400: Dan Graham
+   Only draw the conflict square in week view if flagcolor is not
+   None.
+- 2015-05-30 19:55:16 -0400: Dan Graham
+   Week view now displays occasions and today. Adjusted day in week
+   view to be monday of the selected week. Cleaned up comments and
+   print statements.
+- 2015-05-30 16:40:14 -0400: Dan Graham
+   Refactored paned window setup and sizing. Removed leading zeros in
+   week view.
+- 2015-05-30 14:23:53 -0400: Dan Graham
+   Added 2nd panedwindow for a total of 3 windows. The top holds the
+   week and month canvases. The middle holds the tree and the bottom
+   holds the details. Display ok but no commands yet.
+- 2015-05-28 21:33:17 -0400: Dan Graham
+   Tweaked week and month layouts.
+- 2015-05-28 18:11:20 -0400 (tag: 3.0.61-13): Dan Graham
+   added icon_refresh.gif
+- 2015-05-28 18:10:55 -0400: Dan Graham
+   Updated gettext usage. Import _() from data in dialog, edit and
+   view.
+- 2015-05-28 14:34:52 -0400: Dan Graham
+   Put current time in the title bar.  In week and month views, move
+   the week (month) information up to currentView.
+- 2015-05-27 21:41:12 -0400: Dan Graham
+   Added toggleActiveView bound to check button.  Removed filter
+   entry.
+- 2015-05-27 12:46:32 -0400: Dan Graham
+   Added red and green check icons
+- 2015-05-27 12:45:12 -0400: Dan Graham
+   Red and Green check icons
+- 2015-05-27 10:09:56 -0400: Dan Graham
+   removed unused add icon
+- 2015-05-27 10:08:58 -0400: Dan Graham
+   removed unused png icons
+- 2015-05-27 10:07:33 -0400: Dan Graham
+   new 16x16 gif icons
+- 2015-05-27 10:06:48 -0400: Dan Graham
+   More icon tweaks.
+- 2015-05-26 16:30:07 -0400: Dan Graham
+   added button icons
+- 2015-05-26 16:23:00 -0400: Dan Graham
+   Icon adjustments.
+- 2015-05-26 15:43:14 -0400: Dan Graham
+   Initial tests for display changes.
+- 2015-05-24 16:14:03 -0400 (tag: 3.0.61): Dan Graham
+   tagged version 3.0.61
+- 2015-05-24 16:02:28 -0400: Dan Graham
+   Reset self.conflicts in updateDataFromFile.
+- 2015-05-24 15:17:19 -0400 (tag: 3.0.60): Dan Graham
+   tagged version 3.0.60
+- 2015-05-24 15:12:04 -0400 (tag: 3.0.59): Dan Graham
+   tagged version 3.0.59
+- 2015-05-24 15:11:36 -0400: Dan Graham
+   Added conflicts in ETMCmd to store a list of isodates with
+   overlapping busy times. Display a rectangular red flag in the
+   lower, left-hand corner of month view cells with conflicts.
+- 2015-05-24 13:40:18 -0400 (tag: 3.0.58): Dan Graham
+   tagged version 3.0.58
+- 2015-05-24 13:39:23 -0400: Dan Graham
+   Changed month view busy border to cover all 24 hours with a break
+   for midnight in the lower, left-hand corner.
