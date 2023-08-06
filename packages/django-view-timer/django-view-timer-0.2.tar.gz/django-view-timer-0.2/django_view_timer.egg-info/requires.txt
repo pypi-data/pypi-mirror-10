@@ -1,0 +1,8 @@
+wrapt>=1.10
+termcolor==1.1.0
+
+[tests]
+Django>=1.6
+flake8
+mock
+pytest
