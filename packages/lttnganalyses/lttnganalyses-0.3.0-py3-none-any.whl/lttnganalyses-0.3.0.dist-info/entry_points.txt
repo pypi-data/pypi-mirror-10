@@ -1,0 +1,13 @@
+[console_scripts]
+lttng-irqlog = lttnganalyses.cli.irq:runlog
+lttng-iolatencytop = lttnganalyses.cli.io:runlatencytop
+lttng-irqfreq = lttnganalyses.cli.irq:runfreq
+lttng-iolatencystats = lttnganalyses.cli.io:runstats
+lttng-cputop = lttnganalyses.cli.cputop:run
+lttng-iolatencyfreq = lttnganalyses.cli.io:runfreq
+lttng-iolog = lttnganalyses.cli.io:runlog
+lttng-syscallstats = lttnganalyses.cli.syscallstats:run
+lttng-irqstats = lttnganalyses.cli.irq:runstats
+lttng-iousagetop = lttnganalyses.cli.io:runusage
+lttng-memtop = lttnganalyses.cli.memtop:run
+
