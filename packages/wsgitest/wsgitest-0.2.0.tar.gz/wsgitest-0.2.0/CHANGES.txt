@@ -1,0 +1,22 @@
+0.2.0
+=====
+
+  - Support for context managers to start/stop servers
+  - Add aliases to make easier to import WSGITestServer and get_application
+  - Add a basic documentation
+
+0.1.1
+=====
+
+  - Remove invalid `test_requires` option from setup.py
+
+0.1.0
+=====
+
+  - Add support to pass WSGI application using a string reference
+
+0.0.1
+=====
+
+  - First version
+
