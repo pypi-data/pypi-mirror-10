@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: colordiffs
+Version: 0.1.8
+Summary: Syntax highlights for your git diffs
+Home-page: https://github.com/ngzhian/colordiffs
+Author: Ng Zhi An
+Author-email: ngzhian@gmail.com
+License: UNKNOWN
+Description: ==========
+        Colordiffs
+        ==========
+        
+        Colors for your git diffs
+        
+        .. image:: colordiffs.png
+        
+        
+        Colordiffs is under development, things are bound to be broken.
+        If you would like to help out, start an issue or submit a pull request :)
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install colordiffs
+        
+        How to run
+        ==========
+        
+        ::
+        
+            git diff HEAD^ | colordiffs | less -r
+        
+        
+        explanation
+        
+        1. ``git diff HEAD^`` gets a diff between the current and the previous commit
+        2. ``colordiffs`` reads a diff from stdin
+        3. ``less -r`` takes the output of colordiffs and uses ``less`` to page it, the ``-r`` is required to interpret the terminal escape codes
+        
+        Requirements
+        ============
+        
+        ::
+        
+            Python 2.x, 3.x
+            Pygments
+        
+        TODO
+        ====
+        
+        Support more kinds of `git diff` output. Right not it supports the most common `---` `+++` diffs, but if the diff is for a new file or deletion of file it breaks.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
