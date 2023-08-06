@@ -1,0 +1,9 @@
+keyring
+path.py
+jaraco.text
+more_itertools
+jaraco.logging
+jaraco.ui
+
+[:sys_platform=="win32"]
+jaraco.windows>=2.7
