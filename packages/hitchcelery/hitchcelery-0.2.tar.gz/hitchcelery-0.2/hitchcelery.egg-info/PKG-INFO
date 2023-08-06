@@ -1,0 +1,75 @@
+Metadata-Version: 1.1
+Name: hitchcelery
+Version: 0.2
+Summary: Plugin to run Celery using the Hitch testing framework.
+Home-page: https://hitch.readthedocs.org/
+Author: Colm O'Connor
+Author-email: colm.oconnor.github@gmail.com
+License: AGPL
+Description: HitchCelery
+        ===========
+        
+        HitchCelery is a plugin for the Hitch test framework that lets you run and
+        interact with Celery as part of a test.
+        
+        
+        Use with Hitch
+        ==============
+        
+        Install like so::
+        
+            $ hitch install hitchcelery
+        
+        
+        .. code-block:: python
+        
+                # Service definition in engine's setUp:
+                self.services['Celery'] = hitchcelery.CeleryService(
+                    version="3.1.17",                                       # Mandatory
+                    python="{}/venv/bin/python".format(PROJECT_DIRECTORY),  # Mandatory
+                    app="remindme",                                         # Mandatory
+                    beat=False,                                             # Optional (default: False)
+                    concurrency=2,                                          # Optional (default: 2)
+                    loglevel="INFO",                                        # Optional (default: INFO)
+                    broker=None,                                            # Optional (default: None)
+                    needs=[ self.services['Redis'], ]                       # Optional (default: no prerequisites)
+                )
+        
+        
+                # Interact during the test:
+                self.services['Celery'].help().run()
+                [ Prints output ]
+        
+                self.services['Celery'].status().run()
+                [ Prints status output ]
+        
+                self.services['Celery'].control(*args).run()
+                [ Prints output ]
+        
+                self.services['Celery'].inspect(*args).run()
+                [ Prints output ]
+        
+        
+        See this service in action at the DjangoRemindMe_ project.
+        
+        
+        .. _HitchServe: https://github.com/hitchtest/hitchserve
+        .. _DjangoRemindMe: https://github.com/hitchtest/django-remindme
+        
+        
+Keywords: hitch testing framework bdd tdd declarative tests testing service celery django
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
