@@ -1,0 +1,13 @@
+diff --git a/holoviews/core/options.py b/holoviews/core/options.py
+index ea5cc0a..0a6e2df 100644
+--- a/holoviews/core/options.py
++++ b/holoviews/core/options.py
+@@ -510,7 +510,7 @@ class OptionTree(AttrTree):
+                 accumulator.append(('.'.join(t), kwargs))
+ 
+             for (t, kws) in accumulator:
+-                if group=='norm' and all(kws[k] is False for k in ['axiswise','framewise']):
++                if group=='norm' and all(kws.get(k, True) is False for k in ['axiswise','framewise']):
+                     continue
+                 elif kws:
+                     especs.append((t, kws))
