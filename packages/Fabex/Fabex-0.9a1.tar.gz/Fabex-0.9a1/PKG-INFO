@@ -1,0 +1,306 @@
+Metadata-Version: 1.1
+Name: Fabex
+Version: 0.9a1
+Summary: Python Fabric Extended: Making roles more good
+Home-page: http://fabfile.org
+Author: Rod Morison
+Author-email: rod@rodmtech.net
+License: UNKNOWN
+Description: Fabex...
+        ========
+        
+        is a set of extensions to Python Fabric that fully develop the utility
+        of roles.
+        
+        The Fabric Way
+        --------------
+        
+        Fabric roles_ in vanilla Fabric provide a many-to-many mapping between
+        tasks and hosts. Flexible roledefs_ model how servers and services are
+        mapped in practice. In the case of a dev server, all the roles of a
+        system might collapse onto a single server. For the same
+        implementation in production, single roles would be duplicated across
+        many servers, say, a web application server.
+        
+        However, Fabric's roles stop short of the "collapse roles onto host"
+        use case because roles are only used to construct a host list for a
+        task. A role has no configuration state, once hosts are assigned to
+        tasks, and a single task will only be invoked once per host, even if
+        that host has multiple roles.
+        
+        The following fabfile runs my_func on each server:
+        
+         .. code-block:: python
+        
+            from fabric.api import *
+        
+            env.roledefs.update({
+                'webserver': ['www1', 'www2'],
+                'dbserver': ['db1']
+            })
+        
+            env.roles = ('webserver', 'dbserver')
+        
+            @roles('webserver', 'dbserver')
+            def my_func():
+                print("{command} invoked on host {host}".format(**env))
+        
+            # outputs...
+            # [www1] Executing task 'my_func'
+            # my_func invoked on host www1
+            # [www2] Executing task 'my_func'
+            # my_func invoked on host www2
+            # [db1] Executing task 'my_func'
+            # my_func invoked on host db1
+        
+        And, as advertised, the next fabfile runs my_func only once, as host 'dev'
+        is of both role 'webserver' and 'dbserver':
+        
+         .. code-block:: python
+        
+            from fabric.api import *
+        
+            env.roledefs.update({
+                'webserver': ['dev'],
+                'dbserver': ['dev']
+            })
+        
+            env.roles = ('webserver', 'dbserver')
+        
+            @roles('webserver', 'dbserver')
+            def my_func():
+                print("{command} invoked on host {host}".format(**env))
+        
+            # outputs...
+            # [dev] Executing task 'my_func'
+            # my_func invoked on host dev
+        
+        The Fabex Way
+        -------------
+        
+        That's exactly what Fabric says should happen. But, there's another
+        way to think of a role. One might want an ``install_packages`` task
+        would install a different set of packages on a webserver than on a
+        dbserver. Ok, so we can have seperate ``install_web_packages`` and
+        ``install_db_packages`` tasks, but the only difference between the two
+        is the list of packages, not DRY at all!
+        
+        - *Assertion 1:* Roles should have state, expressed and injected into
+          Fabric's global ``env`` object and thereby available to tasks mapped
+          through that role.
+        
+        This feature would let us write a single ``install_packages`` task
+        across all our roles. That's great if no two roles are on the same
+        server; if they are, as in the case of the multi-role devserver, then
+        Fabric will only run the task once. Hence,
+        
+        - *Assertion 2:* A task with multiple roles assigned should execute
+           once per role, per host. Fabric already provides for per host
+           execution. What's needed is invocation for each role on a host,
+           even if a host has many roles. That capability should be combined
+           with the "role state" injection, from *Assertion 1*.
+        
+        A common pattern in designing Fabric tasks is to roll several like tasks together, e.g.,
+        
+         .. code-block:: python
+        
+            @task
+            def install_packages():
+                pass
+        
+            @task
+            def install_pips():
+                pass
+        
+            @task
+            def install():
+                execute(install_packages)
+                execute(install_pips)
+            
+        It's so common in my own Fabric scripting experience, that it falls under the DRY rule:
+        
+        - *Assertion 3:* There should be an easy way to group tasks into a
+          wrapper task. Yes, the wrapper task in the example above is straight
+          up, but as the Fabric script grows, it can become a maintenance and
+          hardening issue.
+        
+        With all the handy goodness of role based task invocation, there's an
+        annoying side effect of task invocation once per role on the same
+        host. An example is if we add an ``install_upgrades`` (which runs
+        something like ``apt-get upgrade --yes``) to the ``install`` task
+        above. There's no need to invoke it more than once per host, even for
+        roles collapsed on that host. So, we introduce
+        
+        - *Assertion 4:* A ``runs_once_per_host`` task qualification would be
+          handy, for such cases.
+        
+        These assertions are the motivation for this implementation, which
+        includes additional "glue" that is still under development. In fact,
+        some of that glue might be better crafted within Fabric itself. Until
+        there's more time, interest and motivation, this here is `what it
+        is`_.
+        
+        Fabex Features and Usage
+        ------------------------
+        
+        Fabex wraps several of the standard ``fabric.api *`` functions. (See,
+        for example, the ``dryrun`` feature below.) To pull in Fabex, along
+        with all of the usual Fabric functionality simply start your fab or
+        task file with
+        
+         .. code-block:: python
+        
+            from fabex.api import *
+            from fabex.contrib.files import *
+        
+        and then use ``fabex_config`` to initialize other bits of Fabex.
+        
+        
+        - ``@task_roles`` - Function decorator to make a Fabric task that will
+          be invoked  once per role  with role settings injected  into ``env``
+          for the scope of that task.  The ``task_roles`` requires one or more
+          strings as positional arguments with  the role names. The role names
+          may also be specific by a single iterable as the first argument.
+        
+          ``task_roles`` also supports a ``group`` keyword argument of string
+          type. That task will be added to a "wrapper task" with that name,
+          appended to a list of tasks to invoke if the wrapper task is called
+          (see *assertion 4*).
+        
+          ``task_roles`` supports all of the other keyword arguments of the
+          Fabric ``task`` decorator, with function per the Fabric
+          documentation.
+        
+          *Example:*
+        
+         .. code-block:: python
+        
+            @task_roles(['webapp', 'cache', 'db'], group='install')
+            def install_packages():
+                """Install system packages"""
+            
+                sudo('DEBIAN_FRONTEND=noninteractive apt-get install --yes {}'
+                     .format(' '.join(env.packages)))
+        
+        - ``@runs_once_per_host`` - Similar to the Fabric ``runs_once``
+          decorator, the task is invoked only the first time for any host,
+          regardless of the "once per role per host" rule implemented by
+          ``task_roles``.
+        
+        - ``fabex_config`` - A normal python function that takes a Fabex
+          config dictionary, or path to a yaml file with a Fabex config. This
+          function initializes several ``env`` attributes used elsewhere in
+          Fabex. **Note:** Should be called before any other Fabex tasks are
+          invoked, typically at the top of a fabfile.
+        
+          *Example:*
+        
+         .. code-block:: python
+        
+            fabex_config(config={'target_dir': 'targets',
+                                 'template_dir': 'templates',
+                                 'template_config': 'templates.yaml'})
+        
+        - ``target`` - A (normal) Fabric task that reads a yaml file and
+          builds a "target configuration" into ``env``. In particular, this
+          configuration can contain ``roledefs`` (a la Fabric), ``hostenvs``
+          (env settings injected on a per host basis via ``task_roles``), and
+          ``roleenvs`` (env settings injected on a per role basis via
+          ``task_roles``).
+        
+          *Example target.yaml:*
+        
+         .. code-block:: yaml
+        
+            domain: domain.com
+            timezone: America/Los_Angeles
+            
+            roledefs:
+                app: [app1 app2 app3]
+                cache: [db_cache]
+                db: [db_cache]
+            
+            hostenvs:
+                app1: {ip: 192.168.0.21, ssh_host: app1.prod, ssh_user: ubuntu}
+                app2: {ip: 192.168.0.22, ssh_host: app2.prod, ssh_user: ubuntu}
+                app3: {ip: 192.168.0.23, ssh_host: app3.prod, ssh_user: ubuntu}
+                db_cache: {ip: 192.168.0.20, ssh_host: bigserver.prod, ssh_user: ubuntu}
+            
+            roleenvs:
+                app:
+                    packages: [ntp, git, python-django, libpq-dev, postgresql-client]
+                    repo_url: git@github.com:gitaccount/gitrepo.git
+                    secret_key: ty5s3(d4jjexdror_ti$-ga+q_zs(!byj)k3d8i^iyxl-$r^*j
+                    db_name: c240
+                    db_user: c240
+                    db_pass: c240
+                cache:
+                    packages: [ntp, memcached]
+                    memory: 128
+                db:
+                    packages: [ntp, postgresql]
+        
+        - ``template_config`` - Specified in the ``fabex_config`` call, a yaml
+          based dictionay referencing Jinja2 templates. The templates
+          themselves will be search for in the ``template_dir`` specified in
+          ``fabex_config``. Both the ``template_config`` file, and the
+          templates themselves have access to the ``env`` as a Jinja2 context,
+          and can instatiate ``env`` values.
+        
+          Referenced templates are processed and pushed by the Fabex
+          ``upload_project_template`` function. In addition to the Jinja2
+          processing, uploaded file ownership can be set with ``owner`` and
+          ``group`` attributes. A ``reload_command`` attribute may contain a
+          sudo-able command that is executed if the remote file is changed by
+          the upload.
+        
+          *Example templates.yaml*:
+        
+         .. code-block:: yaml
+        
+            local_settings:
+                local_path: local_settings.py
+                remote_path: "{{project_home}}/{{project_name}}/local_settings.py"
+                reload_command: supervisorctl {{project}} restart
+                owner: ubuntu
+                group: ubuntu
+        
+        - ``dryrun`` - A Fabric task that short circuits all of the remote
+          client calls. Invoking this task before other tasks allows Fabric
+          scripts to be debugged (somewhat) before executing on actual
+          servers.
+        
+        - ``quiet`` - Fabex will hide the 'running' and 'output' streams for
+          ``sudo`` and ``run`` in Fabric if this task is invoked. Note, this
+          feature is **not** the ``quiet`` keyword arg to those functions, which
+          has other effects on tasks.
+        
+        Complete Fabex Example
+        ----------------------
+        
+        ...is not quite ready yet.
+        
+        
+        
+        .. _roles: http://docs.fabfile.org/en/latest/api/core/decorators.html?highlight=roles#fabric.decorators.roles
+        .. _roledefs: http://docs.fabfile.org/en/latest/usage/execution.html?highlight=roledefs#defining-host-lists
+        .. _`what it is`: https://en.wikipedia.org/wiki/What_It_Is
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Clustering
+Classifier: Topic :: System :: Software Distribution
+Classifier: Topic :: System :: Systems Administration
