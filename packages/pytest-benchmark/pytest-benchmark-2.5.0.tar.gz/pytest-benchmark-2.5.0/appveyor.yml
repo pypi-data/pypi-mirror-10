@@ -1,0 +1,31 @@
+version: '{branch}-{build}'
+build: off
+environment:
+  matrix:
+    - TOXENV: "check"
+    - TOXENV: "py27-pytest27-nodist,coveralls,codecov"
+    - TOXENV: "py33-pytest27-nodist,coveralls,codecov"
+    - TOXENV: "py34-pytest27-nodist,coveralls,codecov"
+    - TOXENV: "py27-pytest26-nodist,coveralls,codecov"
+    - TOXENV: "py33-pytest26-nodist,coveralls,codecov"
+    - TOXENV: "py34-pytest26-nodist,coveralls,codecov"
+    - TOXENV: "py27-pytest27-xdist,coveralls,codecov"
+    - TOXENV: "py33-pytest27-xdist,coveralls,codecov"
+    - TOXENV: "py34-pytest27-xdist,coveralls,codecov"
+    - TOXENV: "py27-pytest26-xdist,coveralls,codecov"
+    - TOXENV: "py33-pytest26-xdist,coveralls,codecov"
+    - TOXENV: "py34-pytest26-xdist,coveralls,codecov"
+init:
+  - "ECHO %TOXENV%"
+  - ps: "ls C:\\Python*"
+install:
+  - ps: Invoke-WebRequest "https://bootstrap.pypa.io/ez_setup.py" -OutFile "c:\\ez_setup.py"
+  - ps: Invoke-WebRequest "https://bootstrap.pypa.io/get-pip.py" -OutFile "c:\\get-pip.py"
+  - "c:\\python27\\python c:\\ez_setup.py"
+  - "c:\\python27\\python c:\\get-pip.py"
+  - "c:\\python27\\Scripts\\pip install tox virtualenv"
+test_script:
+  - "c:\\python27\\Scripts\\tox --version"
+  - "c:\\python27\\Scripts\\virtualenv --version"
+  - "c:\\python27\\Scripts\\pip --version"
+  - "c:\\python27\\Scripts\\tox"
