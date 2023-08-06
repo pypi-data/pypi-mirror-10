@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: django-mksuperuser
+Version: 0.1.2
+Summary: Make super user with fixtures or migrations
+Home-page: https://github.com/inirudebwoy/django-mksuperuser
+Author: Michal Klich
+Author-email: michal@michalklich.com
+License: UNKNOWN
+Description: ================
+        django-mksuperuser
+        ================
+        .. image:: https://travis-ci.org/inirudebwoy/django-mksuperuser.svg?branch=master
+          :target: https://travis-ci.org/inirudebwoy/django-mksuperuser
+        
+        Django app for lazy people.
+        Creates superuser with no fuss.
+        
+        login
+          admin
+        password
+          admin
+        
+        Installation
+        ============
+        Install from pip::
+        
+          pip install django-mksuperuser
+        
+        Add package to INSTALLED_APPS.::
+        
+          INSTALLED_APPS += ('django_mksuperuser',)
+        
+        When you create new Django project and syncdb or migrate (depending on version)
+        new admin user is created with login 'admin' and password 'admin'.
+        For all the lazy people!::
+        
+          Django 1.7 > python manage.py migrate
+          Django 1.7 < python manage.py syncdb --noinput
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
