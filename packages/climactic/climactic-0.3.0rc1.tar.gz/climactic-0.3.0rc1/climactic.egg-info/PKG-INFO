@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: climactic
+Version: 0.3.0rc1
+Summary: YAML-based tests for commandline utilities
+Home-page: https://github.com/b33j0r/climactic
+Author: Brian Jorgensen
+Author-email: brian.jorgensen@gmail.com
+License: GPLv2
+Download-URL: https://github.com/b33j0r/climactic/tarball/v0.3.0-rc1
+Description: A simple testing framework for running shell commands and verifying their behavior. Tests are written as YAML files which specify the commands to run, along with assertions about the output (currently, stdout and file/directory contents).
+        
+        NOTE: climactic is a Python 3 package
+        
+        Features
+        
+        * Pytest integration via an automatically registered plugin
+        * Aggregate tests recursively in a directory matching the pattern "test_*.yml" using the commandline tool `climactic`
+        * Compatibility with the standard `unittest` package
+        * Tests are run in a temporary directory to avoid data loss and path-dependent results
+        * Set environment variables per-test with the 'env' task
+        * Compare stdout, directory structure, and file contents to expected string values
+        * bash-like ${VAR} substitution for input commands and output validation
+Keywords: testing,cli,yaml,unittest
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent

@@ -1,0 +1,6 @@
+[console_scripts]
+climactic = climactic.cli:main
+
+[pytest11]
+pytest-climactic = climactic.plugins.pytest
+
