@@ -1,0 +1,4 @@
+[console_scripts]
+docker-software-manager = dsm.cli:main
+dsm = dsm.cli:main
+
