@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: lumper-cli
+Version: 0.1.1
+Summary: Command line util for Lumper
+Home-page: http://github.com/mosquito/lumper-cli
+Author: Dmitry Orlov <me@mosquito.su>
+Author-email: me@mosquito.su
+License: MIT
+Description: Lumper
+        ======
+        
+        Distributed building system for docker. Will pull repo from the github by tag-webhook and build it by Dockerfile.
+        
+Platform: all
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
