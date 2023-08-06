@@ -1,0 +1,112 @@
+bad_iris:
+  column_rules:
+    Species:
+      na_values:
+      - unknown
+  dataframe_rules:
+    drop_duplicates: false
+    drop_na: false
+  delimiter: ','
+  dtypes:
+    Petal Length: &id001 !!python/name:__builtin__.float 
+    Petal Width: *id001
+    Sepal Length: *id001
+    Sepal Width: *id001
+    Species: &id002 !!python/name:__builtin__.str 
+  path: testdata/bad_iris.csv
+  use_columns:
+  - Petal Length
+  - Petal Width
+  - Sepal Length
+  - Sepal Width
+  - Species
+iris:
+  column_rules:
+    Petal Length:
+      minimum: 0.0
+    Petal Width:
+      minimum: 0.0
+    Sepal Length:
+      minimum: 0.0
+    Sepal Width:
+      minimum: 0.0
+    Species:
+      drop_na: false
+      regex: \b[a-z]+\b
+      unique_values:
+      - setosa
+      - versicolor
+      - virginica
+  dataframe_rules:
+    drop_duplicates: false
+  delimiter: ','
+  dtypes:
+    Petal Length: *id001
+    Petal Width: *id001
+    Sepal Length: *id001
+    Sepal Width: *id001
+    Species: *id002
+  nrows: 150
+  path: testdata/iris.csv
+person_activity:
+  column_rules:
+    activity:
+      drop_duplicates: false
+      regex: \W|\w
+    date:
+      drop_duplicates: false
+    sequence_name:
+      drop_duplicates: false
+      regex: '[A-Z]\d{2}'
+    tag:
+      drop_duplicates: false
+      regex: \d{3}-\d{3}-\d{3}-\d{3}
+    x:
+      drop_duplicates: false
+    y:
+      drop_duplicates: false
+    z:
+      drop_duplicates: false
+  dataframe_rules:
+    drop_duplicates: false
+  delimiter: "\t"
+  dtypes:
+    activity: *id002
+    date: !!python/name:datetime.date 
+    sequence_name: *id002
+    tag: *id002
+    x: *id001
+    y: *id001
+    z: *id001
+  nrows: 100
+  path: testdata/person_activity.tsv
+random_row_iris:
+  column_rules:
+    Petal Length:
+      minimum: 0.0
+    Petal Width:
+      minimum: 0.0
+    Sepal Length:
+      minimum: 0.0
+    Sepal Width:
+      minimum: 0.0
+    Species:
+      drop_na: false
+      regex: \b[a-z]+\b
+      unique_values:
+      - setosa
+      - versicolor
+      - virginica
+  dataframe_rules:
+    drop_duplicates: false
+  delimiter: ','
+  dtypes:
+    Petal Length: *id001
+    Petal Width: *id001
+    Sepal Length: *id001
+    Sepal Width: *id001
+    Species: *id002
+  nrows:
+    count: 50
+    random: true
+  path: testdata/iris.csv
