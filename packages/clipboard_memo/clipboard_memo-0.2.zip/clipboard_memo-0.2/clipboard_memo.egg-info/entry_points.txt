@@ -1,0 +1,5 @@
+
+        [console_scripts]
+        cmemo=clipboard_memo.main:main
+        cmemo_direct=clipboard_memo.direct:direct_save
+    
