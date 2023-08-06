@@ -1,0 +1,9 @@
+zc.buildout
+setuptools
+mwclient
+requests
+fabric
+six
+
+[test]
+zope.testing
