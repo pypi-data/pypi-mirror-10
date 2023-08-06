@@ -1,0 +1,60 @@
+Metadata-Version: 2.0
+Name: scout-api
+Version: 0.0.3
+Summary: Python Client Library for ScoutApps's REST API
+Home-page: https://github.com/shortdudey123/python_scout_api/
+Author: Grant Ridder
+Author-email: shortdudey123@gmail.com
+License: MIT
+Download-URL: https://github.com/shortdudey123/python_scout_api/archive/master.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: requests
+
+Python scout_api Package
+========================
+
+.. contents::
+
+
+.. :changelog:
+
+Release History
+---------------
+
+0.0.3 (2015-06-03)
+^^^^^^^^^^^^^^^^^^
+
+- Fix dependencies
+
+0.0.2 (2015-06-03)
+^^^^^^^^^^^^^^^^^^
+
+- Add get_alerts
+
+0.0.1 (2015-06-02)
+^^^^^^^^^^^^^^^^^^
+
+- initial release
+
+
+Authors
+-------
+
+- Grant Ridder <shortdudey123@gmail.com> `@shortdudey123 <https://github.com/shortdudey123>`
+
+
