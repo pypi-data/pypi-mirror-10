@@ -1,0 +1,16 @@
+# Pyqt4 vext
+#
+
+# Vext will allow access to these modules
+modules:
+    pyqt4
+    PyQt4
+    sip
+
+test_import:
+    # Vext will try and import any modules here
+    # To check if the install worked
+    pyqt4, sip, PyQt4
+
+install_hints:
+    PyQt4 was not found, install it in your system python.
