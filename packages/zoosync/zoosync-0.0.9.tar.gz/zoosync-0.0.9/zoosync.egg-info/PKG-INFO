@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: zoosync
+Version: 0.0.9
+Summary: Zookeeper service discovery
+Home-page: https://github.com/valtri/zoosync
+Author: František Dvořák
+Author-email: valtri@civ.zcu.cz
+License: MIT
+Description: Zoosync
+        =======
+        
+        Zoosync is a simple service discovery tool using Zookeeper as database backend.
+        
+        Usage
+        =====
+        
+        See `zoosync --help` for options.
+        
+        The output is in the form of shell variable assignement, so tool could be used this way::
+        
+         ZOO='zoo1.example.com,zoo2.example.com,zoo3.example.com'
+         REQ_SERVICES='impala,hadoop-hdfs,test,test2,test3'
+        
+         eval `./zoosync.py --hosts ${ZOO} --services ${REQ_SERVICES} --dry cleanup`
+        
+         echo "active: ${SERVICES}"
+         echo "missing: ${MISSING}"
+        
+Keywords: service-discovery zookeeper cloud
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: System :: Distributed Computing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
