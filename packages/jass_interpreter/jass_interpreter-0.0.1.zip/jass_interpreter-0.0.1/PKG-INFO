@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: jass_interpreter
+Version: 0.0.1
+Summary: 
+        A simple and very-much half baked cross compiler from jass2 to python3.4
+    
+Home-page: http://example.com
+Author: Joonas Liik
+Author-email: liik.joonas@gmail.com
+License: UNKNOWN
+Description: 
+                Jass Interpreter
+                ================
+        
+                .. is a script that parses a script in JASS2 format (think warcraft 3 scripting) and translates it to python3.4 code
+        
+        
+            
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
