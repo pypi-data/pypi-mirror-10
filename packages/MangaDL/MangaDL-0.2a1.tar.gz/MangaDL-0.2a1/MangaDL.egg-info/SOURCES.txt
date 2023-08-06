@@ -1,0 +1,17 @@
+setup.cfg
+setup.py
+MangaDL.egg-info/PKG-INFO
+MangaDL.egg-info/SOURCES.txt
+MangaDL.egg-info/dependency_links.txt
+MangaDL.egg-info/entry_points.txt
+MangaDL.egg-info/requires.txt
+MangaDL.egg-info/top_level.txt
+mangadl/__init__.py
+mangadl/cli.py
+mangadl/config.py
+mangadl/manga.py
+mangadl/manga_dl.py
+mangadl/scrapers/__init__.py
+mangadl/scrapers/scraper.py
+mangadl/scrapers/sites/__init__.py
+mangadl/scrapers/sites/mangahere.py
