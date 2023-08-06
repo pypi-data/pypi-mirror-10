@@ -1,0 +1,15 @@
+setuptools
+plone.app.dexterity
+plone.app.textfield
+plone.autoform
+plone.dexterity
+plone.namedfile
+plone.schemaeditor
+plone.supermodel
+
+[test]
+plone.app.testing[robot]
+plone.app.robotframework
+
+[recaptcha]
+plone.formwidget.recaptcha
