@@ -1,0 +1,58 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+
+<!-- NOTE: add 'meta_description', 'fb_meta_tags', and 'twitter_meta_tags' to the <head> of your base template -->
+{% block meta_description %}
+    {% if self.search_description %}
+        {{ self.search_description }}
+    {% else %}
+        {{ self.content|striptags|truncatechars:250 }}
+    {% endif %}
+{% endblock %}
+
+{% block fb_meta_tags %}
+    <meta property="og:title" content="{{ self.title }}" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    {% if self.image %}
+        <meta property="og:image" content="http://{{ request.META.HTTP_HOST  }}{{ self.image.file.url }}" />
+    {% else %}
+        <!-- Default sharing image here -->
+        <meta property="og:image" content="" />
+    {% endif %}
+    <meta property="og:site_name" content="" />
+    <meta property="fb:admins" content="" />
+    <meta property="og:description" content="{{ self.content|striptags|truncatechars:250 }}"/>
+{% endblock %}
+
+{% block twitter_meta_tags %}
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="{{ request.build_absolute_uri }}?ref=twitter">
+	<meta name="twitter:title" content="{{ self.title }}">
+	<meta name="twitter:description" content="{{ self.content|striptags|truncatechars:250 }}">
+    {% if self.image %}
+        <meta property="twitter:image" content="http://{{ request.META.HTTP_HOST  }}{{ self.image.file.url }}" />
+    {% else %}
+        <!-- Default sharing image here -->
+		<meta property="og:image" content="" />
+    {% endif %}
+{% endblock %}
+
+<article>
+    <header>
+        <h1>{{ self.title }}</h1>
+		<p><a href="{{ self.author.url }}">{{ blog.author.first_name }} {{ blog.author.last_name }}</a> | {{ self.date|date:"n/j/y" }}</p>
+    </header>
+    {% image self.image max-400x400 %}
+
+    {{ self.content|richtext }}
+
+    <div class="post-share">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">facebook</a>
+        <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ self.title }}&summary={{ self.content|safe|striptags|slice:'250' }}&source=Tivix.com" target="_blank">linkedin</a>
+        <a href="https://twitter.com/share?url={{ request.build_absolute_uri|urlencode }}&original_referer={{ request.build_absolute_uri|urlencode }}&text=From the Tivix.com blog: {{ self.title }}" target="_blank">twitter</a>
+    </div>
+
+    {% include 'wagtail_blog/fragments/tags.html' with blog_post=self %}
+    {% include 'wagtail_blog/fragments/related.html' with blog_post=self %}
+
+</article>
