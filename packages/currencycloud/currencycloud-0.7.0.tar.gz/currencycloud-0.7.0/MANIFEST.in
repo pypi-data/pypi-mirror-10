@@ -1,0 +1,8 @@
+include tox.ini
+include dev-requirements.txt
+include .travis.yml
+
+recursive-include test *
+recursive-exclude test __pycache__/*
+
+recursive-include examples *
