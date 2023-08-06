@@ -1,0 +1,71 @@
+Metadata-Version: 1.1
+Name: backports_abc
+Version: 0.3
+Summary: A backport of recent additions to the 'collections.abc' module.
+Home-page: https://github.com/cython/backports_abc
+Author: Stefan Behnel et al.
+Author-email: cython-devel@python.org
+License: UNKNOWN
+Description: =============
+        ABC-Backports
+        =============
+        
+        Usage::
+        
+            import backports_abc
+            backports_abc.patch()
+        
+            try:
+                from collections.abc import Coroutine, Generator
+            except ImportError:
+                from collections import Coroutine, Generator
+        
+        Currently provides the following names if missing:
+        
+        * ``collections.abc.Generator``
+        * ``collections.abc.Awaitable``
+        * ``collections.abc.Coroutine``
+        * ``inspect.isawaitable(obj)``
+        
+        In Python 2.x, it patches the ``collections`` module instead of the
+        ``collections.abc`` module
+        
+        The names that were previously patched by ``patch()`` can be queried
+        through the mapping in ``backports_abc.PATCHED``.
+        
+        Changelog
+        =========
+        
+        0.3
+        ---
+        
+        * removed patching of ``inspect.iscoroutine()`` as it is not ABC based
+        
+        
+        0.2
+        ---
+        
+        * require explicit ``backports_abc.patch()`` call to do the patching
+          (avoids side-effects on import and allows future configuration)
+        
+        * provide access to patched names through global ``PATCHED`` dict
+        
+        * add ABC based implementations of inspect.iscoroutine() and
+          inspect.isawaitable()
+        
+        
+        0.1
+        ---
+        
+        * initial public release
+        
+        * provided ABCs: Generator, Coroutine, Awaitable
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
