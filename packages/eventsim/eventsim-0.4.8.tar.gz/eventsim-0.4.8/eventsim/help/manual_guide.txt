@@ -1,0 +1,29 @@
+
+
+MANUAL
+======
+
+This module provide a guide on how to use the other modules
+
+HOW TO USE
+==========
+
+Simply import the module and call them e.g.
+
+from eventsim.manual import manuals *
+manuals("randgen")
+
+or 
+
+from eventsim.manual import manuals 
+manuals("models")
+
+or
+
+import eventsim.manual
+eventsim.manual.manuals("simevent")
+
+or
+
+import eventsim.manual as anyname
+anyname.manuals("simevent")

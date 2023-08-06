@@ -1,0 +1,91 @@
+Metadata-Version: 1.1
+Name: eventsim
+Version: 0.4.8
+Summary: Various useful tools in simulating discrete system events based on outcome and probabilities
+Home-page: http://bitbucket.org/tushortz/eventsim
+Author: Taiwo Kareem
+Author-email: taiwo.kareem36@gmail.com
+License: UNKNOWN
+Description: 
+        Description
+        ------------
+        
+        eventsim makes discrete event easy to simulate
+        
+        Currently, it consists of three modules:
+        models, randgen and simevent
+        
+        MODULES
+        -------
+        
+        Models
+        ------
+        
+        contains methods for simplifying and calculating:
+        
+        * probability,
+        * estimated variance,
+        * estimated mean,
+        * estimated standard deviation,
+        * expectation value,
+        * discreteEmp
+        
+        most of its methods takes in two arguments, outcome and cummulative probability and a third optional argument which is how many times an item should be generated or times to be calculated.
+        
+        Randgen
+        -------
+        
+        contains methods for simplifying and generating a:
+        
+        * random outcome,
+        * a unique outcome
+        * times of occurrence of outcome
+        * probability of occurrence
+        * cummulative probability of occurrence
+        
+        Simevent
+        --------
+        
+        contains methods for generating and estimating events that happens in a workplace scenario. Simulating events like:
+        
+        * Interarrival time
+        * Service time
+        * Arrival time
+        * Time when service begins
+        * Time when service ends
+        * Wait time in queue
+        * Time customer spends in system
+        * Idle time of server
+        
+        most of its methods takes in two arguments, outcome and cummulative probability and a third optional argument which is how many times an item should be generated or times to be calculated.
+        
+        help on using this package is included in the installation file or alternatively call.
+        manual(modulename) after importing the package to view how to use it
+        
+        For more help information please read the help notes provided in the package
+        	
+        
+        Requirements
+        ------------
+        
+        * Any version of python
+        
+        Acknowledgements
+        ----------------
+        
+        I was inspired to write this package after my university coursework demanded using python to simulate events. I hope Modelling and Simulation students find it useful
+        
+        All glory belongs to God for helping me in completing my first module.
+        
+        
+Keywords: Discrete event simulation tools
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

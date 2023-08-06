@@ -1,0 +1,202 @@
+
+
+MODELS
+======
+
+contains methods for simplifying and calculating: 
+
+probability,
+estimated variance,
+estimated mean,
+estimated standard deviation,
+expectation value,
+discreteEmp
+
+most of its methods takes in two arguments, outcome and cummulative probability and a third optional argument which is how many times an item should be generated or times to be calculated.
+
+HOW TO USE
+-----------
+
+To use the 'models' module, you need to install the eventsim package first then import it as below
+if using:
+	from eventsim.models import * or
+	from eventsim.models import prob
+	just call function names directly
+	e.g. prob(lista, listb)
+
+if using:
+	import eventsim.models
+	use it like this:
+		eventsim.models.discreteemp(a,b)
+
+MODELS
+----------
+1. METHOD
+-----------
+prob()
+
+ARGUMENTS
+----------
+takes two arguments
+(outcome, cummulative probability) 
+
+RETURNS
+--------
+a list of probability given its cummulative probability
+
+EXAMPLE 
+-------
+	print(prob([1,2,3,4], [0.2, 0.4, 0.8, 1.0])) 
+
+	a = [1,2,3,4]
+	b = [0.1, 0.3, 0.8, 1.0]
+
+	print(prob(a,b))
+
+RESULT
+-------
+	[0.2, 0.2, 0.4, 0.2]
+	[0.1, 0.2, 0.5, 0.2]
+
+
+2. METHOD
+----------
+discreteemp()
+
+ARGUMENTS
+----------
+takes two arguments and an optional third argument
+(outcome, cummulative probability, amount to be generated) 
+
+it only generates one number if third argument is not specified
+
+if third argument is specified, it returns a list of discreteemp according to how many numbers that was specified in the third argument
+
+RETURNS
+--------
+a random value from the outcome according to the probability of its occurrence
+
+EXAMPLE 
+--------
+	a = [1,9,5,7, 5, 2, 8]
+	b = [0.2, 0.5, 0.64, 0.85, 0.9, 0.95, 1.0]
+
+	print(discreteemp(a,b))
+	print(discreteemp(a,b, ))
+
+RESULT
+-------
+	9
+	[5, 7, 2, 9, 2, 1, 5, 7, 7, 5]
+
+
+
+3. METHOD
+----------
+expectval()
+
+ARGUMENTS
+----------
+takes two arguments and an optional third argument
+(outcome, cummulative probability, steps taken) 
+
+it calculates the expectation value of one step if third argument is not specified
+
+if third argument is specified, it calculates the expectation value according to how many steps taken that was specified in the third argument
+
+RETURNS
+--------
+the expected value of the outcome given its probabilities
+
+EXAMPLE 
+--------
+	a = [1, 9, 5, 7, 5, 2, 8]
+	b = [0.2, 0.5, 0.64, 0.85, 0.9, 0.95, 1.0]
+
+	print(expectval(a,b))
+	print(expectval(a,b,15))
+
+RESULT
+-------
+	5.82
+	87.3
+
+
+
+4. METHOD
+----------
+estvar()
+
+ARGUMENTS
+----------
+takes two arguments and an optional third argument
+(outcome, cummulative probability, steps taken) 
+
+it calculates the estimated variance of one step if third argument is not specified
+
+if third argument is specified, it calculates the estimated variance according to how many steps taken that was specified in the third argument
+
+RETURNS
+--------
+the estimated variance of the outcome given its probabilities
+
+EXAMPLE 
+--------
+	a = [1, 9, 5, 7, 5, 2, 8]
+	b = [0.2, 0.5, 0.64, 0.85, 0.9, 0.95, 1.0]
+
+	print(estvar(a,b))
+	print(estvar(a,b,20))
+
+RESULT
+-------
+	9.0676
+	181.352
+
+
+5. METHOD
+----------
+eststddev()
+
+ARGUMENTS
+----------
+takes two arguments and an optional third argument
+(outcome, cummulative probability, steps taken) 
+
+it calculates the estimated standard deviation of one step if third argument is not specified
+
+if third argument is specified, it calculates the estimated variance according to how many steps taken that was specified in the third argument
+
+RETURNS
+--------
+the estimated standard deviation of the outcome given its probabilities
+
+EXAMPLE 
+--------
+	a = [1, 9, 5, 7, 5, 2, 8]
+	b = [0.2, 0.5, 0.64, 0.85, 0.9, 0.95, 1.0]
+
+	print(eststddev(a,b))
+	print(eststddev(a,b,25))
+
+RESULT
+-------
+	3.0112
+	15.0562
+
+
+
+6. METHOD
+----------
+estmean()
+
+	same as expectation value
+	takes in two or three arguments, (outcome, cummulative probability, steps forward)
+
+Stuck?, see an example in the example folder to give you more understanding.
+
+
+
+
+	
+	
