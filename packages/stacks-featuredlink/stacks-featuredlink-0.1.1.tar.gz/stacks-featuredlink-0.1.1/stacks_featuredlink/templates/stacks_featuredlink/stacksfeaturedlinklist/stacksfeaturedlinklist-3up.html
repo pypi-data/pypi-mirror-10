@@ -1,0 +1,37 @@
+<!--StacksFeaturedLinkList 3-up Grid-->
+
+<div class="stacks-module list-3up stacks-featuredlinklist stacks-featuredlinklist-3up grid">
+    {% if context.display_title %}<h3 class="module-title">{{ context.display_title }}</h3>{% endif %}
+    {% for link in context.links %}
+    {% if forloop.first or forloop.counter0|divisibleby:'3' %}
+    <div class="media-row grid-row">
+    {% endif %}
+        <div class="grid-3up grid-block
+            {% if forloop.first or forloop.counter0|divisibleby:'3' %}first-in-row{% endif %} {% if forloop.counter|divisibleby:'3' %}last-in-row{% endif %}">
+            <div class="image-container">
+                {% if link.url %}
+                <a href="{{ link.url }}"><img class="lazy" data-original="{{ link.image.3up_thumb }}" alt="{{ link.display_title }}"/></a>
+                {% else %}
+                <img class="lazy" data-original="{{ link.image.3up_thumb }}" alt="{{ link.display_title }}"/>
+                {% endif %}
+            </div>
+            {% if link.display_title %}
+            <h4 class="list-heading">
+                {% if link.url %}
+                <a href="{{ link.url }}">{{ link.display_title }}</a>
+                {% else %}
+                {{ link.display_title }}
+                {% endif %}
+            </h4>
+            {% endif %}
+            {% if link.optional_content.raw_text %}
+            <div class="text-container">
+                {{ link.optional_content.as_html }}
+            </div>
+            {% endif %}
+        </div>
+    {% if forloop.last or forloop.counter|divisibleby:'3' %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
