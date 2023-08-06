@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: emeraldtree
+Version: 0.10.0
+Summary: EmeraldTree - a light-weight XML object model for Python.
+Home-page: http://hg.moinmo.in/EmeraldTree/
+Author: Bastian Blank
+Author-email: bblank@thinkmo.de
+License: Python (MIT style)
+Description: 
+        EmeraldTree, a light-weight toolkit for XML processing in Python
+        ================================================================
+        
+        EmeraldTree is a fork of ElementTree - the main differences are:
+        
+        * It has a slightly different API:
+        
+          - Handling of text: it uses unicode objects as children (not as
+            "tail" attributes of the elements)
+        
+        * API cleanups, removing backward compatibility 
+        
+        * Better unicode support
+        
+        * PolyglotWriter (for writing html5 that is also well-formed xml)
+        
+        * Other improvements / optimizations
+        
+        The fork happened at ElementTree 1.3a3-20070912-preview.
+        
+        For more details please see the `EmeraldTree repository <http://hg.moinmo.in/EmeraldTree/>`_.
+        
+        
+Keywords: xml,html,html5,polyglot,element,tree,dom,unicode
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Topic :: Text Processing :: Markup :: XML
