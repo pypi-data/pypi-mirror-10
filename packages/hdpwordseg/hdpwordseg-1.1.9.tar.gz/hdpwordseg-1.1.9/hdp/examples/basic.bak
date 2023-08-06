@@ -1,0 +1,34 @@
+[Output]
+output=test.txt
+
+[Model]
+word-gram=3
+char-gram=4
+topics=1
+LDA=on
+
+[Content]
+max-word-len=5
+# delim='|'
+space=' '
+word-dict=examples/smalldict.txt
+atom-dict=examples/smallatoms.txt
+
+[Hyperparameters]
+alpha=0.0
+theta=100.0
+# pstop=0.5
+
+[Experiment]
+# iters=1300
+iters=1000
+burnin=300
+max-temp=10
+fwdbwd=on
+hparamsmp=off
+poisson=on
+slicesmp=on
+beamsize=10
+verbose=on
+debug=off
+cache=off
