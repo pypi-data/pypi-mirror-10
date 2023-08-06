@@ -1,0 +1,43 @@
+Changelog
+=========
+
+4.0 - (2011-11-18)
+------------------
+* Cleanup: Fixed all pylint, pyflakes violations
+  [voineali #4228]
+* Feature: Added upgrade steps
+  [voineali #4392]
+* Feature: Plone 4.0.4 compatible release
+  [voineali #4228]
+
+1.6.1 - (2010-09-06)
+--------------------
+* Change: Defined apply_index method on portal_faceted in
+  order to be used by faceted counter
+  [voineali #3139]
+
+1.4 (2010-06-16)
+----------------
+* Bug fix: Run profile importVarious only in eea.faceted.tool context
+  [voineali]
+
+1.3 (2010-01-04)
+----------------
+* Bug fix: Fixed that if there was a portal type mapping defined in
+  portal_faceted only for object_provides or portal_type faceted
+  search would return no results
+  [voineali #2861]
+
+1.2 (2009-11-09)
+----------------
+* Change: This package rely on plone.app.form. Added as dependency.
+  [voineali]
+
+1.1 (2009-11-02)
+----------------
+* Bug fix: Safe import _eioRegistry in order to make it work with Plone 3.3.x.
+
+1.0 (xxxx-xx-xx)
+----------------
+* Initial release
+
