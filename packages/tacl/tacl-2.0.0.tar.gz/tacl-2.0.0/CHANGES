@@ -1,0 +1,43 @@
+2.0.0  2015-05-27  Jamie Norrish  <jamie@artefact.org.nz>
+
+  * Added support for multiple witnesses to a text. Witnesses are
+    automatically extracted from the CBETA texts, and results now
+    include a 'siglum' field indicating which witness of the text a
+    result comes from.
+
+  * Added total count of n-grams occurrences per text to 'tacl search'
+    results.
+
+  * Split 'tacl strip' into 'tacl prepare' and 'tacl strip'.
+
+  * Reimplemented supplied queries to be more useful and not have
+    hidden gotchas.
+
+  * Fixed a bug causing 'tacl stats' to sometimes return incorrect
+    results.
+
+
+1.1.0  2014-05-27  Jamie Norrish  <jamie@artefact.org.nz>
+
+  * Added a tacl align command, to output aligned sequences of
+    intersections between all pairs of differently labelled texts in a
+    set of results.
+
+  * Added LICENCE and CHANGES to MANIFEST.in.
+
+
+1.0.2  2014-05-20  Jamie Norrish  <jamie@artefact.org.nz>
+
+  * Added install_requires to setup.py, so that installation via pip
+    installs the dependences.
+
+
+1.0.1  2014-05-20  Jamie Norrish  <jamie@artefact.org.nz>
+
+  * Added a MANIFEST.in to explicitly include README.rst in the
+    distribution.
+
+
+1.0.0  2014-05-20  Jamie Norrish  <jamie@artefact.org.nz>
+
+  * Initial publicised release.
