@@ -1,0 +1,8 @@
+djangorestframework>=2.3.5
+wrapt>=1.10
+
+[tests]
+Django>=1.6
+flake8
+mock
+pytest
