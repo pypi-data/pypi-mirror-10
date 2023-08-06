@@ -1,0 +1,3 @@
+graft pyodcompare
+include *.cfg *.rst *.in *.py
+recursive-include pyodcompare *.doc
