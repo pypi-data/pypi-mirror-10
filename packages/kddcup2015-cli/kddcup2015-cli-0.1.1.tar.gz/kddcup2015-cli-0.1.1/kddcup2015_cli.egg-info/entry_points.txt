@@ -1,0 +1,10 @@
+[console_scripts]
+kdd = kddcup2015_cli.main:main
+
+[kddcup2015_cli]
+rank = kddcup2015_cli.rank:Rank
+submit = kddcup2015_cli.submit:Submit
+score = kddcup2015_cli.score:Score
+download = kddcup2015_cli.download:Download
+config = kddcup2015_cli.config:Config
+
