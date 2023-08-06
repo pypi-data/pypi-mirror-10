@@ -1,0 +1,6 @@
+[distutils.commands]
+install_binaries = install_binaries:install_binaries
+
+[distutils.setup_keywords]
+install_binaries = install_binaries:handle_install_binaries
+
