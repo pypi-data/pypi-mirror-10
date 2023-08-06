@@ -1,0 +1,72 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="medialog.dexterityview">
+    
+  <include package="plone.app.z3cform" />
+  <include package="plone.app.contentmenu" />
+    
+  <genericsetup:registerProfile
+      name="default"
+      title="medialog.dexterityview"
+      directory="profiles/default"
+      description="Dexterity Generic Browser View"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <browser:page
+      for="*"
+      name="dexterity_view"
+      class="medialog.dexterityview.dexterity_view.DexterityView"
+      template="dexterity_view.pt"
+      layer="medialog.dexterityview.interfaces.IDexterityViewLayer"
+      permission="zope.Public"
+      />
+
+   <!-- Helper view to get the image size... need a better way to do this -->
+  <browser:page
+      for="*"
+      name="image_scale"
+      class="medialog.dexterityview.dexterity_view.ImageScale"
+      layer="medialog.dexterityview.interfaces.IDexterityViewLayer"
+      permission="zope.Public"
+      />
+
+    <browser:page
+      name="dexterity_widget"
+      for="z3c.form.interfaces.IWidget"
+      class="plone.app.z3cform.templates.RenderWidget"
+      layer="medialog.dexterityview.interfaces.IDexterityViewLayer"
+      template="dexterity_widget.pt"
+      permission="zope.Public"
+      />
+ 
+    <z3c:widgetTemplate
+        mode="display"
+        widget="plone.formwidget.namedfile.interfaces.INamedImageWidget"
+        layer="medialog.dexterityview.interfaces.IDexterityViewLayer"
+        template="dexterity_image_display.pt"
+        />
+        
+   <utility
+    component=".vocabulary.ImageSizeVocabulary"
+    name="medialog.dexterityview.ImageSizeVocabulary" />
+
+ 
+  <browser:menuItems
+    for="plone.dexterity.interfaces.IDexterityContent"
+    menu="plone_displayviews">
+     <browser:menuItem
+      title="Generic View"
+      action="dexterity_view"
+      />
+ 
+  </browser:menuItems>
+ 
+
+</configure>
