@@ -1,0 +1,6 @@
+[sentry.plugins]
+taiga = sentry_taiga.plugin:TaigaPlugin
+
+[sentry.apps]
+taiga = sentry_taiga
+
