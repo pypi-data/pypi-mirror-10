@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: pwdmeter
+Version: 0.1.5
+Summary: A password strength measuring library.
+Home-page: https://github.com/mapix/pwdmeter
+Author: mapix
+Author-email: mapix.me@gmail.com
+License: MIT (http://opensource.org/licenses/MIT)
+Description: PWDMeter
+        ========
+        
+        A password strength measuring library.
+        
+        
+        Install
+        -------
+        ::
+        
+            pip install pwdmeter
+            
+        
+        Features
+        --------
+        
+        * casemix checker
+        * charmix checker
+        * length checker
+        * non-dictionary checker
+        * non-ascii checker
+        * repetitions checker
+        * i18n support
+        
+Keywords: password strength checker meter
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: Public Domain
