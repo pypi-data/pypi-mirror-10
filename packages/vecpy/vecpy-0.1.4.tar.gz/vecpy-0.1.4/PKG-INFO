@@ -1,0 +1,143 @@
+Metadata-Version: 1.1
+Name: vecpy
+Version: 0.1.4
+Summary: Simple Vector package to help with basic linear algebra.
+Home-page: https://github.com/j-i-l/VecPy
+Author: Jonas I. Liechti
+Author-email: jon.liechti@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/j-i-l/VecPy/tarball/0.1.4
+Description: VecPy: Some Linear Algebra Basics in Python
+        ===========================================
+        
+        .. image:: https://img.shields.io/pypi/v/requests.svg
+            :target: https://pypi.python.org/pypi/vecpy
+        
+        .. image:: https://img.shields.io/pypi/dm/requests.svg
+                :target: https://pypi.python.org/pypi/vecpy
+        
+        A quick one:
+        
+        .. code-block:: python
+        
+            >>> from vecpy import Vector as Vec
+            >>> v = Vec(0, 2)
+            >>> w = Vec([1, 3])
+            >>> v + 2 
+            >>> v + w 
+        
+        Features
+        --------
+        
+        - Basic operations ( dot-product, projection, rescaling, etc.)
+        
+        
+        Installation
+        ------------
+        
+        To install VecPy, simply:
+        
+        .. code-block:: bash
+        
+            $ pip install vecpy
+        
+        
+        Documentation
+        -------------
+        
+        This is a simple package allowing to complete very basic linear algebra tasks.
+        
+        It is best explained by example:
+        
+        .. code-block:: python
+        
+            >>> v = Vec(0, 2)
+            >>> w = Vec(1, 3)
+        
+        
+        You can do basic rescaling of a vector:
+        
+        .. code-block:: python
+        
+            >>> v_twice = v ^ 2
+            >>> print v_twice.length == 2 * v.length
+            >>> v_unit = v ^ 0
+            >>> print v_unit.length
+            
+        Adding scalar and other vectors:
+        
+        .. code-block:: python
+            >>> v + 2
+            >>> v + w
+            ...
+        
+        
+        Multiplication and dot-product
+        
+        .. code-block:: python
+        
+            >>> v * 3
+            >>> v.dot(w)
+        
+        A vector has several properties:
+        
+        .. code-block:: python
+        
+            >>> v.length
+            >>> v.dim
+            
+        You can specify which norm to use (default is the Euclidean)
+        
+        .. code-block:: python
+        
+            >>> v.norm(1)
+            >>> v.norm('inf')
+            >>> v.norm(2) == v.length
+            ...
+                
+        You can project one vector on another:
+        
+        .. code-block:: python
+        
+            >>> w_proj_v = v.proj(w)
+            >>> ratio = v.proj(w, get_scale=True)
+        
+        Iteration is supported as well:
+        
+        .. code-block:: python
+        
+            >>> print [xi for xi in v]
+        
+        String representations:
+        
+        .. code-block:: python
+        
+            >>> print str(v)
+            >>> print '{:[x, y, z]}'.format(v)
+        
+        
+        .. :changelog:
+        
+        Release History
+        ---------------
+        
+        0.2.0 (2015-07-02)
+        ++++++++++++++++++
+        
+        * BIRTH!
+        
+        
+        0.0.1 (2015-05-02)
+        ++++++++++++++++++
+        
+        * There are magic functions
+        
+Keywords: vector,linear algebra,projection
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
