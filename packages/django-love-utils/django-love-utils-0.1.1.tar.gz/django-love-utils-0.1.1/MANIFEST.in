@@ -1,0 +1,5 @@
+include LICENSE CHANGES README.rst
+recursive-include love_utils *.py
+recursive-include love_utils/static *.js *.css *.png *.eot *.svg *.ttf *.woff
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
