@@ -1,0 +1,95 @@
+body {text-align:center; font-family:'Roboto', sans-serif; font-size:100%; line-height:1.7em; margin:0; padding:10px 20px; color:#000; background:#fff url("../img/bg-paper.png") repeat scroll 0% 0%;} 
+
+#page {text-align:left; max-width:60em; margin:0 auto 20px;}
+#header {text-align:left;}
+#content {float:left; width:60%; text-align:left; margin-bottom:20px;}
+#comments {border-top:double #eee;}
+#sidebar {float:left; width:32%; padding:18px 20px; text-align:left; font-size:90%;}
+#footer {text-align:left !important; clear:both;}
+
+div.tools {color:#bbb; font-size:90%; margin:0; max-width:30%; float:right;}
+div.tools form {margin:0; display:inline;}
+
+a {outline:none !important; text-decoration:none;}
+a:link {color:#3369E8;} /* blue */
+a:visited {color:#009925;} /* green */
+a:hover {color:#EEB211; border-bottom:1px solid #EEB211;} /* yellow */
+a:active {color:#D50F25; outline:none;} /* red */
+:target {outline:10px #ffc solid;}
+
+h1 {font-size:130%; font-weight:700; margin:1em 0 0;}
+h1 small {display:block; font-weight:normal;}
+h2 {font-size:130%; font-weight:normal; margin:1em 0 0.8em;}
+h3 {font-size:130%; font-weight:normal; letter-spacing:0.1em; margin:1em 0 0.8em;}
+h4 {font-size:100%; font-weight:bold; letter-spacing:0.1em; margin:1em 0 0.8em;}
+h5 {font-size:100%; font-weight:normal; letter-spacing:0.1em; margin:1em 0 0;}
+h5 + ul, h5 + h6 {margin:0;}
+h6 {font-size:100%; font-style:italic; font-weight:normal; margin:1em 0 0.8em;}
+
+p, li, dd {text-align:left; font-size:100%; margin:1em 0 0;
+	/* For lighter|bolder text comment|uncomment the following line. */
+	/* font-weight:300; */
+}
+p.breadcrumbs {color:#bbb; font-size:90%; margin:0; max-width:70%; display:inline-block;}
+li, dd {margin:0;}
+p + ul, p + ol, p + dl {margin-bottom:1.5em;}
+ul, ol, dl {text-align:left;}
+.list-unstyled {list-style:none; padding-left:0;}
+.list-unstyled ul {padding-left:1em;}
+.list-inline {padding:0;}
+.list-inline li {display:inline-block;}
+.tags li {padding:2px 3px;}
+dt {font-weight:bold; margin-top:1em;}
+
+blockquote {border-left:4px solid #eee; padding-left:1.3em; margin:1em 0;}
+blockquote small {display:block; line-height:1.7em;}
+
+code, kbd {font-family:courier, monospace;}
+p > code {background:#ffc;}
+hr {color:#000; border:0; margin:2em 0;}
+hr:after {content:"*  *  *";}
+b, strong {font-weight:bold;}
+i, em {font-style:italic;}
+img, img.img-responsive {display:block;}
+p img {width:auto; max-width:540px;}
+
+label {display:block; margin-top:1em; font-size:100%;}
+input {padding:3px; font-size:100%;}
+textarea {border:1px solid #ddd; font-family:'Roboto', sans-serif; padding:3px;}
+.btn {padding:3px; font-size:100%; color:#333;}
+.btn-sm {font-size:90%;}
+.help-block {display:inline; color:#bbb;}
+.edit {font-weight:normal; color:#bbb !important; font-size:11px; text-transform:uppercase;}
+.meta {color:#bbb; font-size:90%;}
+.comment {padding:10px;}
+.comment:hover {background:#ffc;}
+.odd {background:#f7f7f7;}
+.even {}
+.timespan {font-weight:normal;}
+.media-heading {margin:0 !important;}
+.media-body p {margin:0.5em 0 1em;}
+
+.small {font-size:90%;}
+.normal {font-weight:normal;}
+.center {text-align:center;}
+.quiet {color:#bbb;}
+.uncolored {color:#000 !important;}
+.nomargin {margin:0;}
+.pull-left {float:left;}
+.pull-right {float:right;}
+.align-left {text-align:left;}
+.align-right {text-align:right;}
+.inline {display:inline; line-height:1em;}
+.active > a {color:#000 !important; font-weight:normal;}
+.sitemaplink {display:none;}
+
+@media (max-width: 530px) {
+	#sidebar, div.tools {max-width:100% !important; width:100% !important; text-align:center; display:block; padding:0;}
+	#sidebar ul {margin:0 20px 20px 0;}
+	#sidebar h5 {text-align:left; margin:0 20px 0 0;}
+	div.tools p {margin:10px auto; text-align:center;}
+	#content, p.breadcrumbs {width:100%; max-width:100%; display:block;}
+	p.breadcrumbs {margin-bottom:10px;}
+	#content img {width:100%; height:auto; max-width:100%;}
+	.sitemaplink {display:inline;}
+}

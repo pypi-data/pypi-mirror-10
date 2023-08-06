@@ -1,0 +1,18 @@
+{% load mezzanine_tags i18n future staticfiles  %}
+
+<div class="tools">
+	{% search_form %}
+	<p class="nomargin">
+		<a class="sitemaplink" href="#sidebar">&darr; sitemap</a> &nbsp;
+		{% if user.is_superuser %} 
+			    {% url "admin:index" as admin_index_url %}
+			    {% url "admin:logout" as admin_logout_url %}
+			    {% url "logout" as accounts_logout_url %}
+					{# =todo: Do not hardlink urls for adding posts and pages. #}
+					<a class="edit" href="/admin/blog/blogpost/add/" title="{% trans "Create a post. Posts are time-sensitive and appear in reverse chronological order, like entries in a log or journal." %}">+ post</a> &nbsp;
+					<a class="edit" href="/admin/pages/richtextpage/add/" title="{% trans "Create a page. Pages are used to present information that is not time-sensitive, and can be organized in any order you like." %}">+ page</a> &nbsp;
+			    <a class="edit" href="{{ editable_obj.get_admin_url|default:admin_index_url }}">{% trans "Admin" %}</a> &nbsp;
+			    <a class="edit" href="{{ accounts_logout_url|default:admin_logout_url }}?{{ REDIRECT_FIELD_NAME }}={{ request.path }}">{% trans "Logout" %}</a>
+		{% endif %}
+	</p>
+</div>
