@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+import daemonize, urllib.request, time, sys, os, signal, urllib.error, syslog
+from syslog import syslog, LOG_NOTICE, LOG_WARNING
+
+INTERVAL = 300
+X_NAMES = ["Xorg", "X", "X11", "xinit"]
+
+def get_end() -> int:
+    try:
+        req = urllib.request.urlopen('http://time.kaashif.co.uk/end')
+        return int(req.read().decode().strip())
+    except urllib.error.HTTPError, ValueError:
+        return 0 # This will cause the challenge to end
+
+def main():
+    syslog(LOG_NOTICE, "challenge will end at {0}".format(time.ctime(get_end())))
+    while True:
+        req = None
+        now = int(time.time())
+        if now > get_end():
+            syslog(LOG_NOTICE, "challenge over, exiting")
+            sys.exit(0)
+        pids = [pid for pid in os.listdir("/proc") if pid.isdigit()]
+        for pid in pids:
+            try:
+                name = open(os.path.join("/proc", pid, "comm"), "rb").read().decode().strip()
+                if name in X_NAMES:
+                    syslog(LOG_NOTICE, "found X session with pid {0}".format(pid))
+                    try:
+                        os.kill(int(pid), signal.SIGTERM)
+                    except PermissionError:
+                        syslog(LOG_WARNING, "did not have permission to kill pid {0}".format(pid))
+                    except IOError:
+                        syslog(LOG_WARNING, "could not kill pid {0} (possibly already dead)".format(pid))
+            except IOError:
+                continue # process terminated already
+        time.sleep(INTERVAL)
+
+if __name__ == "__main__":
+    pidfile = "/tmp/xkiller.pid"
+    if os.getuid() == 0:
+        pidfile = "/var/run/xkiller.pid"
+    try:
+        pidfile = sys.argv[1]
+    except IndexError:
+        pass
+    daemonize.Daemonize(app="xkiller", pid=pidfile, action=main).start()
