@@ -1,0 +1,23 @@
+.wikilabels-form-builder {
+}
+.wikilabels-form-builder .info {
+  padding: 1ex 1em;
+}
+
+
+.wikilabels-form-builder .CodeMirror {
+  border: 1px solid silver;
+  min-height: 5em;
+  height: auto;
+}
+.wikilabels-form-builder .CodeMirror-scroll {
+  height: auto;
+}
+
+
+.wikilabels-form-builder .config-editor .controls {
+  text-align: right;
+}
+.wikilabels-form-builder .form-preview .controls {
+  text-align: right;
+}
