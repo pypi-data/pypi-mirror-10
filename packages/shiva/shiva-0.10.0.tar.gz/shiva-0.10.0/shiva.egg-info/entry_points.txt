@@ -1,0 +1,6 @@
+[console_scripts]
+shiva-admin = shiva.bin:admin
+shiva-fileserver = shiva.bin:fileserver
+shiva-indexer = shiva.bin:indexer
+shiva-server = shiva.bin:server
+
