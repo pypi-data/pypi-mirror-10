@@ -1,0 +1,34 @@
+[InfluxDB]
+
+; The old stable version of InfluxDB server is 0.8, and 0.9 brings some
+; breaking changes. Only use 0.9 if you're actually running it!
+ServerVersion=0.8
+
+; The hostname and port of the InfluxDB server's API endpoint (default 8086)
+Host=127.0.0.1
+Port=8086
+
+; The database to use
+Database=
+
+; These are both optional, and should only be used if authentication
+; is enabled (which it is by default)
+User=root
+Pass=root
+
+[sysmond]
+; Amount of time (in seconds) to sleep between submissions,
+;
+; The lowest you can set this is 3s, because otherwise the overhead
+; may become significant and the collectors will fall behind.
+Sleep=3
+
+; If you leave this blank, we will use the current hostname for this
+; server in the statistics
+Hostname=
+
+; A list of active collectors that you want to use
+Collectors=cpu,disk,memory
+
+; A list of collectors in the custom/ directory
+CustomCollectors=
