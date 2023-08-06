@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: c2.search.kananormalizer
+Version: 1.0a1
+Summary: This package is Japanese KANA normalizer for Plone.
+Home-page: https://bitbucket.org/cmscom/c2.search.kananormalizer
+Author: Manabu TERADA
+Author-email: terada@cmscom.jp
+License: GPL
+Description: Introduction
+        ============
+        
+        
+        Normalize Katakana to Hiragana for ZCTextIndex.
+        When you do "quick install", the setting of Plone instance will change from default Normalizer (I18NNormalizer) to this normalizer (KanaNormalizer)
+        And, You shuld do "ReIndex" manually.
+        
+        
+        Japanese informaiton.
+        ------------------------------
+        
+        アドンの適用("quick install")が必要です。その後、ZMIから手動で "ReIndex"を行ってください。
+        
+        検索インデックス(ZCTextIndex) のノーマライズ機能で、カタカナをひらがな置換えます。検索時、ひらがなとカタカナを同一視します。
+        副作用として、ひらがな・カタカナ混じりの文字をミスヒットする可能性があります。
+        (例: 「アクセスして」を「あくせすして」としますので、「すし」というキーワードに検索ヒットしてしまいます)
+        
+        
+        Changelog
+        =========
+        
+        1.0a1 (2015-06-26)
+        -------------------------
+        
+        - First alpha release [terapyon]
+        
+Keywords: plone search Japanese normalizer
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
