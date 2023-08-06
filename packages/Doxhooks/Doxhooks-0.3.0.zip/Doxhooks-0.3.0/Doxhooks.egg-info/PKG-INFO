@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: Doxhooks
+Version: 0.3.0
+Summary: Abstract away the content and maintenance of files in your project.
+Home-page: https://github.com/nre/doxhooks
+Author: Nick Evans
+Author-email: nick.evans3976@gmail.com
+License: MIT
+Description: Doxhooks helps you to write and maintain the files in your project by letting you write abstractions for your content and tasks. You can abstract away your duplicate content, boilerplate code, debug code, modules, templates, data, cross-references, file paths, URLs, build tasks, etc. You can even abstract away the preprocessor logic by defining your own preprocessor mini-languages.
+        
+        Beginners can start using Doxhooks by customising the example scripts. Users with knowledge of the Python programming language can extend Doxhooks with their own code.
+        
+        * `Features <http://doxhooks.readthedocs.org/en/latest/features>`_
+        * `Examples <http://doxhooks.readthedocs.org/en/latest/examples>`_
+        * `Getting started <http://doxhooks.readthedocs.org/en/latest/getting_started>`_
+        * `Documentation <http://doxhooks.readthedocs.org/>`_
+        * `Source code <https://github.com/nre/doxhooks>`_
+        * `Help, bugs, suggestions <https://github.com/nre/doxhooks/issues>`_
+        * Release updates via `Atom feed <https://github.com/nre/doxhooks/releases.atom>`_ and `Twitter <https://twitter.com/doxhooks>`_
+        
+Keywords: abstract build code document file hook preprocessor project resource source text
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Pre-processors
