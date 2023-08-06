@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+3d_wallet_generator.egg-info/PKG-INFO
+3d_wallet_generator.egg-info/SOURCES.txt
+3d_wallet_generator.egg-info/dependency_links.txt
+3d_wallet_generator.egg-info/entry_points.txt
+3d_wallet_generator.egg-info/requires.txt
+3d_wallet_generator.egg-info/top_level.txt
+gen_3dwallet/TextGenerator.py
+gen_3dwallet/__init__.py
+gen_3dwallet/base.py
+gen_3dwallet/qr_tools.py
