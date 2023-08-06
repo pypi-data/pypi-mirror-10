@@ -1,0 +1,68 @@
+Metadata-Version: 1.1
+Name: django-multilingual-search
+Version: 2.3.0.beta
+Summary: A drop-in replacement for the Haystack Elasticsearch backend which allows multilingual indexes for Django.
+Home-page: https://github.com/sbaechler/django-multilingual-search
+Author: Simon Bächler
+Author-email: sb@feinheit.ch
+License: BSD
+Description: # django-multilingual-search
+        A multilingual Haystack plugin for Django and Elasticsearch.
+        The module is a drop-in replacement for the Haystack `ElasticsearchSearchEngine`.
+        
+        Instead of a single index it creates an index for each language specified in `settings.LANGUAGES`.
+        
+        A query is routed to the index of the currently active language.
+        
+        [![Build Status](https://travis-ci.org/sbaechler/django-multilingual-search.svg?branch=master)](https://travis-ci.org/sbaechler/django-multilingual-search)
+        
+        ## Installation
+        
+        Install with pip:
+        
+            pip install django-multilingual-search
+            
+        The major and minor versions of this project correspond to the Haystack version the package was
+        tested against. This version is for Haystack 2.3.1.
+            
+            
+        ## Configuration
+        
+        The app provides a drop-in replacement for the ElasticsearchEngine of Haystack.
+        To use it, specify this engine in `settings.py`:
+        
+            HAYSTACK_CONNECTIONS = {
+                'default': {
+                    'ENGINE': 'multilingual.elasticsearch.ElasticsearchMultilingualSearchEngine',
+                    'URL': 'http://127.0.0.1:9200/',
+                    'INDEX_NAME': 'myproject',
+                },
+            }
+            
+        For automatic indexing of new entries the Haystack 
+        [signal processors](http://django-haystack.readthedocs.org/en/latest/signal_processors.html) 
+        can be used without modification.
+        
+        
+        ## Contributing
+        
+        Please read the [Contributing](./CONTRIBUTING.md) guide.
+        
+        
+        ## Release History
+        
+        - 2.3.0: First release
+Platform: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
