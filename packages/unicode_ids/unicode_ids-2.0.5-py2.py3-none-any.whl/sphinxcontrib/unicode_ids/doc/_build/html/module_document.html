@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Module document &mdash; unicode_ids 2.0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/traditional.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="unicode_ids 2.0.5 documentation" href="index.html" />
+    <link rel="prev" title="unicode_ids拡張(日本語版説明書)" href="README_ja.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="README_ja.html" title="unicode_ids拡張(日本語版説明書)"
+             accesskey="P">previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">unicode_ids 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-document">
+<h1>Module document<a class="headerlink" href="#module-document" title="Permalink to this headline">¶</a></h1>
+<p>Generally, you don&#8217;t have to know read here. Please read <a class="reference internal" href="README.html"><em>unicode_ids extension</em></a>.</p>
+<p>通常はこの頁を読む必要はありません。使い方などについては<a class="reference internal" href="README_ja.html"><em>unicode_ids拡張(日本語版説明書)</em></a>をご覧ください。</p>
+<div class="section" id="module-sphinxcontrib-unicode-ids">
+<h2>Module sphinxcontrib.unicode_ids<a class="headerlink" href="#module-sphinxcontrib-unicode-ids" title="Permalink to this headline">¶</a></h2>
+<p>The Sphinx extension to allow HTML builder to use Non-ASCII identifiers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">© 2011-2015 Suzumizaki-Kimitaka(鈴見咲 君高, for additional works only)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">2-clause BSD.</td>
+</tr>
+</tbody>
+</table>
+<p>This module hacks <code class="xref py py-meth docutils literal"><span class="pre">sphinx.environment.BuildEnvironment.resolve_toctree()</span></code>.
+And because of this, when used with Python 2(means not Python 3), just
+cover characters included in the set of <code class="code docutils literal"><span class="pre">sys.getdefaultencoding()</span></code>,
+not all of Unicode characters.</p>
+<p>For Windows, you might create <code class="file docutils literal"><span class="pre">usercustomize.py</span></code> or
+<code class="file docutils literal"><span class="pre">sitecustomize.py</span></code> to call <code class="code docutils literal"><span class="pre">sys.setdefaultencoding('mbcs')</span></code>.
+See PEP 370 <a class="reference external" href="http://www.python.org/dev/peps/pep-0370/">http://www.python.org/dev/peps/pep-0370/</a> to know where 
+to place the script.</p>
+<dl class="function">
+<dt>
+<code class="descclassname">unicode_ids.</code><code class="descname">my_make_id</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span></dt>
+<dd><p>Return identifier without losing Unicode characters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str_or_unicode</em>) &#8211; base string to make new identifier</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">unicode(Python 2), str(Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the new identifier string for patched Sphinx</td>
+</tr>
+</tbody>
+</table>
+<p>Defined to replace the function <code class="xref py py-meth docutils literal"><span class="pre">docutils.nodes.make_id()</span></code>.</p>
+<p>Currently, this function can&#8217;t determine the return value will be used
+in HTML or CSS. Unusable characters will be replaced with <code class="code docutils literal"><span class="pre">_xhh</span></code>
+form where <code class="code docutils literal"><span class="pre">hh</span></code> is 2-digit hexadecimal lowercase.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">unicode_ids.</code><code class="descname">my_toctree_run</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Show non existing entries of toctree</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> (<em>sphinx.directives.other.TocTree</em>) &#8211; The instance object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of the nodes made in this method</td>
+</tr>
+</tbody>
+</table>
+<p>Defined to replace the method <code class="xref py py-meth docutils literal"><span class="pre">sphinx.directives.other.TocTree.run()</span></code></p>
+<p>Only <code class="code docutils literal"><span class="pre">%r</span></code> following are replaced with <code class="code docutils literal"><span class="pre">%s</span></code> to avoid unreadable string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">unicode_ids.</code><code class="descname">setup</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span></dt>
+<dd><p>Extend the Sphinx as we want, called from the Sphinx</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>app</strong> (<em>sphinx.application.Sphinx</em>) &#8211; the object to add builder or something.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">unicode_ids.</code><code class="descname">to_unicode</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span></dt>
+<dd><p>Get unicode object by decoding given string with filesystem encoding</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) &#8211; the string, if unicode object is given, return this unmodified.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">unicode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the string converted unicode type</td>
+</tr>
+</tbody>
+</table>
+<p>When the system encoding is not found, just return the parameter <code class="code docutils literal"><span class="pre">s</span></code>.
+This function is called Python 2 only.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Module document</a><ul>
+<li><a class="reference internal" href="#module-sphinxcontrib-unicode-ids">Module sphinxcontrib.unicode_ids</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="README_ja.html"
+                        title="previous chapter">unicode_ids拡張(日本語版説明書)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/module_document.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="README_ja.html" title="unicode_ids拡張(日本語版説明書)"
+             >previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">unicode_ids 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Suzumizaki-Kimitaka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

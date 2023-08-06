@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>unicode_ids拡張(日本語版説明書) &mdash; unicode_ids 2.0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/traditional.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="unicode_ids 2.0.5 documentation" href="index.html" />
+    <link rel="next" title="Module document" href="module_document.html" />
+    <link rel="prev" title="unicode_ids extension" href="README.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="module_document.html" title="Module document"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="README.html" title="unicode_ids extension"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">unicode_ids 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="unicode-ids">
+<h1>unicode_ids拡張(日本語版説明書)<a class="headerlink" href="#unicode-ids" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">日本語版(本頁)は<a class="reference external" href="http://h12u.com/sphinx/unicode_ids/README_ja.html">公式サイト</a>とこのパッケージのdocフォルダでご覧になれます。</p>
+</div>
+<div class="section" id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>2015年6月4日現在、Sphinx 1.3.1のHTML出力は、id属性に対してASCII限定の文字だけを使うように動作します。これはHTML4.01の仕様書に厳密に従おうとするためですが、今日ではUnicodeで定義された文字を使えます。</p>
+<p>同様に、ASCII外の文字を名前に持つファイルはSphinx独自の変換を行ってしまいます。このため生成するHTMLファイル名は非常にわかりにくいものになります。</p>
+<p>この拡張は、実行のたびにSphinxとその基盤であるdocutilsへパッチをあてる形で、指定通りの文字を使わせるようにするものです。</p>
+</div>
+<div class="section" id="id3">
+<h2>利用条件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Sphinxと同じく二項BSDです。</p>
+</div>
+<div class="section" id="id4">
+<h2>設置について<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>他のPythonパッケージと同様に設置・撤去できます。また他のSphinx拡張と同様に必要なファイルだけ各自の管理下に複製し、そのフォルダを<span class="fn-rst">conf.py</span>で指定することでも利用いただけます。</p>
+<div class="section" id="id5">
+<h3>動作条件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>32ビット版のPython 2.7.10と64ビット版のPython 3.4.3をマイクロソフトウィンドウズ
+8.1上で動かして挙動を確認しました。特段の依存性はないので、他のPython実装や他のOSでも動作すると思います。</p>
+<p>Unicodeで定義された全文字への対応はPython 3が必須です。Python 2ではその標準符号化法かファイルシステムの符号化法に利用できる文字が限定されます。</p>
+<p>また、この拡張はSphinx 1.3.1とdocutils 0.12の実装コード内容に依存しています。パッチ先の関数類に互換性のない変更があると動作しなくなります。</p>
+</div>
+<div class="section" id="id6">
+<h3>設置方法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>前述の通り、通常のPythonパッケージと同様の方法で設置できます。</p>
+<ol class="arabic">
+<li><p class="first">コンソールを開き<code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicode_ids</span></code>を実行してください。</p>
+<p>マイクロソフトウィンドウズでは<code class="code docutils literal"><span class="pre">pythonを設置したフォルダ\Scripts\pip.exe</span> <span class="pre">install</span> <span class="pre">unicode_ids</span></code>を実行してください。</p>
+</li>
+<li><p class="first">あるいは<span class="fn-rst">unicode_ids-2.0.5(.zip)</span>(2.0.5はバージョン番号)というファイルを入手し、このファイルがあるフォルダへ移動した後<code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicode_ids-2.0.5.zip</span></code>を実行してください。</p>
+<p>同様にウィンドウズでは代わりに<code class="code docutils literal"><span class="pre">pythonを設置したフォルダ\Scripts\pip.exe</span> <span class="pre">install</span> <span class="pre">unicode_ids-2.0.5.zip</span></code>を実行してください。</p>
+</li>
+<li><p class="first">最後の別の方法として、これはSphinx特有の方法ですが、単にzipファイルを任意のフォルダに展開して使うという手段があります。Sphinxで使う<span class="fn-rst">conf.py</span>を適切に編集することで利用可能です。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>使い方<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>他のSphinx拡張同様、<span class="fn-rst">conf.py</span>の編集によって使えるようになります。</p>
+<p>まず、次のコードを追加してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># 次の3行を追加してください</span>
+<span class="kn">import</span> <span class="nn">distutils.sysconfig</span>
+<span class="n">site_package_path</span> <span class="o">=</span> <span class="n">distutils</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_python_lib</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">site_package_path</span><span class="p">,</span> <span class="s">&#39;sphinxcontrib/unicode_ids&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>ただし、もしpipで設置していないのであれば代わりに次を追加してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># 上記のimportやsite_package_pathの二行は使わないのでなくても構いません</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&lt;unicode_ids.pyがあるフォルダへのパス&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>次に当拡張を<code class="code docutils literal"><span class="pre">extension</span></code>に追加してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">extension</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;unicode_ids&#39;</span><span class="p">,</span> <span class="p">]</span> <span class="c"># 他の拡張も無論同時に利用できます</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="htmlunicode">
+<h2>HTMLなどでUnicodeを使って良いと考える根拠<a class="headerlink" href="#htmlunicode" title="Permalink to this headline">¶</a></h2>
+<p>本節は2015年6月4日(日本時間)にかかれています。</p>
+<p>本書末に参考文献としてリンクを示しているほか、CSSについてはmomdo/もんどさんの<a class="reference external" href="http://momdo.s35.xrea.com/web-html-test/CSS3-ja/">CSS3の日本語訳集</a>が便利です。</p>
+<div class="section" id="htmluri">
+<h3>HTMLにおけるURI一般<a class="headerlink" href="#htmluri" title="Permalink to this headline">¶</a></h3>
+<p>HTML4.01 <a class="reference internal" href="#html401j" id="id8">[HTML401J]</a>ではURLに使える文字を<code class="code docutils literal"><span class="pre">A-Za-z0-9_:.</span></code>および <code class="code docutils literal"><span class="pre">-</span></code>に限定しています。</p>
+<p>しかし同時に本文中でそれ以外の文字が来たら同処理すべきかについての指標も示されており、<a class="reference external" href="http://www.w3.org/TR/html401/appendix/notes.html#h-B.2">B.2.1 Non-ASCII characters in URI attribute values</a>節に詳細があります(<a class="reference external" href="http://www.asahi-net.or.jp/~sd5a-ucd/rec-html401j/appendix/notes.html#h-B.2.1">B.2.1 URI属性値の非ASCII文字</a>)。この処理を介してURIをASCIIの7bit文字のみに修正して利用できるという仕組みです。</p>
+<p>HTML4.01においてはこの処理、つまり百分率記号を使った符号化は常にUTF-8で行うこととする一方、古い文書では他の符号化法によることを期待している可能性にも触れています。</p>
+<p>HTML5 <a class="reference internal" href="#html5j" id="id9">[HTML5J]</a> <a class="reference internal" href="#html51j" id="id10">[HTML51J]</a>においてはもう少しややこしい方法が定義されており、<a class="reference external" href="http://www.w3.org/TR/html5/infrastructure.html#urls">2.5 URLs</a>節に詳細があります(<a class="reference external" href="http://momdo.github.io/html5/infrastructure.html#urls">2.5 URL(邦訳)</a>)。もしURLを解析する段階で符号化法が定められていたり、もともとのHTML文書がUTF-8以外で符号化されていた場合はそちらのもとにURLを再構成することとされています。</p>
+<p>両方の仕様を考慮すると、HTMLファイルは常にUTF-8で符号化するのが安全と思われます。百分率記号による符号化がいずれにせよUTF-8を前提とできるからです。</p>
+<p>このほか、W3C URL <a class="reference internal" href="#w3curlj" id="id11">[W3CURLJ]</a>およびWHATWG URL Living Standard <a class="reference internal" href="#whatwgurlj" id="id12">[WHATWGURLJ]</a>という仕様もあり、こちらでも常にUTF-8を使うことを期待する文面があります。</p>
+</div>
+<div class="section" id="html">
+<h3>HTMLにおける識別子(アンカー)<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
+<p>HTML5では<a class="reference external" href="http://www.w3.org/TR/html5/dom.html#the-id-attribute">id attribute</a>を<a class="reference external" href="http://www.w3.org/TR/html5/infrastructure.html#concept-id">unique identifier</a>(&#8216;一意識別子&#8217;)と定義しています(<a class="reference external" href="http://momdo.github.io/html5/dom.html#the-id-attribute">3.2.5.1 id属性</a>)。</p>
+<p>この語は同書の<a class="reference external" href="http://www.w3.org/TR/html5/infrastructure.html#dependencies">2.2.2 Dependencies</a>(&#8216;依存先&#8217;)節にて、用語DOMの説明文中でDOM仕様の定義をそのまま運用することとされています。</p>
+<p>DOM4 <a class="reference internal" href="#dom4j" id="id13">[DOM4J]</a>の<a class="reference external" href="http://www.w3.org/TR/dom#interface-element">5.8 Interface Element</a>(<a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/DOM4-ja.html#interface-element">4.8 インターフェイス Element</a>)において、各要素のid属性は<code class="code docutils literal"><span class="pre">DOMString</span></code>型であり、これによって要素の<a class="reference external" href="http://www.w3.org/TR/dom#concept-id">unique identifier(ID)</a>(<a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/DOM4-ja.html#concept-id">一意的な識別子</a>)を持つことができると記されています。</p>
+<p><code class="code docutils literal"><span class="pre">DOMString</span></code>はWebIDL <a class="reference internal" href="#webidlj" id="id15">[WebIDLJ]</a>の定義によることが<a class="reference external" href="http://www.w3.org/TR/dom#dom-core">9 Historical/9.2 DOM Core</a>節で示されています(<a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/DOM4-ja.html#dom-core">8 歴史(変更点)/8.2 DOM Core</a>)。</p>
+<p><a class="reference external" href="http://www.w3.org/TR/WebIDL/#idl-DOMString">3.10.15 DOMString</a> 節で<code class="code docutils literal"><span class="pre">DOMString</span></code>は
+符号単位(code unit)の直列であることが示されています(<a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#idl-DOMString">3.10.15. DOMString(邦訳)</a>)。</p>
+<p><a class="reference external" href="http://www.w3.org/TR/WebIDL/#dfn-code-unit">code unit</a>も同書で定義され、
+16ビット符号なし整数であり、またUTF-16符号化法と対応付けるとされています(<a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html#dfn-code-unit">符号単位</a>)。</p>
+<p>以上のことから、HTMLにおける要素の識別子にUnicodeの文字を使うことができ、内部ではUTF-16の扱いになることがわかります。ただしCSS3では数字・ハイフン二つ・ハイフンと数字のいずれかを先頭にはできません。次の節をごらんください。</p>
+<p>DOM3においては<code class="code docutils literal"><span class="pre">DOMString</span></code>がDOM3CORE <a class="reference internal" href="#dom3corej" id="id18">[DOM3COREJ]</a>で定義されています。<a class="reference external" href="http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-C74D1578">1.2.1 The DOMString Type</a>節を参照ください。</p>
+</div>
+<div class="section" id="css">
+<h3>CSSにおける識別子<a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h3>
+<p>CSSは現在level 3が議論されています。その安定性はCSS2.1の区分によりモジュール単位で異なるものになっています。この件についてはCSS Snapshot 2010 <a class="reference internal" href="#csssnapshotj" id="id19">[CSSSnapshotJ]</a>の<a class="reference external" href="http://www.w3.org/TR/css-2010/#intro">1.1 Introduction</a>節をお読みください(<a class="reference external" href="http://standards.mitsue.co.jp/resources/w3c/TR/css-2010/#intro">1.1 はじめに</a>)。</p>
+<p>CSS2.1 <a class="reference internal" href="#css21j" id="id21">[CSS21J]</a> <a class="reference internal" href="#css22j" id="id22">[CSS22J]</a> においては<a class="reference external" href="http://www.w3.org/TR/CSS21/syndata.html#characters">4.1.3 Characters and case</a> 節で識別子に
+どの文字が使えるかを説明しています。第二段落に次の記述があります(<a class="reference external" href="http://momdo.s35.xrea.com/web-html-test/spec/CSS21/syndata.html#characters">4.1.3 文字と活字ケース</a>):</p>
+<blockquote>
+<div>CSSでは、（要素名、クラス、およびセレクタ内のIDを含む）識別子は、文字[a-zA-Z0-9]およびISO 10646でU+00A0以上の文字、またハイフン（-）およびアンダースコア（_）のみを含むことができる。識別子は、数字、2つのハイフン、ハイフンの直後の数字で開始できない。また、識別子は、エスケープされた文字および数字コードとして任意のISO 10646文字を含めることができる…(後略)</div></blockquote>
+<p>従って、識別子に非ASCII文字を使えます。そのすぐ下にISO 10646はUnicodeと文字符号が一対一で対応する旨も記されています。CSS3でもこれを覆す記述は見当たらず、CSS2.1の定義を踏襲していると思われます。</p>
+</div>
+<div class="section" id="javascript-ecmascript">
+<h3>JavaScript/ECMAScriptにおける識別子<a class="headerlink" href="#javascript-ecmascript" title="Permalink to this headline">¶</a></h3>
+<p>ECMAScript <a class="reference internal" href="#ecmascriptj" id="id24">[ECMAScriptJ]</a>は大雑把にいうとJavaScriptの標準仕様です。</p>
+<p>ECMAScriptの仕様では、<a class="reference external" href="http://www.ecma-international.org/ecma-262/5.1/#sec-7.6">7.6 Identifier Names
+and Identifiers</a>
+節が識別子に使える文字を定義しています(
+<a class="reference external" href="http://www.webzoit.net/hp/it/internet/homepage/script/ecmascript/ecma262_51/contents/7/7_6/">7.6 識別子名と識別子</a>)。そこでは明瞭にUnicodeの文字が利用可能とされています。一見いくつかの文字種は使えないように思えますが、
+Unicode escape sequenceによって最終的にすべての文字が使えるという定義のようです。</p>
+</div>
+</div>
+<div class="section" id="id26">
+<h2>関連する拡張やテーマ<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinx_html5_basic_theme">sphinx_html5_basic_theme</a></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h2>著者<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<p>鈴見咲 君高(Suzumizaki-Kimitaka), 2011-2015</p>
+</div>
+<div class="section" id="id28">
+<h2>履歴<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<p>2.0.5(2015-07-04):</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/yogosyu">用語集</a>拡張から抜き出し、同拡張とともにPyPIに登録しました。</li>
+<li>PyPI 上での公開をはじめました。</li>
+</ul>
+</div></blockquote>
+<p>2013-12-07:</p>
+<blockquote>
+<div>Sphinx に合わせて Python 3 で動作するようにしました。</div></blockquote>
+<p>2013-12-06:</p>
+<blockquote>
+<div>Sphinx 1.2 に適合するように更新しました。</div></blockquote>
+<p>2011-05-24:</p>
+<blockquote>
+<div>初公開版。<a class="reference external" href="https://pypi.python.org/pypi/yogosyu">用語集</a>拡張の一部でした。</div></blockquote>
+</div>
+<div class="section" id="id30">
+<h2>参考文献<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<table class="docutils citation" frame="void" id="html401j" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[HTML401J]</a></td><td><a class="reference external" href="http://www.w3.org/TR/html401/">HTML 4.01</a>, <a class="reference external" href="http://www.w3.org/TR/1999/REC-html401-19991224/">1999年12月24日付勧告</a> / <a class="reference external" href="http://www.asahi-net.or.jp/~sd5a-ucd/rec-html401j/">HTML 4仕様書邦訳計画 補完委員会邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="html5j" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[HTML5J]</a></td><td><a class="reference external" href="http://www.w3.org/TR/html5/">HTML 5</a>, <a class="reference external" href="http://www.w3.org/TR/2014/REC-html5-20141028/">2014年10月28日付勧告</a> / <a class="reference external" href="http://momdo.github.io/html5/Overview.html">もんど氏一部邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="html51j" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[HTML51J]</a></td><td><a class="reference external" href="http://www.w3.org/TR/html51/">HTML 5.1</a>, <a class="reference external" href="http://www.w3.org/TR/2015/WD-html51-20150506/">2015年5月6日付作業草案</a> / <a class="reference external" href="http://momdo.github.io/html51/Overview.html">もんど氏一部邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="w3curlj" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[W3CURLJ]</a></td><td><a class="reference external" href="http://www.w3.org/TR/url/">W3C URL</a>, <a class="reference external" href="http://www.w3.org/TR/2014/WD-url-1-20141209/">2014年12月9日付作業草案</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="whatwgurlj" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[WHATWGURLJ]</a></td><td><a class="reference external" href="https://url.spec.whatwg.org/">WHATWG URL Living Standard 2015年5月9日版</a>
+/ <a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/URL-ja.html">広瀬行夫氏邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="dom4j" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[DOM4J]</a></td><td><a class="reference external" href="http://www.w3.org/TR/dom/">W3C DOM 4</a>, <a class="reference external" href="http://www.w3.org/TR/2015/WD-dom-20150428/">2015年4月28日付最終作業草案</a> / <a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/DOM4-ja.html">広瀬行夫氏邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="webidlj" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id15">[WebIDLJ]</a></td><td><a class="reference external" href="http://www.w3.org/TR/WebIDL/">WebIDL</a>, <a class="reference external" href="http://www.w3.org/TR/2012/CR-WebIDL-20120419/">2012年4月19日付勧告候補</a> / <a class="reference external" href="http://www.hcn.zaq.ne.jp/___/WEB/WebIDL-ja.html">広瀬行夫氏邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="dom3corej" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id18">[DOM3COREJ]</a></td><td><a class="reference external" href="http://www.w3.org/TR/DOM-Level-3-Core/">DOM Level 3 Core</a>, <a class="reference external" href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/">2004年4月7日付勧告</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="csssnapshotj" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id19">[CSSSnapshotJ]</a></td><td><a class="reference external" href="http://www.w3.org/TR/css-2010/">CSS Snapshot 2010</a>, <a class="reference external" href="http://www.w3.org/TR/2011/NOTE-css-2010-20110512/">2011年5月12日付</a> / <a class="reference external" href="http://standards.mitsue.co.jp/resources/w3c/TR/css-2010/">矢倉眞隆氏邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="css21j" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id21">[CSS21J]</a></td><td><a class="reference external" href="http://www.w3.org/TR/CSS2/">CSS 2.1</a>, <a class="reference external" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/">2011年6月7日付勧告</a> / <a class="reference external" href="http://momdo.s35.xrea.com/web-html-test/spec/CSS21/cover.html">もんど氏邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="css22j" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id22">[CSS22J]</a></td><td><a class="reference external" href="http://dev.w3.org/csswg/css2/">CSS 2.2</a>, 2015年5月28日個別版としてはリンク切れ / <a class="reference external" href="http://momdo.github.io/css2/cover.html">もんど氏邦訳</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="ecmascriptj" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id24">[ECMAScriptJ]</a></td><td><a class="reference external" href="http://www.ecma-international.org/ecma-262/5.1/">ECMAScript 5.1</a>, 2011年6月発行 / <a class="reference external" href="http://www.webzoit.net/hp/it/internet/homepage/script/ecmascript/ecma262_51/">webzoit氏(?)邦訳</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">unicode_ids拡張(日本語版説明書)</a><ul>
+<li><a class="reference internal" href="#id2">はじめに</a></li>
+<li><a class="reference internal" href="#id3">利用条件</a></li>
+<li><a class="reference internal" href="#id4">設置について</a><ul>
+<li><a class="reference internal" href="#id5">動作条件</a></li>
+<li><a class="reference internal" href="#id6">設置方法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">使い方</a></li>
+<li><a class="reference internal" href="#htmlunicode">HTMLなどでUnicodeを使って良いと考える根拠</a><ul>
+<li><a class="reference internal" href="#htmluri">HTMLにおけるURI一般</a></li>
+<li><a class="reference internal" href="#html">HTMLにおける識別子(アンカー)</a></li>
+<li><a class="reference internal" href="#css">CSSにおける識別子</a></li>
+<li><a class="reference internal" href="#javascript-ecmascript">JavaScript/ECMAScriptにおける識別子</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id26">関連する拡張やテーマ</a></li>
+<li><a class="reference internal" href="#id27">著者</a></li>
+<li><a class="reference internal" href="#id28">履歴</a></li>
+<li><a class="reference internal" href="#id30">参考文献</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="README.html"
+                        title="previous chapter">unicode_ids extension</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="module_document.html"
+                        title="next chapter">Module document</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README_ja.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="module_document.html" title="Module document"
+             >next</a></li>
+        <li class="right" >
+          <a href="README.html" title="unicode_ids extension"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">unicode_ids 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Suzumizaki-Kimitaka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
