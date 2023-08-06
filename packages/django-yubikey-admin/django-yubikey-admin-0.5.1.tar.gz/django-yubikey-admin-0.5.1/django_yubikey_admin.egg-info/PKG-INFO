@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: django-yubikey-admin
+Version: 0.5.1
+Summary: Yubikey Support for the Django Admin.
+Home-page: https://github.com/LyricalSecurity/django-yubikey-admin/
+Author: Chayim Kirshen
+Author-email: chayim@lyricalsecurity.com
+License: UNKNOWN
+Description: # django-yubikey-admin
+        
+        This library enable two-factor authentication in the django-admin. It does that by adding an extra field to the default login page, for the yubikey OTP. Currently this supports stock django and [django-grappelli](https://github.com/sehmaschine/django-grappelli) 
+        
+        ## Setup
+        
+        * pip install django-yubikey-admin
+        
+        * Add 'django_yubikey_admin' to your INSTALLED_APPS
+        
+        * Add **django_yubikey_admin.auth_backends.YubikeyAuth** to your *AUTHENTICATION BACKENDS* like the example below.
+        
+            AUTHENTICATION_BACKENDS = ('django_yubikey_admin.auth_backends.YubikeyAuth',    )
+        
+        * Set your YUBIKEY_CLIENT_ID (if you don't have one registered, it's 16)
+        * Set your YUBIKEY_SECRET_KEY if applicable
+        
+        
+        ### Authentication Options
+        
+        By default, this library validates your yubikey against the yubico servers. If you'd like to maintain a local store of valid yubikeys, ensuring that a user can only log in if their yubikey is known, then set the option below.
+        
+        * DJANGO_ADMIN_YUBIKEY_CACHE = True
+        
+        ### How It Works
+        
+        This library implements a custom authentication backend. The login form itself supports an extra OTP field, for yubikeys. After user authentication completes,  the yubikey authentication takes place. If it passes, access to the django admin is granted, failing that - it fails.
+        
+        ## Building
+        
+        ### Core
+        * Python 2.6+ or Python 3.3+
+        * Django 1.7+
+        * [yubico-client](https://github.com/Kami/python-yubico-client)
+        
+        
+        **License:** MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Framework :: Django
