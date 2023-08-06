@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: MangaDL
+Version: 0.2a1
+Summary: A general purpose Manga scraping utility
+Home-page: https://github.com/FujiMakoto/MangaDL
+Author: Makoto Fujimoto
+Author-email: makoto@makoto.io
+License: MIT
+Keywords: manga scraper
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Requires-Dist: requests (~=2.6)
+Requires-Dist: img2pdf (~=0.1.5)
+Requires-Dist: clint (~=0.4.1)
+Requires-Dist: appdirs (~=1.4)
+Requires-Dist: progressbar33 (~=2.4)
+Requires-Dist: beautifulsoup4 (~=4.3.2)
+
+UNKNOWN
+
+
