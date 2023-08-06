@@ -1,0 +1,8 @@
+[program:${program}]
+command=${command}
+directory=${directory}
+priority=${priority}
+autostart=${autostart}
+autorestart=${autorestart}
+redirect_stderr=true
+environment=${environment}
