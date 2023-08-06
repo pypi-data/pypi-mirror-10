@@ -1,0 +1,30 @@
+#!/usr/bin/python
+"""
+Export neuroimaging results created with FSL feat following NIDM-Results
+specification. The path to feat directory must be passed as first argument.
+
+@author: Camille Maumet <c.m.j.maumet@warwick.ac.uk>
+@copyright: University of Warwick 2013-2014
+"""
+
+import os
+from nidmfsl.fsl_exporter.fsl_exporter import FSLtoNIDMExporter
+import argparse
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='NIDM-Results exporter for FSL.')
+    parser.add_argument('feat_dir', help='Path to feat directory.')
+
+    args = parser.parse_args()
+
+    feat_dir = args.feat_dir
+    print feat_dir
+    if not os.path.isdir(feat_dir):
+        raise Exception("Unknown directory: "+str(feat_dir))
+
+    fslnidm = FSLtoNIDMExporter(feat_dir=feat_dir, version="1.1.0")
+    fslnidm.parse()
+    export_dir = fslnidm.export()
+
+    print 'NIDM export available at: '+str(export_dir)
