@@ -1,0 +1,59 @@
+{% extends 'admin/base.html' %}
+{% load mptt_tags %}
+{% load static %}
+{% load i18n %}
+{% load bootstrap_form_fields %}
+
+{% block head %}
+    {{ block.super }}
+    <link href="{% static 'menu/css/menu.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{% static 'menu/js/app/new_menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'menu/js/menu.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div ng-app="bangoo.navigation" ng-controller="MenuController as ctrl" ng-cloak>
+    <div class="row">
+        <ul id="sitemap">
+            <button ng-click="initModal('{% url 'api:menu-api' 'new' %}')" class="btn btn-primary">{% trans 'Add menu' %}</button>
+            {% recursetree nodes %}
+                <li class="{% if not node.is_leaf_node %}sm2_liOpen{% endif %}" id="{{ node.pk }}">
+                <dl>
+                    <a class="sm2_expander"></a>
+                    <dt id="{{ node.pk }}-label" class="menu-label">{{ node.title }}</dt>
+                    {% comment %}
+                    <dd class="glyphicon glyphicon-edit control edit-label" title="Edit label"></dd>
+                    {% endcomment %}
+                    <dd title="View page">
+                        <a class="glyphicon glyphicon-link control edit-plugin" href="{{ node.path }}"></a>
+                    </dd>
+                    <dd title="View admin page">
+                        <a class="glyphicon glyphicon-pencil control plugin-admin-page" href="{{ node.pk }}/"></a>
+                    </dd>
+                </dl>
+                    {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+    </div>
+    <bs-modal title="{% trans 'New Menu' %}" visible="showModal">
+        <form ng-submit="newCtrl.save(ctrl.callback)" ng-controller="NewMenuController as newCtrl" id="newMenuForm">
+            <div class="col-lg-12 alert alert-danger" role="alert" ng-show="errors.__all__">
+                <ul>
+                    <li ng-repeat="error in errors.__all__">
+                        [[ error ]]
+                    </li>
+                </ul>
+            </div>
+            {% bs_form_fields form angular_model='data' angular_errors='errors' %}
+            <div class="modal-footer">
+                <input type="submit" value="{% trans 'Save' %}" class="btn btn-submit btn-primary" ng-disabled="isSaving">
+            </div>
+        </form>
+    </bs-modal>
+</div>
+{% endblock %}

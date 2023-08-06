@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+
+{% block head %}
+    {{ block.super }}
+    <script src="{% static 'media/js/jquery.fileupload.js' %}" type="text/javascript"></script>
+    <script src="{% static 'media/js/jquery.cookie.js' %}" type="text/javascript"></script>
+    <link href="{% static 'media/css/jquery.fileupload-ui.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        $(function () {
+            $('#id_file').fileupload({
+                paramName: 'file', // paraName == input name
+                url: $('#id_file').data('widgetAttrUrl') || '',
+                dataType: 'json',
+                crossDomain: false,
+                beforeSend: function(xhr, settings) {
+                    var csrftoken = $.cookie('csrftoken');
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {% crispy form form.helper %}
+
+            {% for image in images %}
+                <img src="{{ image.file|thumbnail_url:'small' }}" alt="">
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% load static %}
+<script src="{% static 'media/js/jquery.cycle2.js' %}"></script>
+
+<div class="cycle-slideshow">
+    {% for img in images %}
+        <img src="{{ MEDIA_URL }}{{ img.file }}">
+    {% endfor %}
+</div>

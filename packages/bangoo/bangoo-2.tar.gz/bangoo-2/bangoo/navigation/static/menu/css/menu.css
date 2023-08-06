@@ -1,0 +1,95 @@
+#sitemap ul {
+    font-size: 1em;
+    list-style: none;
+    padding-left: 16px;
+}
+
+#sitemap li {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+#sitemap dl {
+    position: relative;
+    display: block;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    background: #fff;
+    height: 25px;
+}
+
+#sitemap dt {
+    float: left;
+    font-weight: bold;
+    font-size: 1.1em;
+    line-height: 1em;
+    margin-left: 12px;
+    padding: 0 0 0 1px;
+    margin-right: 4px;
+}
+
+#sitemap .menu-label {
+    cursor: auto;
+}
+
+#sitemap dd {
+    float: left;
+    font-size: small;
+    margin-left: 2px;
+}
+
+#sitemap dl:hover .control {
+    display: block;
+}
+
+#sitemap .sm2_expander {
+    position: absolute;
+    left: 0;
+    font-size: large;
+    line-height: 16px;
+    height: 15px;
+    text-decoration: none;
+}
+
+#sitemap .sm2_liOpen > dl > .sm2_expander:after{
+    display: block;
+    width: 15px;
+    height: 1em;
+    content: '-';
+    cursor: pointer;
+}
+
+#sitemap .sm2_liClosed > dl > .sm2_expander:after {
+    display: block;
+    width: 15px;
+    height: 1em;
+    content: '+';
+    cursor: pointer;
+}
+
+#sitemap .sm2_liClosed ul {
+    display: none;
+}
+
+#sitemap .dropzone {
+    height: 6px;
+    background-color: #fff;
+    border-bottom: 4px solid #fff;
+}
+
+#sitemap .control {
+    cursor: pointer;
+    display: none;
+    width: auto;
+    text-decoration: none;
+}
+
+.editable {
+    border: 1px solid #afafaf;
+}
+
+.ui-droppable {
+    cursor: move;
+    margin: 0;
+}

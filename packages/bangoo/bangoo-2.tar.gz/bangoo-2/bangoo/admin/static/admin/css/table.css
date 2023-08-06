@@ -1,0 +1,9 @@
+table.table tfoot > tr.paging > td {
+    vertical-align: bottom;
+    text-align: center;
+    border: 1px white solid;
+}
+
+table.table tbody tr {
+    vertical-align: middle;
+}

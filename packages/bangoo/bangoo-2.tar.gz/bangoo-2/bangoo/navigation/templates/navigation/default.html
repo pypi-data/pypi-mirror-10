@@ -1,0 +1,15 @@
+<ul class="{{ custom_classes }}">
+    {% for item in items %}
+    <li class="{% if act_menu.pk == item.pk %}active{% endif %} {% if item.get_descendant_count %}dropdown{% endif %}">
+        <a href="/{{ LANGUAGE_CODE }}{{ item.path }}" {% if item.get_descendant_count %}class="dropdown-toggle" data-toggle="dropdown"{% endif %}>{{ item.title }}
+        </a>
+        {% if item.get_descendant_count %}
+        <ul class="dropdown-menu">
+            {% for child in item.get_children %}
+            <li><a href="/{{ LANGUAGE_CODE }}{{ child.path }}">{{ child.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
