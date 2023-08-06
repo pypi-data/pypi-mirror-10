@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: pydiceparse
+Version: 0.1.1
+Summary: Dice syntax parser and roller
+Home-page: https://github.com/tritium21/pydiceparse
+Author: Alex Walters
+Author-email: tritium@sdamon.com
+License: BSD
+Description: pydiceparse
+        ===========
+        
+        This is a simple module to parse dice syntax, and return a [sequence of]
+        strings, suitable for use in IRC bots.
+        
+        Documentation to come.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
