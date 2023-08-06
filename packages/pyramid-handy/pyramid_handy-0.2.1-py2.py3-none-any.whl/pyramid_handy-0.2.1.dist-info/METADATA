@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: pyramid-handy
+Version: 0.2.1
+Summary: Some handy stuff for Pyramid web framework
+Home-page: https://github.com/victorlin/pyramid-handy
+Author: Victor Lin
+Author-email: hello@victorlin.me
+License: MIT
+Keywords: pyramid
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Dist: pyramid
+Requires-Dist: future
+Provides-Extra: tests
+Requires-Dist: webtest; extra == 'tests'
+Requires-Dist: pytest; extra == 'tests'
+Requires-Dist: pytest-cov; extra == 'tests'
+Requires-Dist: pytest-xdist; extra == 'tests'
+Requires-Dist: pytest-capturelog; extra == 'tests'
+
+UNKNOWN
+
+
