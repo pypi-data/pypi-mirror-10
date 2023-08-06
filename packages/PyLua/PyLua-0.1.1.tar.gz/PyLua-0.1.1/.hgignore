@@ -1,0 +1,9 @@
+ve/.*
+.*pyc$
+build/
+\.eggs/
+PyLua.egg-info/
+lua/_lua.so$
+dist/
+cffi-[^/]*\.egg/
+pycparser.*\.egg
