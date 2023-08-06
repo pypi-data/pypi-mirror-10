@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: Flask-RedisSession
+Version: 0.1.1
+Summary: add server-side session, stored by Redis
+Home-page: https://github.com/EricQAQ/Flask-Redis-Session
+Author: Eric Zhang
+Author-email: zhangzy93@163.com
+License: MIT
+Description: 
+        Flask-Redis-Session
+        -------------
+        
+        The users can use this extension to add server-side session to your application.
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
