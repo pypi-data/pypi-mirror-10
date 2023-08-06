@@ -1,0 +1,31 @@
+connect:
+DEBUG:S: '"IMPLEMENTATION" "Cyrus timsieved v2.4.17-Fedora-RPM-2.4.17-6.fc20"\r\n'
+DEBUG:S: '"SASL" "DIGEST-MD5"\r\n'
+DEBUG:S: '"SIEVE" "comparator-i;ascii-numeric fileinto reject vacation imapflags notify envelope relational regex subaddress copy"\r\n'
+DEBUG:S: '"STARTTLS"\r\n'
+DEBUG:S: '"UNAUTHENTICATE"\r\n'
+DEBUG:S: 'OK\r\n'
+
+INFO:executing command b'STARTTLS'
+DEBUG:C: b'STARTTLS\r\n'
+DEBUG:S: b'OK "Begin TLS negotiation now"\r\n'
+DEBUG:S: b'"IMPLEMENTATION" "Cyrus timsieved v2.4.17-Fedora-RPM-2.4.17-6.fc20"\r\n'
+DEBUG:S: b'"SASL" "PLAIN LOGIN DIGEST-MD5"\r\n'
+DEBUG:S: b'"SIEVE" "comparator-i;ascii-numeric fileinto reject vacation imapflags notify envelope relational regex subaddress copy"\r\n'
+DEBUG:S: b'"UNAUTHENTICATE"\r\n'
+DEBUG:S: b'OK\r\n'
+
+
+INFO:executing command b'AUTHENTICATE'
+DEBUG:C: b'AUTHENTICATE "PLAIN"\r\n'
+DEBUG:C: b'{32+}\r\nZXJpYwBjeXJ1cwBJbUFwNC1zdXJ5Yw==\r\n'
+DEBUG:S: b'{0}\r\n'
+DEBUG:S: b'OK\r\n'
+
+
+INFO:executing command b'LISTSCRIPTS'
+DEBUG:C: b'LISTSCRIPTS\r\n'
+DEBUG:S: b'"foo"\r\n'
+DEBUG:S: b'"vacation"\r\n'
+DEBUG:S: b'OK\r\n'
+INFO:response b'LISTSCRIPTS': b'OK' None None [[b'foo'], [b'vacation']]

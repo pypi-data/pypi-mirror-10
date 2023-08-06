@@ -1,0 +1,12 @@
+Change log
+==========
+
+0.1 2015-xx-xx Eric V. Smith
+----------------------------
+
+* Initial release.
+
+* Implements all RFC-5804 commands.
+
+* Contains an extensive test suite for command parsing. I really need
+  to create a dummy server to test the socket handling and STARTTLS.
