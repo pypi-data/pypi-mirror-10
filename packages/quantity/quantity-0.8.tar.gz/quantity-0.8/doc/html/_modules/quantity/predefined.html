@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>quantity.predefined &mdash; quantity 0.5.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="quantity 0.5.0 documentation" href="../../index.html"/>
+        <link rel="up" title="quantity" href="../quantity.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> quantity</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantity.html">Quantity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#defining-a-quantity-class">Defining a quantity class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#instantiating-quantities">Instantiating quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#converting-between-units">Converting between units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#unit-safe-computations">Unit-safe computations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#formatting-as-string">Formatting as string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantity.html#submodules">Submodules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantity.html#module-quantity.predefined">quantity.predefined</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">quantity</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../quantity.html">quantity</a> &raquo;</li>
+      
+    <li>quantity.predefined</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for quantity.predefined</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c">##----------------------------------------------------------------------------</span>
+<span class="c">## Name:        quantities.predefined</span>
+<span class="c">## Purpose:     Define commonly used quantities.</span>
+<span class="c">##</span>
+<span class="c">## Author:      Michael Amrhein (mamrhein@users.sourceforge.net)</span>
+<span class="c">##</span>
+<span class="c">## Copyright:   (c) 2012 ff. Michael Amrhein</span>
+<span class="c">## License:     This program is free software. You can redistribute it, use it</span>
+<span class="c">##              and/or modify it under the terms of the 2-clause BSD license.</span>
+<span class="c">##              For license details please read the file LICENSE.TXT provided</span>
+<span class="c">##              together with the source code.</span>
+<span class="c">##----------------------------------------------------------------------------</span>
+<span class="c">## $Source: quantity/predefined.py $</span>
+<span class="c">## $Revision: d7c67273a1e7 2015-01-03 14:08 +0100 mamrhein $</span>
+
+
+<span class="sd">&quot;&quot;&quot;Define commonly used quantities.&quot;&quot;&quot;</span>
+
+<span class="c">#TODO: add more units</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">decimalfp</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span> <span class="nn">.quantity</span> <span class="kn">import</span> <span class="n">Quantity</span>
+
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="n">__metaclass__</span> <span class="o">=</span> <span class="nb">type</span>
+
+
+<div class="viewcode-block" id="Length"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Length">[docs]</a><span class="k">class</span> <span class="nc">Length</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Meter&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;m&#39;</span>
+</div>
+<span class="n">METER</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">refUnit</span>
+<span class="n">CENTIMETER</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;cm&#39;</span><span class="p">,</span> <span class="s">&#39;Centimeter&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;0.01&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">METER</span><span class="p">)</span>
+<span class="n">MILLIMETER</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;mm&#39;</span><span class="p">,</span> <span class="s">&#39;Millimeter&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;0.001&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">METER</span><span class="p">)</span>
+<span class="n">KILOMETER</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;km&#39;</span><span class="p">,</span> <span class="s">&#39;Kilometer&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="n">METER</span><span class="p">)</span>
+
+<span class="c"># some imperial units</span>
+<span class="n">INCH</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;in&#39;</span><span class="p">,</span> <span class="s">&#39;Inch&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;2.54&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">CENTIMETER</span><span class="p">)</span>
+<span class="n">FOOT</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;ft&#39;</span><span class="p">,</span> <span class="s">&#39;Foot&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="n">INCH</span><span class="p">)</span>
+<span class="n">YARD</span> <span class="o">=</span> <span class="n">Length</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;yd&#39;</span><span class="p">,</span> <span class="s">&#39;Inch&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">FOOT</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Mass"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Mass">[docs]</a><span class="k">class</span> <span class="nc">Mass</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Kilogram&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;kg&#39;</span>
+</div>
+<span class="n">KILOGRAM</span> <span class="o">=</span> <span class="n">Mass</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Duration"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Duration">[docs]</a><span class="k">class</span> <span class="nc">Duration</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Second&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;s&#39;</span>
+</div>
+<span class="n">SECOND</span> <span class="o">=</span> <span class="n">Duration</span><span class="o">.</span><span class="n">refUnit</span>
+<span class="n">MINUTE</span> <span class="o">=</span> <span class="n">Duration</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;min&#39;</span><span class="p">,</span> <span class="s">&#39;Minute&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="n">SECOND</span><span class="p">)</span>
+<span class="n">HOUR</span> <span class="o">=</span> <span class="n">Duration</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="s">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="n">MINUTE</span><span class="p">)</span>
+<span class="n">DAY</span> <span class="o">=</span> <span class="n">Duration</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;Day&#39;</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span> <span class="o">*</span> <span class="n">HOUR</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Area"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Area">[docs]</a><span class="k">class</span> <span class="nc">Area</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Length</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Square Meter&#39;</span>
+</div>
+<span class="n">SQUARE_METER</span> <span class="o">=</span> <span class="n">Area</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Volume"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Volume">[docs]</a><span class="k">class</span> <span class="nc">Volume</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Length</span> <span class="o">**</span> <span class="mi">3</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Cubic Meter&#39;</span>
+</div>
+<span class="n">CUBIC_METER</span> <span class="o">=</span> <span class="n">Volume</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Velocity"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Velocity">[docs]</a><span class="k">class</span> <span class="nc">Velocity</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Length</span> <span class="o">/</span> <span class="n">Duration</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Meter per Second&#39;</span>
+</div>
+<span class="n">METER_PER_SECOND</span> <span class="o">=</span> <span class="n">Velocity</span><span class="o">.</span><span class="n">refUnit</span>
+<span class="n">KILOMETER_PER_HOUR</span> <span class="o">=</span> <span class="n">Velocity</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s">&#39;Kilometer per hour&#39;</span><span class="p">,</span>
+                                   <span class="n">KILOMETER</span> <span class="o">/</span> <span class="n">HOUR</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Acceleration"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Acceleration">[docs]</a><span class="k">class</span> <span class="nc">Acceleration</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Length</span> <span class="o">/</span> <span class="n">Duration</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Meter per Second squared&#39;</span>
+</div>
+<span class="n">METER_PER_SECOND_SQUARED</span> <span class="o">=</span> <span class="n">Acceleration</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Force"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Force">[docs]</a><span class="k">class</span> <span class="nc">Force</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Mass</span> <span class="o">*</span> <span class="n">Acceleration</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Newton&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;N&#39;</span>
+</div>
+<span class="n">NEWTON</span> <span class="o">=</span> <span class="n">Force</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Energy"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Energy">[docs]</a><span class="k">class</span> <span class="nc">Energy</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Force</span> <span class="o">*</span> <span class="n">Length</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Joule&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;J&#39;</span>
+</div>
+<span class="n">JOULE</span> <span class="o">=</span> <span class="n">Energy</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Power"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Power">[docs]</a><span class="k">class</span> <span class="nc">Power</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Energy</span> <span class="o">/</span> <span class="n">Duration</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Watt&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;W&#39;</span>
+</div>
+<span class="n">WATT</span> <span class="o">=</span> <span class="n">Power</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="DataVolume"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.DataVolume">[docs]</a><span class="k">class</span> <span class="nc">DataVolume</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Byte&#39;</span>
+    <span class="n">refUnitSymbol</span> <span class="o">=</span> <span class="s">&#39;B&#39;</span>
+</div>
+<span class="n">BYTE</span> <span class="o">=</span> <span class="n">DataVolume</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="DataThroughput"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.DataThroughput">[docs]</a><span class="k">class</span> <span class="nc">DataThroughput</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">DataVolume</span> <span class="o">/</span> <span class="n">Duration</span>
+    <span class="n">refUnitName</span> <span class="o">=</span> <span class="s">&#39;Bytes per Second&#39;</span>
+</div>
+<span class="n">BYTES_PER_SECOND</span> <span class="o">=</span> <span class="n">DataThroughput</span><span class="o">.</span><span class="n">refUnit</span>
+
+
+<div class="viewcode-block" id="Temperature"><a class="viewcode-back" href="../../quantity.html#quantity.predefined.Temperature">[docs]</a><span class="k">class</span> <span class="nc">Temperature</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+    <span class="k">pass</span>
+</div>
+<span class="n">CELSIUS</span> <span class="o">=</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;°C&#39;</span><span class="p">,</span> <span class="s">&#39;Degree Celsius&#39;</span><span class="p">)</span>
+<span class="n">KELVIN</span> <span class="o">=</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;°K&#39;</span><span class="p">,</span> <span class="s">&#39;Degree Kelvin&#39;</span><span class="p">)</span>
+<span class="n">FAHRENHEIT</span> <span class="o">=</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s">&#39;°F&#39;</span><span class="p">,</span> <span class="s">&#39;Degree Fahrenheit&#39;</span><span class="p">)</span>
+
+<span class="c">#TODO: provide converter for Temperature</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014 ff., Michael Amrhein.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

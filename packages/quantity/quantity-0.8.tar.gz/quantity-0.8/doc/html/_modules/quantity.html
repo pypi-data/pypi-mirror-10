@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>quantity &mdash; quantity 0.5.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="quantity 0.5.0 documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> quantity</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../quantity.html">Quantity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#defining-a-quantity-class">Defining a quantity class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#instantiating-quantities">Instantiating quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#converting-between-units">Converting between units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#unit-safe-computations">Unit-safe computations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#formatting-as-string">Formatting as string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quantity.html#submodules">Submodules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantity.html#module-quantity.predefined">quantity.predefined</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">quantity</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>quantity</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for quantity</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c">##----------------------------------------------------------------------------</span>
+<span class="c">## Name:        quantity (package)</span>
+<span class="c">## Purpose:     Unit-safe computations with quantities.</span>
+<span class="c">##</span>
+<span class="c">## Author:      Michael Amrhein (mamrhein@users.sourceforge.net)</span>
+<span class="c">##</span>
+<span class="c">## Copyright:   (c) 2012 ff. Michael Amrhein</span>
+<span class="c">## License:     This program is free software. You can redistribute it, use it</span>
+<span class="c">##              and/or modify it under the terms of the 2-clause BSD license.</span>
+<span class="c">##              For license details please read the file LICENSE.TXT provided</span>
+<span class="c">##              together with the source code.</span>
+<span class="c">##----------------------------------------------------------------------------</span>
+<span class="c">## $Source: quantity/__init__.py $</span>
+<span class="c">## $Revision: d7c67273a1e7 2015-01-03 14:08 +0100 mamrhein $</span>
+
+
+<span class="sd">&quot;&quot;&quot;Unit-safe computations with quantities.</span>
+
+<span class="sd">Introduction</span>
+<span class="sd">============</span>
+
+<span class="sd">What is a quantity?</span>
+<span class="sd">-------------------</span>
+
+<span class="sd">&quot;The value of a quantity is generally expressed as the product of a number</span>
+<span class="sd">and a unit. The unit is simply a particular example of the quantity concerned</span>
+<span class="sd">which is used as a reference, and the number is the ratio of the value of the</span>
+<span class="sd">quantity to the unit.&quot; (Bureau International des Poids et Mesures: The</span>
+<span class="sd">International System of Units, 8th edition, 2006)</span>
+
+<span class="sd">Basic types of quantities are defined &quot;by convention&quot;, they do not depend on</span>
+<span class="sd">other types of quantities, for example Length, Mass or Duration.</span>
+
+<span class="sd">Derived types of quantities, on the opposite, are defined as products of other</span>
+<span class="sd">types of quantities raised by some exponent.</span>
+
+<span class="sd">Examples:</span>
+
+<span class="sd">* Volume = Length ** 3</span>
+
+<span class="sd">* Velocity = Length ** 1 * Duration ** -1</span>
+
+<span class="sd">* Acceleration = Length ** 1 * Duration ** -2</span>
+
+<span class="sd">* Force = Mass ** 1 * Acceleration ** 1</span>
+
+<span class="sd">Each type of quantity may have one special unit which is used as a reference</span>
+<span class="sd">for the definition of all other units, for example Meter, Kilogram and</span>
+<span class="sd">Second. The other units are then defined by their relation to the reference</span>
+<span class="sd">unit.</span>
+
+<span class="sd">If a type of quantity is derived from types of quantities that all have a</span>
+<span class="sd">reference unit, then the reference unit of that type is defined by a formula</span>
+<span class="sd">that follows the formula defining the type of quantity.</span>
+
+<span class="sd">Examples:</span>
+
+<span class="sd">* Velocity -&gt; Meter per Second = Meter ** 1 * Second ** -1</span>
+
+<span class="sd">* Acceleration -&gt; Meter per Second squared = Meter ** 1 * Second ** -2</span>
+
+<span class="sd">* Force -&gt; Newton = Kilogram ** 1 * Meter ** 1 * Second ** -2</span>
+
+
+<span class="sd">&quot;Systems of measure&quot;</span>
+<span class="sd">--------------------</span>
+
+<span class="sd">There may be different systems which define quantities, their units and the</span>
+<span class="sd">relations between these units in a different way.</span>
+
+<span class="sd">This is not directly supported by this module. For each type of quantity there</span>
+<span class="sd">can be only no or exactly one reference unit. But, if you have units from</span>
+<span class="sd">different systems for the same type of quantity, you can define these units</span>
+<span class="sd">and provide mechanisms to convert between them (see :ref:`converters_label`).</span>
+
+<span class="sd">Defining a quantity class</span>
+<span class="sd">=========================</span>
+
+<span class="sd">A **basic** type of quantity is declared just by sub-classing</span>
+<span class="sd">:class:`Quantity`:</span>
+
+<span class="sd">    &gt;&gt;&gt; class Length(Quantity):</span>
+<span class="sd">    ...     pass</span>
+<span class="sd">    ...</span>
+
+<span class="sd">In addition to the new quantity class the meta-class of :class:`Quantity`</span>
+<span class="sd">creates a corresponding class for the units automatically. It can be</span>
+<span class="sd">referenced via the quantity class:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length.Unit</span>
+<span class="sd">    &lt;class &#39;quantity.quantity.LengthUnit&#39;&gt;</span>
+
+<span class="sd">But, as long as there is no unit defined for that class, you can not create</span>
+<span class="sd">any instance for the new quantity class:</span>
+
+<span class="sd">    &gt;&gt;&gt; l = Length(1)</span>
+<span class="sd">    ValueError: A unit must be given.</span>
+
+<span class="sd">If there is a reference unit, the simplest way to define it is giving a name</span>
+<span class="sd">and a symbol for it as class variables. The meta-class of :class:`Quantity`</span>
+<span class="sd">will then create a unit automatically:</span>
+
+<span class="sd">    &gt;&gt;&gt; class Length(Quantity):</span>
+<span class="sd">    ...     refUnitName = &#39;Meter&#39;</span>
+<span class="sd">    ...     refUnitSymbol = &#39;m&#39;</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; Length.refUnit</span>
+<span class="sd">    Length.Unit(&#39;m&#39;)</span>
+
+<span class="sd">Now, this unit can be given to create a quantity:</span>
+
+<span class="sd">    &gt;&gt;&gt; METER = Length.refUnit</span>
+<span class="sd">    &gt;&gt;&gt; print(Length(15, METER))</span>
+<span class="sd">    15 m</span>
+
+<span class="sd">If no unit is given, the reference unit is used:</span>
+
+<span class="sd">    &gt;&gt;&gt; print(Length(15))</span>
+<span class="sd">    15 m</span>
+
+<span class="sd">Other units can be derived from the reference unit (or another unit), giving</span>
+<span class="sd">a definition by multiplying a scaling factor with that unit:</span>
+
+<span class="sd">    &gt;&gt;&gt; MILLIMETER = Length.Unit(&#39;mm&#39;, &#39;Millimeter&#39;, Decimal(&#39;0.001&#39;) * METER)</span>
+<span class="sd">    &gt;&gt;&gt; MILLIMETER</span>
+<span class="sd">    Length.Unit(&#39;mm&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; KILOMETER = Length.Unit(&#39;km&#39;, &#39;Kilometer&#39;, 1000 * METER)</span>
+<span class="sd">    &gt;&gt;&gt; KILOMETER</span>
+<span class="sd">    Length.Unit(&#39;km&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; CENTIMETER = Length.Unit(&#39;cm&#39;, &#39;Centimeter&#39;, 10 * MILLIMETER)</span>
+<span class="sd">    &gt;&gt;&gt; CENTIMETER</span>
+<span class="sd">    Length.Unit(&#39;cm&#39;)</span>
+
+<span class="sd">Using one unit as a reference and defining all other units by giving</span>
+<span class="sd">a scaling factor is only possible if the units have the same scale. Otherwise,</span>
+<span class="sd">units have to be instantiated via the coresponding :class:`Unit` sub-class</span>
+<span class="sd">without giving a definition.</span>
+
+<span class="sd">    &gt;&gt;&gt; class Temperature(Quantity):</span>
+<span class="sd">    ...     pass</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; CELSIUS = Temperature.Unit(&#39;°C&#39;, &#39;Degree Celsius&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; KELVIN = Temperature.Unit(&#39;°K&#39;, &#39;Degree Kelvin&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; FAHRENHEIT = Temperature.Unit(&#39;°F&#39;, &#39;Degree Fahrenheit&#39;)</span>
+
+<span class="sd">**Derived** types of quantities are declared by giving a definition based on</span>
+<span class="sd">more basic types of quantities:</span>
+
+<span class="sd">    &gt;&gt;&gt; class Volume(Quantity):</span>
+<span class="sd">    ...     defineAs = Length ** 3</span>
+<span class="sd">    ...     refUnitName = &#39;Cubic Meter&#39;</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; class Duration(Quantity):</span>
+<span class="sd">    ...     refUnitName = &#39;Second&#39;</span>
+<span class="sd">    ...     refUnitSymbol = &#39;s&#39;</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; class Velocity(Quantity):</span>
+<span class="sd">    ...     defineAs = Length / Duration</span>
+<span class="sd">    ...     refUnitName = &#39;Meter per Second&#39;</span>
+<span class="sd">    ...</span>
+
+<span class="sd">If no symbol for the reference unit is given with the class declaration, a</span>
+<span class="sd">symbol is generated from the definition, as long as all types of quantities</span>
+<span class="sd">in that definition have a reference unit.</span>
+
+<span class="sd">    &gt;&gt;&gt; print(Volume.refUnit.symbol)</span>
+<span class="sd">    m³</span>
+<span class="sd">    &gt;&gt;&gt; print(Velocity.refUnit.symbol)</span>
+<span class="sd">    m/s</span>
+
+<span class="sd">Instantiating quantities</span>
+<span class="sd">========================</span>
+
+<span class="sd">The simplest way to create an instance of a :class:`Quantity` subclass is to</span>
+<span class="sd">call the class giving an amount and a unit. If the unit is omitted, the</span>
+<span class="sd">quantity&#39;s reference unit is used (if one is defined).</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(15, MILLIMETER)</span>
+<span class="sd">    Length(Decimal(15), Length.Unit(u&#39;mm&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; Length(15)</span>
+<span class="sd">    Length(Decimal(15))</span>
+
+<span class="sd">Alternatively, the two-args infix operator &#39;^&#39; can be used to combine an</span>
+<span class="sd">amount and a unit:</span>
+
+<span class="sd">    &gt;&gt;&gt; 17.5 ^ KILOMETER</span>
+<span class="sd">    Length(Decimal(&#39;17.5&#39;), Length.Unit(u&#39;km&#39;))</span>
+
+<span class="sd">Also, it&#39;s possible to create a :class:`Quantity` instance from a string</span>
+<span class="sd">representation:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(&#39;17.5 km&#39;)</span>
+<span class="sd">    Length(Decimal(&#39;17.5&#39;), Length.Unit(u&#39;km&#39;))</span>
+
+<span class="sd">If a unit is given in addition, the resulting quantity is converted</span>
+<span class="sd">accordingly:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(&#39;17 m&#39;, KILOMETER)</span>
+<span class="sd">    Length(Decimal(&#39;0.017&#39;), Length.Unit(u&#39;km&#39;))</span>
+
+<span class="sd">Instead of calling a subclass, the class :class:`Quantity` can be used as a</span>
+<span class="sd">factory function ...</span>
+
+<span class="sd">    &gt;&gt;&gt; Quantity(15, MILLIMETER)</span>
+<span class="sd">    Length(Decimal(15), Length.Unit(u&#39;mm&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; Quantity(&#39;17.5 km&#39;)</span>
+<span class="sd">    Length(Decimal(&#39;17.5&#39;), Length.Unit(u&#39;km&#39;))</span>
+
+<span class="sd">... as long as a unit is given:</span>
+
+<span class="sd">    &gt;&gt;&gt; Quantity(17.5)</span>
+<span class="sd">    ValueError: A unit must be given.</span>
+
+<span class="sd">Converting between units</span>
+<span class="sd">========================</span>
+
+<span class="sd">A quantity can be converted to a quantity using a different unit by calling</span>
+<span class="sd">the method :meth:`Quantity.convert`:</span>
+
+<span class="sd">    &gt;&gt;&gt; l5cm = Length(Decimal(5), CENTIMETER)</span>
+<span class="sd">    &gt;&gt;&gt; l5cm.convert(MILLIMETER)</span>
+<span class="sd">    Length(Decimal(&#39;50&#39;), Length.Unit(&#39;mm&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; l5cm.convert(KILOMETER)</span>
+<span class="sd">    Length(Decimal(&#39;0.00005&#39;), Length.Unit(&#39;km&#39;))</span>
+
+<span class="sd">To get just the amount of a quantity in another unit, that unit can be called</span>
+<span class="sd">with the quantity as parameter:</span>
+
+<span class="sd">    &gt;&gt;&gt; MILLIMETER(l5cm)</span>
+<span class="sd">    Decimal(&#39;50&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; KILOMETER(l5cm)</span>
+<span class="sd">    Decimal(&#39;0.00005&#39;)</span>
+
+<span class="sd">These kinds of conversion are automatically enabled for types of quantities</span>
+<span class="sd">with reference units. For other types of quantities there is no default way</span>
+<span class="sd">of converting between units.</span>
+
+<span class="sd">    &gt;&gt;&gt; t27c = Temperature(Decimal(27), CELSIUS)</span>
+<span class="sd">    &gt;&gt;&gt; t27c.convert(FAHRENHEIT)</span>
+<span class="sd">    quantity.quantity.IncompatibleUnitsError: Can&#39;t convert &#39;Degree Celsius&#39;</span>
+<span class="sd">    to &#39;Degree Fahrenheit&#39;</span>
+
+<span class="sd">.. _converters_label:</span>
+
+<span class="sd">Converters</span>
+<span class="sd">----------</span>
+
+<span class="sd">For types of quantities that do not have a reference unit, one or more</span>
+<span class="sd">callables can be registered as converters.</span>
+
+<span class="sd">    &gt;&gt;&gt; def fahrenheit2celsius(qty, toUnit):</span>
+<span class="sd">    ...     if qty.unit is FAHRENHEIT and toUnit is CELSIUS:</span>
+<span class="sd">    ...         return (qty.amount - 32) / Decimal(&#39;1.8&#39;)</span>
+<span class="sd">    ...     return None</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; def celsius2fahrenheit(qty, toUnit):</span>
+<span class="sd">    ...     if qty.unit is CELSIUS and toUnit is FAHRENHEIT:</span>
+<span class="sd">    ...         return qty.amount * Decimal(&#39;1.8&#39;) + 32</span>
+<span class="sd">    ...     return None</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; Temperature.Unit.registerConverter(celsius2fahrenheit)</span>
+<span class="sd">    &gt;&gt;&gt; Temperature.Unit.registerConverter(fahrenheit2celsius)</span>
+<span class="sd">    &gt;&gt;&gt; list(Temperature.Unit.registeredConverters())</span>
+<span class="sd">    [&lt;function celsius2fahrenheit at 0x7fab71bfef50&gt;,</span>
+<span class="sd">    &lt;function fahrenheit2celsius at 0x7fab71bf7cf8&gt;]</span>
+
+<span class="sd">For the signature of the callables used as converters see :class:`Converter`.</span>
+
+<span class="sd">    &gt;&gt;&gt; t27c.convert(FAHRENHEIT)</span>
+<span class="sd">    Temperature(Decimal(&#39;80.6&#39;), Temperature.Unit(&#39;\xb0F&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; t27c.convert(FAHRENHEIT).convert(CELSIUS)</span>
+<span class="sd">    Temperature(Decimal(&#39;27&#39;), Temperature.Unit(&#39;\xb0C&#39;))</span>
+
+<span class="sd">Alternatively, an instance of :class:`TableConverter` can be created and</span>
+<span class="sd">registered as converter.</span>
+
+<span class="sd">The example given above can be implemented as follows:</span>
+
+<span class="sd">    &gt;&gt;&gt; tempConv = TableConverter({(CELSIUS, FAHRENHEIT):</span>
+<span class="sd">                                   (Decimal(&#39;1.8&#39;), 32)})</span>
+<span class="sd">    &gt;&gt;&gt; Temperature.Unit.registerConverter(tempConv)</span>
+<span class="sd">    &gt;&gt;&gt; t27c = Temperature(Decimal(27), CELSIUS)</span>
+<span class="sd">    &gt;&gt;&gt; t27c.convert(FAHRENHEIT)</span>
+<span class="sd">    Temperature(Decimal(&#39;80.6&#39;), Temperature.Unit(u&#39;\xb0F&#39;))</span>
+
+<span class="sd">It is suffient to define the conversion in one direction, because a</span>
+<span class="sd">reversed conversion is used automatically:</span>
+
+<span class="sd">&gt;&gt;&gt; t27c.convert(FAHRENHEIT).convert(CELSIUS)</span>
+<span class="sd">Temperature(Decimal(27), Temperature.Unit(u&#39;\xb0C&#39;))</span>
+
+<span class="sd">Unit-safe computations</span>
+<span class="sd">======================</span>
+
+<span class="sd">Comparison</span>
+<span class="sd">----------</span>
+
+<span class="sd">Quantities can be compared to other quantities using all comparison operators</span>
+<span class="sd">defined for numbers:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(27) &gt; Length(9)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; Length(27) &gt;= Length(91)</span>
+<span class="sd">    False</span>
+<span class="sd">    &gt;&gt;&gt; Length(27) &lt; Length(9)</span>
+<span class="sd">    False</span>
+<span class="sd">    &gt;&gt;&gt; Length(27) &lt;= Length(91)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; Length(27) == Length(27)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; Length(27) != Length(91)</span>
+<span class="sd">    True</span>
+
+<span class="sd">Different units are taken in to account automatically, as long as they are</span>
+<span class="sd">compatible, i. e. a conversion is available:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(27, METER) &lt;= Length(91, CENTIMETER)</span>
+<span class="sd">    False</span>
+<span class="sd">    &gt;&gt;&gt; Temperature(20, CELSIUS) &gt; Temperature(20, FAHRENHEIT)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; Temperature(20, CELSIUS) &gt; Temperature(20, KELVIN)</span>
+<span class="sd">    IncompatibleUnitsError: Can&#39;t convert &#39;Degree Kelvin&#39; to &#39;Degree Celsius&#39;</span>
+
+<span class="sd">Testing instances of different quantity types for equality always returns</span>
+<span class="sd">false:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(20) == Mass(20)</span>
+<span class="sd">    False</span>
+<span class="sd">    &gt;&gt;&gt; Length(20) != Mass(20)</span>
+<span class="sd">    True</span>
+
+<span class="sd">All other comparison operators raise an `IncompatibleUnitsError` in this case.</span>
+
+<span class="sd">Addition and subtraction</span>
+<span class="sd">------------------------</span>
+
+<span class="sd">Quantities can be added to or subtracted from other quantities ...</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(27) + Length(9)</span>
+<span class="sd">    Length(Decimal(36))</span>
+<span class="sd">    &gt;&gt;&gt; Length(27) - Length(91)</span>
+<span class="sd">    Length(Decimal(-64))</span>
+
+<span class="sd">... as long as they are instances of the same quantity type:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(27) + Duration(9)</span>
+<span class="sd">    quantity.quantity.IncompatibleUnitsError: Can&#39;t add a &#39;Length&#39; and a</span>
+<span class="sd">    &#39;Duration&#39;</span>
+
+<span class="sd">When quantities with different units are added or subtracted, the values are</span>
+<span class="sd">converted to the unit of the first, if possible ...:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(27) + Length(12, CENTIMETER)</span>
+<span class="sd">    Length(Decimal(&#39;27.12&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; Length(12, CENTIMETER) + Length(17, METER)</span>
+<span class="sd">    Length(Decimal(&#39;1712&#39;), Length.Unit(&#39;cm&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; Temperature(20, CELSIUS) - Temperature(50, FAHRENHEIT)</span>
+<span class="sd">    Temperature(Decimal(&#39;10&#39;), Temperature.Unit(u&#39;\xb0C&#39;))</span>
+
+<span class="sd">... but an exception is raised, if not:</span>
+
+<span class="sd">    &gt;&gt;&gt; Temperature(20, CELSIUS) - Temperature(281, KELVIN)</span>
+<span class="sd">    IncompatibleUnitsError: Can&#39;t convert &#39;Degree Kelvin&#39; to &#39;Degree Celsius&#39;</span>
+
+<span class="sd">Multiplication and division</span>
+<span class="sd">---------------------------</span>
+
+<span class="sd">Quantities can be multiplied or divided by scalars, preserving the unit ...:</span>
+
+<span class="sd">    &gt;&gt;&gt; 7.5 * Length(3, CENTIMETER)</span>
+<span class="sd">    Length(Decimal(&#39;22.5&#39;), Length.Unit(u&#39;cm&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; Duration(66, MINUTE) / 11</span>
+<span class="sd">    Duration(Decimal(6), Duration.Unit(u&#39;min&#39;))</span>
+
+<span class="sd">Quantities can be multiplied or divided by other quantities ...:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(15, METER) / Duration(3, SECOND)</span>
+<span class="sd">    Velocity(Decimal(5))</span>
+
+<span class="sd">... as long as the resulting type of quantity is defined ...:</span>
+
+<span class="sd">    &gt;&gt;&gt; Duration(4, SECOND) * Length(7)</span>
+<span class="sd">    UndefinedResultError: Undefined result: Duration * Length</span>
+<span class="sd">    &gt;&gt;&gt; Length(12, KILOMETER) / Duration(2, MINUTE) / Duration(50, SECOND)</span>
+<span class="sd">    UndefinedResultError: Undefined result: Velocity / Duration</span>
+<span class="sd">    &gt;&gt;&gt; class Acceleration(Quantity):</span>
+<span class="sd">    ...     defineAs = Length / Duration ** 2</span>
+<span class="sd">    ...     refUnitName = &#39;Meter per Second squared&#39;</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; Length(12, KILOMETER) / Duration(2, MINUTE) / Duration(50, SECOND)</span>
+<span class="sd">    Acceleration(Decimal(2))</span>
+
+<span class="sd">... or the result is a scalar:</span>
+
+<span class="sd">    &gt;&gt;&gt; Duration(2, MINUTE) / Duration(50, SECOND)</span>
+<span class="sd">    Decimal(&#39;2.4&#39;)</span>
+
+<span class="sd">When cascading operations, all intermediate results have to be defined:</span>
+
+<span class="sd">    &gt;&gt;&gt; Length(6, KILOMETER) * Length(13,  METER) * Length(250, METER)</span>
+<span class="sd">    UndefinedResultError: Undefined result: Length * Length</span>
+<span class="sd">    &gt;&gt;&gt; class Area(Quantity):</span>
+<span class="sd">    ...         defineAs = Length ** 2</span>
+<span class="sd">    ...         refUnitName = &#39;Square Meter&#39;</span>
+<span class="sd">    ...</span>
+<span class="sd">    &gt;&gt;&gt; Length(6, KILOMETER) * Length(13,  METER) * Length(250, METER)</span>
+<span class="sd">    Volume(Decimal(19500000, 3))</span>
+
+<span class="sd">Exponentiation</span>
+<span class="sd">--------------</span>
+
+<span class="sd">Quantities can be raised by an exponent, as long as the exponent is an</span>
+<span class="sd">`Integral` number and the resulting quantity is defined:</span>
+
+<span class="sd">    &gt;&gt;&gt; (5 ^ METER) ** 2</span>
+<span class="sd">    Area(Decimal(25))</span>
+<span class="sd">    &gt;&gt;&gt; (5 ^ METER) ** 2.5</span>
+<span class="sd">    TypeError: unsupported operand type(s) for ** or pow(): &#39;Length&#39; and &#39;float&#39;</span>
+<span class="sd">    &gt;&gt;&gt; (5 ^ METER) ** -2</span>
+<span class="sd">    UndefinedResultError: Undefined result: Length ** -2</span>
+
+<span class="sd">Rounding</span>
+<span class="sd">--------</span>
+
+<span class="sd">The amount of a quantity can be rounded by using the standard `round`</span>
+<span class="sd">function:</span>
+
+<span class="sd">    &gt;&gt;&gt; round(Length(Decimal(&#39;17.375&#39;), MILLIMETER), 1)</span>
+<span class="sd">    Length(Decimal(&#39;17.4&#39;), Length.Unit(&#39;mm&#39;))</span>
+
+<span class="sd">.. note::</span>
+<span class="sd">    This only applies to Python 3.x !!! In Python 2.x the standard `round`</span>
+<span class="sd">    function tries to convert its first operand to a `float` and thus raises</span>
+<span class="sd">    an exception when called with a quantity. But, as :class:`Quantity`</span>
+<span class="sd">    defines a :meth:`Quantity.__round__` method, this method can be called</span>
+<span class="sd">    directly.</span>
+
+<span class="sd">Formatting as string</span>
+<span class="sd">====================</span>
+
+<span class="sd">:class:`Quantity` supports the standard `str` and `unicode` (Python 2.x only)</span>
+<span class="sd">functions. Both return a string representation of the quantity&#39;s amount</span>
+<span class="sd">followed by a blank and the quantity&#39;s units symbol.</span>
+
+<span class="sd">.. note::</span>
+<span class="sd">    While the `str` function in Python 3.x and the `unicode` function in</span>
+<span class="sd">    Python 2.x return the result as a unicode string, the `str` function in</span>
+<span class="sd">    Python 2.x returns an utf8-encoded bytes string.</span>
+
+<span class="sd">In addition, :class:`Quantity` supports the standard `format` function. The</span>
+<span class="sd">format specifier should use two keys: &#39;a&#39; for the amount and &#39;u&#39; for the unit,</span>
+<span class="sd">where &#39;a&#39; can be followed by a valid format spec for numbers and &#39;u&#39; by a</span>
+<span class="sd">valid format spec for strings. If no format specifier is given, &#39;{a} {u}&#39; is</span>
+<span class="sd">used.</span>
+
+<span class="sd">    &gt;&gt;&gt; v = Volume(&#39;19.36&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; format(v)</span>
+<span class="sd">    u&#39;19.36 m\xb3&#39;</span>
+<span class="sd">    &gt;&gt;&gt; format(v, &#39;{a:*&gt;10.2f} {u:&lt;3}&#39;)</span>
+<span class="sd">    u&#39;*****19.36 m\xb3 &#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">.quantity</span> <span class="kn">import</span> <span class="n">Quantity</span><span class="p">,</span> <span class="n">Unit</span>
+<span class="kn">from</span> <span class="nn">.quantity</span> <span class="kn">import</span> <span class="n">IncompatibleUnitsError</span><span class="p">,</span> <span class="n">UndefinedResultError</span>
+<span class="kn">from</span> <span class="nn">.quantity</span> <span class="kn">import</span> <span class="n">Converter</span><span class="p">,</span> <span class="n">TableConverter</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Quantity&#39;</span><span class="p">,</span>
+           <span class="s">&#39;Unit&#39;</span><span class="p">,</span>
+           <span class="s">&#39;IncompatibleUnitsError&#39;</span><span class="p">,</span>
+           <span class="s">&#39;UndefinedResultError&#39;</span><span class="p">,</span>
+           <span class="s">&#39;Converter&#39;</span><span class="p">,</span>
+           <span class="s">&#39;TableConverter&#39;</span><span class="p">]</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014 ff., Michael Amrhein.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

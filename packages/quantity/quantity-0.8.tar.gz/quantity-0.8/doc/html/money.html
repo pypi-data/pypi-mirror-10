@@ -1,0 +1,899 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Money &mdash; quantity 0.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="quantity 0.8 documentation" href="index.html"/>
+        <link rel="prev" title="Quantity" href="quantity.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> quantity</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quantity.html">Quantity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantity.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Money</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">quantity</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Money</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-quantity.money">
+<span id="money"></span><h1>Money<a class="headerlink" href="#module-quantity.money" title="Permalink to this headline">¶</a></h1>
+<p>Currency-safe computations with money amounts.</p>
+<p>Money is a special type of quantity. Its unit type is known as currency.</p>
+<p>Money differs from physical quantities mainly in two aspects:</p>
+<ul class="simple">
+<li>Money amounts are discrete. For each currency there is a smallest fraction
+that can not be split further.</li>
+<li>The relation between different currencies is not fixed, instead, it varies
+over time.</li>
+</ul>
+<p>The sub-package <cite>quantity.money</cite> provides classes and functions to deal with
+these specifics. Its main classes <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a>, <a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><code class="xref py py-class docutils literal"><span class="pre">Currency</span></code></a>,
+<a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a> and the function <a class="reference internal" href="#quantity.money.registerCurrency" title="quantity.money.registerCurrency"><code class="xref py py-func docutils literal"><span class="pre">registerCurrency()</span></code></a> can also be
+imported from <cite>quantity</cite>.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="registering-a-currency">
+<h3>Registering a currency<a class="headerlink" href="#registering-a-currency" title="Permalink to this headline">¶</a></h3>
+<p>A currency must explicitly be registered as a unit for further use. The
+easiest way to do this is to call the function <a class="reference internal" href="#quantity.money.registerCurrency" title="quantity.money.registerCurrency"><code class="xref py py-func docutils literal"><span class="pre">registerCurrency()</span></code></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">EUR</span> <span class="o">=</span> <span class="n">registerCurrency</span><span class="p">(</span><span class="s">&#39;EUR&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">HKD</span> <span class="o">=</span> <span class="n">registerCurrency</span><span class="p">(</span><span class="s">&#39;HKD&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">TND</span> <span class="o">=</span> <span class="n">registerCurrency</span><span class="p">(</span><span class="s">&#39;TND&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">USD</span> <span class="o">=</span> <span class="n">registerCurrency</span><span class="p">(</span><span class="s">&#39;USD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">EUR</span><span class="p">,</span> <span class="n">HKD</span><span class="p">,</span> <span class="n">TND</span><span class="p">,</span> <span class="n">USD</span>
+<span class="go">(Currency(u&#39;EUR&#39;), Currency(u&#39;HKD&#39;), Currency(u&#39;TND&#39;), Currency(u&#39;USD&#39;))</span>
+</pre></div>
+</div>
+<p>The function is backed by a database of currencies defined in ISO 4217. It
+takes the 3-character ISO 4217 code as parameter.</p>
+<p><a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><code class="xref py py-class docutils literal"><span class="pre">Currency</span></code></a> derives from <code class="xref py py-class docutils literal"><span class="pre">Unit</span></code>. Each instance has a symbol
+(which is the 3-character ISO 4217 code) and a name. In addition, it holds
+the smallest fraction defined for amounts in this currency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">TND</span><span class="o">.</span><span class="n">symbol</span>
+<span class="go">u&#39;TND&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TND</span><span class="o">.</span><span class="n">name</span>
+<span class="go">u&#39;Tunisian Dinar&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TND</span><span class="o">.</span><span class="n">smallestFraction</span>
+<span class="go">Decimal(&#39;0.001&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="instantiating-a-money-amount">
+<h3>Instantiating a money amount<a class="headerlink" href="#instantiating-a-money-amount" title="Permalink to this headline">¶</a></h3>
+<p>As <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> derives from <code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code>, an instance can simply be
+created by giving an amount and a unit:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">EUR</span><span class="p">)</span>
+<span class="go">Money(Decimal(30, 2), Currency(u&#39;EUR&#39;))</span>
+</pre></div>
+</div>
+<p>All amounts of money are rounded according to the smallest fraction defined
+for the currency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="mf">3.128</span><span class="p">,</span> <span class="n">EUR</span><span class="p">)</span>
+<span class="go">Money(Decimal(&#39;3.13&#39;), Currency(u&#39;EUR&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="mf">41.1783</span><span class="p">,</span> <span class="n">TND</span><span class="p">)</span>
+<span class="go">Money(Decimal(&#39;41.178&#39;), Currency(u&#39;TND&#39;))</span>
+</pre></div>
+</div>
+<p>As with other quantities, money amounts can also be derived from a string or
+build using the operator <cite>^</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="s">&#39;3.18 USD&#39;</span><span class="p">)</span>
+<span class="go">Money(Decimal(&#39;3.18&#39;), Currency(u&#39;USD&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">3.18</span> <span class="o">^</span> <span class="n">USD</span>
+<span class="go">Money(Decimal(&#39;3.18&#39;), Currency(u&#39;USD&#39;))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="computing-with-money-amounts">
+<h3>Computing with money amounts<a class="headerlink" href="#computing-with-money-amounts" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> derives from <code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code>, so all operations on quantities
+can also be applied to instances of <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a>. But because there is no
+fixed relation between currencies, there is no implicit conversion between
+money amounts of different currencies:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">EUR</span><span class="p">)</span> <span class="o">+</span> <span class="n">Money</span><span class="p">(</span><span class="mf">3.18</span><span class="p">,</span> <span class="n">EUR</span><span class="p">)</span>
+<span class="go">Money(Decimal(&#39;33.18&#39;), Currency(u&#39;EUR&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">EUR</span><span class="p">)</span> <span class="o">+</span> <span class="n">Money</span><span class="p">(</span><span class="mf">3.18</span><span class="p">,</span> <span class="n">USD</span><span class="p">)</span>
+<span class="go">IncompatibleUnitsError: Can&#39;t convert &#39;US Dollar&#39; to &#39;Euro&#39;</span>
+</pre></div>
+</div>
+<p>Resulting values are always quantized to the smallest fraction defined with
+the currency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="s">&#39;3.20 USD&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="go">Money(Decimal(&#39;1.07&#39;), Currency(u&#39;USD&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Money</span><span class="p">(</span><span class="s">&#39;3.20 TND&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="go">Money(Decimal(&#39;1.067&#39;), Currency(u&#39;TND&#39;))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="converting-between-different-currencies">
+<h3>Converting between different currencies<a class="headerlink" href="#converting-between-different-currencies" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="exchange-rates">
+<h4>Exchange rates<a class="headerlink" href="#exchange-rates" title="Permalink to this headline">¶</a></h4>
+<p>A conversion factor between two currencies can be defined by using the
+<a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a>. It is given a unit currency (aka base currency), a unit
+multiple, a term currency (aka price currency) and a term amount, i.e. the
+amount in term currency equivalent to unit multiple in unit currency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2HKD</span> <span class="o">=</span> <span class="n">ExchangeRate</span><span class="p">(</span><span class="n">EUR</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">HKD</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;8.395804&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2HKD</span>
+<span class="go">ExchangeRate(Currency(u&#39;EUR&#39;), Decimal(1), Currency(u&#39;HKD&#39;),</span>
+<span class="go">    Decimal(&#39;8.395804&#39;))</span>
+</pre></div>
+</div>
+<p><cite>unitMultiple</cite> and <cite>termAmount</cite> will always be adjusted so that the resulting
+unit multiple is a power to 10 and the resulting term amounts magnitude is &gt;=
+-1. The latter will always be rounded to 6 decimal digits.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span> <span class="o">=</span> <span class="n">ExchangeRate</span><span class="p">(</span><span class="n">TND</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">EUR</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;0.0082073&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span>
+<span class="go">ExchangeRate(Currency(u&#39;TND&#39;), Decimal(100), Currency(u&#39;EUR&#39;),</span>
+<span class="go">    Decimal(&#39;0.164146&#39;))</span>
+</pre></div>
+</div>
+<p>The resulting rate for an amount of 1 unit currency in term currency can be
+obtained via the property <a class="reference internal" href="#quantity.money.ExchangeRate.rate" title="quantity.money.ExchangeRate.rate"><code class="xref py py-attr docutils literal"><span class="pre">ExchangeRate.rate</span></code></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span><span class="o">.</span><span class="n">rate</span>
+<span class="go">Decimal(&#39;0.00164146&#39;)</span>
+</pre></div>
+</div>
+<p>The property <a class="reference internal" href="#quantity.money.ExchangeRate.quotation" title="quantity.money.ExchangeRate.quotation"><code class="xref py py-attr docutils literal"><span class="pre">ExchangeRate.quotation</span></code></a> gives a tuple of unit currency,
+term currency and rate:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span><span class="o">.</span><span class="n">quotation</span>
+<span class="go">(Currency(u&#39;TND&#39;), Currency(u&#39;EUR&#39;), Decimal(&#39;0.00164146&#39;))</span>
+</pre></div>
+</div>
+<p>The properties <a class="reference internal" href="#quantity.money.ExchangeRate.inverseRate" title="quantity.money.ExchangeRate.inverseRate"><code class="xref py py-attr docutils literal"><span class="pre">ExchangeRate.inverseRate</span></code></a> and
+<a class="reference internal" href="#quantity.money.ExchangeRate.inverseQuotation" title="quantity.money.ExchangeRate.inverseQuotation"><code class="xref py py-attr docutils literal"><span class="pre">ExchangeRate.inverseQuotation</span></code></a> give the rate and the quotation in the
+opposite direction (but do not round the rate!):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span><span class="o">.</span><span class="n">inverseRate</span>
+<span class="go">Fraction(50000000, 82073)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span><span class="o">.</span><span class="n">inverseQuotation</span>
+<span class="go">(Currency(u&#39;EUR&#39;), Currency(u&#39;TND&#39;), Fraction(50000000, 82073))</span>
+</pre></div>
+</div>
+<p>The inverse ExchangeRate can be created by calling the method
+<a class="reference internal" href="#quantity.money.ExchangeRate.inverted" title="quantity.money.ExchangeRate.inverted"><code class="xref py py-meth docutils literal"><span class="pre">ExchangeRate.inverted()</span></code></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2TND</span> <span class="o">=</span> <span class="n">fxTND2EUR</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2TND</span>
+<span class="go">ExchangeRate(Currency(u&#39;EUR&#39;), Decimal(1), Currency(u&#39;TND&#39;),</span>
+<span class="go">    Decimal(&#39;609.213749&#39;))</span>
+</pre></div>
+</div>
+<p>An exchange rate can be derived from two other exchange rates, provided that
+they have one currency in common (&#8220;triangulation&#8221;). If the unit currency of
+one exchange rate is equal to the term currency of the other, the two exchange
+rates can be multiplied with each other. If either the unit currencies or the
+term currencies are equal, the two exchange rates can be divided.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2HKD</span> <span class="o">*</span> <span class="n">fxTND2EUR</span>
+<span class="go">ExchangeRate(Currency(u&#39;TND&#39;), Decimal(10), Currency(u&#39;HKD&#39;),</span>
+<span class="go">    Decimal(&#39;0.137814&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2HKD</span> <span class="o">/</span> <span class="n">fxEUR2TND</span>
+<span class="go">ExchangeRate(Currency(u&#39;TND&#39;), Decimal(10), Currency(u&#39;HKD&#39;),</span>
+<span class="go">    Decimal(&#39;0.137814&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxEUR2TND</span> <span class="o">/</span> <span class="n">fxEUR2HKD</span>
+<span class="go">ExchangeRate(Currency(u&#39;HKD&#39;), Decimal(1), Currency(u&#39;TND&#39;),</span>
+<span class="go">    Decimal(&#39;72.561693&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxHKD2EUR</span> <span class="o">=</span> <span class="n">fxEUR2HKD</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fxTND2EUR</span> <span class="o">/</span> <span class="n">fxHKD2EUR</span>
+<span class="go">ExchangeRate(Currency(u&#39;TND&#39;), Decimal(10), Currency(u&#39;HKD&#39;),</span>
+<span class="go">    Decimal(&#39;0.137814&#39;))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="converting-money-amounts-using-exchange-rates">
+<h4>Converting money amounts using exchange rates<a class="headerlink" href="#converting-money-amounts-using-exchange-rates" title="Permalink to this headline">¶</a></h4>
+<p>Multiplying an amount in some currency with an exchange rate with the same
+currency as unit currency results in the equivalent amount in term currency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mEUR</span> <span class="o">=</span> <span class="mf">5.27</span> <span class="o">^</span> <span class="n">EUR</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mEUR</span> <span class="o">*</span> <span class="n">fxEUR2HKD</span>
+<span class="go">Money(Decimal(&#39;44.25&#39;), Currency(u&#39;HKD&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mEUR</span> <span class="o">*</span> <span class="n">fxEUR2TND</span>
+<span class="go">Money(Decimal(&#39;3210.556&#39;), Currency(u&#39;TND&#39;))</span>
+</pre></div>
+</div>
+<p>Likewise, dividing an amount in some currency with an exchange rate with the
+same currency as term currency results in the equivalent amount in unit
+currency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fxHKD2EUR</span> <span class="o">=</span> <span class="n">fxEUR2HKD</span><span class="o">.</span><span class="n">inverted</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mEUR</span> <span class="o">/</span> <span class="n">fxHKD2EUR</span>
+<span class="go">Money(Decimal(&#39;44.25&#39;), Currency(u&#39;HKD&#39;))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="combining-money-with-other-quantities">
+<h3>Combining Money with other quantities<a class="headerlink" href="#combining-money-with-other-quantities" title="Permalink to this headline">¶</a></h3>
+<p>As <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> derives from <code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code>, it can be combined with
+other quantities in order to define a new quantity. This is, for example,
+useful for defining prices per quantum.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">PricePerMass</span><span class="p">(</span><span class="n">Quantity</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">defineAs</span> <span class="o">=</span> <span class="n">Money</span> <span class="o">/</span> <span class="n">Mass</span>
+</pre></div>
+</div>
+<p>Because <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> has no reference unit, there is no reference unit
+created for the derived quantity.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">PricePerMass</span><span class="o">.</span><span class="n">Unit</span><span class="o">.</span><span class="n">registeredUnits</span><span class="p">())</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p>Units must be explicitly defined.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">EURpKG</span> <span class="o">=</span> <span class="n">PricePerMass</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">defineAs</span><span class="o">=</span><span class="n">EUR</span><span class="o">/</span><span class="n">KILOGRAM</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">PricePerMass</span><span class="o">.</span><span class="n">Unit</span><span class="o">.</span><span class="n">registeredUnits</span><span class="p">())</span>
+<span class="go">[PricePerMass.Unit(u&#39;EUR/kg&#39;)]</span>
+</pre></div>
+</div>
+<p>As with other derived quantities, the function <a class="reference internal" href="quantity.html#quantity.generateUnits" title="quantity.generateUnits"><code class="xref py py-func docutils literal"><span class="pre">quantity.generateUnits()</span></code></a>
+can be used to create all units from the cross-product of units of the base
+quantities.</p>
+<p>Instances of the derived quantity can be created and used just like those of
+other quantities.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="mf">17.45</span> <span class="o">^</span> <span class="n">EURpKG</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">*</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;1.05&#39;</span><span class="p">)</span>
+<span class="go">PricePerMass(Decimal(&#39;18.354&#39;, 4), PricePerMass.Unit(u&#39;EUR/kg&#39;))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="mi">530</span> <span class="o">^</span> <span class="n">GRAM</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">*</span> <span class="n">p</span>
+<span class="go">Money(Decimal(&#39;9.26&#39;), Currency(u&#39;EUR&#39;))</span>
+</pre></div>
+</div>
+<p>Note that instances of the derived class are not automatically quantized to
+the quantum defined for the currency.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">PricePerMass</span><span class="o">.</span><span class="n">getQuantum</span><span class="p">(</span><span class="n">EURpKG</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Instances of such a &#8220;money per quantum&#8221; class can also be converted using
+exchange rates, as long as the resulting unit is defined.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">*</span> <span class="n">fxEUR2HKD</span>
+<span class="go">QuantityError: Resulting unit not defined: HKD/kg.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HKDpKG</span> <span class="o">=</span> <span class="n">PricePerMass</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">defineAs</span><span class="o">=</span><span class="n">HKD</span><span class="o">/</span><span class="n">KILOGRAM</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">*</span> <span class="n">fxEUR2HKD</span>
+<span class="go">PricePerMass(Decimal(&#39;146.75865392&#39;), PricePerMass.Unit(u&#39;HKD/kg&#39;))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="quantity.money.Currency">
+<em class="property">class </em><code class="descclassname">quantity.money.</code><code class="descname">Currency</code><a class="headerlink" href="#quantity.money.Currency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a currency, i.e. a money unit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>isoCode</strong> (<em>string</em>) &#8211; ISO 4217 3-character code</li>
+<li><strong>name</strong> (<em>string</em>) &#8211; name of the currency</li>
+<li><strong>minorUnit</strong> (<em>Integral</em>) &#8211; amount of minor unit (as exponent to 10),
+optional, defaults to precision of smallest fraction, if that
+is given, otherwise to 2</li>
+<li><strong>smallestFraction</strong> (<em>number</em>) &#8211; smallest fraction available for the
+currency, optional, defaults to Decimal(10) ** -minorUnit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><cite>smallestFraction</cite> can also be given as a string, as long as it is
+convertable to a Decimal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><code class="xref py py-class docutils literal"><span class="pre">Currency</span></code></a> instance</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> &#8211; 
+given <cite>isoCode</cite> is not a string</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+no <cite>isoCode</cite> was given</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> &#8211; 
+given <cite>minorUnit</cite> is not an Integral number</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+given <cite>minorUnit</cite> &lt; 0</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+given <cite>smallestFraction</cite> can not be converted to a
+Decimal</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+given <cite>smallestFraction</cite> not &gt; 0</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+1 is not an integer multiple of given
+<cite>smallestFraction</cite></li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+given <cite>smallestFraction</cite> does not fit given
+<cite>minorUnit</cite></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="quantity.money.Currency.isoCode">
+<code class="descname">isoCode</code><a class="headerlink" href="#quantity.money.Currency.isoCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISO 4217 3-character code.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.Currency.name">
+<code class="descname">name</code><a class="headerlink" href="#quantity.money.Currency.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of this currency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.Currency.smallestFraction">
+<code class="descname">smallestFraction</code><a class="headerlink" href="#quantity.money.Currency.smallestFraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>The smallest fraction available for this currency.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="quantity.money.Money">
+<em class="property">class </em><code class="descclassname">quantity.money.</code><code class="descname">Money</code><a class="headerlink" href="#quantity.money.Money" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a money amount, i.e. the combination of a numerical value
+and a money unit, aka. currency.</p>
+<p>Instances of <cite>Money</cite> can be created in two ways, by providing a numerical
+amount and a <cite>Currency</cite> or by providing a string representation of a money
+amount.</p>
+<p><strong>1. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>amount</strong> (<em>number</em>) &#8211; money amount (gets rounded to a Decimal according
+to smallest fraction of currency)</li>
+<li><strong>currency</strong> (<a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><em>Currency</em></a>) &#8211; money unit</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><cite>amount</cite> must convertable to a <cite>decimalfp.Decimal</cite>, it can also be given
+as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> instance</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> &#8211; 
+<cite>amount</cite> can not be converted to a Decimal number</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+no currency given</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mStr</strong> (<em>string</em>) &#8211; unicode string representation of a money amount (incl.
+currency symbol)</li>
+<li><strong>currency</strong> &#8211; the money&#8217;s unit (optional)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><cite>mStr</cite> must contain a numerical value and a currency symbol, separated
+atleast by one blank. Any surrounding white space is ignored. If
+<cite>currency</cite> is given in addition, the resulting money&#8217;s currency is set to
+this currency and its amount is converted accordingly, if possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> instance</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> &#8211; 
+amount given in <cite>mStr</cite> can not be converted to a Decimal
+number</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+no currency given</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> &#8211; 
+a byte string is given that can not be decoded using the
+standard encoding</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+given string does not represent a <cite>Money</cite> amount</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">IncompatibleUnitsError</span></code> &#8211; 
+the currency derived from the symbol given in
+<cite>mStr</cite> can not be converted to given <cite>currency</cite></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="classmethod">
+<dt id="quantity.money.Money.getQuantum">
+<em class="property">classmethod </em><code class="descname">getQuantum</code><span class="sig-paren">(</span><em>unit</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.Money.getQuantum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the smallest amount an instance of <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> can take
+for <cite>unit</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.Money.currency">
+<code class="descname">currency</code><a class="headerlink" href="#quantity.money.Money.currency" title="Permalink to this definition">¶</a></dt>
+<dd><p>The money&#8217;s currency, i.e. its unit.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="quantity.money.ExchangeRate">
+<em class="property">class </em><code class="descclassname">quantity.money.</code><code class="descname">ExchangeRate</code><span class="sig-paren">(</span><em>unitCurrency</em>, <em>unitMultiple</em>, <em>termCurrency</em>, <em>termAmount</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic representation of a conversion factor between two currencies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>unitCurrency</strong> (<a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><em>Currency</em></a>) &#8211; currency to be converted from, aka base
+currency</li>
+<li><strong>unitMultiple</strong> (<em>Integral</em>) &#8211; amount of base currency</li>
+<li><strong>termCurrency</strong> (<a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><em>Currency</em></a>) &#8211; currency to be converted to, aka price
+currency</li>
+<li><strong>termAmount</strong> (<em>number</em>) &#8211; equivalent amount of term currency</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><cite>unitCurrency</cite> and <cite>termCurrency</cite> can also be given as 3-character ISO
+4217 codes of already registered currencies.</p>
+<p><cite>unitMultiple</cite> must be &gt; 1. It can also be given as a string, as long as
+it is convertable to an Integral.</p>
+<p><cite>termAmount</cite> can also be given as a string, as long as it is convertable
+to a number.</p>
+<p>Example:</p>
+<p>1 USD = 0.9683 EUR   =&gt;   ExchangeRate(&#8216;USD&#8217;, 1, &#8216;EUR&#8217;, &#8216;0.9683&#8217;)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a> instance</td>
+</tr>
+</tbody>
+</table>
+<p><cite>unitMultiple</cite> and <cite>termAmount</cite> will always be adjusted so that
+the resulting unit multiple is a power to 10 and the resulting term
+amounts magnitude is &gt;= -1. The latter will always be rounded to 6
+decimal digits.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+unknown ISO 4217 code given for a currency</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code> &#8211; 
+value of type other than <cite>Currency</cite> or string given for a
+currency</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+currencies given are identical</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+unit multiple is not an Integral or is not &gt;= 1</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+term amount is not &gt;= 0.000001</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+unit multiple or term amount can not be converted to a
+Decimal</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="quantity.money.ExchangeRate.unitCurrency">
+<code class="descname">unitCurrency</code><a class="headerlink" href="#quantity.money.ExchangeRate.unitCurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Currency to be converted from, aka base currency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.ExchangeRate.termCurrency">
+<code class="descname">termCurrency</code><a class="headerlink" href="#quantity.money.ExchangeRate.termCurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Currency to be converted to, aka price currency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.ExchangeRate.rate">
+<code class="descname">rate</code><a class="headerlink" href="#quantity.money.ExchangeRate.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative value of termCurrency to unitCurrency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.ExchangeRate.inverseRate">
+<code class="descname">inverseRate</code><a class="headerlink" href="#quantity.money.ExchangeRate.inverseRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverted rate, i.e. relative value of unitCurrency to
+termCurrency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.ExchangeRate.quotation">
+<code class="descname">quotation</code><a class="headerlink" href="#quantity.money.ExchangeRate.quotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of unitCurrency, termCurrency and rate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="quantity.money.ExchangeRate.inverseQuotation">
+<code class="descname">inverseQuotation</code><a class="headerlink" href="#quantity.money.ExchangeRate.inverseQuotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of termCurrency, unitCurrency and inverseRate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="quantity.money.ExchangeRate.inverted">
+<code class="descname">inverted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate.inverted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return inverted exchange rate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="quantity.money.ExchangeRate.__hash__">
+<code class="descname">__hash__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd><p>hash(self)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="quantity.money.ExchangeRate.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>self == other</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<em>object</em>) &#8211; object to compare with</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if other is an instance of ExchangeRate and
+self.quotation == other.quotation, False otherwise</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="quantity.money.ExchangeRate.__mul__">
+<code class="descname">__mul__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>self * other</p>
+<p><strong>1. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a>) &#8211; money amount to multiply with</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> instance: equivalent of <cite>other</cite> in term currency</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+currency of <cite>other</cite> is not equal to unit currency</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a>) &#8211; exchange rate to multiply with</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a> instance: &#8220;triangulated&#8221; exchange rate</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+unit currency of one multiplicant does not equal the
+term currency of the other multiplicant</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code> sub-class) &#8211; quantity to multiply with</td>
+</tr>
+</tbody>
+</table>
+<p>The type of <cite>other</cite> must be a sub-class of <code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code> derived
+from <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> divided by some other sub-class of
+<code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code> sub-class instance: equivalent of <cite>other</cite> in
+term currency</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+resulting unit is not defined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="quantity.money.ExchangeRate.__div__">
+<code class="descname">__div__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate.__div__" title="Permalink to this definition">¶</a></dt>
+<dd><p>self / other</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a>) &#8211; exchange rate to divide with</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#quantity.money.ExchangeRate" title="quantity.money.ExchangeRate"><code class="xref py py-class docutils literal"><span class="pre">ExchangeRate</span></code></a> instance: &#8220;triangulated&#8221; exchange rate</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+unit currencies of operands not equal and term
+currencies of operands not equal</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="quantity.money.ExchangeRate.__rdiv__">
+<code class="descname">__rdiv__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.ExchangeRate.__rdiv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>other / self</p>
+<p><strong>1. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a>) &#8211; money amount to divide</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> instance: equivalent of <cite>other</cite> in unit currency</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+currency of <cite>other</cite> is not equal to term currency</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Form</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code> sub-class) &#8211; quantity to divide</td>
+</tr>
+</tbody>
+</table>
+<p>The type of <cite>other</cite> must be a sub-class of <code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code> derived
+from <a class="reference internal" href="#quantity.money.Money" title="quantity.money.Money"><code class="xref py py-class docutils literal"><span class="pre">Money</span></code></a> divided by some other sub-class of
+<code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Quantity</span></code> sub-class instance: equivalent of <cite>other</cite> in
+unit currency</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+resulting unit is not defined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="quantity.money.getCurrencyInfo">
+<code class="descclassname">quantity.money.</code><code class="descname">getCurrencyInfo</code><span class="sig-paren">(</span><em>isoCode</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.getCurrencyInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return infos from ISO 4217 currency database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>isoCode</strong> (<em>string</em>) &#8211; ISO 4217 3-character code for the currency to be
+looked-up</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">3-character code, numerical code, name, minorUnit and list of
+countries which use the currency as functional currency</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+currency with code <cite>isoCode</cite> not in database</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The database available here does only include entries from ISO 4217
+which are used as functional currency, not those used for bond
+markets, noble metals and testing purposes.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="quantity.money.registerCurrency">
+<code class="descclassname">quantity.money.</code><code class="descname">registerCurrency</code><span class="sig-paren">(</span><em>isoCode</em><span class="sig-paren">)</span><a class="headerlink" href="#quantity.money.registerCurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register the currency with code <cite>isoCode</cite> from ISO 4217 database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>isoCode</strong> (<em>string</em>) &#8211; ISO 4217 3-character code for the currency to be
+registered</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#quantity.money.Currency" title="quantity.money.Currency"><code class="xref py py-class docutils literal"><span class="pre">Currency</span></code></a>: registered currency</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; 
+currency with code <cite>isoCode</cite> not in database</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="quantity.html" class="btn btn-neutral" title="Quantity"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014 ff., Michael Amrhein.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
