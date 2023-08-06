@@ -1,0 +1,14 @@
+.tox
+*.pyc
+*.egg-info
+lib/cortex/bin/tmp/*
+build/*
+dist/*
+.cache/*
+*#*
+.coverage
+*venv*/*
+docs/site
+docs/docs
+docs/api
+docs/glsh
