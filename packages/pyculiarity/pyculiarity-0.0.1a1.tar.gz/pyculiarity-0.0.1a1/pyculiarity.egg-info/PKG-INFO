@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: pyculiarity
+Version: 0.0.1a1
+Summary: A Python port of Twitter's AnomalyDetection R Package.
+Home-page: https://github.com/nicolasmiller/pyculiarity
+Author: Nicolas Steven Miller
+Author-email: nicolasmiller@gmail.com
+License: GPL
+Description: 
+        Pyculiarity
+        -----------
+        
+        A Python port of Twitter's AnomalyDetection R Package.
+        
+        The original R source is available here:
+        https://github.com/twitter/AnomalyDetection.
+        
+Keywords: data anomaly detection pandas timeseries
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
