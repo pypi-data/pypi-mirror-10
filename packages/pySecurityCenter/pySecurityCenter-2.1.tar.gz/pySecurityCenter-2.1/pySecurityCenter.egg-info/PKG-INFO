@@ -1,0 +1,135 @@
+Metadata-Version: 1.1
+Name: pySecurityCenter
+Version: 2.1
+Summary: Security Center API Library
+Home-page: https://github.com/SteveMcGrath/pySecurityCenter
+Author: Steven McGrath <steve@chigeek.com>, David Lord <davidism@gmail.com>
+Author-email: steve@chigeek.com
+License: UNKNOWN
+Description: Python Security Center Module
+        =============================
+        
+        This module is designed to attempt to make interfacing with Security
+        Center's API easier to use and more manageable. A lot of effort has been
+        put into making queries into the API as painless and manageable as
+        possible.
+        
+        `Source Code
+        Repository <https://github.com/SteveMcGrath/pySecurityCenter>`__
+        
+        Changelog
+        =========
+        
+        **v2.1**
+        
+        -  Added support for SecurityCenter 5. This is called via the base API
+           and is the SecurityCenter5 class.
+        
+        **v2.0a5**
+        
+        -  Reworked the setup.py file to handle converting the readme to
+           restructured text for use with pypi. further if the readme file
+           doesn't exist, just throw a warning and move on.
+        
+        **v2.0a2**
+        
+        -  Pulled in the 75~ commits from David with the ORM code.
+        -  Reworked the code to use the orm/base standpoint instead of v1/v2
+        
+        **v2.0a1**
+        
+        -  Initial rev with David's merged ORM code.
+        -  All ORM code is to be considered Alpha for now.
+        -  Added stubs in the API base for SecurityCenter 5 when released.
+        
+        **v1.1**
+        
+        -  Changed the module structure to support the ORM model from David
+        -  Fixed the Asset update to support SC4.8's switch to tagging and
+           groups
+        
+        **v1.0**
+        
+        -  Changed Rev to 1.x as the code has been sufficiently stable.
+        -  Added proper error handling for login [davidism]
+        -  Handling of Datetime objects now works as expected [davidism]
+        
+        **v0.3.9**
+        
+        -  Removed un-needed poster requirement [davidism]
+        -  Improved scan\_list time handling [davidism]
+        -  Added support for Two-way SSL Certificates [davidism]
+        
+        **v0.3.8**
+        
+        -  Added proper support for individual scan results in the query
+           function. [davidism]
+        -  Added this README to the package (for pypi)
+        
+        **v0.3.7**
+        
+        -  Added pagination support to plugins function. [davidism]
+        
+        **v0.3.6**
+        
+        -  Added Python 2.4 Support
+        
+        **v0.3.5**
+        
+        -  Added "patched" source to conform to SC 4.6
+        
+        **v0.3.4**
+        
+        -  Added debug logging support.
+        
+        **v0.3.3.1**
+        
+        -  Updated to support Python 2.6, 2.7, and 3.x
+        -  Completed documentation of module.
+        
+        **v0.3.2**
+        
+        -  Added Dashboard and Report Importing
+        
+        **v0.3.1**
+        
+        -  Added Scan Download Capability
+        -  Fixed roles return
+        -  Adjusted login process
+        -  Added Credential functions
+        -  Code Cleanup
+        -  Fleshed out all functions to match SC 4.2 API docs.
+        
+        How to Install
+        ==============
+        
+        To install pySecurityCenter, you can use either pip or easy\_install to
+        install from the cheeseshop:
+        
+        ``pip install pysecuritycenter``
+        
+        ``easy_install pysecuritycenter``
+        
+        If you would rather install manually, feel free to download the latest
+        version directly from the
+        `cheeseshop <http://pypi.python.org/pypi/pySecurityCenter>`__:
+        
+        Usage
+        =====
+        
+        -  For SecurityCenter4, please see the `SC4 pySecurityCenter
+           Documentation <https://github.com/SteveMcGrath/pySecurityCenter/blob/master/SecurityCenter4_Base_API.md>`__.
+        -  For SecurityCenter5, please see the `SC5 pySecurityCenter
+           Documentation <https://github.com/SteveMcGrath/pySecurityCenter/blob/master/SecurityCenter5_REST_API.md>`__.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
