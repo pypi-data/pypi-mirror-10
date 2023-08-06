@@ -1,0 +1,6 @@
+[console_scripts]
+download = pypicloud_tools.download:main
+list = pypicloud_tools.lister:main
+rehost = pypicloud_tools.rehost:main
+upload = pypicloud_tools.upload:main
+
