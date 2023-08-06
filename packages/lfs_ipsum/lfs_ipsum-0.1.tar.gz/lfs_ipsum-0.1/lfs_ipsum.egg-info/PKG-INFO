@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: lfs-ipsum
+Version: 0.1
+Summary: Content generator for LFS
+Home-page: http://github.com/tzicatl/lfs_ipsum
+Author: Noe Nieto
+Author-email: nnieto@noenieto.com
+License: BSD
+Description: Populate your lfs installation generated content.
+        
+        As of now it only generates categories. 
+        
+        Installation
+        ------------
+        
+        Add ``lfs_ipsum`` to your buldout's egg list:
+        
+            [buildout]
+            eggs =
+                django-lfs
+                lfs_ipsum
+            ...
+            [django]
+            recipe =
+                djangorecipe
+        
+            eggs =
+                ${buildout:eggs}
+        
+        Run buildout.
+        
+            bin/buildout
+        
+        Add ``lfs_ipsum`` to your list of installed apps.
+        
+            INSTALLED_APPS = (
+                ...
+                'lfs_ipsum',
+            )
+        
+        
+        Usage
+        -----
+        
+        bin/django generate_categories
+Keywords: django e-commerce online-shop lorem ipsum
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
