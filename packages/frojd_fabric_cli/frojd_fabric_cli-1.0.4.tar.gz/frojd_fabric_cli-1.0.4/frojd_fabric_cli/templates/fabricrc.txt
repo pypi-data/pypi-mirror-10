@@ -1,0 +1,9 @@
+{% filter trim %}
+{% for stage in stages %}
+{{ stage.NAME|upper }}_HOST=
+{{ stage.NAME|upper }}_USER=
+{{ stage.NAME|upper }}_PASSWORD=
+{{ stage.NAME|upper }}_KEY_FILENAME=
+{{ stage.NAME|upper }}_APP_PATH=
+{% endfor %}
+{% endfilter %}
