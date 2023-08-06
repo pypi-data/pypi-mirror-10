@@ -1,0 +1,24 @@
+pyparsing
+webob
+sqlalchemy
+pytz
+pygments
+fs >= 0.5.1
+iso8601
+babel
+postmarkup
+polib
+pillow
+pymysql
+passlib
+commonmark
+requests
+lxml
+colorama
+premailer
+
+[:sys_platform!="win32"]
+pyinotify
+
+[dev]
+notify2
