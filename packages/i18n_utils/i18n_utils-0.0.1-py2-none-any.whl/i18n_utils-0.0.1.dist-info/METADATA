@@ -1,0 +1,61 @@
+Metadata-Version: 2.0
+Name: i18n-utils
+Version: 0.0.1
+Summary: A collection of utilities to add functionality to the gettext commands.
+Home-page: https://github.com/GaretJax/i18n-utils
+Author: Jonathan Stoppani
+Author-email: jonathan@stoppani.name
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: click (==3.3)
+Requires-Dist: jdcal (==1.0)
+Requires-Dist: openpyxl (==2.2.0b1)
+Requires-Dist: polib (==1.0.6)
+Requires-Dist: six (==1.9.0)
+
+==========
+I18N-UTILS
+==========
+
+.. image:: https://img.shields.io/travis/GaretJax/i18n-utils.svg
+   :target: https://travis-ci.org/GaretJax/i18n-utils
+
+.. image:: https://img.shields.io/pypi/v/i18n-utils.svg
+   :target: https://pypi.python.org/pypi/i18n-utils
+
+.. image:: https://img.shields.io/coveralls/GaretJax/i18n-utils/develop.svg
+   :target: https://coveralls.io/r/GaretJax/i18n-utils?branch=develop
+
+.. image:: https://img.shields.io/badge/docs-latest-brightgreen.svg
+   :target: http://i18n-utils.readthedocs.org/en/latest/
+
+.. image:: https://img.shields.io/pypi/l/i18n-utils.svg
+   :target: https://github.com/GaretJax/i18n-utils/blob/develop/LICENSE
+
+.. image:: https://img.shields.io/requires/github/GaretJax/i18n-utils.svg 
+   :target: https://requires.io/github/GaretJax/i18n-utils/requirements/?branch=master
+
+
+* Free software: MIT license
+* Documentation: http://i18n-utils.rtfd.org
+
+
+=======
+History
+=======
+
+
+0.0.1 - Unreleased
+==================
+
+* Initial release
+
+
