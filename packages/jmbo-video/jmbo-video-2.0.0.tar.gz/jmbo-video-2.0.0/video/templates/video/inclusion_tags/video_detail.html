@@ -1,0 +1,24 @@
+{% extends "jmbo/inclusion_tags/modelbase_detail.html" %}
+{% load i18n jmbo_template_tags %}
+
+{% block content %}
+    {% jmbocache 3600 'object-detail-inclusion' object.id object.modified request.page %}
+
+        <div id="object-detail-inclusion-{{ object.id }}">{% trans "Loading the player..." %}</div>
+
+        <script type="text/javascript">
+            var di = {file: '{{ object.stream }}'};
+            {% if object.image %}
+                di['image'] = '{{ object.image_detail_url }}';
+            {% endif %}
+            jwplayer('object-detail-inclusion-{{ object.id }}').setup(di);
+        </script>
+
+        {% if object.content %}
+            <div class="content">
+                {{ object.content|safe }}
+            </div>
+        {% endif %}
+
+    {% endjmbocache %}
+{% endblock %}
