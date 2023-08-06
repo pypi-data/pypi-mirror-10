@@ -1,0 +1,17 @@
+waitress
+cliquet >= 2.2.0
+
+[fxa]
+waitress
+cliquet >= 2.2.0
+cliquet-fxa
+
+[monitoring]
+waitress
+cliquet >= 2.2.0
+cliquet[monitoring]
+
+[postgresql]
+waitress
+cliquet >= 2.2.0
+cliquet[postgresql]
