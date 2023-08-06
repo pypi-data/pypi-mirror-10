@@ -1,0 +1,13 @@
+INFO| Starting the graphical interface...::__main__.py:51
+DEBUG| GUI aTXT::window.py:93
+DEBUG| [('dat', <PySide.QtGui.QCheckBox object at 0x105788680>), ('doc', <PySide.QtGui.QCheckBox object at 0x1057886c8>), ('html', <PySide.QtGui.QCheckBox object at 0x105788710>), ('jpg', <PySide.QtGui.QCheckBox object at 0x105788758>), ('csv', <PySide.QtGui.QCheckBox object at 0x1057887a0>), ('docx', <PySide.QtGui.QCheckBox object at 0x1057887e8>), ('pdf', <PySide.QtGui.QCheckBox object at 0x105788830>), ('png', <PySide.QtGui.QCheckBox object at 0x105788878>), ('txt', <PySide.QtGui.QCheckBox object at 0x1057888c0>)]::window.py:210
+DEBUG| render dat for gui::window.py:214
+DEBUG| render doc for gui::window.py:214
+DEBUG| render html for gui::window.py:214
+DEBUG| render jpg for gui::window.py:214
+DEBUG| render csv for gui::window.py:214
+DEBUG| render docx for gui::window.py:214
+DEBUG| render pdf for gui::window.py:214
+DEBUG| render png for gui::window.py:214
+DEBUG| render txt for gui::window.py:214
+DEBUG| Exit::window.py:240
