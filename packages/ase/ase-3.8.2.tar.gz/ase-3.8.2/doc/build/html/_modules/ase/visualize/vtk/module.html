@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ase.visualize.vtk.module &mdash; ASE  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/ase.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    '../../../../',
+          VERSION:     '',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../../../_static/ase.ico"/>
+    <link rel="contents" title="Global table of contents" href="../../../../contents.html" />
+    <link rel="index" title="Global index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="top" title="ASE  documentation" href="../../../../index.html" />
+    <link rel="up" title="ase.visualize" href="../../visualize.html" />
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+
+
+
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+
+
+
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             accesskey="">modules</a> |</li>
+        <a href="../../../../index.html"><img class="logo" src="../../../../_static/ase.ico" alt="Logo" align="absmiddle"/></a>
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li>
+          <li><a href="../../visualize.html" accesskey="U">ase.visualize</a> &raquo;</li>
+      </ul>
+    </div>
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for ase.visualize.vtk.module</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">vtk</span> <span class="kn">import</span> <span class="n">vtkProp3D</span><span class="p">,</span> <span class="n">vtkPolyDataMapper</span><span class="p">,</span> <span class="n">vtkActor</span><span class="p">,</span> <span class="n">vtkLODActor</span><span class="p">,</span> \
+                <span class="n">vtkPointSet</span><span class="p">,</span> <span class="n">vtkGlyph3D</span><span class="p">,</span> <span class="n">vtkRenderer</span>
+<span class="kn">from</span> <span class="nn">ase.visualize.vtk.sources</span> <span class="kn">import</span> <span class="n">vtkCustomGlyphSource</span><span class="p">,</span> \
+                                      <span class="n">vtkClampedGlyphSource</span>
+
+<span class="c"># -------------------------------------------------------------------</span>
+
+<span class="k">class</span> <span class="nc">vtkModule</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Modules represent a unified collection of VTK objects needed for</span>
+<span class="sd">    introducing basic visualization concepts such as surfaces or shapes.</span>
+
+<span class="sd">    A common trait of all modules is the need for an actor representation and</span>
+<span class="sd">    corresponding generic properties such as lighting, color and transparency.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_act</span><span class="p">,</span> <span class="n">vtk_property</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct basic VTK-representation of a module.</span>
+
+<span class="sd">        vtk_act: Instance of vtkActor or subclass thereof</span>
+<span class="sd">            A vtkActor represents an entity in a rendering scene.</span>
+
+<span class="sd">        vtk_property = None: Instance of vtkProperty or subclass thereof</span>
+<span class="sd">            A vtkProperty represents e.g. lighting and other surface</span>
+<span class="sd">            properties of a geometric object, in this case the actor.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_act</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_actor</span><span class="p">(</span><span class="n">vtk_act</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">vtk_property</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="n">vtk_property</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_actor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_act</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the actor representing this module in a rendering scene.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vtk_act</span><span class="p">,</span> <span class="n">vtkActor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_act</span> <span class="o">=</span> <span class="n">vtk_act</span>
+
+    <span class="k">def</span> <span class="nf">set_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_property</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the property of the actor representing this module.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_act</span><span class="o">.</span><span class="n">SetProperty</span><span class="p">(</span><span class="n">vtk_property</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_actor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the actor representing this module in a rendering scene.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vtk_act</span>
+
+<span class="c"># -------------------------------------------------------------------</span>
+
+<span class="k">class</span> <span class="nc">vtkLODModule</span><span class="p">(</span><span class="n">vtkModule</span><span class="p">):</span>
+    <span class="n">_vtk_actor_class</span> <span class="o">=</span> <span class="n">vtkLODActor</span>
+
+    <span class="k">def</span> <span class="nf">get_lod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">100</span>
+
+    <span class="k">def</span> <span class="nf">set_actor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_act</span><span class="p">):</span>
+        <span class="n">vtkModule</span><span class="o">.</span><span class="n">set_actor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_act</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vtk_act</span><span class="p">,</span> <span class="n">vtkLODActor</span><span class="p">):</span>
+            <span class="n">vtk_act</span><span class="o">.</span><span class="n">SetNumberOfCloudPoints</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_lod</span><span class="p">())</span>
+
+<span class="k">class</span> <span class="nc">vtkPolyDataModule</span><span class="p">(</span><span class="n">vtkModule</span><span class="p">):</span>
+    <span class="n">_vtk_actor_class</span> <span class="o">=</span> <span class="n">vtkActor</span>
+
+    <span class="n">__doc__</span> <span class="o">=</span> <span class="n">vtkModule</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">+</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    Poly data modules are based on polygonal data sets, which can be mapped</span>
+<span class="s">    into graphics primitives suitable for rendering within the VTK framework.</span>
+
+<span class="s">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_polydata</span><span class="p">,</span> <span class="n">vtk_property</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct VTK-representation of a module containing polygonals.</span>
+
+<span class="sd">        vtk_polydata: Instance of vtkPolyData, subclass thereof or</span>
+<span class="sd">            vtkPolyDataAlgorithm, which produces vtkPolyData as output.</span>
+<span class="sd">            A vtkPolyData represents a polygonal data set consisting of</span>
+<span class="sd">            point and cell attributes, which can be mapped to graphics</span>
+<span class="sd">            primitives for subsequent rendering.</span>
+
+<span class="sd">        vtk_property = None: Instance of vtkProperty or subclass thereof</span>
+<span class="sd">            A vtkProperty represents e.g. lighting and other surface</span>
+<span class="sd">            properties of a geometric object, in this case the polydata.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vtkModule</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vtk_actor_class</span><span class="p">(),</span> <span class="n">vtk_property</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span> <span class="o">=</span> <span class="n">vtkPolyDataMapper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span><span class="o">.</span><span class="n">SetInputConnection</span><span class="p">(</span><span class="n">vtk_polydata</span><span class="o">.</span><span class="n">GetOutputPort</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_act</span><span class="o">.</span><span class="n">SetMapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">vtkGlyphModule</span><span class="p">(</span><span class="n">vtkPolyDataModule</span><span class="p">):</span>
+<div class="viewcode-block" id="vtkGlyphModule"><a class="viewcode-back" href="../../../../ase/visualize/vtk.html#ase.visualize.vtk.module.vtkGlyphModule">[docs]</a>    <span class="n">__doc__</span> <span class="o">=</span> <span class="n">vtkPolyDataModule</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">+</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    Glyph modules construct these polygonal data sets by replicating a glyph</span>
+<span class="s">    source across a specific set of points, using available scalar or vector</span>
+<span class="s">    point data to scale and orientate the glyph source if desired.</span>
+
+<span class="s">    Example:</span>
+
+<span class="s">    &gt;&gt;&gt; atoms = molecule(&#39;C60&#39;)</span>
+<span class="s">    &gt;&gt;&gt; cell = vtkUnitCellModule(atoms)</span>
+<span class="s">    &gt;&gt;&gt; apos = vtkAtomicPositions(atoms.get_positions(), cell)</span>
+<span class="s">    &gt;&gt;&gt; vtk_ugd = apos.get_unstructured_grid()</span>
+<span class="s">    &gt;&gt;&gt; glyph_source = vtkAtomSource(&#39;C&#39;)</span>
+<span class="s">    &gt;&gt;&gt; glyph_module = vtkGlyphModule(vtk_ugd, glyph_source)</span>
+
+<span class="s">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_pointset</span><span class="p">,</span> <span class="n">glyph_source</span><span class="p">,</span>
+                 <span class="n">scalemode</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">colormode</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct VTK-representation of a module containing glyphs.</span>
+<span class="sd">        These glyphs share a common source, defining their geometrical</span>
+<span class="sd">        shape, which is cloned and oriented according to the input data.</span>
+
+<span class="sd">        vtk_pointset: Instance of vtkPointSet or subclass thereof</span>
+<span class="sd">            A vtkPointSet defines a set of positions, which may then be</span>
+<span class="sd">            assigned specific scalar of vector data across the entire set.</span>
+
+<span class="sd">        glyph_source: Instance of ~vtk.vtkCustomGlyphSource or subclass thereof</span>
+<span class="sd">            Provides the basic shape to distribute over the point set.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vtk_pointset</span><span class="p">,</span> <span class="n">vtkPointSet</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">glyph_source</span><span class="p">,</span> <span class="n">vtkCustomGlyphSource</span><span class="p">)</span>
+
+        <span class="c"># Create VTK Glyph3D based on unstructured grid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span> <span class="o">=</span> <span class="n">vtkGlyph3D</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">vtk_pointset</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetSource</span><span class="p">(</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">get_output</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetScaleFactor</span><span class="p">(</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">get_scale</span><span class="p">())</span>
+
+        <span class="c"># Clamping normalizes the glyph scaling to within the range [0,1].</span>
+        <span class="c"># Setting a scale factor will then scale these by the given factor.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">glyph_source</span><span class="p">,</span> <span class="n">vtkClampedGlyphSource</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetClamping</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetRange</span><span class="p">(</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">get_range</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">scalemode</span> <span class="ow">is</span> <span class="s">&#39;off&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetScaleModeToDataScalingOff</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">scalemode</span> <span class="ow">is</span> <span class="s">&#39;scalar&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetScaleModeToScaleByScalar</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">scalemode</span> <span class="ow">is</span> <span class="s">&#39;vector&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetScaleModeToScaleByVector</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">scalemode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Unrecognized scale mode </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s">.&#39;</span> <span class="o">%</span> <span class="n">scalemode</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">colormode</span> <span class="ow">is</span> <span class="s">&#39;scale&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetColorModeToColorByScale</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">colormode</span> <span class="ow">is</span> <span class="s">&#39;scalar&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetColorModeToColorByScalar</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">colormode</span> <span class="ow">is</span> <span class="s">&#39;vector&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="o">.</span><span class="n">SetColorModeToColorByVector</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">colormode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Unrecognized scale mode </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s">.&#39;</span> <span class="o">%</span> <span class="n">scalemode</span><span class="p">)</span>
+
+        <span class="n">vtkPolyDataModule</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vtk_g3d</span><span class="p">,</span> <span class="n">glyph_source</span><span class="o">.</span><span class="n">get_property</span><span class="p">())</span>
+
+<span class="c"># -------------------------------------------------------------------</span>
+
+<span class="k">class</span> <span class="nc">vtkLabelModule</span><span class="p">(</span><span class="n">vtkModule</span><span class="p">):</span></div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_pointset</span><span class="p">,</span> <span class="n">vtk_property</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="n">vtk_Module</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtkActor</span><span class="p">(),</span> <span class="n">vtk_property</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vtk_pointset</span><span class="p">,</span> <span class="n">vtkPointSet</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span> <span class="o">=</span> <span class="n">vtkLabeledDataMapper</span><span class="p">()</span>
+        <span class="c">#self.vtk_dmap.SetLabelModeToLabelIds() #TODO XXX strings!!!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span><span class="o">.</span><span class="n">GetLabelTextProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetFontSize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span><span class="o">.</span><span class="n">GetLabelTextProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetJustificationToRight</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span><span class="o">.</span><span class="n">SetInputConnection</span><span class="p">(</span><span class="n">vtk_pointset</span><span class="o">.</span><span class="n">GetOutputPort</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vtk_act</span><span class="o">.</span><span class="n">SetMapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vtk_dmap</span><span class="p">)</span>
+
+        <span class="c">#vtk_g3d.GetPointIdsName...</span>
+
+<span class="c"># -------------------------------------------------------------------</span>
+
+<span class="k">class</span> <span class="nc">vtkModuleAnchor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    TODO XXX</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct an anchoring point for various VTK modules.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modules</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">get_module</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;Module </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s"> does not exists.&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">add_module</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">vtkModule</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Module must be instance of vtkModule.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;Module </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s"> already exists.&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">module</span>
+
+    <span class="k">def</span> <span class="nf">get_actor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">get_actor</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">add_actors_to_renderer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vtk_renderer</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vtk_renderer</span><span class="p">,</span> <span class="n">vtkRenderer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">vtk_renderer</span><span class="o">.</span><span class="n">AddActor</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">get_actor</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vtk_renderer</span><span class="o">.</span><span class="n">AddActor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_actor</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+
+          <h3>ASE</h3>
+          <ul class="this-page-menu">
+            <li><a href="../../../../overview.html">
+              Overview</a></li>
+            <li><a href="../../../../download.html">
+              Installation</a></li>
+            <li><a href="../../../../tutorials/tutorials.html">
+              Tutorials</em></a></li>
+            <li><a href="../../../../ase/ase.html">
+              Documentation</a></li>
+            <li><a href="../../../../faq.html">FAQ</a></li>
+            <li><a href="../../../../mailinglists.html">Mailing lists</a></li>
+            <li><a href="../../../../development/releasenotes.html">Release notes</a></li>
+            <li><a href="../../../../licenseinfo.html">License info</a></li>
+           </ul>
+           <h3>Development</h3>
+           <ul class="this-page-menu">
+            <li><a href="../../../../development/development.html">
+              Development</a></li>
+            <li><a href="http://wiki.fysik.dtu.dk/ase/epydoc/ase-module.html">
+              Epydoc</a></li>
+            <li><a href="http://trac.fysik.dtu.dk/projects/ase/browser/trunk/">
+              Source code (svn)</a></li>
+            <li><a href="../../../../bugs.html">Bugs!</a></li>
+            <li><a href="http://trac.fysik.dtu.dk/projects/ase/report/1">
+              Bug Tracker</a></li>
+            <li><a href="https://ase-buildbot.fysik.dtu.dk/waterfall">
+              BuildBot</a></li>
+          </ul>
+            <h3>Quick search</h3>
+            <form class="search" action="../../../../search.html" method="get">
+              <input type="text" name="q" size="18" /> <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+
+
+
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+
+
+
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             accesskey="">modules</a> |</li>
+        <a href="../../../../index.html"><img class="logo" src="../../../../_static/ase.ico" alt="Logo" align="absmiddle"/></a>
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li>
+          <li><a href="../../visualize.html" accesskey="U">ase.visualize</a> &raquo;</li>
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2015, CAMd.
+      Last updated on Thu, 28 May 2015 15:17:11.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

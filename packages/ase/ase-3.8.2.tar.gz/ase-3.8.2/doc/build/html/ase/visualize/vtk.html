@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ASE-VTK &mdash; ASE  documentation</title>
+    <link rel="stylesheet" href="../../_static/ase.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    '../../',
+          VERSION:     '',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/ase.ico"/>
+    <link rel="contents" title="Global table of contents" href="../../contents.html" />
+    <link rel="index" title="Global index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="ASE  documentation" href="../../index.html" />
+    <link rel="up" title="Documentation for modules in ASE" href="../ase.html" />
+    <link rel="next" title="Calculators" href="../calculators/calculators.html" />
+    <link rel="prev" title="Visualization" href="visualize.html" />
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+
+
+
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+
+
+
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             accesskey="">modules</a> |</li>
+        <a href="../../index.html"><img class="logo" src="../../_static/ase.ico" alt="Logo" align="absmiddle"/></a>
+          <li><a href="../ase.html" accesskey="U">Documentation for modules in ASE</a> &raquo;</li>
+      </ul>
+    </div>
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="module-vtk"></span><div class="section" id="ase-vtk">
+<span id="index-0"></span><h1>ASE-VTK<a class="headerlink" href="#ase-vtk" title="Permalink to this headline">¶</a></h1>
+<p>For ASE, the <tt class="xref py py-mod docutils literal"><span class="pre">vtk</span></tt> interface consists of Python modules for
+automatic visualization of positions, bonds, forces and volume data (e.g. wave
+functions) from an <tt class="xref py py-class docutils literal"><span class="pre">Atoms</span></tt> object, provided such data is made
+available by the calculator.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Python modules in ASE are intended to wrap lower-level functionality
+of the VTK object models in small and easy-to-comprehend classes. To be able
+to distinguish between build-in VTK objects and their wrappers, and because
+VTK uses the CamelCase naming convention whereas ASE uses lower-case cf.
+our <a class="reference internal" href="../../development/python_codingstandard.html#python-codingstandard"><em>coding conventions</em></a>, all variables
+referring to VTK built-in types are prefixed by <tt class="docutils literal"><span class="pre">vtk_</span></tt>. However, both VTK
+and wrapper classes are named according to the standard <tt class="docutils literal"><span class="pre">vtkFooBar</span></tt>.</p>
+</div>
+<div class="section" id="representing-atoms">
+<h2>Representing atoms<a class="headerlink" href="#representing-atoms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ase.visualize.vtk.atoms.vtkAtoms">
+<em class="property">class </em><tt class="descclassname">ase.visualize.vtk.atoms.</tt><tt class="descname">vtkAtoms</tt><big>(</big><em>atoms</em>, <em>scale=1</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/atoms.html#vtkAtoms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.atoms.vtkAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ase.visualize.vtk.module.vtkModuleAnchor</span></tt>, <a class="reference internal" href="#ase.visualize.vtk.grid.vtkAtomicPositions" title="ase.visualize.vtk.grid.vtkAtomicPositions"><tt class="xref py py-class docutils literal"><span class="pre">ase.visualize.vtk.grid.vtkAtomicPositions</span></tt></a></p>
+<p>Provides fundamental representation for <tt class="docutils literal"><span class="pre">Atoms</span></tt>-specific data in VTK.</p>
+<p>The <tt class="docutils literal"><span class="pre">vtkAtoms</span></tt> class plots atoms during simulations, extracting the
+relevant information from the list of atoms. It is created using
+the list of atoms as an argument to the constructor. Then one or more
+visualization modules can be attached using add_module(name, module).</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">va</span> <span class="o">=</span> <span class="n">vtkAtoms</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">va</span><span class="o">.</span><span class="n">add_forces</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">va</span><span class="o">.</span><span class="n">add_axes</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XXX</span> <span class="n">va</span><span class="o">.</span><span class="n">add_to_renderer</span><span class="p">(</span><span class="n">vtk_ren</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a fundamental VTK-representation of atoms.</p>
+<dl class="docutils">
+<dt>atoms: Atoms object or list of Atoms objects</dt>
+<dd>The atoms to be plotted.</dd>
+<dt>scale = 1: float or int</dt>
+<dd>Relative scaling of all Atoms-specific visualization.</dd>
+</dl>
+<dl class="method">
+<dt id="ase.visualize.vtk.atoms.vtkAtoms.add_axes">
+<tt class="descname">add_axes</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/atoms.html#vtkAtoms.add_axes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.atoms.vtkAtoms.add_axes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an orientation indicator for the cartesian axes. An appropriate
+<tt class="docutils literal"><span class="pre">vtkAxesModule</span></tt> is added to the module anchor under <tt class="docutils literal"><span class="pre">axes</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.atoms.vtkAtoms.add_cell">
+<tt class="descname">add_cell</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/atoms.html#vtkAtoms.add_cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.atoms.vtkAtoms.add_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a box outline of the cell using atoms.get_cell(). The existing
+<tt class="docutils literal"><span class="pre">vtkUnitCellModule</span></tt> is added to the module anchor under <tt class="docutils literal"><span class="pre">cell</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.atoms.vtkAtoms.add_forces">
+<tt class="descname">add_forces</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/atoms.html#vtkAtoms.add_forces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.atoms.vtkAtoms.add_forces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add force vectors for the atoms using atoms.get_forces(). A
+<tt class="docutils literal"><span class="pre">vtkGlyphModule</span></tt> is added to the module anchor under <tt class="docutils literal"><span class="pre">force</span></tt>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.atoms.vtkAtoms.add_velocities">
+<tt class="descname">add_velocities</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/atoms.html#vtkAtoms.add_velocities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.atoms.vtkAtoms.add_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add velocity vectors for the atoms using atoms.get_velocities(). A
+<tt class="docutils literal"><span class="pre">vtkGlyphModule</span></tt> is added to the module anchor under <tt class="docutils literal"><span class="pre">velocity</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="atom-centered-data">
+<h3>Atom-centered data<a class="headerlink" href="#atom-centered-data" title="Permalink to this headline">¶</a></h3>
+<p>The superclass <a class="reference internal" href="#ase.visualize.vtk.grid.vtkAtomicPositions" title="ase.visualize.vtk.grid.vtkAtomicPositions"><tt class="xref py py-class docutils literal"><span class="pre">vtkAtomicPositions</span></tt></a> implements
+the basic concepts for representing atomic-centered data in VTK.</p>
+<dl class="class">
+<dt id="ase.visualize.vtk.grid.vtkAtomicPositions">
+<em class="property">class </em><tt class="descclassname">ase.visualize.vtk.grid.</tt><tt class="descname">vtkAtomicPositions</tt><big>(</big><em>pos</em>, <em>cell</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/grid.html#vtkAtomicPositions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.grid.vtkAtomicPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides an interface for adding <tt class="docutils literal"><span class="pre">Atoms</span></tt>-centered data to VTK
+modules. Atomic positions, e.g. obtained using atoms.get_positions(),
+constitute an unstructured grid in VTK, to which scalar and vector
+can be added as point data sets.</p>
+<p>Just like <tt class="docutils literal"><span class="pre">Atoms</span></tt>, instances of <tt class="docutils literal"><span class="pre">vtkAtomicPositions</span></tt> can be divided
+into subsets, which makes it easy to select atoms and add properties.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">vtkUnitCellModule</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apos</span> <span class="o">=</span> <span class="n">vtkAtomicPositions</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_positions</span><span class="p">(),</span> <span class="n">cell</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apos</span><span class="o">.</span><span class="n">add_scalar_property</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_charges</span><span class="p">(),</span> <span class="s">&#39;charges&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apos</span><span class="o">.</span><span class="n">add_vector_property</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_forces</span><span class="p">(),</span> <span class="s">&#39;forces&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct basic VTK-representation of a set of atomic positions.</p>
+<dl class="docutils">
+<dt>pos: NumPy array of dtype float and shape <tt class="docutils literal"><span class="pre">(n,3)</span></tt></dt>
+<dd>Cartesian positions of the atoms.</dd>
+<dt>cell: Instance of vtkUnitCellModule of subclass thereof</dt>
+<dd>Holds information equivalent to that of atoms.get_cell().</dd>
+</dl>
+<dl class="method">
+<dt id="ase.visualize.vtk.grid.vtkAtomicPositions.add_scalar_property">
+<tt class="descname">add_scalar_property</tt><big>(</big><em>data</em>, <em>name=None</em>, <em>active=True</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/grid.html#vtkAtomicPositions.add_scalar_property"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.grid.vtkAtomicPositions.add_scalar_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add VTK-representation of scalar data at the atomic positions.</p>
+<dl class="docutils">
+<dt>data: NumPy array of dtype float and shape <tt class="docutils literal"><span class="pre">(n,)</span></tt></dt>
+<dd>Scalar values corresponding to the atomic positions.</dd>
+<dt>name=None: str</dt>
+<dd>Unique identifier for the scalar data.</dd>
+<dt>active=True: bool</dt>
+<dd>Flag indicating whether to use as active scalar data.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.grid.vtkAtomicPositions.add_vector_property">
+<tt class="descname">add_vector_property</tt><big>(</big><em>data</em>, <em>name=None</em>, <em>active=True</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/grid.html#vtkAtomicPositions.add_vector_property"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.grid.vtkAtomicPositions.add_vector_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add VTK-representation of vector data at the atomic positions.</p>
+<dl class="docutils">
+<dt>data: NumPy array of dtype float and shape <tt class="docutils literal"><span class="pre">(n,3)</span></tt></dt>
+<dd>Vector components corresponding to the atomic positions.</dd>
+<dt>name=None: str</dt>
+<dd>Unique identifier for the vector data.</dd>
+<dt>active=True: bool</dt>
+<dd>Flag indicating whether to use as active vector data.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.grid.vtkAtomicPositions.get_points">
+<tt class="descname">get_points</tt><big>(</big><em>subset=None</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/grid.html#vtkAtomicPositions.get_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.grid.vtkAtomicPositions.get_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return (subset of) vtkPoints containing atomic positions.</p>
+<dl class="docutils">
+<dt>subset=None: list of int</dt>
+<dd>A list of indices into the atomic positions; ignored if None.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.grid.vtkAtomicPositions.get_unstructured_grid">
+<tt class="descname">get_unstructured_grid</tt><big>(</big><em>subset=None</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/grid.html#vtkAtomicPositions.get_unstructured_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.grid.vtkAtomicPositions.get_unstructured_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return (subset of) an unstructured grid of the atomic positions.</p>
+<dl class="docutils">
+<dt>subset=None: list of int</dt>
+<dd>A list of indices into the atomic positions; ignored if None.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="predefined-shapes">
+<h3>Predefined shapes<a class="headerlink" href="#predefined-shapes" title="Permalink to this headline">¶</a></h3>
+<p>The class <a class="reference internal" href="#ase.visualize.vtk.module.vtkGlyphModule" title="ase.visualize.vtk.module.vtkGlyphModule"><tt class="xref py py-class docutils literal"><span class="pre">vtkGlyphModule</span></tt></a> implements
+the lower-level objects for representing predefined shapes (glyphs) in VTK.</p>
+<dl class="class">
+<dt id="ase.visualize.vtk.module.vtkGlyphModule">
+<em class="property">class </em><tt class="descclassname">ase.visualize.vtk.module.</tt><tt class="descname">vtkGlyphModule</tt><big>(</big><em>vtk_pointset</em>, <em>glyph_source</em>, <em>scalemode=None</em>, <em>colormode=None</em><big>)</big><a class="reference internal" href="../../_modules/ase/visualize/vtk/module.html#vtkGlyphModule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ase.visualize.vtk.module.vtkGlyphModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modules represent a unified collection of VTK objects needed for
+introducing basic visualization concepts such as surfaces or shapes.</p>
+<p>A common trait of all modules is the need for an actor representation and
+corresponding generic properties such as lighting, color and transparency.</p>
+<p>Poly data modules are based on polygonal data sets, which can be mapped
+into graphics primitives suitable for rendering within the VTK framework.</p>
+<p>Glyph modules construct these polygonal data sets by replicating a glyph
+source across a specific set of points, using available scalar or vector
+point data to scale and orientate the glyph source if desired.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">molecule</span><span class="p">(</span><span class="s">&#39;C60&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">vtkUnitCellModule</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apos</span> <span class="o">=</span> <span class="n">vtkAtomicPositions</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_positions</span><span class="p">(),</span> <span class="n">cell</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_ugd</span> <span class="o">=</span> <span class="n">apos</span><span class="o">.</span><span class="n">get_unstructured_grid</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">glyph_source</span> <span class="o">=</span> <span class="n">vtkAtomSource</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">glyph_module</span> <span class="o">=</span> <span class="n">vtkGlyphModule</span><span class="p">(</span><span class="n">vtk_ugd</span><span class="p">,</span> <span class="n">glyph_source</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct VTK-representation of a module containing glyphs.
+These glyphs share a common source, defining their geometrical
+shape, which is cloned and oriented according to the input data.</p>
+<dl class="docutils">
+<dt>vtk_pointset: Instance of vtkPointSet or subclass thereof</dt>
+<dd>A vtkPointSet defines a set of positions, which may then be
+assigned specific scalar of vector data across the entire set.</dd>
+<dt>glyph_source: Instance of ~vtk.vtkCustomGlyphSource or subclass thereof</dt>
+<dd>Provides the basic shape to distribute over the point set.</dd>
+</dl>
+<dl class="method">
+<dt id="ase.visualize.vtk.module.vtkGlyphModule.get_actor">
+<tt class="descname">get_actor</tt><big>(</big><big>)</big><a class="headerlink" href="#ase.visualize.vtk.module.vtkGlyphModule.get_actor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the actor representing this module in a rendering scene.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.module.vtkGlyphModule.set_actor">
+<tt class="descname">set_actor</tt><big>(</big><em>vtk_act</em><big>)</big><a class="headerlink" href="#ase.visualize.vtk.module.vtkGlyphModule.set_actor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the actor representing this module in a rendering scene.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ase.visualize.vtk.module.vtkGlyphModule.set_property">
+<tt class="descname">set_property</tt><big>(</big><em>vtk_property</em><big>)</big><a class="headerlink" href="#ase.visualize.vtk.module.vtkGlyphModule.set_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the property of the actor representing this module.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+
+          <h3>ASE</h3>
+          <ul class="this-page-menu">
+            <li><a href="../../overview.html">
+              Overview</a></li>
+            <li><a href="../../download.html">
+              Installation</a></li>
+            <li><a href="../../tutorials/tutorials.html">
+              Tutorials</em></a></li>
+            <li><a href="../ase.html">
+              Documentation</a></li>
+            <li><a href="../../faq.html">FAQ</a></li>
+            <li><a href="../../mailinglists.html">Mailing lists</a></li>
+            <li><a href="../../development/releasenotes.html">Release notes</a></li>
+            <li><a href="../../licenseinfo.html">License info</a></li>
+           </ul>
+           <h3>Development</h3>
+           <ul class="this-page-menu">
+            <li><a href="../../development/development.html">
+              Development</a></li>
+            <li><a href="http://wiki.fysik.dtu.dk/ase/epydoc/ase-module.html">
+              Epydoc</a></li>
+            <li><a href="http://trac.fysik.dtu.dk/projects/ase/browser/trunk/">
+              Source code (svn)</a></li>
+            <li><a href="../../bugs.html">Bugs!</a></li>
+            <li><a href="http://trac.fysik.dtu.dk/projects/ase/report/1">
+              Bug Tracker</a></li>
+            <li><a href="https://ase-buildbot.fysik.dtu.dk/waterfall">
+              BuildBot</a></li>
+          </ul>
+            <h3>This Page</h3>
+            <ul>
+<li><a class="reference internal" href="#">ASE-VTK</a><ul>
+<li><a class="reference internal" href="#representing-atoms">Representing atoms</a><ul>
+<li><a class="reference internal" href="#atom-centered-data">Atom-centered data</a></li>
+<li><a class="reference internal" href="#predefined-shapes">Predefined shapes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="visualize.html" title="previous chapter">Visualization</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../calculators/calculators.html" title="next chapter">Calculators</a></p>
+            <ul class="this-page-menu">
+              <li><a href="../../_sources/ase/visualize/vtk.txt">Show Source</a></li>
+            </ul>
+            <h3>Quick search</h3>
+            <form class="search" action="../../search.html" method="get">
+              <input type="text" name="q" size="18" /> <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+
+
+
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+
+
+
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             accesskey="">modules</a> |</li>
+        <a href="../../index.html"><img class="logo" src="../../_static/ase.ico" alt="Logo" align="absmiddle"/></a>
+          <li><a href="../ase.html" accesskey="U">Documentation for modules in ASE</a> &raquo;</li>
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2015, CAMd.
+      Last updated on Thu, 16 Apr 2015 08:16:14.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/jensj/.local/lib/python3.4/site-packages/spelltinkle/run.py", line 48, in run
+    session = Session(args.files, scr, input)
+  File "/home/jensj/.local/lib/python3.4/site-packages/spelltinkle/session.py", line 23, in __init__
+    doc.read(filename, positions)
+  File "/home/jensj/.local/lib/python3.4/site-packages/spelltinkle/document.py", line 146, in read
+    with open(filename, encoding='UTF-8') as fd:
+IsADirectoryError: [Errno 21] Is a directory: 'phasediagram/'
