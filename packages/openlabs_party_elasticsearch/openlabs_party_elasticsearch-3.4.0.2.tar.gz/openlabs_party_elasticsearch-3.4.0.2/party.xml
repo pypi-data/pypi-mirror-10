@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tryton>
+    <data>
+        <!-- Create a document for mapping party -->
+        <record model="elasticsearch.document.type" id="es_party_document">
+            <field name="name">Parties</field>
+            <field name="model" search="[('model', '=', 'party.party')]"/>
+            <field name="mapping">
+              {
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "analyzer": "simple"
+                    },
+                    "name": {
+                        "fields": {
+                            "metaphone": {
+                                "type": "string",
+                                "analyzer": "name_metaphone"
+                            },
+                            "partial": {
+                                "search_analyzer": "full_name",
+                                "index_analyzer": "partial_name",
+                                "type": "string"
+                            }
+                        },
+                        "type": "string",
+                        "analyzer": "full_name"
+                    }
+                }
+            }
+          </field>
+        </record>
+    </data>
+</tryton>
