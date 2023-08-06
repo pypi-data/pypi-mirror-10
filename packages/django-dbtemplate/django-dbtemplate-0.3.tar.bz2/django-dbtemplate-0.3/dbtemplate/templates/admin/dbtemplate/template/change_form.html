@@ -1,0 +1,38 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block object-tools-items %}
+    <li>
+      <a href="{% url 'admin:database_template_try_render' original.pk %}">{% trans "Preview" %}</a>
+    </li>
+    {{ block.super }}
+{% endblock %}
+
+{% block field_sets %}
+{{ block.super }}
+{% if context_specs %}
+<fieldset class="module aligned ">
+  <div class="form-row field-data">
+    <div>
+      <label class="required" for="id_data">{% trans "Context" %}</label>
+      <p>
+        <br>
+        <dl>
+          {% for key, value in context_specs.items %}
+            <dt>{{ key }}</dt>
+            {% if value.type == 'model' %}
+              {% url 'django-admindocs-models-detail' app_label=value.app model_name=value.model as docs_url %}
+              <dd>
+                {% trans "Random model" %} <a href="{{ docs_url }}">{{ value.model }}</a>
+              </dd>
+            {% else %}
+              <dd>{{ value }}</dd>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      </p>
+    </div>
+  </div>
+</fieldset>
+{% endif %}
+{% endblock %}
