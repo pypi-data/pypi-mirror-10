@@ -1,0 +1,9 @@
+setuptools
+Products.CMFPlone
+Products.ATContentTypes
+IPTCInfo
+py-dateutil
+
+[test]
+plone.app.testing
+interlude
