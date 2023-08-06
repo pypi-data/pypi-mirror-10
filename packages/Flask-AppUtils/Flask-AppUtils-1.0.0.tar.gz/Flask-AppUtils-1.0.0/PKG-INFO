@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: Flask-AppUtils
+Version: 1.0.0
+Summary: A collection of useful patterns and helpers for Flask applications
+Home-page: http://github.com/kofrasa/flask-apputils
+Author: Francis Asante
+Author-email: kofrasa@gmail.com
+License: BSD
+Description: 
+        Flask-AppUtils
+        --------------
+        
+        A collection of useful patterns and helpers for Flask applications
+        
+        install
+        -------
+        ::
+        
+            $ pip install flask-apputils
+        
+        
+        modules
+        -------
+        - `decorators`
+        - `filters`
+        - `helpers`
+        - `routing`
+        - `middlewares`
+        - `mimes`
+        - `validators`
+        
+        
+        See: Readme_
+        
+        .. _Readme: https://github.com/kofrasa/flask-apputils/blob/master/README.md
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
