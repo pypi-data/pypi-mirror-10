@@ -1,0 +1,14 @@
+[bisque.commands]
+deploy = bq.commands.deploy:deploy
+server = bq.commands.server_ops:server
+setup = bq.setup.bisque_setup:setup
+
+[console_scripts]
+bq-admin = bq.commands.admin:main
+
+[paste.app_factory]
+main = bq.service:main
+
+[pyramid.scaffold]
+bisque_config = bq.setup.create_config:ConfigTemplate
+

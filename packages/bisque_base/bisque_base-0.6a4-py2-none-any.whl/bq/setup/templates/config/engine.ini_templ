@@ -1,0 +1,228 @@
+###
+# app configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/environment.html
+###
+
+[app:main]
+use = egg:bisque_base
+pyramid.reload_templates = true
+pyramid.debug_authorization = true
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.default_locale_name = en
+pyramid.includes =
+    pyramid_debugtoolbar
+
+
+
+
+bisque.services_enabled = engine_service
+#bisque.services_disabled = engine_service
+
+bisque.static_files = false
+bisque.has_database = false
+bisque.authorization = mex
+
+logging.config = %(here)s/engine.ini
+
+#bisque.xmldburl = dbxml://basex.xml
+#bisque.sqldburl = sqlxml://postgresql@localhost:5432/bq06
+
+
+# Login identification  systems
+# NOTE: you must also edit config/who.ini to enable these
+#bisque.login.providers = local
+#bisque.login.local.text = Local Login
+#bisque.login.local.url = /auth_service/login
+#bisque.login.local.icon = /images/signin/signin_bisque.png
+
+
+
+# SQLAlchemy
+#sqlalchemy.url = postgresql://localhost:5432/bq06
+#sqlalchemy.url = postgresql://localhost:5432/bisque05
+#sqlalchemy.echo = false
+#sqlalchemy.echo_pool = false
+#sqlalchemy.pool_recycle = 3600
+
+
+
+
+bisque.paths.root = /home/kgk/work/bisque/bisque06
+
+#bisque.blob_service.stores = local
+#bisque.stores.local.mounturl = file://$datadir/imagedir/$user
+#bisque.stores.local.top = file://$datadir/imagedir
+
+#bisque.blob_service.store_paths=false
+
+
+#webassets.base_dir              = .
+#webassets.base_url              = public
+#webassets.debug                 = true
+#webassets.updater               = timestamp
+#webassets.cache                 = False
+#webassets.jst_compiler          = Handlebars.compile
+#webassets.url_expire            = False
+#webassets.static_view           = True
+#webassets.cache_max_age         = 3600
+#webassets.bundles               =  bq.setup:bundles
+
+
+
+
+# Beaker Sessions Config
+# If you'd like to fine-tune the individual locations of the cache data dirs
+# for the Cache data, or the Session saves, un-comment the desired settings
+# here:
+#beaker.cache.data_dir = %(here)s/data/cache
+#beaker.session.data_dir = %(here)s/data/sessions
+#session.lock_dir = %(here)s/data/sessions/lock
+#session.type = cookie
+#session.validate_key = bq
+#session.key = bq
+#session.secret = somesecret
+
+
+# By default, the toolbar only appears for clients from IP addresses
+# '127.0.0.1' and '::1'.
+# debugtoolbar.hosts = 127.0.0.1 ::1
+
+###
+# wsgi server configuration
+###
+
+[server:main]
+use = egg:waitress#main
+host = 0.0.0.0
+port = 6543
+
+###
+# logging configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/logging.html
+###
+
+[loggers]
+keys = root, bq, sqlalchemy, auth, registration, bq_auth, tgext, bq_util_locks, data, index
+[handlers]
+#keys = console, syslog, pylog, file
+#keys =  console, pylog,file
+keys = console
+[formatters]
+keys = generic, syslog, full
+# If you create additional loggers, add them as a key to [loggers]
+
+[logger_root]
+level = INFO
+#handlers = file
+#handlers = pylog
+#handlers = syslog
+handlers = console
+
+[logger_bq]
+level = DEBUG
+handlers =
+qualname = bq
+
+[logger_data]
+level = INFO
+handlers =
+qualname = bq.data_service
+
+[logger_index]
+level = INFO
+handlers =
+qualname = bq.tag_index
+
+
+[logger_tgext]
+level = DEBUG
+handlers = console
+qualname = tgext
+
+[logger_bq_auth]
+level = DEBUG
+handlers =
+qualname = bq.auth
+
+[logger_bq_util_locks]
+level = INFO
+handlers =
+qualname = bq.util.locks
+
+[logger_registration]
+level = INFO
+handlers =
+qualname = registration
+
+[logger_sqlalchemy]
+level = WARN
+handlers =
+qualname = sqlalchemy.engine
+# "level = INFO" logs SQL queries.
+# "level = DEBUG" logs SQL queries and results.
+# "level = WARN" logs neither.  (Recommended for production systems.)
+
+[logger_sqlalchemy_pool]
+level = WARN
+handlers =
+qualname = sqlalchemy.pool
+# "level = INFO" logs SQL queries.
+# "level = DEBUG" logs SQL queries and results.
+# "level = WARN" logs neither.  (Recommended for production systems.)
+# A logger for authentication, identification and authorization -- this is
+# repoze.who and repoze.what:
+[logger_auth]
+level = WARN
+handlers =
+qualname = auth
+
+# If you create additional handlers, add them as a key to [handlers]
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[handler_rotfile]
+class=handlers.RotatingFileHandler
+level=NOTSET
+formatter=full
+args=('logs/bisque.log', 'a', 100*1024*1024, 14)
+
+[handler_file]
+class=handlers.RotatingFileHandler
+level=NOTSET
+formatter=full
+args=('logs/bisque.log', 'a')
+
+[handler_syslog]
+class= handlers.SysLogHandler
+level=NOTSET
+formatter=syslog
+args=(('localhost', handlers.SYSLOG_UDP_PORT), handlers.SysLogHandler.LOG_LOCAL1)
+#args=('/dev/log', handlers.SysLogHandler.LOG_LOCAL1)
+#facility=LOG_LOCAL1
+
+[handler_pylog]
+# Install a SocketListener
+class= handlers.SocketHandler
+level=NOTSET
+formatter=generic
+args=('localhost', handlers.DEFAULT_TCP_LOGGING_PORT)
+
+
+#Change args to:
+# If you create additional formatters, add them as a key to [formatters]
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s] %(message)s
+#datefmt = %H:%M:%S
+
+[formatter_full]
+format = %(asctime)s:%(process)d-%(thread)x: %(levelname)-5.5s [%(name)s] %(message)s
+#datefmt = %H:%M:%S
+
+
+[formatter_syslog]
+format = %(levelname)s [%(name)s] %(message)s
+#datefmt = %H:%M:%S
