@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-md-2 alert" ng-repeat="builder in builders" ng-if="builder.last_build.author_name" ng-class="alert-{{builder.css_status}}">
+      <img class="avatar" width="200" height="200" ng-show="builder.last_build.author_gravatar_url" ng-src="{{builder.last_build.author_gravatar_url}}?s=200" alt="{{ builder.last_build.author_name }}" />
+      <h3>{{ builder.name }}</h3>
+      <p ng-if="builder.last_build.author_name"><strong>Author Name</strong><span ng-if="builder.last_build.author_name">{{ builder.last_build.author_name }}</span></p>
+      <p ng-if="builder.last_build.author_email"><strong>Author Email</strong><span ng-if="builder.last_build.author_email">{{ builder.last_build.author_email }}</span></p>
+      <p ng-if="builder.last_build.commit"><strong>Commit Hash</strong><span ng-if="builder.last_build.commit">{{ builder.last_build.commit }}</span></p>
+      <p ng-if="builder.last_build.commit_message"><strong>commit message</strong><span ng-if="builder.last_build.commit_message">{{ builder.last_build.commit_message }}</span></p>
+      <p ng-if="builder.last_build.docker_status.status">
+        <strong>Docker Status</strong>
+        <span ng-if="builder.last_build.docker_status.status">{{ builder.last_build.docker_status.status }} <span ng-if="builder.last_build.docker_status.id">{{ builder.last_build.docker_status.id }}</span> </span></p>
+        <span ng-if="builder.last_build.stream.stream">{{ builder.last_build.docker_status.stream }}</span>
+        <span ng-if="builder.last_build.progress.progress">{{ builder.last_build.docker_status.progress }}</span>
+      </p>
+    </div>
+  </div>
+</div>
