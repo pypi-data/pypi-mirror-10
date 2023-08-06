@@ -1,0 +1,7 @@
+setuptools
+plone.app.users>=2
+validate_email
+pyDNS
+
+[test]
+plone.app.testing
