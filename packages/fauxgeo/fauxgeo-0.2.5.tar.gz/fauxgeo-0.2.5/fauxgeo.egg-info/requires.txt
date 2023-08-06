@@ -1,0 +1,16 @@
+numpy
+gdal
+shapely
+pygeoprocessing
+wheel
+pillow
+
+[tests]
+numpy
+gdal
+shapely
+pygeoprocessing
+wheel
+pillow
+nose
+coverage
