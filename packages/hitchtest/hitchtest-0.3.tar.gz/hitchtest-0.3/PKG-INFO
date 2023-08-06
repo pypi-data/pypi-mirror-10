@@ -1,0 +1,64 @@
+Metadata-Version: 1.1
+Name: hitchtest
+Version: 0.3
+Summary: Declarative test compiler and runner using YAML and jinja2.
+Home-page: https://hitch.readthedocs.org/
+Author: Colm O'Connor
+Author-email: colm.oconnor.github@gmail.com
+License: AGPL
+Description: HitchTest
+        =========
+        
+        HitchTest is a part of the hitch testing framework which compiles and runs
+        YAML (and optionally jinja2) tests like this::
+        
+          - engine: engine.DjangoReminderTestExecutionEngine
+            description: Sign up, create reminder and wait for email reminder to arrive.
+            scenario:
+              - Load website
+              - Click: Register
+              - Fill form:
+                  Username: django
+                  Email: django@reinhardt.com
+                  Password1: jazzguitar
+                  Password2: jazzguitar
+              - Click: Create
+              - Create reminder:
+                  Description: Remind me about upcoming gig.
+                  Days from now: 30
+              - Wait for email:
+                  Containing: Confirm E-mail Address
+              - Confirm emails sent: 1
+              - Time travel:
+                  Days: 30
+              - Wait for email:
+                  Containing: Remind me about upcoming gig.
+        
+        
+        Why YAML + Jinja2?
+        ==================
+        
+        To more easily maintain separation of concerns, individual test scripts
+        should be declarative. This can be enforced by ensuring that they are
+        written in a purely declarative language - hence YAML.
+        
+        This also makes reading, writing, adding metadata to and and parsing
+        test cases much easier.
+        
+        Combining YAML with jinja2 gives you the power to deduplicate
+        test case code while still maintaining comprehensibility and simplicity.
+        
+Keywords: hitch testing framework bdd tdd declarative tests testing jinja2 yaml
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Operating System :: Unix
+Classifier: Environment :: Console
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
