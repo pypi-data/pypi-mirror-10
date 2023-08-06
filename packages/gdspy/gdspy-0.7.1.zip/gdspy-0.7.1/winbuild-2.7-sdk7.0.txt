@@ -1,0 +1,6 @@
+cd \Users\Derpson\gdspy
+set DISTUTILS_USE_SDK=1
+setenv /x64 /release
+C:\Python27\python.exe setup.py build --plat-name=win-amd64 bdist --format=wininst
+setenv /x86 /release
+C:\Python27_32\python.exe setup.py build --plat-name=win32 bdist --format=wininst
