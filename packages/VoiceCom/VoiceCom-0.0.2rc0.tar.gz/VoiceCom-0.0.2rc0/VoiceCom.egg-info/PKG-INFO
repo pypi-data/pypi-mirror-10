@@ -1,0 +1,64 @@
+Metadata-Version: 1.1
+Name: VoiceCom
+Version: 0.0.2rc0
+Summary: Voice User Interface
+Home-page: https://github.com/koehlja/VoiceCom
+Author: https://github.com/koehlja
+Author-email: UNKNOWN
+License: MIT License
+Description: 
+        VoiceCom
+        ========
+        
+        Links:
+        
+        - `PyPI <https://pypi.python.org/pypi/VoiceCom>`__
+        - `GitHub <https://github.com/koehlja/VoiceCom>`__
+        
+        
+        Requirements
+        ------------
+        - Python 2
+        
+        
+        Installation
+        ------------
+        
+        You can use the following commands to install EasyPlot:
+        
+        ``pip install voicecom``
+        
+        or
+        
+        ``easy_install voicecom``
+        
+        Alternatively, you could download the package manually from the Python
+        Package Index: https://pypi.python.org/pypi/VoiceCom, unzip it, navigate
+        into the package, and use the command:
+        
+        ``python setup.py install``
+        
+        or
+        
+        ``pip install .``
+        
+        ...
+        
+Keywords: voice speech recognition computer
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.3
+Classifier: Programming Language :: Python :: 2.4
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Topic :: Utilities
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
