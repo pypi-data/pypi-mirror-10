@@ -1,0 +1,242 @@
+.\" Man page generated from reStructuredText.
+.
+.TH RE6STNET 8 "" "" ""
+.SH NAME
+re6stnet \- Resilient, Scalable, IPv6 Network application
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH SYNOPSIS
+.sp
+\fBre6stnet\fP \fB\-\-registry\fP \fIregistry\-url\fP \fB\-\-dh\fP \fIdh\-path\fP
+\fB\-\-ca\fP \fIca\-path\fP \fB\-\-cert\fP \fIcert\-path\fP \fB\-\-key\fP \fIkey\-path\fP
+[\fIoptions\fP\&...] [\fB\-\-\fP [\fIopenvpn\-options\fP\&...]]
+.SH DESCRIPTION
+.sp
+\fIre6stnet\fP runs a node of a re6st network. It establishes connections
+with other nodes by creating OpenVPN tunnels and uses Babel for routing.
+.SH USAGE
+.sp
+Use \fBre6stnet \-\-help\fP to get the complete list of options.
+.sp
+If you already have IPv6 connectivity by autoconfiguration and still want to
+use it for communications that are unrelated to this network, then:
+.INDENT 0.0
+.IP \(bu 2
+your kernel must support source address based routing (because you can\(aqt
+use \fB\-\-default\fP option).
+.IP \(bu 2
+you must set \fBnet.ipv6.conf.<iface>.accept_ra\fP sysctl to value 2 and
+trigger SLAAC with \fBrdisc6 <iface>\fP to restore the default route if the
+kernel removed while enabling forwarding.
+.UNINDENT
+.sp
+Following environment variables are available for processes started with
+\fB\-\-up\fP or \fB\-\-daemon\fP:
+.INDENT 0.0
+.TP
+.B re6stnet_iface
+value of \fB\-\-main\-interface\fP option
+.TP
+.B re6stnet_ip
+IPv6 set on main interface
+.TP
+.B re6stnet_subnet
+your subnet, written in CIDR notation
+.TP
+.B re6stnet_network
+the re6st network you belong to, written in CIDR notation
+.UNINDENT
+.SS Starting re6st automatically
+.sp
+If the \fI/etc/re6stnet/re6stnet.conf\fP configuration file exists, \fIre6stnet\fP is
+automatically started as a daemon. This is done is 2 different ways, depending
+on whether it is bound or not to a specific interface, by using the
+\fImain\-interface\fP option:
+.INDENT 0.0
+.IP \(bu 2
+If the option is not given (or if it is set to \(aqlo\(aq), then it is automatically
+started/stopped by \fBsystemd\fP(1). Debian package also provides SysV init
+scripts.
+.IP \(bu 2
+Otherwise, it is automatically started/stopped when the related network
+interface is enabled/disabled by \fBNetworkManager\fP(8). Debian package also
+provides \fIifupdown\fP scripts.
+.UNINDENT
+.SS Important note about NetworkManager
+.sp
+It is required to configure properly every connection defined in NetworkManager
+because default settings are wrong and conflict with re6st:
+.INDENT 0.0
+.IP \(bu 2
+If re6st routes all your IPv6 traffic, using \fB\-\-default\fP option, then make
+sure to disable IPv6 in NetworkManager.
+.IP \(bu 2
+Otherwise, the following options must be set in [ipv6] section:
+.INDENT 2.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ignore\-auto\-routes=true
+never\-default=true
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+In applets, these options are usually named:
+.INDENT 2.0
+.IP \(bu 2
+Ignore automatically obtained routes (KDE & Gnome)
+.IP \(bu 2
+Use only for resources on this connection (KDE)
+.IP \(bu 2
+Use this connection only for resources on its network (Gnome)
+.UNINDENT
+.UNINDENT
+.SH HOW TO
+.SS Joining an existing network
+.sp
+Once you know the registry URL of an existing network, use \fIre6st\-conf\fP to get
+a certificate:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+re6st\-conf \-\-registry http://re6st.example.com/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Use \fI\-r\fP option to add public information to your certificate.
+A token will be sent to the email you specify, in order to confirm your
+subscription.
+Files will be created by default in current directory and they are all
+required for \fIre6stnet\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+re6stnet \-\-dh dh2048.pem \-\-ca ca.crt \-\-cert cert.crt \-\-key cert.key \e
+         \-\-registry http://re6st.example.com/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Setting a new network
+.sp
+First you need to know the prefix of your network: let\(aqs suppose it is
+\fI2001:db8:42::/48\fP\&. From it, you computes the serial number of the Certificate
+authority (CA) that will be used by the registry node to sign delivered
+certificates, as follows: translate the significant part to hexadecimal
+(ie. 20010db80042) add a \fB1\fP as the most significant digit:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+openssl req \-nodes \-new \-x509 \-key ca.key \-set_serial 0x120010db80042 \e
+            \-days 365 \-out ca.crt
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The CA email will be used as sender for mails containing tokens.
+The registry can now be started:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+re6st\-registry \-\-ca ca.crt \-\-key ca.key \-\-mailhost smtp.example.com
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The registry uses the builtin HTTP server of Python. For security, it should be
+behind a proxy like Apache.
+.sp
+The first registered node should be always up because its presence is used by
+all other nodes to garantee they are connected to the network. The registry
+also emits UDP packets that are forwarded via a localhost re6st node, and it is
+recommended that this is the first one:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+re6st\-conf \-\-registry http://localhost/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If \fIre6st\-conf\fP is run in the directory containing CA files, ca.crt will be
+overridden without harm. See previous section for more information to create
+a node.
+.sp
+For bootstrapping, you may have to explicitly set an IP in the configuration
+of the first node, via the \fB\-\-ip\fP option. Otherwise, additional nodes won\(aqt
+be able to connect to it.
+.SH TROUBLESHOOTING
+.sp
+When many nodes are saturated or behind unconfigurated NAT, it may take
+some time to bootstrap. However, if you really think something goes wrong,
+you should first enable OpenVPN logs and increase verbosity:
+see commented directives in configuration generated by \fIre6st\-conf\fP\&.
+.sp
+A common failure is caused by a misconfigured firewall:
+.INDENT 0.0
+.IP \(bu 2
+re6st launches several OpenVPN processes. Those in client mode may connect to
+any TCP/UDP port in IPv4. Server processes only listen to ports specified
+by \fB\-\-pp\fP option.
+.IP \(bu 2
+re6st nodes use UDP port 326 to communicate.
+It must be open on all re6st IPv6.
+.IP \(bu 2
+OpenVPN always aborts due to inactivity timeout when Babel paquets are
+filtered. UDP port 6696 must be open on link\-local IPv6 of all interfaces
+managed by Babel.
+.UNINDENT
+.sp
+Other security components may also break re6st. For example, default SELinux
+configuration on Fedora prevents execution of OpenVPN server processes.
+.SH SEE ALSO
+.sp
+\fBre6st\-conf\fP(1), \fBre6st\-registry\fP(1), \fBbabeld\fP(8), \fBopenvpn\fP(8),
+\fBrdisc6\fP(8), \fBreq\fP(1)
+.SH AUTHOR
+Nexedi
+.\" Generated by docutils manpage writer.
+.
