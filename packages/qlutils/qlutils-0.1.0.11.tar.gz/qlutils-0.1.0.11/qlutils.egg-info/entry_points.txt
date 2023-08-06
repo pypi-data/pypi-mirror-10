@@ -1,0 +1,4 @@
+[console_scripts]
+qllgetservers = qlutils.qllgetservers:main
+qllserver = qlutils.qllserver:main
+
