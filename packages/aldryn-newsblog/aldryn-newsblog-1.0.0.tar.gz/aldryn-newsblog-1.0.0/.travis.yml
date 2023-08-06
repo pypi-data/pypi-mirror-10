@@ -1,0 +1,35 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+
+# Use container based infrastructure
+sudo: false
+
+env:
+  - TOXENV=py26-dj16-cms30-sqlite
+  - TOXENV=py27-dj16-cms30-sqlite
+  - TOXENV=py27-dj17-cms30-sqlite
+  - TOXENV=py27-dj17-cms30-mysql
+  - TOXENV=py27-dj17-cms30-postgres
+  - TOXENV=py26-dj16-cms31-sqlite
+  - TOXENV=py27-dj16-cms31-sqlite
+  - TOXENV=py27-dj17-cms31-sqlite
+  - TOXENV=py27-dj17-cms31-mysql
+  - TOXENV=py27-dj17-cms31-postgres
+  - TOXENV=flake8
+
+cache:
+  directories:
+    - $HOME/.wheelhouse
+
+install:
+  - pip install tox
+  - pip install coveralls
+
+script:
+  - tox
+
+after_success: coveralls
+
+notifications:
+  webhooks: http://addons.us-iad-rs.aldryn.io/en/travis-endpoint/
