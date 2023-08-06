@@ -1,0 +1,18 @@
+{% load bootstrap3 %}
+
+{% comment %}
+	Display description text
+	
+	Parameters:
+		object_list			List of text paragraphs
+		attributes.class	Class of encapsulating div. Empty by default
+{% endcomment %}
+
+<div {% if attributes.class %}class="{{ attributes.class }}"{% endif %}>
+
+    {% for obj in object_list %}
+        <p>{{ obj|safe }}</p>
+    {% endfor %}	
+
+</div>
+

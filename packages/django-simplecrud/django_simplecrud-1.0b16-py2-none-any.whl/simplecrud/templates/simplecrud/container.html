@@ -1,0 +1,37 @@
+{% extends 'simplecrud/base.html' %}
+{% load bootstrap3 %}
+
+{% comment %}
+	Top level widgets container
+	
+	Parameters:
+		template_title		Page title
+		
+		template_subtitle	Page subtitle (only shown if title is valid)
+		
+		widget				Widget to include
+		
+{% endcomment %}
+
+{% block title %}{{ template_title }}{% endblock %}
+
+
+{% block content %}
+	{% bootstrap_messages %}
+
+	{% if template_title %}
+		<div class="page-header">
+			<h1>
+				{{ template_title }}
+				<br>
+				{% if template_subtitle %}
+					<small>{{ template_subtitle }}</small>
+				{% endif %}
+			</h1>
+		</div>
+	{% endif %}
+
+	{% include widget %}
+
+{% endblock %}
+

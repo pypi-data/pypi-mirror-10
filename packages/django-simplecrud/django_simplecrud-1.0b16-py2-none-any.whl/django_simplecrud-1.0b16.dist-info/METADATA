@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: django-simplecrud
+Version: 1.0b16
+Summary: CRUD framework for Django
+Home-page: https://github.com/ptav/django-simplecrud
+Author: Pedro Tavares
+Author-email: pedro@ermapp.net
+License: LICENSE
+Keywords: django,crud,views,templates
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Framework :: Django
+Classifier: Environment :: Web Environment
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: six
+
+A simple Create-Review-Update-Delete framework for Django. Ready to use out-of-the-box: includes both views and templates
+
+

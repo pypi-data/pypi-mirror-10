@@ -1,0 +1,20 @@
+{% load bootstrap3 %}
+{% load crud_tags %}
+
+{% comment %}
+	Display URL links
+	
+	Parameters:
+		object_list	A sequence of dicts with: label,url
+		
+
+{% endcomment %}
+
+<ul class="nav nav-pills">
+	{% for lnk in object_list %}
+		<li>
+			<a href="{{ lnk.url }}" {% if lnk.class %}class="{{ lnk.class }}"{% endif %}>{{ lnk.label }}</a>
+		</li>
+	{% endfor %}
+</ul>
+
