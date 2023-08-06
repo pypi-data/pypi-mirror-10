@@ -1,0 +1,19 @@
+格式化正则内容输出
+===============
+
+$0、$1、$2 分别对应 match中的g0、g1、g2、g3
+
+multi是否为多重匹配，是则返回所有结果，否则返回首匹配
+
+
+
+    >>> data = '12m34kjdg8946o'
+    >>> pn = '(\d)([a-z])'
+    >>> fm = '$1,$2'
+    >>> result = extract(pn, data, fm)
+    >>> result
+    '2,m'
+    >>> result = extract(pn, data, fm, multi= True)
+    >>> result
+    ['2,m', '4,k', '6,o']
+    
