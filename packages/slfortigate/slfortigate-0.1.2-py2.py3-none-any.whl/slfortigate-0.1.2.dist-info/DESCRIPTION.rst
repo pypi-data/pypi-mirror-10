@@ -1,0 +1,76 @@
+SL Fortigate Order and Configuration Tool
+=========================================
+
+Introduction
+------------
+
+This tool can order a Fortigate firewall on an existing VLAN, a new VLAN, or can reconfigure an existing device.
+
+Usage
+-----
+
+.. code-block::
+
+   usage: slfortigate [-h] [-d datacenter] [--vlan protectedvlan] [--ha-pair]
+                     [-o file] [--really-order] [--config-existing hostname]
+                     [-v]
+
+   Order and configure a fortigate security appliance, locking down the vlan by default, so that all subsequent
+      servers ordered on this vlan will be protected immediately.
+
+   optional arguments:
+    -h, --help            show this help message and exit
+    -d datacenter, --datacenter datacenter
+                          the datacenter to create this fortigate in. Use the
+                          short name of the datacenter, e.g. sjc01. Use this
+                          option instead of --vlan when you do not have any
+                          servers in this datacenter yet. A small VSI will
+                          automatically be created to get a public vlan and the
+                          fortigate put on that vlan.
+    --vlan protectedvlan  the existing VLAN to be protected by the fortigate,
+                          specified as <vlanNum>.<routerHostname>, for example,
+                          1738.fcr01a.tor01. Either this argument or
+                          --datacenter must be specified.
+    --ha-pair             not yet implemented! You want to order 2 fortigates
+                          configured together as an HA pair
+    -o file, --output file
+                          file name to put the order or quote output in, instead
+                          of displaying it to stdout. The order/quote data
+                          structure is very large, so you will probably want it
+                          in a file.
+    --really-order        really order the fortigate, otherwise just get a quote
+    --config-existing hostname
+                          the hostname of an existing fortigate to configure
+                          instead of ordering a new fortigate
+    -v, --verbose         display verbose output
+
+   In addition to the options below, you also need to set environment variables
+      SL_USERNAME and SL_API_KEY, or have them in your ~/.softlayer file.
+
+      EXAMPLES:
+
+      # Order a fortigate security appliance in a new datacenter:
+      slfortigate -d tor01 --output ~/tmp/order.txt --really-order
+
+      # Order a fortigate security appliance on a specific VLAN:
+      slfortigate --vlan 1275.fcr01a.tor01 --output ~/tmp/order.txt --really-order
+
+      # Configure an existing fortigate security appliance:
+      slfortigate --config-existing firewall-vlan1729.networklayer.com
+
+
+System Requirements
+-------------------
+
+* This library has been tested on Python 2.7 on RHEL 7.
+* A valid SoftLayer API username and key are required to call SoftLayer's API.
+
+Copyright
+---------
+
+This software is Copyright (c) 2015 IBM, Inc.
+
+See the bundled LICENSE file for more information.
+
+
+
