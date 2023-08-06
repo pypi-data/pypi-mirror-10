@@ -1,0 +1,39 @@
+{% load bootstrap3 %}
+
+{% comment %}
+	Render object_list items as a list of panels
+	
+	Parameters:
+		object_list				Collection of objects to present in the panels (e.g. queryset or list)
+
+		attributes.class		Topmost class. Default is empty
+
+		attributes.text 		Display a paragraph of text (usually instructions and help)
+		
+		attributes.links		Display link buttons above list. Sequence of sequences with 
+								(name,url,[arg0,arg1,...])
+		
+		Each item in the object_list can then have the following parameters:
+			widget			widget for rendering children objects inside panel
+			object_list		passed to widget as 'object_list'
+			attributes		passed to widget as 'attributes'
+
+{% endcomment %}
+
+
+<div {% if attributes.class %}class="{{ attributes.class }}"{% endif %}>
+
+    {% if attributes.text %}
+    	{% include "simplecrud/widget/text.html" with object_list=attributes.text %}
+    {% endif %}
+    
+    {% if attributes.links %}
+    	{% include "simplecrud/widget/links.html" with object_list=attributes.links %}
+    {% endif %}
+
+	{% for item in object_list %}
+		{% include item.widget with object_list=item.object_list attributes=item.attributes %}	    
+
+	{% endfor %}
+
+</div>		

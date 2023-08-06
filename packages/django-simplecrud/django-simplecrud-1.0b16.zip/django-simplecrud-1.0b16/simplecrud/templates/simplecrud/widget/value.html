@@ -1,0 +1,29 @@
+{% load crud_tags %}
+
+
+{% comment %}
+    Render single value or sequence (by recursion
+    
+    Parameters:
+        value                   Object to display        
+        value_widget            Widget to use for displaying values (self-refering generally)
+        
+{% endcomment %}
+
+
+
+{% if value|is_sequence %}
+	<table class="table table-striped table-bordered table-condensed text-center small">
+	    {% for row in value %}
+		    <tr>
+		        {% for col in row %}
+	        		<td>{% include value_widget with value=col %}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</table>
+	
+{% else %}
+	{{ value }}
+
+{% endif %}
