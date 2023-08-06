@@ -1,0 +1,8 @@
+Change log
+----------
+0.3.0
+^^^^^^
+
+* Replaced ``jackfrost_absolute_url`` method in ``ModelRenderer`` with
+  ``jackfrost_urls``, which allows models to add every URL they want to cause
+  to be visited.
