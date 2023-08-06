@@ -1,0 +1,72 @@
+#!/usr/bin/python
+""" Make table of the foreground coincident events
+"""
+import argparse, h5py, numpy, logging
+import matplotlib
+matplotlib.use('Agg')
+import pylab
+
+parser = argparse.ArgumentParser()
+# General required options
+parser.add_argument('--trigger-file')
+parser.add_argument('--verbose', action='count')
+parser.add_argument('--output-file')
+args = parser.parse_args()
+
+if args.verbose:
+    log_level = logging.INFO
+    logging.basicConfig(format='%(asctime)s : %(message)s', level=log_level)
+    
+logging.info('Read in the data')
+f = h5py.File(args.trigger_file, 'r')
+
+print f.attrs['background_time'], f.attrs['foreground_time']
+
+try:
+    cstat_fore = f['foreground/stat'][:]
+    cstat_fore.sort()
+    cstat_rate = numpy.arange(len(cstat_fore), 0, -1) / f.attrs['foreground_time'] * 3.15569e7
+    logging.info('Found %s foreground triggers' % len(cstat_fore))
+except:
+    cstat_fore = None
+
+back_ifar = f['background/ifar'][:]
+cstat_back = f['background/stat'][:]
+back_sort = cstat_back.argsort()
+cstat_back = cstat_back[back_sort]
+far_back = 1.0 / back_ifar[back_sort]
+
+back_fan = f['background/fan'][:][back_sort]
+err_low = far_back * ((back_fan - numpy.sqrt(back_fan)) / back_fan) 
+err_low[err_low == 0] = 1e-100
+err_high = far_back * ((back_fan + numpy.sqrt(back_fan)) / back_fan)
+
+logging.info('Found %s background (inclusive zerolage) triggers' % len(cstat_back))
+
+back_ifar_exc = f['background_exc/ifar'][:]
+cstat_back_exc = f['background_exc/stat'][:]
+back_sort_exc = cstat_back_exc.argsort()
+cstat_back_exc = cstat_back_exc[back_sort_exc]
+far_back_exc = 1.0 / back_ifar_exc[back_sort_exc]
+logging.info('Found %s background (exclusive zerolag) triggers' % len(cstat_back_exc))
+
+
+pylab.figure(1)
+
+pylab.fill_between(cstat_back, err_low, err_high, linewidth=0, color='tan')
+pylab.plot(cstat_back_exc, far_back_exc, color='grey', label='Background (removal)')
+pylab.plot(cstat_back, far_back, color='black', label='Background')
+
+if cstat_fore is not None:
+    pylab.scatter(cstat_fore, cstat_rate, s=10, color='blue', marker='^', label='Foreground')
+    pylab.xlim(cstat_back.min(), max(cstat_fore.max(), cstat_back.max()) + 1)
+else:
+    pylab.xlim(cstat_back.min(), cstat_back.max() + 1)
+
+pylab.ylabel('Cumulative Rate (1/year)')
+pylab.xlabel('Combined NewSNR')
+pylab.yscale('log')
+pylab.ylim(far_back.min() / 10.0, far_back.max())
+pylab.legend()
+pylab.grid()
+pylab.savefig(args.output_file)
