@@ -1,0 +1,20 @@
+0.0.4
+=====
+
+  - Add arguments log and purge on .create() class method.
+
+0.0.3
+=====
+
+  - Fix another bug related with returns of inspect.* on terminate. Sometime they returns None instead of dict()
+
+0.0.2
+=====
+
+  - Add support for timeout on worker.terminate() method.
+  - Fix an bug related with the returns of inspect.{active(),scheduled()} without hostname key.
+
+0.0.1
+=====
+
+  - First version
