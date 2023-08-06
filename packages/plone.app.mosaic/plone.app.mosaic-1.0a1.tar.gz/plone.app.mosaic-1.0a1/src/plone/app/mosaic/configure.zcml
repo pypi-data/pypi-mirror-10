@@ -1,0 +1,81 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone">
+
+  <!-- Include our dependencies -->
+  <includeDependencies package="." />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Plone Mosaic"
+      description="Installs Mosaic layout support for Dexterity content types"
+      directory="profiles/default"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="plone.app.mosaic_default"
+      title="Plone Mosaic setup"
+      description="Auto-configures content-types for layout ready"
+      handler=".setuphandlers.step_setup_various"
+      />
+
+  <!-- Backwards compatibility profile -->
+  <genericsetup:registerProfile
+      name="bbb"
+      title="Plone Mosaic for Plone 4"
+      directory="browser/bbb/profiles/default"
+      description="Installs Mosaic layout support for Dexterity content types"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      zcml:condition="not-have plone-5"
+      />
+
+  <!-- Registry configuration for Mosaic Editor -->
+  <adapter factory=".registry.MosaicRegistry" />
+
+  <!-- Mosaic Editor Widget -->
+  <adapter
+      factory=".widget.LayoutFieldWidget"
+      zcml:condition="installed plone.app.widgets"
+      />
+
+  <include package=".browser" />
+
+  <!-- Register resource traverser for content layouts -->
+  <adapter
+      name="contentlayout"
+      for="* .interfaces.IMosaicLayer"
+      provides="zope.traversing.interfaces.ITraversable"
+      factory=".layoutsupport.ContentLayoutTraverser"
+      />
+
+  <!-- Register vocabulary all available content layouts-->
+  <utility
+      component=".layoutsupport.AvailableContentLayoutsVocabularyFactory"
+      name="plone.availableContentLayouts"
+      />
+
+  <!-- Register vocabulary for display layouts available for given context -->
+  <utility
+      component=".layoutsupport.AvailableDisplayLayoutsVocabularyFactory"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      name="plone.availableDisplayLayouts"
+      />
+
+  <!-- Register default value adapter for layout aware content attribute -->
+  <!-- For zope.schema via special layout field specific adapter -->
+  <adapter factory=".layoutsupport.layoutFieldDefaultValue" />
+  <!-- For z3c.form -->
+  <adapter
+      name="default"
+      factory=".layoutsupport.default_layout_content"
+      />
+
+  <!-- Register default layouts -->
+  <include file="layouts.zcml" />
+
+</configure>
