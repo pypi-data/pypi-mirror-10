@@ -1,0 +1,26 @@
+<!--StacksTextBlockList 3-up Grid-->
+
+<div class="stacks-module list-3up stacks-textblock stacks-textblock-list-3up grid">
+    {% if context.display_title %}<h2 class="module-title">{{ context.display_title }}</h2>{% endif %}
+    {% for text_block in context.text_blocks %}
+    {% if forloop.first or forloop.counter0|divisibleby:'3' %}
+    <div class="grid-row grid">
+    {% endif %}
+        <div class="grid-3up grid-block grid-{{ forloop.counter }}
+            {% if forloop.first or forloop.counter0|divisibleby:'3' %}
+                first-in-row
+            {% else %}
+                not-first-in-row
+            {% endif %} {% cycle 'odd' 'even' %}">
+            {% if text_block.display_title %}
+            <h4 class="list-heading">{{ text_block.display_title }}</h4>
+            {% endif %}
+            <div class="text-container">
+                {{ text_block.content.as_html }}
+            </div>
+        </div>
+    {% if forloop.last or forloop.counter|divisibleby:'3' %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
