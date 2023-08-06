@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: exchange
+Version: 0.3
+Summary: Get the current exchange rate.
+Home-page: https://github.com/akarat/exchange
+Author: Hsiaoming Yang
+Author-email: me@lepture.com
+License: BSD
+Description: Exchange Rate
+        =============
+        
+        Get current exchange rate.
+        
+        It parses current exchange rate from these services:
+        
+        * Yahoo finance
+        * fixer.io
+        * European Central Bank
+        
+        Installation
+        ------------
+        
+        Using pip to install it::
+        
+            $ pip install exchange
+        
+        Usage
+        -----
+        
+        The only method you would use is ``rate``::
+        
+            >>> import exchange
+            >>> exchange.rate('USD', 'CNY')
+            Decimal('6.070')
+        
+        License
+        -------
+        
+        This project is licensed with BSD. See LICENSE for more detail.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
