@@ -1,0 +1,10 @@
+#!/usr/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'kite-mail==0.0.0.dev0','console_scripts','kite-mail'
+__requires__ = 'kite-mail==0.0.0.dev0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('kite-mail==0.0.0.dev0', 'console_scripts', 'kite-mail')()
+    )
