@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+ <export-step id="faceted"
+              handler="eea.faceted.tool.exportimport.exportFacetedTool"
+              title="Faceted Settings">
+  Export faceted settings
+ </export-step>
+</export-steps>
