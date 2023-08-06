@@ -1,0 +1,88 @@
+Metadata-Version: 2.0
+Name: pypowervm
+Version: 0.0.2
+Summary: Python binding for the PowerVM REST API
+Home-page: http://github.com/pypowervm/
+Author: IBM
+Author-email: kyleh@us.ibm.com,thorst@us.ibm.com,efried@us.ibm.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: lxml (>=3.4.1)
+Requires-Dist: oslo.concurrency (>=0.3.0)
+Requires-Dist: oslo.i18n (>=1.2.0)
+Requires-Dist: oslo.utils (>=1.1.0)
+Requires-Dist: pbr (>0.5.21,<1.0)
+Requires-Dist: pyasn1-modules (>=0.0.5)
+Requires-Dist: pyasn1 (>=0.0.12a)
+Requires-Dist: pytz
+Requires-Dist: requests (>=2.3.0)
+Requires-Dist: six (>=1.7.0)
+Requires-Dist: futures
+Requires-Dist: psutil (>=1.1.1,<2.0.0)
+
+==========================================
+pypowervm - Python API wrapper for PowerVM
+==========================================
+
+NOTE
+----
+pypowervm is under active development and is currently unstable.  The API is
+being developed openly and a 1.0 version will be declared when it is mature.
+Any versions under 1.0 are not supported in any form and should not be used
+in production or development environments.
+
+See the VERSION.rst for detailed information about current version.
+
+Current versions should utilize the local authentication mechanism.  The remote
+authentication mechanism is intended only for development and test purposes for
+the time being.
+
+Overview
+--------
+pypowervm provides a Python based API wrapper for interaction with IBM
+PowerVM based systems.
+
+License
+-------
+The library's license can be found under the LICENSE file.  It must be
+reviewed prior to use.
+
+Using Sonar
+-----------
+
+To enable sonar code scans through tox there are a few steps involved.
+
+-Install sonar locally.  See:  http://www.sonarqube.org/downloads/
+
+-Create a host mapping in /etc/hosts for the name 'sonar-server'. If the
+sonar server were on the local host then the entry might be:
+
+127.0.0.1  sonar-server
+
+Alternatively, you can set the environment variable SONAR_SERVER prior to
+invoking tox, to specify the server to use.
+
+-The following environment variable must be set in order to log onto the
+sonar server:
+
+  SONAR_USER
+  SONAR_PASSWORD
+
+An example invocation:
+  >SONAR_USER=user SONAR_PASSWORD=password tox -e sonar
+
+-Sonar output is placed in:
+  .sonar/
+
+
+
