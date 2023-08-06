@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: prismatic
+Version: 0.4
+Summary: Serialization between JSON dicts and data objects designed for REST APIs
+Home-page: https://github.com/adambyrtek/prismatic
+Author: Adam Byrtek
+Author-email: adambyrtek@gmail.com
+License: MIT
+Keywords: json,orm,serialization,api,rest
+Platform: UNKNOWN
+Requires-Dist: isodate
+
+Prismatic
+=========
+
+.. image:: https://circleci.com/gh/adambyrtek/prismatic/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/adambyrtek/prismatic/tree/master
+
+Serialization between JSON dicts and data objects designed for REST APIs.
+
+
