@@ -1,0 +1,10 @@
+#!/Users/massimo/.virtualenvs/cnfgen-venv/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'CNFgen==0.5.4.4','console_scripts','kthgraph2pebformula'
+__requires__ = 'CNFgen==0.5.4.4'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('CNFgen==0.5.4.4', 'console_scripts', 'kthgraph2pebformula')()
+    )
