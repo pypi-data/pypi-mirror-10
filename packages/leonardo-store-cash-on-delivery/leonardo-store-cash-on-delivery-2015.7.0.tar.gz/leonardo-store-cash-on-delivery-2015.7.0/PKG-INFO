@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: leonardo-store-cash-on-delivery
+Version: 2015.7.0
+Summary: Cash on delivery payment method for Leonardo Store
+Home-page: https://github.com/leonardo-modules/leonardo-store-cash-on-delivery.git
+Author: Michael Kuty
+Author-email: kutymichael@gmail.com
+License: UNKNOWN
+Description: ===================================
+        Cash on delivery for Leonardo Store
+        ===================================
+        
+        Cash on delivery payment for Leonardo Store
+        
+        .. contents::
+            :local:
+        
+        Installation
+        ------------
+        
+        .. code-block:: bash
+        
+            pip install leonardo-store[cod]
+            pip install leonardo-store-cash-on-delivery
+        
+        Read More
+        =========
+        
+        * https://github.com/django-oscar
+        * https://github.com/django-leonardo
+        * https://github.com/leonardo-modules/leonardo-store
+        * https://github.com/michaelkuty/django-oscar-cash-on-delivery
+        
+        
+Keywords: "Payment,COD,Cash,"
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
