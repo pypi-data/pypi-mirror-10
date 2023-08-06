@@ -1,0 +1,6 @@
+[console_scripts]
+
+
+[montague.config_loader]
+toml = montague_toml.toml:TOMLConfigLoader
+
