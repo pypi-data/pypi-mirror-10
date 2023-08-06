@@ -1,0 +1,6 @@
+
+      # -*- Entry points: -*-
+      [console_scripts]
+      sqla_taskq_daemon = sqla_taskq.run_daemon:main
+      sqla_taskq_initializedb = sqla_taskq.scripts.initializedb:main
+      
