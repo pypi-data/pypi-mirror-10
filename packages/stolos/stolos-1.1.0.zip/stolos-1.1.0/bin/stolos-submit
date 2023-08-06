@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+from stolos import argparse_shared as at
+from stolos import api
+from stolos import log
+
+
+def main(ns):
+    api.initialize([])
+    for job_id in ns.job_id:
+        for app_name in ns.app_name:
+            if ns.readd:
+                api.readd_subtask(app_name, job_id)
+            else:
+                rv = api.maybe_add_subtask(app_name, job_id)
+                if not rv:
+                    log.warn("Did not add subtask")
+
+
+build_arg_parser = at.build_arg_parser([
+    at.add_argument('-j', '--job_id', required=True, nargs='+'),
+    at.app_name(nargs='+'),
+    at.add_argument(
+        '--readd', action='store_true', help=(
+            "Try to add this to the queue if it isn't already.  Assume we've"
+            " tried to add the task already")),
+], description=(
+    "Enqueue a particular job into an application's queue.  This script"
+    " assumes you have configured Stolos options via environment variables"))
+
+
+if __name__ == '__main__':
+    NS = build_arg_parser().parse_args()
+    main(NS)
