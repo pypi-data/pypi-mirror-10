@@ -1,0 +1,183 @@
+Metadata-Version: 1.1
+Name: django-websocket-channel
+Version: 0.0.5
+Summary: Websocket support for Django using Redis
+Home-page: https://github.com/neo-hu/django-websocket-channel
+Author: Neo hu
+Author-email: 9656951@qq.com
+License: MIT
+Description: # django-websocket-channel
+        Websocket support for Django using Redis
+        
+        
+        #Installation
+        
+        <pre>
+        sudo service redis-server start
+        </pre>
+        
+        
+        <pre>
+        pip install django-websocket-channel
+        </pre>
+        
+        
+        #Configuration
+        
+        <pre>
+        INSTALLED_APPS = (
+            ...
+            'websocket_channel',
+            ...
+        )
+        </pre>
+        
+        
+        <pre>
+        WS_REDIS = {
+                'host': 'localhost',
+                'port': 6379,
+                'db': 0,
+                'password': None,
+            }
+        </pre>
+        
+        <pre>
+        TEMPLATE_CONTEXT_PROCESSORS = (
+            ...
+            'django.contrib.auth.context_processors.auth',
+            'django.core.context_processors.static',
+            'websocket_channel.context_processors.default',
+            ...
+        )
+        
+        
+        </pre>
+        
+        django 1.8
+        
+        
+        <pre>
+        TEMPLATES = [
+            {
+                '''
+                'OPTIONS': {
+                    'context_processors': [
+                        '''
+                        'django.template.context_processors.static',
+                        'django.contrib.messages.context_processors.messages',
+                        'websocket_channel.context_processors.default',
+                        '''
+                    ],
+                },
+            },
+        ]
+        
+        
+        </pre>
+        
+        
+        #NGiNX
+        <pre>
+        server {
+        	'''
+        	location /ws/ {
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_pass http://unix:/tmp/websocket_channel_websocket.socket;
+            }
+            location / {
+                include uwsgi_params;
+                uwsgi_pass unix:/tmp/websocket_channel.socket;
+        
+            }
+        
+            '''
+        
+        }
+        </pre>
+        
+        #uWSGI:
+        
+        <pre>
+        [default]
+        gid = www-data
+        uid = www-data
+        umask = 002
+        ;virtualenv = virtualenv/path
+        master = true
+        env=DJANGO_SETTINGS_MODULE=settings
+        
+        
+        env=PYTHON_EGG_CACHE=/tmp/websocket_channel
+        env=LANG=zh_CN.UTF-8
+        env=LC_ALL=zh_CN.UTF-8
+        ignore-sigpipe = true
+        enable-threads = true
+        chmod-socket = 666
+        chdir = project/path/to
+        pythonpath = project/path/to
+        max-requests = 500000
+        
+        
+        
+        [runserver]
+        ini = :default
+        socket = /tmp/websocket_channel.socket
+        pidfile = /tmp/websocket_channel.pid
+        module = wsgi
+        buffer-size = 32768
+        processes = 4
+        daemonize = project/path/to/web.log
+        
+        [wsserver]
+        ini = :default
+        http-socket = /tmp/websocket_channel_websocket.socket
+        pidfile = /tmp/websocket_channel_websocket.pid
+        daemonize = project/path/to/websocket_web.log
+        module = wsgi_websocket
+        processes = 1
+        http-websockets = true
+        gevent=1000
+        
+        
+        </pre>
+        
+        #Then start uWSGI:
+        <pre>
+        uwsgi --ini uwsgi.ini:runserver
+        uwsgi --ini uwsgi.ini:wsserver
+        </pre>
+        
+        
+        #Client JavaScript
+        <pre>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/dj_websocket.js"></script>
+        <script type="text/javascript">
+            var ws = new DjWebSocket({uri: '{{ WEBSOCKET_URL }}'});
+            ws.onopen = function(){
+                ws.subscribe("channel", function(data){
+                    //channel msg
+                });
+        
+            }
+        </script>
+        
+        </pre>
+        
+        
+        #Subscribe to Broadcast Notifications
+        <pre>
+            RedisPublisher("channel").publishgit _message("1111111111")
+        </pre>
+        
+        
+Keywords: django,websocket,redis
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2.7

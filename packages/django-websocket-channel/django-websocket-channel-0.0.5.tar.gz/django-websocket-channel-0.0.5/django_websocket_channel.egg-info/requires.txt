@@ -1,0 +1,12 @@
+wsaccel
+setuptools
+redis
+gevent
+greenlet
+six
+
+[wsaccel]
+wsaccel>=0.6.2
+
+[uwsgi]
+uWSGI>=1.9.20
