@@ -1,0 +1,132 @@
+Summary
+-------
+
+jsonld_ views for cubicweb
+
+.. _jsonld: http://www.w3.org/TR/json-ld/
+
+
+Views
+-----
+
+This cube provides a ``jsonld`` view with two different implementations.
+
+jsonld for CWEType
+``````````````````
+
+The ``jsonld`` view for ``CWEType`` entities is accessible either
+explicitly or through the ``BASE_URL/<etype>.jsonld`` url. It provides
+schema information using the jsonld specification.
+
+Assuming you have the following schema declaration::
+
+    class Person(EntityType):
+        name = String()
+        age = Int()
+        birthdate = Date()
+
+The corresponding jsonld output will be::
+
+    {
+        "@context": {
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "creation_date": {
+              "@id": "https://my-app.org/CWRType/creation_date",
+              "@type": "xsd:dateTime"
+            },
+            "modification_date": {
+              "@id": "https://my-app.org/CWRType/modification_date",
+              "@type": "xsd:dateTime"
+            },
+            "cwuri": {
+              "@id": "https://my-app.org/CWRType/cwuri",
+              "@type": "@id"
+            },
+            "eid": {
+              "@id": "https://my-app.org/CWRType/eid",
+              "@type": "xsd:integer"
+            },
+            "name": {
+              "@id": "https://my-app.org/CWAttribute/278",
+              "@type": "xsd:string"
+            },
+            "age": {
+              "@id": "https://my-app.org/CWAttribute/281",
+              "@type": "xsd:string"
+            },
+            "birthdate": {
+              "@id": "https://my-app.org/CWAttribute/301",
+              "@type": "xsd:date"
+            }
+        }
+    }
+
+jsonld for any rset
+````````````````````
+
+This view is somewhat similar to the standard ``jsonexport`` one
+with two main differences:
+
+- it provides resultset metadata alongside the actual data and
+  tries to be as close as possible to the general shape of the
+  sparql-results-json_ format,
+
+- each cell is exposed as a "jsonld" object. Entities expose
+  all their attributes and dc properties, "final" values expose
+  their type and value.
+
+.. _sparql-results-json: http://www.w3.org/TR/sparql11-results-json/
+
+
+Considering the RQL query ``Any P,N LIMIT 2 WHERE P is Person, P name N``,
+the jsonld output would look like::
+
+    {
+        "@context": {
+            "cw": "http://ns.cubicweb.org/cubicweb/0.0/",
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "dcterms": "http://purl.org/dc/terms/",
+            "myapp": "https://my-app.org/CWEType/"
+        },
+        "cw:head": {
+            "rql": "Any P,N LIMIT 2 WHERE P is Person, P name N",
+            "vars": ["P", "N"],
+            "limit": 2
+        },
+        "cw:results": [
+            [{
+                "@context": "https://my-app.org/Person.jsonld",
+                "@type": "myapp:Person",
+                "cwuri": "https://my-app.org/1234",
+                "name": "John",
+                "age": 42,
+                "birthdate": "2013/01/01",
+                "creation_date": "2009/08/07 15:20:30",
+                "modification_date": "2009/08/05 11:12:24",
+                "eid": 1234,
+                "dcterms:title": "the result of p.dc_title() on John",
+                "dcterms:description": null
+            },
+            {
+                "@type": "xsd:string",
+                "@value": "John"
+            }],
+           [{
+                "@context": "https://my-app.org/Person.jsonld",
+                "@type": "myapp:Person",
+                "cwuri": "https://my-app.org/4321",
+                "name": "Mary",
+                "age": 40,
+                "birthdate": "2015/02/02",
+                "creation_date": "2014/01/02 11:30:20",
+                "modification_date": "2015/01/05 12:24:11",
+                "eid": 4321,
+                "dcterms:title": "the result of p.dc_title() on Mary",
+                "dcterms:description": null
+           },
+            {
+                "@type": "xsd:string",
+                "@value": "Mary"
+            }]
+        ]
+    }
