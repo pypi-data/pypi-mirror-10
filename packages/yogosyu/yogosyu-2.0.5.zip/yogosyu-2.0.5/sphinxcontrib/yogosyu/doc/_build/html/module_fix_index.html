@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Module user_order_index_patch &mdash; yogosyu 2.0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="yogosyu 2.0.5 documentation" href="index.html" />
+    <link rel="prev" title="Module yogosyu" href="module_yogosyu.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="module_yogosyu.html" title="Module yogosyu"
+             accesskey="P">previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">yogosyu 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Generally, you don&#8217;t have to know read here. Please read <a class="reference internal" href="README.html"><em>yogosyu extension</em></a>.</p>
+<p>通常はこの頁を読む必要はありません。使い方などについては<a class="reference internal" href="README_ja.html"><em>yogosyu拡張(日本語版説明書)</em></a>をご覧ください。</p>
+<div class="section" id="module-user-order-index-patch">
+<h1>Module user_order_index_patch<a class="headerlink" href="#module-user-order-index-patch" title="Permalink to this headline">¶</a></h1>
+<p>The Sphinx extension to fix generating genindex.html for sortorder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">© 2011-2015 by Suzumizaki-Kimitaka(about Additional works)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">2-clause BSD.</td>
+</tr>
+</tbody>
+</table>
+<p>This is the extension for <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>.</p>
+<p>This extension hacks <code class="xref py py-meth docutils literal"><span class="pre">sphinx.environment.BuildEnvironment.create_index()</span></code>.
+No roles, directives, domains or etc. will be added.</p>
+<dl class="function">
+<dt>
+<code class="descclassname">user_ordered_index_patch.</code><code class="descname">determine_sort_order</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span></dt>
+<dd><p>Determine sort order used in this module</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cfg</strong> (<em>sphinx.config.Config</em>) &#8211; you can give from Sphinx with <code class="code docutils literal"><span class="pre">app.config</span></code>,
+<code class="code docutils literal"><span class="pre">builder.config</span></code> etc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">user_ordered_index_patch.</code><code class="descname">keyfunc</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span></dt>
+<dd><p>Sort the index entries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entry</strong> (<em>composited</em>) &#8211; the element to sort. entry[0] is the name of it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str(Python 3) or unicode(Python 2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the comparable string to sort.</td>
+</tr>
+</tbody>
+</table>
+<p>Called by <code class="xref py py-func docutils literal"><span class="pre">my_env_buildenv_create_index()</span></code></p>
+<ul class="simple">
+<li>entry[0] is the name of the entry</li>
+<li>entry[1] is a tuple<ul>
+<li>entry[1][0] is a list of the urls include filename, extension and anchor to the entry.</li>
+<li>entry[1][1] is the dict of subwords.</li>
+</ul>
+</li>
+</ul>
+<p>the entries are generated by
+<code class="xref py py-meth docutils literal"><span class="pre">sphinx.environment.BuildEnvironment.add_entry()</span></code> defined inside
+<code class="xref py py-meth docutils literal"><span class="pre">sphinx.environment.BuildEnvironment.create_index()</span></code>.
+(also means inside <code class="xref py py-meth docutils literal"><span class="pre">my_env_buildenv_create_index()</span></code>)</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">user_ordered_index_patch.</code><code class="descname">keyfunc2</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span></dt>
+<dd><p>Group the entries by letter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<em>sortkey_content_pair</em>) &#8211; the tuple (sortkey, content)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str(Python 3) or unicode(Python 2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the group name in which (k, v) entry belongs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Seealso:</th><td class="field-body"><code class="xref py py-func docutils literal"><span class="pre">keyfunc()</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Called by <code class="xref py py-func docutils literal"><span class="pre">my_env_buildenv_create_index()</span></code>.</p>
+<p>See note written in the document of <code class="xref py py-func docutils literal"><span class="pre">keyfunc()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">user_ordered_index_patch.</code><code class="descname">my_env_buildenv_create_index</code><span class="sig-paren">(</span><em>self</em>, <em>builder</em>, <em>group_entries=True</em>, <em>_fixre=&lt;_sre.SRE_Pattern object&gt;</em><span class="sig-paren">)</span></dt>
+<dd><p>Hack function to alter sphinx.environment.BuildEnvironment.create_index</p>
+<p>In real, this function is almost same as
+<code class="xref py py-meth docutils literal"><span class="pre">sphinx.environment.BuildEnvironment.create_index()</span></code> except:</p>
+<ul class="simple">
+<li>keyfunc and keyfunc2 are not inner function</li>
+<li>setup _name_to_yomi dictionary at first</li>
+<li>both python 2.7.6 and python 3.3 compatible</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">user_ordered_index_patch.</code><code class="descname">setup</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span></dt>
+<dd><p>Extend the Sphinx as we want, called from the Sphinx</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>app</strong> (<em>sphinx.application.Sphinx</em>) &#8211; the object to add builder or something.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">user_ordered_index_patch.</code><code class="descname">yomi_or_given</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span></dt>
+<dd><p>Return sort-key or given string if not found one</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str_or_unicode</em>) &#8211; the string refer to one of entry</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str(Python 3) or unicode(Python 2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the sort-key refer to the entry or just s if sort-key not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="module_yogosyu.html"
+                        title="previous chapter">Module yogosyu</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/module_fix_index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="module_yogosyu.html" title="Module yogosyu"
+             >previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">yogosyu 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Suzumizaki-Kimitaka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
