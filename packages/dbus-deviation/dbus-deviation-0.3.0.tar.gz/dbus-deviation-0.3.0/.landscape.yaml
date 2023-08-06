@@ -1,0 +1,9 @@
+doc-warnings: true
+test-warnings: false
+strictness: veryhigh
+pep8:
+    full: true
+ignore-paths:
+  - docs/conf.py
+  - setup.py
+  - version.py
