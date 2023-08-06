@@ -1,0 +1,25 @@
+%YAML 1.3
+---
+type: firefox
+
+# profiles
+profiles:
+    darwin:
+    profile:
+
+# sauce labs
+sauce labs:
+    ondemand: false
+    os:
+    version:
+    artifacts:
+        video: false
+        log: false
+        images: false
+    selenium-version:
+    sauce_connect: true
+
+# filtering of nodes with grid
+grid filters:
+    platform: mac
+    version: 23.0.1
