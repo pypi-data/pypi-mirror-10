@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: gee
+Version: 4
+Summary: gee (good enough encryption): the simplest possible encryption tool for single files.
+Home-page: http://github.com/rgscherf/gee
+Author: Robert Scherf
+Author-email: rgscherf@gmail.com
+License: MIT
+Keywords: encryption,cryptography,utilities
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: cryptography
+Requires-Dist: pytest
+
+UNKNOWN
+
+
