@@ -1,0 +1,164 @@
+Metadata-Version: 1.1
+Name: django-real-content
+Version: 0.1.1
+Summary: Template tags to quickly show real content instead of lorem ipsum.
+Home-page: https://github.com/mislavcimpersak/django-real-content
+Author: Mislav Cimperšak
+Author-email: mislav.cimpersak@gmail.com
+License: MIT
+Download-URL: https://github.com/mislavcimpersak/django-real-content/tarball/0.1
+Description: ===================
+        django-real-content
+        ===================
+        
+        Template tags to quickly show real content instead of misleading `lorem
+        ipsum <http://www.smashingmagazine.com/2010/01/06/lorem-ipsum-killing-designs/>`__.
+        Useful to get a sense of real world content with fun local unicode
+        characters.
+        
+        Installation
+        ------------
+        
+        ::
+        
+            pip install django-real-content
+        
+        Add "real\_content" to your INSTALLED\_APPS setting and ``DRC_LANGUAGE``
+        setting (if none is set, english will be used).
+        
+        ::
+        
+            INSTALLED_APPS = (
+                ...
+                'real_content',
+            )
+        
+            DRC_LANGUAGE = 'hr'
+        
+        Languages currently supported out of the box
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+        - de, en, fr, hr, nl, si
+        
+        Usage:
+        ------
+        
+        Load django-real-content in your template.
+        
+        ::
+        
+            {% load drc %}
+        
+        random title
+        ~~~~~~~~~~~~
+        
+        show random title
+        
+        ::
+        
+            {% drc_title %}
+        
+        show random title using ``h3`` html tag
+        
+        ::
+        
+            {% drc_title 3 %}
+        
+        show random title using ``h3`` html tag and with additional css class
+        
+        ::
+        
+            {% drc_title 3 'custom_css_class' %}
+        
+        show random title with additional css class
+        
+        ::
+        
+            {% drc_title css_class='custom_css_class' %}
+        
+        random paragraphs
+        ~~~~~~~~~~~~~~~~~
+        
+        show 1 random paragraph
+        
+        ::
+        
+            {% drc_paragraphs %}
+        
+        show 3 random paragraphs
+        
+        ::
+        
+            {% drc_paragraphs 3 %}
+        
+        show 3 random paragraphs with additional css class
+        
+        ::
+        
+            {% drc_paragraphs 3 'custom_css_class' %}
+        
+        show 1 random paragraph with additional css class
+        
+        ::
+        
+            {% drc_paragraphs css_class='custom_css_class' %}
+        
+        random images
+        ~~~~~~~~~~~~~
+        
+        show random image from lorempixel.com
+        
+        ::
+        
+            {% drc_image %}
+        
+        show random image from lorempixel.com which dimensions are 420x360
+        
+        ::
+        
+            {% drc_image 420 360 %}
+        
+        show random image from lorempixel.com which dimensions are 420x360 in
+        category "cats" and grayscale
+        
+        ::
+        
+            {% drc_image 420 360 category='sports' gray=True %}
+        
+        Need more content?
+        ------------------
+        
+        Use management command ``drc_addcontent`` to collect titles and
+        paragraphs from given url. If no language is provided, it will use the
+        one given in settings.
+        
+        ::
+        
+            python manage.py drc_addcontent -u http://www.24sata.hr/a-383985 -l hr
+        
+        Content sources
+        ---------------
+        
+        Various localised news portals and local wikipedia in some cases.
+        
+        TODO
+        ----
+        
+        -  add more languages in the package as standard (cz, fr, nl...)
+        -  tests
+        -  submit to pypi
+        
+Keywords: django real content lorem ipsum
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
