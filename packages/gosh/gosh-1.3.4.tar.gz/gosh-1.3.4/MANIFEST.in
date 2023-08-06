@@ -1,0 +1,6 @@
+#file
+include README.md
+include LICENSE
+include etc/gosh/gosh.conf
+include etc/init.d/gosh
+include etc/init.d/other/gosh
