@@ -1,0 +1,18 @@
+CHANGES
+=======
+
+0.12
+----
+
+* Add PEP8 check and fix related issues
+* Add config file format docs
+* Fix install_requires
+* Move to stackforge repo
+* Better error reporting for bad trait definitions
+* Fix a typo in the readme
+
+0.10
+----
+
+* remove uneeded requirement for stevedore library
+* Inital commit
