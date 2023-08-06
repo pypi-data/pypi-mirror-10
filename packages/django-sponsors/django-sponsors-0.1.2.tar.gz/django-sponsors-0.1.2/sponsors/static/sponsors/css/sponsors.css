@@ -1,0 +1,22 @@
+.sponsors {
+    background-color: grey;
+}
+.sponsors.platinum {
+    background-color: #E5E4E2;
+}
+.sponsors.gold {
+    background-color: gold;
+}
+.sponsors.silver {
+    background-color: silver;
+}
+.sponsors.bronze {
+    background-color: rosybrown;
+}
+.sponsors.none {
+    background-color: grey;
+}
+
+span.sponsor img.logo{
+    margin: 10px;
+}

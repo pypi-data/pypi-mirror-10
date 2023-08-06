@@ -1,0 +1,14 @@
+{% if sponsors_group %}
+    <div class="sponsors {{ sp_type }}">
+        {% for sponsor in sponsors_group %}
+            <span class="sponsor {{ sp_type }}">
+                {#                <img class="logo" src="{% static sponsor.logo %}">#}
+                <img class="logo"
+                     alt="sponsor logo"
+                     src="/media/{{ sponsor.logo }}"
+                     width="{{ sponsor.width }}"
+                     height="{{ sponsor.height }}">
+            </span>
+        {% endfor %}
+    </div>
+{% endif %}
