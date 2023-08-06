@@ -1,0 +1,58 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript">(function($){
+
+$(function(){
+  $('.move_to_submit_row').insertBefore('.submit-row>input:first');
+
+  $form = $('#template_form');
+  $('input[name=_preview]').on('click', function(){
+    window.open('about:blank', '_preview', 'width=640,height=480,resizeable=yes');
+    $form.attr('target', '_preview');
+    $form.attr('action', '{% url "admin:database_template_try_render" original.pk %}');
+    $form.attr('onsubmit', '');
+    $form.submit();
+    return false;
+  });
+
+});
+
+
+})(django.jQuery);</script>
+{% endblock%}
+
+{% block field_sets %}
+{{ block.super }}
+{% if context_specs %}
+<fieldset class="module aligned ">
+  <div class="form-row field-data">
+    <div>
+      <label class="required" for="id_data">{% trans "Context" %}</label>
+      <p>
+        <br>
+        <dl>
+          {% for key, value in context_specs.items %}
+            <dt>{{ key }}</dt>
+            {% if value.type == 'model' %}
+              {% url 'django-admindocs-models-detail' app_label=value.app model_name=value.model as docs_url %}
+              <dd>
+                {% trans "Random model" %} <a href="{{ docs_url }}">{{ value.model }}</a>
+              </dd>
+            {% else %}
+              <dd>{{ value }}</dd>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      </p>
+    </div>
+  </div>
+</fieldset>
+{% endif %}
+{% endblock %}
+
+{% block submit_buttons_bottom %} {{ block.super }}
+<input  type="submit" name="_preview" value="{% trans "Preview" %}" class="move_to_submit_row"/>
+
+{% endblock %}
