@@ -1,0 +1,54 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% load pygmentize %}
+{% load thumbnail %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content_class %}post{% endblock %}
+{% block body_class %}post{% endblock body_class %}
+
+{% block htmlprop %}
+    {% if mypost.lang == 'en' %}lang="en"{% else %}lang="es"{% endif %}
+    itemscope itemtype="http://schema.org/Article"
+{% endblock htmlprop %}
+
+{% block metas %}
+    {% include "rblog/_base_metas.html" with section='post' %}
+{% endblock metas %}
+
+{% block metas_seo %}
+    {% include "rblog/_base_metas_seo.html" with section='post' %}
+{% endblock metas_seo %}
+
+{% block breadcrumbs %}
+    {% include "rblog/_base_breadcrumbs.html" %}
+{% endblock %}
+
+{% block content %}
+    <article>
+        {% include "rblog/_post_header.html" %}
+
+        {% include "rblog/_post_mainimage.html" %}
+
+        {{ mypost.text|cut:"[@MORE@]"|pygmentize|safe }}
+
+        {% include "rblog/_post_images.html" %}
+
+        {% include "rblog/_post_videos.html" %}
+
+        {% include "rblog/_post_tagcloud.html" %}
+
+        {% include "rblog/_post_footer.html" %}
+
+        {% include "rblog/_post_comments.html" %}
+    </article>
+
+    {% include "rblog/_post_videomodal.html" %}
+{% endblock content %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'rblog/js/custom.js' %}"></script>
+{% endblock js %}

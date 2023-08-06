@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<header>
+    <h1>{{ mypost.title|safe }}</h1>
+    <time datetime="{{ mypost.creation_date|date:"c" }}" pubdate="pubdate">{{ mypost.creation_date|date:"M d, Y" }}</time>
+</header>

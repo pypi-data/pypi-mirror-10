@@ -1,0 +1,25 @@
+{% load i18n %}
+
+{% if section == 'blog' %}
+    <title>{{ title }}{% if page_obj and page_obj.number != 1 %}, {% trans "page" %} {{ page_obj.number }}{% endif %} &#8212; {{ settings.RBLOG_SITE_TITLE }}</title>
+    {% if page_obj.number == 1 %}<meta itemprop="description" content="{{ description }}" />{% endif %}
+    {% if page_obj.number == 1 %}<meta name="description" content="{{ description }}" />{% endif %}
+    {% if page_obj.number != 1 %}<meta name="robots" content="noindex,follow"/>{% endif %}
+{% endif %}
+
+{% if section == 'tag' %}
+    <meta name="robots" content="noindex,follow"/>
+    <title>{{ title }}, tag "{{ tag }}" &#8212; {{ settings.RBLOG_SITE_TITLE }}</title>
+{% endif %}
+
+{% if section == 'archive' %}
+    <meta name="robots" content="noindex,follow"/>
+    <title>{{ title }}, {{ archive }}</title>
+{% endif %}
+
+{% if section == 'post' %}
+    <title>{{ mypost.title }} &#8212; {{ settings.RBLOG_SITE_TITLE }}</title>
+    <meta itemprop="description" content="{{ mypost.text|striptags|truncatewords:50|cut:'\"'|cut:"'"|cut:"[@MORE@]" }}" />
+    <meta name="description" content="{{ mypost.text|striptags|truncatewords:50|cut:'\"'|cut:"'"|cut:"[@MORE@]" }}" />
+    <meta name="keywords" content="{{ mypost.tags.all|join:", " }}" />
+{% endif %}

@@ -1,0 +1,49 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% load thumbnail %}
+
+{% block content_class %}blog{% endblock %}
+{% block body_class %}blog{% endblock body_class %}
+
+{% block htmlprop %}{% endblock htmlprop %}
+
+{% block metas %}
+    {% if tag %} {% include "rblog/_base_metas.html" with section='tag' %}
+    {% elif archive %} {% include "rblog/_base_metas.html" with section='archive' %}
+    {% else %} {% include "rblog/_base_metas.html" with section='blog' %}{% endif %}
+{% endblock metas %}
+
+{% block metas_seo %}
+    {% if tag %} {% include "rblog/_base_metas_seo.html" with section='tag' %}
+    {% elif archive %} {% include "rblog/_base_metas_seo.html" with section='archive' %}
+    {% else %} {% include "rblog/_base_metas_seo.html" with section='blog' %}{% endif %}
+{% endblock metas_seo %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    {% include "rblog/_base_breadcrumbs.html" %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}{% if page_obj and page_obj.number != 1 %}, {% trans "page" %} {{ page_obj.number }}{% endif %}{% if tag %}, {% trans "bunch of posts with the tag" %} {{ tag }}{% endif %}{% if archive %}, {% trans "bunch of posts within the date" %} {{ archive }}{% endif %}</h1>
+
+    <ul class="posts">
+    {% for post in myposts %}
+        {% if post.ptype == 'post' %}
+            <li{% if forloop.counter == 1 %} class="first"{% endif %}>
+                {% include "rblog/_postlist.html" %}
+            </li{%>
+        {% endif %}
+    {% endfor %}
+    </ul>
+
+    {% include "rblog/_base_pagination.html" %}
+{% endblock content %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'rblog/js/custom.js' %}"></script>
+{% endblock js %}
+

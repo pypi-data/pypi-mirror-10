@@ -1,0 +1,11 @@
+{% load thumbnail %}
+{% load i18n %}
+
+<header>
+    {% if post.image %}
+        {% thumbnail post.image "754x140" crop="center" quality=70 as im %}<a href="{{ post.get_absolute_url }}" rel="bookmark" title="{{ post.title }}"><img src="{{ im.url }}" alt="{{ foto }}" style="width: 100%; height: 100%;" /></a>{% endthumbnail %}
+    {% elif post.photo.all.0 %}
+        {% thumbnail post.photo.all.0 "754x140" crop="center" quality=70 as im %}<a href="{{ post.get_absolute_url }}" rel="bookmark" title="{{ post.title }}"><img src="{{ im.url }}" alt="{{ foto }}" style="width: 100%; height: 100%;" /></a>{% endthumbnail %}
+    {% endif %}
+    <h2><a href="{{ post.get_absolute_url }}" rel="bookmark" title="{{ post.title }}">{{ post.title|safe }}</a></h2>
+</header>

@@ -1,0 +1,8 @@
+{% load thumbnail %}
+{% load i18n %}
+
+<footer>
+    <address class="vcard author">{{ _('by') }} <a class="url fn" href="http://oscarmlage.com/resume">oscarmlage</a></address>
+    <time datetime="{{ post.creation_date|date:"c" }}" pubdate="pubdate">{{ post.creation_date|date:"d.m.Y" }}</time>
+    <!-- - {{ post.hits }} {{ _('hits') }} -->
+</footer>

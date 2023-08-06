@@ -1,0 +1,20 @@
+{% load i18n %}
+{% load disqus_tags %}
+
+{# Comments #}
+{% if comments %}
+    <ul id="internal_comments">
+    {% for com in comments %}
+        <li class="comment" itemtype="http://schema.org/Comment" itemscope="itemscope" itemprop="comment">
+            <span itemprop="author">{{ com.author_name }}</span>
+            <time itemprop="dateCreated" content="{{ com.date|date:"Y-m-d" }}" datetime="{{ com.date|date:"c" }}" title="{{ com.date|date:"M d, Y h:m" }}">{{ com.date|date:"c" }}</time>
+            <span itemprop="text">{{ com.body|striptags }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% set_disqus_identifier mypost.id|slugify %}
+{% set_disqus_url current_site mypost.get_absolute_url %}
+{% set_disqus_title mypost.title %}
+{% disqus_show_comments %}

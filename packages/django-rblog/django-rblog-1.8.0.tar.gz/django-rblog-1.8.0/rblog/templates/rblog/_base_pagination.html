@@ -1,0 +1,33 @@
+{% if is_paginated %}
+<ul class="pagination">
+    {% if page_obj.has_previous %}
+        {% if page_obj.previous_page_number = 1 %}
+            {% if tag %}
+                <li><a href="{% url 'rblog:with_tag' tag %}">{{ _('previous') }}</a></li>
+            {% elif byear %}
+                <li><a href="{% url 'rblog:archive' byear month %}">{{ _('previous') }}</a></li>
+            {% else %}
+                <li><a href="{% url 'rblog:index' %}">{{ _('previous') }}</a></li>
+            {% endif %}
+        {% else %}
+            {% if tag %}
+                <li><a href="{% url 'rblog:with_tag_page' tag page_obj.previous_page_number %}">{{ _('previous') }}</a></li>
+            {% elif month %}
+                <li><a href="{% url 'rblog:archive_page' byear month page_obj.previous_page_number %}">{{ _('previous') }}</a></li>
+            {% else %}
+                <li><a href="{% url 'rblog:page' page_obj.previous_page_number %}">{{ _('previous') }}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <li class="active"><a href="">{{ _('page') }} {{ page_obj.number }} {{ _('of') }} {{ page_obj.paginator.num_pages }}.</a></li>
+    {% if page_obj.has_next %}
+        {% if tag %}
+            <li><a href="{% url 'rblog:with_tag_page' tag page_obj.next_page_number %}">{{ _('next') }}</a></li>
+        {% elif byear %}
+            <li><a href="{% url 'rblog:archive_page' byear month page_obj.next_page_number %}">{{ _('next') }}</a></li>
+        {% else %}
+            <li><a href="{% url 'rblog:page' page_obj.next_page_number %}">{{ _('next') }}</a></li>
+        {% endif %}
+    {% endif %}
+</ul>
+{% endif %}

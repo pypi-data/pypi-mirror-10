@@ -1,0 +1,9 @@
+{% load i18n %}
+
+{# Tagcloud #}
+<section id="tagcloud">
+    {% for tag in mypost.tags.all %}
+        <a href="{% url 'rblog:with_tag' tag|slugify %}" alt="{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+</section>
+

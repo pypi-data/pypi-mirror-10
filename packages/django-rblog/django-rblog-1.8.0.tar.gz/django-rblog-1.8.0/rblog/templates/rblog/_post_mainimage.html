@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load thumbnail %}
+
+{% if mypost.image %}
+    {% thumbnail mypost.image "800x800" as mainimg %}
+    <a href="{{ mainimg.url }}" class="main-image">
+        {% thumbnail mypost.image "753x360" crop="center" as im %}<img src="{{ im.url }}" alt="{{ foto }}" />{% endthumbnail %}
+    </a>
+    {% endthumbnail %}
+{% elif mypost.photo.all.0 %}
+    {% thumbnail mypost.photo.all.0 "800x800" as mainimg %}
+    <a href="{{ mainimg.url }}" class="main-image">
+        {% thumbnail mypost.photo.all.0 "753x360" crop="center" as im %}<img src="{{ im.url }}" alt="{{ foto }}" />{% endthumbnail %}
+    </a>
+    {% endthumbnail %}
+{% endif %}

@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% if mypost.photo.all and mypost.photo.all|length > 1 %}
+    <h3>{{ _('Photos') }}</h3>
+    <ul class="gallery">
+    {% for foto in mypost.photo.all %}
+      <li>
+
+        {% if foto.video %}
+            <a href="" onclick="ajaxVideo({{ foto.pk }});return false;">
+                {% thumbnail foto "200x200" crop="top" as im %}
+                    <img src="{% static 'img/ytplay.png' %}" alt="{{ image }}" style="background: url({{ im.url }}) center center" />
+                {% endthumbnail %}
+            </a>
+        {% else %}
+            {% thumbnail foto "750x750" as big %}
+            <a href="{{ big.url }}" class="gal">
+                {% thumbnail foto "200x200" crop="top" as im %}<img src="{{ im.url }}" alt="{{ foto }}" />{% endthumbnail %}
+            </a>
+            {% endthumbnail %}
+        {% endif %}
+
+      </li>
+    {% endfor %}
+    </ul>
+{% endif %}

@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<article>
+    {% include "rblog/_postlist_header.html" %}
+    {% include "rblog/_postlist_footer.html" %}
+    <p>{{ post.text|safe|striptags|truncatewords:25|cut:"[@MORE@]" }}</p>
+</article>

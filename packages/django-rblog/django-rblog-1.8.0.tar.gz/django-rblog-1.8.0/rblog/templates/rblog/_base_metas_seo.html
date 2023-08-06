@@ -1,0 +1,66 @@
+{% load i18n %}
+
+{% if section == 'blog' %}
+    <meta itemprop="name" content="{{ title }}{% if page_obj and page_obj.number != 1 %}, {% trans "page" %} {{ page_obj.number }}{% endif %}" />
+    <meta itemprop="url" content="{{ current_site }}{% url 'rblog:index' %}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ title }}" />
+    <meta property="og:title" content="{{ title }}{% if page_obj and page_obj.number != 1 %}, {% trans "page" %} {{ page_obj.number }}{% endif %}" />
+    <meta property="og:description" content="{{ settings.RBLOG_SITE_DESCRIPTION }}" />
+    <meta property="og:url" content="{{ current_site }}{% url 'rblog:index' %}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{{ title }}" />
+    <meta name="twitter:title" content="{{ title }}{% if page_obj and page_obj.number != 1 %}, {% trans "page" %} {{ page_obj.number }}{% endif %}" />
+    <meta name="twitter:description" content="{{ settings.RBLOG_SITE_DESCRIPTION }}" />
+    <meta name="twitter:url" content="{{ current_site }}{% url 'rblog:index' %}" />
+{% endif %}
+
+{% if section == 'tag' %}
+    <meta name="robots" content="noindex,follow"/>
+    <title>{{ title }}, tag "{{ tag }}"</title>
+{% endif %}
+
+{% if section == 'archive' %}
+    <meta name="robots" content="noindex,follow"/>
+    <title>{{ title }}, {{ archive }}</title>
+{% endif %}
+
+{% if section == 'post' %}
+    <meta itemprop="name" content="{{ mypost.title }}" />
+    <meta itemprop="url" content="{{ current_site }}{{ mypost.get_absolute_url}}" />
+    <meta itemprop="datePublished" content="{{ mypost.creation_date|date:"c" }}" />
+    <meta itemprop="dateModified" content="{{ mypost.creation_date|date:"c" }}" />
+    {% if mypost.image %}
+        <meta itemprop="image" content="{{ current_site }}{{ MEDIA_URL }}{{ mypost.image }}">
+    {% elif mypost.photo.all.0 %}
+        <meta itemprop="image" content="{{ current_site }}{{ MEDIA_URL }}{{ mypost.photo.all.0 }}">
+    {% endif %}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ title }}" />
+    <meta property="og:title" content="{{ mypost.title }}" />
+    <meta property="og:description" content="{{ mypost.text|striptags|truncatewords:50|cut:'\"'|cut:"'"|cut:"[@MORE@]" }}" />
+    <meta property="og:url" content="{{ current_site }}{{ mypost.get_absolute_url}}" />
+    {% if mypost.image %}
+        <meta property="og:image" content="{{ current_site }}{{ MEDIA_URL }}{{ mypost.image }}" />
+    {% elif mypost.photo.all.0 %}
+        <meta property="og:image" content="{{ current_site }}{{ MEDIA_URL }}{{ mypost.photo.all.0 }}" />
+    {% endif %}
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{{ title }}" />
+    <meta name="twitter:title" content="{{ mypost.title }}" />
+    <meta name="twitter:description" content="{{ mypost.text|striptags|truncatewords:50|cut:'\"'|cut:"'"|cut:"[@MORE@]" }}" />
+    {% if mypost.image %}
+        <meta name="twitter:image" content="{{ current_site }}{{ MEDIA_URL }}{{ mypost.image }}" />
+    {% elif mypost.photo.all.0 %}
+        <meta name="twitter:image" content="{{ current_site }}{{ MEDIA_URL }}{{ mypost.photo.all.0 }}" />
+    {% endif %}
+    <meta name="twitter:url" content="{{ current_site }}{{ mypost.get_absolute_url}}" />
+{% endif %}
+
+{% if settings.RBLOG_AUTHOR_GPLUS %}<link rel="author" href="https://plus.google.com/+{{ settings.RBLOG_AUTHOR_GPLUS }}/" />{% endif %}
+{% if settings.RBLOG_AUTHOR_GPLUS %}<link rel="publisher" href="https://plus.google.com/+{{ settings.RBLOG_AUTHOR_GPLUS }}/" />{% endif %}
+
