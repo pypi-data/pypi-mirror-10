@@ -1,0 +1,57 @@
+1.0rc1 -- July 11, 2015:
+ * forgot fix to #21 from rc0 (remove __del__)
+ * multiserver test was missing from 'make test'
+
+1.0rc0 -- July 11, 2015:
+ * reorganization at GitHub
+ * first-ever PyPI release
+ * switch to setuptools from distutils
+ * initial tests for Twisted client (see wiki > testing)
+ * several bug fixes
+ * abandon beanstalkd-tracking version numbering, follow PEP440
+
+0.11.1 -- May 6, 2008:
+ * made the poller timeout code into an debugging option (severconn._debug=True)
+ * moved example.py from the main beanstalk package to the examples/ directory
+ * renamed example.py to simple_clients.py
+ * removed producer.py since that functionality was handled in simple_clients
+ * fixed some bugs in the Job class, it should be usable now.
+
+0.11.0 -- Apr. 19, 2008:
+ * changes below incorporated
+ * skipping 0.10.0 since 0.11.0 came out right away, and the versions are
+   compatable/interchangable, with the exeption of a couple of the stats. I'd
+   suggest that you dont rely on those stats if you may use code on both :) see
+   beanstalk's proto.txt for more info on that.
+
+Apr. 19, 2008:
+ * Updates for 0.10/0.11 versions of beanstalkd.
+   * protocol changes are incorporated
+   * testing is expanded to cover this
+ * Cleanup:
+   * protohandler.py changed handler from a pure generator to a class. It improves
+     performance slightly, and more importantly makes things cleaner to read.
+   * removed some superfluous code from __init__.py
+   * better comments
+ * New stuff:
+   * examples directory. This will, over time, accrue example uses/simple cases
+     of using pybeanstalk
+   * libevent support. Added a new connection type that works with libevent and
+     pyevent. This connection type will only import on systems with pyevet
+     installed.
+
+0.9.0 -- Mar. 20, 2008:
+ * new tests for everything
+ * added connection level support for tubes
+ * changed the ServerConn class to be less verbose, using __getattr__
+ * Implemented the 0.9 protocol
+ * The handler function for interactions is now a generator and the whole of
+   it is implemented in a continuation passing style
+ * Moved protohandler from a class to functions.
+
+0.7.0 -- Mar. 23, 2008
+ * Fixed a typo pointed out by Keith Rarick
+ * fixed some text formatting issues.
+Feb. 21, 2008:
+ * This is the first alpha release of this client software, changelog will
+   be implemented from here.
