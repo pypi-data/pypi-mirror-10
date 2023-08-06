@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>yogosyu拡張(日本語版説明書) &mdash; yogosyu 2.0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="yogosyu 2.0.5 documentation" href="index.html" />
+    <link rel="next" title="Module yogosyu" href="module_yogosyu.html" />
+    <link rel="prev" title="yogosyu extension" href="README.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="module_yogosyu.html" title="Module yogosyu"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="README.html" title="yogosyu extension"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">yogosyu 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="yogosyu">
+<h1>yogosyu拡張(日本語版説明書)<a class="headerlink" href="#yogosyu" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">日本語版(本頁)は<a class="reference external" href="http://h12u.com/sphinx/yogosyu/README_ja.html">公式サイト</a>とこのパッケージのdocフォルダでご覧になれます。</p>
+</div>
+<div class="section" id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>2015年6月7日現在、Sphinx 1.3.1は &#8216;正規化形式D&#8217;(Normalization Form
+Canonical Decomposition, NFD) に基づく並べ替えしか行いません。さらにまずいことに、索引の見出しは英字に対してしか行われません。</p>
+<p>英語に似た言語では、NFDの効果もあって問題が少ないか全くないことが多いのですが、英字を共有しない言語では悲惨なことになります。ほとんど全部の文字が記号扱いとなり、索引の見出しが機能しないからです。</p>
+<p>日本語においてはさらにまずいことになります。漢字を使った用語に対する読み方を提供できないため、並べ替えの結果はUnicodeの漢字並び順という全く役に立たない結果をもたらします。</p>
+<p>この拡張機能では、これらの解決を試みています。並び順は別途配布している
+<a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a> moduleを使います。日本語などには事前に並べ方が定義されているほか、任意の言語に対し自前の並べ方を定義することもできます。</p>
+<p>残念ながら現在は <code class="code docutils literal"><span class="pre">..</span> <span class="pre">glossary::</span></code> directive を置き換える
+<code class="code docutils literal"><span class="pre">..</span> <span class="pre">yogosyu::</span></code> 以外は未解決です。<code class="code docutils literal"><span class="pre">index</span></code> などを含むの他のものは将来の版で解決する…かもしれません。</p>
+</div>
+<div class="section" id="id3">
+<h2>利用条件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Sphinxと同じく二項BSDです。</p>
+</div>
+<div class="section" id="id4">
+<h2>設置について<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>他のPythonパッケージと同様に設置・撤去できます。また他のSphinx拡張と同様に必要なファイルだけ各自の管理下に複製し、そのフォルダを<span class="fn-rst">conf.py</span>で指定することでも利用いただけます。</p>
+<div class="section" id="id5">
+<h3>動作条件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>32ビット版のPython 2.7.10と64ビット版のPython 3.4.3をマイクロソフトウィンドウズ
+8.1上で動かして挙動を確認しました。特段の依存性はないので、他のPython実装や他のOSでも動作すると思います。</p>
+<p>Unicodeで定義された全文字への対応はPython 3が必須です。Python 2ではその標準符号化法かファイルシステムの符号化法に利用できる文字が限定されます。</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>また、この拡張はSphinx 1.3.1とdocutils 0.12の実装コード内容に依存しています。パッチ先の関数類に互換性のない変更があると動作しなくなります。</p>
+<p class="last">この点については、もう少し安定している別の拡張 <a class="reference external" href="https://pypi.python.org/pypi/gosyu">gosyu</a> があります。ただしこちらでは<code class="file docutils literal"><span class="pre">genindex.html</span></code> ではなく <code class="file docutils literal"><span class="pre">std-gosyu.html</span></code> が索引に用いられます。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>設置方法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>前述の通り、通常のPythonパッケージと同様の方法で設置できます。</p>
+<ol class="arabic">
+<li><p class="first">コンソールを開き<code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">yogosyu</span></code>を実行してください。</p>
+<p>マイクロソフトウィンドウズでは<code class="code docutils literal"><span class="pre">pythonを設置したフォルダ\Scripts\pip.exe</span> <span class="pre">install</span> <span class="pre">yogosyu</span></code>を実行してください。</p>
+</li>
+<li><p class="first">あるいは<span class="fn-rst">yogosyu-2.0.5(.zip)</span>(2.0.5はバージョン番号)というファイルを入手し、このファイルがあるフォルダへ移動した後<code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">yogosyu-2.0.5.zip</span></code>を実行してください。</p>
+<p>同様にウィンドウズでは代わりに<code class="code docutils literal"><span class="pre">pythonを設置したフォルダ\Scripts\pip.exe</span> <span class="pre">install</span> <span class="pre">yogosyu-2.0.5.zip</span></code>を実行してください。</p>
+</li>
+<li><p class="first">最後の別の方法として、これはSphinx特有の方法ですが、単にzipファイルを任意のフォルダに展開して使うという手段があります。Sphinxで使う<span class="fn-rst">conf.py</span>を適切に編集することで利用可能です。</p>
+</li>
+</ol>
+<p>依存関係を解決しなかった場合は、別途 <a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a> が必要となります。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>使い方<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>1) パスの追加<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>他のSphinx拡張同様、<span class="fn-rst">conf.py</span>の編集によって使えるようになります。</p>
+<p>まず、次のコードを追加してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># 次の4行を追加</span>
+<span class="kn">import</span> <span class="nn">distutils.sysconfig</span>
+<span class="n">site_package_path</span> <span class="o">=</span> <span class="n">distutils</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_python_lib</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">site_package_path</span><span class="p">,</span> <span class="s">&#39;sortorder&#39;</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">site_package_path</span><span class="p">,</span> <span class="s">&#39;sphinxcontrib/yogosyu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>ただし、もしpipで設置していないのであれば代わりに次を追加してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># 代わりに次の2行を追加</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&lt;sortorder.__init__.pyがあるフォルダへのパス&gt;&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&lt;yogosyu.pyがあるフォルダへのパス&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>さらに独自の並び順を提供するPythonファイルがある場合は、それへのパスも追加してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># 上記のいずれかに加えて次の行を追加</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&lt;用意した独自sort_order_xx.pyがあるフォルダへのパス&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a> には日本語を含めいくつかの言語用に予め用意された並び順提供module
+が含まれています。それらの使い方や独自の並び順を定義する方法については、
+<a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a> の<a class="reference external" href="http://h12u.com/sphinx/sortorder/README_ja.html">説明書</a>をご覧ください。</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>2) 使う拡張の宣言<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>次に当拡張を <code class="code docutils literal"><span class="pre">extension</span></code> の中で宣言してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">&#39;xx&#39;</span> <span class="c"># 自動読み込みを使う場合は言語指定を確認して下さい</span>
+
+<span class="c">#</span>
+<span class="c"># (中略)</span>
+<span class="c">#</span>
+
+<span class="n">extension</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s">&#39;sort_order_xx&#39;</span><span class="p">,</span> <span class="c"># 自動検出かsortorderで提供するものを使う場合は省きます</span>
+  <span class="s">&#39;sortorder&#39;</span><span class="p">,</span> <span class="c"># yogosyu拡張が自動的に読み込むので省略できます</span>
+  <span class="s">&#39;yogosyu&#39;</span><span class="p">,</span> <span class="c"># 総合索引を出力する場合は省略できます</span>
+  <span class="s">&#39;user_ordered_index_patch&#39;</span><span class="p">,</span> <span class="c"># 総合索引を出力しない場合は省略できます</span>
+<span class="p">]</span> <span class="c"># もちろん他の拡張も任意で追加できます</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="glossary-yogosyu">
+<h3>3) &#8216;glossary&#8217; を &#8216;yogosyu&#8217; に置き換え<a class="headerlink" href="#glossary-yogosyu" title="Permalink to this headline">¶</a></h3>
+<p>ここまでできましたら、<code class="code docutils literal"><span class="pre">..</span> <span class="pre">glossary::</span></code> directiveを
+<code class="code docutils literal"><span class="pre">..</span> <span class="pre">yogosyu::</span></code> に置き換えるだけです。<code class="code docutils literal"><span class="pre">:sorted:</span></code> はそのままで使えます。</p>
+<p><code class="file docutils literal"><span class="pre">genindex.html</span></code> では常に指定された並び順とグループ化が行われるようになります。</p>
+</div>
+<div class="section" id="id11">
+<h3>4) 読みがなを加える<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>日本語のような言語で使うために <code class="code docutils literal"><span class="pre">..</span> <span class="pre">yogosyu::</span></code> directive は
+<code class="code docutils literal"><span class="pre">:yomimark:</span> <span class="pre">&lt;区切り文字&gt;</span></code> という option も用意しています。<code class="code docutils literal"><span class="pre">:yomimark:</span></code> で指定した文字の前が本来の用語、後ろが読みがなという形になります。</p>
+<p>日本語での使用例を示します。<code class="file docutils literal"><span class="pre">conf.py</span></code>で次のように記述してください:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">&#39;ja&#39;</span>
+
+<span class="c">#</span>
+<span class="c"># (中略)</span>
+<span class="c">#</span>
+
+<span class="n">extension</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s">&#39;user_ordered_index_patch&#39;</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c"># 省略された拡張は前述のとおりすべて自動的に読み込まれます</span>
+</pre></div>
+</div>
+<p>その上で次のように用語集を記述した場合を考えます:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span class="p">..</span> <span class="ow">yogosyu</span><span class="p">::</span>
+  <span class="nc">:sorted:</span>
+  <span class="nc">:yomimark:</span> <span class="nf">、</span>
+
+  ひらがな
+
+    比較的曲線が多い日本語の表音文字
+
+  カタカナ
+
+    比較的直線が多い日本語の表音文字
+
+  漢字、かんじ
+
+    日本語でも使われる表意文字
+
+  英字、えいじ
+
+    義務教育で教わるため、日本語でもよく使われる表音文字
+
+  記号、きごう
+
+    国内国外を問わず多種多様な記号が携帯電話などでも使えるようになってきた
+</pre></div>
+</div>
+<p>ここでは区切り記号を読点 <code class="code docutils literal"><span class="pre">、</span></code> (U+3001) にしています。</p>
+<p>単語は <code class="code docutils literal"><span class="pre">英字→カタカナ→漢字→記号→ひらがな</span></code> の順で並べられます。
+<span class="fn-rst">sortorder.ja</span> module が読みがなである
+<code class="code docutils literal"><span class="pre">えいじ,</span> <span class="pre">カタカナ,</span> <span class="pre">かんじ,</span> <span class="pre">きごう,</span> <span class="pre">ひらがな</span></code> にもとに判断するからです。</p>
+<p>また <span class="fn-rst">genindex.html</span> においては <code class="code docutils literal"><span class="pre">カタカナ,</span> <span class="pre">漢字,</span> <span class="pre">記号</span></code> が単一の見出し <code class="code docutils literal"><span class="pre">か</span></code> にまとめられます。やはり同じ module が指定された読みがなに基いて振り分けを行うからです。</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>関連配布物<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/unicode_ids">unicode_ids</a><ul>
+<li>Sphinxが出力するHTMLファイルに非ASCII文字を含まれるように修正します</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a><ul>
+<li>この拡張の基盤moduleです</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/gosyu">gosyu</a><ul>
+<li>同じ目的の他の実装です。Sphinxの更新に対する安定性は増しますが、総合索引の代わりにドメイン索引に用語が入ります。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>著者<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Suzumizaki-Kimitaka(鈴見咲 君高), 2011-2015</p>
+</div>
+<div class="section" id="id14">
+<h2>履歴<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>2.0.5(2015-07-04):</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a>と<a class="reference external" href="https://pypi.python.org/pypi/unicode_ids">unicode_ids</a>を分離しました。</li>
+<li>PyPIでの公開をはじめました。</li>
+</ul>
+</div></blockquote>
+<p>2013-12-07:</p>
+<blockquote>
+<div>Sphinx に合わせて Python 3 にも対応しました。</div></blockquote>
+<p>2013-12-06:</p>
+<blockquote>
+<div>Sphinx 1.2 へパッチ対象を変更しました。</div></blockquote>
+<p>2011-05-24:</p>
+<blockquote>
+<div>初回公開。<a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a>と<a class="reference external" href="https://pypi.python.org/pypi/unicode_ids">unicode_ids</a>を含んでいました。</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">yogosyu拡張(日本語版説明書)</a><ul>
+<li><a class="reference internal" href="#id2">はじめに</a></li>
+<li><a class="reference internal" href="#id3">利用条件</a></li>
+<li><a class="reference internal" href="#id4">設置について</a><ul>
+<li><a class="reference internal" href="#id5">動作条件</a></li>
+<li><a class="reference internal" href="#id6">設置方法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">使い方</a><ul>
+<li><a class="reference internal" href="#id8">1) パスの追加</a></li>
+<li><a class="reference internal" href="#id10">2) 使う拡張の宣言</a></li>
+<li><a class="reference internal" href="#glossary-yogosyu">3) &#8216;glossary&#8217; を &#8216;yogosyu&#8217; に置き換え</a></li>
+<li><a class="reference internal" href="#id11">4) 読みがなを加える</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">関連配布物</a></li>
+<li><a class="reference internal" href="#id13">著者</a></li>
+<li><a class="reference internal" href="#id14">履歴</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="README.html"
+                        title="previous chapter">yogosyu extension</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="module_yogosyu.html"
+                        title="next chapter">Module yogosyu</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README_ja.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="module_yogosyu.html" title="Module yogosyu"
+             >next</a></li>
+        <li class="right" >
+          <a href="README.html" title="yogosyu extension"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">yogosyu 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Suzumizaki-Kimitaka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
