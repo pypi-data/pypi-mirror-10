@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import argparse
+
+import perg
+
+# Commandline execution
+if __name__ == '__main__':  
+
+    # CLI opts
+    parser = argparse.ArgumentParser(description="Generate a stream of random samples from the set of strings matching your regex")
+    parser.add_argument('regex', help='regex to sample matches from')
+    group = parser.add_mutually_exclusive_group(required=False)
+    group.add_argument('-n', help='number of matches to sample', type=int, default=0)
+    group.add_argument('-e', help='enumerate all matches', action='store_true')
+
+    args = parser.parse_args()
+
+    # Get regex to sample from as 1st arg
+    regex = args.regex.replace('\\\\', '\\') 
+
+    # If no -n arg, sample forever
+    if not args.n:
+        for s in perg.sampler(regex, enum=args.e):
+            print(s)
+    else:
+        generator = perg.sampler(regex)
+        for _ in range(args.n):
+            print(next(generator))
