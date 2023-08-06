@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: quickstartlog
+Version: 0.1.7
+Summary: A simple log utility for building application quickly
+Home-page: https://github.com/sunjinopensource/quickstartlog/
+Author: Sun Jin
+Author-email: sunjinopensource@qq.com
+License: UNKNOWN
+Description: quickstartlog
+        =============
+        
+        A simple log utility, write log into console & file(TimedRotatingFileHandler)
+        
+        Examples
+        --------
+        
+        main.py::
+        
+            import quickstartlog as qslog
+        
+            qslog.info('this is info message')
+            qslog.warn('this is warning message')
+            qslog.error('this is error message')
+            
+        console output & ./var/log/main.log::
+            
+            [10:13:44 INFO ] this is info message
+            [10:13:44 WARNI] this is warning message
+            [10:13:44 ERROR] this is error message
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
