@@ -1,0 +1,48 @@
+Metadata-Version: 2.0
+Name: bleachfields
+Version: 1.0.2
+Summary: Tools for bleaching text and JSON of HTML
+Home-page: UNKNOWN
+Author: Alex Francis
+Author-email: afrancis@betterworks.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: Django (>=1.4.3)
+Requires-Dist: jsonfield (>=1.0.3)
+Requires-Dist: bleach (>=1.4.1)
+
+===== 
+django-bleachfields
+===== 
+django-bleachfields is a Python module that utilizes existing bleach and HTML parser modules to remove HTML tags and unescape text from a field before saving it to a Django model.
+To use, simply call BleachJSONField or BleachTextField in place of a Django text field, such as models.TextField or models.CharField.
+
+Install
+-------- 
+.. code-block:: python
+
+    pip install bleachfields
+
+Usage
+-------- 
+.. code-block:: python
+
+    from django.db import models
+    from bleachfields import BleachJSONField, BleachTextField
+
+    class Person(models.Model):
+      name = BleachTextField(max_length=256)
+      response = BleachJSONField()
+
+Contact
+-------- 
+Email: afrancis@betterworks.com
+
+Changes
+-------- 
+None to date.
+
+
