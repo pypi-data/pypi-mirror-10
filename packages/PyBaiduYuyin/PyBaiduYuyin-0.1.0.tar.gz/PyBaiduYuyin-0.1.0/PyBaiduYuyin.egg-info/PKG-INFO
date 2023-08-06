@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: PyBaiduYuyin
+Version: 0.1.0
+Summary: Library for performing speech recognition with Baidu Speech Recognition API.
+Home-page: https://github.com/DelightRun/PyBaiduYuyin#readme
+Author: Changxu Wang
+Author-email: wang_changxu@icloud.com
+License: BSD
+Description: PyBaiduYuyin
+        ============
+        
+        This project is a wrapper for [Baidu Yuyin(voice) API](http://yuyin.baidu.com/)
+        
+        This project is modified from [SpeechRecognition](https://github.com/Uberi/speech_recognition), which is published under the 3-clause BSD license.
+            
+        Requirement
+        ===========
+        
+        + PyAudio
+        
+        This can be installed by `pip`:
+        
+        ~~~{shell}
+        $ sudo pip install pyaudio
+        ~~~
+        
+        Usage
+        =====
+        
+        > Note: I'm still working on this part, contributions are welcomed.
+        
+        ### TTS (Text-To-Speech)
+        
+        Details can be found in source code.
+        
+        Example: 
+        
+        ~~~{python}
+        import PyBaiduYuyin as pby
+        tts = pby.TTS(app_key=YOUR_APP_KEY, secret_key=YOUR_SECRET_KEY)
+        tts.say("你好")
+        ~~~
+        
+        ### Recognition
+        
+        The usage of Recognition module is same as [SpeechRecognition](https://github.com/Uberi/speech_recognition), except using `Baidu App Key` and `Baidu Secret Key` instead of `Google App Key`.
+        
+        Please see [SpeechRecognition's README](https://github.com/Uberi/speech_recognition/blob/master/README.rst) for details.
+        
+        LICENSE
+        =======
+        Copyright (c) 2015-2016 [Changxu Wang](changxu.wang)
+        
+        The source code is available online at GitHub.
+        
+        This program is made available under **MIT License**, see `LICENSE.txt` for details.
+Keywords: baidu voice service
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Other OS
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
