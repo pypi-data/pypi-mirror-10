@@ -1,0 +1,75 @@
+CHANGES
+=======
+
+0.3.1
+-----
+
+* chroot: Capture output of mount/unmount commands
+* Validate extra_mounts a bit more thoroughly
+* chroot: Change directory to '/' after calling os.chroot()
+* Allow overriding backend autodetection with SANDBOXLIB_BACKEND variable
+* linux_user_chroot: Sort --mount-readonly directories
+* linux_user_chroot: Correct docstring
+* Fix mistake in CAPABILITIES dicts
+* README: Fix up the markup
+* Update README
+* Fix numbering in HACKING.rst
+
+0.3.0
+-----
+
+* Fix some mistakes in chroot backend
+* tests: Show compiler output if building the test C program fails
+* Note that you can't really use the test suite on Mac OS X
+* Add some more tests
+* Validate parameters using CAPABILITIES dict, instead of manually
+* Note that chroot backend has been tested on OSX now
+* Fix executor_for_backend()
+* Rename sandbox_backend_for_platform() to executor_for_platform()
+* Replace maximum_possible_isolation() with degrade_config_for_capabilities()
+* Commit programs.py under correct name
+* Fix previous commit
+* Change how we search for 'linux-user-chroot'
+* Fix calculating mount point targets
+* Do mounts directly in linux-user-chroot
+* linux-user-chroot: Allow None for filesystem_writable_paths
+* HACKING: Fix a link
+* Use PBR 'postversioning', and update release process
+* Use the PBR (OpenStack) versioning scheme
+* Add 'url' and 'license' metadata to setup.cfg
+* Bump version number
+* Use reStructuredText instead of Markdown
+* Add release process to HACKING.mdwn
+* Set version number to 0.1.0
+
+0.1.0
+-----
+
+* Fix the test suite
+* Fix creating missing mountpoints in linux-user-chroot backend, update docs
+* Log the actual commandline being run
+* Don't have a 'base' environment, make the caller specify 'env'
+* Add support for output redirection
+* Add sandbox_module_for_platform() method
+* Fix error when mount type is None (used for bind mounts)
+* README: Add a bunch of info
+* Add 'filesystem_root' and 'filesystem_writable_paths' settings
+* Mention 'mounts' in documentation of maximum_possible_isolation()
+* chroot: Fix mounting
+* Initial work to allow configuring mount sharing and mounting
+* Add a basic test suite using 'py.test' and 'tox'
+* Add simple setup.py using the 'pbr' module
+* Return the exit code, stdout and stderr from run_sandbox()
+* Let's get some real documentation started
+* Add the ability to isolate the sandbox from the network, or not
+* chroot: Handle failure better
+* run-sandbox: Small compliance improvement for App Container images
+* README: Add note about App Container spec, now I know more about what it is
+* README: Fix broken links, copy 'license' section from YBD README
+* Add an initial README
+* HACKING: correct some details
+* Honour environment variables defined in App Container images
+* Add 'cwd' option to run_sandbox() functions
+* Add linux-user-chroot backend, run-sandbox script, 'appc' loader
+* Create a 'sandboxlib' package, rework 'chroot' module
+* Add initial sandboxing tools
