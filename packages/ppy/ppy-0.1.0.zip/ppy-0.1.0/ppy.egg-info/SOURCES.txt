@@ -1,0 +1,19 @@
+LICENSE
+MANIFEST.in
+README.md
+TODO- pip outdated.txt
+ppy_import_hook.pth
+requirements.txt
+setup.py
+ppy/__init__.py
+ppy/cli.py
+ppy/hooks.py
+ppy/imports.py
+ppy/pip_patch.py
+ppy/resolver.py
+ppy.egg-info/PKG-INFO
+ppy.egg-info/SOURCES.txt
+ppy.egg-info/dependency_links.txt
+ppy.egg-info/entry_points.txt
+ppy.egg-info/requires.txt
+ppy.egg-info/top_level.txt
