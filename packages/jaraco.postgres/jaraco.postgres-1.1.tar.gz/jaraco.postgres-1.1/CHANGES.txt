@@ -1,0 +1,10 @@
+1.1
+===
+
+Allow the POSTGRESQL_HOME environment variable to stipulate where
+the Postgres binaries must be found, overriding heuristic search.
+
+1.0
+===
+
+Initial release, using models from yg.test 4.1.
