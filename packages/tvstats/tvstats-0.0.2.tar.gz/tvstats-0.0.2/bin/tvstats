@@ -1,0 +1,47 @@
+#!/usr/bin/python2
+
+import sys
+import argparse
+from tvstats import scraper
+from tvstats import jsonhelper as jh
+
+
+try:
+    from tvstats import __desc__ # try to get version number
+except ImportError:
+    __desc__ = 'UNKNOWN'
+
+
+def setup_parser():
+    """
+    Generates the parser
+    """
+    description = 'Scrape data of all the episodes of a Tv Series from IMDB'
+    parser = argparse.ArgumentParser(add_help=True, \
+                                     conflict_handler='resolve',\
+                                     description=description)
+
+    help = "IMDB url. Should point to homepage of a Tv Series.\
+            eg. http://www.imdb.com/title/tt0108778/?ref_=fn_al_tt_1"
+
+    parser.add_argument('url', type=str, help=help)
+
+    help = "Current version of tvstats"
+    parser.add_argument('--version', '-v',  action='version', help=help,\
+                        version=__desc__)
+
+    help = "Path of file to save the output"
+    parser.add_argument('--file', '-f',  type=argparse.FileType('w'),\
+                        default=sys.stdout, help=help, dest='path')
+
+    return parser
+
+
+if __name__ == '__main__':
+    parser = setup_parser()
+    args = parser.parse_args()
+
+    data = scraper.parse(args.url)
+    json_data = jh.dict_to_json(data)
+
+    args.path.write(str(json_data))
