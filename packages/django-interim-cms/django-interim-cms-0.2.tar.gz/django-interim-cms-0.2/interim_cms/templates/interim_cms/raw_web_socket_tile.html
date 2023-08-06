@@ -1,0 +1,190 @@
+{% extends "grappelli/dashboard/module.html" %}
+{% load i18n %}
+
+{% block module_content %}
+
+{% if rendered %}
+    {{ rendered|safe }}
+{% else %}
+
+    {% comment %}Conditional import would be better{% endcomment %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+
+        (function (exports) {
+
+            function debug (d) {
+                //console.log("DEBUG: " + d);
+            };
+
+            function EchidnaApi (api_server, opts) {
+                var self = this;
+
+                self.api_server = api_server;
+                self.callbacks = opts.callbacks || {};
+
+                self.socket = null;
+
+                self.init = function () {
+                    var socket = new WebSocket("ws://" + self.api_server + "/subscribe");
+                    self.socket = socket;
+                    socket.onopen = self.ws.on_open;
+                    socket.onclose = self.ws.on_close;
+                    socket.onmessage = self.ws.on_message;
+                    socket.onerror = self.ws.on_error;
+                };
+
+                self.callback = function () {
+                    var name = Array.prototype.shift.call(arguments);
+                    if (self.callbacks[name]) {
+                        self.callbacks[name].apply(self, arguments);
+                    };
+                };
+
+                self.ws = {};
+
+                self.ws.on_open = function () {
+                    debug("connected");
+                    self.callback('on_open');
+                };
+
+                self.ws.on_close = function () {
+                    debug("disconnected");
+                    self.callback('on_close');
+                };
+
+                self.ws.on_message = function (event) {
+                    debug("received: " + event.data);
+                    var msg = JSON.parse(event.data);
+                    var callback_name = "handle_" + msg.msg_type;
+                    self.callback(callback_name, msg);
+                };
+
+                self.ws.on_error = function (e) {
+                    debug(e);
+                    self.callback('on_error', e);
+                };
+
+                self.send_msg = function (msg) {
+                    self.socket.send(JSON.stringify(msg));
+                };
+
+                self.subscribe = function (channel) {
+                    debug("subscribe");
+                    self.send_msg({
+                        "msg_type": "subscribe",
+                        "channel": channel,
+                        "last_seen": Date.now() / 1000 - 3600
+                    });
+                };
+
+                self.unsubscribe = function (channel) {
+                    debug("unsubscribe");
+                    self.send_msg({
+                        "msg_type": "unsubscribe",
+                        "channel": channel,
+                    });
+                };
+
+                self.init();
+            }
+
+
+            function EchidnaReceiver ($msg_list, api_server) {
+                var self = this;
+
+                self.$msg_list = $msg_list;
+                self.$no_cards_li = $msg_list.find(".echidna-no-cards");
+                self.api_server = api_server;
+
+                self.api = null;
+                self.channels = {};
+
+                self.init = function () {
+                    self.api = new EchidnaApi(self.api_server, {
+                        "callbacks": {
+                            "on_open": self.on_open,
+                            "handle_card": self.handle_card,
+                            "handle_error": self.handle_error
+                        }
+                    });
+                };
+
+                self.add_channel = function (channel) {
+                    debug("Adding channel " + channel + " ...");
+                    self.channels[channel] = true;
+                    self.api.subscribe(channel);
+                };
+
+                self.remove_channel = function (channel) {
+                    debug("Removing channel " + channel + " ...");
+                    self.channels[channel] = false;
+                    self.api.unsubscribe(channel);
+                    self.remove_channel_msgs(channel);
+                };
+
+                self.remove_channel_msgs = function (channel) {
+                    self.$msg_list.find("li[channel='" + channel + "']").remove();
+                    self.check_no_cards_li();
+                };
+
+                self.check_msg_overflow = function () {
+                    self.$msg_list.find("li:visible:gt(20)").remove();
+                };
+
+                self.check_no_cards_li = function () {
+                    msg_count = self.$msg_list.find("li:visible").length;
+                    debug(msg_count);
+                    if (msg_count == 0) {
+                        self.$no_cards_li.show();
+                    }
+                    else if (msg_count > 1) {
+                        self.$no_cards_li.hide();
+                    }
+                };
+
+                self.on_open = function () {
+                    self.add_channel("visualradio");
+                };
+
+                self.handle_card = function (msg) {
+                    debug("Handle card");
+                    var card = msg.card;
+                    self.$msg_list.prepend("<li>" + msg.card.title + "</li>");
+                    self.check_msg_overflow();
+                    self.check_no_cards_li();
+                };
+
+                self.handle_error = function (msg) {
+                    debug("ERROR msg: " + JSON.stringify(msg));
+                };
+
+                self.init();
+            }
+
+            exports.EchidnaApi = EchidnaApi;
+            exports.EchidnaReceiver = EchidnaReceiver;
+
+        })(window.echidna = window.echidna || {});
+
+        $(document).ready(function(){
+            $(function () {
+                var recv = new echidna.EchidnaReceiver(
+                    $("#raw-web-socket-tile ul"),
+                    "{{ view.api_server }}"
+                );
+            });
+        });
+
+    </script>
+
+    <div id="raw-web-socket-tile">
+        <ul>
+            <li>Title</li>
+        </ul>
+    </div>
+
+{% endif %}
+
+{% endblock %}

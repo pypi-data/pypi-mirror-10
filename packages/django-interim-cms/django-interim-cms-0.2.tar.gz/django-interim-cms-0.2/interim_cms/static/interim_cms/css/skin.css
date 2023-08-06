@@ -1,0 +1,123 @@
+/*
+    Blue: #0083c2
+    Grey: #d5d5d5
+    Grey Light: #e1e1e1;
+*/
+
+* {
+    border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    -webkit-border-radius: 0!important;
+}
+
+a,
+table thead th a {
+    color: #0083c2;
+}
+
+a:hover {
+    color: #005e9b;
+}
+
+header#grp-header #grp-navigation {
+    background-image: linear-gradient(#0083c2,#0083c2)!important;
+    background-image: -moz-linear-gradient(#0083c2,#0083c2)!important;
+    background-image: -webkit-linear-gradient(#0083c2,#0083c2)!important;
+    background-color: #0083c2!important;
+    background: #0083c2!important;
+}
+
+header#grp-header #grp-navigation ul#grp-user-tools {
+    border: 0;
+}
+
+header#grp-header #grp-navigation a {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+header#grp-header #grp-navigation ul li.grp-collapse.grp-open>ul li {
+    border: 0;
+}
+
+table thead th a {
+    font-weight: bold;
+}
+
+body.grp-login .grp-module-login h1 span.grp-current-page,
+.grp-collapse h2.grp-collapse-handler,
+.grp-module h2 {
+    padding: 8px 10px!important;
+    background-image: linear-gradient(#0083c2,#0083c2)!important;
+    background-image: -moz-linear-gradient(#0083c2,#0083c2)!important;
+    background-image: -webkit-linear-gradient(#0083c2,#0083c2)!important;
+    background-color: #0083c2!important;
+    background: #0083c2!important;
+    color: #fff!important;
+    text-shadow: 0 0 0;
+}
+
+.grp-module {
+    border: 1px solid #0083c2;
+    background: #e1e1e1;
+}
+
+#grp-content-container .grp-module {
+    background: #fff;
+}
+
+.grp-module .grp-row:not(tr) {
+    border-top: 0;
+    border-bottom: 0;
+    padding: 7px 10px;
+    background: #ececec;
+}
+
+.grp-module .grp-row:nth-child(2n) {
+    background: #fff;
+}
+
+a.grp-button,
+button.grp-button,
+input[type=button].grp-button {
+    padding: 5px 22px 5px 10px;
+}
+
+.grp-filter .grp-pulldown-container {
+    border: 0;
+}
+
+form#grp-changelist-search-form {
+    border: 0;
+    margin-right: 10px;
+}
+
+.grp-pagination ul li {
+    border: 0;
+}
+
+.grp-submit-row>ul,
+.grp-module.grp-submit-row {
+    margin: 0;
+    border: 0;
+}
+
+input[type="submit"],
+#right-content .grp-module .buttons input {
+    background-image: linear-gradient(#0083c2,#0083c2)!important;
+    background-image: -moz-linear-gradient(#0083c2,#0083c2)!important;
+    background-image: -webkit-linear-gradient(#0083c2,#0083c2)!important;
+    background-color: #0083c2!important;
+    background: #0083c2!important;
+    color: #fff!important;
+    text-shadow: 0 0 0;
+    border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    -webkit-border-radius: 0!important;
+}
+
+.selector {
+    overflow-x: scroll;
+}
+
+footer { background-image: linear-gradient(#333, #222) !important; }

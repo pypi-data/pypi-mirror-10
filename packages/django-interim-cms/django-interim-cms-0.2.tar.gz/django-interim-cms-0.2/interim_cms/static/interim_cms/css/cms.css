@@ -1,0 +1,239 @@
+* { -webkit-font-smoothing: antialiased; }
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body { overflow-x: hidden; }
+
+#grp-content {
+    width: 100%;
+    top: 63px;
+    /*display: table;*/
+}
+
+/*  CONTENT  */
+
+    #left-content-toggle {
+        width: 15px;
+        height: 15px;
+        float: left;
+        background: url('../images/caret-double-left.png') center no-repeat;
+        overflow: hidden;
+        text-indent: -999px;
+        position: absolute;
+        left: 0;
+        top: 24px;
+    }
+
+    #left-content-toggle:hover {
+        background: url('../images/caret-double-left-over.png') center no-repeat;
+    }
+
+    #right-content-toggle {
+        width: 15px;
+        height: 15px;
+        float: right;
+        background: url('../images/caret-double-right.png') center no-repeat;
+        overflow: hidden;
+        text-indent: -999px;
+        position: absolute;
+        right: 0;
+        top: 24px;
+    }
+
+    #right-content-toggle:hover {
+        background: url('../images/caret-double-right-over.png') center no-repeat;
+    }
+
+    #grp-content-container {
+        width: auto;
+        vertical-align: top;
+        margin-left: 25%;
+        margin-right: 25%;
+        padding-right: 20px;
+    }
+
+    #grp-content-container:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .grp-dashboard-module {
+        margin-right: 0!important;
+    }
+
+    .grp-dashboard-module h1,
+    .grp-dashboard-module p {
+        padding: 5px 10px;
+    }
+
+    .grp-dashboard-module h1 {
+        padding-top: 10px;
+    }
+
+    .grp-dashboard-module p {
+        padding-bottom: 10px;
+    }
+
+    .g-d-c,
+    .g-all-c {
+        width: auto;
+        float: none;
+    }
+
+    #grp-content-container > .g-d-c {
+    }
+
+    .g-d-12,
+    .l-2cr-fluid.l-d-12 .c-1 {
+        width: auto;
+        float: none;
+        margin-right: 0;
+    }
+
+    .g-d-6,
+    .l-2cr-fluid.l-d-6 .c-1 {
+        width: auto;
+    }
+
+    #grp-content-title {
+        width: 100%;
+        position: relative;
+        padding: 0 30px;
+    }
+
+    .grp-module {
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
+    .grp-group {
+        margin-bottom: 20px;
+    }
+
+    #grp-content-container .grp-module, #grp-content-container .grp-group {
+        clear: none;
+        float: left;
+    }
+
+    #grp-content-container p.errornote {
+        clear: none;
+        float: left;
+    }
+
+    #grp-content-container p.errornote+ul.errorlist:after {
+        clear: none;
+    }
+
+    #grp-content-container .grp-module,
+    #grp-content-container .g-d-f,
+    #grp-content-container .grp-group {
+        clear: none;
+    }
+
+    #grp-content-container .g-d-f {
+        margin-right: 0!important;
+    }
+
+    .grp-change-form .grp-module:not(.grp-submit-row) {
+        min-width: 0;
+    }
+
+    .grp-row input[type="url"],
+    .grp-row input[type="email"],
+    .grp-row .vTextField,
+    .grp-row .vURLField,
+    .grp-row .vFileBrowseField,
+    .grp-row textarea,
+    .grp-row .vLargeTextField,
+    .grp-row .vXMLLargeTextField,
+    .grp-autocomplete-wrapper-m2m {
+        width: 100%;
+    }
+
+    input[type="url"],
+    input[type="email"],
+    input.vTextField,
+    input.vURLField,
+    input.vFileBrowseField,
+    textarea,
+    .vLargeTextField,
+    .vXMLLargeTextField {
+        width: auto;
+    }
+
+    #grp-content-container .grp-tabular .grp-module.grp-table,
+    #grp-content-container .grp-tabular .grp-module.grp-thead {
+        float: none;
+    }
+
+    body.grp-change-form #grp-content-container>form,
+    body.grp-change-form #grp-content-container>form>div {
+        float: none;
+        clear: none;
+    }
+
+    body.grp-change-form #grp-content-container>form {
+        margin-right: 0;
+    }
+
+    body.grp-change-form #grp-content-container>form>div>fieldset, {
+        margin-right: 0;
+    }
+
+    body.grp-change-list table {
+        width: 100%;
+        margin: 0!important;
+        border: 0;
+    }
+
+    .grp-listing-small li.grp-add-link a,
+    .grp-listing-small li.grp-add-link>span:first-child,
+    .grp-listing-small li.grp-change-link a,
+    .grp-listing-small li.grp-change-link>span:first-child,
+    .grp-listing-small li.grp-delete-link a,
+    .grp-listing-small li.grp-delete-link>span:first-child {
+        margin-left: 0;
+    }
+
+/*  LEFT COLUMN  */
+
+    #left-content {
+        width: 25%;
+        float: left;
+        vertical-align: top;
+        position: relative;
+    }
+
+/*  RIGHT COLUMN  */
+
+    #right-content {
+        width: 25%;
+        float: right;
+        vertical-align: top;
+        position: relative;
+    }
+
+        #right-content .g-d-f,
+        #right-content .g-all-f,
+        #right-content .g-all-fl,
+        #right-content .l-2c .c-1,
+        #right-content .l-2cr .c-1 {
+            margin-right: 0!important;
+        }
+
+        #right-content .grp-module .buttons {
+            padding: 10px;
+        }
+
+/*  FOOTER  */
+
+    .grp-fixed-footer {
+        margin: 0;
+    }
+
+/* GRAPHS */
+
+.graph-tile canvas{
+    width: 100% !important;
+    height: auto !important;
+}

@@ -1,0 +1,44 @@
+{% extends "admin/base_site.html" %}
+
+<!-- LOADING -->
+{% load i18n grp_tags log grp_dashboard_tags cms_tags %}
+
+<!-- JAVASCRIPTS -->
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript" charset="utf-8">
+        (function($) {
+            $(document).ready(function() {
+                $("article#grp-content .grp-collapse").grp_collapsible();
+            });
+        })(grp.jQuery);
+    </script>
+{% endblock %}
+
+<!-- COLTYPE/BODYCLASS-- >
+{% block bodyclass %}dashboard{% endblock %}
+{% block content-class %}content-grid{% endblock %}
+
+<!-- BREADCRUMBS -->
+{% block breadcrumbs %}
+    <ul class="grp-horizontal-list">
+        <li>{% trans "Home" %}</li>
+    </ul>
+{% endblock %}
+{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+
+<!-- CONTENT -->
+{% block left_content %}
+    {% get_left_dashboard %}
+    {% grp_render_dashboard dashboard=left_dashboard %}
+{% endblock %}
+
+{% block content %}
+    {% get_center_dashboard %}
+    {% grp_render_dashboard dashboard=center_dashboard %}
+{% endblock %}
+
+{% block right_content %}
+    {% get_right_dashboard %}
+    {% grp_render_dashboard dashboard=right_dashboard %}
+{% endblock %}

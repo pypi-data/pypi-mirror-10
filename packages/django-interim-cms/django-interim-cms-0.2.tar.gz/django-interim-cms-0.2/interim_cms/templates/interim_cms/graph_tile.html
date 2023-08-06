@@ -1,0 +1,44 @@
+{% extends "grappelli/dashboard/module.html" %}
+{% load i18n %}
+
+{% block module_content %}
+    <div class="graph-tile">
+        <canvas id="{{ module.graph_id }}"></canvas>
+    </div>
+
+    <script type="text/javascript">
+    if (!$) {
+        $ = django.jQuery;
+    }
+    $(function() {
+        var options = {
+            responsive: true,
+            maintainAspectRatio: true
+        };
+        var ctx = $("#{{ module.graph_id }}").get(0).getContext("2d");
+        var data = {
+            labels: [
+            {% for label in module.children.labels %}
+            '{{ label }}',
+            {% endfor %}
+            ],
+            datasets: [
+                {
+                    label: "Data",
+                    fillColor: "{{ module.graph_colour }}",
+                    strokeColor: "{{ module.graph_colour }}",
+                    highlightFill: "{{ module.graph_highlight_colour }}",
+                    highlightStroke: "{{ module.graph_highlight_colour }}",
+                    data: {{ module.children.data }}
+                },
+            ]
+        };
+        {% if module.graph_type == 'bar' %}
+        var graph = new Chart(ctx).Bar(data, options);
+        {% elif module.graph_type == 'line' %}
+        var graph = new Chart(ctx).Line(data, options);
+        {% endif %}
+    });
+    </script>
+
+{% endblock %}
