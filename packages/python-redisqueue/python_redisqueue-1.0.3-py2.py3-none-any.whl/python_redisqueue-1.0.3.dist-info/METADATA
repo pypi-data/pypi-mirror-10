@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: python-redisqueue
+Version: 1.0.3
+Summary: An easy to use redis-based queue implementation
+Home-page: http://code.benjie.me/python-redisqueue
+Author: Benjie Jiao
+Author-email: benjiao12@gmail.com
+License: BSD
+Keywords: redis queue
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: redis
+
+An easy to use redis-based queue implementation
+
+
