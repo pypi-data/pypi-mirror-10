@@ -1,0 +1,162 @@
+CHANGES
+=======
+
+0.2.1
+-----
+
+* Make metavar's consistent
+* Setup for translation
+* Updated from global requirements
+* Bump up to newer hacking
+* Add support of container resource management with "name"
+* Add support for container status
+* Drop use of 'oslo' namespace package
+
+0.2.0
+-----
+
+* Remove links attribute from pod show
+* Log the correct url in debug mode
+* Add heat timeout to bay-create for magnum client
+* Add coe attribute to BayModel creation
+* Add bay_uuid to container create
+* Update README to work with release tools
+* Add support for pod name in pod-update command
+
+0.1.0
+-----
+
+* Add bay status check when rc create
+* Add bay status check when service create
+* fix a typo in log
+* Add bay status check when pod create
+* Rename swarm-token to discovery-url
+* Support pass command field when create a container
+* Delegate magnum url search to url_for method
+* Remove side effect in get_keystoneclient
+* Add unittests for magnumclient.v1.client module
+* Correct mock use in TestCommandLineArgument.setUp
+* Uncap library requirements for liberty
+* Support update a replication controller
+* Support update a service
+* Add swarm_token to bay-create call
+* Support update a pod
+* Authenticate once
+* Add error info detail for magnum cli
+* Update bandit for latest usage
+* Add tox bandit support for python-magnumclient
+* Remove unused get_projects_list method
+* Add support for bay name in bay-update command
+* Allow bay name when replication controller is created
+* Update .gitreview for project rename
+* Allow baymodel name when bay is created
+* Allow bay name when pod is created
+* Allow bay name when service is created
+* Support keystone region
+* Rename k8s specific bay attributes
+* Add support of baymodel resource management with "name"
+* Add support of rc resource management with "name"
+* Add support of service resource management with "name"
+* Allow specification of ssh_authorized_key
+
+0.0.1
+-----
+
+* Add support of pod resource management with "name"
+* Remove some default values for baymodel create
+* Add support of bay resource management with "name"
+* Fix container exec output
+* Fix the container logs output
+* Make baymodel-create fail when no argument passed
+* Display bay status column
+* tidy up language on one shell help command
+* Allow adding master flavor id to baymodel
+* Allow specification of fixed_network
+* Allow specification of docker_volume_size
+* Support multiple args in some magnum commands
+* Remove '--id' option from magnum commands
+* Make bay-create fail when no argument passed
+* Adding test for magnumclient argument parsing
+* Add support for updating a bay
+* Adding tests for v1/shell.py
+* Adding test for shell.py
+* Container logs should use HTTP GET
+* Add help info for container operations
+* Update help message for baymodel operations
+* Add help for magnum object show
+
+m1
+--
+
+* Remove 'desc' from container output
+* Rename `resource`_data/url attributes to manifest/manifest_url
+* Default version should be v1 in magnum
+* Fix an error on not finding log handler
+* Add id as required for bay-show/delete
+* Revert "Fix an error on not finding log handler"
+* Change rc_data to replicationcontroller_data
+* Fix an error on not finding log handler
+* Make replication controller client works
+* Remove 'desc' from docker creation attribute
+* Update test_update to test_pod_update for pod client test
+* Add client test for k8s replication controller
+* Add client test for k8s service
+* Add client test for magnum containers
+* Add client test for magnum baymodel
+* Add client test for magnum bay
+* Add client test for magnum node
+* Support file path as a service manifest data
+* Adjusted CLI argument names to use dashes rather than underscores
+* Add client test for test_pods
+* Support file path as a pod data
+* Add unit test for magnumclient/common/httpclient.py
+* Add unit test for magnumclient/common/utils.py
+* Update K8S Pod and Service input parameter
+* Make id as required when delete or show object info
+* Construct URI properly for container-execute
+* Add k8s replication support for magnum client
+* Ensure a id string is passed when --id is used
+* Change folder of api to v1 for magumclient
+* Get container-list CLI working
+* Do not advertise py33 compatibility
+* Set HTTP PUT Content-Length for container actions
+* Implement container actions
+* Add image_id attribute for container
+* Service create only need service filename
+* pod create only need pod filename
+* Implement client for service operations
+* Update parmater name for _show_pod
+* Add baymodel_id to bay_create
+* Add flavor_id property to baymodel object
+* Implement pod client CLI
+* Make bay-create operate again as a result of baymodel
+* Make bay create work with new bay model structure
+* Type and image_id are removed from server
+* Don't show links when showing bay
+* Make baymodel-list only show name and UUID
+* Make baymodel not show links
+* Implement baymodel in client
+* Add node object to the python client
+* Add image_id and node_count to bay-create
+* Workflow documentation is now in infra-manual
+* Make separate Bay objects for each bay object
+* Complete implementation of bay operations
+* Docstring cleanups
+* Delete bay rather then container when requested
+* Misc cleanups
+* Make container in sync with bays and pods
+* Make pod objects work in ReST Client API
+* Make bay objects work in ReST Client API
+* Modify container list attributes
+* Implements basic container operations
+* Add client resources and managers
+* Update apiclient from oslo-incubator
+* Add apiclient library from oslo-incubator
+* Added default service type
+* Skeleton for the cli client
+* Include the auth module from oslo
+* Sync common code from oslo-incubator
+* Added project required files
+* Add service API methods to what should be implemented
+* Boilerplate client for communicating with ReST API
+* Initial commit

@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: python-magnumclient
+Version: 0.2.1
+Summary: Client library for Magnum API
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Description: Python bindings to the Magnum API
+        =================================
+        
+        This is a client library for Magnum built on the Magnum API. It
+        provides a Python API (the ``magnumclient`` module) and a command-line
+        tool (``magnum``).
+        
+        Development takes place via the usual OpenStack processes as outlined
+        in the `developer guide
+        <http://docs.openstack.org/infra/manual/developers.html>`_.
+        
+        * License: Apache License, Version 2.0
+        * Source: http://git.openstack.org/cgit/openstack/python-magnumclient
+        * Bugs: http://bugs.launchpad.net/python-magnumclient
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.6
