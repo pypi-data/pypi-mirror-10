@@ -1,0 +1,45 @@
+{
+    "width": 200,
+    "height": 200,
+    "data": [
+        {
+            "name": "qq",
+            "values": {{ data }}
+        }
+    ],
+    "scales": [
+        {
+            "name": "x",
+            "type": "linear",
+            "range": "width",
+            "nice": true,
+            "domain": {"data": "qq", "field": "data.nulldist"}
+        },
+        {
+            "name": "y",
+            "type": "linear",
+            "range": "height",
+            "nice": true,
+            "domain": {"data": "qq", "field": "data.log10-p-value"}
+        }
+    ],
+    "axes": [
+        {"type": "x", "scale": "x", "nice": true, "offset": 5, "title": "null distribution"},
+        {"type": "y", "scale": "y", "nice": true, "offset": 5, "title": "-log10 observed p-values"}
+    ],
+    "marks": [
+        {
+            "type": "symbol",
+            "from": {"data": "qq"},
+            "properties": {
+                "enter": {
+                    "x": {"scale": "x", "field": "data.nulldist"},
+                    "y": {"scale": "y", "field": "data.log10-p-value"},
+                    "fill": {"value": "steelblue"},
+                    "stroke": {"value": "transparent"},
+                    "size": {"value": 2}
+                }
+            }
+        }
+    ]
+}
