@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grmaster</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    </head>
+  <body>
+    <div class="container">
+      <header class="row page-header">
+        <div class="col-sm-12">
+          <h1>Grmaster</h1>
+          <p class="lead">Инструммент для разделения студентов по группам.</p>
+        <p class="text-muted"><small>
+          Copyright (C) 2015 V. S. Lutov &lt;<a href="mailto:vslutov@yandex.ru">vslutov@yandex.ru</a>&gt; (contact me, if need)<br>
+          License: GNU AGPL 3.0 <a href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</a>
+        </small></p>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Подготовка</h2>
+        </div>
+        <div class="col-sm-9">
+          <p class="lead">Прочитайте хелп: <a href="https://vslutov.github.io/grmaster/">https://vslutov.github.io/grmaster/</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Шаг 1</h2>
+        </div>
+        <div class="col-sm-9">
+          <a class="btn btn-primary" href="template.csv">Скачать шаблон</a>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Шаг 2</h2>
+        </div>
+        <div class="col-sm-9">
+          <p class="lead">Добавьте информацию о студентах в таблицу.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>Шаг 3</h2>
+        </div>
+        <div class="col-sm-9">
+          <p class="lead">Загрузите готовую таблицу на сервер.</p>
+          <p>
+            <small>
+              Мы не храним информацию, которую вы прислали, но если вы - параноик, запустите свой сервер.
+            </small>
+          </p>
+          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="result.csv">
+            <div class="form-group">
+              <label for="studentfile" class="col-sm-3 control-label">Информация о студентах</label>
+              <div class="col-sm-9">
+                <input type="file" name="studentfile" id="studentfile">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <input type="submit" class="btn btn-success" value="Загрузить">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
