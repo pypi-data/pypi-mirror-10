@@ -1,0 +1,8 @@
+onegov.core
+sqlalchemy
+sqlalchemy_utils
+
+[test]
+coverage
+onegov.testing
+pytest
