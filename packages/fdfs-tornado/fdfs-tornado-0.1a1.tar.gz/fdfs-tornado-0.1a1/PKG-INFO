@@ -1,0 +1,68 @@
+Metadata-Version: 1.1
+Name: fdfs-tornado
+Version: 0.1a1
+Summary: Async FDFS Client for tornado
+Home-page: http://git.elenet.me/opdev/eoc-api.git
+Author: WangST
+Author-email: wangst321@gmail.com
+License: UNKNOWN
+Description: ===============================
+        Async FDFS Client for tornado
+        ===============================
+        
+        This library provides an async FDFS client for tornado.
+        
+        QuickStart
+        ===========
+        
+        install using pip::
+        
+            $ pip install fdfs-tornado
+        
+        
+        Basic Usage
+        ============
+        
+        init a client
+        --------------
+        
+        use ``tracker_ip`` and ``tracker_port`` to initialize the FDFS Client.
+        Create a single client for a specific case.
+        
+        .. code-block:: python
+        
+            from fdfs_tornado.client import makeclient
+        
+            AsyncFDFSClient = makeclient(tracker_ip, tracker_port)
+            client = AsyncFDFSClient()
+        
+        .. note::
+        
+            the client will not create any connection before upload or download
+            actions.
+        
+        upload a file
+        --------------
+        
+        To upload a file. First open the file in binary mode, and get the size, those
+        are required.
+        
+        .. code-block:: python
+        
+            from tornado.ioloop import IOLoop
+            ioloop = IOLoop.instance()
+        
+            client = AsyncFDFSClient()
+            with open(filename, 'rb') as f:
+                file_size = os.stat(filename).st_size
+                future = client.upload(f, file_size)
+                future.add_done_callback(lambda _: ioloop.close())
+                ioloop.start()
+        
+                ret = future.result()
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.4
