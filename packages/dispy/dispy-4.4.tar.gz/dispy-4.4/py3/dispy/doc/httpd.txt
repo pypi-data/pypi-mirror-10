@@ -1,0 +1,171 @@
+
+Monitor and Manage Cluster
+**************************
+
+dispy includes httpd module that provides HTTP interface to a cluster
+so the cluster can be monitored and managed with a web browser; it
+works with common web browsers, including in iOS and Android devices.
+
+Image below shows a sample of a cluster status:
+
+[image]
+
+The information shows IP address, name (if available) of the node,
+number of CPUs available on that node, number of CPUs currently being
+used (shown as "Busy"), number of jobs done and total CPU time in
+seconds used by the jobs done on that node. The nodes are sorted by
+default on the IP address in descending order. The field to sort on
+can be changed; however, as other fields are not necessarily unique,
+sorting on other fields is inefficient, so if there are many nodes,
+especially with frequent updates, choose IP address as the field to
+sort.
+
+Each node is a hyper link which when followed (to **Node** menu) shows
+details about that node, including jobs currently being executed:
+
+[image]
+
+The ID shown for each job is the ID associated by user. This ID, and
+the arguments to jobs are converted to strings before sending to the
+client. If any of these are user provided objects, then it may be
+useful to provide __str__ method. If necessary, jobs can be selected
+and terminated (killed).
+
+Additional nodes can be dynamically added to the cluster with
+**Manage** feature. The nodes can specified with host name or IP
+address, or atlernately, with wildcards, as per *nodes* parameter of
+JobCluster. If name or IP address is used with JobCluster, desired
+CPUs can also be given. If wildcard is used for IP address or
+SharedJobCluster is used, then CPUs is ignored. Additionally, if
+JobCluster is used, the CPUs of current nodes in the cluster can be
+updated. If the CPUs are decreased from currntly busy CPUs number, no
+additional jobs are scheduled beyond given number, but currently
+running jobs are left running. If it is necessary to immediately
+reduce CPUs used, currently running jobs can be terminated after
+reducing the CPUs to use.
+
+[image]
+
+
+HTTP Server
+===========
+
+**dispy.httpd** module provides a HTTP server to monitor cluster
+status. It doesn't require / use apache or other web server.  To use
+this feature, first create HTTP server with:
+
+class class dispy.httpd.DispyHTTPServer(cluster, host='', port=8181, poll_sec=10, DocumentRoot=None, keyfile=None, certfile=None)
+
+   Creates an instance of HTTP server which will listen for
+   connections at given *host* and *port*.
+
+* *cluster* is dispy cluster, created with JobCluster or
+  SharedJobCluster.
+
+* *host* should be a string, either IP address or name of the host.
+  The default value of *''* will bind the server to all configured
+  network interfaces.
+
+* *port* should be a number HTTP server binds to. Web browsers can
+  monitor and manage cluster by connecting to http://<host>:<port> if
+  SSL (https) is and https://<host>:<port> if SSL is used.
+
+* *poll_sec* is number of seconds (interval) the client waits
+  between update requests from the server. Smaller values of
+  *poll_sec* will cause more frequent updates so the information shown
+  is more accurate, but cause more network traffic/load. Bigger values
+  of *poll_sec* are more efficient but the status in browser may not
+  reflect more recent information.
+
+  This value can be changed in the browser as well.
+
+* *DocumentRoot* is directory where cluster.html, cluster.css, etc.
+  files needed for the service are stored. If this is not set, the
+  directory is assumed to be **data** directory under the directory
+  where dispy.httpd module is stored.
+
+* *keyfile* and *certfile*, if given, will be used to configure SSL
+  so https can be used between browser and HTTP server. If both key
+  and certificate are in the same (.pem) file, then it should be given
+  as *certfile*.
+
+  Note: When cluster status is being monitored, the HTTP server
+
+       sends only changes to cluster status between updates to browser
+       (for efficiency); i.e., each time browser gets the status
+       update at current *poll_sec* interval, the server sends the
+       changes since last time browser requested data. The browser
+       computes full current status with these updates.  Consequently,
+       the status can be viewed in only one browser; if more than one
+       browser is used, they will not get full information.
+
+    The HTTP server has following methods:
+
+    dispy.httpd.cluster_status(status, node, job)
+
+       This is a callback method called by cluster's *cluster_status*
+       (see JobCluster). When DispyHTTPServer is initialized, it sets
+       cluster's callback to this method only if the current callback
+       is **None** (i.e., user didn't provide their own status
+       callback). If, however, it is necessary to customize
+       *cluster_status* callback so, for example, another function
+       needs to be called with cluster status updates, then that
+       function may do the necessary bookkeeping and then call this
+       method (i.e., chaining cluster status callbacks).
+
+    dispy.httpd.shutdown(wait=True)
+
+       Shuts down HTTP server. If *wait* is **True**, the server waits
+       for current *poll_sec* period before shutting down so the web
+       browser gets all the updates.
+
+If more than one cluster is created in a program, same HTTP server can
+be used for all the clusters, in which case the status shown in
+browser would reflect combined status of all clusters (e.g., all jobs
+submitted/done for all clusters). If it is necessary to view each
+cluster separately, multiple HTTP servers can be created with
+different port numbers and each http servers's *cluster_status* passed
+to cluster creation appropriately. Then different browser clients can
+be used to view status information about different clusters at those
+ports.
+
+
+Example
+=======
+
+Following example creates a http server so cluster status can be
+viewed in a web browser:
+
+   # (sample) computation to execute on the nodes
+   def compute(n):
+       import time, socket
+       time.sleep(n)
+       host = socket.gethostname()
+       return (host, n)
+
+   if __name__ == '__main__':
+       import dispy, random
+
+       # create cluster
+       cluster = dispy.JobCluster(compute)
+
+       # import dispy's httpd module, create http server
+       import dispy.httpd
+       http_server = dispy.httpd.DispyHTTPServer(cluster)
+
+       # cluster can now be monitored / managed in web browser at
+       # http://<host>:8181 where <host> is name or IP address of
+       # computer running this program
+
+       for i in range(8): # submit jobs to cluster
+           cluster.submit(random.randint(15, 20))
+
+       cluster.wait() # wait for all jobs to finish
+       cluster.close()
+       http_server.shutdown() # this waits until browser gets all updates
+
+After the above cluster has been created, its status can be monitored
+and managed in a web browser at **http://<host>:8181**, where *<host>*
+is name or IP address of computer running the above program. If SSL
+certificates are used to setup HTTP server, https protocol should be
+used in URL above.
