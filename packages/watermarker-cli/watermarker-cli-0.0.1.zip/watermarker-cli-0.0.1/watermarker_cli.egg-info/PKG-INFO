@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: watermarker-cli
+Version: 0.0.1
+Summary: A command-line python utility for applying watermarks to one or more photos
+Home-page: http://github.com/svvitale/watermarker-cli
+Author: Scott Vitale
+Author-email: svvitale@gmail.com
+License: UNKNOWN
+Description: Very early implementation of a Python image watermarker. This was based
+        heavily on watermarker (https://pypi.python.org/pypi/watermarker/), but
+        updated to have a CLI interface and for Python 3.x usage (using Pillow
+        instead of PIL).
+        
+        Far from complete! Pull requests welcome.
+        
+Platform: UNKNOWN
