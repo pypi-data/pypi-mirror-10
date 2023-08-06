@@ -1,0 +1,55 @@
+#!python
+# -*- coding: utf8 -*-
+
+from __future__ import print_function
+
+import sys
+import select
+import argparse
+try:
+    from StringIO import StringIO  # python 2.x
+except ImportError:
+    from io import StringIO  # python 3.x
+
+from primarycolors import PrimaryColors
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--image", help="An image for processing.", type=str, default='')
+parser.add_argument("-s", "--sorted", help="The output color sorted.",  action="store_true")
+parser.add_argument("-r", "--rgb", help="Output colors in RGB-space colors.", action="store_true")
+parser.add_argument("-w", "--web", help="Output colors in hexadecimal format for WEB.",  action="store_true")
+parser.add_argument("-l", "--hsl", help="Output colors in HSL-space colors.",  action="store_true")
+args = parser.parse_args()
+
+if args.image:
+    try:
+        p = PrimaryColors(args.image)
+    except IOError as e:
+        sys.stderr.write("%s\n" % e)
+        sys.exit(1)
+
+# read image from pipe.
+elif select.select([sys.stdin, ], [], [], 0.0)[0]:
+    p = PrimaryColors(StringIO(sys.stdin.read()))
+
+# if the image is not specified.
+else:
+    parser.print_help()
+    sys.exit()
+
+nested_print = lambda x: [print(_, end=' ') for _ in x]
+
+if args.sorted:
+    nested_print(p.sorted_colors)
+elif args.rgb:
+    nested_print(p.rgb)
+elif args.web:
+    nested_print(p.web)
+elif args.hsl:
+    nested_print(p.hsl)
+else:
+    nested_print(p.hex)
+
+# For new line.
+print()
