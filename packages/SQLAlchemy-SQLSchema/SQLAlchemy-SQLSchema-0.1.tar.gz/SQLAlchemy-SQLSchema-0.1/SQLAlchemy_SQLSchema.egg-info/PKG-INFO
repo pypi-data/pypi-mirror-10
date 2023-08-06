@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: SQLAlchemy-SQLSchema
+Version: 0.1
+Summary: Set the SQL schema over multiple transactions.
+Home-page: http://github.com/dtheodor/sqlalchemy_sqlschema
+Author: Dimitris Theodorou
+Author-email: dimitris.theodorou@gmail.com
+License: MIT
+Description: 
+        SQLAlchemy-SQLSchema
+        -----------------------
+        
+        Provides a contextmanager with the capability to set the SQL schema for a
+        connection or session. The schema will persist through multiple transactions.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

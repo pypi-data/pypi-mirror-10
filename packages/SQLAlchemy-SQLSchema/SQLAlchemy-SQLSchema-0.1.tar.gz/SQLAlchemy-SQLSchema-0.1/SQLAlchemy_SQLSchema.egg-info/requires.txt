@@ -1,0 +1,17 @@
+sqlalchemy>=0.9
+
+[docs]
+Sphinx>=1.3.1
+alabaster>=0.7.4
+
+[tests]
+pytest>=2.6
+mock>=1.0
+
+[tests_all]
+pytest>=2.6
+mock>=1.0
+psycopg2>=2.6
+
+[tests_postgres]
+psycopg2>=2.6
