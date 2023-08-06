@@ -1,0 +1,8 @@
+cffi>=1.1.0
+apipkg
+
+[:sys_platform=="win32"]
+sdl2_lib
+
+[build]
+pycparser
