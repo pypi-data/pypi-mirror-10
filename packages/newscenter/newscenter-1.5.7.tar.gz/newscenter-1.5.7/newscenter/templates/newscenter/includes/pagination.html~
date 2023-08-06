@@ -1,0 +1,8 @@
+{% ifnotequal article_list.paginator.num_pages 1 %}
+<div class="pagination">
+  <span class="step-links">
+    <a href="?page={{ article_list.next_page_number }}" class="next-link">next</a>
+    {% endif %}
+  </span>
+</div>
+{% endifnotequal %}
