@@ -1,0 +1,5 @@
+[console_scripts]
+envcp = chaperone.exec.envcp:main_entry
+chaperone = chaperone.exec.chaperone:main_entry
+telchap = chaperone.exec.telchap:main_entry
+
