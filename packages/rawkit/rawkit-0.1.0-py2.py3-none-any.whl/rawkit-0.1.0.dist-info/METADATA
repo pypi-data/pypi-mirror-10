@@ -1,0 +1,46 @@
+Metadata-Version: 2.0
+Name: rawkit
+Version: 0.1.0
+Summary: CTypes based LibRaw bindings
+Home-page: https://photoshell.github.io/rawkit/
+Author: Cameron Paul, Sam Whited
+Author-email: cpaul37@gmail.com
+License: UNKNOWN
+Keywords: encoding,images,photography,libraw,raw,photos
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: doc
+Requires-Dist: Sphinx (>=1.0); extra == 'doc'
+
+[![Docs status](https://readthedocs.org/projects/rawkit/badge/?version=latest)](https://rawkit.readthedocs.org/en/latest/)
+[![Build status](https://api.travis-ci.org/photoshell/rawkit.svg?branch=master)](https://travis-ci.org/photoshell/rawkit)
+[![Coverage status](https://coveralls.io/repos/photoshell/rawkit/badge.svg)](https://coveralls.io/r/photoshell/rawkit)
+
+# rawkit
+
+`rawkit` (pronounced rocket) is a LibRaw binding for Python inspired by the
+Wand API. For more info, see the [docs][docs].
+
+## Usage
+
+```python
+from rawkit.raw import Raw
+
+with Raw(filename='some/raw/image.CR2') as raw:
+	raw.save(filename='some/destination/image.ppm')
+```
+
+[docs]: https://photoshell.github.io/rawkit/
+
+
