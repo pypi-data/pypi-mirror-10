@@ -1,0 +1,19 @@
+[![Build Status](https://travis-ci.org/mitmproxy/netlib.svg?branch=master)](https://travis-ci.org/mitmproxy/netlib) 
+[![Coverage Status](https://coveralls.io/repos/mitmproxy/netlib/badge.svg?branch=master)](https://coveralls.io/r/mitmproxy/netlib)
+[![Latest Version](https://pypip.in/version/netlib/badge.svg?style=flat)](https://pypi.python.org/pypi/netlib)
+[![Supported Python versions](https://pypip.in/py_versions/netlib/badge.svg?style=flat)](https://pypi.python.org/pypi/netlib)
+[![Supported Python implementations](https://pypip.in/implementation/netlib/badge.svg?style=flat)](https://pypi.python.org/pypi/netlib)
+
+Netlib is a collection of network utility classes, used by the pathod and
+mitmproxy projects. It differs from other projects in some fundamental
+respects, because both pathod and mitmproxy often need to violate standards.
+This means that protocols are implemented as small, well-contained and flexible
+functions, and are designed to allow misbehaviour when needed.
+
+
+Requirements
+------------
+
+* [Python](http://www.python.org) 2.7.x.
+* Third-party packages listed in [setup.py](https://github.com/mitmproxy/netlib/blob/master/setup.py)
+
