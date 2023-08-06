@@ -1,0 +1,70 @@
+Metadata-Version: 1.1
+Name: drf-dark-theme
+Version: 0.3
+Summary: Dark Themes for Django Rest Framework
+Home-page: https://github.com/aledista/drf-dark-theme
+Author: Alessio Di Stasio
+Author-email: aledista@gmail.com
+License: BSD
+Description: drf-dark-theme
+        ==============
+        
+        .. image:: https://img.shields.io/pypi/v/drf-dark-theme.svg
+        
+        Dark them for `Django REST Framework`_
+        
+        .. _Django REST Framework: https://github.com/tomchristie/django-rest-framework
+        
+        Stellar Color Palette
+        ----------------------
+        .. image:: https://raw.githubusercontent.com/aledista/drf-dark-theme/master/drf_dark_theme/static/drf_dark_theme/img/stellar-palette.png
+        
+        Stellar Theme Screenshot
+        ------------------------
+        .. image:: https://raw.githubusercontent.com/aledista/drf-dark-theme/master/drf_dark_theme/static/drf_dark_theme/img/stellar-ss.png
+        
+        
+        Moonshine Color Palette
+        -----------------------
+        .. image:: https://raw.githubusercontent.com/aledista/drf-dark-theme/master/drf_dark_theme/static/drf_dark_theme/img/moonshine-palette.png
+        
+        Moonshine Theme Screenshot
+        --------------------------
+        .. image:: https://raw.githubusercontent.com/aledista/drf-dark-theme/master/drf_dark_theme/static/drf_dark_theme/img/moonshine-ss.png
+        
+        Installation
+        ============
+        
+        Install using ``pip``\
+        
+        ::
+        
+            pip install drf-dark-theme
+        
+        Add 'drf_chaos' to your INSTALLED_APPS setting
+        
+        ::
+        
+            INSTALLED_APPS = (
+                ...
+                'drf_dark_theme',
+            )
+        
+        Add 'StellarBrowsableAPIRenderer' or 'MoonshineBrowsableAPIRenderer' to DEFAULT_RENDERER_CLASSES
+        
+        ::
+        
+            REST_FRAMEWORK = {
+                'DEFAULT_RENDERER_CLASSES': (
+                    ...
+                    'drf_dark_theme.renderers.StellarBrowsableAPIRenderer',
+                )
+            }
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
