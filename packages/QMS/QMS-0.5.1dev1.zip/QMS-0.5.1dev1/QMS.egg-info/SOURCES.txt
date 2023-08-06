@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+QMS.egg-info/PKG-INFO
+QMS.egg-info/SOURCES.txt
+QMS.egg-info/dependency_links.txt
+QMS.egg-info/requires.txt
+QMS.egg-info/top_level.txt
+qms/DBManager.py
+qms/MysqlHandler.py
+qms/Query.py
+qms/__init__.py
