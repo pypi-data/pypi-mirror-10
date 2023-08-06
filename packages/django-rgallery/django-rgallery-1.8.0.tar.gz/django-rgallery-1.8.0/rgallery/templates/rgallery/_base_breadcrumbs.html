@@ -1,0 +1,5 @@
+{% load i18n %}
+
+<li><a href="{% url 'index' %}">{% trans 'home' %}</a></li>
+<li><a href="{% url 'rgallery:index' %}">{% trans 'gallery' %}</a></li>
+{% if tag %}<li><a href="{% url 'rgallery:photos_tag' tag %}">{{ tag }}</a></li>{% endif %}

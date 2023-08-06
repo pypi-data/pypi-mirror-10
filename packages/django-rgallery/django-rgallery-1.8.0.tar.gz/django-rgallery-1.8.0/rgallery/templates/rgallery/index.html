@@ -1,0 +1,174 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% load thumbnail %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content_class %}gallery{% endblock %}
+{% block body_class %}gallery{% endblock body_class %}
+
+{% block htmlprop %}
+{% endblock htmlprop %}
+
+{% block metas %}
+    {% include "rblog/_base_metas.html" %}
+{% endblock metas %}
+
+{% block metas_seo %}
+    {% include "rblog/_base_metas_seo.html" %}
+{% endblock metas_seo %}
+
+{% block breadcrumbs %}
+    {% include "rgallery/_base_breadcrumbs.html" %}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    {% compress css %}
+    <link rel="stylesheet" type="text/less" href="{% static 'rgallery/less/custom.less' %}">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ _('Gallery') }}</h1>
+
+    {% include "rgallery/_dropzone.html" %}
+
+    <p>{% firstof settings.RGALLERY_DESCRIPTION description %}</p>
+
+    {% include "rgallery/_tags.html" %}
+
+    {% include "rgallery/_cookiemenu.html" %}
+
+    {% if user.is_superuser %}
+    <div class="modal fade" id="imagemodal-0">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">{% trans "Tags" %}</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-inline" role="form">
+                {% csrf_token %}
+                <input id="s2-0" value="" />
+                <button class="btn btn-default" onclick="ajaxTags('', '{% url 'rgallery:photo_add_tag' %}');return false;">{% trans "Save" %}</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <ul class="gallery">
+
+        {% include "rgallery/_folderlist.html" %}
+
+        {% for image in photos %}
+            <li class="image-{{ image.pk }}">
+                <div id="photowrap-{{ image.pk }}" class="photo {% if image.status %}active{% else %}inactive{% endif %}">
+                    {% if image.video %}
+                        <a href="" onclick="ajaxVideo({{ image.pk }}, '{% url 'rgallery:photo_get_video' %}');return false;">
+                            {% thumbnail image "200x200" crop="top" as im %}
+                                <img src="{% static 'rgallery/img/ytplay.png' %}" alt="{{ image }}" style="background: url({{ im.url }}) center center" />
+                            {% endthumbnail %}
+                            <div>{{ image.capture_date }}</div>
+                            {% include "rgallery/_photoinfo.html" %}
+                        </a>
+                    {% else %}
+                        {% if image.width > 750 and image.height > 750 %}
+                            {% thumbnail image "750x750" as big %}
+                            <a href="{{ big.url }}" class="gal">
+                                {% thumbnail image "200x200" crop="top" as im %}<img src="{{ im.url }}" alt="{{ image }}" />{% endthumbnail %}
+                                <div>{{ image.capture_date }}</div>
+                                {% include "rgallery/_photoinfo.html" %}
+                            </a>
+                            {% endthumbnail %}
+                        {% else %}
+                            {% thumbnail image "1000x1000" as big %}
+                            <a href="{{ big.url }}" class="gal">
+                                {% thumbnail image "200x200" crop="top" as im %}<img src="{{ im.url }}" alt="{{ image }}" />{% endthumbnail %}
+                                <div>{{ image.capture_date }}</div>
+                                {% include "rgallery/_photoinfo.html" %}
+                            </a>
+                            {% endthumbnail %}
+                        {% endif %}
+                    {% endif %}
+                        {% if user.is_superuser %}
+                        <div class="btn-group btn-group-xs grupoactions">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imagemodal-{{ image.pk }}"><i class="fa fa-tags"></i></button>
+                            <a class="btn btn-success" href="{% if image.video %}{{ image.video.url }}{% else %}{{ image.image.url }}{% endif %}"><i class="fa fa-download"></i></a>
+                            <button type="button" id="status-{{ image.pk }}" class="btn btn-warning" onclick="ajaxChangeStatus({{ image.pk }}, '{{ image.status }}', '{% url 'rgallery:photo_change_status' %}');return false;"><i class="fa {% if image.status %}fa-check-circle-o{% else %}fa-circle-o{% endif %}"></i></button>
+                            <button type="button" class="btn btn-danger" onclick="ajaxDelete({{ image.pk }}, '{% url 'rgallery:photo_del' %}');return false;"><i class="fa fa-times"></i></button>
+                        </div>
+                        {% endif %}
+                        <div id="selected-{{ image.pk }}" class="selectedbutton">
+                            <button type="button" id="selectedbutton-{{ image.pk }}" class="btn btn-xs btn-default status" onclick="updateCookie({{image.pk}});return false;"><i class="fa fa-square-o"></i></button>
+                        </div>
+                </div>
+            </li>
+
+            {% if user.is_superuser %}
+            <div class="modal fade" id="imagemodal-{{ image.pk }}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">{% trans "Tags" %}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-inline" role="form">
+                        {% csrf_token %}
+                        <input id="s2-{{ image.pk }}" value="{{ image.split_tags }}" />
+                        <button class="btn btn-default" onclick="ajaxTags({{ image.pk }}, '{% url 'rgallery:photo_add_tag' %}');return false;">{% trans "Save" %}</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+            </div>
+           {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% include "rgallery/_base_pagination.html" %}
+
+    {% include "rgallery/_videomodal.html" %}
+
+{% endblock content %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'rgallery/js/custom.js' %}"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        loadCookies();
+
+        {% if user.is_superuser %}
+            $("#s2-0").select2({
+                tags: true,
+                width: '450',
+                dropdownAutoWidth : true,
+                tokenSeparators: [",", " "],
+                multiple: true,
+                tags:[{% for tag in tags %}"{{ tag.name }}", {% endfor %}],
+            });
+
+            {% for image in photos %}
+            $("#s2-{{ image.pk }}").select2({
+                tags: true,
+                width: '450',
+                dropdownAutoWidth : true,
+                tokenSeparators: [",", " "],
+                multiple: true,
+                tags:[{% for tag in tags %}"{{ tag.name }}", {% endfor %}],
+            });
+            {% endfor %}
+        {% endif %}
+    });
+    </script>
+{% endblock %}

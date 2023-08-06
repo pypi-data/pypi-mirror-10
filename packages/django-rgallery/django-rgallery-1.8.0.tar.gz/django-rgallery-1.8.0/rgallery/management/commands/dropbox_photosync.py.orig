@@ -1,0 +1,321 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os, errno
+import re
+import sys
+import time
+import datetime
+import gzip
+import glob
+
+import Image, ExifTags
+from ExifTags import TAGS
+
+from optparse import make_option
+from django.core.management.base import BaseCommand, CommandError
+from django.template import Context, Template
+from django.conf import settings as conf
+import rgallery.models as mymodels
+from datetime import datetime
+from pprint import pprint
+
+from sorl.thumbnail import get_thumbnail
+from dropbox import client, rest, session
+
+
+def get_exif(fn):
+    """
+    data = get_exif('img/2013-04-13 12.17.09.jpg')
+    print data
+    """
+    ret = {}
+    print fn
+    i = Image.open(fn)
+    info = i._getexif()
+    try:
+        for tag, value in info.items():
+            decoded = TAGS.get(tag, tag)
+            ret[decoded] = value
+    except:
+        now = datetime.now()
+        ret['DateTimeOriginal'] = now.strftime("%Y:%m:%d %H:%M:%S")
+
+    try:
+        str(ret['DateTimeOriginal'])
+    except:
+        now = datetime.now()
+        ret['DateTimeOriginal'] = now.strftime("%Y:%m:%d %H:%M:%S")
+
+    return ret
+
+
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc: # Python >2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else: raise
+
+def dropbox_get_contents(dropboxdir, debug):
+    """
+    Handle Dropbox connection
+    """
+    # Get your app key and secret from the Dropbox developer website
+    APP_KEY = conf.DROPBOX_APP_KEY
+    APP_SECRET = conf.DROPBOX_APP_SECRET
+
+    # ACCESS_TYPE should be 'dropbox' or 'app_folder' as configured for your app
+    try:
+        ACCESS_TYPE = conf.DROPBOX_ACCESS_TYPE
+    except:
+        ACCESS_TYPE = 'dropbox'
+
+    # Creating dirs
+    if os.path.exists(dropboxdir) == False:
+        mkdir_p(dropboxdir)
+
+    # First time
+    TOKENS = os.path.join(conf.PROJECT_DIR, 'media', 'uploads', 'dropbox', 'dropbox_token.txt')
+    if not os.path.exists(TOKENS):
+        sess = session.DropboxSession(APP_KEY, APP_SECRET, ACCESS_TYPE)
+        request_token = sess.obtain_request_token()
+        url = sess.build_authorize_url(request_token)
+
+        # Make the user sign in and authorize this token
+        print "url:", url
+        print "Please visit this website and press the 'Allow' button, then hit 'Enter' here."
+        raw_input()
+
+        # This will fail if the user didn't visit the above URL
+        access_token = sess.obtain_access_token(request_token)
+
+        token_file = open(TOKENS,'w')
+        token_file.write("%s|%s" % (access_token.key,access_token.secret) )
+        token_file.close()
+    else:
+        token_file = open(TOKENS)
+        token_key,token_secret = token_file.read().split('|')
+        token_file.close()
+        sess = session.DropboxSession(APP_KEY,APP_SECRET, ACCESS_TYPE )
+        sess.set_token(token_key,token_secret)
+
+    c = client.DropboxClient(sess)
+
+    if debug:
+        print "linked account:", c.account_info()
+
+    # DROPBOX_PATH: If the access is 'dropbox' you have to specify the folder
+    # If it's 'app_folder' it's ok with /
+    try:
+        DROPBOX_PATH = conf.DROPBOX_ACCESS_PATH
+    except:
+        DROPBOX_PATH = '/'
+
+    folder_metadata = c.metadata(DROPBOX_PATH)
+    if debug:
+        print "*"*80
+        print "metadata:", folder_metadata
+        print "*"*80
+        print "contents:", folder_metadata['contents']
+        print "-"*80
+
+    return c, folder_metadata['contents']
+
+def dropbox_images(cont):
+    try:
+        str(cont['mime_type'])
+    except:
+        cont['mime_type'] = ''
+
+    if cont['mime_type'] == 'image/jpeg':
+        return os.path.basename(cont['path'])
+
+def dropbox_download(client, file, nombre_imagen, dropboxdir, debug):
+    f, metadata = client.get_file_and_metadata(file['path'])
+    img = dropboxdir + '/' + nombre_imagen
+    out = open(img, 'wb')
+    out.write(f.read())
+    out.close()
+    if debug:
+        print "      Descargada"
+
+def img_rotate(im2):
+    try:
+        # Rotar si es necesario
+        for orientation in ExifTags.TAGS.keys():
+            if ExifTags.TAGS[orientation]=='Orientation':
+                break
+        exif=dict(im2._getexif().items())
+        if exif[orientation] == 3:
+            im2=im2.rotate(180, expand=True)
+        elif exif[orientation] == 6:
+            im2=im2.rotate(270, expand=True)
+        elif exif[orientation] == 8:
+            im2=im2.rotate(90, expand=True)
+    except:
+        pass
+
+    return im2
+
+
+# Class MUST be named 'Command'
+class Command(BaseCommand):
+
+    # Displayed from 'manage.py help mycommand'
+    help = """
+    Tool that tries to download and parse photos from a Dropbox shared folder,
+    saving it on the database and converting the photos to fit the web:
+
+    ./manage.py dropbox_photosync
+
+    1.- First time it connects with Dropbox and stores the token information in
+        a token_file
+    2.- Next times it read the token from file to connect Dropbox
+    3.- Go to the shared folder and check if the image is already on database
+    4.- If not, this script download the image, converting it to fit the web and
+        save a record in the database.
+
+    To run this script from a crontab task we should do something like this:
+
+    */30 * * * * cd /path/to/rgallery-project/ ; source env/bin/activate ; cd src ; python manage.py dropbox_photosync > /dev/null
+
+    """
+
+    option_list = BaseCommand.option_list + (
+            make_option(
+                '--debug',
+                dest='debug',
+                default=0,
+                help='Verbosity information'
+            ),
+            make_option(
+                '--storage',
+                dest='storage',
+                default='dropbox',
+                help='Backend storage where the photos are'
+            ),
+            make_option(
+                '--source',
+                dest='source',
+                default='~/Desktop/Peques/',
+                help='Where the photos are in --storage=file'
+            ),
+        )
+
+
+    def handle(self, *app_labels, **options):
+        """
+        The command itself
+        """
+
+        # Vars and folders
+        debug = options['debug']
+        storage = options['storage']
+        source = options['source']
+        repetidas = 0
+        descargadas = 0
+        total = 0
+        thumbs = [200, 750, 1000]
+        destdir = os.path.join(conf.PROJECT_DIR, 'media', 'uploads', 'photos')
+        if os.path.exists(destdir) == False:
+            mkdir_p(destdir)
+
+        # Handle connection with the backend (Dropbox in this case)
+        if storage == 'dropbox':
+            dropboxdir = os.path.join(conf.PROJECT_DIR, 'media', 'uploads', 'dropbox')
+            client, bucket = dropbox_get_contents(dropboxdir, debug)
+        if storage == 'file':
+            try:
+                bucket = [ f for f in os.listdir(source) if os.isfile(os.join(source,f)) ]
+            except:
+                return "[*** Can't manage file storage without a --source param]"
+
+        sys.exit(0)
+
+        if debug:
+            for file in bucket:
+                print file
+
+        for file in bucket:
+            try:
+                im = mymodels.Photo.objects.get(origen=os.path.basename(file['path']))
+                repetidas += 1
+                print "[***] Repetida: %s" % os.path.basename(file['path'])
+            except:
+                print "[***] La imagen %s No esta en bd, descargar y agregar a bbdd y hacer thumb" % os.path.basename(file['path'])
+                nombre_imagen = str(file['path']).replace('/', '').replace(' ','_').replace(':','-')
+
+                # Descargar original a img
+                if storage == 'dropbox':
+                    img = dropbox_download(client, file, nombre_imagen, dropboxdir)
+
+                # Datos EXIF
+                data_image = get_exif(img)
+                capture_data = datetime.strptime(str(data_image['DateTimeOriginal']), "%Y:%m:%d %H:%M:%S")
+
+                # Agregamos a BD
+                im = mymodels.Photo(image="uploads/photos/" + nombre_imagen,
+                                    origen=os.path.basename(file['path']),
+                                    insert_date=datetime.now(),
+                                    capture_date=capture_data,
+                                    status=True)
+                im.save()
+                descargadas += 1
+                print "      Agregada a bbdd"
+
+                # Abrimos imagen para modificaciones
+                im2 = Image.open(img) # Abrir
+                im2 = img_rotate(im2) # Rotar
+
+                # Creamos thumbs
+                for thumb in thumbs:
+                    print "Thumb %sx%s" % (thumb)
+                    im = get_thumbnail(im, "%sx%s" % (thumb, thumb))
+
+                # size = 1000, 1000
+                # im2.thumbnail(size, Image.ANTIALIAS)
+                # if os.path.exists(destdir + '/' + nombre_imagen) == False:
+                #     im2.save(destdir + '/' + nombre_imagen)
+                #     print "      Thumbnail en: %s/%s" % (destdir, nombre_imagen)
+                # else:
+                #     descargadas += 1
+                #     nombre_imagen_repe = str(file['path']).replace('/','').replace(' ','_').replace(':','-').replace('.jpg','') + '_1.jpg'
+                #     im.image = "uploads/photos/" + nombre_imagen_repe
+                #     im.save()
+                #     im2.save(destdir + '/' + nombre_imagen_repe)
+                #     print "      Duplicada en disco, cambiado nombre a: %s" % nombre_imagen_repe
+
+                # print "Haciendo thumb 200x200"
+                # im = get_thumbnail(im, "%sx%s" % (thumb1, thumb1))
+                # if im.width > thumb2 and im.height > thumb2:
+                #     print "Haciendo thumb 750x750"
+                #     im = get_thumbnail(im, "%sx%s" % (thumb2, thumb2))
+            total += 1
+            #print "-"*80
+
+        #print "*"*80
+
+        print "[*** Resumen ***]"
+        print "[***] Repetidas en db: %s" % repetidas
+        print "[***] Repetidas en disco: %s" % descargadas
+        print "[***] Total: %s" % total
+
+        print "[***] Making missing thumbs"
+        conf.THUMBNAIL_DEBUG = True
+        allphotos = mymodels.Photo.objects.all()
+        for i,p in enumerate(allphotos):
+            print "%s - %s" % (i, p)
+            c = Context({'image': p})
+            t = Template('{% load thumbnail %}{% thumbnail image "200x200" crop="top" as img %}{{ img.url }}{% endthumbnail %}')
+            t.render(c)
+
+            for thumb in thumbs:
+                im = get_thumbnail(p, "%sx%s" % (thumb, thumb))
+
+            # im = get_thumbnail(p, "200x200")
+            # if p.image.width > 750 and p.image.height > 750:
+            #     im = get_thumbnail(p, "750x750")
+        print "[***] Hecho."
+

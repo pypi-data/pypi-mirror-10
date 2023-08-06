@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<ul class="tags">
+{% for tag in tags %}
+    <li><a href="{% url 'rgallery:photos_tag' tag.slug %}"><i class="fa fa-tag"></i> {{ tag.name }}</a></li>
+{% endfor %}
+</ul>

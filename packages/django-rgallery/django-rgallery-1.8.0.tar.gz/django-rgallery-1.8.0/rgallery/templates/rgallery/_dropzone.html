@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% if user.is_superuser %}
+<div class="addphoto_form">
+    <form class="dropzone" action="{% url 'rgallery:photo_add' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="fallback"><input name="image" type="file" multiple /></div>
+    </form>
+</div>
+{% endif %}

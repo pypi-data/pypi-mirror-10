@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<div class="photo-info">
+    <div class="photo-data">
+        <ul>
+            <li>{{ image.filename }}</li>
+            <li>{% if image.video %}{{ image.video.size|filesizeformat }}{% else %}{{ image.image.size|filesizeformat }}{% endif %}</li>
+        </ul>
+    </div>
+    <div id="listags-{{ image.pk }}" class="clearfix">
+        {% include "rgallery/_listags.html" with record=image.tags.all link=False %}
+    </div>
+</div>

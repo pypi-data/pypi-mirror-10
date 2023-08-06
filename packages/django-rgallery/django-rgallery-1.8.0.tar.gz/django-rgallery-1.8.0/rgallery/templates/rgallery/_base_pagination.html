@@ -1,0 +1,29 @@
+{% load i18n %}
+
+{% if is_paginated %}
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            {% if page_obj.previous_page_number = 1 %}
+                {% if tag %}
+                    <li><a href="{% url 'rgallery:photos_tag' tag %}">{% trans "anterior" %}</a></li>
+                {% else %}
+                    <li><a href="{% url index %}">{% trans "previous" %}</a></li>
+                {% endif %}
+            {% else %}
+                {% if tag %}
+                    <li><a href="{% url 'rgallery:photos_tag_page' tag page_obj.previous_page_number %}">{% trans "previous" %}</a></li>
+                {% else %}
+                    <li><a href="{% url 'rgallery:page' page_obj.previous_page_number %}">{% trans "previous" %}</a></li>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        <li class="active"><a href="">{% trans "page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.</a></li>
+        {% if page_obj.has_next %}
+            {% if tag %}
+                <li><a href="{% url 'rgallery:photos_tag_page' tag page_obj.next_page_number %}">{% trans "next" %}</a></li>
+            {% else %}
+                <li><a href="{% url 'rgallery:page' page_obj.next_page_number %}">{% trans "next" %}</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
+{% endif %}

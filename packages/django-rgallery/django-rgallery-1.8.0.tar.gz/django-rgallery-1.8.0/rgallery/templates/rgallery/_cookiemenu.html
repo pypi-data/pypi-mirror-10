@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<div class="cookiemenu-wrap center">
+    <div class="btn-group btn-group-lg grupoactions cookiemenu" id="cookiemenu">
+        {% if user.is_superuser %}<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imagemodal-0"><i class="fa fa-tags"></i></button>{% endif %}
+        <a class="btn btn-success" href="{% url 'rgallery:photo_download' %}"><i class="fa fa-download"></i></a>
+
+        {% if user.is_superuser %}<button type="button" id="status-0" class="btn btn-success" onclick="$('.status').click();"><i class="fa fa-check-square-o"></i></button>{% endif %}
+
+        {% if user.is_superuser %}<button type="button" id="status-0" class="btn btn-warning" onclick="ajaxChangeStatus('', 1, '{% url 'rgallery:photo_change_status' %}');return false;"><i class="fa fa-check-circle-o"></i></button>{% endif %}
+        {% if user.is_superuser %}<button type="button" id="status-0" class="btn btn-warning" onclick="ajaxChangeStatus('', 0, '{% url 'rgallery:photo_change_status' %}');return false;"><i class="fa fa-circle-o"></i></button>{% endif %}
+
+        {% if user.is_superuser %}<button type="button" class="btn btn-info" title="mkthumb" onclick="ajaxMkThumb('{% url 'rgallery:photo_mkthumb' %}');return false;"><i class="fa fa-files-o"></i></button>{% endif %}
+        {% if user.is_superuser %}<button type="button" class="btn btn-info" title="mediasync" onclick="ajaxMediaSync('{% url 'rgallery:photo_mediasync' %}');return false;"><i class="fa fa-repeat"></i></button>{% endif %}
+        {% if user.is_superuser %}<button type="button" class="btn btn-danger" onclick="ajaxDelete('', '{% url 'rgallery:photo_del' %}');return false;"><i class="fa fa-times"></i></button>{% endif %}
+    </div>
+  <div class="advice"></div>
+</div>

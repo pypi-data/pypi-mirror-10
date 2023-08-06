@@ -1,0 +1,3 @@
+{% load i18n %}
+
+{% for tag in record %}{% if link == True %}<a href="{% url 'rgallery:photos_tag' tag.slug %}" class="tag">{% else %}<span class="tag">{% endif %}<i class="fa fa-tag"></i> {{ tag.name }}{% if link == True %}</a>{% else %}</span>{% endif %} {% endfor %}
