@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: extract_iocs
+Version: 1.0.0
+Summary: Extracts indicators of compromise (IOCs), including domain names, IPv4 addresses, email addresses, and hashes, from text.
+Home-page: https://github.com/mosesschwartz/extract_iocs
+Author: Moses Schwartz, Bechtel CIRT
+Author-email: moses.schwartz@gmail.com
+License: MIT
+Description: extract_iocs is a Python module that extracts indicators of compromise (IOCs),
+        including domain names, IPv4 addresses, email addresses, and hashes, from
+        text. It uses some huge and ugly regexes, has special handling to identify
+        domain names with a relatively low false-positive rate, and does some magic to
+        try to extract IOCs across line breaks.
+        
+        This script was inspired by and initially based on Stephen Brannon's
+        IOCextractor (https://github.com/stephenbrannon/IOCextractor), but turned into
+        a complete rewrite. extract_iocs provides no GUI and does not support any kind
+        of analyst workflow. It is intended to be used for triage or automation
+        purposes where a relatively high FP rate (as well as the occational false
+        negative) are acceptable.
+        
+Keywords: security ioc domain email hash md5 sha1 sha256 regex
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
