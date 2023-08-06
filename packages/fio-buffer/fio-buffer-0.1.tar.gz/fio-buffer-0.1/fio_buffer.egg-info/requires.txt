@@ -1,0 +1,7 @@
+click>=0.3
+shapely
+fiona>=0.6
+
+[test]
+pytest
+pytest-cov
