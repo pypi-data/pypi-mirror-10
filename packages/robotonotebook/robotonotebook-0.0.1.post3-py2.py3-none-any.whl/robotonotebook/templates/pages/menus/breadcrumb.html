@@ -1,0 +1,18 @@
+{% load i18n future pages_tags %}
+
+{% if on_home %}
+{% trans "Home" %}
+{% else %}
+{% for page in page_branch %}
+
+    {% if page.is_current_or_ascendant %}
+    {% if page.is_current %}
+    	/ {{ page.title }}
+    {% else %}
+      / <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+    {% endif %}
+    {% if page.has_children %}{% page_menu page %}{% endif %}
+    {% endif %}
+
+{% endfor %}
+{% endif %}
