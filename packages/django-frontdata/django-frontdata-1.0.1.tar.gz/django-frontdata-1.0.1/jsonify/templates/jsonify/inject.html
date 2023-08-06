@@ -1,0 +1,10 @@
+{% spaceless %}
+    {% load jsonify_tag %}
+
+    {% for key, value in data.items %}
+        <script class="json-data" data-key="{{ key }}" type="application/json">{{ value|jsonify }}</script>
+    {% endfor %}
+
+    <script type="application/javascript">{% include 'jsonify/jsonify.min.js' %}</script>
+
+{% endspaceless %}
