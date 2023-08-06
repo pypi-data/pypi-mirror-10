@@ -1,0 +1,29 @@
+.tarfile:hover{
+	cursor:pointer;
+}
+
+#wait img{
+	width: 20%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#wait p{
+	text-align: center;
+}
+
+.node{
+    -moz-border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+.chosen{
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+.chosen, .not-chosen{
+    transition: background-color 1s;
+}

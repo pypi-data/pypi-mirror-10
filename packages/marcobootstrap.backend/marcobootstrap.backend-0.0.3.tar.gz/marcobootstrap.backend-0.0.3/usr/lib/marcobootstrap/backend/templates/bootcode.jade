@@ -1,0 +1,50 @@
+extends /usr/lib/marcobootstrap/backend/templates/base.jade
+
+block head
+  meta(charset="UTF-8")
+  script(src="{{ static_url('js/jquery.min.js') }}")
+
+  link(rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}")
+  link(rel="stylesheet" href="{{ static_url('css/style.css') }}")
+  link(rel="stylesheet" href="{{ static_url('css/bootcode.css') }}")
+  script(src="{{ static_url('js/bootstrap.min.js') }}")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title #{project_name}
+  script(src="{{ static_url('js/jquery.datetimepicker.js') }}")
+  script(src="{{ static_url('js/bootcode.js') }}")
+block counter
+  ul.nav.navbar-nav.navbar-right
+              li: p.navbar-text 
+                span#count 0
+                |  nodos disponibles
+block content
+  div.page
+    div.container
+      div.row
+        div.col-sm-8.col-md-7
+          ul.list-group
+            li.list-group-item.list-group-item-success Bootcodes
+            - var i = 0;
+            each file in files
+              - if file == chosen_bootcode
+                  li.list-group-item.bootfile.chosen-bootfile(id="bootcode"+str(i))
+                    a.badge(href="#")
+                      span.glyphicon.glyphicon-remove(aria-hidden="true")
+                    p.list-group-item-heading #{file}
+
+              - else
+                  li.list-group-item.bootfile(id="bootcode"+str(i))  
+                    a.badge(href="#")
+                      span.glyphicon.glyphicon-remove(aria-hidden="true")
+                    p.list-group-item-heading #{file}
+
+          
+            
+    
+    
+    
+
+
+
+
+

@@ -1,0 +1,8 @@
+.chosen-bootfile{
+	background-color: #9FE7AA;
+	transition: background-color 1s;
+}
+
+.bootfile:hover{
+	cursor:pointer;
+}

@@ -1,0 +1,66 @@
+extends /usr/lib/marcobootstrap/backend/templates/base.jade
+
+block head
+  meta(charset="UTF-8")
+  script(src="{{ static_url('js/jquery.min.js') }}")
+
+  link(rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}")
+  link(rel="stylesheet" href="{{ static_url('css/style.css') }}")
+  script(src="{{ static_url('js/bootstrap.min.js') }}")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title #{project_name}
+  link(rel="stylesheet", type="text/css", href="{{ static_url('css/jquery.datetimepicker.css') }}")
+  script(src="{{ static_url('js/jquery.datetimepicker.js') }}")
+  script(src="{{ static_url('js/index.js') }}")
+block counter
+  ul.nav.navbar-nav.navbar-right
+              li: p.navbar-text 
+                span#count 0
+                |  nodos disponibles
+block content
+  div.page
+    div.container
+      div.row
+        div.col-sm-8.col-md-7
+          ul.list-group
+            li.list-group-item.list-group-item-success Imágenes
+            - var i = 0;
+            each file in files
+              li.list-group-item.tarfile(id="tar"+str(i))
+                a.badge(href="#")
+                  span.glyphicon.glyphicon-remove(aria-hidden="true")
+                p.list-group-item-heading #{file}
+
+          div.panel.panel-default
+            div.panel-heading Operación
+            div.panel-body
+              select#operation
+                option(value="reboot") Reiniciar
+                option(value="update") Actualizar
+              input#datetimepicker(type="text")
+              input#immediate(type="checkbox")
+              button.btn.btn-success#schedule Programar
+          div.alert.alert-success(style="display:none", role="alert")
+            span.glyphicon.glyphicon-ok(aria-hidden="true")
+            span.sr-only Programado: 
+            | Evento programado
+          div.alert.alert-danger(style="display:none", role="alert")
+            span.glyphicon.glyphicon-ok(aria-hidden="true")
+            span.sr-only Error: 
+            | Error
+            span#errortext
+
+        div.col-sm-4.col-md-5
+          div.row#listanodos
+              div#wait
+                img(src="{{ static_url('img/wait.gif') }}")
+                p Buscando nodos
+            
+    
+    
+    
+
+
+
+
+

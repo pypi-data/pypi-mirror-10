@@ -1,0 +1,33 @@
+extends /usr/lib/marcobootstrap/backend/templates/base.jade
+block head
+  meta(charset="UTF-8")
+  script(src="{{ static_url('js/jquery.min.js') }}")
+
+  link(rel="stylesheet" href="{{ static_url('css/bootstrap.min.css') }}")
+  script(src="{{ static_url('js/bootstrap.min.js') }}")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title #{project_name}
+  script(src="{{ static_url('js/scheduled.js') }}")
+  link(rel="stylesheet", href="{{ static_url('css/scheduled.css') }}")
+block content
+  div.page
+    div.container
+      div.row
+        div.col-sm-8.col-md-7
+          ul.list-group
+            li.list-group-item.list-group-item-success Operaciones programadas
+            - var i = 0;
+            each operation in operations
+              div.panel.panel-default
+                div.panel-heading #{operation.operation_type}
+                  span.pull-right.badge
+                    span.glyphicon.glyphicon-remove
+                div.panel-body
+
+                  p Programado a las #{operation.operation_time}
+
+                  ul.list-group
+                    each host in operation.hosts.split(",")
+                        li.list-group-item #{host}
+
+                  p(style="display:none")#identifier #{operation.pk}

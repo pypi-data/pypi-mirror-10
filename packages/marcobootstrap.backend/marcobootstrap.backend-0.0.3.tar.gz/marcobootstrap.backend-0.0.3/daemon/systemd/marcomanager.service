@@ -1,0 +1,16 @@
+[Unit]
+Description=MarcoManager service
+After=marco.service
+After=polo.service
+
+[Service]
+
+ExecStart=/usr/bin/marcobootstrapbackendd &>/dev/null
+
+Type=simple
+User=root
+Group=root
+PIDFile=/var/run/marcobootstrapbackendd.pid
+
+[Install]
+WantedBy=multi-user.target
