@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: dyna_settings
+Version: 0.1.1
+Summary: Dynamic project settings to automatically switch settings by environment detection.
+Home-page: https://github.com/curtisforrester/dyna_settings
+Author: Curtis Forrester
+Author-email: curtis@bredbeddle.net
+License: BSD
+Description: ===============================
+        Dyna Settings
+        ===============================
+        
+        .. image:: https://img.shields.io/travis/curtisforrester/dyna_settings.svg
+                :target: https://travis-ci.org/curtisforrester/dyna_settings
+        
+        .. image:: https://img.shields.io/pypi/v/dyna_settings.svg
+                :target: https://pypi.python.org/pypi/dyna_settings
+        
+        
+        Dynamic project settings enabling automatically switching settings between production and various development and testing environments.
+        
+        * Free software: BSD license
+        * Documentation: https://dyna_settings.readthedocs.org.
+        
+        Features
+        --------
+        
+        * Automatically detect when the code is run in a specific type or class of environments
+        * Similar to the popular 12-Factor_ based django-environ_
+        * Supports automatic environment variable overrides or exclusions
+        * Supports broad categories of execution environments, or specific developer/testing setups
+        
+        .. _django-environ: https://github.com/joke2k/django-environ
+        .. _12-Factor: http://12factor.net/
+        
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-7-6)
+        ---------------------
+        
+        * First release on PyPI.
+        
+        0.1.1 (2015-7-7)
+        ---------------------
+        
+        * Changed module from dyna_settings to core
+        * Trying to figure out why pip install won't work.
+        
+        
+Keywords: dyna_settings
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
