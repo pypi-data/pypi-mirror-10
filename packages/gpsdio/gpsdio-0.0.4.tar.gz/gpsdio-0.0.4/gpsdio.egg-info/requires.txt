@@ -1,0 +1,12 @@
+click
+msgpack-python
+newlinejson
+python-dateutil
+six
+ujson
+cligj>=0.2
+str2type>=0.4
+
+[test]
+pytest
+pytest-cov
