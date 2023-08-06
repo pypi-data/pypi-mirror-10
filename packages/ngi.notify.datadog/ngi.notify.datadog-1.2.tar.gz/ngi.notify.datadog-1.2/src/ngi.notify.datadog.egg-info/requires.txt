@@ -1,0 +1,8 @@
+setuptools
+plone.app.registry
+plone.api
+datadog
+zope.processlifetime
+
+[test]
+plone.app.testing
