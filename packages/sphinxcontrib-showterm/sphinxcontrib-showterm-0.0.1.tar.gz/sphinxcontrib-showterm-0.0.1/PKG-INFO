@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: sphinxcontrib-showterm
+Version: 0.0.1
+Summary: Sphinx showterm.io termshows extension
+Home-page: https://github.com/tbielawa/sphinxcontrib-showterm
+Author: Tim Bielawa
+Author-email: timbielawa@gmail.com
+License: Apache Common 2.0
+Description: # showterm
+        
+        A Sphinx extension to embed termshows from `showterm.io
+        <https://showterm.io/>`_ into your `Sphinx <http://sphinx-doc.org/>`_
+        documentation.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
