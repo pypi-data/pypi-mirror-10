@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: blocktrail-sdk-beta
+Version: 1.0.6
+Summary: BlockTrail's Developer Friendly Bitcoin SDK
+Home-page: https://www.blocktrail.com/api/docs/lang/python
+Author: Ruben de Vries
+Author-email: ruben@blocktrail.com
+License: UNKNOWN
+Description: BlockTrail's Developer Friendly Bitcoin SDK
+        
+         - simple bindings to the various data API endpoints
+            - block data and transactions
+            - transaction data
+            - address data and transactions
+            - latest price
+         - Contains Multi-Signature HD Wallet
+        
+        For examples and instructions on how to use, please see our official documentation at https://www.blocktrail.com/api/docs/lang/python
+        
+Keywords: bitcoin,sdk,api,payments,crypto,wallet,multisig,multisignature,HD wallet
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
