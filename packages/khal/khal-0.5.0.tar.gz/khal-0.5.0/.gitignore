@@ -1,0 +1,11 @@
+*.pyc
+*.swp
+khal/version.py
+khal.egg-info/
+build/
+dist/
+*.db
+.tox
+.coverage
+.cache
+htmlcov
