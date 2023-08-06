@@ -1,0 +1,7 @@
+setuptools
+Products.GenericSetup >=1.4
+plone.indexer
+Plone >=3.3rc1
+
+[test]
+Products.PloneTestCase
