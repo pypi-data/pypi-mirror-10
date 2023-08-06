@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: bomber
+Version: 0.0.2a0.dev2
+Summary: Get data from the BoM in Python
+Home-page: https://stash.csiro.au/projects/POH/repos/bomber
+Author: Jess Robertson
+Author-email: jesse.robertson@csiro.au
+License: UNKNOWN
+Description: # Read data from the Bureau of Meterology (BoM)
+        
+        The BoM, in it's wisdom, have made getting their geospatial data fairly difficult. This package aims to fix that
+        
+        More documentation to come...
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
