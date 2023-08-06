@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="ui one column centered padded grid">
+	<div class="fifteen wide column">
+		<div class="ui horizontal menu">
+			<div class="item">
+				<div class="ui breadcrumb">
+					<div class="active section"><i class="home icon"></i></div>
+				</div>
+			</div>
+			<div class="item right">
+				<a href="https://github.com/trehn/grafilter" target="_blank">grafilter {{ version }}</a>
+			</div>
+		</div>
+		<div class="ui segment">
+			<div class="ui massive transparent fluid action icon input">
+				<input placeholder="Search...    (press return to show all)" type="text" id="search">
+				<i class="search icon"></i>
+			</div>
+		</div>
+		<div id="results">
+		</div>
+	</div>
+</div>
+<script src="/static/index.js" charset="utf-8"></script>
+{% endblock %}
