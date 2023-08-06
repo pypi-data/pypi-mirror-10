@@ -1,0 +1,10 @@
+#!/Users/omarsubhiabdelhafith/.pyenv/versions/2.7.9/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'mockpy==0.1.1','console_scripts','mockpy'
+__requires__ = 'mockpy==0.1.1'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('mockpy==0.1.1', 'console_scripts', 'mockpy')()
+    )
