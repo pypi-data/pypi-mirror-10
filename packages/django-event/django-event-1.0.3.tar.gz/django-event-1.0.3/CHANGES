@@ -1,0 +1,37 @@
+0.1 (2014-12-04)
+    Initial release
+0.3.1-beta (2014-12-18)
+    Added event infrastructure
+    Added docs
+0.3.2 (2014-12-24)
+    First stable version
+0.4.0-beta (2014-12-25)
+    Added rest_framework package. All dependand api views moved into.
+    Added classic django views for event API's.
+0.4.1 (2014-12-26)
+    Created framework settings module.
+0.4.2 (2014-12-26)
+    Add default urls for classic django views.
+0.4.3 (2015-01-27)
+    Add admin models.
+0.4.4 (2015-02-24)
+    Fixed ^C'ing run command.
+    Fixed session handling.
+0.5.0 (2015-04-02)
+    Add support DRF 3.X
+1.0.0 (2015-05-19)
+    Implement swappable backend system.
+    Add redis backend.
+    Implement swappable model system.
+    Refactored request to support pure HttpRequest.
+    Global settings refactoring.
+1.0.1 (2015-05-20)
+    Add i18n
+    Fix Django Request modification.
+1.0.2 (2015-05-21)
+    Fixed string port conversion.
+    Fixed rabbitmq exclusive queue.
+1.0.3 (2015-05-27)
+    Fixed redis subscriber memory leak.
+    Refactored base subscriber.
+    Added listener classes caching.
