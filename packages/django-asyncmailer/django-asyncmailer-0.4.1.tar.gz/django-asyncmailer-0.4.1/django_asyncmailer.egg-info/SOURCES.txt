@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+asyncmailer/__init__.py
+asyncmailer/admin.py
+asyncmailer/models.py
+asyncmailer/tasks.py
+asyncmailer/tests.py
+asyncmailer/views.py
+asyncmailer/templates/asyncmailer/email.html
+asyncmailer/templates/asyncmailer/email_pt.html
+django_asyncmailer.egg-info/PKG-INFO
+django_asyncmailer.egg-info/SOURCES.txt
+django_asyncmailer.egg-info/dependency_links.txt
+django_asyncmailer.egg-info/requires.txt
+django_asyncmailer.egg-info/top_level.txt
