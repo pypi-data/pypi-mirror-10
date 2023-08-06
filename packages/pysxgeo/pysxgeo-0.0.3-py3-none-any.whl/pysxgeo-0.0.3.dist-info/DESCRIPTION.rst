@@ -1,0 +1,68 @@
+pysxgeo
+========
+
+Description
+___________
+
+pysxgeo is an API that provides access to Sypex Geo (2.2) databases (country and city).
+The databases provides an information about geolocation by ip-address.
+For information about databases please visit `sypexgeo.net <https://sypexgeo.net/>`_.
+
+Requirements
+____________
+
+Python 3.x
+
+Sypex Geo City (or Country) `database <https://sypexgeo.net/ru/download/>`_
+
+
+Installation
+____________
+
+.. code-block:: bash
+
+    $ pip install pysxgeo
+
+Usage
+_____
+
+Some examples:
+
+.. code-block:: pycon
+
+    >>> from pysxgeo import sxgeo
+    >>>
+    >>> ip = '77.236.97.247'
+    >>> db = '/path/to/db' # City or Country
+    >>> # AVAILABLE MODES: SXGEO_FILE, SXGEO_MEMORY, SXGEO_BATCH
+    >>> info = sxgeo.SxGeo(db_file=db, mode=sxgeo.SXGEO_BATCH)
+    >>> info.get_city(ip, full=True)
+    {'country': {'id': 56, 'lon': 10.5, 'lat': 51.5,
+                 'name_en': 'Germany', 'iso': 'DE', 'name_ru': 'Германия'},
+     'region': {'id': 2861876, 'iso': 'DE-NW',
+                'name_en': 'Land Nordrhein-Westfalen',
+                'name_ru': 'Северный Рейн-Вестфалия'},
+     'city': {'id': 2831105, 'lon': 6.36667, 'name_ru': 'Sonsbeck',
+              'name_en': 'Sonsbeck', 'lat': 51.61667}}
+    >>> info.get_country(ip)
+    'DE'
+    >>> info.get_country_id(ip)
+    56
+    >>> # Quick usage. The answer depends of your database choice.
+    >>> info.get(ip)
+    {'city': {'name_en': 'Sonsbeck', 'lon': 6.36667,
+          'name_ru': 'Sonsbeck', 'id': 2831105, 'lat': 51.61667},
+     'country': {'iso': 'DE', 'id': 56}},
+    >>> # Get coordinates tuple(latitude, longitude)
+    >>> info.get_coords() # For the last ip
+    (51.61667, 6.36667)
+    >>> info.get_coords(ip) # For the new ip
+    (51.61667, 6.36667)
+    >>> # Get db info:
+    >>> info.about()
+
+Notes
+_____
+
+Processing of the DB with charset 'utf-8' is faster than processing DB with charset 'cp1251'.
+
