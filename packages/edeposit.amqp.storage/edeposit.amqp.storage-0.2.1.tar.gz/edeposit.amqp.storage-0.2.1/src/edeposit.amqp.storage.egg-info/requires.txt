@@ -1,0 +1,13 @@
+ZEO
+ZODB3
+bottle
+kwargs_obj
+paste
+
+[docs]
+sphinx
+sphinxcontrib-napoleon
+
+[test]
+pytest
+fake-factory
