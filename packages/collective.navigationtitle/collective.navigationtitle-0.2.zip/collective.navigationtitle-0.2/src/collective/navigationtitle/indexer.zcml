@@ -1,0 +1,10 @@
+<configure
+
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.navigationtitle">
+
+  <adapter name="short_title" factory=".indexer.short_title" />
+
+</configure>
