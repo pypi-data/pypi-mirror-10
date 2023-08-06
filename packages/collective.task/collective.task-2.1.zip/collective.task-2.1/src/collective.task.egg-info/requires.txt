@@ -1,0 +1,14 @@
+dexterity.localrolesfield
+plone.api
+plone.app.lockingbehavior
+plone.directives.form
+plone.formwidget.masterselect
+plone.principalsource
+setuptools
+z3c.jbot
+z3c.table
+
+[test]
+plone.app.testing
+plone.app.contenttypes
+plone.app.robotframework[debug]
