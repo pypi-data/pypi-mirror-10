@@ -1,0 +1,8 @@
+Program('main', ['main.cpp',
+                 '/home/christian/sketchbook/libraries/nanopb/pb_decode.c',
+                 '/home/christian/sketchbook/libraries/nanopb/pb_common.c',
+                 '/home/christian/.virtualenvs/md-x64/src/'
+                 'firmware/demo_rpc/demo_rpc/Arduino/demo_rpc/demo_rpc_config_pb.c'],
+        CPPPATH=['/home/christian/sketchbook/libraries/nanopb',
+                 '/home/christian/.virtualenvs/md-x64/src/'
+                 'firmware/demo_rpc/demo_rpc/Arduino/demo_rpc'])
