@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: git-review
+Version: 1.25.0
+Summary: Tool to submit code to Gerrit
+Home-page: https://docs.openstack.org/infra/git-review/
+Author: OpenStack
+Author-email: openstack-infra@lists.openstack.org
+License: Apache License (2.0)
+Keywords: git gerrit review
+Platform: UNKNOWN
+Requires-Dist: argparse
+Requires-Dist: requests (>=1.1)
+
+git-review
+==========
+
+A git command for submitting branches to Gerrit
+
+git-review is a tool that helps submitting git branches to gerrit for
+review.
+
+* Free software: Apache license
+* Documentation: http://docs.openstack.org/infra/git-review/
+* Source: https://git.openstack.org/cgit/openstack-infra/git-review
+* Bugs: https://storyboard.openstack.org/#!/project/719
+
+
+
