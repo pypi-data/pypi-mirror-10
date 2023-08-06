@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include posts/locale *
+recursive-include posts/templates *.html
