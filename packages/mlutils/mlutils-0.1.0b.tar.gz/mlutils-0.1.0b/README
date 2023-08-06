@@ -1,0 +1,23 @@
+mlutils package is intended to be a collection of utilities for AI planning and not-supervised learning. 
+Development is in progress.
+
+Version history:
+
+0.1.0
+  -- N-Ary tree class supported various search algorithms: pre-order, post-order, breadth-first, 
+     heuristic (you should provide heuristic function) and random sampling 
+  -- State space generation/search   
+
+Next version:
+   Supposed to provide streaming clustering algorithm
+
+Dependency:
+   Package does not have extra dependencies except python standard library 
+  
+Installation:
+   Standard installation for pure python modules
+   
+Usage examples:
+   mlutils-usage module has some simple example   
+
+  
