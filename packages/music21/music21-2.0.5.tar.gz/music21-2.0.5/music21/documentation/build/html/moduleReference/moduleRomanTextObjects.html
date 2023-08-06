@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>music21.romanText.objects &mdash; music21 Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/m21.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <link rel="top" title="music21 Documentation" href="../index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">music21</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">music21.romanText.objects</a><ul>
+<li><a class="reference internal" href="#rtanalytickey">RTAnalyticKey</a></li>
+<li><a class="reference internal" href="#rtatom">RTAtom</a></li>
+<li><a class="reference internal" href="#rtbeat">RTBeat</a></li>
+<li><a class="reference internal" href="#rtchord">RTChord</a></li>
+<li><a class="reference internal" href="#rtcloseparens">RTCloseParens</a></li>
+<li><a class="reference internal" href="#rtellisonstart">RTEllisonStart</a></li>
+<li><a class="reference internal" href="#rtellisonstop">RTEllisonStop</a></li>
+<li><a class="reference internal" href="#rtfile">RTFile</a></li>
+<li><a class="reference internal" href="#rthandler">RTHandler</a></li>
+<li><a class="reference internal" href="#rtkey">RTKey</a></li>
+<li><a class="reference internal" href="#rtkeysignature">RTKeySignature</a></li>
+<li><a class="reference internal" href="#rtkeytypeatom">RTKeyTypeAtom</a></li>
+<li><a class="reference internal" href="#rtmeasure">RTMeasure</a></li>
+<li><a class="reference internal" href="#rtnochord">RTNoChord</a></li>
+<li><a class="reference internal" href="#rtopenparens">RTOpenParens</a></li>
+<li><a class="reference internal" href="#rtoptionalkeyclose">RTOptionalKeyClose</a></li>
+<li><a class="reference internal" href="#rtoptionalkeyopen">RTOptionalKeyOpen</a></li>
+<li><a class="reference internal" href="#rtphraseboundary">RTPhraseBoundary</a></li>
+<li><a class="reference internal" href="#rtphrasemarker">RTPhraseMarker</a></li>
+<li><a class="reference internal" href="#rtrepeat">RTRepeat</a></li>
+<li><a class="reference internal" href="#rtrepeatstart">RTRepeatStart</a></li>
+<li><a class="reference internal" href="#rtrepeatstop">RTRepeatStop</a></li>
+<li><a class="reference internal" href="#rttagged">RTTagged</a></li>
+<li><a class="reference internal" href="#rttoken">RTToken</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About Music21</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usersGuide/index.html">Users Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Module Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Music21 Concepts Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systemReference/index.html">System Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developerReference/index.html">Developer Reference</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/moduleReference/moduleRomanTextObjects.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="music21-romantext-objects">
+<span id="moduleromantextobjects"></span><h1>music21.romanText.objects<a class="headerlink" href="#music21-romantext-objects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rtanalytickey">
+<h2>RTAnalyticKey<a class="headerlink" href="#rtanalytickey" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTAnalyticKey</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTKeyTypeAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTAnalyticKey</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTKeyTypeAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">getKey()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">getKeySignature()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtatom">
+<h2>RTAtom<a class="headerlink" href="#rtatom" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtbeat">
+<h2>RTBeat<a class="headerlink" href="#rtbeat" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTBeat</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTBeat</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtchord">
+<h2>RTChord<a class="headerlink" href="#rtchord" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTChord</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTChord</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtcloseparens">
+<h2>RTCloseParens<a class="headerlink" href="#rtcloseparens" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTCloseParens</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTCloseParens</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtellisonstart">
+<h2>RTEllisonStart<a class="headerlink" href="#rtellisonstart" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTEllisonStart</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseMarker</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTEllisonStart</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtellisonstop">
+<h2>RTEllisonStop<a class="headerlink" href="#rtellisonstop" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTEllisonStop</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseMarker</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTEllisonStop</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtfile">
+<h2>RTFile<a class="headerlink" href="#rtfile" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTFile</span></tt> methods</p>
+</div>
+<div class="section" id="rthandler">
+<h2>RTHandler<a class="headerlink" href="#rthandler" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTHandler</span></tt> read/write properties</p>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTHandler</span></tt> methods</p>
+</div>
+<div class="section" id="rtkey">
+<h2>RTKey<a class="headerlink" href="#rtkey" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTKey</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTKeyTypeAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTKey</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTKeyTypeAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">getKey()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">getKeySignature()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtkeysignature">
+<h2>RTKeySignature<a class="headerlink" href="#rtkeysignature" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTKeySignature</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTKeySignature</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtkeytypeatom">
+<h2>RTKeyTypeAtom<a class="headerlink" href="#rtkeytypeatom" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTKeyTypeAtom</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTKeyTypeAtom</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtmeasure">
+<h2>RTMeasure<a class="headerlink" href="#rtmeasure" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTMeasure</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTMeasure</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtnochord">
+<h2>RTNoChord<a class="headerlink" href="#rtnochord" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTNoChord</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTNoChord</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtopenparens">
+<h2>RTOpenParens<a class="headerlink" href="#rtopenparens" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTOpenParens</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTOpenParens</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtoptionalkeyclose">
+<h2>RTOptionalKeyClose<a class="headerlink" href="#rtoptionalkeyclose" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTOptionalKeyClose</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTOptionalKeyClose</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtoptionalkeyopen">
+<h2>RTOptionalKeyOpen<a class="headerlink" href="#rtoptionalkeyopen" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTOptionalKeyOpen</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTOptionalKeyOpen</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtphraseboundary">
+<h2>RTPhraseBoundary<a class="headerlink" href="#rtphraseboundary" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseBoundary</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseMarker</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseBoundary</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtphrasemarker">
+<h2>RTPhraseMarker<a class="headerlink" href="#rtphrasemarker" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseMarker</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTPhraseMarker</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtrepeat">
+<h2>RTRepeat<a class="headerlink" href="#rtrepeat" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTRepeat</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTRepeat</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtrepeatstart">
+<h2>RTRepeatStart<a class="headerlink" href="#rtrepeatstart" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTRepeatStart</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTRepeat</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTRepeatStart</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rtrepeatstop">
+<h2>RTRepeatStop<a class="headerlink" href="#rtrepeatstop" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTRepeatStop</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTRepeat</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt></li>
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTRepeatStop</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTAtom</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAnalyst()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isComposer()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isForm()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isKeySignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMovement()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isNote()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPedal()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isPiece()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isProofreader()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTimeSignature()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isTitle()</span></tt></li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isWork()</span></tt></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rttagged">
+<h2>RTTagged<a class="headerlink" href="#rttagged" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTTagged</span></tt> bases</p>
+<ul class="simple">
+<li><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt></li>
+</ul>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTTagged</span></tt> methods</p>
+<p>Methods inherited from <tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt>:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isAtom()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+<li><tt class="xref py py-meth docutils literal"><span class="pre">isMeasure()</span></tt></li>
+</ul>
+</td><td><ul class="simple">
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="rttoken">
+<h2>RTToken<a class="headerlink" href="#rttoken" title="Permalink to this headline">¶</a></h2>
+<p class="rubric"><tt class="xref py py-class docutils literal"><span class="pre">RTToken</span></tt> methods</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">music21</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2006-2015, Michael Scott Cuthbert and cuthbertLab.
+      Last updated on Jan 21, 2015.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
