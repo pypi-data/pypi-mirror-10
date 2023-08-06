@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: eventsim
+Version: 0.1
+Summary: various useful tools in simulating discrete system events based on outcome and probabilities
+Home-page: http://bitbucket.org/tushortz/eventsim
+Author: Taiwo Kareem
+Author-email: taiwo.kareem36@gmail.com
+License: MIT
+Description: Description
+        -----------
+        
+        eventsim makes discrete event easy to simulate
+        
+        Currently, it consists of two modules:
+        
+        models and randgen
+        
+        models consists of:
+        	
+        
+        Requirements
+        ------------
+        
+        * Any version of python
+        
+        Acknowledgements
+        ----------------
+        
+        I was inspired to write this package after my university coursework demanded using python to simulate events. I hope Modelling and Simulation students find it useful
+        
+        All glory belongs to God
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
