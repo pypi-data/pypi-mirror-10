@@ -1,0 +1,29 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+START=99
+
+export HOME=/
+
+BIN="/usr/bin/zymbit"
+DEFAULT=/etc/default/tunnel
+OPTIONS="connector"
+
+start() {
+  env >> /tmp/env
+	[ -f $DEFAULT ] && . $DEFAULT
+	$BIN $OPTIONS > /tmp/zymbit.log &
+}
+
+stop() {
+	kill -9 $(ps | grep -v grep | grep $BIN | awk '{print $1}')
+}
+
+reload() {
+  restart
+}
+
+restart() {
+  stop
+  start
+}
+
