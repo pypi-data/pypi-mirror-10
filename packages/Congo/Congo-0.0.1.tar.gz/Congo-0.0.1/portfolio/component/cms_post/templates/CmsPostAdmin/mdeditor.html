@@ -1,0 +1,31 @@
+
+{% assets  "portfolio/vendor/mdeditor/mdeditor.css" -%}
+    <link href="{{ ASSET_URL }}" rel="stylesheet">
+{% endassets -%}
+
+{% assets output="_mdeditor.js",
+    "portfolio/vendor/mdeditor/bower_components/marked/marked.min.js",
+    "portfolio/vendor/mdeditor/bower_components/dropzone/downloads/dropzone.min.js",
+    "portfolio/vendor/mdeditor/bower_components/underscore/underscore-min.js",
+    "portfolio/vendor/mdeditor/bower_components/codemirror/lib/codemirror.js",
+    "portfolio/vendor/mdeditor/mdeditor.js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets -%}
+
+
+<div>
+    <textarea name="content" id="mdeditor" class="form-control">{% if post %}{{ post.content | safe }}{% endif %}</textarea>
+</div>
+
+
+
+
+<script>
+    $(function(){
+          var md = new MdEditor('#mdeditor', {
+            uploader: '{{ url_for("PostAdmin:upload_image") }}',
+            uploaderData: {_csrf_token: "{{ csrf_token() }}", ajax: 1},
+            images: {{ images_list | tojson | safe }}
+          });
+    })
+</script>

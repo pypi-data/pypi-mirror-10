@@ -1,0 +1,32 @@
+{% import "Portfolio/macros/base.html" as m with context %}
+{% import "Portfolio/macros/forms.html" as f with context %}
+{% extends "Portfolio/PostAdmin/_layout.html" %}
+
+{% block admin_page_title %}Reader{% endblock %}
+
+{% block admin_content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                    <a href="{{ url_for("PostAdmin:index") }}" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
+                    <a href="{{ url_for("PostAdmin:edit", id=post.id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>{{ post.title }}</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                {{ post.content | markdown | safe }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

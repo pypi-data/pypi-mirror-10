@@ -1,0 +1,45 @@
+
+{# -------------------------------------------------------------------------- #}
+
+{% extends "Portfolio/admin-layout.html" %}
+
+{# -------------------------------------------------------------------------- #}
+
+{% block admin_page_id %}PostAdmin{% endblock %}
+
+{# -------------------------------------------------------------------------- #}
+
+{% block admin_page_name %}Post Admin: {% block admin_page_title %}{% endblock %}{% endblock %}
+
+{# -------------------------------------------------------------------------- #}
+{# ADMIN MENU #}
+{% block admin_menu %}
+    <ul class="nav nav-tabs nav-stacked">
+        <li><a href="{{ url_for('PostAdmin:index') }}"><i class="fa fa-list"></i> <i class="fa fa-"></i>All Posts</a></li>
+        <li><a href="{{ url_for('PostAdmin:new') }}"><i class="fa fa-plus-circle"></i> New Post</a></li>
+        <li><a href="{{ url_for('PostAdmin:images') }}"><i class="fa fa-file-image-o"></i>  Images</a></li>
+        <li><a href="{{ url_for('PostAdmin:categories') }}"><i class="fa fa-folder"></i> Categories</a></li>
+        <li><a href="{{ url_for('PostAdmin:tags') }}"><i class="fa fa-tags"></i> Tags</a></li>
+        <li> <a href="{{ url_for('PostAdmin:types') }}"><i class="fa fa-leaf"></i> Types</a></li>
+    </ul>
+{% endblock %}
+
+{# -------------------------------------------------------------------------- #}
+{# STATIC FILES #}
+{% block admin_static %}
+    {% assets  "portfolio/css/components/admin.css",
+               "portfolio/css/components/post-admin.css",
+               "portfolio/vendor/bootstrap-tokenfield/bootstrap-tokenfield.css"-%}
+        <link href="{{ ASSET_URL }}" rel="stylesheet">
+    {% endassets -%}
+
+    {% assets
+            "portfolio/js/vendor/jquery-slugify.js",
+            "portfolio/vendor/bootstrap-tokenfield/bootstrap-tokenfield.min.js",
+            "portfolio/js/components/post-admin.js"
+    -%}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets -%}
+{% endblock %}
+
+{# -------------------------------------------------------------------------- #}

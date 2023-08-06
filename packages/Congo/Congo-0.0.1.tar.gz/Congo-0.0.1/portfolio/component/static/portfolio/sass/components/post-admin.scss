@@ -1,0 +1,37 @@
+@import "../mixins";
+
+#PostAdmin {
+
+  #edit-post-page {
+
+  }
+
+  #images-page {
+    .image-container {
+        position: relative;
+        border: 1px solid #ccc;
+        margin: 5px;
+        height: 300px;
+
+        .image {
+          @include  responsive-image;
+          padding: 15px;
+          img {
+            max-height: 200px;
+          }
+          text-align: center;
+        }
+
+        .info {
+            border-top: 1px solid #ccc;
+            position: absolute;
+            height: 40px;
+            bottom: 0;
+            padding: 4px;
+            margin-top: 10px;
+            width: 100%;
+        }
+    }
+  }
+
+}

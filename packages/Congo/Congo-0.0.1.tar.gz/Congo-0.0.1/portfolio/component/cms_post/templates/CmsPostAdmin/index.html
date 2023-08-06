@@ -1,0 +1,45 @@
+{% import "Portfolio/macros/base.html" as m with context %}
+{% import "Portfolio/macros/forms.html" as f with context %}
+{% extends "Portfolio/PostAdmin/_layout.html" %}
+
+{% block admin_page_title %}All Posts{% endblock %}
+
+{% block admin_content %}
+
+<table class="table">
+    <thead>
+        <th class="hidden-sm hidden-xs">ID</th>
+        <th>Type</th>
+        <th>Title</th>
+        <th class="hidden-sm hidden-xs">Slug</th>
+        <th class="hidden-sm hidden-xs">Created at</th>
+        <th class="hidden-sm hidden-xs">Published at</th>
+        <th class="hidden-sm hidden-xs">Status</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+        {% for post in posts %}
+            <tr>
+                <td class="hidden-sm hidden-xs">{{ post.id }}</td>
+                <td>{{ post.type.name }}</td>
+                <td><a href="{{ url_for("PostAdmin:read", id=post.id) }}">{{ post.title }}</a></td>
+                <td  class="hidden-sm hidden-xs">{{ post.slug }}</td>
+                <td  class="hidden-sm hidden-xs">{{ post.created_at | date }}</td>
+                <td class="hidden-sm hidden-xs">{{ post.published_date | date }}</td>
+                <td class=" hidden-sm hidden-xs
+                    {% if post.is_draft %}
+                    alert-warning
+                    {% endif %}
+                ">{{ post.status }}</td>
+                <td>
+                    <a href="{{ url_for("PostAdmin:edit", id=post.id) }}" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{{ m.pagination(posts, **query_vars) }}
+
+{% endblock %}

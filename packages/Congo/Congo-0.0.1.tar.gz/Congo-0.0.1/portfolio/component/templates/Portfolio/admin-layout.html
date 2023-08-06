@@ -1,0 +1,26 @@
+
+
+<div class="container-fluid" id="{% block admin_page_id %}{% endblock %}">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{% block admin_page_name %}{% endblock %}</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-2 hidden-sm hidden-xs">
+            {% block admin_menu %}{% endblock %}
+        </div>
+
+        <div class="col-md-10 col-sm-12 col-xs-12">
+            {% block admin_content %}{% endblock %}
+        </div>
+
+    </div>
+</div>
+
+{% block admin_static %}{% endblock %}
+
+

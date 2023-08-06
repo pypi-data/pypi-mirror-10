@@ -1,0 +1,45 @@
+
+{% import "Portfolio/macros/base.html" as m with context %}
+{% import "Portfolio/macros/meta.html" as meta with context %}
+
+{% set header_title_suffix = header_title_suffix or "" %}
+{{ meta.header(" %s" % header_title_suffix) }}
+
+{{ meta.social() }}
+
+{#:: Portfolio CSS & JS ::#}
+{%- assets "portfolio_css" %}
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"></script>
+{% endassets -%}
+
+{%- assets "portfolio_js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets -%}
+
+
+{#:: Google Analytics ::#}
+{%- if __.GOOGLE_ANALYTICS_ID %}
+    {{ m.google_analytics(__.GOOGLE_ANALYTICS_ID) }}
+{% endif -%}
+
+{#:: Init Portfolio script ::#}
+<script>
+$(function(){
+    {% if popup_js %}
+        {{ popup_js | safe }}
+    {% endif %}
+    authomatic.popupInit();
+})
+
+{% if __.LOGIN_ENABLED %}
+$(function(){
+    Portfolio.basic_login()
+
+{#:: Social Login ::#}
+{%- if __.LOGIN_OAUTH_ENABLED and __.LOGIN_OAUTH_CLIENT_IDS %}
+    var _s_r = "{{url_for('Login:login')}}"
+    Portfolio.oauth_login({{ __.LOGIN_OAUTH_CLIENT_IDS | tojson | safe }}, _s_r);
+{% endif -%}
+})
+{% endif %}
+</script>

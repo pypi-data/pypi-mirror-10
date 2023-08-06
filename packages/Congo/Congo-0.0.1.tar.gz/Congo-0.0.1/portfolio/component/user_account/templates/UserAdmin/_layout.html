@@ -1,0 +1,32 @@
+
+{# -------------------------------------------------------------------------- #}
+
+{% extends "Portfolio/admin-layout.html" %}
+
+{# -------------------------------------------------------------------------- #}
+
+{% block admin_page_id %}UserAdmin{% endblock %}
+
+{# -------------------------------------------------------------------------- #}
+
+{% block admin_page_name %}User Admin: {% block admin_page_title %}{% endblock %}{% endblock %}
+
+{# -------------------------------------------------------------------------- #}
+{# ADMIN MENU #}
+{% block admin_menu %}
+    <ul class="nav nav-tabs nav-stacked">
+        <li><a href="{{ url_for('UserAdmin:index') }}"><i class="fa fa-users"></i> <i class="fa fa-"></i>All Users</a></li>
+        <li><a href="{{ url_for('UserAdmin:roles') }}"><i class="fa fa-star-o"></i> Roles</a></li>
+    </ul>
+{% endblock %}
+
+{# -------------------------------------------------------------------------- #}
+{# STATIC FILES #}
+{% block admin_static %}
+    {% assets  "portfolio/css/components/admin.css" %}
+        <link href="{{ ASSET_URL }}" rel="stylesheet">
+    {% endassets -%}
+
+{% endblock %}
+
+{# -------------------------------------------------------------------------- #}

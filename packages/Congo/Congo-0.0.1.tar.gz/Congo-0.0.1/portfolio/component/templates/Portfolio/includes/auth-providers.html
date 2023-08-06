@@ -1,0 +1,20 @@
+
+{% set auth_btn_size = auth_btn_size or "md" %}
+{% set auth_btn_text = auth_btn_text or "Signin with #provider" %}
+
+{% for provider in __.AUTH_PROVIDERS %}
+    {% set button = provider %}
+    {% if button == "google" %}
+        {% set button = "google-plus" %}
+    {% endif %}
+    {% set text = auth_btn_text.replace("#provider", provider) %}
+    <a href="{{ url_for('UserAccount:login_auth', provider=provider) }}"
+       class="authomatic
+                btn btn-social
+                btn-{{ button }}
+                btn-{{ auth_btn_size }}">
+        <i class="fa fa-{{ button }}"></i>
+        {{ text | title }}
+    </a>
+{% endfor %}
+
