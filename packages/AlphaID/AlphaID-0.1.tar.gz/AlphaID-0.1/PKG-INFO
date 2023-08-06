@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: AlphaID
+Version: 0.1
+Summary: UNKNOWN
+Home-page: https://github.com/duythinht/AlphaID
+Author: Thinh Tran
+Author-email: duythinht@gmail.com
+License: Creative Commons Attribution-Noncommercial-Share Alike license
+Description: ## AlphaID is a lib to generate your uuid based on Alphabet
+        
+        Install:
+        	
+        	python setup.py install
+        
+        Usage:
+        
+        	from alphaid import AlphaID
+        
+        	ALPHABET = 'IWKZCAF12345678'
+        	LEN = 5
+        
+        	aid = AlphaID(ALPHABET, LEN)
+        
+        	string_id = aid.encode(2345) # WI4FA
+        	val_id = aid.decode(string_id) # 2345
+        
+Platform: UNKNOWN
