@@ -1,0 +1,26 @@
+==============
+docutils_shell
+==============
+
+This package defines the `shell` directive, 
+a Docutils extension which can insert the output of any shell command
+into your restructered text markup.
+
+For example, this markup::
+
+    .. shell:: hg parent --template {rev}
+               REVISION
+
+    .. shell:: date "+built on %a %d %b %Y at %X %Z"
+               TIMESTAMP
+
+    Revision |REVISION|, |TIMESTAMP|
+
+Will appear something like this::
+
+    Revision 5, built on Sun 14 Jun 2015 at 13:02:21 CDT
+
+See `http://pythonhosted.org/docutils_shell/`_ for more information.
+
+.. _`http://pythonhosted.org/docutils_shell/`: http://pythonhosted.org/docutils_shell/
+
