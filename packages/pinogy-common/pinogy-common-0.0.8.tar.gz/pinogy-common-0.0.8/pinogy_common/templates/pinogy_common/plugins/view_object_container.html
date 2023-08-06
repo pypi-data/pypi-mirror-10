@@ -1,0 +1,8 @@
+{% load cms_tags %}
+{% spaceless %}
+<div class="pinogy-view-object-container">
+    {% for child in instance.child_plugin_instances %}
+    {% render_plugin child  %}
+    {% endfor %}
+</div>
+{% endspaceless %}
