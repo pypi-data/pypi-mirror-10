@@ -1,0 +1,14 @@
+contextlib2
+cornice
+lazr.sshserver
+pygit2>=0.22.0,<0.23.0
+PyYAML
+Twisted
+waitress
+zope.interface
+
+[test]
+fixtures
+flake8
+testtools
+webtest
