@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: pygments-ldif
+Version: 1.0.0
+Summary: LDAP Data Interchange Format (LDIF) lexer for Pygments
+Home-page: http://projects.skurfer.com/posts/2011/ldif_pygments/
+Author: Rob McBroom
+Author-email: pygments-ldif@skurfer.com
+License: MIT License
+Description: ===================
+        Pygments LDIF Lexer
+        ===================
+        
+        Examples:
+        
+        .. code-block:: bash
+        
+            $ pygmentize example.ldif
+        
+        or
+        
+        .. code-block:: bash
+        
+            $ ldapsearch -xLLL uid=rob | pygmentize -l ldif
+        
+        For HTML, just identify the code block as ``ldif``. See the documentation for your chosen tool for details.
+        
+Platform: UNKNOWN
