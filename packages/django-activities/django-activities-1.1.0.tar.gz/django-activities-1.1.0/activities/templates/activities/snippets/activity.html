@@ -1,0 +1,117 @@
+{% comment %}
+    This snippet represents an individual user activities or activity.
+    
+    Variables:
+    
+    activity: activity object
+    activity_url: the url for the object's activities
+    user_timezone: will display the dates in this timezone if provided.  If not,
+        will default to 'UTC' time.  Possible values are 'America/Denver', 
+        'America/Chicago', etc.
+    show_reference_obj: boolean string whether to show the line about which obj  
+        the activity is referencing. This has to be a string because of how 
+        variables are passed to the snippet.  Should be 'True' or 'False'. 
+        Default is 'False'.
+    
+{% endcomment %}
+
+{% load collection_tags humanize i18n activity_tags url_tags tz %}
+
+{% spaceless %}
+{% with user_timezone=user_timezone|default:'UTC' %}
+<li class="item-container activity-container" id="n-{{ activity.id }}">
+
+    <ul class="item activity clearfix">
+        
+        <li class="avatar">
+            <a href="{{ activity.created_user.get_absolute_url }}">
+                <img src="{{ activity.created_user.get_avatar_url }}" alt="Avatar" class="avatar" />
+            </a>
+        </li>
+        <li class="actions">
+            {% if activity.is_editable and activity.created_user_id == user.id %}
+                <a href="{% if activity_url %}{{ activity_url }}/..{% else %}.{% endif %}{{ activity.get_delete_url }}"><i class="{{ ICON_EDIT_CLS }}"></i></a>
+            {% endif %}
+            <a href="{% if activity_url %}{{ activity_url }}/..{% else %}.{% endif %}{{ activity.get_delete_url }}"><i class="{{ ICON_DECLINE_CLS }}"></i></a>
+        </li>
+        <li class="name">
+            <strong>
+                <a href="{{ activity.created_user.get_absolute_url }}">{{ activity.created_user.get_full_name }}</a>
+            </strong>
+            
+            {% comment %}If this is passed in a template, I can only pass strings which is why 'True' check exists{% endcomment %}
+            {% comment %}
+            {% if show_reference_obj == 'True' or show_reference_obj == True %}
+              {% if activity.about|get_obj_type == 'bill' %}
+                <span class="about-obj">{% if activity.about.group_id %}in {{ activity.about.group.get_absolute_url_link }} {% endif %}
+                    for {{ activity.about.get_absolute_url_link }}
+                </span>
+              {% elif activity.about|get_obj_type == 'billinstance' %}
+                <span class="about-obj">{% if activity.about.bill.group_id %}in {{ activity.about.bill.group.get_absolute_url_link }} {% endif %}
+                    for {{ activity.about.bill.get_absolute_url_link }} ({{ activity.about.get_absolute_url_link_short_date }})
+                </span>
+              {% elif activity.about|get_obj_type == 'group' %}
+                <span class="about-obj">in {{ activity.about.get_absolute_url_link }}</span>
+              {% endif %}
+            {% endif %}
+            {% endcomment %}
+            
+        </li>
+        <li class="msg">
+          {% if activity.text %}
+	          {% if activity.source == 'COMMENT' %}
+	            {{ activity.text|linebreaks }}
+	          {% else %}
+	            {{ activity.text|safe|linebreaks }}
+	          {% endif %}
+	      {% else %}
+	          {{ activity.get_html|safe }}
+	      {% endif %}
+        </li>
+        <li class="date">{{ activity.created_dttm|timezone:user_timezone|naturaltime }}</li>
+        <li class="replies">
+            <ul>
+                {% for reply in activity.replies.all %}
+                <li class="reply">
+                    <ul>
+                        <li class="avatar">
+                            <a href="{{ reply.created_user.get_absolute_url }}">
+                                <img src="{{ reply.created_user.get_avatar_url }}" alt="Avatar" class="avatar" />
+                            </a>
+                        </li>
+                        <li class="actions">
+                            {% if reply.created_user_id == user.id or activity.created_user_id == user.id %}
+                                <a href="{% if activity_url %}{{ activity_url }}/..{% else %}.{% endif %}{{ reply.get_edit_url }}"><i class="{{ ICON_EDIT_CLS }}"></i></a>
+                            {% endif %}
+                            <a href="{% if activity_url %}{{ activity_url }}/..{% else %}.{% endif %}{{ reply.get_delete_url }}"><i class="{{ ICON_DECLINE_CLS }}"></i></a>
+                        </li>
+                        <li class="name">
+                            <strong>
+                                <a href="{{ reply.created_user.get_absolute_url }}">{{ reply.created_user.get_full_name }}</a>
+                            </strong>
+                        </li>
+                        <li class="msg">{{ reply.text|safe|linebreaks }}</li>
+                        <li class="date">{{ reply.created_dttm|timezone:user_timezone|naturaltime }}</li>
+                    </ul>
+                </li>
+                {% endfor %}
+                {% if user.is_authenticated %}
+                <li class="my-reply">
+                    <form class="comment-reply-form" action="{{ activity_url }}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path}}" />
+                        <input type="hidden" name="pid" value="{{ activity.id }}" />
+                        <img alt="Avatar" src="{{ user.get_avatar_url }}" class="avatar" />
+                        <div class="comment-holder">
+                            <input type="text" name="text" class="form-control" placeholder="Make a comment..." />
+                        </div>
+                    </form>
+                </li>
+                {% endif %}
+            </ul>
+        </li>     
+    </ul>
+    
+</li>
+{% endwith %}
+{% endspaceless %}
