@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<form action="{% url 'djangocms_contact:contact' %}" method="POST" class="djc-contact-form">
+  {% csrf_token %}
+  {{ contact_form }}
+  <button type="submit">{% trans "Send" %}</button>
+</form>
