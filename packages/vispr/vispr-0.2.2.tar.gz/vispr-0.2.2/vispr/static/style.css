@@ -1,0 +1,50 @@
+#content {
+    margin-top: 60px;
+}
+
+.plot {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#score-plot {
+    height: 255px;
+}
+
+#rna-plot {
+    height: 300px;
+}
+
+.table-striped td, .table-striped th {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+#frontpage {
+    text-align: center;
+    padding-top: 150px;
+}
+
+#overlap-plot {
+    display: inline;
+}
+
+.row h4 {
+    border-bottom: 1px solid #EEE;
+}
+
+.venntooltip {
+  position: absolute;
+  text-align: center;
+  width: 128px;
+  background: #333;
+  color: #ddd;
+  padding: 2px;
+  border: 0px;
+  border-radius: 8px;
+  opacity: 0;
+}
+
+.shadow-svg {
+    display: none;
+}
