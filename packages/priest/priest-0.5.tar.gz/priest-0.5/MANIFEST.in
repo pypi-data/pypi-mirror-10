@@ -1,0 +1,5 @@
+setup.cfg
+setup.py
+priest/__init__.py
+recursive-include priest/data *
+include priest/lib/ *
