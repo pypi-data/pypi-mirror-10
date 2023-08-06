@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.py
+butterknife/__init__.py
+butterknife/api.py
+butterknife/cli.py
+butterknife/pool.py
+butterknife/subvol.py
+butterknife.egg-info/PKG-INFO
+butterknife.egg-info/SOURCES.txt
+butterknife.egg-info/dependency_links.txt
+butterknife.egg-info/requires.txt
+butterknife.egg-info/top_level.txt
+butterknife/transport/__init__.py
+butterknife/transport/http.py
+butterknife/transport/ssh.py
+misc/butterknife
