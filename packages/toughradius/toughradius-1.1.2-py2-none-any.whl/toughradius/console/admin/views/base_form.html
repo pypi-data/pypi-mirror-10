@@ -1,0 +1,18 @@
+<%inherit file="base.html"/>
+<%def name="head()">
+</%def>
+<%def name="body()">
+    <div class="panel panel-default">
+    <div class="panel-heading"><span class="glyphicon glyphicon-th"></span> ${form.title}
+    <div class="bar pull-right"><a href="javascript:history.go(-1);">返回</a></div>
+    </div>
+        <div class="panel-body">
+            % if msg:
+            <div class="alert alert-warning">${msg}</div>
+            % endif
+            <form class="form-horizontal form-well" role="form" action="${form.action}" method="post">
+            ${form.render_css()}
+        </form>
+    </div>
+</div>
+</%def>
