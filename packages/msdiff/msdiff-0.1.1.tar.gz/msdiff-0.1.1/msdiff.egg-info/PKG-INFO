@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: msdiff
+Version: 0.1.1
+Summary: Command and library to diff Musescore .mcsx files
+Home-page: http://cryptonomicon314.bitbucket.org/msdiff/documentation.md.html
+Author: Crypto
+Author-email: cryptonomicon.314@gmail.com
+License: BSD
+Description: # Readme
+        
+        **msdiff** is a visual diff tool for [Musescore](https://musescore.org/) `.mscx` files.
+        It doesn't work on `.mscz` files yet; keep in mind that using `.mscz` files with
+        version control is not yet a very good idea either...
+        
+        **msdiff** tries to show the user a meaningful diff of the music score, instead of
+        a simple textual diff, which is not meaningful to humans.
+        
+        The diffs are nothing more than Musescore files that combine the two scores
+        and highlight the differences. After generating the diff, **msdiff** calls
+        musescore on the resulting file, allowing you to inspect the score.
+        
+        Besides using Musescore to view the diff file, this **msdiff** is
+        *completely independent* from Musescore, which means it might have
+        problems parsing some files, but I think it is good enough for serious use.
+        
+        For more, please read the [documentation](http://cryptonomicon314.bitbucket.org/msdiff/documentation.md.html).
+        
+Keywords: music musescore
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
