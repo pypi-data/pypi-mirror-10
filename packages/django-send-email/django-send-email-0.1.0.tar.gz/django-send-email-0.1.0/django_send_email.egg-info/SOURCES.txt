@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+django_send_email/__init__.py
+django_send_email/models.py
+django_send_email/tests.py
+django_send_email.egg-info/PKG-INFO
+django_send_email.egg-info/SOURCES.txt
+django_send_email.egg-info/dependency_links.txt
+django_send_email.egg-info/top_level.txt
+django_send_email/management/__init__.py
+django_send_email/management/commands/__init__.py
+django_send_email/management/commands/send_email_message.py
