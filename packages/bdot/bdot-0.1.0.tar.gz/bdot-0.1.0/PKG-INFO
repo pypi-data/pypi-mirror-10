@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: bdot
+Version: 0.1.0
+Summary: A fast dot product library built on Bcolz
+Home-page: https://github.com/pinleague/bdot
+Author: Waylon Flinn
+Author-email: UNKNOWN
+License: MIT
+Description: Bdot makes your RAM bigger on the inside. It leverages the compression and chunking capabilities of Bcolz to compute dot products on data sets that don't fit in RAM. It can also (optionally) persist data sets to disk. It was created, initially, for nearest neighbor search.
+Keywords: dot product compression bcolz numpy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
