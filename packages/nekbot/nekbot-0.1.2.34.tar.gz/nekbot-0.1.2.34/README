@@ -1,0 +1,145 @@
+NekBot
+######
+Nekbot, a modular and multiprocol bot written in Python.
+
+Supported protocols
+===================
+- Telegram.
+- IRC.
+- Jabber/XMPP (coming soon).
+
+Prerequisitos instalación (Pip)
+===============================
+Pip es un gestor de paquetes en y para Python. Si no tuvieses en tu sistema pip, deberás instalarlo::
+
+    sudo apt-get install python-pip # Debian y ubuntu
+    sudo pacman -S python2-pip # Arch Linux
+    sudo yum install python-pio # Fedora
+    # Otros: https://pip.pypa.io/en/latest/installing.html
+
+Instalación en 5 minutos con virtualenvwrapper (recomendado)
+============================================================
+Virtualenvwrapper te permite crear entornos virtuales de Python de forma fácil y sencilla. No te preocupes, aunque se
+llamen "entornos virtuales", no existe virtualización alguna. Sólo son entornos separados a los del sistema para
+evitar conflictos en las dependencias y poder instalar y actualizar paquetes sin preocupaciones.
+
+Instala virtualenvwrapper.nekbot con pip::
+
+    sudo pip install virtualenvwrapper.nekbot
+
+Crea un directorio en tu directorio personal para los proyectos de Virtualenvwrapper (donde residirán los bots). Por
+ejemplo, puedes crearlo como::
+
+    mkdir ~/Projects
+
+Añade al final de tu .bashrc las siguientes líneas::
+
+    cat <<EOT >> ~/.bashrc
+    # Donde residirá el virtualenv (bibliotecas). Se crea automáticamente.
+    export WORKON_HOME=$HOME/.virtualenvs
+    # Directorio de los proyectos. Donde estarán tus bots. Debes crearlo.
+    export PROJECT_HOME=$HOME/Workspace
+    # Permite usar virtualenvwrapper con este usuario. En ocasiones /usr/bin
+    # en vez de /usr/local/bin. Mira donde se ha creado.
+    source /usr/local/bin/virtualenvwrapper.sh
+    EOT
+
+Recarga tu consola para poder usar virtualenvwrapper::
+
+    source ~/.bashrc
+
+Crea el nuevo proyecto con el nombre que tú quieras::
+
+    mkproject -t nekbot minuevobot
+
+En algunos sistemas como Arch, la versión por defecto de Python es la 3. NekBot no está probado con dicha versión
+(pero podría funcionar). Para usar Python2 con dichos sistemas::
+
+    mkproject -t nekbot -p /usr/bin/python2 minuevobot
+
+¡¡Y listo!! Ya tienes tu nuevo bot.
+
+Instalación en 3 minutos con el sistema
+=======================================
+También puedes instalar NekBot a nivel del sistema::
+
+    sudo pip install nekbot
+
+Tras acabar de instalarse, podrás crear un nuevo bot con el comando del sistema nekbot-admin::
+
+    nekbot-admin createbot <nombre bot>
+
+*¡Aviso!* Siempre es más recomendable instalar NekBot con un virtualenv para facilitar la instalación de dependencias y
+ su actualización. Instalándolo a nivel del sistema, significa que necesitarás permisos de root para instalar
+cualquier plugin, o que ciertas versiones de determinadas dependencias podrían ser incompatibles con las de otros
+paquetes de tu sistema.
+
+¡Necesitas protocolos!
+======================
+NekBot no hace nada de por sí. Necesita protocolos, y son todos opcionales. Por favor, instala alguno o varios de los
+ siguientes en función de tus necesidades:
+
+    * https://bitbucket.org/Nekmo/nekbot.protocols.irc/
+    * https://bitbucket.org/Nekmo/nekbot.protocols.telegram/
+    * (XMPP próximamente).
+
+Sigue las recomendaciones de instalación de los protocolos y de su configuración.
+
+Configuración
+=============
+A parte de la configuración de los protocolos, te recomendamos añadir y quitar plugins según lo necesites. Para ello
+deberás modificar el archivo settings.py de tu proyecto::
+
+    PLUGINS = [
+        'bot',
+        'hello',
+        # Añade más plugins aquí separados por comas y entre comillas
+    ]
+
+Cómo ejecutarlo
+===============
+Para su ejecución, tan solo necesitas usar el ejecutable de nekbot incluido::
+
+    chmod +x nekbot # Por si no tuviese permisos
+    ./nekbot start
+
+También puedes usar nekbot-admin::
+
+    nekbot-admin start
+
+Por supuesto, en el directorio del bot. Con virtualenvwrapper hay algunas diferencias. Míralas a continuación
+
+
+Uso con virtualenvwrapper
+=========================
+Por defecto, al crear un nuevo virtualenvwrapper te encontrarás ya en el directorio del bot, y dentro de su entorno
+virtual. Notarás esto por el comienzo del prompt::
+
+    (minuevobot)[nekmo@homura ~/Projects/minuevobot]$
+
+Para salir de un entorno virtual::
+
+    deactivate
+
+Para volver a entrar en el mismo::
+
+    workon <nombre proyecto>
+
+Para borrar un virtualenv::
+
+    rmvirtualenv <nombre proyecto>
+
+Y esto es cuanto necesitas saber. Para más información: https://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html
+
+
+Create plugins easily!
+======================
+Create plugins is very easy! Here's an example::
+
+    from nekbot.core.commands import command
+
+    @command
+    def hello(message):
+        return 'Hello world! Your message: %s' % message
+
+For more information, see the documentation.
