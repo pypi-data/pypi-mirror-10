@@ -1,0 +1,36 @@
+Metadata-Version: 2.0
+Name: django-webmention
+Version: 0.0.1
+Summary: A pluggable implementation of webmention for Django projects.
+Home-page: https://github.com/daneah/django-webmention
+Author: Dane Hillard
+Author-email: github@danehillard.com
+License: MIT
+Keywords: webmention pingback linkback blogging
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: Django (>=1.8.2)
+Requires-Dist: requests (>=2.7.0)
+
+django-webmention
+=================
+
+A pluggable implementation of webmention for Django projects.
+
+``$ pip install django-webmention``
+
+Add ``webmention`` to ``INSTALLED_APPS`` in your project's
+``settings.py``
+
+Add
+``(r'^webmention', include('webmention.urls'), namespace='webmention')``
+to your project's top-level ``urls.py``
+
+
