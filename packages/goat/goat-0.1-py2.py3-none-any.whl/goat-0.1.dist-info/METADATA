@@ -1,0 +1,45 @@
+Metadata-Version: 2.0
+Name: goat
+Version: 0.1
+Summary: Goat implements a behave matcher which uses python3 function annotations for step definitiions
+Home-page: https://github.com/cuescience/goat
+Author: Ilja Bauer
+Author-email: i.bauer@cuescience.de
+License: MIT
+Keywords: goat
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: behave
+Requires-Dist: typing
+
+===============================
+Goat
+===============================
+
+.. image:: https://badge.fury.io/py/goat.png
+    :target: http://badge.fury.io/py/goat
+
+.. image:: https://travis-ci.org/iljabauer/goat.png?branch=master
+        :target: https://travis-ci.org/iljabauer/goat
+
+.. image:: https://pypip.in/d/goat/badge.png
+        :target: https://pypi.python.org/pypi/goat
+
+
+Python Boilerplate contains all the boilerplate you need to create a Python package.
+
+* Free software: BSD license
+* Documentation: https://goat.readthedocs.org.
+
+Features
+--------
+
+* TODO
+
+
