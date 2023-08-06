@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="collective.pfg.userjoin">
+
+<head>
+<metal:javascriptslot fill-slot="javascript_head_slot">
+    <script>
+    (function($) {
+        $(document).ready(function() {
+            $('.viewDetails').prepOverlay({
+                subtype: 'ajax',
+                filter: '#content > *',
+                width: '80%'
+            });
+        });
+    })(jQuery);
+    </script>
+</metal:javascriptslot>
+</head>
+
+<body>
+
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core"
+                        tal:define="items view/items;
+						            ploneview nocall:context/@@plone;">
+
+    <form tal:condition="items" method="post"
+	      tal:attributes="action string:${context/absolute_url}/${view/__name__}">
+    <table id="joinUsers" class="listing">
+        <thead><tr>
+            <th class="nosort"
+                tal:condition="view/canManageJoin">
+                    <input type="checkbox" id="selectUnselectAll" value="" checked="checked"
+                           onclick="javascript:toggleSelect(this, 'uids:int:list', true)"/>
+            </th>
+            <th tal:repeat="header view/hederKeys">
+                <span tal:replace="header" />
+            </th>
+			<th i18n:translate="">Submitted on</th>
+        </tr></thead>
+        <tbody>
+            <tal:row repeat="item items">
+            <tr tal:define="uid python:item[0];
+                            data python:item[1];">
+                <td tal:condition="view/canManageJoin"><input type="checkbox" name="uids:int:list" value=""
+                           tal:attributes="value uid"
+                           checked="checked" />
+                </td>
+                <td tal:repeat="key view/keys">
+                    <a class="viewDetails"
+                       tal:omit-tag="not:repeat/key/start"
+                       tal:attributes="href string:${context/absolute_url}/@@join-detail?id:int=${uid}">
+                        <span tal:replace="python:data.get(key)" />
+                    </a>
+                </td>
+				<td tal:content="python:ploneview.toLocalizedTime(data.get('__timestamp__'), True) if data.get('__timestamp__') else ''">
+					2015-06-01 hh:mm:ss
+				</td>
+            </tr>
+            </tal:row>
+        </tbody>        
+    </table>
+	<tal:canedit condition="view/canManageJoin">
+	    <input type="hidden" name="form.submitted" value="1" />
+	    <span tal:replace="structure context/@@authenticator/authenticator"/>
+	    <input class="context" type="submit" name="confirm" value="Confirm selected" i18n:attributes="value" />
+	    <input class="context" type="submit" name="delete" value="Discard selected" i18n:attributes="value" />
+	</tal:canedit>
+    </form>
+
+    <p tal:condition="not:items" i18n:translate="no_submitted_data">
+        No subscribed user needs to be evaluated.
+    </p>
+
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

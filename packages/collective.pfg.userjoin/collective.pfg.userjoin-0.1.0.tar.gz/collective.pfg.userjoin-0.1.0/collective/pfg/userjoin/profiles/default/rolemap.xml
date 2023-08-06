@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="collective.pfg.userjoin: Add User Join Adapter"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="collective.pfg.userjoin: Edit Awkward Fields"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="collective.pfg.userjoin: Manage Join Attempts"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+    <permission name="collective.pfg.userjoin: View Sentive Data"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+	  <role name="Owner"/>
+	  <role name="Reader"/>
+	  <role name="Editor"/>
+    </permission>
+  </permissions>
+</rolemap>

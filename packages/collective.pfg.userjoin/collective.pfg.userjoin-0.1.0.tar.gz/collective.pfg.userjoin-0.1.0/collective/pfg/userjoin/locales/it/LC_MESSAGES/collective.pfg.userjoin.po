@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-06-03 11:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
+"Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.pfg.userjoin\n"
+
+msgid "A PloneFormGen adapter for subscribe users to the site"
+msgstr "Un adattatore per PloneFormGen che gestisce iscrizioni al sito"
+
+#: ../profiles/default/types/UserJoinAdapter.xml
+msgid "Adapter for subscribe users to the site"
+msgstr "Adattatore per iscrivere utenti al sito"
+
+#: ../content.py:100
+msgid "Automatic groups membership"
+msgstr "Appartenenza automatica a gruppi"
+
+#: ../browser/join-detail.pt:35
+#: ../browser/userjoin-adapter.pt:70
+msgid "Confirm selected"
+msgstr "Conferma selezionati"
+
+#: ../browser/join-detail.pt:36
+#: ../browser/userjoin-adapter.pt:71
+msgid "Discard selected"
+msgstr "Scarta selezionati"
+
+#: ../content.py:60
+msgid "Email form field"
+msgstr "Campo email del form"
+
+#: ../content.py:79
+msgid "Form field"
+msgstr "Campo del form"
+
+#: ../content.py:47
+msgid "Fullname form field"
+msgstr "Campo \"nome completo\" del form"
+
+#: ../content.py:73
+msgid "Map additional user's data"
+msgstr "Associa informazioni utente aggiuntive"
+
+#: ../browser/userjoin-adapter.pt:43
+msgid "Submitted on"
+msgstr "Inviato il"
+
+#: ../profiles/default/types/UserJoinAdapter.xml
+msgid "User Join Adapter"
+msgstr "Adattatore Iscrizione Utente"
+
+#: ../content.py:84
+msgid "User field"
+msgstr "Campo utente"
+
+#: ../content.py:33
+msgid "Userid form field"
+msgstr "Campo userid del form"
+
+#. Default: "Select the form field that hosts the user's email.\nThis form field must be required."
+#: ../content.py:61
+msgid "email_field_help"
+msgstr ""
+"Seleziona il campo del form che contiene l'indirizzo e-mail dell'utente.\n"
+"Questo campo dovrebbe essere obbligatorio."
+
+#. Default: "${count} elements deleted"
+#: ../browser/view.py:95
+msgid "entries_deleted_message"
+msgstr "${count} elementi eliminati"
+
+#. Default: "Select a field present in the form"
+#: ../content.py:81
+msgid "formfield_coldescription"
+msgstr "Seleziona un campo presente nel form"
+
+#. Default: "Select the form field that hosts the user's fullname"
+#: ../content.py:48
+msgid "fullname_field_help"
+msgstr "Seleziona il campo del form che contiene il nome completo dell'utente"
+
+#. Default: "Generated users will be automatically added to those groups"
+#: ../content.py:101
+msgid "groupsToBeAdded_help"
+msgstr "Gli utenti create saranno automaticamente aggiunti a questi gruppi"
+
+#. Default: "Additional form field to be mapped to user information available.\nFor every form field you can register additional user information that will be populated on user creation."
+#: ../content.py:74
+msgid "help_additionalUserInfo"
+msgstr ""
+"Campo del form aggiuntivi da associare ad informazioni utente disponibili.\n"
+"Per ogni campo del form puoi gestire informaizoni utente aggiuntive che saranno usate alla creazione dell'utente"
+
+#. Default: "Submitted data for ${name}"
+#: ../browser/join-detail.pt:13
+msgid "join_detail_title"
+msgstr "Dati inviati per ${name}"
+
+#. Default: "No subscribed user needs to be evaluated."
+#: ../browser/userjoin-adapter.pt:75
+msgid "no_submitted_data"
+msgstr "Non ci sono iscrizioni di utenti da valutare."
+
+#. Default: "Unable to perform a password reset for $user: $message"
+#: ../browser/view.py:81
+msgid "password_reset_issue_message"
+msgstr "Impossibile effettuare il reset della password per l'utente $user: $message"
+
+#. Default: "Error adding with data $data: $err"
+#: ../browser/view.py:57
+msgid "user_created_error_message"
+msgstr "Errore nell'aggiungere i dati $data: $err"
+
+#. Default: "User $name added"
+#: ../browser/view.py:53
+msgid "user_created_message"
+msgstr "Utente $data aggiunto"
+
+#. Default: "Select a user information to apply the form field to"
+#: ../content.py:86
+msgid "userfield_coldescription"
+msgstr "Seleziona un'informazione utente a cui applicre il campo del form"
+
+#. Default: "Select the form field that hosts the userid.\nThis form field must be required."
+#: ../content.py:34
+msgid "userid_field_help"
+msgstr ""
+"Seleziona il campo del form che contiene l'id utente.\n"
+"Questo campo del form deve essere obbligatorio."
+
+#. Default: "The username is already in use"
+#: ../content.py:157
+msgid "username_already_taken_error"
+msgstr "Il nome utente è già in uso"
+
+#. Default: "The username is invalid"
+#: ../content.py:161
+msgid "username_invalid_error"
+msgstr "Il nome utente è invalido"
+

@@ -1,0 +1,144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-06-03 11:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+msgid "A PloneFormGen adapter for subscribe users to the site"
+msgstr ""
+
+#: ../profiles/default/types/UserJoinAdapter.xml
+msgid "Adapter for subscribe users to the site"
+msgstr ""
+
+#: ../content.py:100
+msgid "Automatic groups membership"
+msgstr ""
+
+#: ../browser/join-detail.pt:35
+#: ../browser/userjoin-adapter.pt:70
+msgid "Confirm selected"
+msgstr ""
+
+#: ../browser/join-detail.pt:36
+#: ../browser/userjoin-adapter.pt:71
+msgid "Discard selected"
+msgstr ""
+
+#: ../content.py:60
+msgid "Email form field"
+msgstr ""
+
+#: ../content.py:79
+msgid "Form field"
+msgstr ""
+
+#: ../content.py:47
+msgid "Fullname form field"
+msgstr ""
+
+#: ../content.py:73
+msgid "Map additional user's data"
+msgstr ""
+
+#: ../browser/userjoin-adapter.pt:43
+msgid "Submitted on"
+msgstr ""
+
+#: ../profiles/default/types/UserJoinAdapter.xml
+msgid "User Join Adapter"
+msgstr ""
+
+#: ../content.py:84
+msgid "User field"
+msgstr ""
+
+#: ../content.py:33
+msgid "Userid form field"
+msgstr ""
+
+#. Default: "Select the form field that hosts the user's email.\nThis form field must be required."
+#: ../content.py:61
+msgid "email_field_help"
+msgstr ""
+
+#. Default: "${count} elements deleted"
+#: ../browser/view.py:95
+msgid "entries_deleted_message"
+msgstr ""
+
+#. Default: "Select a field present in the form"
+#: ../content.py:81
+msgid "formfield_coldescription"
+msgstr ""
+
+#. Default: "Select the form field that hosts the user's fullname"
+#: ../content.py:48
+msgid "fullname_field_help"
+msgstr ""
+
+#. Default: "Generated users will be automatically added to those groups"
+#: ../content.py:101
+msgid "groupsToBeAdded_help"
+msgstr ""
+
+#. Default: "Additional form field to be mapped to user information available.\nFor every form field you can register additional user information that will be populated on user creation."
+#: ../content.py:74
+msgid "help_additionalUserInfo"
+msgstr ""
+
+#. Default: "Submitted data for ${name}"
+#: ../browser/join-detail.pt:13
+msgid "join_detail_title"
+msgstr ""
+
+#. Default: "No subscribed user needs to be evaluated."
+#: ../browser/userjoin-adapter.pt:75
+msgid "no_submitted_data"
+msgstr ""
+
+#. Default: "Unable to perform a password reset for $user: $message"
+#: ../browser/view.py:81
+msgid "password_reset_issue_message"
+msgstr ""
+
+#. Default: "Error adding with data $data: $err"
+#: ../browser/view.py:57
+msgid "user_created_error_message"
+msgstr ""
+
+#. Default: "User $name added"
+#: ../browser/view.py:53
+msgid "user_created_message"
+msgstr ""
+
+#. Default: "Select a user information to apply the form field to"
+#: ../content.py:86
+msgid "userfield_coldescription"
+msgstr ""
+
+#. Default: "Select the form field that hosts the userid.\nThis form field must be required."
+#: ../content.py:34
+msgid "userid_field_help"
+msgstr ""
+
+#. Default: "The username is already in use"
+#: ../content.py:157
+msgid "username_already_taken_error"
+msgstr ""
+
+#. Default: "The username is invalid"
+#: ../content.py:161
+msgid "username_invalid_error"
+msgstr ""
+

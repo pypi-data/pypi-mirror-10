@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="collective.pfg.userjoin">
+
+<body>
+
+<metal:title fill-slot="content-title">
+	<h1 class="documentFirstHeading" i18n:translate="join_detail_title">
+		Submitted data for
+		<span tal:replace="view/username" i18n:name="name" />
+	</h1>
+</metal:title>
+
+<metal:content-core fill-slot="content-core">
+
+    <metal:content-core define-macro="content-core">
+
+	<dl id="joinUserDetail" tal:define="stored view/userdata">
+		<tal:row tal:repeat="info stored">
+			<dt tal:content="info/name">Name</dt>
+			<dd tal:content="info/value">John Smit</dd>
+		</tal:row>
+	</dl>
+
+	<div tal:condition="python:not request.get('ajax_load') and view.canManageJoin()">
+	    <form method="post"
+		      tal:attributes="action string:${context/absolute_url}/userjoin-adapter-view">
+		    <input type="hidden" name="form.submitted" value="1" />
+			<input type="hidden" name="uids:int:list" value=""
+			       tal:attributes="value request/id" />
+		    <span tal:replace="structure context/@@authenticator/authenticator"/>
+		    <input class="context" type="submit" name="confirm" value="Confirm selected" i18n:attributes="value" />
+		    <input class="context" type="submit" name="delete" value="Discard selected" i18n:attributes="value" />
+		</form>
+	</div>
+
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

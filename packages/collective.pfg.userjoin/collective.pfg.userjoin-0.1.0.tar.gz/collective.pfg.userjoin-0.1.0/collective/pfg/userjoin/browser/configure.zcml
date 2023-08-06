@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.pfg.userjoin">
+
+  <browser:page
+    for="..interfaces.IUserJoinAdapter"
+    name="userjoin-adapter-view"
+    class=".view.UserJoinAdapterView"
+	template="userjoin-adapter.pt"
+    permission="collective.pfg.userjoin.permissions.viewSensitiveData"
+    />
+
+  <browser:page
+    for="..interfaces.IUserJoinAdapter"
+    name="join-detail"
+    class=".view.UserJoinDetailView"
+	template="join-detail.pt"
+    permission="collective.pfg.userjoin.permissions.viewSensitiveData"
+    />
+
+</configure>

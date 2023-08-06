@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.pfg.userjoin">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
+  
+  <include package="Products.PloneFormGen" />
+
+  <permission
+      id="collective.pfg.userjoin.permissions.editFields"
+      title="collective.pfg.userjoin: Edit Awkward Fields"
+      />
+  <permission
+      id="collective.pfg.userjoin.permissions.manageJoin"
+      title="collective.pfg.userjoin: Manage Join Attempts"
+      />
+  <permission
+      id="collective.pfg.userjoin.permissions.viewSensitiveData"
+      title="collective.pfg.userjoin: View Sentive Data"
+      />
+
+  <include package=".browser" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.pfg.userjoin"
+      directory="profiles/default"
+      description="A PloneFormGen adapter for subscribe users to the site"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="collective.pfg.userjoin.various"
+      title="collective.pfg.userjoin: miscellaneous import steps"
+      description=""
+      handler="collective.pfg.userjoin.setuphandlers.setupVarious">
+    <depends name="typeinfo"/>
+    <depends name="types"/>
+  </genericsetup:importStep>
+
+</configure>
