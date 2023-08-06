@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n staticfiles mezzanine_tags %}
+
+{% block meta_title %}{% trans "Sermons" %}{% endblock %}
+{% block title %}{% trans "Sermons" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Sermons" %}</li>
+{% endblock %}
+
+{% block main %}
+    {% if sermon_today %}
+        <h2>Today's Sermon</h2>
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Passage</th>
+                    <th>Preacher</th>
+                    <th>Date</th>
+                    <th>Files</th>
+                    {% if user.is_authenticated %}<th>Audio</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for sermon in sermon_today %}
+                    {% include "mezzanine_sermons/includes/sermon_row.html" %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    {% if sermons_pastfive %}
+        <h2>Past Five Sermons</h2>
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Passage</th>
+                    <th>Preacher</th>
+                    <th>Date</th>
+                    <th>Files</th>
+                    {% if user.is_authenticated %}<th>Audio</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for sermon in sermons_pastfive %}
+                    {% include "church/includes/sermon_row.html" %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    {% if sermons_nextfive %}
+        <h2>Upcoming Sermons</h2>
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Passage</th>
+                    <th>Preacher</th>
+                    <th>Date</th>
+                    <th>Files</th>
+                    {% if user.is_authenticated %}<th>Audio</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for sermon in sermons_nextfive %}
+                    {% include "church/includes/sermon_row.html" %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

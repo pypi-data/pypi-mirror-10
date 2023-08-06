@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n staticfiles mezzanine_tags %}
+
+{% block meta_title %}{{ series.title }} Sermon Series{% endblock %}
+{% block title %}{{ series.title }} Sermon Series{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">Sermons / {{ series.title }}</li>
+{% endblock %}
+
+{% block main %}
+    <div class="row bottommargin-sm">
+        <div class="col-md-12">
+            {% if series.image %}
+            <img src="{{ MEDIA_URL }}{% thumbnail series.image 300 0 %}" class="pull-left rightmargin-sm bottommargin-sm">
+            {% endif %}
+            <h4 class="nobottommargin">{{ series.bible_passage }}</h4>
+            <p>{{ series.description }}</p>
+        </div>
+    </div>
+
+    {% if sermons %}
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Passage</th>
+                    <th>Preacher</th>
+                    <th>Date</th>
+                    <th>Files</th>
+                    {% if user.is_authenticated %}<th>Audio</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for sermon in sermons %}
+                    {% include "mezzanine_sermons/includes/sermon_row.html" %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

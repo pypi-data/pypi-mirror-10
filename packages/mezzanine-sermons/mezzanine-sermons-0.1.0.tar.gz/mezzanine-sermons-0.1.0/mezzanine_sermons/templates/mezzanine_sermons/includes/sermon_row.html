@@ -1,0 +1,21 @@
+<tr>
+    <td>{{ sermon.title }}</td>
+    <td>{{ sermon.passage }}</td>
+    <td>{{ sermon.preacher }}</td>
+    <td>{{ sermon.date }}</td>
+    <td>
+        {% for file in sermon.sermonfile_set.all %}
+        <a href="{{ file.file.url }}">{{ file.name }}</a><br/>
+        {% endfor %}
+    </td>
+    {% if user.is_authenticated %}
+    <td>
+        {% if sermon.audio %}
+        <audio controls>
+            <source src="{{ sermon.audio.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        {% endif %}
+    </td>
+    {% endif %}
+</tr>
