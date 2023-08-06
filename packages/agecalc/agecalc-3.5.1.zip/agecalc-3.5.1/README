@@ -1,0 +1,162 @@
+AgeCalc
+=======
+
+
+Synopsis
+--------
+
+Calculates birth information based on a specific Date of Birth.
+
+
+Installation
+------------
+
+pip install agecalc
+
+
+
+What’s Inside
+-------------
+
+Classes
+~~~~~~~
+
+AgeCalc
+^^^^^^^
+
+This stores the DOB data into a class. You can then use the methods
+below to get data from this.
+
+Functions
+~~~~~~~~~
+
+age
+^^^
+
+Displays a DOB’s age in years.
+
+age\_days
+^^^^^^^^^
+
+Displays a DOB's age in days.
+
+age\_hours
+^^^^^^^^^^
+
+Displays a DOB's age in hours.
+
+age\_months
+^^^^^^^^^^^
+
+Displays a DOB’s age in months.
+
+age\_weeks
+^^^^^^^^^^
+
+Displays a DOB's age in weeks.
+
+age\_weeks\_days
+^^^^^^^^^^^^^^^^
+
+Displays a DOB's age in weeks/days. Will return a dictionary with the
+“weeks” and “days” keys, and their values.
+
+age\_years\_months
+^^^^^^^^^^^^^^^^^^
+
+Displays a DOB’s age in years/months. Will return a dictionary with the
+“years” and “months” keys, and their values.
+
+dating\_ages
+^^^^^^^^^^^^
+
+Displays the socially acceptable dating ages for a person. Will return a 
+dictionary with the "max", "min" and "original" keys, with their values.
+
+day\_of\_birth
+^^^^^^^^^^^^^^
+
+Displays the DAY of birth of a DOB.
+
+last\_birthday
+^^^^^^^^^^^^^^
+
+Displays the days since a DOB’s last birthday
+
+next\_birthday
+^^^^^^^^^^^^^^
+
+Displays the days until a DOB’s next birthday
+
+
+Example (age function)
+----------------------
+
+With AgeCalc class
+~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    import agecalc
+    dob = agecalc.AgeCalc(1, 1, 2000) 
+    print dob.age
+
+With Functions
+~~~~~~~~~~~~~~
+
+.. code:: python
+
+    import agecalc
+    print agecalc.age(1, 1, 2000)
+
+
+Notes
+-----
+
+All functions/classes take only these three arguments:
+
+dd: Day
+
+mm: Month
+
+yy: Year
+
+Dates should be passed as if they were integers. If the Date/Month
+contains a “0” before the integer, the “0” should be ommitted.
+
+E.G. DOB “01/01/2000” should be passed as:
+
+dd: 1
+
+mm: 1
+
+yy: 2000
+
+
+Submitting an Issue
+-------------------
+
+If you wish to submit an issue with this module, or suggest any changes,
+you can either use the `GitHub Issue Tracker`_, or email me at
+alir407@hotmail.co.uk
+
+
+Copyright/License
+-----------------
+
+Copyright (C) 2015, Ali Raja
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program. If not, see http://www.gnu.org/licenses/.
+
+.. _GitHub Issue Tracker: https://github.com/alir6716/agecalc/issues
