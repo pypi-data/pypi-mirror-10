@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: ruamel.zip2tar
+Version: 0.2
+Summary: zip2tar, a zipfile to tar convertor without intermediate files
+Home-page: https://bitbucket.org/ruamel/zip2tar
+Author: Anthon van der Neut
+Author-email: a.van.der.neut@ruamel.eu
+License: MIT license
+Description: 
+        zip2tar is an in memory zip to tar convertor.
+        
+        No intermediate files are created on disc.
+        By default non-compressed tar is created. You can
+        specify commandline options to get gzip, bzip2 or xz compressed
+        tar archives.
+        
+        This utility requires python3 for xz support
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
