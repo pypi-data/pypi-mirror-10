@@ -1,0 +1,17 @@
+delfick_app==0.5
+option_merge==0.9.4
+input_algorithms==0.4.4.5
+docker-py==1.2.2
+six
+glob2
+dulwich
+humanize
+pyYaml==3.10
+
+[tests]
+noseOfYeti>=1.5.0
+nose
+mock
+nose-pattern-exclude
+nose-focus==0.1.2
+tox
