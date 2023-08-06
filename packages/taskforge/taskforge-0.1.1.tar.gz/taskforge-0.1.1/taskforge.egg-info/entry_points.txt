@@ -1,0 +1,7 @@
+[console_scripts]
+taskforge = taskforge:cli
+
+[taskforge.commands]
+all = taskforge.commands.all:RunAll
+run = taskforge.commands.run:Run
+
