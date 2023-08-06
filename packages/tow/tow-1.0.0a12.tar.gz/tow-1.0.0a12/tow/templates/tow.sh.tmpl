@@ -1,0 +1,10 @@
+#!/bin/sh
+# This is tow run script which copy files from tow volume
+
+if [ -f "{{volume_name}}/mapping.sh" ]; then
+    sh {{volume_name}}/mapping.sh
+fi
+
+PATH=$PATH:`pwd`
+
+{% for cmd in command -%}"{{ cmd }}" {% endfor %}
