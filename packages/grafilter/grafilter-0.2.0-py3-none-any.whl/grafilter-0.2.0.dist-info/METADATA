@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: grafilter
+Version: 0.2.0
+Summary: Helps you explore and graph all your metrics as a supplement to dashboard solutions like Grafana
+Home-page: https://github.com/trehn/grafilter
+Author: Torsten Rehn
+Author-email: torsten@rehn.email
+License: GPLv3
+Keywords: graph,influxdb,metrics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database :: Front-Ends
+Classifier: Topic :: Internet :: Log Analysis
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking :: Monitoring
+Requires-Dist: Flask
+Requires-Dist: gunicorn
+Requires-Dist: parsedatetime (>=1.4)
+Requires-Dist: requests (>=1.0.0)
+
+UNKNOWN
+
+

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}{% if "short_name" in style %}{{ style["short_name"] }}{% else %}{{ base_name }}{% endif %}{% endblock %}
+{% block body %}
+<div class="ui one column centered padded grid">
+	<div class="fifteen wide column">
+		<div class="ui horizontal menu">
+			<form id="menuform" method="GET">
+				<div class="item">
+					<div class="ui breadcrumb">
+						<a href="/" class="section"><i class="home icon"></i></a>
+						<i class="right chevron icon divider"></i>
+						<div class="active section">
+							{% if "short_name" in style %}<span title="{{ base_name }}">{{ style["short_name"] }}</span>{% else %}{{ base_name }}{% endif %}
+							{% for key, value in tags.items() %}
+							<a title="click to remove this filter" href="/metric/{{ reduced_ids[key] }}">&nbsp; <small>{{ key }}:</small> {{ value }}</a>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="right menu">
+					<div class="item">
+						<div class="ui transparent icon input">
+							<input placeholder="Resolution (80)" type="text" tabindex="3" id="resolution" name="resolution" class="menubarinput" value="{{ resolution or "" }}" autocomplete="off">
+							<i class="barcode icon"></i>
+						</div>
+					</div>
+				</div>
+				<div class="right menu">
+					<div class="item">
+						<div class="ui transparent icon input">
+							<input placeholder="Time period (1h)" type="text" tabindex="2" id="period" name="period" class="menubarinput" value="{{ period or "" }}" autocomplete="off">
+							<i class="wait icon"></i>
+						</div>
+					</div>
+				</div>
+				<div class="right menu">
+					<div class="item">
+						<div class="ui transparent icon input">
+							<input placeholder="Starting time as UTC" type="text" tabindex="1" id="start" name="start" class="menubarinput" value="{{ start or "" }}" autocomplete="off">
+							<i class="calendar icon"></i>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="c3chart" style="height: 600px"></div>
+		<script type="text/javascript">
+			var chart = c3.generate({
+				bindto: '#c3chart',
+				data: {
+					x: 'x',
+					url: '/metricdata/{{ metric_id }}/' + location.search,
+					mimeType: 'json',
+					type: '{{ style.get('type', 'line') }}'
+				},
+				axis: {
+					x: {
+						type: 'timeseries',
+						tick: {
+							count: 5,
+							format: '%Y-%m-%d %H:%M:%S'
+						}
+					},
+					y : {
+						{% if 'max' in style %}max: {{ style["max"] }},{% endif %}
+						{% if 'min' in style %}min: {{ style["min"] }},{% endif %}
+						{% if 'unit' in style %}label: {text: '{{ style["unit"] }}', position: 'outer-middle'},{% endif %}
+						{% if 'unit_format' in style %}tick: {format: d3.format('{{ style["unit_format"] }}')},{% endif %}
+					}
+				},
+				legend: {
+					hide: true
+				},
+				subchart: {
+					show: true
+				}
+			});
+
+			$(function() {
+				$(".menubarinput").keypress(function(e) {
+					if (e.which == 10 || e.which == 13) {
+						e.preventDefault();
+						$("#menuform").submit();
+					}
+				});
+			});
+		</script>
+	</div>
+</div>
+{% endblock %}
