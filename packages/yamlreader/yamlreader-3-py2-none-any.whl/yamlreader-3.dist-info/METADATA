@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: yamlreader
+Version: 3
+Summary: Merge YAML data from given files, dir or file glob
+Home-page: https://github.com/ImmobilienScout24/yamlreader
+Author: Schlomo Schapiro
+Author-email: schlomo.schapiro@immobilienscout24.de
+License: GPL
+Keywords: yaml
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Requires: yaml
+Requires-Dist: PyYAML
+
+Small Python script that merges YAML files
+
+
