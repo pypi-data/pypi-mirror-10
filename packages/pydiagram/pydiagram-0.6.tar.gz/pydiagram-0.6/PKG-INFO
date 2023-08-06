@@ -1,0 +1,149 @@
+Metadata-Version: 1.1
+Name: pydiagram
+Version: 0.6
+Summary: PyDiagram is a python package for generating a phase diagram from results output by polymer field-theoretic simulations. PyDiagram also provides functions for analysis of simulation results.
+Home-page: https://github.com/liuyxpp/pydiagram
+Author: Yi-Xin Liu
+Author-email: liuyxpp@gmail.com
+License: BSD
+Description: PyDiagram
+        =========
+        
+        PyDiagram is a python package for generating a phase diagram from results output by polymer field-theoretic simulations. PyDiagram also provides functions for analysis of simulation results.
+        
+        Quickstart
+        ----------
+        
+        1. Install
+        ^^^^^^^^^^
+        
+        ::
+        
+            $ pip install pydiagram
+        
+        **Required Packages**
+        
+        * ``numpy``
+        * ``scipy``
+        * ``matplotlib``
+        * ``mpltex``
+        * ``attrdict``
+        * ``PyYAML``
+        
+        *Important note*: PyYAML cannot be installed by pip or easy_install. Please install it by downloading its source code and use ``python setup.py install`` to install it, see details at `PyYAML Documentation <http://pyyaml.org/wiki/PyYAMLDocumentation#Installation>`_.
+        
+        2. Use PyDiagram as An Executable
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        To use the executable, ``pydiagram``, you need to provide a project configuration file. The configuration file is in YAML format. Three sample configuration files, ``config_polyorder.yml``, ``config_polyfts.yml``, and ``config_pydiagram.yml``, are shipped with PyDiagram package. You can copy one of them to your project root directory and make any necessary modifications to it.
+        
+        Typical usage.
+        
+        .. code:: bash
+        
+            pydiagram [-v] [-h] [-p] [-q] [-s] [-m]
+        
+        * ``pydiagram -p``
+        
+        This command processes the simulation data in the current directory. It will save ``diagram``, ``info_map``, and ``boundary`` objects as Python pickle files. The parser can be specified in the project configuration file using the ``solver`` option.
+        
+        * ``pydiagram -q``
+        
+        According to the plot mode specified in the project configuration file, this command will plot requested figures and save them as files.
+        
+        * ``pydiagram -s``
+        
+        This command will run pydiagram as a server.
+        
+        * ``pydiagram -m``
+        
+        This command will run pydiagram in manual mode, which will submit additional simulation jobs specified in the ``predictor.manual`` in the project configuration file.
+        
+        3. Use PyDiagram as A Library
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        You can customize your own processing, plotting and predicting scripts by utilizing PyDiagram functions. As described in the last section, your script will also depend on a project configuration file.
+        
+        Typical usage.
+        
+        .. code:: python
+        
+            import pydiagram
+            import matplotlib.pyplot as plt
+        
+            # Generate diagram by specifying the folder where data locate.
+            # This will require the output data files from supported solvers.
+            # Here assume the project configuration file in the current directory.
+            diagram = pydiagram.get_diagram()
+            # Plot the raw diagram
+            fig, ax = plt.subplots(1)
+            pydiagram.plot_diagram(ax, diagram)
+        
+            # Or you can generate diagram from .dgm file
+            # First load .dgm file to get info_map
+            xaxis, yaxis, info_map = pydiagram.load_dgm('phase_data.dgm')
+            diagram = pydiagram.get_diagram_from_info_map(info_map)
+        
+            # You can find phase boundary from digaram
+            boundary = pydiagram.get_boundary(diagram, info_map)
+            # And plot it as scatter points
+            pydiagram.plot_boundary_point(ax, boundary)
+            # Or plot it as line
+            pydiagram.plot_boundary_line(ax, boundary)
+        
+            # PyDiagram also provides a plot function for plotting diagram points
+            # and phase boundary together.
+            pydiagram.plot_phase_diagram(diagram, boundary, settings, xaxis, yaxis)
+        
+            # To analyze the simulation results, PyDiagram also provides
+            # a plotting function which will plot F vs. x or F vs. y,
+            # a vs. x or a vs. y, and accuracy vs. x or accuracy vs. y.
+            pydiagram(info_map, xaxis, yaxis, path, phases, val)
+        
+        All above mentioned functions have more available options to fine tune the processing and plotting. For more details, please consult the source code or directly contact me via E-mail.
+        
+        4. dgm File Format
+        ^^^^^^^^^^^^^^^^^^
+        
+        For non `Polyorder <http://ngpy.org/software/#polyorder>`_ or `PolyFTS <http://polybot.mrl.ucsb.edu/cfdc/polyfts>`_ users, to use PyDiagram you have to generate your own ``dgm`` file from your simulation results by following the ``dgm`` file format.
+        
+        The format of the ``dgm`` file.
+        
+        First line::
+        
+            [x-axis name] [y-axis name]
+        
+        Other lines::
+        
+            [x] [y] [phase] [F] [a] [accuracy] [separation state]
+        
+        * ``x-axis name``: the variable name of the x axis in the phase diagram.
+        * ``y-axis name``: the variable name of the y axis in the phase diagram.
+        * ``x`` and ``y``: the coordinates in the phase diagram.
+        * ``phase``: the name of the phase structure.
+        * ``F``: the Gibbs free energy of the corresponding phase structure.
+        * ``a``: the stretch-free cell size.
+        * ``accuracy``: the residual error for the corresponding simulation.
+        * ``separation state``: Does the simulation yield phase separated structures? 0 for no and 1 for yes.
+        
+        The first five columns are mandatory while the last two are optional.
+        The optional values are assumed by their order.
+        For example, if only 6 columns are provided, then the 6th column is interpreted as ``accuracy``.
+        
+        Example::
+        
+            f   xN
+            0.1 12.5    HEX 3.953993    2.9543  8.7e-7  1
+            0.1 12.6    LAM 3.970134    2.5877  1.7e-8  1
+        
+        Links
+        -----
+        
+        * `Yi-Xin Liu's academic homepage <http://ngpy.org/software/>`_
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python

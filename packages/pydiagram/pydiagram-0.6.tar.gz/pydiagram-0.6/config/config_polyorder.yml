@@ -1,0 +1,81 @@
+---
+solver:             Polyorder  # one of [Polyorder, PolyFTS, PyDiagram]
+xaxis:              phi
+yaxis:              xN
+strict_axis:        False
+infiles:
+    pydiagram:
+    parameter:      param.ini
+    result:         scft_out_cell.mat
+    density:        scft_out_min.mat
+    error:          scft_out_min.mat
+    cell_opt:       scft_out_cell.mat
+    log:            log
+    status:
+outfiles:
+    point_data:     data.yml  # Parsed data in each phase directory
+    diagram:        diagram.p
+    info_map:       info_map.p
+    boundary:       boundary.p
+figures:
+    diagram:        ./
+    info:           ./info_plots
+tolerance:
+    phi:            1e-3  # tolerance for determining identical density value
+    cell_size:      1e-4  # tolerance for determining identical cell size
+    F:              1e-5  # tolerance for determining identical free energy
+    stop_force:     1e-6
+    stop_stress:    1e-4
+basic_check:        True
+info_level:         -1
+process:
+    parse:          yes  # one of [yes, no, force]
+    boundary:
+        alongx:     True
+        alongy:     True
+plot:
+    mode:           info  # one of [all, raw, standard, boundary, NA, info]
+    data_source:    file  # one of [file, process]
+    allow_phase:    []  # list of phases that will be plotted
+    ignore_phase:   []  # list of phases that will be ignored
+    render:         mpltex  # one of [basic, mpltex]
+    mpltex:
+        decorator:  presentation  # one of [acs, rsc, presentation, web]
+    size:           []  # [width, height] in inches
+    xlim:           []  # [min, max] range of phase diagram x
+    ylim:           []  # [min, max] range of phase diagram y
+    linestyle:
+        colors:
+        lines:      ['-']
+        markers:
+        hollow:     []
+    nbins:          6
+    marker_size:    3
+    pad:            0.35
+    legend:
+        show:       True
+        location:   best
+        ncol:       2
+    boundary:
+        - label:    ODT
+          pairs:    []
+          interp_n: 50
+          interp_k: 3
+          interp_s: 0
+          method:   standard  # one of [standard, distant, range]
+          marker:   True
+        - label:    LAM-HEX
+          pairs:    [['LAM', 'HEX']]
+          marker:   True
+    info:
+        phases:     ['DIS', 'LAM', 'HEX', 'Gyroid']
+        val:        [18]
+        base:       DIS
+        xory:       x
+        varlim:     []
+predictor:
+    interpolation:  spline  # one of [linear, spline]
+    spline:
+        degree:     3
+        smooth:     0
+...

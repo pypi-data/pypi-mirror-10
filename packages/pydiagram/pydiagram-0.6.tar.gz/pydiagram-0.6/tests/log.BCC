@@ -1,0 +1,524 @@
+Checking configuration file (param.ini) ...
+Configuration file: param.ini is OK!
+
+Constructing model...
+ model is constructed.
+
+Setup simulation instance...
+Simulation instance is ready.
+
+Running simulations...
+
+Bracketing for Brent optimization ...
+
+********* Model_AB3_A Parameter List **********
+Compressibility: Incompressible model.
+Grid initialization: File
+SCFT initialization: Field
+Confinement: None
+MDE algorithm: ETDRK4
+SCFT algorithm: Anderson mixing
+Cell optimization algorithm: Brent method
+Contour integration algorithm: Simpson
+
+fA = 0.4	fB = 0.6	alpha = 0.5
+phiA = 0.4	phiB = 0.6
+chiN = 17.2
+aA = 1	aB = 1
+dsA = 0.01	dsB = 0.01	dshA = 0.01
+sA = 41	sB = 21	shA = 21
+seedA = 0	seedB = 0
+
+dimension: 3
+(Lx, Ly, Lz) = (32, 32, 32)
+(a, b, c) = (3.9, 3.9, 3.9)
+*******************************************
+
+10
+t = 2.237
+	Unit Cell: Cubic
+	(lx,ly,lz) = 3.9000,3.9000,3.9000
+	H    = 4.080888 = 3.363803 + 0.717086
+	phicA = 0.4000	[0.1854, 0.9492]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1854, 0.9492]
+	phiB = 0.6000	[0.0513, 0.8144]
+	wA   = 10.9702	[3.2410, 15.2375]
+	wB   = 7.5301	[4.4153, 18.6805]
+	yita = 0.6501	[-0.6323, 2.4859]
+	Incompressibility = 1.12e-04
+	Qc = 3.05e-04	Qh = 1.38e-01
+	Residual Error    = 1.49e-04
+20
+t = 2.064
+	Unit Cell: Cubic
+	(lx,ly,lz) = 3.9000,3.9000,3.9000
+	H    = 4.080541 = 3.363216 + 0.717324
+	phicA = 0.4000	[0.1853, 0.9487]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1853, 0.9487]
+	phiB = 0.6000	[0.0513, 0.8147]
+	wA   = 10.9701	[3.2615, 15.2396]
+	wB   = 7.5301	[4.4138, 18.6979]
+	yita = 0.6501	[-0.6293, 2.4872]
+	Incompressibility = 1.98e-06
+	Qc = 3.05e-04	Qh = 1.38e-01
+	Residual Error    = 2.59e-06
+30
+t = 2.049
+	Unit Cell: Cubic
+	(lx,ly,lz) = 3.9000,3.9000,3.9000
+	H    = 4.080535 = 3.363213 + 0.717322
+	phicA = 0.4000	[0.1853, 0.9487]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1853, 0.9487]
+	phiB = 0.6000	[0.0513, 0.8147]
+	wA   = 10.9701	[3.2612, 15.2396]
+	wB   = 7.5301	[4.4138, 18.6976]
+	yita = 0.6501	[-0.6291, 2.4871]
+	Incompressibility = 1.59e-07
+	Qc = 3.05e-04	Qh = 1.38e-01
+	Residual Error    = 1.88e-07
+30
+t = 0
+	Unit Cell: Cubic
+	(lx,ly,lz) = 3.9000,3.9000,3.9000
+	H    = 4.080535 = 3.363213 + 0.717322
+	phicA = 0.4000	[0.1853, 0.9487]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1853, 0.9487]
+	phiB = 0.6000	[0.0513, 0.8147]
+	wA   = 10.9701	[3.2612, 15.2396]
+	wB   = 7.5301	[4.4138, 18.6976]
+	yita = 0.6501	[-0.6291, 2.4871]
+	Incompressibility = 1.59e-07
+	Qc = 3.05e-04	Qh = 1.38e-01
+	Residual Error    = 1.88e-07
+
+********* Model_AB3_A Parameter List **********
+Compressibility: Incompressible model.
+Grid initialization: File
+SCFT initialization: Field
+Confinement: None
+MDE algorithm: ETDRK4
+SCFT algorithm: Anderson mixing
+Cell optimization algorithm: Brent method
+Contour integration algorithm: Simpson
+
+fA = 0.4	fB = 0.6	alpha = 0.5
+phiA = 0.4	phiB = 0.6
+chiN = 17.2
+aA = 1	aB = 1
+dsA = 0.01	dsB = 0.01	dshA = 0.01
+sA = 41	sB = 21	shA = 21
+seedA = 0	seedB = 0
+
+dimension: 3
+(Lx, Ly, Lz) = (32, 32, 32)
+(a, b, c) = (4, 4, 4)
+*******************************************
+
+10
+t = 2.021
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0000,4.0000,4.0000
+	H    = 4.079809 = 3.332242 + 0.747567
+	phicA = 0.4000	[0.1826, 0.9527]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1826, 0.9527]
+	phiB = 0.6000	[0.0481, 0.8172]
+	wA   = 10.9701	[2.9527, 15.2342]
+	wB   = 7.5301	[4.3185, 18.5228]
+	yita = 0.6501	[-0.6515, 2.3540]
+	Incompressibility = 1.06e-04
+	Qc = 3.15e-04	Qh = 1.40e-01
+	Residual Error    = 1.36e-04
+20
+t = 2.043
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0000,4.0000,4.0000
+	H    = 4.079212 = 3.331782 + 0.747429
+	phicA = 0.4000	[0.1826, 0.9521]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1826, 0.9521]
+	phiB = 0.6000	[0.0479, 0.8174]
+	wA   = 10.9701	[2.9702, 15.2362]
+	wB   = 7.5301	[4.3160, 18.5216]
+	yita = 0.6501	[-0.6594, 2.3514]
+	Incompressibility = 2.85e-06
+	Qc = 3.16e-04	Qh = 1.40e-01
+	Residual Error    = 5.60e-06
+30
+t = 2.086
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0000,4.0000,4.0000
+	H    = 4.079202 = 3.331754 + 0.747448
+	phicA = 0.4000	[0.1826, 0.9521]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1826, 0.9521]
+	phiB = 0.6000	[0.0479, 0.8174]
+	wA   = 10.9702	[2.9701, 15.2361]
+	wB   = 7.5302	[4.3159, 18.5220]
+	yita = 0.6502	[-0.6599, 2.3522]
+	Incompressibility = 2.85e-07
+	Qc = 3.16e-04	Qh = 1.40e-01
+	Residual Error    = 4.55e-07
+30
+t = 0
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0000,4.0000,4.0000
+	H    = 4.079202 = 3.331754 + 0.747448
+	phicA = 0.4000	[0.1826, 0.9521]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1826, 0.9521]
+	phiB = 0.6000	[0.0479, 0.8174]
+	wA   = 10.9702	[2.9701, 15.2361]
+	wB   = 7.5302	[4.3159, 18.5220]
+	yita = 0.6502	[-0.6599, 2.3522]
+	Incompressibility = 2.85e-07
+	Qc = 3.16e-04	Qh = 1.40e-01
+	Residual Error    = 4.55e-07
+
+********* Model_AB3_A Parameter List **********
+Compressibility: Incompressible model.
+Grid initialization: File
+SCFT initialization: Field
+Confinement: None
+MDE algorithm: ETDRK4
+SCFT algorithm: Anderson mixing
+Cell optimization algorithm: Brent method
+Contour integration algorithm: Simpson
+
+fA = 0.4	fB = 0.6	alpha = 0.5
+phiA = 0.4	phiB = 0.6
+chiN = 17.2
+aA = 1	aB = 1
+dsA = 0.01	dsB = 0.01	dshA = 0.01
+sA = 41	sB = 21	shA = 21
+seedA = 0	seedB = 0
+
+dimension: 3
+(Lx, Ly, Lz) = (32, 32, 32)
+(a, b, c) = (4.1618, 4.1618, 4.1618)
+*******************************************
+
+10
+t = 2.059
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1618,4.1618,4.1618
+	H    = 4.079882 = 3.292224 + 0.787657
+	phicA = 0.4000	[0.1805, 0.9574]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1805, 0.9574]
+	phiB = 0.6000	[0.0446, 0.8191]
+	wA   = 10.9702	[2.4817, 15.1764]
+	wB   = 7.5302	[4.1938, 18.2208]
+	yita = 0.6502	[-0.6757, 2.1535]
+	Incompressibility = 1.59e-04
+	Qc = 3.28e-04	Qh = 1.42e-01
+	Residual Error    = 3.11e-04
+20
+t = 1.847
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1618,4.1618,4.1618
+	H    = 4.079109 = 3.290918 + 0.788191
+	phicA = 0.4000	[0.1803, 0.9558]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1803, 0.9558]
+	phiB = 0.6000	[0.0442, 0.8196]
+	wA   = 10.9702	[2.5036, 15.1813]
+	wB   = 7.5302	[4.1855, 18.2355]
+	yita = 0.6502	[-0.6900, 2.1544]
+	Incompressibility = 6.88e-06
+	Qc = 3.29e-04	Qh = 1.43e-01
+	Residual Error    = 1.19e-05
+30
+t = 2.019
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1618,4.1618,4.1618
+	H    = 4.079157 = 3.290921 + 0.788236
+	phicA = 0.4000	[0.1804, 0.9558]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1804, 0.9558]
+	phiB = 0.6000	[0.0442, 0.8196]
+	wA   = 10.9702	[2.5038, 15.1811]
+	wB   = 7.5302	[4.1853, 18.2362]
+	yita = 0.6502	[-0.6908, 2.1558]
+	Incompressibility = 4.86e-07
+	Qc = 3.29e-04	Qh = 1.43e-01
+	Residual Error    = 6.98e-07
+30
+t = 0
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1618,4.1618,4.1618
+	H    = 4.079157 = 3.290921 + 0.788236
+	phicA = 0.4000	[0.1804, 0.9558]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1804, 0.9558]
+	phiB = 0.6000	[0.0442, 0.8196]
+	wA   = 10.9702	[2.5038, 15.1811]
+	wB   = 7.5302	[4.1853, 18.2362]
+	yita = 0.6502	[-0.6908, 2.1558]
+	Incompressibility = 4.86e-07
+	Qc = 3.29e-04	Qh = 1.43e-01
+	Residual Error    = 6.98e-07
+
+********* Model_AB3_A Parameter List **********
+Compressibility: Incompressible model.
+Grid initialization: File
+SCFT initialization: Field
+Confinement: None
+MDE algorithm: ETDRK4
+SCFT algorithm: Anderson mixing
+Cell optimization algorithm: Brent method
+Contour integration algorithm: Simpson
+
+fA = 0.4	fB = 0.6	alpha = 0.5
+phiA = 0.4	phiB = 0.6
+chiN = 17.2
+aA = 1	aB = 1
+dsA = 0.01	dsB = 0.01	dshA = 0.01
+sA = 41	sB = 21	shA = 21
+seedA = 0	seedB = 0
+
+dimension: 3
+(Lx, Ly, Lz) = (32, 32, 32)
+(a, b, c) = (4.08369, 4.08369, 4.08369)
+*******************************************
+
+10
+t = 1.964
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0837,4.0837,4.0837
+	H    = 4.076511 = 3.307656 + 0.768855
+	phicA = 0.4000	[0.1808, 0.9558]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1808, 0.9558]
+	phiB = 0.6000	[0.0456, 0.8190]
+	wA   = 10.9702	[2.7407, 15.2163]
+	wB   = 7.5302	[4.2451, 18.3736]
+	yita = 0.6502	[-0.6910, 2.2486]
+	Incompressibility = 1.50e-04
+	Qc = 3.23e-04	Qh = 1.41e-01
+	Residual Error    = 2.63e-04
+20
+t = 1.815
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0837,4.0837,4.0837
+	H    = 4.078804 = 3.309068 + 0.769736
+	phicA = 0.4000	[0.1811, 0.9542]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1811, 0.9542]
+	phiB = 0.6000	[0.0458, 0.8189]
+	wA   = 10.9702	[2.7285, 15.2150]
+	wB   = 7.5302	[4.2439, 18.3724]
+	yita = 0.6502	[-0.6796, 2.2519]
+	Incompressibility = 2.98e-06
+	Qc = 3.23e-04	Qh = 1.41e-01
+	Residual Error    = 4.07e-06
+30
+t = 2.097
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0837,4.0837,4.0837
+	H    = 4.078848 = 3.309054 + 0.769794
+	phicA = 0.4000	[0.1811, 0.9542]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1811, 0.9542]
+	phiB = 0.6000	[0.0458, 0.8189]
+	wA   = 10.9702	[2.7281, 15.2151]
+	wB   = 7.5302	[4.2438, 18.3730]
+	yita = 0.6502	[-0.6791, 2.2512]
+	Incompressibility = 4.63e-07
+	Qc = 3.23e-04	Qh = 1.41e-01
+	Residual Error    = 6.78e-07
+30
+t = 0
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0837,4.0837,4.0837
+	H    = 4.078848 = 3.309054 + 0.769794
+	phicA = 0.4000	[0.1811, 0.9542]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1811, 0.9542]
+	phiB = 0.6000	[0.0458, 0.8189]
+	wA   = 10.9702	[2.7281, 15.2151]
+	wB   = 7.5302	[4.2438, 18.3730]
+	yita = 0.6502	[-0.6791, 2.2512]
+	Incompressibility = 4.63e-07
+	Qc = 3.23e-04	Qh = 1.41e-01
+	Residual Error    = 6.78e-07
+aa = 4 ba = 4.08369 ca = 4.1618
+Faa = 4.0792 Fba = 4.07885 Fca = 4.07916
+Performing Brent optimization ...
+iter (Brent's method) = 0
+
+********* Model_AB3_A Parameter List **********
+Compressibility: Incompressible model.
+Grid initialization: File
+SCFT initialization: Field
+Confinement: None
+MDE algorithm: ETDRK4
+SCFT algorithm: Anderson mixing
+Cell optimization algorithm: Brent method
+Contour integration algorithm: Simpson
+
+fA = 0.4	fB = 0.6	alpha = 0.5
+phiA = 0.4	phiB = 0.6
+chiN = 17.2
+aA = 1	aB = 1
+dsA = 0.01	dsB = 0.01	dshA = 0.01
+sA = 41	sB = 21	shA = 21
+seedA = 0	seedB = 0
+
+dimension: 3
+(Lx, Ly, Lz) = (32, 32, 32)
+(a, b, c) = (4.05173, 4.05173, 4.05173)
+*******************************************
+
+10
+t = 1.791
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0517,4.0517,4.0517
+	H    = 4.078953 = 3.317360 + 0.761593
+	phicA = 0.4000	[0.1815, 0.9532]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1815, 0.9532]
+	phiB = 0.6000	[0.0465, 0.8185]
+	wA   = 10.9702	[2.8265, 15.2253]
+	wB   = 7.5302	[4.2692, 18.4304]
+	yita = 0.6502	[-0.6748, 2.2876]
+	Incompressibility = 2.89e-05
+	Qc = 3.20e-04	Qh = 1.41e-01
+	Residual Error    = 3.54e-05
+20
+t = 1.868
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0517,4.0517,4.0517
+	H    = 4.078902 = 3.317327 + 0.761575
+	phicA = 0.4000	[0.1815, 0.9535]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1815, 0.9535]
+	phiB = 0.6000	[0.0465, 0.8185]
+	wA   = 10.9702	[2.8203, 15.2250]
+	wB   = 7.5302	[4.2702, 18.4284]
+	yita = 0.6502	[-0.6727, 2.2895]
+	Incompressibility = 1.18e-06
+	Qc = 3.20e-04	Qh = 1.41e-01
+	Residual Error    = 1.49e-06
+30
+t = 2.224
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0517,4.0517,4.0517
+	H    = 4.078904 = 3.317334 + 0.761570
+	phicA = 0.4000	[0.1815, 0.9535]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1815, 0.9535]
+	phiB = 0.6000	[0.0465, 0.8185]
+	wA   = 10.9702	[2.8202, 15.2250]
+	wB   = 7.5302	[4.2703, 18.4284]
+	yita = 0.6502	[-0.6725, 2.2893]
+	Incompressibility = 1.05e-07
+	Qc = 3.20e-04	Qh = 1.41e-01
+	Residual Error    = 1.34e-07
+30
+t = 0
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.0517,4.0517,4.0517
+	H    = 4.078904 = 3.317334 + 0.761570
+	phicA = 0.4000	[0.1815, 0.9535]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1815, 0.9535]
+	phiB = 0.6000	[0.0465, 0.8185]
+	wA   = 10.9702	[2.8202, 15.2250]
+	wB   = 7.5302	[4.2703, 18.4284]
+	yita = 0.6502	[-0.6725, 2.2893]
+	Incompressibility = 1.05e-07
+	Qc = 3.20e-04	Qh = 1.41e-01
+	Residual Error    = 1.34e-07
+iter (Brent's method) = 1
+
+********* Model_AB3_A Parameter List **********
+Compressibility: Incompressible model.
+Grid initialization: File
+SCFT initialization: Field
+Confinement: None
+MDE algorithm: ETDRK4
+SCFT algorithm: Anderson mixing
+Cell optimization algorithm: Brent method
+Contour integration algorithm: Simpson
+
+fA = 0.4	fB = 0.6	alpha = 0.5
+phiA = 0.4	phiB = 0.6
+chiN = 17.2
+aA = 1	aB = 1
+dsA = 0.01	dsB = 0.01	dshA = 0.01
+sA = 41	sB = 21	shA = 21
+seedA = 0	seedB = 0
+
+dimension: 3
+(Lx, Ly, Lz) = (32, 32, 32)
+(a, b, c) = (4.11353, 4.11353, 4.11353)
+*******************************************
+
+10
+t = 1.991
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1135,4.1135,4.1135
+	H    = 4.079465 = 3.302427 + 0.777038
+	phicA = 0.4000	[0.1808, 0.9549]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1808, 0.9549]
+	phiB = 0.6000	[0.0452, 0.8191]
+	wA   = 10.9702	[2.6342, 15.2024]
+	wB   = 7.5302	[4.2224, 18.3191]
+	yita = 0.6502	[-0.6783, 2.2176]
+	Incompressibility = 8.32e-05
+	Qc = 3.25e-04	Qh = 1.42e-01
+	Residual Error    = 1.11e-04
+20
+t = 1.998
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1135,4.1135,4.1135
+	H    = 4.078910 = 3.301788 + 0.777122
+	phicA = 0.4000	[0.1807, 0.9549]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1807, 0.9549]
+	phiB = 0.6000	[0.0451, 0.8193]
+	wA   = 10.9702	[2.6421, 15.2038]
+	wB   = 7.5302	[4.2205, 18.3216]
+	yita = 0.6502	[-0.6840, 2.2154]
+	Incompressibility = 1.75e-06
+	Qc = 3.25e-04	Qh = 1.42e-01
+	Residual Error    = 2.25e-06
+30
+t = 2.058
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1135,4.1135,4.1135
+	H    = 4.078896 = 3.301778 + 0.777118
+	phicA = 0.4000	[0.1807, 0.9549]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1807, 0.9549]
+	phiB = 0.6000	[0.0451, 0.8193]
+	wA   = 10.9702	[2.6421, 15.2037]
+	wB   = 7.5302	[4.2205, 18.3213]
+	yita = 0.6502	[-0.6843, 2.2158]
+	Incompressibility = 1.65e-07
+	Qc = 3.25e-04	Qh = 1.42e-01
+	Residual Error    = 2.56e-07
+30
+t = 0
+	Unit Cell: Cubic
+	(lx,ly,lz) = 4.1135,4.1135,4.1135
+	H    = 4.078896 = 3.301778 + 0.777118
+	phicA = 0.4000	[0.1807, 0.9549]
+	phihA = 0.0000	[0.0000, 0.0000]
+	phiA = 0.4000	[0.1807, 0.9549]
+	phiB = 0.6000	[0.0451, 0.8193]
+	wA   = 10.9702	[2.6421, 15.2037]
+	wB   = 7.5302	[4.2205, 18.3213]
+	yita = 0.6502	[-0.6843, 2.2158]
+	Incompressibility = 1.65e-07
+	Qc = 3.25e-04	Qh = 1.42e-01
+	Residual Error    = 2.56e-07
+iter (Brent's method) = 2
+amin = 4.08369 bmin = 4.08369 cmin = 4.08369
+Fmin = 4.07885

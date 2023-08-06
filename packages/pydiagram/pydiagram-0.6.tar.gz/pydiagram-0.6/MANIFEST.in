@@ -1,0 +1,14 @@
+include CHANGELOG.rst
+include LICENSE.txt
+include config.yml
+include config/config_polyorder.yml
+include config/config_polyfts.yml
+include config/config_pydiagram.yml
+include tests/log.*
+include tests/*.dgm
+include tests/*.py
+recursive-include docs *
+recursive-exclude pydiagram *.pyc
+recursive-exclude pydiagram *.pyo
+recursive-exclude tests *.pyc
+recursive-exclude tests *.pyc

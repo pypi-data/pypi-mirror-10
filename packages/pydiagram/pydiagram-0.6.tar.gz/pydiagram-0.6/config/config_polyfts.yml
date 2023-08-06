@@ -1,0 +1,139 @@
+---
+solver:             PolyFTS  # one of [Polyorder, PolyFTS, PyDiagram]
+xaxis:              phi
+yaxis:              xN
+strict_axis:        False
+infiles:
+    pydiagram:
+    parameter:      params.in
+    seed:           fields.in
+    result:         operators.dat
+    density:        density.dat
+    error:          error_report.dat
+    cell_opt:
+    log:            log
+    status:         STATUS
+    submission:     submit.sh
+outfiles:
+    point_data:     data.yml  # Parsed data in each phase directory
+    diagram:        diagram.p
+    info_map:       info_map.p
+    boundary:       boundary.p
+figures:
+    diagram:        ./
+    info:           ./info_plots
+tolerance:
+    phi:            1e-3  # tolerance for determining identical density value
+    cell_size:      1e-4  # tolerance for determining identical cell size
+    F:              1e-5  # tolerance for determining identical free energy
+    stop_force:     3e-6
+    stop_stress:    1e-3
+basic_check:        True
+info_level:         0
+process:
+    parse:          yes  # one of [yes, no, force]
+    boundary:
+        alongx:     True
+        alongy:     True
+plot:
+    mode:           all  # one of [all, raw, standard, boundary, NA, info]
+    data_source:    file  # one of [file, process]
+    allow_phase:    []  # list of phases that will be plotted
+    ignore_phase:   []  # list of phases that will be ignored
+    render:         mpltex  # one of [basic, mpltex]
+    mpltex:
+        decorator:  presentation  # one of [acs, rsc, presentation, web]
+    size:           [4, 4]  # [width, height] in inches
+    xlim:           [-0.02, 0.42]  # [min, max] range of phase diagram x
+    ylim:           [14, 30]  # [min, max] range of phase diagram y
+    linestyle:
+        colors:
+        lines:      ['-']
+        markers:
+        hollow:     []
+    nbins:          8
+    marker_size:    3
+    pad:            0.35
+    legend:
+        show:       True
+        location:   best
+        ncol:       2
+    boundary:
+        - label:    ODT
+          pairs:    []
+          interp_n: 50
+          interp_k: 3
+          interp_s: 0.1
+          method:   standard  # one of [standard, distant, range]
+          marker:   False
+        - label:    LAM-HEX
+          pairs:    [['LAM', 'HEX']]
+          interp_k: 3
+          interp_s: 0.1
+          method:   distant
+          marker:   False
+        - label:    LAM-Gyroid
+          pairs:    [['LAM', 'Gyroid']]
+          marker:   False
+        - label:    HEX-Gyroid
+          pairs:    [['HEX', 'Gyroid']]
+          marker:   False
+    info:
+        phases:     ['HEX', 'Gyroid', 'LAM']
+        val:        [0.092]
+        base:       HEX
+        xory:       y
+        varlim:     [22.8, 23.2]
+        output:     stdout  # one of [stdout, file, figure]
+predictor:
+    mode:           regular  # one of [boundary, regular]
+    manual:
+        - x:        [0.088]
+          y:        [23.52]
+          phases:   ['Gyroid']
+          order:    True
+          grid:     True
+        - x:        [0.087]
+          y:        [23.62]
+          phases:   ['Gyroid', 'HEX', 'LAM']
+          order:    True
+          grid:     True
+    boundary:  # list of phase pairs identifying a phase boundary
+        - pairs:    [['DIS', 'HEX']]
+          extra:    ['LAM']  # list of extra phases to be considered
+        - pairs:    [['DIS', 'LAM']]
+          extra:    ['HEX']
+        - pairs:    [['LAM', 'HEX']]
+          extra:    ['Gyroid']
+        - pairs:    [['HEX', 'Gyroid']]
+          extra:    ['LAM']
+        - pairs:    [['LAM', 'Gyroid']]
+          extra:    ['HEX']
+    preferred:      x   # one of [x, y]
+    precision_x:    0.01
+    precision_y:    0.1
+    interpolation:
+        method:     linear  # one of [linear, spline]
+        n:          4  # number of interpolation points
+        k:          3  # degree of spline interpolator
+        s:          0.1  # smooth factor of spline interpolator
+    template:
+        path:       ./templates
+        parameter:  .in  # indicate <PHASE>.in
+        seed:       _fields.in  # indicate <PHASE>_fields.in
+        submission: .sh  # indicate <PHASE>.sh
+    seed_source:    fields.dat
+    seed_exclude:   ['DIS']
+    param_dummy:
+        DUMMY_a:    a
+        DUMMY_phih: x
+        DUMMY_phic: 1.0 - x
+        DUMMY_xN:   y
+    executable:
+        serial:     polyfts
+        paralell:   ppolyfts
+    server:
+        - address:  lyx@braid.cnsi.ucsb.edu
+          basedir:  ~/simulation/scft_ab3_a_polyfts/diagram_xN_phi_f0.4/
+    update_period:  900
+...

@@ -1,0 +1,102 @@
+---
+solver:             # one of [Polyorder, PolyFTS, PyDiagram]
+xaxis:
+yaxis:
+strict_axis:        True
+infiles:
+    pydiagram:
+    parameter:
+    seed:
+    result:
+    density:
+    error:
+    cell_opt:
+    log:            log
+    status:
+    submission:     submit.sh
+outfiles:
+    point_data:     data.yml  # Parsed data in each phase directory
+    diagram:        diagram.p
+    info_map:       info_map.p
+    boundary:       boundary.p
+figures:
+    diagram:        ./
+    info:           ./info_plots
+tolerance:
+    phi:            1e-3  # tolerance for determining identical density value
+    cell_size:      1e-4  # tolerance for determining identical cell size
+    F:              1e-5  # tolerance for determining identical free energy
+    stop_force:     1e-6
+    stop_stress:    1e-4
+basic_check:        True
+info_level:         -1
+process:
+    parse:          yes  # one of [yes, no, force]
+    boundary:
+        alongx:     True
+        alongy:     True
+plot:
+    mode:           raw  # one of [all, raw, standard, boundary, NA, info]
+    data_source:    process  # one of [file, process]
+    allow_phase:    []  # list of phases that will be plotted
+    ignore_phase:   []  # list of phases that will be ignored
+    render:         basic  # one of [basic, mpltex]
+    mpltex:
+        decorator:  presentation  # one of [acs, rsc, presentation, web]
+    size:           []  # [width, height] in inches
+    xlim:           []  # [min, max] range of phase diagram x
+    ylim:           []  # [min, max] range of phase diagram y
+    linestyle:
+        colors:
+        lines:
+        markers:
+        hollow:
+    nbins:
+    marker_size:    3
+    pad:            0.1
+    legend:
+        show:       True
+        location:   best
+        ncol:       1
+    boundary:
+    info:
+        phases:     []
+        val:        []
+        base:
+        xory:       x
+        varlim:     []
+        output:       # one of [figure, file, stdout]
+predictor:
+    mode:           boundary  # one of [boundary, regular]
+    save:           False
+    save_index:     1  # start index for saved diagrams
+    default_a:  # default unit cell size for each phase
+        DIS:        1.0
+        LAM:        4.0
+        HEX:        4.5
+        Gyroid:     10.0
+    manual:         []  # list of extra simulations jobs to be run
+    boundary:       []  # list of phase pairs identifying a phase boundary
+    preferred:      x   # one of [x, y]
+    precision_x:    0.01
+    precision_y:    0.1
+    interpolation:
+        method:     linear  # one of [linear, spline]
+        n:          3  # number of interpolation points
+        k:          3  # degree of spline interpolator
+        s:          0  # smooth factor of spline interpolator
+    template:
+        path:       ./templates
+        parameter:  # .in indicate <PHASE>.in
+        seed:       # _fields.in indicate <PHASE>_fields.in
+        submission: # .sh indicate <PHASE>.sh
+    seed_source:
+    seed_exclude:   ['DIS']
+    param_dummy:
+    executable:
+        serial:
+        paralell:
+    server:         []
+    max_batch_jobs: 100  # max number of batch jobs for each upload/submit
+    update_period:  600  # waiting time for next update in seconds
+...
