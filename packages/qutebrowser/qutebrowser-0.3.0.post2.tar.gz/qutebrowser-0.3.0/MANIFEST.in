@@ -1,0 +1,39 @@
+global-exclude __pycache__ *.pyc *.pyo
+
+recursive-include qutebrowser *.py
+recursive-include qutebrowser/html *.html
+recursive-include qutebrowser/test *.py
+recursive-include qutebrowser/javascript *.js
+graft icons
+graft doc/img
+graft misc
+graft scripts
+include qutebrowser/utils/testfile
+include qutebrowser/git-commit-id
+include COPYING doc/* README.asciidoc CONTRIBUTING.asciidoc FAQ.asciidoc INSTALL.asciidoc CHANGELOG.asciidoc
+include qutebrowser.desktop
+include requirements.txt
+include tox.ini
+include qutebrowser.py
+
+include scripts/__init__.py
+include scripts/hostblock_blame.py
+include scripts/importer.py
+include scripts/keytester.py
+include scripts/link_pyqt.py
+include scripts/minimal_webkit_testbrowser.py
+include scripts/setupcommon.py
+include scripts/utils.py
+
+exclude doc/notes
+recursive-exclude doc *.asciidoc
+include doc/qutebrowser.1.asciidoc
+prune tests
+exclude qutebrowser.rcc
+exclude .coveragerc
+exclude .pylintrc
+exclude .eslintrc
+exclude doc/help
+exclude .appveyor.yml
+exclude .travis.yml
+exclude misc/appveyor_install.py
