@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: sentry-taiga
+Version: 0.1.0
+Summary: A Sentry extension which integrates with Taiga.
+Home-page: http://github.com/rochsystems/sentry-taiga
+Author: RochSystems LLC
+Author-email: jordi.llonch@rochsystems.com
+License: MIT
+Description: 
+        sentry-taiga
+        =============
+        
+        An extension for Sentry which integrates with Taiga. Specifically, it allows
+        you to easily create issues from events within Sentry.
+        
+        :copyright: (c) 2015 RochSystems LLC, see AUTHORS for more details.
+        :license: MIT, see LICENSE for more details.
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
