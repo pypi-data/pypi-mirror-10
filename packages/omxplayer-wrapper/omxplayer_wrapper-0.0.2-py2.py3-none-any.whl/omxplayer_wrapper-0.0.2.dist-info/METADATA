@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: omxplayer-wrapper
+Version: 0.0.2
+Summary: Control OMXPlayer on the Raspberry Pi
+Home-page: https://github.com/willprice/python-omxplayer-wrapper
+Author: Will Price
+Author-email: will.price94+dev@gmail.com
+License: LGPLv3+
+Keywords: omxplayer pi raspberry raspberrypi raspberry_pi library
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Topic :: Multimedia :: Video
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: decorator
+Provides-Extra: docs
+Requires-Dist: Sphinx; extra == 'docs'
+Requires-Dist: sphinxcontrib-napoleon; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: pygments; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: nose; extra == 'test'
+Requires-Dist: mock; extra == 'test'
+Requires-Dist: nose-parameterized; extra == 'test'
+
+Control OMXPlayer on the Raspberry Pi through DBus
+
+
