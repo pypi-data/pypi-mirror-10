@@ -1,0 +1,67 @@
+Metadata-Version: 2.0
+Name: wim
+Version: 0.1.1
+Summary: wim is a command line tool to create Web images.
+Home-page: https://github.com/yaph/wim
+Author: Ramiro Gómez
+Author-email: code@ramiro.org
+License: MIT
+Keywords: wim
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: Pillow (==2.7.0)
+Requires-Dist: click (==3.3)
+Requires-Dist: wheel (==0.24.0)
+
+=====================
+WIM Create Web Images
+=====================
+
+.. image:: https://badge.fury.io/py/wim.png
+    :target: http://badge.fury.io/py/wim
+
+.. image:: https://travis-ci.org/yaph/wim.png?branch=master
+        :target: https://travis-ci.org/yaph/wim
+
+.. image:: https://pypip.in/d/wim/badge.png
+        :target: https://pypi.python.org/pypi/wim
+
+
+wim is a command line tool to create images for the Web.
+
+Usage
+-----
+
+.. code:: Bash
+
+    wim input.png -t 'add this text at the bottom'
+
+Features
+--------
+
+* Add text at the bottom of the image.
+
+Meta
+----
+
+* Free software: MIT license
+* Documentation: https://pythonhosted.org/wim/
+
+
+
+History
+-------
+
+0.1.0 (2015-01-10)
+---------------------
+
+* First release on PyPI.
+
