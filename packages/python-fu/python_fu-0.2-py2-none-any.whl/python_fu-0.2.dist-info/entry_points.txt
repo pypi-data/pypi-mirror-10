@@ -1,0 +1,6 @@
+    [console_scripts]
+    promote = python_fu.commands.promote:cli
+    demote = python_fu.commands.demote:cli
+    mkmodule = python_fu.commands.mkmodule:cli
+    lsmodules = python_fu.commands.lsmodules:cli
+    
