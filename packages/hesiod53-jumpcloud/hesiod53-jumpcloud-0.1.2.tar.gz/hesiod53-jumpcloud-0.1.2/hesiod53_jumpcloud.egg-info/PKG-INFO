@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: hesiod53-jumpcloud
+Version: 0.1.2
+Summary: Create configuration file for hesiod53 using jumpcloud directory
+Home-page: https://github.com/fullcontact/hesiod53-jumpcloud
+Author: FullContact
+Author-email: ops+hesiod53@fullcontact.com
+License: MIT
+Description: # hesiod53-jumpcloud
+        
+        Create a hesiod53 configuration file populated via jumpcloud. See the
+        example_configuration.yml
+        
+        Only dumps users who have an SSH key.
+        
+        # Installation
+        
+        This library depends on python-ldap which requires installing some system libraries
+        
+        * libldap2-dev
+        * libsasl2-dev
+        * libssl-dev
+        
+        Now you can install this library
+        
+        `pip install hesiod53-jumpcloud`
+        
+        # Usage
+        
+        `jumpcloud myconfig.yml > myusers.yml`
+        
+Keywords: ssh jumpcloud
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Systems Administration :: Authentication/Directory
+Classifier: Topic :: System :: Systems Administration :: Authentication/Directory :: LDAP
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
