@@ -1,0 +1,44 @@
+Metadata-Version: 1.1
+Name: labrat
+Version: 0.1.0
+Summary: CIELAB color picker
+Home-page: http://jangler.info/code/labrat
+Author: Brandon Mulcahy
+Author-email: brandon@jangler.info
+License: MIT
+Description: Labrat
+        ======
+        
+        A graphical color picker for the CIELAB color space that allows conversion to
+        and from RGB values, and adjustment of hue and saturation mapped onto the
+        CIELAB color space.
+        
+        Installation
+        ------------
+        
+        ::
+        
+        	[sudo] pip[3] install truce
+        
+        Usage
+        -----
+        
+        ::
+        
+            usage: labrat [-h] [--version]
+        
+            optional arguments:
+              -h, --help  show this help message and exit
+              --version   show program's version number and exit
+        
+Keywords: cie,cielab,color,lab,labrat,rgb
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Multimedia :: Graphics
