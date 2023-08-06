@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: majorkirby
+Version: 0.2.1
+Summary: Puts CloudFormation stacks into motion.
+Home-page: UNKNOWN
+Author: Sharp Hall
+Author-email: shall@azavea.com
+License: UNKNOWN
+Keywords: aws cloudformation
+Platform: UNKNOWN
+Requires-Dist: troposphere (>=0.7.2)
+Requires-Dist: boto (>=2.38.0)
+Provides-Extra: dev
+Provides-Extra: test
+Requires-Dist: moto (>=0.4.1); extra == 'test'
+
+UNKNOWN
+
+
