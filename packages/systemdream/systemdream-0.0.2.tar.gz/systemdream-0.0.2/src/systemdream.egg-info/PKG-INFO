@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: systemdream
+Version: 0.0.2
+Summary: systemd bindings written in pure Python, to be easy to install in a pyvenv or virtualenv
+Home-page: https://github.com/Eyepea/systemDream
+Author: Ludovic Gasc
+Author-email: gmludo@gmail.com
+License: LGPL2
+Description: ===========
+        systemDream
+        ===========
+        
+        systemd bindings written in pure Python, based on C-bindings API of `python-systemd
+        <http://www.freedesktop.org/software/systemd/python-systemd/>`_.
+        The main goal of this library is to be very easy to install in a pyvenv or virtualenv, contrary to python-systemd.
+        
+        **WARNING ! For now, only systemd.journal has been ported, pull requests are welcome.**
+        
+        * Free software: LGPL2 license
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install systemdream
+        
+        Documentation
+        =============
+        
+        You can mainly follow the official python-systemd documentation: http://www.freedesktop.org/software/systemd/python-systemd/
+        
+        
+        Changelog
+        =========
+        
+        0.0.2 (2015-06-28)
+        ------------------
+        
+        * Retrieve metadata from log record.
+        
+        0.0.1 (2015-05-06)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Logging
