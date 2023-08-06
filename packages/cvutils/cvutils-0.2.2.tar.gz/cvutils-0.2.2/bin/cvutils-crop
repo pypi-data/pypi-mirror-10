@@ -1,0 +1,78 @@
+#!/usr/bin/env python
+
+import cvutils
+import cv2
+import argparse
+import os
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--imagepath", required=True, help="Path to image")
+
+args = vars(ap.parse_args())
+
+try:
+    im = cv2.imread(args["imagepath"])
+    im_disp = im.copy()
+    im_draw = im.copy()
+except:
+    print "Cannot read image and exiting."
+    exit()
+
+print "Draw rectangle on the image to get the cropped image."
+window_name = "Draw rectangle here"
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+cv2.imshow(window_name, im_draw)
+
+# List containing top-left and bottom-right to crop the image.
+pts_1 = []
+pts_2 = []
+
+mouse_down = False
+def callback(event, x, y, flags, param):
+    global mouse_down
+    if event == cv2.EVENT_LBUTTONDOWN:
+        mouse_down = True
+        pts_1.append((x, y))
+        print (x, y)
+    elif event == cv2.EVENT_LBUTTONUP:
+        mouse_down = False
+        pts_2.append((x, y))
+        print "Area to be cropped saved"
+    elif event == cv2.EVENT_MOUSEMOVE and mouse_down == True:
+        im_draw = im.copy()
+        cv2.rectangle(im_draw, pts_1[-1], (x, y), (255,255,255), 3)
+        cv2.imshow(window_name, im_draw)
+
+print "Press and release mouse to save co-ordinates \n You can also select multiple area."
+cv2.setMouseCallback(window_name, callback)
+
+while True:
+    # Draw the rectangular boxes on the image
+    window_name_2 = "Cropped Image Area(s)"
+    rects = []
+    for pt1, pt2 in zip(pts_1, pts_2):
+        rects.append([pt1[0],pt2[0], pt1[1], pt2[1]])
+        cv2.rectangle(im_disp, pt1, pt2, (255, 255, 255), 3)
+    # Display the cropped images
+    cv2.namedWindow(window_name_2, cv2.WINDOW_NORMAL)
+    cv2.imshow(window_name_2, im_disp)
+    key = cv2.waitKey(30)
+    if key == ord('s'):
+        break
+    elif key == ord('q'):
+        print "Quitting without saving."
+        exit()
+    elif key == ord('d'):
+        if mouse_down == False and pts_1:
+            pts_1.pop()
+            pts_2.pop()
+            im_disp = im.copy()
+
+# Save the images
+for index, rect in enumerate(rects):
+    (impath, imname) = os.path.split(args["imagepath"])
+    imname, ext = imname.split(".")
+    impath_cp = impath + "/" + imname + "-cropped-" + str(index) + "."+ ext
+    im_cropped = im[rect[2]:rect[3], rect[0]:rect[1]]
+    cv2.imwrite(impath_cp, im_cropped)
+    print "Image saved at --> {}".format(impath_cp)

@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+
+import cvutils
+import cv2
+import argparse
+import os
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--imagepath", required=True, help="Path to image")
+ap.add_argument("-w", "--width", required=True, help="Width of image", type=int)
+ap.add_argument("-ht", "--height", help="Height of image", type=int)
+#ap.add_argument("-a", "--aspect", help="Set true to maintain aspect ratio", action="store_true" )
+
+args = vars(ap.parse_args())
+
+try:
+    im = cv2.imread(args["imagepath"])
+except:
+    print "Cannot read image and exiting."
+    exit()
+
+width = args["width"]
+if args["height"] == None:
+    height = im.shape[0]*width/im.shape[1]
+    print height
+else:
+    height = args["height"]
+    
+print ("Resizing image {} to ({}, {})".format(args["imagepath"], width, height))
+im_resize = cvutils.imresize(im, width, height)
+cv2.namedWindow("Resized Image", cv2.WINDOW_NORMAL)
+cv2.imshow("Resized Image", im_resize)
+
+print "Press s key to save the image, or q key to cancel the resizing operation and exit."
+
+while True:
+    key = cv2.waitKey(30)
+    if key == ord('q'):
+        exit()
+        print "Program exiting without saving the image."
+    elif key == ord('s'):
+        (impath, ext) = args["imagepath"].split('.')
+        impath_rz = impath + "-resized." + ext
+        cv2.imwrite(impath_rz, im_resize)
+        print "Image saved at --> {}".format(impath_rz) 
+        exit()
