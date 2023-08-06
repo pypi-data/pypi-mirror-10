@@ -1,0 +1,24 @@
+#!/usr/bin/python
+from os.path import expanduser
+import difflib
+import sys
+
+# first we need to obtain the command history
+home = expanduser("~") + "/"
+f = open(home + '.bash_history')
+commands = f.read().splitlines()
+commands = list(set(commands))
+
+# get user's current input
+arg = ""
+for arg_ind in sys.argv[1:]:
+    arg += arg_ind
+    arg += " "
+
+# display the results
+# n is # of max results, cutoff is probability cutoff
+res = difflib.get_close_matches(arg, commands, n=5, cutoff=0.4)
+if res == []:
+	print "sorry, nothing good in history"
+else:
+	print res
