@@ -1,0 +1,21 @@
+--- g4lbne-v3r3p8/CMakeLists.txt	2015-05-19 13:18:19.000000000 -0400
++++ g4lbne-v3r3p8/CMakeLists.txt.mod	2015-05-29 17:10:32.911282774 -0400
+@@ -24,7 +24,7 @@
+ set(CLHEP_LIBRARIES "CLHEP")
+ message(STATUS "CLHEP at ${CLHEP_DIR}")
+ 
+-set(GEANT4_INCLUDE_DIR "${GEANT4_DIR}/include/geant4")
++set(GEANT4_INCLUDE_DIR "${GEANT4_DIR}/include/Geant4")
+ set(GEANT4_LIBRARY_DIR "${GEANT4_DIR}/lib")
+ execute_process(
+     COMMAND ${GEANT4_DIR}/bin/geant4-config --libs
+@@ -41,6 +41,6 @@
+ ROOT_GENERATE_DICTIONARY(g4lbnedict ${PROJECT_SOURCE_DIR}/include/TrackPoint_t.hh ${PROJECT_SOURCE_DIR}/include/LBNEDataNtp_t.hh  LINKDEF Linkdef.h OPTIONS -p)
+ 
+ add_executable(g4lbne g4lbne.cc ${sources} ${headers} g4lbnedict.cxx)
+-target_link_libraries(g4lbne ${ROOT_LIBRARIES} Tree ${GEANT4_LIBRARIES} ${CLHEP_LIBRARIES} ${XERCESC_LIBRARIES} ${DK2NU_LIBRARIES})
++target_link_libraries(g4lbne ${ROOT_LIBRARIES} Tree ${GEANT4_LIBRARIES} -I${CLHEP_INCLUD_DIR} -L${CLHEP_LIBRARY_DIR} ${CLHEP_LIBRARIES} ${XERCESC_LIBRARIES} ${DK2NU_LIBRARIES})
+ 
+-install(TARGETS g4lbne DESTINATION bin)
+\ No newline at end of file
++install(TARGETS g4lbne DESTINATION bin)

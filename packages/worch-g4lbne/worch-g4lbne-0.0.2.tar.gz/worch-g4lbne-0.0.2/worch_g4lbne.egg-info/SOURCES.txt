@@ -1,0 +1,16 @@
+MANIFEST.in
+requirements.txt
+setup.py
+wscript
+config/defaults.cfg
+config/packages.cfg
+config/suite-g4lbne.cfg
+patches/g4lbne.patch
+worch/__init__.py
+worch/g4lbne/__init__.py
+worch_g4lbne.egg-info/PKG-INFO
+worch_g4lbne.egg-info/SOURCES.txt
+worch_g4lbne.egg-info/dependency_links.txt
+worch_g4lbne.egg-info/namespace_packages.txt
+worch_g4lbne.egg-info/requires.txt
+worch_g4lbne.egg-info/top_level.txt
