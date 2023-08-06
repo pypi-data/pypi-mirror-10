@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: lasso
+Version: 0.0.2
+Summary: Lightweight module to define serializable, schema-validated classes
+Home-page: https://github.com/aperezdc/lasso-python
+Author: Adrián Pérez de Castro
+Author-email: adrian@perezdecastro.org
+License: MIT
+Description: ===================================================
+         Lightweight Annotated Schema Serializable Objects
+        ===================================================
+        
+        .. image:: https://img.shields.io/travis/aperezdc/lasso-python.svg?style=flat
+           :target: https://travis-ci.org/aperezdc/lasso-python
+           :alt: Build Status
+        
+        .. image:: https://img.shields.io/coveralls/aperezdc/lasso-python/master.svg?style=flat
+           :target: https://coveralls.io/r/aperezdc/lasso-python?branch=master
+           :alt: Code Coverage
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
