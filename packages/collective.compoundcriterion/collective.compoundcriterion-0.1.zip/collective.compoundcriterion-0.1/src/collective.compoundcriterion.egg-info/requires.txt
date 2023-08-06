@@ -1,0 +1,8 @@
+plone.api
+setuptools
+archetypes.querywidget >= 1.1.2
+
+[test]
+ecreall.helpers.testing
+plone.app.testing
+plone.app.robotframework
