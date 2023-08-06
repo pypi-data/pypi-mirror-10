@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: easy-phi
+Version: 0.1
+Summary: Easy Phi project web application
+Home-page: https://github.com/QuantumCMU/easy_phi_API
+Author: Team Quantum
+Author-email: shadeless@ya.ru
+License: GPL v3.0
+Download-URL: https://github.com/QuantumCMU/easy_phi_API/tarball/0.1
+Description: # easy_phi_API
+        Easy Phi project Python web application. It provides REST API to access test measurement equipment and provides basic web functions such as configuration wizards and UI themes support
+        
+Keywords: measurement equipment,SCPI,udev,TMC,VISA
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator
+Requires: tornado
+Requires: pyserial
+Requires: pyudev
+Requires: dicttoxml
