@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: sd.analytics
+Version: 0.1.3
+Summary: Google analytics integration for Singing & Dancing
+Home-page: http://www.headnet.dk
+Author: Thomas Clement Mogensen
+Author-email: thomas@headnet.dk
+License: GPL
+Description: Introduction
+        ============
+        
+        Simple Google analytics integration for Singing & Dancing
+        
+        Adds tracking parameters to urls in outgoing S&D newsletters.
+        
+        Use Plone/portal_newsletters/analytics.html to activate the addon and change settings.
+        (See browser.txt for more in depth info.)
+        
+        Note for translators: Titles and descriptions for the configuration ui can be lifted from http://www.google.com/support/analytics/bin/answer.py?hl=en&answer=55578 in almost any language.
+        
+        
+        Changelog
+        =========
+        
+        0.1.3 2015-07-10
+        ----------------
+        
+        * fix rendering of settings page [fRiSi]
+        
+        * bugfix: exclude the `enabled` parameter from the
+          generated links [fRiSi]
+        
+        * fix imports for plone 4.3 compatibility
+          [fRiSi]
+        
+        
+        0.1.2 2013-02-11
+        ----------------
+        
+        * remove unnecessary dependency to z3c.jbot
+        
+        
+        0.1.1 2013-02-11
+        ----------------
+        
+        * Fixes to make the package work on Plone 4, too [fRiSi]
+        
+        
+        0.1 - Unreleased
+        ----------------
+        
+        * Initial release
+        
+        
+Keywords: google analytics singing dancing newsletter trackingaddon extension
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
