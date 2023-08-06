@@ -1,0 +1,216 @@
+
+
+SIMEVENT
+========
+
+contains methods for calculating and generating a:
+
+Inter-arrival time
+Service time
+Arrival time
+Time service begins
+Time service ends
+Wait time in queue
+Time customer spends in system
+Idle time of server
+
+HOW TO USE
+-----------
+
+To use the 'simevent' module, you need to install the eventsim package first then import it as below
+if using:
+	from eventsim.simevent import * or 
+	from eventsim.simevent import simulation
+	from eventsim.simevent import randomsim
+
+	you can then use simulation or randomsim class to call other methods on your generated list
+	randomsim heps to generate a randome event simulation whereas simuation gives you flexibility on your code allowing you to enter which values you want.
+
+	just call function names directly
+	e.g. v = simulation (3, 10, 5)
+		 w = randomsim (6)
+
+	v.arrive() will return the arrival time of all the list in the first argument(inter-arrival time)
+
+if using:
+	import eventsim.simevent
+	use it like this:
+		eventsim.simevent.simulation(3, 10)
+		eventsim.simevent.randomsim(3, 10, 5)
+
+	or still, import eventsim.simevent as gen
+	so you can then do 
+
+	v = gen.simulation(3)
+	w = gen.randomsim(4, 7)
+
+	v.servbegin() which returns the list of the times when the service begins for each customers
+	w.servend() which returns the list of the times when the service ends for each customers
+
+CLASSES
+-------
+
+SIMULATION
+--------
+
+The "simulation" class takes one ot two arguments.
+To use this you need to first of all import the "simulation" class:
+
+IMPORTING THE SIMULATION CLASS
+---------------------------
+
+from eventsim.simevent import simulation or 
+from eventsim.simevent import *
+
+you then need to create an instance of the simulation class to work upon:
+
+CREATING AN INSTANCE
+---------------------
+
+v = simulation([arguments])
+
+SIMULATION CLASS ARGUMENTS
+--------------------------
+
+passing only one list argument sets it to the value of the inter-arrival time and the service time is randomly generated between 1 and 10
+
+passing two arguments sets the value of inter-arrival time to the first list argument and the value of service time to the second list argument
+
+options | Examples
+------------------
+
+v = simulation(int-arr list) | v = simulation([1, 4, 7, 9])
+v = generate(int-arr list, service list) | v = generate([1,4,7,9], [2,3,1,4])
+
+
+RANDOMSIM CLASS ARGUMENTS
+-------------------------
+
+passing (no arguments) generates random numbers between 1 and 10 and populates the inter-arrival and service times random times (between 2 and 20 )
+
+passing only (one integer value argument) generates random numbers between 1 and 10 and populates the inter-arrival and service time while the first argument specifies how many values are to be stored in both lists
+
+passing (two list arguments) stores a randomly generated value between 1 and the first argument into the inter-arrival and service time list while the second argument is how many values the two lists should contain
+
+passing three armuments stores a value between 1 and the first argument in the inter-arrival time list, a value between 1 and the second argument in the service time list and the third argument is how big the two lists should be.
+
+options | Examples
+------------------
+
+w = randomsim() | w = randomsim()
+w = randomsim(size) | w = randomsim(5)
+w = randomsim(both-list-range, size) | w = randomsim(10, 5)
+w = randomsim(int-arrival range, service range, size) | w = randomsim(6, 10, 5)
+
+METHODS
+--------
+After the instance has been generated like the examples above, methods that can be called on it are as follows:
+
+Please note that v is just an instance. Any other name can be used instead and all returned results are lists.
+They take no arguments.
+
+intarrival --> Returns the interarrival time of customers in a list
+service --> Returns the service time of customers in a list
+arrival --> Returns the arrival time of customers in a list
+servbegin --> Returns the time when service of customers began
+servend --> Returns the time service ended for the customers
+queuewait --> Returns the customer's waiting time in the queue
+custspend --> Returns the time customer spends in system
+idle --> Returns the idle time of server
+
+SIMTABLE
+--------
+
+This class allows the generated results to be displayed as a table using the Tkinter canvas.
+It is safer, easier and advisable to import all rather than import simtable
+
+Example on how to use
+----------------------
+
+from simevent import *
+v = simulation([2,5,7,3,7])
+simtable(v, Tk()).drawtable()
+
+or
+
+from simevent import randomsim
+from simevent import simtable
+from tkinter import *
+from tkinter.ttk import *
+
+w = randomsim(3,6)
+simtable(w, Tk()).drawtable()
+
+Note that the first argument of simtable is always the instance of the simulated event followed by Tk()
+
+
+MANUAL
+-------
+from manual.manuals
+manuals("randgen"), manuals("models") or manuals("simevent") prints out the necessary module manual depending on the specified argument.
+
+the module must be imported as all or this manual should be imported manually
+
+from eventsim.manual import *
+from eventsim.manual import manuals
+
+Example1
+--------
+
+from eventsim.simevent import *  
+a = [0, 3, 1, 1, 6, 3, 7, 5, 2, 4, 1] 
+b = [4, 2, 3, 2, 3, 4, 2, 4, 5, 3, 4]
+
+test1 = simulation(a,b)
+
+print("Interarrival time:", test1.intarrival())
+print("Service time:", test1.service())
+print("Arrival time:", test1.arrival())
+print("Time service begins:", test1.servbegin())
+print("Time service ends:", test1.servend())
+print("Wait time in queue:", test1.queuewait())
+print("Time customer spends in system:", test1.custspend())
+print("Idle time of server", test1.idle())
+
+Result1
+-------
+
+Interarrival time: [0, 3, 1, 1, 6, 3, 7, 5, 2, 4, 1]
+Service time: [4, 2, 3, 2, 3, 4, 2, 4, 5, 3, 4]
+Arrival time: [0, 3, 4, 5, 11, 14, 21, 26, 28, 32, 33]
+Time service begins: [0, 4, 6, 9, 11, 14, 21, 26, 30, 35, 38]
+Time service ends: [4, 6, 9, 11, 14, 18, 23, 30, 35, 38, 42]
+Wait time in queue: [0, 1, 2, 4, 0, 0, 0, 0, 2, 3, 5]
+Time customer spends in system: [4, 3, 5, 6, 3, 4, 2, 4, 7, 6, 9]
+Idle time of server [0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0]
+
+
+Example2
+--------
+
+from eventsim.simevent import *  
+
+test2 = randomsim(4, 6, 10)
+
+print("Interarrival time:", test2.intarrival())
+print("Service time:", test2.service())
+print("Arrival time:", test2.arrival())
+print("Time service begins:", test2.servbegin())
+print("Time service ends:", test2.servend())
+print("Wait time in queue:", test2.queuewait())
+print("Time customer spends in system:", test2.custspend())
+print("Idle time of server", test2.idle())
+
+Result2
+-------
+
+Interarrival time: [0, 3, 3, 3, 3, 3, 2, 1, 2, 2]
+Service time: [5, 5, 3, 1, 1, 4, 5, 4, 1, 5]
+Arrival time: [0, 3, 6, 9, 12, 15, 17, 18, 20, 22]
+Time service begins: [0, 5, 10, 13, 14, 15, 19, 24, 28, 29]
+Time service ends: [5, 10, 13, 14, 15, 19, 24, 28, 29, 34]
+Wait time in queue: [0, 2, 4, 4, 2, 0, 2, 6, 8, 7]
+Time customer spends in system: [3, 3, 7, 9, 11, 12, 9, 11, 10, 7]
+Idle time of server [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Stuck?, see an example in the folder to give you more understanding.
