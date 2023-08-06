@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: odtbrain
+Version: 0.1.0
+Summary: Algorithms for diffraction tomography
+Home-page: http://paulmueller.github.io/ODTbrain/
+Author: Paul Müller
+Author-email: paul.mueller at biotec.tu-dresden.de
+License: BSD (3 clause)
+Description: 
+        This package provides inverse scattering algorithms in 2D and 3D
+        for diffraction tomogrpahy. Visit the home page for more information.
+        
+Keywords: odt,opt,diffraction,born,rytov,radon,backprojection,backpropagation,inverse problem,Fourier diffraction theorem,Fourier slice theorem
+Platform: ALL
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Intended Audience :: Science/Research
