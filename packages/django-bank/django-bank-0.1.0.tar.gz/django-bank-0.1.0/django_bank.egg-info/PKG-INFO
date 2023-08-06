@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: django-bank
+Version: 0.1.0
+Summary: Small Django app helping you to handle your users accounts
+Home-page: https://github.com/niktto/django-bank
+Author: Marek Szwalkiewicz
+Author-email: marek@szwalkiewicz.waw.pl
+License: BSD
+Description: =============================
+        django-bank
+        =============================
+        
+        .. image:: https://badge.fury.io/py/django-bank.png
+            :target: https://badge.fury.io/py/django-bank
+        
+        .. image:: https://travis-ci.org/niktto/django-bank.png?branch=master
+            :target: https://travis-ci.org/niktto/django-bank
+        
+        Small Django app helping you to handle your users accounts
+        
+        Documentation
+        -------------
+        
+        The full documentation is at https://django-bank.readthedocs.org.
+        
+        Quickstart
+        ----------
+        
+        Install django-bank::
+        
+            pip install django-bank
+        
+        Then use it in a project::
+        
+            import django-bank
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-06-27)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+        
+Keywords: django-bank
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
