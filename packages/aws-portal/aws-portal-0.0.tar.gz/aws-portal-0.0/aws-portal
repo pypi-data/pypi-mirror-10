@@ -1,0 +1,189 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import argparse, boto.ec2, os, sys
+import simplejson as json
+from os.path import expanduser
+import boto.rds
+
+def get_ip_address_and_login(json_data, instance_sr_no, ssh_key_path, bastion_public_ip):
+    print bastion_public_ip
+    for instance in json_data:
+        if int(json_data.index(instance))==int(instance_sr_no):
+            if instance['ip_address']:
+
+                print "Logging into the instance "+instance['name'] + " (" +instance['ip_address']+") using key path "+ ssh_key_path
+                cmd = "ssh -i "+ssh_key_path+" ubuntu@"+instance['ip_address']
+                os.system(cmd)
+                sys.exit(0)
+            else:
+                print "Instance is a private instance. Usong bastion server to login."
+                cmd = "ssh -t -i "+str(ssh_key_path)+ " ubuntu@"+str(bastion_public_ip)+" ssh ubuntu@"+str(instance['private_ip_address'])
+                os.system(cmd)
+                sys.exit(0)
+
+def showing_data_to_user(json_data, ssh_key_path):
+    # print("\x1b[2J\x1b[H") #Clear terminal
+    bastion_public_ip = ""
+    template = "| {0:3} | {1:30} | {2:15} | {3:10} | {4:15} | {5:15} |" 
+    print "+" + "-"*105 + "+"
+    print template.format("No.", "Instance Name", "Instance IP", "Type", "Private IP", "Region") 
+    print "+" + "="*105 + "+"
+    for instance in json_data:
+        if instance['name']=="bastion":
+            bastion_public_ip = instance['ip_address']
+        if search:
+            if search.lower() in instance['name'].lower():
+                print template.format(int(json_data.index(instance))+1, instance['name'], instance['ip_address'], instance['instance_type'], instance['private_ip_address'], instance['region'])
+        else:
+            print template.format(int(json_data.index(instance))+1, instance['name'], instance['ip_address'], instance['instance_type'], instance['private_ip_address'], instance['region'])
+    print "+" + "-"*105 + "+"
+    print "Enter 0 for exit. \n"
+    instance_sr_no = raw_input("Please enter Sr. No of an instance in which you want to login : ")
+    if instance_sr_no.isdigit():
+        if int(instance_sr_no)==0:
+            print "Exiting..."
+            exit(0)
+        else:
+            instance_sr_no = int(instance_sr_no)-1
+            get_ip_address_and_login(json_data, instance_sr_no, ssh_key_path, bastion_public_ip)
+    else:
+        print "Input has to be an interger.\nExiting..."
+
+def getting_json_data(ssh_key_path):
+    with open(home+"/.aws_login") as json_file:
+        json_data = json.load(json_file)
+        showing_data_to_user(json_data['instances'], ssh_key_path)
+
+def set_ssh_key_path():
+    with open(home+"/.aws_login") as json_file:
+        json_data = json.load(json_file)
+        showing_data_to_user(json_data['instances'], json_data['ssh_key_path'])
+
+def write_instances_to_file():
+    Instance_lists = []
+    regions_to_show = ""
+    jsonFile = open(home+"/.aws_login", "r")
+    data = json.load(jsonFile)
+    regions = data['regions']
+    aws_access_key_id = data['aws_access_key_id']
+    aws_secret_access_key = data['aws_secret_access_key']
+    aws_ssh_key_path = data['ssh_key_path']
+    print "Edit your configs or just press enter to keep the previous ones"
+
+    data['aws_access_key_id'] = raw_input("Please enter your AWS Access Key[%s] : "%("..."+aws_access_key_id[-5:]))
+    data['aws_secret_access_key'] = raw_input("Please enter your AWS Secret Key[%s] : "%("..."+aws_secret_access_key[-8:]))
+    data['ssh_key_path'] = raw_input("Please enter your aws private SSH Key Path[%s] : "%aws_ssh_key_path)
+    regions_from_boto = boto.rds.regions()
+    print "Available list of regions : "
+    print "+" + "-"*22 + "+"
+    template = "| {0:20} |"
+    print template.format("Regions") # Print Header
+    print "+" + "-"*22 + "+"
+    for region in regions_from_boto:
+        region = str(region)
+        print template.format(region[11:])
+    print "+" + "-"*22 + "+"
+    regionsinput = raw_input("Please enter aws regions (',' separated if there are multiple regions)%s : "%(regions))
+    if data['aws_access_key_id']=="":
+        data['aws_access_key_id']=aws_access_key_id
+    if data['aws_secret_access_key']=="":
+        data['aws_secret_access_key']=aws_secret_access_key
+    if data['ssh_key_path']=="":
+        data['ssh_key_path']=aws_ssh_key_path
+    if regionsinput=="":
+        data['regions']=regions
+    else:
+        data['regions']=regionsinput.split(",")
+    for region in data['regions']:
+        region = region.strip()
+        ec2_conn = boto.ec2.connect_to_region(region, aws_access_key_id=data['aws_access_key_id'], aws_secret_access_key=data['aws_secret_access_key'])
+        reservations = ec2_conn.get_all_instances()
+        for res in reservations:
+            for inst in res.instances:
+                if inst.state=="running": 
+                    d = {}
+                    d['name']=inst.tags['Name']
+                    d['ip_address']=inst.ip_address
+                    d['region']=region
+                    d['instance_type']=inst.instance_type
+                    d['private_ip_address']=inst.private_ip_address
+                    Instance_lists.append(d)
+    instances_json = Instance_lists
+    data['instances'] = instances_json
+    # print home+"/.aws_login"
+    jsonFile = open(home+"/.aws_login", "w+")
+    jsonFile.write(json.dumps(data))
+    os.system("chmod 600 "+home+"/.aws_login")
+    jsonFile.close()
+
+def make_newconfig(home):
+    Instance_lists = []
+    data = {}
+    # print("\x1b[2J\x1b[H") #Clear terminal
+    data['aws_access_key_id'] = raw_input("Please enter your AWS Access Key : ")
+    data['aws_secret_access_key'] = raw_input("Please enter your AWS Secret Key : ")
+    data['ssh_key_path'] = raw_input("Please enter your aws private SSH Key Path : ")
+    regions = boto.rds.regions()
+    print "Available list of regions : "
+    print "+" + "-"*22 + "+"
+    template = "| {0:20} |"
+    print template.format("Regions") # Print Header
+    print "+" + "-"*22 + "+"
+    for region in regions:
+        region = str(region)
+        print template.format(region[11:])
+    print "+" + "-"*22 + "+"
+    data['regions'] = raw_input("Please enter aws regions (',' separated if there are multiple regions) : ").split(",")
+    print "Writing all the instances to your "+home+"/.aws_login file...."
+    for region in data['regions']:
+        region = region.strip()
+        ec2_conn = boto.ec2.connect_to_region(region, aws_access_key_id=data['aws_access_key_id'], aws_secret_access_key=data['aws_secret_access_key'])
+        reservations = ec2_conn.get_all_instances()
+        for res in reservations:
+            for inst in res.instances:
+                if inst.state=="running":        
+                    d = {}
+                    d['name']=inst.tags['Name']
+                    d['ip_address']=inst.ip_address
+                    d['region']=region
+                    d['instance_type']=inst.instance_type
+                    d['private_ip_address']=inst.private_ip_address
+                    Instance_lists.append(d)
+    instances_json = Instance_lists
+    data['instances'] = instances_json
+    jsonFile = open(home+"/.aws_login", "w+")
+    jsonFile.write(json.dumps(data))
+    os.system("chmod 600 "+home+"/.aws_login")
+    jsonFile.close()
+    set_ssh_key_path()
+
+def main():
+    parser = argparse.ArgumentParser(description='Login into any aws instance. Added functionality of sshing into private instances using bastion server if the name tag of the bastion server is bastion.')
+    parser.add_argument('-c', '--cache', help='Pass "no" for calling fresh data.', nargs='?', default="yes" )
+    parser.add_argument('-k', '--key', help='Provide the ssh-key-path.', nargs='?')
+    parser.add_argument('-s', '--search', help='Searches for the word in the name tag of the instances.', nargs='?')
+    args = parser.parse_args()
+    global key
+    global cache
+    global home
+    global search
+    ssh_key_path = args.key
+    cache = args.cache
+    search = args.search
+
+    home = expanduser("~")
+    file_exists = os.path.exists(home+"/.aws_login")
+
+    if str(file_exists)!="False":
+        if cache=="no":
+            print "User asking for new data."
+            write_instances_to_file()
+        if ssh_key_path:
+            getting_json_data(ssh_key_path)
+        else:
+            set_ssh_key_path()
+    else:
+        make_newconfig(home)
+
+if  __name__ =='__main__':
+    main()
