@@ -1,0 +1,7 @@
+[neutron.ml2.mechanism_drivers]
+ovsvapp = neutron.plugins.ml2.drivers.ovsvapp.mech_driver:OVSvAppAgentMechanismDriver
+
+[console_scripts]
+neutron-ovsvapp-agent = neutron.cmd.eventlet.plugins.ovsvapp_neutron_agent:main
+neutron-ovsvapp-db-manage = networking_vsphere.db.migration.cli:main
+

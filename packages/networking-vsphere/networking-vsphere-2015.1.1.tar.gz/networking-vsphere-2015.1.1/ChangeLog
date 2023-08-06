@@ -1,0 +1,82 @@
+CHANGES
+=======
+
+2015.1.1
+--------
+
+* Changes in networking-vsphere repo for stable/kilo
+* Fix ovsvapp_vc_driver
+* Devstack changes -VXLAN
+* Agent side Implementation - VXLAN
+* Server side Implementation - VXLAN
+* Sentinel change to validate UT post Neutron UT-reorg
+* Follow up patch for alembic migration scripts for networking_vsphere
+* Don't run alembic migration for networking_vsphere
+* alembic migration scripts for networking_vsphere
+* Fix UT's and corrected ovs_lib imports
+* Fix mechanism driver based on Neutron Changes
+* Fix nova boot failure
+* Fix OVSvApp Nova VCDriver to remove flavor from spawn method
+* Enabled hacking checks in networking-vsphere
+* Added periods in service.py file
+* Fixed missing spaces and added periods
+* Fix locking mechanism in ovsvapp_agent.py
+* Migrate to oslo.log
+* Fix typo in ovsvapp_agent.py
+* Fix OVSvApp L2 agent firewall driver
+* Fix various failures in OVSvApp L2 agent code
+* Fix OVSvApp VCDriver failure
+* Added OVSVAPP_MODE=manual in devstack
+* Fix OVSvApp Nova VCDriver
+* Fix the base test import in test_ovs_firewall.py
+* Fix devstack Changes for OVSvApp Compute and Server
+* Devstack changes for OVSvApp L2 Agent
+* Devstack support for OVSvApp
+* Register common config options in service.py
+* Nova VCDriver for OVSvApp
+* Reference global object before using it
+* Code Improvement for Agent startup
+* Adopt namespace-less oslo imports
+* Fix the unit test failures in Ml2
+* Add agent entry point
+* Remove root_helper arg from OVSvApp code base
+* Part-4 of OVSvApp agent code for VLAN
+* Code for setting up OVS Bridges
+* OVSvApp L2 Agent Code for VLAN Part-3
+* Security Group agent module for OVSvApp
+* OVSvApp L2 Agent Code for VLAN Part-2
+* Code improvement
+* Part-II of OVS Firewall Driver
+* Added OVSvApp L2 Agent code
+* Added entry_points for OVSvApp mech driver and OVSvApp conf file
+* vCenter manager utility functions
+* OVS firewall driver skeleton code
+* Fix unit test cases in test_session
+* Added DVS Driver
+* OVSvAPP Agent startup service methods
+* vCenter update monitor functions
+* Network resource utility to talk to vCenter
+* Added resource_util.py
+* Sync OVSvApp mech_driver with ML2 changes
+* Vim utility functions
+* Vim utility functions
+* Added common_util.py
+* OVSvAPP caching for vCenter communication
+* Code to establish connection and session with vCenter
+* Driver and Manager framework
+* Added error_util.py under utils
+* Utility framework
+* Moved the testcases for OVSvApp mech_driver and rpc
+* Model framework
+* Added OVSvApp Agent side RPC changes
+* Created the required directories
+* Moving tests common to correct directory
+* Shuffle things around
+* Added OVSvApp mechanism driver
+* Basic logging, error, config framework
+* Tweak tox.ini and requirements file
+* Minor fixes
+* Add specs that document VLAN solution for OVSvAPP
+* Add specs that document VXLAN solution for OVSvAPP
+* Initial cookiecutter commit
+* Added .gitreview
