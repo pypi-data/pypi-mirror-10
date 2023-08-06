@@ -1,0 +1,11 @@
+plone.api
+setuptools
+plone.behavior
+zope.schema
+zope.interface
+zope.component
+
+[test]
+plone.app.testing
+plone.app.contenttypes
+plone.app.robotframework[debug]
