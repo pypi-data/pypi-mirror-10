@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import sys
+
+from twisted.internet import defer
+from twisted.internet import protocol
+from twisted.internet import reactor
+from twisted.python import log
+
+sys.path.append(".")
+
+import marionette_tg
+
+if len(sys.argv)<3:
+    print 'usage: marionette_client [listen_ip] [listen_port] [format]'
+    sys.exit(1)
+LOCAL_IP = str(sys.argv[1])
+LOCAL_PORT = int(sys.argv[2])
+if len(sys.argv) >= 4:
+    FORMAT = str(sys.argv[3])
+else:
+    FORMAT = 'http_simple_blocking'
+
+
+class ProxyClient(protocol.Protocol):
+
+    def connectionMade(self):
+        log.msg("ProxyClient.connectionMade")
+        self.srv_queue = defer.DeferredQueue()
+        self.srv_queue.get().addCallback(self.clientDataReceived)
+        self.client_stream_ = client.start_new_stream(self.srv_queue)
+
+    def clientDataReceived(self, chunk):
+        log.msg(
+            "ProxyClient: writing %d bytes to original client" %
+            len(chunk))
+        self.transport.write(chunk)
+        self.transport.doWrite()
+        self.srv_queue.get().addCallback(self.clientDataReceived)
+
+    def dataReceived(self, chunk):
+        log.msg("ProxyClient: %d bytes received" % len(chunk))
+        self.client_stream_.push(chunk)
+
+    def connectionLost(self, why):
+        log.msg("ProxyClient.connectionLost: " + str(why))
+        self.client_stream_.terminate()
+
+
+if __name__ == "__main__":
+    if marionette_tg.conf.get("general.debug"):
+        log.startLogging(sys.stdout)
+
+    client = marionette_tg.Client(FORMAT)
+
+    factory = protocol.Factory()
+    factory.protocol = ProxyClient
+    reactor.listenTCP(LOCAL_PORT, factory, interface=LOCAL_IP)
+    reactor.callInThread(client.execute, reactor)
+
+    reactor.run()
