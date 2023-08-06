@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>zope.component._api &mdash; zope.configuration 4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="zope.configuration 4.0 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">zope.configuration 4.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for zope.component._api</h1><div class="highlight"><pre>
+<span class="c">##############################################################################</span>
+<span class="c">#</span>
+<span class="c"># Copyright (c) 2001, 2002 Zope Foundation and Contributors.</span>
+<span class="c"># All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># This software is subject to the provisions of the Zope Public License,</span>
+<span class="c"># Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.</span>
+<span class="c"># THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND ANY AND ALL EXPRESS OR IMPLIED</span>
+<span class="c"># WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED</span>
+<span class="c"># WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS</span>
+<span class="c"># FOR A PARTICULAR PURPOSE.</span>
+<span class="c">#</span>
+<span class="c">##############################################################################</span>
+<span class="sd">&quot;&quot;&quot;Zope 3 Component Architecture</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="kn">from</span> <span class="nn">zope.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span> <span class="nn">zope.interface</span> <span class="kn">import</span> <span class="n">implementedBy</span>
+<span class="kn">from</span> <span class="nn">zope.interface</span> <span class="kn">import</span> <span class="n">providedBy</span>
+
+<span class="kn">from</span> <span class="nn">zope.component.interfaces</span> <span class="kn">import</span> <span class="n">IComponentArchitecture</span>
+<span class="kn">from</span> <span class="nn">zope.component.interfaces</span> <span class="kn">import</span> <span class="n">IComponentRegistrationConvenience</span>
+<span class="kn">from</span> <span class="nn">zope.component.interfaces</span> <span class="kn">import</span> <span class="n">IFactory</span>
+<span class="kn">from</span> <span class="nn">zope.component.interfaces</span> <span class="kn">import</span> <span class="n">ComponentLookupError</span>
+<span class="kn">from</span> <span class="nn">zope.component.interfaces</span> <span class="kn">import</span> <span class="n">IComponentLookup</span>
+<span class="kn">from</span> <span class="nn">zope.component._compat</span> <span class="kn">import</span> <span class="n">_BLANK</span>
+<span class="kn">from</span> <span class="nn">zope.component._declaration</span> <span class="kn">import</span> <span class="n">adaptedBy</span>
+<span class="kn">from</span> <span class="nn">zope.component._declaration</span> <span class="kn">import</span> <span class="n">adapter</span>
+<span class="kn">from</span> <span class="nn">zope.component._declaration</span> <span class="kn">import</span> <span class="n">adapts</span>
+
+<span class="c"># Use the C implementation in zope.hookable, if available;  fall back</span>
+<span class="c"># to our Python version if not.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">zope.hookable</span> <span class="kn">import</span> <span class="n">hookable</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span> <span class="c">#pragma NO COVER</span>
+    <span class="kn">from</span> <span class="nn">zope.component.hookable</span> <span class="kn">import</span> <span class="n">hookable</span>
+
+<span class="c"># getSiteManager() returns a component registry.  Although the term</span>
+<span class="c"># &quot;site manager&quot; is deprecated in favor of &quot;component registry&quot;,</span>
+<span class="c"># the old term is kept around to maintain a stable API.</span>
+<span class="n">base</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="nd">@hookable</span>
+<span class="k">def</span> <span class="nf">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; See IComponentArchitecture.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">base</span>
+    <span class="k">if</span> <span class="n">context</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">base</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">zope.component.globalregistry</span> <span class="kn">import</span> <span class="n">base</span>
+        <span class="k">return</span> <span class="n">base</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># Use the global site manager to adapt context to `IComponentLookup`</span>
+        <span class="c"># to avoid the recursion implied by using a local `getAdapter()` call.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">IComponentLookup</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ComponentLookupError</span><span class="p">(</span><span class="o">*</span><span class="n">error</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+
+<span class="c"># Adapter API</span>
+
+<div class="viewcode-block" id="getAdapterInContext"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.getAdapterInContext">[docs]</a><span class="k">def</span> <span class="nf">getAdapterInContext</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">queryAdapterInContext</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ComponentLookupError</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">adapter</span>
+</div>
+<div class="viewcode-block" id="queryAdapterInContext"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.queryAdapterInContext">[docs]</a><span class="k">def</span> <span class="nf">queryAdapterInContext</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">conform</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="s">&#39;__conform__&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">conform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">adapter</span> <span class="o">=</span> <span class="n">conform</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="c"># We got a TypeError. It might be an error raised by</span>
+            <span class="c"># the __conform__ implementation, or *we* may have</span>
+            <span class="c"># made the TypeError by calling an unbound method</span>
+            <span class="c"># (object is a class).  In the later case, we behave</span>
+            <span class="c"># as though there is no __conform__ method. We can</span>
+            <span class="c"># detect this case by checking whether there is more</span>
+            <span class="c"># than one traceback object in the traceback chain:</span>
+            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">tb_next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="c"># There is more than one entry in the chain, so</span>
+                <span class="c"># reraise the error:</span>
+                <span class="k">raise</span>
+            <span class="c"># This clever trick is from Phillip Eby</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">adapter</span>
+
+    <span class="k">if</span> <span class="n">interface</span><span class="o">.</span><span class="n">providedBy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">object</span>
+
+    <span class="k">return</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">queryAdapter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getAdapter"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.getAdapter">[docs]</a><span class="k">def</span> <span class="nf">getAdapter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="n">Interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_BLANK</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">queryAdapter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ComponentLookupError</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">adapter</span>
+</div>
+<div class="viewcode-block" id="queryAdapter"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.queryAdapter">[docs]</a><span class="k">def</span> <span class="nf">queryAdapter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="n">Interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_BLANK</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">context</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">adapter_hook</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">queryAdapter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
+                                                <span class="n">default</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getMultiAdapter"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.getMultiAdapter">[docs]</a><span class="k">def</span> <span class="nf">getMultiAdapter</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="n">Interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_BLANK</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">queryMultiAdapter</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ComponentLookupError</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">adapter</span>
+</div>
+<div class="viewcode-block" id="queryMultiAdapter"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.queryMultiAdapter">[docs]</a><span class="k">def</span> <span class="nf">queryMultiAdapter</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="n">Interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_BLANK</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                      <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sitemanager</span> <span class="o">=</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ComponentLookupError</span><span class="p">:</span>
+        <span class="c"># Oh blast, no site manager. This should *never* happen!</span>
+        <span class="k">return</span> <span class="n">default</span>
+
+    <span class="k">return</span> <span class="n">sitemanager</span><span class="o">.</span><span class="n">queryMultiAdapter</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getAdapters"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.getAdapters">[docs]</a><span class="k">def</span> <span class="nf">getAdapters</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">provided</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sitemanager</span> <span class="o">=</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ComponentLookupError</span><span class="p">:</span>
+        <span class="c"># Oh blast, no site manager. This should *never* happen!</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">sitemanager</span><span class="o">.</span><span class="n">getAdapters</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">provided</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="subscribers"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.subscribers">[docs]</a><span class="k">def</span> <span class="nf">subscribers</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sitemanager</span> <span class="o">=</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ComponentLookupError</span><span class="p">:</span>
+        <span class="c"># Oh blast, no site manager. This should *never* happen!</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">sitemanager</span><span class="o">.</span><span class="n">subscribers</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">interface</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="handle"><a class="viewcode-back" href="../../../api/adapter.html#zope.component.handle">[docs]</a><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="o">*</span><span class="n">objects</span><span class="p">):</span>
+    <span class="n">getSiteManager</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span><span class="o">.</span><span class="n">subscribers</span><span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+<span class="c">#############################################################################</span>
+<span class="c"># Register the component architectures adapter hook, with the adapter hook</span>
+<span class="c"># registry of the `zope.inteface` package. This way we will be able to call</span>
+<span class="c"># interfaces to create adapters for objects. For example, `I1(ob)` is</span>
+<span class="c"># equvalent to `getAdapterInContext(I1, ob, &#39;&#39;)`.</span></div>
+<span class="nd">@hookable</span>
+<span class="k">def</span> <span class="nf">adapter_hook</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sitemanager</span> <span class="o">=</span> <span class="n">getSiteManager</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">ComponentLookupError</span><span class="p">:</span> <span class="c">#pragma NO COVER w/o context, cannot test</span>
+        <span class="c"># Oh blast, no site manager. This should *never* happen!</span>
+        <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="n">sitemanager</span><span class="o">.</span><span class="n">queryAdapter</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">zope.interface.interface</span>
+<span class="n">zope</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">adapter_hooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adapter_hook</span><span class="p">)</span>
+<span class="c">#############################################################################</span>
+
+
+<span class="c"># Utility API</span>
+
+<div class="viewcode-block" id="getUtility"><a class="viewcode-back" href="../../../api/utility.html#zope.component.getUtility">[docs]</a><span class="k">def</span> <span class="nf">getUtility</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">utility</span> <span class="o">=</span> <span class="n">queryUtility</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">utility</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">utility</span>
+    <span class="k">raise</span> <span class="n">ComponentLookupError</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="queryUtility"><a class="viewcode-back" href="../../../api/utility.html#zope.component.queryUtility">[docs]</a><span class="k">def</span> <span class="nf">queryUtility</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getUtilitiesFor"><a class="viewcode-back" href="../../../api/utility.html#zope.component.getUtilitiesFor">[docs]</a><span class="k">def</span> <span class="nf">getUtilitiesFor</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">getUtilitiesFor</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="getAllUtilitiesRegisteredFor"><a class="viewcode-back" href="../../../api/utility.html#zope.component.getAllUtilitiesRegisteredFor">[docs]</a><span class="k">def</span> <span class="nf">getAllUtilitiesRegisteredFor</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">getAllUtilitiesRegisteredFor</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+
+</div>
+<span class="n">_marker</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+
+<div class="viewcode-block" id="queryNextUtility"><a class="viewcode-back" href="../../../api/utility.html#zope.component.queryNextUtility">[docs]</a><span class="k">def</span> <span class="nf">queryNextUtility</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Query for the next available utility.</span>
+
+<span class="sd">    Find the next available utility providing `interface` and having the</span>
+<span class="sd">    specified name. If no utility was found, return the specified `default`</span>
+<span class="sd">    value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sm</span> <span class="o">=</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ComponentLookupError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">default</span>
+    <span class="n">bases</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">__bases__</span>
+    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+        <span class="n">util</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">queryUtility</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">_marker</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">util</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">_marker</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">util</span>
+    <span class="k">return</span> <span class="n">default</span>
+
+</div>
+<div class="viewcode-block" id="getNextUtility"><a class="viewcode-back" href="../../../api/utility.html#zope.component.getNextUtility">[docs]</a><span class="k">def</span> <span class="nf">getNextUtility</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the next available utility.</span>
+
+<span class="sd">    If no utility was found, a `ComponentLookupError` is raised.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">util</span> <span class="o">=</span> <span class="n">queryNextUtility</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">_marker</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">util</span> <span class="ow">is</span> <span class="n">_marker</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">zope</span><span class="o">.</span><span class="n">component</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">ComponentLookupError</span><span class="p">(</span>
+              <span class="s">&quot;No more utilities for </span><span class="si">%s</span><span class="s">, &#39;</span><span class="si">%s</span><span class="s">&#39; have been found.&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                  <span class="n">interface</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">util</span>
+
+
+<span class="c"># Factories</span>
+</div>
+<div class="viewcode-block" id="createObject"><a class="viewcode-back" href="../../../api/factory.html#zope.component.createObject">[docs]</a><span class="k">def</span> <span class="nf">createObject</span><span class="p">(</span><span class="n">__factory_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Invoke the named factory and return the result.</span>
+
+<span class="sd">    ``__factory_name`` is a positional-only argument.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;context&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">getUtility</span><span class="p">(</span><span class="n">IFactory</span><span class="p">,</span> <span class="n">__factory_name</span><span class="p">,</span> <span class="n">context</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="getFactoryInterfaces"><a class="viewcode-back" href="../../../api/factory.html#zope.component.getFactoryInterfaces">[docs]</a><span class="k">def</span> <span class="nf">getFactoryInterfaces</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the interface provided by the named factory&#39;s objects</span>
+
+<span class="sd">    Result might be a single interface. XXX</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">getUtility</span><span class="p">(</span><span class="n">IFactory</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">getInterfaces</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="getFactoriesFor"><a class="viewcode-back" href="../../../api/factory.html#zope.component.getFactoriesFor">[docs]</a><span class="k">def</span> <span class="nf">getFactoriesFor</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return info on all factories implementing the given interface.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">utils</span> <span class="o">=</span> <span class="n">getSiteManager</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">factory</span><span class="p">)</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">getUtilitiesFor</span><span class="p">(</span><span class="n">IFactory</span><span class="p">):</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">getInterfaces</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">interfaces</span><span class="o">.</span><span class="n">isOrExtends</span><span class="p">(</span><span class="n">interface</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">factory</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">iface</span> <span class="ow">in</span> <span class="n">interfaces</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">iface</span><span class="o">.</span><span class="n">isOrExtends</span><span class="p">(</span><span class="n">interface</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="n">name</span><span class="p">,</span> <span class="n">factory</span>
+                    <span class="k">break</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">zope.configuration 4.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2012, Zope Foundation Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>zope.component.globalregistry &mdash; zope.configuration 4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="zope.configuration 4.0 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">zope.configuration 4.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for zope.component.globalregistry</h1><div class="highlight"><pre>
+<span class="c">##############################################################################</span>
+<span class="c">#</span>
+<span class="c"># Copyright (c) 2006 Zope Foundation and Contributors.</span>
+<span class="c"># All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># This software is subject to the provisions of the Zope Public License,</span>
+<span class="c"># Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.</span>
+<span class="c"># THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND ANY AND ALL EXPRESS OR IMPLIED</span>
+<span class="c"># WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED</span>
+<span class="c"># WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS</span>
+<span class="c"># FOR A PARTICULAR PURPOSE.</span>
+<span class="c">#</span>
+<span class="c">##############################################################################</span>
+<span class="sd">&quot;&quot;&quot;Global components support</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">zope.interface</span> <span class="kn">import</span> <span class="n">implementer</span>
+<span class="kn">from</span> <span class="nn">zope.interface.adapter</span> <span class="kn">import</span> <span class="n">AdapterRegistry</span>
+<span class="kn">from</span> <span class="nn">zope.interface.registry</span> <span class="kn">import</span> <span class="n">Components</span>
+
+<span class="kn">from</span> <span class="nn">zope.component.interfaces</span> <span class="kn">import</span> <span class="n">IComponentLookup</span>
+<span class="kn">from</span> <span class="nn">zope.component._compat</span> <span class="kn">import</span> <span class="n">_BLANK</span>
+
+<span class="k">def</span> <span class="nf">GAR</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">registryName</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">registryName</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">GlobalAdapterRegistry</span><span class="p">(</span><span class="n">AdapterRegistry</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A global adapter registry</span>
+
+<span class="sd">    This adapter registry&#39;s main purpose is to be picklable in combination</span>
+<span class="sd">    with a site manager.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__parent__</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">GlobalAdapterRegistry</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">GAR</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__parent__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@implementer</span><span class="p">(</span><span class="n">IComponentLookup</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">BaseGlobalComponents</span><span class="p">(</span><span class="n">Components</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_init_registries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adapters</span> <span class="o">=</span> <span class="n">GlobalAdapterRegistry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;adapters&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">utilities</span> <span class="o">=</span> <span class="n">GlobalAdapterRegistry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;utilities&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># Global site managers are pickled as global objects</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name__</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">BaseGlobalComponents</span><span class="p">(</span><span class="s">&#39;base&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">zope.testing.cleanup</span> <span class="kn">import</span> <span class="n">addCleanUp</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span> <span class="c">#pragma NO COVER</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">addCleanUp</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">base</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="s">&#39;base&#39;</span><span class="p">))</span>
+    <span class="k">del</span> <span class="n">addCleanUp</span>
+
+<span class="n">globalSiteManager</span> <span class="o">=</span> <span class="n">base</span>
+<div class="viewcode-block" id="getGlobalSiteManager"><a class="viewcode-back" href="../../../api/sitemanager.html#zope.component.getGlobalSiteManager">[docs]</a><span class="k">def</span> <span class="nf">getGlobalSiteManager</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">globalSiteManager</span>
+
+<span class="c"># The following APIs provide global registration support for Python code.</span>
+<span class="c"># We eventually want to deprecate these in favor of using the global</span>
+<span class="c"># component registry directly.</span>
+</div>
+<span class="k">def</span> <span class="nf">provideUtility</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">provides</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_BLANK</span><span class="p">):</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">registerUtility</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">provides</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">provideAdapter</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">adapts</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">provides</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_BLANK</span><span class="p">):</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">registerAdapter</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">adapts</span><span class="p">,</span> <span class="n">provides</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">provideSubscriptionAdapter</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">adapts</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">provides</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">registerSubscriptionAdapter</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">adapts</span><span class="p">,</span> <span class="n">provides</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">provideHandler</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">adapts</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">registerHandler</span><span class="p">(</span><span class="n">factory</span><span class="p">,</span> <span class="n">adapts</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">zope.configuration 4.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2012, Zope Foundation Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
