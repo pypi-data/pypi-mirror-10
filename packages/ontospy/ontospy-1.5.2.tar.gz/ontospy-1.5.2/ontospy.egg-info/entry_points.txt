@@ -1,0 +1,6 @@
+[console_scripts]
+ontospy = ontospy.ontospy:main
+ontospy-catalog = ontospy.tools.catalog:main
+ontospy-match = ontospy.tools.matcher:main
+ontospy-sketch = ontospy.tools.sketch:main
+
