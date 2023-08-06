@@ -1,0 +1,6 @@
+[argsrun]
+discover = argsrun.discover:discover
+
+[console_scripts]
+argsrun = argsrun:main
+
