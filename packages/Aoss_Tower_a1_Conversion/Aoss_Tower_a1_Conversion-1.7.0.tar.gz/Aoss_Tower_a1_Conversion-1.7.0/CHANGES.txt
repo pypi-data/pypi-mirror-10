@@ -1,0 +1,39 @@
+v0,   4/20/15 -- Initial release.
+v1,   4/27/15 -- Cut time dimension from unlimited size to size of ASCII file.
+                 This cut made netCDF files smaller.
+                 Test files have been updated to include this change.
+v1.1, 4/29/15 -- Revamped test Parser to include an increasing set of test files.
+                 Created comments and decreased frequency of long lines
+                 Also cleans up directory when finished.
+v1.2, 5/18/15 -- Finished test for writer class. 
+                 Commented and few long lines.
+                 Cleans up directory when execution finishes.
+                 Created a python module that autoruns every 5-6 seconds and
+                 updates new netCDF file. It's still buggy though.
+
+v1.3, 5/19/15 -- Fixed bug in autoWrite.
+                 Will not crash with an Index Error.
+                 In tester interface, prompting user for path was moved:
+                 it is now a function.
+
+v1.4, 5/19/15 -- Placed autorun into temp folder to be trashed later.
+                 Easier way to autorun program was found.
+                 Upgraded Util to a class where it autogenerates paths and
+                 dates.
+                 Write class only focuses on writing.
+                 Parser class only focuses on returning set of frames.
+                 Got rid of user interface in tester. Tester just writes
+                 range of files.
+                 Planning to add a method which writes yesterday's files.
+
+v1.5, 5/20/15 -- Created new autorun script
+                 Tester renamed bundler. Equipped bundler with move function
+                 and convert yesterday's file function.
+                 Writer now takes only a dictionary of frames as a parameter
+                 and a date - just in case there were no frames for that date.
+                 Util can now generate the datetime object for yesterday.
+                 README.txt updated to fit new implementation of bundler.
+
+v1.6, 5/21/15 -- created bash autorun wrapped around python auto run script.
+
+v1.7, 5/22/15 -- Finished writing unit tests for the scripts.
