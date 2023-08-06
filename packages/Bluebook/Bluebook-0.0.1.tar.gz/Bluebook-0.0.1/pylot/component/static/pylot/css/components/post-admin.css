@@ -1,0 +1,24 @@
+#PostAdmin #images-page .image-container {
+  position: relative;
+  border: 1px solid #ccc;
+  margin: 5px;
+  height: 300px; }
+  #PostAdmin #images-page .image-container .image {
+    padding: 15px;
+    text-align: center; }
+    #PostAdmin #images-page .image-container .image img {
+      display: inline-block;
+      height: auto;
+      max-width: 100%; }
+    #PostAdmin #images-page .image-container .image img {
+      max-height: 200px; }
+  #PostAdmin #images-page .image-container .info {
+    border-top: 1px solid #ccc;
+    position: absolute;
+    height: 40px;
+    bottom: 0;
+    padding: 4px;
+    margin-top: 10px;
+    width: 100%; }
+
+/*# sourceMappingURL=post-admin.css.map */
