@@ -1,0 +1,12 @@
+{% extends "djangocms_contact/base.html" %}
+{% load i18n %}
+
+{% block title %}Contact{% endblock %}
+
+{% block contact_content %}
+  <form action="{% url 'djangocms_contact:contact' %}" method="POST" class="djc-contact-form">
+    {% csrf_token %}
+    {{ contact_form }}
+    <button type="submit">{% trans "Send" %}</button>
+  </form>
+{% endblock contact_content %}
