@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: turnstile-codevalidator
+Version: 0.1.1
+Summary: Turnstile-Codevalidator - Codevalidator check and command for turnstile
+Home-page: https://github.com/zalando/turnstile-codevalidator
+Author: Zalando SE
+Author-email: UNKNOWN
+License: Apache License Version 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Version Control
+Requires-Dist: click
+Requires-Dist: GitPython
+Requires-Dist: codevalidator
+Requires-Dist: turnstile-core
+
+Turnstile - Zalando Local Git Hooks
+
+
