@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Module gosyu &mdash; gosyu 2.0.6 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="gosyu 2.0.6 documentation" href="index.html" />
+    <link rel="prev" title="gosyu拡張(日本語版説明書)" href="README_ja.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>gosyu 2.0.6 documentation</span></a></h1>
+        <h2 class="heading"><span>Module gosyu</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="README_ja.html">gosyu拡張(日本語版説明書)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <p>Generally, you don&#8217;t have to know read here. Please read <a class="reference internal" href="README.html"><em>gosyu extension</em></a>.</p>
+<p>通常はこの頁を読む必要はありません。使い方などについては<a class="reference internal" href="README_ja.html"><em>gosyu拡張(日本語版説明書)</em></a>をご覧ください。</p>
+<div class="section" id="module-gosyu">
+<h1>Module gosyu<a class="headerlink" href="#module-gosyu" title="Permalink to this headline">¶</a></h1>
+<p>The Sphinx extension to provide yomigana to glossary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">© 2011-2015 by Suzumizaki-Kimitaka(only for additional works)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">2-clause BSD.</td>
+</tr>
+</tbody>
+</table>
+<p>This is the extension for <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> to add the
+<code class="code docutils literal"><span class="pre">gosyu</span></code> directive used to replace <code class="code docutils literal"><span class="pre">glossary</span></code>.</p>
+<p>The <code class="code docutils literal"><span class="pre">gosyu</span></code> directive can sort the terms by the order given from
+the user(document writer). Especially to support the language like
+Japanese, <code class="code docutils literal"><span class="pre">:yomimark:</span></code> option is exist and make the way adding the
+reading(shows how to read) to each term.</p>
+<p>This module depends on the module <a class="reference external" href="https://pypi.python.org/pypi/sortorder">sortorder</a>. The document of the module
+shows how to make your own order for the languages you want.</p>
+<p><code class="code docutils literal"><span class="pre">yomimark</span></code> can be one of
+<code class="code docutils literal"><span class="pre">single_char_or_whitespace_or_unicode</span></code>.
+the acceptable words are defined in
+<code class="xref py py-mod docutils literal"><span class="pre">docutils.parsers.rst.directives</span></code> as follows:</p>
+<ul class="simple">
+<li>one of the words: tab space</li>
+<li>any single unicode character except white-spaces</li>
+<li>the character itself, or the code point represented by:<ul>
+<li>the decimal number</li>
+<li>the hexadecimal number prefixed x, x, U+, u, or u</li>
+<li>XML style like &amp;#x262E;</li>
+</ul>
+</li>
+</ul>
+<p>The every term is splited by yomimark. 1st is the term itself,
+2nd is treated as Yomigana(how to read). Currently 3rd and
+followers are simply ignored, but using this way, the &#8216;mono ruby&#8217; may be
+supported for the future. (see HTML ruby module for example.)</p>
+<p>Not all the entry have to give yomigana. When yomigana is not
+assigned, the name of the entry is used to sort.</p>
+<p>yomigana itself is currently not shown in output HTML files.
+They&#8217;re only used to sort.</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">gosyu.</code><code class="descname">GosyuDirective</code><span class="sig-paren">(</span><em>name</em>, <em>arguments</em>, <em>options</em>, <em>content</em>, <em>lineno</em>, <em>content_offset</em>, <em>block_text</em>, <em>state</em>, <em>state_machine</em><span class="sig-paren">)</span></dt>
+<dd><p>Yomigana featured version of sphinx.domains.std.Glossary</p>
+<p>The option <code class="code docutils literal"><span class="pre">yomimark</span></code> is added.</p>
+<dl class="attribute">
+<dt>
+<code class="descname">domainname</code><em class="property"> = None</em></dt>
+<dd><p>can be &#8216;&#8217; which need to be distinguished with None.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Inherit ObjectDescription.run, called by docutils</p>
+<p>Base codes are copied from <code class="xref py py-class docutils literal"><span class="pre">sphinx.domains.std.Glossary</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">gosyu.</code><code class="descname">GosyuIndex</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Index representation class supports yomigana(how to read)</p>
+<p>Pick the terms declared with <code class="xref py py-class docutils literal"><span class="pre">GosyuDirective</span></code>
+(<code class="code docutils literal"><span class="pre">..</span> <span class="pre">gosyu::</span></code>) and make the <code class="file docutils literal"><span class="pre">std-gosyu.html</span></code>.</p>
+<p>Support 2 options, <code class="code docutils literal"><span class="pre">gosyu_shortname</span></code> and <code class="code docutils literal"><span class="pre">gosyu_localname</span></code>
+given in <code class="file docutils literal"><span class="pre">conf.py</span></code>.</p>
+<dl class="attribute">
+<dt>
+<code class="descname">localname</code><em class="property"> = 'gosyu_dummy'</em></dt>
+<dd><p>overwritten  by __init__()</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">shortname</code><em class="property"> = 'gosyu_dummy'</em></dt>
+<dd><p>overwritten  by __init__()</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">gosyu.</code><code class="descname">determine_sort_order</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span></dt>
+<dd><p>Determine sort order used in this module</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cfg</strong> (<em>sphinx.config.Config</em>) &#8211; you can give from Sphinx with <code class="code docutils literal"><span class="pre">app.config</span></code>,
+<code class="code docutils literal"><span class="pre">builder.config</span></code> etc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">gosyu.</code><code class="descname">make_term_from_paragraph_node</code><span class="sig-paren">(</span><em>termnodes</em>, <em>ids</em><span class="sig-paren">)</span></dt>
+<dd><p>Copied function of <code class="xref py py-meth docutils literal"><span class="pre">sphinx.domains.std.term_from_paragraph_node()</span></code></p>
+<p>Currently, no lines are modified.
+Called from <code class="xref py py-meth docutils literal"><span class="pre">GosyuDirective.run()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">gosyu.</code><code class="descname">make_termnodes_from_paragraph_node</code><span class="sig-paren">(</span><em>env</em>, <em>domain_obj</em>, <em>node</em>, <em>yomi</em><span class="sig-paren">)</span></dt>
+<dd><p>helper function of <code class="xref py py-meth docutils literal"><span class="pre">GosyuDirective.run()</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>env</strong> (<em>Sphinx.BuildEnvironment</em>) &#8211; current build environment</li>
+<li><strong>domain_obj</strong> (<em>dict</em>) &#8211; reference to the dict of the termtext and corresponding
+informations(docname, id_used_for_anchor, yomigana)</li>
+<li><strong>node</strong> (<em>docutils.nodes.paragraph</em>) &#8211; the node represents the term</li>
+<li><strong>yomi</strong> (<em>str_or_unicode</em>) &#8211; the string shows how to read or the term itself</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the list of <code class="xref py py-class docutils literal"><span class="pre">docutils.Node</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Copied from <code class="xref py py-mod docutils literal"><span class="pre">sphinx.domains.std</span></code> and modified.
+Called from <code class="xref py py-meth docutils literal"><span class="pre">GosyuDirective.run()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">gosyu.</code><code class="descname">setup</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span></dt>
+<dd><p>Extend the Sphinx as we want, called from the Sphinx</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>app</strong> (<em>sphinx.application.Sphinx</em>) &#8211; the object to add builder or something.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="README_ja.html">gosyu拡張(日本語版説明書)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Suzumizaki-Kimitaka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
