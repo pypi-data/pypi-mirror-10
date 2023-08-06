@@ -1,0 +1,15 @@
+
+[dev]
+pre-commit
+tox
+pytest
+pytest-cov
+hypothesis
+hypothesis-pytest
+
+[test]
+tox
+pytest
+pytest-cov
+hypothesis
+hypothesis-pytest
