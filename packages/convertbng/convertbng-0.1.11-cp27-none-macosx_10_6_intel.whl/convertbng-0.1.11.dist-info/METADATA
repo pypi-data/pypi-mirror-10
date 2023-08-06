@@ -1,0 +1,45 @@
+Metadata-Version: 2.0
+Name: convertbng
+Version: 0.1.11
+Summary: Fast lon, lat to BNG conversion
+Home-page: https://github.com/urschrei/rust_bng
+Author: Stephan Hügel
+Author-email: urschrei@gmail.com
+License: MIT License
+Download-URL: https://github.com/urschrei/rust_bng/tarball/v0.1.11
+Keywords: Geo
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+Fast lon, lat to BNG conversion
+---------------------------------------------
+Uses a Rust 1.0 binary to perform fast lon, lat to BNG conversion
+
+This module exposes two methods:
+
+util.convertbng() – pass a lon, lat. Returns a tuple of Eastings, Northings
+
+util.convertbng_list() – pass lists of lons, lats. Returns a list of tuples
+
+
+Call them like so:
+
+from convertbng.util import convertbng, convertbng_list
+
+
+res = convertbng(lon, lat)
+
+res_list = convertbng([lons], [lats])
+
+
+
+This version requires Python 2.7.x / 3.4.x
+
