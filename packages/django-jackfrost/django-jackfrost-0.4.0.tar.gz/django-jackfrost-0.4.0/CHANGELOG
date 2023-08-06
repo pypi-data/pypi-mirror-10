@@ -1,0 +1,37 @@
+Change log
+----------
+
+0.4.0
+^^^^^^
+
+* Added ``signals.write_page`` which is fired after the storage backend has
+  written the content.
+* Added ``utils.eventlog_write`` for using `pinax.eventlog`_ and the
+  aforementioned ``write_page`` signal to track built items.
+* Added a `ModelAdmin action`_ for building a selection of model instances
+  into their static counterparts, from the admin changelist.
+* Made the receiver ``utils.build_page_for_obj`` actually work.
+* the ``models`` module will be compiled using Cython, if installed.
+
+.. _pinax.eventlog: https://github.com/pinax/pinax-eventlog
+.. _ModelAdmin action: https://docs.djangoproject.com/en/stable/ref/contrib/admin/actions/
+
+0.3.0
+^^^^^^
+
+* Replaced ``jackfrost_absolute_url`` method in ``ModelRenderer`` with
+  ``jackfrost_urls``, which allows models to add every URL they want to cause
+  to be visited.
+
+
+0.2.1
+^^^^^^
+
+* Added support for Django 1.6
+* Added celery tasks for building both a single URL, and all URLs.
+
+0.2.0
+^^^^^^
+
+* Initial release.
+
