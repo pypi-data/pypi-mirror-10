@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: dj-obj-update
+Version: 0.1.0
+Summary: A Django app for adding object tools for models in the admin
+Home-page: https://github.com/crccheck/dj-obj-update
+Author: Chris Chang
+Author-email: c@crccheck.com
+License: Apache License, Version 2.0
+Description: Django Object Update
+        ====================
+        
+        .. image:: https://travis-ci.org/crccheck/dj-obj-update.svg?branch=master
+            :target: https://travis-ci.org/crccheck/dj-obj-update
+        
+        ``dj-obj-update`` is a module that helps you do two things while updating an
+        object:
+        
+        1. Only do a save if something changed
+        2. Log what changed (the logger name is ``obj_update`` and only outputs DEBUG)
+        
+        
+        Installation
+        ------------
+        
+        ::
+        
+            pip install dj-obj-update
+        
+        
+        Usage
+        -----
+        
+        ::
+        
+            from obj_update import update
+        
+            new_data = {
+                'flavor': 'chocolate',
+            }
+            for obj in queryset:
+                update(obj, new_data)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
