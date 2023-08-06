@@ -1,0 +1,20 @@
+/* Make all the images responsive, 
+similar to .img-responsive from bootstrap */
+img {
+    height: auto;
+    max-width: 100%;
+    display: block;
+    padding: 10px 0px;
+}
+
+article > header > h2 {
+    font-size: 250%;
+}
+
+article > header > h2 > a:hover {
+    text-decoration: none;
+}
+
+article {
+    padding-bottom: 25px;
+}

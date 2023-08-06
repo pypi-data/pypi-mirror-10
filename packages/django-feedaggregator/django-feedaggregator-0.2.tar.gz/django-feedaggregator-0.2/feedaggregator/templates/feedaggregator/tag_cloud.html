@@ -1,0 +1,15 @@
+{% extends "feedaggregator/base.html" %}
+{% load i18n %}
+{% load taggit_templatetags2_tags %}
+
+{% block feedaggregator_content %}
+
+    <h2>{% trans 'Tag cloud' %}</h2>
+
+    {% get_tagcloud as tags for 'feedaggregator.Item' %}
+
+    {% for tag in tags %}
+        <a href="{% url 'feedaggregator:tag_detail' tag.slug %}"><font size={{tag.weight|floatformat:0}}>{{tag}}</font> </a>
+    {% endfor %}
+    
+{% endblock %}

@@ -1,0 +1,60 @@
+Metadata-Version: 1.0
+Name: django-feedaggregator
+Version: 0.2
+Summary: Django app to create an RSS feeds aggregator
+Home-page: https://github.com/fasouto/feedaggregator/
+Author: Fabio Souto
+Author-email: fabio@fabiosouto.me
+License: MIT
+Description: ==============
+        feedaggregator
+        ==============
+        
+        An Django 1.8 app to aggregate RSS and Atom feeds(planet)
+        
+        Features
+        ========
+        
+        * Python 2/3 compatible
+        * Import/export OPML feeds
+        * Browse posts by Feed, Author or Tag
+        * Bootstrap templates
+        * RSS and Atom feeds
+        * Sitemaps
+        * Show word clouds like it's 2004
+        * Multiple templatetags to adapt the site
+        * SEO metatags
+        * Customizable via settings.py
+        
+        TODO
+        ====
+        
+        * Upload demo
+        * Improve tests and docs
+        
+        Documentation
+        =============
+        
+        Online documentation is available at http://django-feedaggregator.readthedocs.org/
+        
+        License
+        =======
+        
+        MIT license
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary

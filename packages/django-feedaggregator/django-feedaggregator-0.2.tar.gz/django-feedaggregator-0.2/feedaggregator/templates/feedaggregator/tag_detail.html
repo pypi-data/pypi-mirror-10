@@ -1,0 +1,14 @@
+{% extends "feedaggregator/base.html" %}
+{% load i18n %}
+
+{% block feedaggregator_title %}
+    <h2>{% trans 'Items with the tag:' %} {{ tag }}</h2>
+{% endblock %}
+
+{% block feedaggregator_content %}
+    {% for item in item_list %}
+        {% include "feedaggregator/_item.html" %}
+    {% endfor %}
+
+    {% include 'feedaggregator/_pagination.html' %}
+{% endblock %}
