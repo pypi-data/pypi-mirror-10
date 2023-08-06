@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: mongoext
+Version: 0.4.0
+Summary: Data models for Mongo
+Home-page: https://github.com/mylokin/mongoext
+Author: Andrey Gubarev
+Author-email: mylokin@me.com
+License: MIT
+Keywords: mongodb,orm,models
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Database
+Classifier: Topic :: Database :: Database Engines/Servers
+Requires-Dist: pymongo (==3.0)
+
+UNKNOWN
+
+
