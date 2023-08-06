@@ -1,0 +1,145 @@
+Metadata-Version: 1.1
+Name: yayi
+Version: 0.8.8.dev
+Summary: Yayi toolbox for image processing and mathematical morphology
+Home-page: http://raffi.enficiaud.free.fr
+Author: Raffi Enficiaud
+Author-email: raffi.enficiaud@free.fr
+License: Boost Software License - Version 1.0 - August 17th, 2003
+Description: Yayi
+        ====
+        
+        Image processing and mathematical morphology framework in C++ and Python.
+        
+        Yayi is a open-source image processing framework with a focus on Mathematical Morphology. 
+        
+        The core of Yayi is entirely written in C++, mainly using template code which enables a high level of 
+        genericity. It implements some of the main concepts of Mathematical Morphology into an efficient and proven design. 
+        Yayi aims at providing robust, efficient and flexible algorithms for image analysis, but also reference algorithms 
+        for Mathematical Morphology.
+        
+        The python interface provides a simple way for using the main notions and functions of mathematical morphology. 
+        The export uses the boost.python framework.
+        
+        The whole project uses `cmake`_ for building. Some bindings with `setup.py` are being developed in order to be able 
+        to just `pip install yayi`.
+        
+        It is released under the very permissive Boost license. 
+        
+        .. _boost: http://www.boost.org
+        
+        .. _cmake: http://www.cmake.org
+        
+        
+        Key features
+        ------------
+        
+        * Image I/O: png (8/16/32), tiff (8/16/32), jpeg, hfd5
+        * Image arithmetic, pixel-wise comparisons, logical combinations
+        * Color space transformation (xyY, XYZ, LAB, YUV, etc)
+        * structuring element creation
+        * Basic mathematical morphology: erosion, dilation, opening, closing (grey scale), hit-or-miss, white/black hat
+        * connected components labeling (background, adjacency graph...), measures on connected components
+        * morphological reconstruction and levelings
+        * segmentation: watershed transform
+        
+        
+        
+        Installation
+        ------------
+        Yayi needs `boost`_, `cmake`_ and a decent C++ compiler to build. You should install those tools in your system, preferably
+        using your package manager.
+        
+        .. warning:: as soon as you build and install Yayi, Yayi becomes dependent on the `boost` package. If you upgrade `boost`
+           to a new version, then it might break Yayi. As a matter of fact, python package management does not communicate
+           with the /native/ package management of your operating system.  
+           
+        
+        .. note:: some of the dependencies are shipped with Yayi directly, but on some platforms (Linux) the dependencies provided
+                  by the package manager are preferred.
+                  
+        After the installation, the following code should work: 
+        
+        .. code:: python
+        
+           import yayi
+           yayi.IO.readPNG('my/png/file.png")
+        
+        .. note:: currently not compiling the Python extensions with the HDF5 support.
+        
+        Linux Ubuntu
+        ~~~~~~~~~~~~
+        Ubuntu is shipped with its own package manager, and it is straightforward to install packages. An Ubuntu packate is under
+        development, but currently Yayi needs to be built from the sources.
+        
+        To install the dependencies of Yayi, type the following in a Terminal:
+        
+        .. code:: shell
+        
+          sudo apt-get install boost, cmake, python-numpy, python-pip, libjpeg8-dev, zlib1g-dev, libpng12-dev, libtiff4-dev, libhdf5-dev
+        
+        and then just type (and wait)
+        
+        .. code:: shell
+        
+          pip install yayi
+        
+        
+        OSX
+        ~~~
+        On OSX, a wheel package is provided and it contains all the dependencies (especially boost). If you are lucky
+        the wheel is for your specific version of OSX/Python. If you are less lucky you should build Yayi from the sources.
+        For that, first install the dependencies with eg.`brew`_   
+        
+        .. code:: shell
+        
+          brew install boost
+          brew install cmake
+        
+        and then just type the following (and wait):
+        
+        .. code:: shell
+        
+          # numpy should be installed on a default Mac
+          pip install numpy
+          pip install yayi
+        
+        
+        Win32
+        ~~~~~
+        
+        On Windows, binary packages (installer and wheel package) are provided, but for Python 2.7 64-bits only. If this is not your version of Python/Win architecture, 
+        then you need to build Yayi on your platform like the other platforms. However, you are kind of lucky because you are not obliged to use a specific
+        toolchain for that (so you can build yayi with Visual 2013 community and you are not obliged to have Visual 2008 or some obsolete toolchain). 
+        
+        If you need to build Yayi, first install `cmake`_ and a binary version of `boost`_ (or build it yourself). Then you have two options:
+        
+        * build yayi with `setup.py`
+        * build yayi from `pip`
+        
+        With `setup.py`, extract the source and then type (and wait)
+        
+        .. code:: shell
+        
+          python setup.py build_cmake --boostroot=/my_boost/installation/location/boost_1_55/ install
+        
+        With `pip`, this is almost the same, you have to pass the previous option like this:
+        
+        .. code:: shell
+        
+          pip install --upgrade --install-option "build_cmake" --install-option "--boostroot=/my_boost/installation/location/boost_1_55/" yayi-XXXX.tar.gz
+        
+        
+Keywords: image processing,mathematical morphology,multidimensional images,multispectral images,image segmentation,erosion,dilation,opening,closing,hit-or-miss,connected components
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows NT/2000
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Mathematics
