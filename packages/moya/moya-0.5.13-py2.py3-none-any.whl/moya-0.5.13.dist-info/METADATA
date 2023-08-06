@@ -1,0 +1,37 @@
+Metadata-Version: 2.0
+Name: moya
+Version: 0.5.13
+Summary: web development platform
+Home-page: http://www.moyaproject.com
+Author: Will McGugan
+Author-email: will@willmcgugan.com
+License: MIT
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: pyparsing
+Requires-Dist: webob
+Requires-Dist: sqlalchemy
+Requires-Dist: pytz
+Requires-Dist: pygments
+Requires-Dist: fs (>=0.5.1)
+Requires-Dist: iso8601
+Requires-Dist: babel
+Requires-Dist: postmarkup
+Requires-Dist: polib
+Requires-Dist: pillow
+Requires-Dist: pymysql
+Requires-Dist: passlib
+Requires-Dist: commonmark
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: colorama
+Requires-Dist: premailer
+
+Web development framework
+
+
