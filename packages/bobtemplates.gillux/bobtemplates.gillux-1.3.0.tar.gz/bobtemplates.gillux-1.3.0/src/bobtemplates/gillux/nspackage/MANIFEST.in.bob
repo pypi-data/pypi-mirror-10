@@ -1,0 +1,8 @@
+include README.rst
+{{% if not usesphinx %}}
+include CHANGES.rst
+{{% else %}}
+include doc/contributors.rst
+include doc/changes.rst
+{{% endif %}}
+prune tests
