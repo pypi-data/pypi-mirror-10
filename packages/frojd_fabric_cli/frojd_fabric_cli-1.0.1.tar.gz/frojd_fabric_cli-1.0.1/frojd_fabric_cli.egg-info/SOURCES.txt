@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+frojd_fabric_cli/__init__.py
+frojd_fabric_cli/generator.py
+frojd_fabric_cli/utils.py
+frojd_fabric_cli.egg-info/PKG-INFO
+frojd_fabric_cli.egg-info/SOURCES.txt
+frojd_fabric_cli.egg-info/dependency_links.txt
+frojd_fabric_cli.egg-info/entry_points.txt
+frojd_fabric_cli.egg-info/not-zip-safe
+frojd_fabric_cli.egg-info/requires.txt
+frojd_fabric_cli.egg-info/top_level.txt
+frojd_fabric_cli/scripts/__init__.py
+frojd_fabric_cli/scripts/init.py
+requirements/base.txt
+requirements/dev.txt
