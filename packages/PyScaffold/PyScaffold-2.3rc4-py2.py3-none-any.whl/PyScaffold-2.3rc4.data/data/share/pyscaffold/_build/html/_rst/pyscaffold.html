@@ -1,0 +1,1049 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyscaffold package &mdash; pyscaffold 1.3c2.post.dev1.pre documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.3c2.post.dev1.pre',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyscaffold 1.3c2.post.dev1.pre documentation" href="../index.html" />
+    <link rel="up" title="pyscaffold" href="modules.html" />
+    <link rel="prev" title="pyscaffold" href="modules.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="pyscaffold"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyscaffold 1.3c2.post.dev1.pre documentation</a> &raquo;</li>
+          <li><a href="modules.html" accesskey="U">pyscaffold</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pyscaffold-package">
+<h1>pyscaffold package<a class="headerlink" href="#pyscaffold-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyscaffold.info">
+<span id="pyscaffold-info-module"></span><h2>pyscaffold.info module<a class="headerlink" href="#module-pyscaffold.info" title="Permalink to this headline">¶</a></h2>
+<p>Provide general information about the system, user etc.</p>
+<dl class="function">
+<dt id="pyscaffold.info.email">
+<tt class="descclassname">pyscaffold.info.</tt><tt class="descname">email</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyscaffold/info.html#email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.info.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the user&#8217;s email</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">user&#8217;s email as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.info.is_git_configured">
+<tt class="descclassname">pyscaffold.info.</tt><tt class="descname">is_git_configured</tt><big>(</big><big>)</big><a class="headerlink" href="#pyscaffold.info.is_git_configured" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if user.name and user.email is set globally in git</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.info.is_git_installed">
+<tt class="descclassname">pyscaffold.info.</tt><tt class="descname">is_git_installed</tt><big>(</big><big>)</big><a class="headerlink" href="#pyscaffold.info.is_git_installed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if git is installed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.info.project">
+<tt class="descclassname">pyscaffold.info.</tt><tt class="descname">project</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/info.html#project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.info.project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update user settings with the settings of an existing PyScaffold project</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">updated command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.info.username">
+<tt class="descclassname">pyscaffold.info.</tt><tt class="descname">username</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyscaffold/info.html#username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.info.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the user&#8217;s name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">user&#8217;s name as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold.repo">
+<span id="pyscaffold-repo-module"></span><h2>pyscaffold.repo module<a class="headerlink" href="#module-pyscaffold.repo" title="Permalink to this headline">¶</a></h2>
+<p>Functionality for working with a git repository</p>
+<dl class="function">
+<dt id="pyscaffold.repo.git_tree_add">
+<tt class="descclassname">pyscaffold.repo.</tt><tt class="descname">git_tree_add</tt><big>(</big><em>struct</em>, <em>prefix=''</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/repo.html#git_tree_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.repo.git_tree_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds recursively a directory structure to git</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>struct</strong> &#8211; directory structure as dictionary of dictionaries</li>
+<li><strong>prefix</strong> &#8211; prefix for the given directory structure as string</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.repo.init_commit_repo">
+<tt class="descclassname">pyscaffold.repo.</tt><tt class="descname">init_commit_repo</tt><big>(</big><em>project</em>, <em>struct</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/repo.html#init_commit_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.repo.init_commit_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a git repository</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>project</strong> &#8211; path to the project as string</li>
+<li><strong>struct</strong> &#8211; directory structure as dictionary of dictionaries</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.repo.is_git_repo">
+<tt class="descclassname">pyscaffold.repo.</tt><tt class="descname">is_git_repo</tt><big>(</big><em>folder</em><big>)</big><a class="headerlink" href="#pyscaffold.repo.is_git_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a folder is a git repository</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>folder</strong> &#8211; path as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold.runner">
+<span id="pyscaffold-runner-module"></span><h2>pyscaffold.runner module<a class="headerlink" href="#module-pyscaffold.runner" title="Permalink to this headline">¶</a></h2>
+<p>Command-Line-Interface of PyScaffold</p>
+<dl class="function">
+<dt id="pyscaffold.runner.main">
+<tt class="descclassname">pyscaffold.runner.</tt><tt class="descname">main</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/runner.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.runner.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main entry point of PyScaffold</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as list of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.runner.parse_args">
+<tt class="descclassname">pyscaffold.runner.</tt><tt class="descname">parse_args</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/runner.html#parse_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.runner.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse command line parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as list of strings</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.runner.run">
+<tt class="descclassname">pyscaffold.runner.</tt><tt class="descname">run</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/runner.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.runner.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entry point for setup.py</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold.shell">
+<span id="pyscaffold-shell-module"></span><h2>pyscaffold.shell module<a class="headerlink" href="#module-pyscaffold.shell" title="Permalink to this headline">¶</a></h2>
+<p>Shell commands like git, django-admin.py etc.</p>
+<dl class="class">
+<dt id="pyscaffold.shell.Command">
+<em class="property">class </em><tt class="descclassname">pyscaffold.shell.</tt><tt class="descname">Command</tt><big>(</big><em>command</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/shell.html#Command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.shell.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Shell command that can be called with flags like git(&#8216;add&#8217;, &#8216;file&#8217;)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> &#8211; command to handle</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.shell.called_process_error2exit_decorator">
+<tt class="descclassname">pyscaffold.shell.</tt><tt class="descname">called_process_error2exit_decorator</tt><big>(</big><em>func</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/shell.html#called_process_error2exit_decorator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.shell.called_process_error2exit_decorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to convert given CalledProcessError to an exit message</p>
+<p>This avoids displaying nasty stack traces to end-users</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pyscaffold.shell.django_admin">
+<tt class="descclassname">pyscaffold.shell.</tt><tt class="descname">django_admin</tt><em class="property"> = &lt;pyscaffold.shell.Command object at 0x5e15350&gt;</em><a class="headerlink" href="#pyscaffold.shell.django_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command for django-admin.py</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pyscaffold.shell.git">
+<tt class="descclassname">pyscaffold.shell.</tt><tt class="descname">git</tt><em class="property"> = &lt;pyscaffold.shell.Command object at 0x5e15310&gt;</em><a class="headerlink" href="#pyscaffold.shell.git" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command for git</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold.structure">
+<span id="pyscaffold-structure-module"></span><h2>pyscaffold.structure module<a class="headerlink" href="#module-pyscaffold.structure" title="Permalink to this headline">¶</a></h2>
+<p>Functionality to generate and work with the directory structure of a project</p>
+<dl class="function">
+<dt id="pyscaffold.structure.check_files_exist">
+<tt class="descclassname">pyscaffold.structure.</tt><tt class="descname">check_files_exist</tt><big>(</big><em>struct</em>, <em>prefix=None</em><big>)</big><a class="headerlink" href="#pyscaffold.structure.check_files_exist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks which files exist in a directory structure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>struct</strong> &#8211; directory structure as dictionary of dictionaries</li>
+<li><strong>prefix</strong> &#8211; prefix path for the structure</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">returns a dictionary of dictionaries where keys representing
+files exists in the filesystem.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.structure.create_django_proj">
+<tt class="descclassname">pyscaffold.structure.</tt><tt class="descname">create_django_proj</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.structure.create_django_proj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a standard Django project with django-admin.py</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.structure.create_structure">
+<tt class="descclassname">pyscaffold.structure.</tt><tt class="descname">create_structure</tt><big>(</big><em>struct</em>, <em>prefix=None</em>, <em>update=False</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/structure.html#create_structure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.structure.create_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manifests a directory structure in the filesystem</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>struct</strong> &#8211; directory structure as dictionary of dictionaries</li>
+<li><strong>prefix</strong> &#8211; prefix path for the structure</li>
+<li><strong>update</strong> &#8211; update an existing directory structure as boolean</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.structure.make_structure">
+<tt class="descclassname">pyscaffold.structure.</tt><tt class="descname">make_structure</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/structure.html#make_structure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.structure.make_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the project structure as dictionary of dictionaries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">structure as dictionary of dictionaries</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.structure.remove_from_struct">
+<tt class="descclassname">pyscaffold.structure.</tt><tt class="descname">remove_from_struct</tt><big>(</big><em>orig_struct</em>, <em>del_struct</em><big>)</big><a class="headerlink" href="#pyscaffold.structure.remove_from_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes files existing in <cite>del_struct</cite> from structure <cite>orig_struct</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>orig_struct</strong> &#8211; directory structure as dictionary of dictionaries</li>
+<li><strong>del_struct</strong> &#8211; directory structure as dictionary of dictionaries</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">directory structure as dictionary of dictionaries</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.structure.set_default_args">
+<tt class="descclassname">pyscaffold.structure.</tt><tt class="descname">set_default_args</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/structure.html#set_default_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.structure.set_default_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default arguments for some parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold.templates">
+<span id="pyscaffold-templates-module"></span><h2>pyscaffold.templates module<a class="headerlink" href="#module-pyscaffold.templates" title="Permalink to this headline">¶</a></h2>
+<p>Templates for all files of a project&#8217;s scaffold</p>
+<dl class="function">
+<dt id="pyscaffold.templates.authors">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">authors</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#authors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.authors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of AUTHORS.rst</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.best_fit_license">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">best_fit_license</tt><big>(</big><em>txt</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.best_fit_license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds proper license name for the license defined in txt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>txt</strong> &#8211; license name as string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">license name as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.coveragerc">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">coveragerc</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#coveragerc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.coveragerc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of .coveragerc</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.get_template">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">get_template</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#get_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.get_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the template by name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; name of template</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">template as <a class="reference external" href="http://docs.python.org/2.7/library/string.html#string.Template" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">string.Template</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.gitattributes">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">gitattributes</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.gitattributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of .gitattributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.gitignore">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">gitignore</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#gitignore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.gitignore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of .gitignore</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.gitignore_empty">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">gitignore_empty</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#gitignore_empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.gitignore_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of empty .gitignore</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.init">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">init</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of __init__.py</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.license">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">license</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of LICENSE.txt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.manifest_in">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">manifest_in</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#manifest_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.manifest_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of MANIFEST.in</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.pre_commit_config">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">pre_commit_config</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.pre_commit_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of .pre-commit-config.yaml</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.readme">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">readme</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#readme"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.readme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of README.rst</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.requirements">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">requirements</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#requirements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.requirements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of requirements.txt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.setup">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">setup</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of setup.py</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.sphinx_conf">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">sphinx_conf</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#sphinx_conf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.sphinx_conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of conf.py</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.sphinx_index">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">sphinx_index</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#sphinx_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.sphinx_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of index.rst</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.sphinx_license">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">sphinx_license</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.sphinx_license" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of license.rst</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.sphinx_makefile">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">sphinx_makefile</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#sphinx_makefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.sphinx_makefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of Sphinx&#8217;s Makefile</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.tox">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">tox</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.tox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of tox.ini</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.travis">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">travis</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.travis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of .travis.yml</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.travis_install">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">travis_install</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#pyscaffold.templates.travis_install" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of travis_install.sh</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.version">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">version</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of _version.py</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.templates.versioneer">
+<tt class="descclassname">pyscaffold.templates.</tt><tt class="descname">versioneer</tt><big>(</big><em>args</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/templates.html#versioneer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.templates.versioneer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template of versioneer.py</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; command line parameters as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">file content as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold.utils">
+<span id="pyscaffold-utils-module"></span><h2>pyscaffold.utils module<a class="headerlink" href="#module-pyscaffold.utils" title="Permalink to this headline">¶</a></h2>
+<p>Miscellaneous utilities and tools</p>
+<dl class="class">
+<dt id="pyscaffold.utils.ObjKeeper">
+<em class="property">class </em><tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">ObjKeeper</tt><big>(</big><em>name</em>, <em>bases</em>, <em>dct</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#ObjKeeper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.ObjKeeper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#type" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">type</span></tt></a></p>
+<p>Metaclass to keep track of generated instances of a class</p>
+<dl class="attribute">
+<dt id="pyscaffold.utils.ObjKeeper.instances">
+<tt class="descname">instances</tt><em class="property"> = {}</em><a class="headerlink" href="#pyscaffold.utils.ObjKeeper.instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.capture_objs">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">capture_objs</tt><big>(</big><em>cls</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#capture_objs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.capture_objs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Captures the instances of a given class during runtime</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param cls:</th><td class="field-body">class to capture</td>
+</tr>
+<tr class="field-even field"><th class="field-name">return:</th><td class="field-body">dynamic list with references to all instances of <tt class="docutils literal"><span class="pre">cls</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.chdir">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">chdir</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#chdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.chdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contextmanager to change into a directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; path to change into as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.exceptions2exit">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">exceptions2exit</tt><big>(</big><em>exception_list</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#exceptions2exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.exceptions2exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to convert given exceptions to exit messages</p>
+<p>This avoids displaying nasty stack traces to end-users</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>exception_list</strong> &#8211; list of exceptions to convert</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.git2pep440">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">git2pep440</tt><big>(</big><em>ver_str</em><big>)</big><a class="headerlink" href="#pyscaffold.utils.git2pep440" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a git description to a PEP440 conforming string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ver_str</strong> &#8211; git version description</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">PEP440 version description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.is_valid_identifier">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">is_valid_identifier</tt><big>(</big><em>string</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#is_valid_identifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.is_valid_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if string is a valid package name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; package name as string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.levenshtein">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">levenshtein</tt><big>(</big><em>s1</em>, <em>s2</em><big>)</big><a class="headerlink" href="#pyscaffold.utils.levenshtein" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Levenshtein distance between two strings</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>s1</strong> &#8211; first string</li>
+<li><strong>s2</strong> &#8211; second string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">distance between s1 and s2 as integer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.list2str">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">list2str</tt><big>(</big><em>lst</em>, <em>indent=0</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#list2str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.list2str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a Python syntax list string with an indention</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lst</strong> &#8211; list</li>
+<li><strong>indent</strong> &#8211; indention as integer</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.make_valid_identifier">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">make_valid_identifier</tt><big>(</big><em>string</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#make_valid_identifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.make_valid_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to make a valid package name identifier from a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; invalid package name as string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">valid package name as string or <tt class="xref py py-obj docutils literal"><span class="pre">RuntimeError</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.safe_get">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">safe_get</tt><big>(</big><em>namespace</em>, <em>attr</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#safe_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.safe_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely retrieve the value of a namespace&#8217;s attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>namespace</strong> &#8211; namespace as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a> object</li>
+<li><strong>attr</strong> &#8211; attribute name as string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">value of the attribute or None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.safe_set">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">safe_set</tt><big>(</big><em>namespace</em>, <em>attr</em>, <em>value</em><big>)</big><a class="reference internal" href="../_modules/pyscaffold/utils.html#safe_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyscaffold.utils.safe_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely set an attribute of a namespace object</p>
+<p>The new attribute is set only if the attribute did not exist or was None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>namespace</strong> &#8211; namespace as <a class="reference external" href="http://docs.python.org/2.7/library/argparse.html#argparse.Namespace" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">argparse.Namespace</span></tt></a> object</li>
+<li><strong>attr</strong> &#8211; attribute name as string</li>
+<li><strong>value</strong> &#8211; value for new attribute</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.utf8_decode">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">utf8_decode</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#pyscaffold.utils.utf8_decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode a Python 2 str object to unicode for compatibility with Python 3</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; Python 2 str object or Python 3 str object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Python 2 unicode object or Python 3 str object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyscaffold.utils.utf8_encode">
+<tt class="descclassname">pyscaffold.utils.</tt><tt class="descname">utf8_encode</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#pyscaffold.utils.utf8_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode a Python 2 unicode object to str for compatibility with Python 3</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> &#8211; Python 2 unicode object or Python 3 str object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Python 2 str object or Python 3 str object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyscaffold">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyscaffold" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyscaffold package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.info">pyscaffold.info module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.repo">pyscaffold.repo module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.runner">pyscaffold.runner module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.shell">pyscaffold.shell module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.structure">pyscaffold.structure module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.templates">pyscaffold.templates module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold.utils">pyscaffold.utils module</a></li>
+<li><a class="reference internal" href="#module-pyscaffold">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">pyscaffold</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/_rst/pyscaffold.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="pyscaffold"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyscaffold 1.3c2.post.dev1.pre documentation</a> &raquo;</li>
+          <li><a href="modules.html" >pyscaffold</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Blue Yonder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+    </div>
+  </body>
+</html>

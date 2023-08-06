@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Features &mdash; pyscaffold 1.3c2.post.dev1.pre documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3c2.post.dev1.pre',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyscaffold 1.3c2.post.dev1.pre documentation" href="index.html" />
+    <link rel="next" title="Installation" href="install.html" />
+    <link rel="prev" title="PyScaffold" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="PyScaffold"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyscaffold 1.3c2.post.dev1.pre documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="features">
+<span id="id1"></span><h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<p>PyScaffold comes with a lot of eloberated features and configuration defaults
+to make the most common tasks in developing, maintaining and distributing your
+own Python package as easy as possible.</p>
+<div class="section" id="packaging">
+<h2>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h2>
+<p>Run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></tt>, <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist</span></tt> or
+<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wheel</span></tt> to build a source, binary or wheel
+distribution.</p>
+</div>
+<div class="section" id="complete-git-integration">
+<h2>Complete Git Integration<a class="headerlink" href="#complete-git-integration" title="Permalink to this headline">¶</a></h2>
+<p>Your project is already an initialised Git repository and <tt class="docutils literal"><span class="pre">setup.py</span></tt> uses
+the information of tags to infer the version of your project with the help of
+<a class="reference external" href="https://github.com/warner/python-versioneer">versioneer</a>.
+To use this feature you need to tag with the format <tt class="docutils literal"><span class="pre">vMAJOR.MINOR[.REVISION]</span></tt>
+, e.g. <tt class="docutils literal"><span class="pre">v0.0.1</span></tt> or <tt class="docutils literal"><span class="pre">v0.1</span></tt>. The prefix <tt class="docutils literal"><span class="pre">v</span></tt> is needed!
+Run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">version</span></tt> to retrieve the current <a class="reference external" href="http://www.python.org/dev/peps/pep-0440/">PEP440</a>-compliant version. This version
+will be used when building a package and is also accessible through
+<tt class="docutils literal"><span class="pre">my_project.__version__</span></tt>.
+The version will be <tt class="docutils literal"><span class="pre">unknown</span></tt> until you have added a first tag.</p>
+<p>Unleash the power of Git by using its <a class="reference external" href="http://pre-commit.com/">pre-commit hooks</a>. This feature is available through the
+<tt class="docutils literal"><span class="pre">--with-pre-commit</span></tt> flag. After your project&#8217;s scaffold was generated, make
+sure pre-commit is installed, e.g. <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pre-commit</span></tt>, then just run
+<tt class="docutils literal"><span class="pre">pre-commit</span> <span class="pre">install</span></tt>.</p>
+<p>It goes unsaid that also a default <tt class="docutils literal"><span class="pre">.gitignore</span></tt> file is provided that is well
+adjusted for Python projects and the most common tools.</p>
+</div>
+<div class="section" id="sphinx-documentation">
+<h2>Sphinx Documentation<a class="headerlink" href="#sphinx-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Build the documentation with <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">docs</span></tt> and run doctests with
+<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">doctest</span></tt>. Start editing the file <tt class="docutils literal"><span class="pre">docs/index.rst</span></tt> to
+extend the documentation. The documentation also works with <a class="reference external" href="https://readthedocs.org/">Read the Docs</a>.</p>
+</div>
+<div class="section" id="unittest-coverage">
+<h2>Unittest &amp; Coverage<a class="headerlink" href="#unittest-coverage" title="Permalink to this headline">¶</a></h2>
+<p>Run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></tt> to run all unittests defined in the folder
+<tt class="docutils literal"><span class="pre">tests</span></tt> with the help of <a class="reference external" href="http://pytest.org/">py.test</a>. The py.test plugin
+<a class="reference external" href="https://github.com/schlamar/pytest-cov">pytest-cov</a> is used to automatically
+generate a coverage report. For usage with a continuous integration software
+JUnit and Coverage XML output can be activated. Checkout <tt class="docutils literal"><span class="pre">putup</span> <span class="pre">-h</span></tt> for
+details. Use the flag <tt class="docutils literal"><span class="pre">--with-travis</span></tt> to generate templates of the
+<a class="reference external" href="https://travis-ci.org/">Travis</a> configuration files <tt class="docutils literal"><span class="pre">.travis.yml</span></tt> and
+<tt class="docutils literal"><span class="pre">tests/travis_install.sh</span></tt> which even features the coverage and stats system
+<a class="reference external" href="https://coveralls.io/">Coveralls</a>.
+In order to use the virtualenv management and test tool <a class="reference external" href="https://tox.readthedocs.org/">Tox</a> the flag <tt class="docutils literal"><span class="pre">--with-tox</span></tt> can be specified.</p>
+<p class="rubric">Managing test environments with tox</p>
+<p>Run <tt class="docutils literal"><span class="pre">tox</span></tt> to generate test virtual environments for various python
+environments defined in the generated <tt class="file docutils literal"><span class="pre">tox.ini</span></tt>. Testing and building
+<em>sdists</em> for python 2.7 and python 3.4 is just as simple with tox as:</p>
+<div class="highlight-python"><pre>tox -e py27,py34</pre>
+</div>
+<p>Environments for tests with the the static code analyzers pyflakes and pep8
+which are bundled in <a class="reference external" href="http://flake8.readthedocs.org/">flake8</a> are included
+as well. Run it explicitly with:</p>
+<div class="highlight-python"><pre>tox -e flake8</pre>
+</div>
+<p>With tox, you can use the <tt class="docutils literal"><span class="pre">--recreate</span></tt> flag to force tox to create new
+environments. By default, PyScaffold&#8217;s tox configuration will execute tests for
+a variety of python versions. If an environment is not available on the system
+the tests are skipped gracefully. You can relay on the <a class="reference external" href="http://tox.readthedocs.org/en/latest/">tox documentation</a> for detailed configuration options.</p>
+</div>
+<div class="section" id="requirements-management">
+<h2>Requirements Management<a class="headerlink" href="#requirements-management" title="Permalink to this headline">¶</a></h2>
+<p>Add the requirements of your project to the <tt class="docutils literal"><span class="pre">requirements.txt</span></tt> file which
+will be automatically used by <tt class="docutils literal"><span class="pre">setup.py</span></tt>.</p>
+</div>
+<div class="section" id="licenses">
+<h2>Licenses<a class="headerlink" href="#licenses" title="Permalink to this headline">¶</a></h2>
+<p>All licenses from <a class="reference external" href="http://choosealicense.com/">choosealicense.com</a> can be
+easily selected with the help of the <tt class="docutils literal"><span class="pre">--license</span></tt> flag.</p>
+</div>
+<div class="section" id="django">
+<h2>Django<a class="headerlink" href="#django" title="Permalink to this headline">¶</a></h2>
+<p>Create a <a class="reference external" href="https://www.djangoproject.com/">Django project</a> with the flag
+<tt class="docutils literal"><span class="pre">--with-django</span></tt> which is equivalent to
+<tt class="docutils literal"><span class="pre">django-admin.py</span> <span class="pre">startproject</span> <span class="pre">my_project</span></tt> enhanced by PyScaffold&#8217;s features.</p>
+</div>
+<div class="section" id="easy-updating">
+<h2>Easy Updating<a class="headerlink" href="#easy-updating" title="Permalink to this headline">¶</a></h2>
+<p>Keep your project&#8217;s scaffold up-to-date by applying
+<tt class="docutils literal"><span class="pre">putput</span> <span class="pre">--update</span> <span class="pre">my_project</span></tt> when a new version of PyScaffold was released.
+It may also be used to change the url, license and description setting.
+An update will only overwrite files that are not often altered by users like
+setup.py, versioneer.py etc. To update all files use <tt class="docutils literal"><span class="pre">--update</span> <span class="pre">--force</span></tt>.
+An existing project that was not setup with PyScaffold can be converted with
+<tt class="docutils literal"><span class="pre">putup</span> <span class="pre">--force</span> <span class="pre">existing_project</span></tt>. The force option is completely safe to use
+since the git repository of the existing project is not touched!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Features</a><ul>
+<li><a class="reference internal" href="#packaging">Packaging</a></li>
+<li><a class="reference internal" href="#complete-git-integration">Complete Git Integration</a></li>
+<li><a class="reference internal" href="#sphinx-documentation">Sphinx Documentation</a></li>
+<li><a class="reference internal" href="#unittest-coverage">Unittest &amp; Coverage</a></li>
+<li><a class="reference internal" href="#requirements-management">Requirements Management</a></li>
+<li><a class="reference internal" href="#licenses">Licenses</a></li>
+<li><a class="reference internal" href="#django">Django</a></li>
+<li><a class="reference internal" href="#easy-updating">Easy Updating</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">PyScaffold</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="next chapter">Installation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/features.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="PyScaffold"
+             >previous</a> |</li>
+        <li><a href="index.html">pyscaffold 1.3c2.post.dev1.pre documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Blue Yonder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+    </div>
+  </body>
+</html>
