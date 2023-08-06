@@ -1,0 +1,4 @@
+[zc.buildout]
+lib = mul.recipe.appengine.lib:Recipe
+sdk = mul.recipe.appengine.sdk:Recipe
+
