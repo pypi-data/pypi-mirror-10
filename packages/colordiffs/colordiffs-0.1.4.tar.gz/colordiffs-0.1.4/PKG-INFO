@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: colordiffs
+Version: 0.1.4
+Summary: Syntax highlights for your git diffs
+Home-page: https://github.com/ngzhian/colordiffs
+Author: Ng Zhi An
+Author-email: ngzhian@gmail.com
+License: UNKNOWN
+Description: ==========
+        Colordiffs
+        ==========
+        
+        Colors for your git diffs
+        
+        How to run
+        ==========
+        
+        ::
+        
+            git diff HEAD^ | python colordiffs.py | less -r
+        
+        .. |screenshot| image:: https://github.com/ngzhian/colordiffs/raw/master/colordiffs.png
+            :alt: colordiffs screenshot
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install colordiffs
+        
+        Requirements
+        ============
+        
+        ::
+        
+            Python 2.x
+            Pygments
+        
+        TODO
+        ====
+        
+        Python 3 (this shouldn't be difficult)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
