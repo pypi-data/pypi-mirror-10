@@ -1,0 +1,21 @@
+[bob.bio.algorithm]
+gmm = bob.bio.gmm.config.algorithm.gmm:algorithm
+gmm-regular = bob.bio.gmm.config.algorithm.gmm_regular:algorithm
+isv = bob.bio.gmm.config.algorithm.isv:algorithm
+ivector = bob.bio.gmm.config.algorithm.ivector:algorithm
+jfa = bob.bio.gmm.config.algorithm.jfa:algorithm
+
+[bob.bio.database]
+
+
+[bob.bio.extractor]
+dummy2d = bob.bio.gmm.test.dummy.extractor:extractor
+
+[bob.bio.preprocessor]
+
+
+[console_scripts]
+verify_gmm.py = bob.bio.gmm.script.verify_gmm:main
+verify_isv.py = bob.bio.gmm.script.verify_isv:main
+verify_ivector.py = bob.bio.gmm.script.verify_ivector:main
+
