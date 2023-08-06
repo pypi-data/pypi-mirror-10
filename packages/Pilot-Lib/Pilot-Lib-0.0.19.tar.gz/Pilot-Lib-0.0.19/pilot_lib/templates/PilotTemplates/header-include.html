@@ -1,0 +1,30 @@
+
+{% import "PilotTemplates/macros/base.html" as m with context %}
+
+{%- assets "pilot_css" %}
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"></script>
+{% endassets -%}
+
+{%- assets "pilot_js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets -%}
+
+{# ---- Google Analytics ---------------------------------------------------- #}
+{#::  Google Analytics ::#}
+{%- if __.pilot["PILOT_GOOGLE_ANALYTICS_ID"] %}
+    {{ m.google_analytics(__.pilot["PILOT_GOOGLE_ANALYTICS_ID"]) }}
+{% endif -%}
+
+<script>
+$(function(){
+    Pilot.basic_login()
+
+{#:: Social Login ::#}
+{%- if "login_oauth_credentials" in __.pilot
+        and "client_ids" in __.pilot["login_oauth_credentials"] %}
+    var _s_r = "{{url_for('Login:login')}}"
+    Pilot.oauth_login({{ __.pilot["login_oauth_credentials"]["client_ids"] | tojson | safe }}, _s_r);
+{% endif -%}
+})
+
+</script>
