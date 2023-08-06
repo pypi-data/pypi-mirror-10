@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.py
+zoocli.conf.example
+scripts/zoocli
+zoocli/__init__.py
+zoocli/args.py
+zoocli/commands.py
+zoocli/completer.py
+zoocli/core.py
+zoocli/exceptions.py
+zoocli/utils.py
+zoocli/zookeeper.py
+zoocli.egg-info/PKG-INFO
+zoocli.egg-info/SOURCES.txt
+zoocli.egg-info/dependency_links.txt
+zoocli.egg-info/requires.txt
+zoocli.egg-info/top_level.txt
