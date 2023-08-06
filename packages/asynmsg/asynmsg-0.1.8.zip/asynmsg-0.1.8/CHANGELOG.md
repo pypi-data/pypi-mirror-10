@@ -1,0 +1,38 @@
+# Changelog
+
+## 0.1.8
+PY3: binary_type from bytes to bytearray
+
+## 0.1.7
++ Server.get_sessions Server.get_ready_sessions Client.get_ready_session
+
+## 0.1.6
++ check_session_open,on_session_opened,on_session_closing,on_session_closed
++ Session.get_manage_owner
+
+## 0.1.5
+do not register message handler with duplicate id
+fix all classes use the same message map bug
+
+## 0.1.4
+trivial: modify client in example - remove timeout when construct Client
+
+## 0.1.3
+
+Session.force_close add force_wait_timeout param
+add Client.get_session & ClientBlockConnect.get_session
+fix Session.handle_write assert error after Session.handle_read get close error
+
+## 0.1.2
+
+fix README.rst format.
+
+## 0.1.1
+
+fix README.rst format.
+
+## 0.1.0
+
+Initial release.
+
+
