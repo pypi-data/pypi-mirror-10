@@ -1,0 +1,17 @@
+setup.py
+bin/bwa
+bin/map_bwa.py
+bin/qualfa2fq.pl
+bin/sai_to_bam
+bin/xa2multi.pl
+bwa/__init__.py
+bwa/_version.py
+bwa/bwa.py
+bwa/bwa_mem.py
+bwa/install.py
+bwa/seqio.py
+pyBWA.egg-info/PKG-INFO
+pyBWA.egg-info/SOURCES.txt
+pyBWA.egg-info/dependency_links.txt
+pyBWA.egg-info/requires.txt
+pyBWA.egg-info/top_level.txt
