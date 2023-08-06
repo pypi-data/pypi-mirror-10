@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# FILE:        ec2list
+# DESCRIPTION: List all EC2 instances with public IP/DNS
+# AUTHOR:      Amber Jain
+# EMAIL:       i.amber.jain {at} gmail
+
+set -e
+
+SELF_NAME=$(basename $0)
+
+help(){
+  cat<<EOF
+Usage:
+  $SELF_NAME [options]
+Options:
+  -a List all EC2 instances (either in "running" or "stopped" state)
+  -h Print help message
+EOF
+exit 0
+}
+
+while getopts "ah" opt; do
+  case $opt in
+    a)
+      LIST_ALL=1 ;;
+    h)
+      help ;;
+    \?)
+      help
+      exit 1
+      ;;
+  esac
+done
+
+echo "Output format: (InstanceState, InstanceName, AdminKeypair)"
+if [[ -z "$LIST_ALL" ]] ; then
+  aws ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,Tags[?Key==`Name`] | [0].Value,KeyName]' --output table --filters Name=instance-state-name,Values=running
+else
+  aws ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,Tags[?Key==`Name`] | [0].Value,KeyName]' --output table
+fi
+
+exit 0
