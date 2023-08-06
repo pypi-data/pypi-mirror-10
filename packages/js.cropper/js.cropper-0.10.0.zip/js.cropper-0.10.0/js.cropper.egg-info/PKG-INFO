@@ -1,0 +1,44 @@
+Metadata-Version: 1.0
+Name: js.cropper
+Version: 0.10.0
+Summary: Fanstatic packaging of Cropper
+Home-page: UNKNOWN
+Author: Fanstatic Developers
+Author-email: fanstatic@googlegroups.com
+License: BSD
+Description: js.cropper
+        **********
+        
+        Introduction
+        ============
+        
+        This library packages `Cropper`_ for `fanstatic`_.
+        
+        .. _`fanstatic`: http://fanstatic.org
+        .. _`Cropper`: http://fengyuanchen.github.io/cropper
+        
+        This requires integration between your web framework and ``fanstatic``,
+        and making sure that the original resources (shipped in the ``resources``
+        directory in ``js.cropper``) are published to some URL.
+        
+        
+        How to use?
+        ===========
+        
+        
+        You can import ``cropper`` from ``js.cropper`` and ``need`` it where you want
+        these resources to be included on a page::
+        
+          >>> from js.cropper import cropper
+          >>> cropper.need()
+        
+        
+        CHANGES
+        *******
+        
+        0.10.0 (2015-06-25)
+        ===================
+        
+        - Initial release.
+        
+Platform: UNKNOWN
