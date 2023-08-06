@@ -1,0 +1,61 @@
+#download_link {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    min-height: 100px;
+}
+
+/*
+@font-face {
+    font-family: "open_sansregular";
+    src: url('/static/OpenSans-Regular-webfont.woff');
+}
+*/
+
+body {
+    font-family: 'open_sansregular';
+}
+
+#tags {
+    margin: 0px;
+    padding: 0px;
+}
+
+#tags .label {
+    display: inline-block;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+header {
+    font-weight: bold;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 5px;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color: #428BCA;
+    color: #FFFFFF;
+}
+
+.spacer {
+    margin-top: 10px;
+}
+
+table#list_packages tbody > tr:hover {
+    cursor: pointer;
+}
+
+#nav-btn {
+    margin-bottom: 10px;
+}
+
+.form-signin  {
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropdown, .dropdown-menu li {
+    cursor: pointer;
+}

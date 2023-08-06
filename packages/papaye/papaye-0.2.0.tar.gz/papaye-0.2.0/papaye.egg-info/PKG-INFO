@@ -1,0 +1,112 @@
+Metadata-Version: 1.1
+Name: papaye
+Version: 0.2.0
+Summary: Yet another Python Package repository (local PyPI)
+Home-page: https://github.com/rcommande/papaye
+Author: Romain Commandé
+Author-email: commande.romain@gmail.com
+License: UNKNOWN
+Description: .. image:: https://travis-ci.org/rcommande/papaye.png?branch=master
+            :target: https://travis-ci.org/rcommande/papaye
+        
+        Papaye
+        ======
+        Yet another Python Package Repository (local PyPI) written with the `Pyramid Web Framework`_, using `ZODB`_ and `Beaker Cache`_.
+        
+        Getting Started
+        ---------------
+        
+        ::
+        
+            cd <directory containing this file>
+            $venv/bin/pip install -e .
+            $venv/bin/papaye_init development.ini  # Use production.ini in production
+            $venv/bin/pserve development.ini  # Use production.ini in production
+        
+        
+        Migrate the application from an older version
+        ---------------------------------------------
+        
+        ::
+        
+            papaye_evolve you_configuration_file.ini
+        
+        Configuration
+        -------------
+        
+        Papaye variables
+        ################
+        
+        .. list-table:: Papaye variables
+           :header-rows: 1
+           :stub-columns: 1
+        
+           * - Parameter
+             - Type
+             - Description
+           * - papaye.proxy
+             - true / false
+             - Enable proxy from PyPI server functionality
+           * - papaye.anonymous_install
+             - true / false
+             - Allow anonymous user to install packages
+           * - papaye.cache
+             - true / false
+             - Enable Papaye cache functionality
+           * - papaye.scheduler
+             - Python module
+             - Set the Papaye scheduler
+           * - papaye.scheduler.workers
+             - Integer
+             - Set worker concurency value
+        
+        
+        .. _ZODB: https://pypi.python.org/pypi/ZODB
+        .. _Pyramid Web Framework: http://www.pylonsproject.org
+        .. _Beaker Cache: http://beaker.readthedocs.org
+        
+        
+        Changelist
+        ----------
+        
+        0.2.0
+        #####
+        
+        - Package browse UI
+        - Fix relative path on zodbconn.uri (#3)
+        - Fix package name with spaces
+        - Fix multiple bugs with the database tree
+        - New task scheduler
+        - Add database migration system based on repoze.evolution
+        
+        0.1.2
+        #####
+        
+        - Fixed download async tasks
+        
+        0.1.1
+        #####
+        
+        - Added templates to Papaye package
+        
+        0.1
+        ###
+        
+        Initial version
+        
+        - Works with PIP
+        - Proxify PyPi repository
+        - Cache PyPi repository
+        - Package uploading
+        - Anonymous / private repository
+        - Async tasks
+        - Works with Python 3.2 / 3.3 / 3.4
+        
+Keywords: web wsgi bfg pylons pyramid
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Framework :: Pyramid
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
