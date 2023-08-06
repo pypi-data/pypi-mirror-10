@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: pymaybe
+Version: 0.1.0
+Summary: A Python implementation of the Maybe pattern.
+Home-page: https://github.com/ekampf/pymaybe
+Author: Eran Kampf
+Author-email: eran@ekampf.com
+License: BSD
+Description: ===============================
+        PyMaybe
+        ===============================
+        
+        .. image:: https://img.shields.io/travis/ekampf/pymaybe.svg
+                :target: https://travis-ci.org/ekampf/pymaybe
+        
+        .. image:: https://img.shields.io/pypi/v/pymaybe.svg
+                :target: https://pypi.python.org/pypi/pymaybe
+        
+        
+        A Python implementation of the Maybe pattern.
+        
+        * Free software: BSD license
+        * Documentation: https://pymaybe.readthedocs.org.
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-01-11)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: pymaybe
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
