@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog name="${organisation} Thredds Catalog"
+         xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+    <service name="all" serviceType="Compound" base="" >
+        <service name="http" serviceType="HTTPServer" base="/thredds/fileServer/" />
+        <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/" />
+        % if allow_wcs == 'true':
+        <service name="wcs" serviceType="WCS" base="/thredds/wcs/" />
+        % endif
+        % if allow_wms == 'true':
+        <service name="wms" serviceType="WMS" base="/thredds/wms/" />
+        % endif
+        % if allow_nciso == 'true':
+        <service name="ncml" serviceType="NCML" base="/thredds/ncml/" />
+        <service name="uddc" serviceType="UDDC" base="/thredds/uddc/" />
+        <service name="iso" serviceType="ISO" base="/thredds/iso/" />
+        % endif
+    </service>
+    
+    <datasetScan name="Birdhouse" ID="birdhouse" path="birdhouse" location="${data_root}">
+
+      <metadata inherited="true">
+        <serviceName>all</serviceName>
+      </metadata>
+
+      <filter>
+        <include wildcard="*.nc" />
+      </filter>
+
+    </datasetScan>
+
+</catalog>

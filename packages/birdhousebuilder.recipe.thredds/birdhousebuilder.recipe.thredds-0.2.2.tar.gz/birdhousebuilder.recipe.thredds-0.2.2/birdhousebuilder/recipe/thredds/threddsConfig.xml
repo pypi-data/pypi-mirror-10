@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<threddsConfig>
+  <serverInformation>
+    <name>${organisation} Thredds Data Server</name>
+    <logoUrl>/thredds/threddsIcon.gif</logoUrl>
+    <logoAltText>TDS</logoAltText>
+
+    <abstract>Scientific Climate Data</abstract>
+    <keywords>meteorology, atmosphere, climate, ocean, earth science, birdhouse</keywords>
+
+    <contact>
+      <name>Support</name>
+      <organization>${organisation}</organization>
+      <email></email>
+      <phone></phone>
+    </contact>
+
+    <hostInstitution>
+      <name>${organisation}</name>
+      <webSite>${website}</webSite>
+      <logoUrl></logoUrl>
+      <logoAltText>${organisation}</logoAltText>
+    </hostInstitution>
+  </serverInformation>
+
+  <CatalogServices>
+    <allowRemote>true</allowRemote>
+  </CatalogServices>
+
+  <WMS>
+    <allow>${allow_wms}</allow>
+    <allowRemote>false</allowRemote>
+    <allowFeatureInfo>true</allowFeatureInfo>
+    <maxImageWidth>5000</maxImageWidth>
+    <maxImageHeight>5000</maxImageHeight>
+  </WMS>
+
+  <WCS>
+    <allow>${allow_wcs}</allow>
+    <allowRemote>false</allowRemote>
+    <scour>15 min</scour>
+    <maxAge>30 min</maxAge>
+  </WCS>
+
+  <NCISO>
+    <ncmlAllow>${allow_nciso}</ncmlAllow>
+    <uddcAllow>${allow_nciso}</uddcAllow>
+    <isoAllow>${allow_nciso}</isoAllow>
+  </NCISO>
+  
+</threddsConfig>
