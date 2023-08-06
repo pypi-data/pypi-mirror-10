@@ -1,0 +1,10 @@
+README.rst
+setup.py
+git_hooks.egg-info/PKG-INFO
+git_hooks.egg-info/SOURCES.txt
+git_hooks.egg-info/dependency_links.txt
+git_hooks.egg-info/entry_points.txt
+git_hooks.egg-info/top_level.txt
+githooks/__init__.py
+githooks/hooks/node/post-merge
+githooks/hooks/node/pre-commit
