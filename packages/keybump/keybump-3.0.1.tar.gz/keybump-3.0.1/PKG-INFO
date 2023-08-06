@@ -1,0 +1,38 @@
+Metadata-Version: 1.1
+Name: keybump
+Version: 3.0.1
+Summary: manage your versioning like a boss .
+Home-page: http://github.com/gregorynicholas/keybump
+Author: gregorynicholas
+Author-email: gn@gregorynicholas.com
+License: MIT
+Description: 
+          keybump
+          ~~~~~~~
+        
+          manage your versioning like a boss .
+        
+          - keybump is an opinionated command-line app to manage versioning workflow + dist + releasing.
+          - keybump makes following the semantic versioning specification (http://semver.org) a breeze.
+          - keybump helps to automate the tedious task of summarizing changes from one version to the next by intelligently parsing the commit messages.
+        
+        
+          links
+          -----
+        
+        * [source](http://github.com/gregorynicholas/keybump)
+        * [github docs](http://gregorynicholas.github.io/keybump)
+        * [python package](http://packages.python.org/keybump)
+        * [semantic versioning specification](http://semver.org)
+        * [travis-ci](http://travis-ci.org/gregorynicholas/keybump)
+        
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
