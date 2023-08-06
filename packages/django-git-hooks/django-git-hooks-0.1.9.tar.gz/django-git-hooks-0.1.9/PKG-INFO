@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: django-git-hooks
+Version: 0.1.9
+Summary: Небольшое приложение, для простого git pull репозитория из корня проекта при GET запросе по урлу.
+Home-page: https://github.com/snznaota/django-git-hooks.git
+Author: Dezu
+Author-email: zhukovvitaliy@mail.ru
+License: MIT License
+Description: # Простое приложение для выполнения команды git pull
+        
+        ## Для использования просто добавьте в файл url.py
+          urlpatterns = patterns('',
+          *** url(r'^git/', include('git_hooks.urls')), ***
+          )
+        ## Далее добавьте в Вашем репозитории Hook - для отправки запроса при push-е 
+            
+         ** http://example.com/git/pull/ **
+            
+Keywords: django,git,pull
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Requires: django (>= 1.3)
