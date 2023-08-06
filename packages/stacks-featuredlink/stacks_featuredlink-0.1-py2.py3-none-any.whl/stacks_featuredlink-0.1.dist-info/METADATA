@@ -1,0 +1,53 @@
+Metadata-Version: 2.0
+Name: stacks-featuredlink
+Version: 0.1
+Summary: A Stacks apps for featuring links to external content.
+Home-page: http://stacks.wgbhdigital.org/
+Author: Jonathan Ellenberger
+Author-email: jonathan_ellenberger@wgbh.org
+License: MIT License, see LICENSE
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.7
+Classifier: Framework :: Django :: 1.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Development Status :: 3 - Alpha
+Requires-Dist: django-versatileimagefield (>=1.0.2)
+Requires-Dist: django-textplusstuff (>=0.4)
+Requires-Dist: stacks-page (==0.1)
+
+# stacks-featuredlink
+
+A Stacks apps for featuring links to external content.
+
+## Dependencies
+
+* `django-textplusstuff` >= 0.4
+* `django-versatileimagefield` >= 1.0.2
+* `stacks-page` >= 0.1
+
+## Running Tests
+
+All commands below are run from within the `stacks-featuredlink` outer folder of this repo.
+
+First create a new virtual environment and install the test requirements:
+
+    $ pip install -r test_requirements.txt
+
+Before running tests, first ensure this app passes a `flake8` linter check:
+
+    $ flake8 stacks_featuredlink
+
+Run the test suite with this command:
+
+    $ coverage run --source=stacks_textblock runtests.py
+
+See test coverage with this command:
+
+    $ coverage report -m
+
+
