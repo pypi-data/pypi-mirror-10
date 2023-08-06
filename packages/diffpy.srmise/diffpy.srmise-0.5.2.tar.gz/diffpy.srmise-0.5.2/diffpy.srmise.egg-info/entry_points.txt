@@ -1,0 +1,4 @@
+[console_scripts]
+srmiseplot = diffpy.srmise.applications.plot:main
+srmise = diffpy.srmise.applications.extract:main
+
