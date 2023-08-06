@@ -1,0 +1,64 @@
+Metadata-Version: 1.1
+Name: collective.contact.duplicated
+Version: 0.1
+Summary: Tools to manage duplicated contacts
+Home-page: http://pypi.python.org/pypi/collective.contact.duplicated
+Author: Thomas Desvenain
+Author-email: thomas.desvenain@gmail.com
+License: GPL
+Description: =============================
+        collective.contact.duplicated
+        =============================
+        
+        This add-on is part of the ``collective.contact.*`` suite. For an overview and a demo of these suite, see `collective.contact.demo <https://github.com/collective/collective.contact.demo>`__.
+        
+        Add a view to manage contact duplications.
+        
+        Install
+        =======
+        
+        For the moment, this needs collective.contact.faceted with batch actions allowed.
+        Select two (or more) contacts (organization, held_position, person, etc) and click
+        on "Merge duplicated" button.
+        
+        Tests
+        =====
+        
+        .. image:: https://secure.travis-ci.org/collective/collective.contact.duplicated.png
+            :target: http://travis-ci.org/collective/collective.contact.duplicated
+        
+        .. image:: https://coveralls.io/repos/collective/collective.contact.duplicated/badge.png?branch=master
+            :target: https://coveralls.io/r/collective/collective.contact.duplicated?branch=master
+        
+        Extend
+        ======
+        
+        Adapters of field objects that implements IFieldRenderer interface
+        renders the content of a field on the compare screen.
+        Create a new adapter if you have specific fields.
+        
+        
+        Contributors
+        ============
+        
+        - Thomas Desvenain, thomas.desvenain@gmail.com
+        - Eric Brehault, ebrehault@gmail.com
+        Changelog
+        =========
+        
+        
+        0.1 (2015-06-02)
+        ----------------
+        
+        - Initial release.
+          [tdesvenain]
+        
+        
+        
+Keywords: contacts
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
