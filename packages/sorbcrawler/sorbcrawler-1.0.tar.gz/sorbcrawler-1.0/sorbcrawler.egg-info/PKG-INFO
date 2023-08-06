@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: sorbcrawler
+Version: 1.0
+Summary: Crawls through sorb forum threads, and returns the top 10 posters and their post count
+Home-page: https://github.com/sid-eload/sorb-crawler
+Author: sid-eload
+Author-email: sideload3695@gmail.com
+License: N/A
+Description: # sorb-crawler
+        A simple python script which returns the top 10 posters in a SORB Forum thread and their post count.
+        
+        ## Requirements ##
+        * beautifulSoup4
+        * requests
+        * python2 only
+        
+        ## Installation ##
+        ``sudo python setup.py install``
+        [Make sure you are using python2]
+        
+        ## Usage ##
+        ``sorb-crawler``
+        [Takes URL as input]
+Keywords: sorb thread count post
+Platform: UNKNOWN
