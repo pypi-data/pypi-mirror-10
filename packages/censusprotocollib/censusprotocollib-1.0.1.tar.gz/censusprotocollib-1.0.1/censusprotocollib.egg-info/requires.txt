@@ -1,0 +1,11 @@
+pybitcointools
+requests
+uuid
+ecdsa
+crypto
+
+[test]
+coverage
+
+[dev]
+check-manifest
