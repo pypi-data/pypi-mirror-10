@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: docker-events
+Version: 0.0.2
+Summary: A Python client for docker events API.
+Home-page: https://github.com/diefans/docker-events
+Author: Oliver Berger
+Author-email: diefans@gmail.com
+License: Apache License Version 2.0
+Keywords: docker events API
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: docker-py
+Requires-Dist: requests (>2.1.0)
+Requires-Dist: click
+Requires-Dist: python-etcd
+Requires-Dist: simplejson
+
+UNKNOWN
+
+
