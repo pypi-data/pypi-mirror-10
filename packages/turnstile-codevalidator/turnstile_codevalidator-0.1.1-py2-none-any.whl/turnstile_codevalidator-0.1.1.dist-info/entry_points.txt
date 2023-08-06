@@ -1,0 +1,6 @@
+[turnstile.commands]
+codevalidator = turnstile_codevalidator.command
+
+[turnstile.pre_commit]
+codevalidator = turnstile_codevalidator.check
+
