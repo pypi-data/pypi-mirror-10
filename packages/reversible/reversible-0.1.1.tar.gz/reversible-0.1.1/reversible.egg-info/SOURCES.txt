@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tox.ini
+reversible/__init__.py
+reversible/core.py
+reversible/generator.py
+reversible.egg-info/PKG-INFO
+reversible.egg-info/SOURCES.txt
+reversible.egg-info/dependency_links.txt
+reversible.egg-info/pbr.json
+reversible.egg-info/top_level.txt
+tests/test_core.py
+tests/test_generator.py
