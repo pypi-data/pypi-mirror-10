@@ -1,0 +1,10 @@
+matplotlib
+numpy
+
+[dev]
+check-manifest
+nose
+
+[test]
+coverage
+nose
