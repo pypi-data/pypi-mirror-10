@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.io.extras.TbvNetworkInterface &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.io.extras" href="expyriment.io.extras.html" />
+    <link rel="next" title="expyriment.io.extras.TcpClient" href="expyriment.io.extras.TcpClient.html" />
+    <link rel="prev" title="expyriment.io.extras.SimpleParallelPort" href="expyriment.io.extras.SimpleParallelPort.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.TcpClient.html" title="expyriment.io.extras.TcpClient"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.SimpleParallelPort.html" title="expyriment.io.extras.SimpleParallelPort"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.io.extras.html" accesskey="U">expyriment.io.extras</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-io-extras-tbvnetworkinterface">
+<h1>expyriment.io.extras.TbvNetworkInterface<a class="headerlink" href="#expyriment-io-extras-tbvnetworkinterface" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.io.extras.TbvNetworkInterface">
+<em class="property">class </em><code class="descclassname">expyriment.io.extras.</code><code class="descname">TbvNetworkInterface</code><span class="sig-paren">(</span><em>host</em>, <em>port</em>, <em>timeout=None</em>, <em>connect=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a network interface to Turbo Brain Voyager.</p>
+<p>See <a class="reference external" href="http://www.brainvoyager.com/products/turbobrainvoyager.html">http://www.brainvoyager.com/products/turbobrainvoyager.html</a>
+for more information.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>host</em>, <em>port</em>, <em>timeout=None</em>, <em>connect=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a TbvNetworkInterface.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the connection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to the TBV server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_all_coords_of_voxels_of_roi">
+<code class="descname">get_all_coords_of_voxels_of_roi</code><span class="sig-paren">(</span><em>roi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_all_coords_of_voxels_of_roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_all_coords_of_voxels_of_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get coordinates for all voxels for a ROI.</p>
+<dl class="docutils">
+<dt>roi <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The ROI.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_beta_maps">
+<code class="descname">get_beta_maps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_beta_maps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_beta_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the beta maps.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_beta_of_roi">
+<code class="descname">get_beta_of_roi</code><span class="sig-paren">(</span><em>roi</em>, <em>beta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_beta_of_roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_beta_of_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a beta of a ROI.</p>
+<dl class="docutils">
+<dt>roi <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The ROI.</dd>
+<dt>beta <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The beta.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_beta_of_voxel">
+<code class="descname">get_beta_of_voxel</code><span class="sig-paren">(</span><em>beta</em>, <em>coords</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_beta_of_voxel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_beta_of_voxel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific beta value of a voxel.</p>
+<dl class="docutils">
+<dt>beta <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The beta.</dd>
+<dt>coords <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>The coordinates of the voxel.
+[x, y, z]</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_contrast_maps">
+<code class="descname">get_contrast_maps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_contrast_maps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_contrast_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the contrast maps.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_coord_of_voxel_of_roi">
+<code class="descname">get_coord_of_voxel_of_roi</code><span class="sig-paren">(</span><em>roi</em>, <em>voxel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_coord_of_voxel_of_roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_coord_of_voxel_of_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the coordinates of a voxel of a ROI.</p>
+<dl class="docutils">
+<dt>roi <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The ROI.</dd>
+<dt>voxel <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The voxel.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_current_classifier_output">
+<code class="descname">get_current_classifier_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_current_classifier_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_current_classifier_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current classifier output.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_current_nr_of_predictors">
+<code class="descname">get_current_nr_of_predictors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_current_nr_of_predictors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_current_nr_of_predictors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of predictors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_current_protocol_condition">
+<code class="descname">get_current_protocol_condition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_current_protocol_condition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_current_protocol_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current protocol condition.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_current_time_point">
+<code class="descname">get_current_time_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_current_time_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_current_time_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current time point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_dims_of_functional_data">
+<code class="descname">get_dims_of_functional_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_dims_of_functional_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_dims_of_functional_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dimensions of the functional data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_existing_means_of_roi">
+<code class="descname">get_existing_means_of_roi</code><span class="sig-paren">(</span><em>roi</em>, <em>to_time_point</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_existing_means_of_roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_existing_means_of_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the existing means of a ROI.</p>
+<dl class="docutils">
+<dt>roi <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The ROI.</dd>
+<dt>to_time_point <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>Get all the means up to this point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_expected_nr_of_time_points">
+<code class="descname">get_expected_nr_of_time_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_expected_nr_of_time_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_expected_nr_of_time_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the expected number of time points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_feedback_folder">
+<code class="descname">get_feedback_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_feedback_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_feedback_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the feedback folder.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_full_nr_of_predictors">
+<code class="descname">get_full_nr_of_predictors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_full_nr_of_predictors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_full_nr_of_predictors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the full number of predictors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_map_value_of_voxel">
+<code class="descname">get_map_value_of_voxel</code><span class="sig-paren">(</span><em>map</em>, <em>coords</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_map_value_of_voxel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_map_value_of_voxel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific map value of a voxel.</p>
+<dl class="docutils">
+<dt>map <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The map.</dd>
+<dt>coords <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>The coordinates of the voxel.
+[x, y, z]</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_mean_of_roi">
+<code class="descname">get_mean_of_roi</code><span class="sig-paren">(</span><em>roi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_mean_of_roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_mean_of_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the mean of a ROI.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_mean_of_roi_at_time_point">
+<code class="descname">get_mean_of_roi_at_time_point</code><span class="sig-paren">(</span><em>roi</em>, <em>time_point</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_mean_of_roi_at_time_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_mean_of_roi_at_time_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the mean of a ROI at a time point.</p>
+<dl class="docutils">
+<dt>roi <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The ROI.</dd>
+<dt>time_point <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The time point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_nr_of_confound_predictors">
+<code class="descname">get_nr_of_confound_predictors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_nr_of_confound_predictors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_nr_of_confound_predictors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of confound predictors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_nr_of_contrasts">
+<code class="descname">get_nr_of_contrasts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_nr_of_contrasts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_nr_of_contrasts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of contrasts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_nr_of_rois">
+<code class="descname">get_nr_of_rois</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_nr_of_rois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_nr_of_rois" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of ROIs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_nr_of_voxels_of_roi">
+<code class="descname">get_nr_of_voxels_of_roi</code><span class="sig-paren">(</span><em>roi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_nr_of_voxels_of_roi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_nr_of_voxels_of_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of voxels of a ROI.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_number_of_classes">
+<code class="descname">get_number_of_classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_number_of_classes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_number_of_classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of classes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_project_name">
+<code class="descname">get_project_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_project_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_project_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the project name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_raw_value_of_all_voxels_at_time">
+<code class="descname">get_raw_value_of_all_voxels_at_time</code><span class="sig-paren">(</span><em>time_point</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_raw_value_of_all_voxels_at_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_raw_value_of_all_voxels_at_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the raw value of all voxels at a certain time point.</p>
+<dl class="docutils">
+<dt>time_point <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The time point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_target_folder">
+<code class="descname">get_target_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_target_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_target_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the target folder.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_value_of_all_voxels_at_time">
+<code class="descname">get_value_of_all_voxels_at_time</code><span class="sig-paren">(</span><em>time_point</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_value_of_all_voxels_at_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_value_of_all_voxels_at_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of all voxels at a certain time point.</p>
+<dl class="docutils">
+<dt>time_point <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The time point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_value_of_design_matrix">
+<code class="descname">get_value_of_design_matrix</code><span class="sig-paren">(</span><em>pred</em>, <em>time_point</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_value_of_design_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_value_of_design_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the design matrix.</p>
+<dl class="docutils">
+<dt>pred <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The predictor.</dd>
+<dt>time_point <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The time point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_value_of_voxel_at_time">
+<code class="descname">get_value_of_voxel_at_time</code><span class="sig-paren">(</span><em>coords</em>, <em>time_point</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_value_of_voxel_at_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_value_of_voxel_at_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a voxel at a certain time point.</p>
+<dl class="docutils">
+<dt>coords <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>The coordinates of the voxel.
+[x, y, z]</dd>
+<dt>time_point <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The time point.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.get_watch_folder">
+<code class="descname">get_watch_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.get_watch_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.get_watch_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the watch folder.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.TbvNetworkInterface.host">
+<code class="descname">host</code><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.TbvNetworkInterface.is_connected">
+<code class="descname">is_connected</code><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.is_connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for is_connected.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.TbvNetworkInterface.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.TbvNetworkInterface.port">
+<code class="descname">port</code><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for port.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.request_data">
+<code class="descname">request_data</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_tbvnetworkinterface.html#TbvNetworkInterface.request_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.request_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request data from Turbo Brain Voyager.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.TbvNetworkInterface.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.TbvNetworkInterface.tbv_plugin_version">
+<code class="descname">tbv_plugin_version</code><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.tbv_plugin_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for tbv_plugin_version.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.TbvNetworkInterface.timeout">
+<code class="descname">timeout</code><a class="headerlink" href="#expyriment.io.extras.TbvNetworkInterface.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for timeout.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.TcpClient.html" title="expyriment.io.extras.TcpClient"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.SimpleParallelPort.html" title="expyriment.io.extras.SimpleParallelPort"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.io.extras.html" >expyriment.io.extras</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

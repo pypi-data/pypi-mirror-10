@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.control.defaults &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.control" href="expyriment.control.html" />
+    <link rel="next" title="expyriment.control.CallbackQuitEvent" href="expyriment.control.CallbackQuitEvent.html" />
+    <link rel="prev" title="expyriment.control" href="expyriment.control.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.control.CallbackQuitEvent.html" title="expyriment.control.CallbackQuitEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.control.html" title="expyriment.control"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.control.html" accesskey="U">expyriment.control</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-expyriment.control.defaults">
+<span id="expyriment-control-defaults"></span><h1>expyriment.control.defaults<a class="headerlink" href="#module-expyriment.control.defaults" title="Permalink to this headline">¶</a></h1>
+<p>Default settings for the control package.</p>
+<div class="highlight-python"><div class="highlight"><pre>audiosystem_autostart : bool
+    start the audiosystem when Expyriment is initialized
+    
+audiosystem_bit_depth : int
+    the audio bit depth; negative values mean signed sample values
+    
+audiosystem_buffer_size: int
+    the audio buffer size in samples
+    
+audiosystem_channels : int
+    the number of audio channels
+    
+audiosystem_sample_rate : int
+    the audio sample rate
+    
+auto_create_subject_id : bool
+    create a subject id automatically when starting an experiment
+    
+event_logging : int or bool
+    O/False = no event logging
+    1       = normal event logging (logging of all input &amp; output events)
+    2       = intensive logging; logs much more; use only for debugging
+              purposes
+    
+    NOTES
+    =====
+    In most cases, it should be avoided to switch of logging (loglevel=0).
+    If log files become to big due to certain repetitive events, it is
+    suggested to switch of the logging of individual stimuli or IO event
+    (see the method .set_logging() of this object).
+    The logging of all events can also be changed via
+    expyriment.design.Experiment().set_logging.
+    
+fast_quit : bool
+    quit immediately without showing a goodbye message
+    
+goodbye_delay : int
+    duration (in milliseconds) to show the goodbye text
+    
+goodbye_text : str
+    the text to be shown when ending an experiment
+    
+initialize_delay : int
+    a delay (in seconds) to wait before running an experiment to give
+    Python time to start properly
+    
+    NOTES
+    =====
+    Python needs about 10 seconds to start up properly. Before that,
+    timing accuracy can be worse.
+    
+open_gl : int or bool
+    0/False = no OpenGL (no vsync / no blocking)
+    1       = OpenGL (vsync / no blocking)
+    2       = OpenGL (vsync / blocking)
+    3       = OpenGL (vsync / alternative blocking)
+    
+    NOTES
+    =====
+    no OpenGL (no vsync / no blocking)
+    ----------------------------------
+    * Short preloading times
+        Pygame is used to write directly to the display
+    * Unsynchronized display updating
+        Pixels are starting to change at wherever the vertical retrace is
+        at the moment of presentation
+    
+    This mode can be useful for dynamic displays, where an accurate
+    stimulus timing is not required, but rather very fast display changes
+    have high priority and stimuli have to be created and on the fly (e.g.
+    questionnairs, video game-like scenarios).
+    
+    OpenGL (vsync / no blocking)
+    ----------------------------
+    * Longer preloading times
+        OpenGL is used to write to the display and a conversion to an
+        OpenGL texture is needed
+    * Synchronized display updating
+        Pixels are starting to change always when the vertical retrace is
+        at the left top corner
+    * Innaccurate presentation time reporting
+        Exact time of pixels changing on screen is not known
+        
+    This mode can be useful for dynamic displays, where an accurate
+    stimulus timing is not required, but rather fast and fluid (e.g.
+    non-tearing) display changes have high priority and preloaded stimuli
+    can be used (e.g. well-controlled motion stimuli).
+
+    OpenGL (vsync / blocking)
+    -------------------------
+    * Longer preloading times
+        OpenGL is used to write to the display and a conversion to an
+        OpenGL texture is needed
+    * Synchronized display updating
+        Pixels are starting to change always when the vertical retrace is
+        at the left top corner
+    * Accurate presentation time reporting
+        present() method will only return when all drawing has been
+        finished
+
+    This can be useful for static stimulus presentation, where getting an
+    accurate  presentation time report is of highest priority. Since this
+    will be the case for most psychological and neuroscientific settings,
+    it is the default mode used by Expyriment.
+
+    OpenGL (vsync / alternative blocking)
+    -------------------------------------
+    * Longer preloading times
+        OpenGL is used to write to the display and a conversion to an
+        OpenGL texture is needed
+    * Synchronized display updating
+        Pixels are starting to change always when the vertical retrace is
+        at the left top corner
+    * Accurate presentation time reporting (alternative method)
+        present() method will only return when all drawing has been
+        finished and the then empty back buffer is available for drawing
+        on it again
+
+    This can be useful for static stimulus presentation, where getting an
+    accurate presentation time report is of highest priority and the
+    former mode does not work correctly (due to different video card
+    driver implementations).
+    
+pause_key : int
+    the key to be used for pausing an experiment
+    
+quit_key : int
+    the key to be used for ending an experiment
+    
+refresh_key : int
+    the key to be used for refreshing the screen
+    
+stdout_logging: bool
+    log errors and warnings which go to the standard output (terminal
+    window)
+    
+window_mode : bool
+    run experiment in window instead of fullscreen
+    
+window_size : (int, int)
+    the size of the window when running in window mode
+</pre></div>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.audiosystem_autostart">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">audiosystem_autostart</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.audiosystem_autostart" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: True</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.audiosystem_bit_depth">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">audiosystem_bit_depth</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.audiosystem_bit_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: -16</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.audiosystem_buffer_size">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">audiosystem_buffer_size</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.audiosystem_buffer_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 2048</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.audiosystem_channels">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">audiosystem_channels</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.audiosystem_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 2</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.audiosystem_sample_rate">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">audiosystem_sample_rate</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.audiosystem_sample_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 44100</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.auto_create_subject_id">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">auto_create_subject_id</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.auto_create_subject_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: False</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.event_logging">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">event_logging</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.event_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 1</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.fast_quit">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">fast_quit</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.fast_quit" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: False</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.goodbye_delay">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">goodbye_delay</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.goodbye_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 3000</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.goodbye_text">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">goodbye_text</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.goodbye_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: &#8216;Ending experiment...&#8217;</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.initialize_delay">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">initialize_delay</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.initialize_delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 10</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.open_gl">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">open_gl</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.open_gl" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 2</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.pause_key">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">pause_key</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.pause_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: None</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.quit_key">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">quit_key</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.quit_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: 27</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.refresh_key">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">refresh_key</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.refresh_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: None</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.stdout_logging">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">stdout_logging</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.stdout_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: True</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.window_mode">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">window_mode</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.window_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: False</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="expyriment.control.defaults.expyriment.control.defaults.window_size">
+<code class="descclassname">expyriment.control.defaults.</code><code class="descname">window_size</code><a class="headerlink" href="#expyriment.control.defaults.expyriment.control.defaults.window_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value: (800, 600)</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.control.CallbackQuitEvent.html" title="expyriment.control.CallbackQuitEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.control.html" title="expyriment.control"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.control.html" >expyriment.control</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

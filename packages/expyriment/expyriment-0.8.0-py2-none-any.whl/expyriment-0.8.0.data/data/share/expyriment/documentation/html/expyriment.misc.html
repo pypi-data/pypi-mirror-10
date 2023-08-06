@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.misc &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment" href="expyriment.html" />
+    <link rel="next" title="expyriment.misc.constants" href="expyriment.misc.constants.html" />
+    <link rel="prev" title="expyriment.io.TriggerInput" href="expyriment.io.TriggerInput.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.misc.constants.html" title="expyriment.misc.constants"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TriggerInput.html" title="expyriment.io.TriggerInput"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" accesskey="U">expyriment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-expyriment.misc">
+<span id="expyriment-misc"></span><h1>expyriment.misc<a class="headerlink" href="#module-expyriment.misc" title="Permalink to this headline">¶</a></h1>
+<p>The misc package.</p>
+<p>This package contains miscellaneous classes, modules and functions.</p>
+<p>See also expyriment.misc.extras for more misc.</p>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.constants.html">expyriment.misc.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.data_preprocessing.html">expyriment.misc.data_preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.defaults.html">expyriment.misc.defaults</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.extras.html">expyriment.misc.extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.geometry.html">expyriment.misc.geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.statistics.html">expyriment.misc.statistics</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.Buffer.html">expyriment.misc.Buffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.ByteBuffer.html">expyriment.misc.ByteBuffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.Clock.html">expyriment.misc.Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.misc.HSVColour.html">expyriment.misc.HSVColour</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="expyriment.misc.add_fonts">
+<code class="descclassname">expyriment.misc.</code><code class="descname">add_fonts</code><span class="sig-paren">(</span><em>folder</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#add_fonts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.add_fonts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add fonts to Expyriment.</p>
+<p>All truetype fonts found in the given folder will be added to
+Expyriment, such that they are found when only giving their name
+(i.e. without the full path).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>folder</strong> : str or unicode</p>
+<blockquote class="last">
+<div><p>the full path to the folder to search for</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.compare_codes">
+<code class="descclassname">expyriment.misc.</code><code class="descname">compare_codes</code><span class="sig-paren">(</span><em>input_code</em>, <em>standard_codes</em>, <em>bitwise_comparison=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#compare_codes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.compare_codes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to compare input_code with a standard codes.</p>
+<p>Returns a boolean and operates by default bitwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>input_code</strong> : int</p>
+<blockquote>
+<div><p>code or bitpattern</p>
+</div></blockquote>
+<p><strong>standard_codes</strong> : int or list</p>
+<blockquote>
+<div><p>code/bitpattern or list of codes/bitpattern</p>
+</div></blockquote>
+<p><strong>bitwise_comparison</strong> : bool, optional</p>
+<blockquote class="last">
+<div><p>(default = True)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.find_font">
+<code class="descclassname">expyriment.misc.</code><code class="descname">find_font</code><span class="sig-paren">(</span><em>font</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#find_font"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.find_font" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an installed font given a font name.</p>
+<p>This will try to match a font installed on the system that is similar to
+the given font name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>font</strong> : str</p>
+<blockquote>
+<div><p>name of the font</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>font</strong> : str</p>
+<blockquote class="last">
+<div><p>the font that is most similar
+If no font is found, an empty string will be returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.get_monitor_resolution">
+<code class="descclassname">expyriment.misc.</code><code class="descname">get_monitor_resolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#get_monitor_resolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.get_monitor_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the monitor resolution</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>resolution: (int, int)</strong> :</p>
+<blockquote class="last">
+<div><p>monitor resolution, screen resolution</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.list_fonts">
+<code class="descclassname">expyriment.misc.</code><code class="descname">list_fonts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#list_fonts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.list_fonts" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all fonts installed on the system.</p>
+<p>Returns a dictionary where the key is the font name and the value is the
+absolute path to the font file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.numpad_digit_code2ascii">
+<code class="descclassname">expyriment.misc.</code><code class="descname">numpad_digit_code2ascii</code><span class="sig-paren">(</span><em>keycode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#numpad_digit_code2ascii"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.numpad_digit_code2ascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert numpad keycode to the ascii code of that particular number</p>
+<p>If it is not a keypad digit code, no convertion takes place and the
+same code will be returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>ascii_code</strong> : int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.str2unicode">
+<code class="descclassname">expyriment.misc.</code><code class="descname">str2unicode</code><span class="sig-paren">(</span><em>s</em>, <em>fse=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#str2unicode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.str2unicode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert str to unicode.</p>
+<p>Converts an input str or unicode object to a unicode object without
+throwing an exception. If fse is False, the first encoding that is tried is
+the encoding according to the locale settings, falling back to utf-8
+encoding if this throws an error. If fse is True, the filesystem encoding
+is tried, falling back to utf-8. Unicode input objects are return
+unmodified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>s</strong> : str or unicode</p>
+<blockquote>
+<div><p>input text</p>
+</div></blockquote>
+<p><strong>fse</strong> : bool</p>
+<blockquote>
+<div><p>indicates whether the filesystem encoding should be tried first.
+(default = False)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>A unicode-type string.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="expyriment.misc.unicode2str">
+<code class="descclassname">expyriment.misc.</code><code class="descname">unicode2str</code><span class="sig-paren">(</span><em>u</em>, <em>fse=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/misc/_miscellaneous.html#unicode2str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.misc.unicode2str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert unicode to str.</p>
+<p>Converts an input str or unicode object to a str object without throwing
+an exception. If fse is False, the str is encoded according to the locale
+(with utf-8 as a fallback), otherwise it is encoded with the
+filesystemencoding. Str input objects are return unmodified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>u</strong> : str or unicode</p>
+<p><strong>input text</strong> :</p>
+<p><strong>fse</strong> : bool</p>
+<p><strong>indicates whether the filesystem encoding should used.</strong> :</p>
+<p><strong>(default = False)</strong> :</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>A str-type string.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.misc.constants.html" title="expyriment.misc.constants"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TriggerInput.html" title="expyriment.io.TriggerInput"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

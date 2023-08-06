@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Platform-specific instructions: OS X &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="Installation" href="Installation.html" />
+    <link rel="next" title="Platform-specific instructions: Android" href="Installation.Android.html" />
+    <link rel="prev" title="Platform-specific instructions: Linux" href="Installation.Linux.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Installation.Android.html" title="Platform-specific instructions: Android"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Installation.Linux.html" title="Platform-specific instructions: Linux"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="GettingStarted.html" >Getting started</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="Installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="platform-specific-instructions-os-x">
+<span id="osx"></span><h1>Platform-specific instructions: OS X<a class="headerlink" href="#platform-specific-instructions-os-x" title="Permalink to this headline">¶</a></h1>
+<p>There are two different ways to install Expyriment on OS X.</p>
+<p>Each will rely on an additional (different) Python environment and will not alter
+the Python environment provided by Apple.</p>
+<div class="section" id="using-macports-and-pypi-recommended">
+<h2>Using MacPorts and PyPi (recommended)<a class="headerlink" href="#using-macports-and-pypi-recommended" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Install <a class="reference external" href="https://www.macports.org/install.php">MacPorts</a></p>
+</li>
+<li><p class="first">In a terminal, run</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo port selfupdate
+sudo port install xorg-server tcl python27 py27-pip py27-game
+sudo /opt/local/bin/python2.7 -m pip install --upgrade pip
+sudo /opt/local/bin/python2.7 -m pip install --upgrade expyriment
+</pre></div>
+</div>
+</li>
+<li><p class="first">To make the MacPorts Python the one that is called when typing &#8220;python&#8221;, in a terminal, run</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo port select --set python python27
+</pre></div>
+</div>
+<p>(Please note that this can be reversed by calling the command again, substituting &#8220;python27&#8221; with &#8220;none&#8221;).</p>
+</li>
+</ol>
+<p>For the alternative packages (optional):</p>
+<ol class="arabic" start="4">
+<li><p class="first">In a terminal, run</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo port install py27-serial
+sudo /opt/local/bin/python2.7 -m pip install numpy
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="manually-alternative">
+<h2>Manually (alternative)<a class="headerlink" href="#manually-alternative" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Install <a class="reference external" href="https://www.python.org/ftp/python/2.7.9/python-2.7.9-macosx10.5.pkg">Python 2.7.9</a></p>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://www.activestate.com/activetcl/downloads/thank-you?dl=http://downloads.activestate.com/ActiveTcl/releases/8.4.19.6/ActiveTcl8.4.19.6.295590-macosx-universal-threaded.dmg">Tcl</a></p>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.7.dmg">XQuartz</a> (only for OS X 10.9 and higher)</p>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://pygame.org/ftp/pygame-1.9.1release-python.org-32bit-py2.7-macosx10.3.dmg">Pygame</a></p>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://pypi.python.org/packages/source/P/PyOpenGL/PyOpenGL-3.0.2.zip">PyOpenGL</a></p>
+</li>
+<li><p class="first">Download <code class="docutils literal"><span class="pre">expyriment-0.8.0-py2-none-any.whl</span></code> from the <a class="reference external" href="http://github.com/expyriment/expyriment/releases/latest">release page</a> and install it in a terminal with</p>
+<pre class="literal-block">
+sudo /usr/local/bin/python -m pip install expyriment-0.8.0-py2-none-any.whl
+</pre>
+</li>
+</ol>
+<p>For the additional packages (optional):</p>
+<ol class="arabic" start="7">
+<li><p class="first">Download <a class="reference external" href="https://pypi.python.org/packages/cp27/n/numpy/numpy-1.9.2-cp27-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl#md5=296f576bb648b8195b379b0bf39791ce">Numpy</a> and install it in a terminal with</p>
+<pre class="literal-block">
+sudo /usr/local/bin/python -m pip install numpy-1.9.2-cp27-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl
+</pre>
+</li>
+<li><p class="first">Download <a class="reference external" href="http://sourceforge.net/projects/pyserial/files/pyserial/2.7/pyserial-2.7.tar.gz/download">PySerial</a>, unpack it, and install it in a terminal with</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo /usr/local/bin/python setup.py install
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Be aware of multiple Python installations</strong></p>
+<blockquote>
+<div><p>If, after installation, you get errors about Expyriment (or one of its dependencies)
+not being installed, chances are you try to import Expyriment in the &#8220;wrong&#8221;
+(i.e. Apple&#8217;s) Python environment.</p>
+<p>Make sure you are calling <code class="docutils literal"><span class="pre">/opt/local/bin/python2.7</span></code>
+or <code class="docutils literal"><span class="pre">/usr/local/bin/python</span></code>, depending on how you installed Expyriment.</p>
+</div></blockquote>
+<p><strong>Do not start your experiments out of IDLE</strong></p>
+<blockquote>
+<div><p>If you are using the IDLE editor that comes with the Python installation,
+be aware that IDLE itself is written in Python. Starting your Expyriment
+programme out of IDLE (by clicking on &#8220;Run&#8221; or by pressing F5), might thus
+lead to improper timing!</p>
+<p>We therefore strongly suggest to run Expyriment programmes from the command
+line when testing participants.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="GettingStarted.html">Getting started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tutorial.html">Beginner`s tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Examples.html">Example experiments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Installation.Android.html" title="Platform-specific instructions: Android"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Installation.Linux.html" title="Platform-specific instructions: Linux"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="GettingStarted.html" >Getting started</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="Installation.html" >Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="next" title="Getting started" href="GettingStarted.html" />
+    <link rel="prev" title="Expyriment 0.8.0 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="GettingStarted.html" title="Getting started"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Expyriment 0.8.0 documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p><strong>Expyriment</strong> is an open-source and platform independent light-weight Python
+library for designing and conducting timing-critical behavioural and
+neuroimaging experiments. The major goal is to provide a well-structured Python
+library for a script-based experiment development with a high priority on the
+readability of the resulting programme code. It has been tested extensively
+under Linux and Windows.</p>
+<p><strong>Expyriment</strong> is an all-in-one solution, as it handles the stimulus
+presentation, recording of I/O events, communication with other devices and the
+collection and preprocessing of data. It offers furthermore a hierarchical
+design structure, which allows an intuitive transition from the experimental
+design to a running programme. It is therefore also suited for students as well
+as experimental psychologists and neuroscientists with little programming
+experience.</p>
+<p><em>Website</em>: <a class="reference external" href="http://www.expyriment.org">http://www.expyriment.org</a></p>
+<p><em>Authors</em></p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.fladd.de/research">Florian Krause</a>, Brain Innovation, Maastricht University, The Netherlands</li>
+<li><a class="reference external" href="http://www.psych.uni-potsdam.de/people/lindemann/index-e.html">Oliver Lindemann</a>, University
+of Potsdam, Germany</li>
+</ul>
+<div class="section" id="main-features">
+<h2>Main features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Easy syntax, very readable (due to Python)</li>
+<li>Cross-platform (Linux, Windows, OS X)</li>
+<li>Allows for fast and efficient programming of experiments (do more with less
+code)</li>
+<li>A variety of standard stimuli (Text, Picture, Audio, Video etc.)</li>
+<li>Keyboard, Mouse, Serial Port, Parallel Port and Gamepad support</li>
+<li>Hierarchical structure of experimental units (Experiment, Blocks, Trials, Stimuli)</li>
+</ul>
+<img alt="_images/expyriment_structure.png" src="_images/expyriment_structure.png" />
+<p>For a full documentation of all Expyriment functionality (i.e. all available
+modules, classes, methods, functions, constants, and attributes provided by the
+Expyriment Python package), please have a look at the <a class="reference internal" href="expyriment.html"><em>API reference pages</em></a></p>
+</div>
+<div class="section" id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
+<p>Examples of full experiments can be found <a class="reference internal" href="Examples.html"><em>here</em></a></p>
+<p>Creating experiments, blocks, trials and stimuli:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">exp</span> <span class="o">=</span> <span class="n">expyriment</span><span class="o">.</span><span class="n">design</span><span class="o">.</span><span class="n">Experiment</span><span class="p">()</span>
+<span class="n">block</span> <span class="o">=</span> <span class="n">expyriment</span><span class="o">.</span><span class="n">design</span><span class="o">.</span><span class="n">Block</span><span class="p">()</span>
+<span class="n">trial</span> <span class="o">=</span> <span class="n">expyriment</span><span class="o">.</span><span class="n">design</span><span class="o">.</span><span class="n">Trial</span><span class="p">()</span>
+<span class="n">stimulus</span> <span class="o">=</span> <span class="n">expyriment</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">TextLine</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Building a hierarchy between various structures:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">trial</span><span class="o">.</span><span class="n">add_stimulus</span><span class="p">(</span><span class="n">stimulus</span><span class="p">)</span>
+<span class="n">block</span><span class="o">.</span><span class="n">add_trial</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">.</span><span class="n">add_block</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Presenting stimuli:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">exp</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">trials</span><span class="p">:</span>
+        <span class="n">trial</span><span class="o">.</span><span class="n">stimuli</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">present</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Handling input devices:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">button</span><span class="p">,</span> <span class="n">rt</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">keyboard</span><span class="o">.</span><span class="n">wait</span><span class="p">([</span><span class="n">expyriment</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">K_SPACE</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Logging data:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">exp</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="n">button</span><span class="p">,</span> <span class="n">rt</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="licence">
+<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h2>
+<p>Expyriment is free software and released under the Open Source <a class="reference external" href="http://www.gnu.org/copyleft/gpl.html">GNU General
+Public Licence</a> of the Free Software
+Foundation.</p>
+</div>
+<div class="section" id="publications-citation">
+<h2>Publications &amp; citation<a class="headerlink" href="#publications-citation" title="Permalink to this headline">¶</a></h2>
+<p>If you have used Expyriment in your work, please cite the follwing
+publication:</p>
+<p>Krause, F., &amp; Lindemann, O. (2014). Expyriment: A Python library for cognitive
+and neuroscientific experiments. <em>Behavior Research Methods</em>, 46(2), 416-428.
+<a class="reference external" href="http://dx.doi.org/10.3758/s13428-013-0390-6">doi:10.3758/s13428-013-0390-6</a></p>
+</div>
+<div class="section" id="source-code-repository">
+<h2>Source code repository<a class="headerlink" href="#source-code-repository" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/expyriment/expyriment">Expyriment source code repository</a> is currently hosted on
+GitHub. Get a local copy of this repository with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/expyriment/expyriment.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="mailing-lists">
+<h2>Mailing lists<a class="headerlink" href="#mailing-lists" title="Permalink to this headline">¶</a></h2>
+<p><strong>Expyriment newletter</strong>: All users of Expyriment should subscribe to the
+Expyriment newsletter, since the project is still under development. All
+modifications and new versions will be announce via this mailing list. (Visit
+<a class="reference external" href="http://groups.google.com/group/expyriment">website</a> or send an email
+to <a class="reference external" href="mailto:expyriment+subscribe&#37;&#52;&#48;googlegroups&#46;com">expyriment+subscribe<span>&#64;</span>googlegroups<span>&#46;</span>com</a>).</p>
+<p><strong>Expyriment users mailing list</strong>: If you have questions regarding the
+installation, usage or documentation of Expyriment please don&#8217;t hesitate to
+contact the Expyriment users mailing list (visit <a class="reference external" href="http://groups.google.com/group/expyriment-users">website</a> or send an email to
+<a class="reference external" href="mailto:expyriment-users+subscribe&#37;&#52;&#48;googlegroups&#46;com">expyriment-users+subscribe<span>&#64;</span>googlegroups<span>&#46;</span>com</a>) or contact us directly by sending
+an email to <a class="reference external" href="mailto:info&#37;&#52;&#48;expyriment&#46;org">info<span>&#64;</span>expyriment<span>&#46;</span>org</a>.</p>
+</div>
+<div class="section" id="suggestions-and-bug-tracking">
+<h2>Suggestions and bug tracking<a class="headerlink" href="#suggestions-and-bug-tracking" title="Permalink to this headline">¶</a></h2>
+<p>If you want to make suggestions to improve Expyriment or you found a bug,
+please post your comments to the <a class="reference external" href="https://github.com/expyriment/expyriment/issues">Expyriment issues page</a> or contact us directly by
+sending an email to <a class="reference external" href="mailto:info&#37;&#52;&#48;expyriment&#46;org">info<span>&#64;</span>expyriment<span>&#46;</span>org</a>.</p>
+</div>
+<div class="section" id="irc-channel">
+<h2>IRC channel<a class="headerlink" href="#irc-channel" title="Permalink to this headline">¶</a></h2>
+<p>To ask questions or to have real-time discussions with other users and the developers.</p>
+<div class="highlight-python"><div class="highlight"><pre>Server: irc.freenode.org
+Channel: #expyriment
+</pre></div>
+</div>
+</div>
+<div class="section" id="social-networks">
+<h2>Social networks<a class="headerlink" href="#social-networks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Subscribe to <a class="reference external" href="http://www.reddit.com/r/expyriment">/r/expyriment</a> on Reddit</li>
+<li>Follow <a class="reference external" href="http://www.twitter.com/expyriment">&#64;expyriment</a> on Twitter</li>
+<li>Like <a class="reference external" href="http://www.facebook.com/expyriment">Expyriment</a> on Facebook</li>
+<li>+1 <a class="reference external" href="http://google.com/+ExpyrimentOrg">+ExpyrimentOrg</a> on Google+</li>
+</ul>
+</div>
+<div class="section" id="related-projects">
+<h2>Related projects<a class="headerlink" href="#related-projects" title="Permalink to this headline">¶</a></h2>
+<p>If you are looking for a graphical experiment builder, we suggest OpenSesame,
+which uses Expyriment as the default back-end: <a class="reference external" href="http://www.osdoc.cogsci.nl/">http://www.osdoc.cogsci.nl/</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Overview</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="GettingStarted.html" title="Getting started"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Expyriment 0.8.0 documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

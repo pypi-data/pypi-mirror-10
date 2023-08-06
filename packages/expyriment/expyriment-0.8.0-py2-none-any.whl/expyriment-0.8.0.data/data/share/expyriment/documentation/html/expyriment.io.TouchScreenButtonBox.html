@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.io.TouchScreenButtonBox &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.io" href="expyriment.io.html" />
+    <link rel="next" title="expyriment.io.TriggerInput" href="expyriment.io.TriggerInput.html" />
+    <link rel="prev" title="expyriment.io.TextMenu" href="expyriment.io.TextMenu.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TriggerInput.html" title="expyriment.io.TriggerInput"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TextMenu.html" title="expyriment.io.TextMenu"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" accesskey="U">expyriment.io</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-io-touchscreenbuttonbox">
+<h1>expyriment.io.TouchScreenButtonBox<a class="headerlink" href="#expyriment-io-touchscreenbuttonbox" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.io.TouchScreenButtonBox">
+<em class="property">class </em><code class="descclassname">expyriment.io.</code><code class="descname">TouchScreenButtonBox</code><span class="sig-paren">(</span><em>button_fields</em>, <em>stimuli=[]</em>, <em>background_stimulus=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a TouchScreenButtonBox.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>button_fields</em>, <em>stimuli=[]</em>, <em>background_stimulus=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a touchscreen button box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>button_fields</strong> : visual Expyriment stimulus or list of stimuli</p>
+<blockquote>
+<div><p>The button fields defines the area on which a click action will be
+registered.</p>
+</div></blockquote>
+<p><strong>stimuli</strong> : visual Expyriment stimulus or list of stimuli, optional</p>
+<blockquote>
+<div><p>Additional visual stimuli that will be presented together with the
+button fields. Stimuli are plotted on top of the button_fields.</p>
+</div></blockquote>
+<p><strong>background_stimulus</strong> : visual Expyriment stimulus, optional</p>
+<blockquote class="last">
+<div><p>The background stimulus on which the touschscreen button fields
+are presented. Importantly, background_stimulus has to have
+size of the screen.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Every visual Expyriment stimulus can serve as a touchscreen button
+field.
+If the TouchScreenButtonBox is presented, it can be checked for events
+using the methods &#8216;check&#8217; and &#8216;wait&#8217;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.add_button_field">
+<code class="descname">add_button_field</code><span class="sig-paren">(</span><em>button_field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.add_button_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.add_button_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a touchscreen button fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>button_field</strong> : visual Expyriment stimulus</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.add_stimulus">
+<code class="descname">add_stimulus</code><span class="sig-paren">(</span><em>stimulus</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.add_stimulus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.add_stimulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add additional stimulus</p>
+<p>The added stimulus will be presented together with the button fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stimulus</strong> : visual Expyriment stimulus</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TouchScreenButtonBox.background_stimulus">
+<code class="descname">background_stimulus</code><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.background_stimulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter of background stimulus.</p>
+<p>Background stimulus, on which the button fields and the additional
+stimuli will be presented. (visual Expyriment stimuli)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TouchScreenButtonBox.button_field">
+<code class="descname">button_field</code><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.button_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>getter of button fields (list of visual Expyriment stimuli)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>button_fields=None</em>, <em>check_for_control_keys=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a button field is clicked.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>button_fields</strong> : Expyriment stimulus or list of stimuli, optional</p>
+<blockquote>
+<div><p>The button fields that will be checked for.</p>
+</div></blockquote>
+<p><strong>check_for_control_keys</strong> : bool, optional</p>
+<blockquote>
+<div><p>checks if control key has been pressed (default=True)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pressed_button_field</strong> : Expyriment stimulus or list of stimuli, optional</p>
+<blockquote>
+<div><p>The button fields that will be checked for.</p>
+</div></blockquote>
+<p><strong>touch_time</strong> : integer</p>
+<blockquote class="last">
+<div><p>The time when the button was touched. Function might return delayed,
+because button field comparison (after touch) takes time. The
+return time is most accurate.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Don&#8217;t forget to show the TouchScreenButtonBox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.clear_event_buffer">
+<code class="descname">clear_event_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.clear_event_buffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.clear_event_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the event buffer of the touchscreen/mouse input device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.create">
+<code class="descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the touchscreen buttonbox.</p>
+<p>Prepares the button fields and additional stimuli for fast
+presentation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TouchScreenButtonBox.last_touch_position">
+<code class="descname">last_touch_position</code><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.last_touch_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>getter for the last touch position (x,y)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TouchScreenButtonBox.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Present touchscreen buttons.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TouchScreenButtonBox.stimuli">
+<code class="descname">stimuli</code><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.stimuli" title="Permalink to this definition">¶</a></dt>
+<dd><p>getter of additional stimuli (list of visual Expyriment stimuli)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TouchScreenButtonBox.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>duration=None</em>, <em>button_fields=None</em>, <em>check_for_control_keys=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_touchscreenbuttonbox.html#TouchScreenButtonBox.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TouchScreenButtonBox.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for a touchscreen button box click.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>button_fields</strong> : Expyriment stimulus or list of stimuli, optional</p>
+<blockquote>
+<div><p>The button fields that will be checked for.</p>
+</div></blockquote>
+<p><strong>duration</strong> : int, optional</p>
+<blockquote>
+<div><p>maximal time to wait in ms</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pressed_button_field</strong> : Expyriment stimulus or None</p>
+<blockquote>
+<div><p>the button field defined by a stimulus that has been pressed</p>
+</div></blockquote>
+<p><strong>rt</strong> : int</p>
+<blockquote class="last">
+<div><p>reaction time</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">design.experiment.register_wait_callback_function</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p>Don&#8217;t forget to show the TouchScreenButtonBox.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TriggerInput.html" title="expyriment.io.TriggerInput"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TextMenu.html" title="expyriment.io.TextMenu"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

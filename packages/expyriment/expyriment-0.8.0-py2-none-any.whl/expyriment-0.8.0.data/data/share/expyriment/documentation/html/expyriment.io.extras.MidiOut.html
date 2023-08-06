@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.io.extras.MidiOut &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.io.extras" href="expyriment.io.extras.html" />
+    <link rel="next" title="expyriment.io.extras.SimpleParallelPort" href="expyriment.io.extras.SimpleParallelPort.html" />
+    <link rel="prev" title="expyriment.io.extras.MidiIn" href="expyriment.io.extras.MidiIn.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.SimpleParallelPort.html" title="expyriment.io.extras.SimpleParallelPort"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.MidiIn.html" title="expyriment.io.extras.MidiIn"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.io.extras.html" accesskey="U">expyriment.io.extras</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-io-extras-midiout">
+<h1>expyriment.io.extras.MidiOut<a class="headerlink" href="#expyriment-io-extras-midiout" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.io.extras.MidiOut">
+<em class="property">class </em><code class="descclassname">expyriment.io.extras.</code><code class="descname">MidiOut</code><span class="sig-paren">(</span><em>device</em>, <em>latency=None</em>, <em>buffer_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a MIDI output.</p>
+<p><strong>EXPERIMENTAL!</strong></p>
+<p>Due to a bug in Pygame&#8217;s midi module, closing a MidiOut (or the programme)
+will cause an error message. Until this is fixed in Pygame, MidiOut will
+stay in extras.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>device</em>, <em>latency=None</em>, <em>buffer_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a MIDI output.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>device</strong> : int or str</p>
+<blockquote>
+<div><p>id or name of the MIDI device</p>
+</div></blockquote>
+<p><strong>latency</strong> : int, optional</p>
+<blockquote>
+<div><p>delay in ms applied to timestamp</p>
+</div></blockquote>
+<p><strong>buffer_size</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>number of events to be buffered</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.abort">
+<code class="descname">abort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.abort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminates outgoing messages immediately.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiOut.buffer_size">
+<code class="descname">buffer_size</code><a class="headerlink" href="#expyriment.io.extras.MidiOut.buffer_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for buffer_size.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.close">
+<code class="descname">close</code><span class="sig-paren">(</span><em>abort=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the MIDI interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>abort</strong> : bool, optional</p>
+<blockquote class="last">
+<div><p>abort messages in the buffer (default=True)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="expyriment.io.extras.MidiOut.get_devices">
+<em class="property">static </em><code class="descname">get_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.get_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.get_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all MIDI output devices connected to the system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiOut.id">
+<code class="descname">id</code><a class="headerlink" href="#expyriment.io.extras.MidiOut.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiOut.latency">
+<code class="descname">latency</code><a class="headerlink" href="#expyriment.io.extras.MidiOut.latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for latency.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiOut.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.io.extras.MidiOut.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.select_instrument">
+<code class="descname">select_instrument</code><span class="sig-paren">(</span><em>instrument_id</em>, <em>channel=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.select_instrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.select_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select an instrument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>instrument_id</strong> : int</p>
+<blockquote>
+<div><p>id (0-127) of the instrument</p>
+</div></blockquote>
+<p><strong>channel</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>MIDI channel for the instrument (default=0)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>event_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a list of MIDI events.</p>
+<dl class="docutils">
+<dt>Each event should have the following format:</dt>
+<dd>[status, data1, data2, data3], timestamp]</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>event_list</strong> : list</p>
+<blockquote class="last">
+<div><p>list of events to send</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The data fields are optional.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.send_note_off">
+<code class="descname">send_note_off</code><span class="sig-paren">(</span><em>note</em>, <em>velocity=None</em>, <em>channel=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.send_note_off"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.send_note_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a note-off event.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>note</strong> : int</p>
+<blockquote>
+<div><p>note value</p>
+</div></blockquote>
+<p><strong>velocity</strong> : int, optional</p>
+<blockquote>
+<div><p>velocity of the note</p>
+</div></blockquote>
+<p><strong>channel</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>MIDI channel of the note (default=0)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.send_note_on">
+<code class="descname">send_note_on</code><span class="sig-paren">(</span><em>note</em>, <em>velocity=None</em>, <em>channel=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.send_note_on"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.send_note_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a note-on event.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>note</strong> : int</p>
+<blockquote>
+<div><p>note value</p>
+</div></blockquote>
+<p><strong>velocity</strong> : int, optional</p>
+<blockquote>
+<div><p>velocity of the note</p>
+</div></blockquote>
+<p><strong>channel</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>MIDI channel of the note (default=0)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.send_short">
+<code class="descname">send_short</code><span class="sig-paren">(</span><em>status</em>, <em>data1=0</em>, <em>data2=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.send_short"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.send_short" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send MIDI events of 3 bytes or less.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>status</strong> : int</p>
+<blockquote>
+<div><p>status of the event to send</p>
+</div></blockquote>
+<p><strong>data1</strong> : int, optional</p>
+<blockquote>
+<div><p>data1 of the event to send</p>
+</div></blockquote>
+<p><strong>data2</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>data2 of the event to send</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.send_sysex">
+<code class="descname">send_sysex</code><span class="sig-paren">(</span><em>timestamp</em>, <em>message</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiout.html#MidiOut.send_sysex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiOut.send_sysex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a System Exlusive message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>timestamp</strong> : int</p>
+<blockquote>
+<div><p>when (in ms) to send the message</p>
+</div></blockquote>
+<p><strong>message</strong> : sit or list</p>
+<blockquote class="last">
+<div><p>message to send</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiOut.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.io.extras.MidiOut.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.SimpleParallelPort.html" title="expyriment.io.extras.SimpleParallelPort"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.MidiIn.html" title="expyriment.io.extras.MidiIn"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.io.extras.html" >expyriment.io.extras</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.design.extras.StimulationProtocol &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.design.extras" href="expyriment.design.extras.html" />
+    <link rel="next" title="expyriment.design.permute" href="expyriment.design.permute.html" />
+    <link rel="prev" title="expyriment.design.extras.defaults" href="expyriment.design.extras.defaults.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.design.permute.html" title="expyriment.design.permute"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.design.extras.defaults.html" title="expyriment.design.extras.defaults"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.design.html" >expyriment.design</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.design.extras.html" accesskey="U">expyriment.design.extras</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-design-extras-stimulationprotocol">
+<h1>expyriment.design.extras.StimulationProtocol<a class="headerlink" href="#expyriment-design-extras-stimulationprotocol" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.design.extras.StimulationProtocol">
+<em class="property">class </em><code class="descclassname">expyriment.design.extras.</code><code class="descname">StimulationProtocol</code><span class="sig-paren">(</span><em>unit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a stimulation protocol.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.design.extras.StimulationProtocol.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>unit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a stimulation protocol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>unit</strong> : str</p>
+<blockquote class="last">
+<div><p>The unit of the stimulation protocol (&#8216;time&#8217; or &#8216;volume&#8217;)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.design.extras.StimulationProtocol.add_condition">
+<code class="descname">add_condition</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol.add_condition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol.add_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a condition to the stimulation protocol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the condition to add</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.design.extras.StimulationProtocol.add_event">
+<code class="descname">add_event</code><span class="sig-paren">(</span><em>condition</em>, <em>begin</em>, <em>end</em>, <em>weight=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol.add_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol.add_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an event to a condition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>condition</strong> : str or int</p>
+<blockquote>
+<div><p>The name or index of the condition to add the event to</p>
+</div></blockquote>
+<p><strong>begin</strong> : int</p>
+<blockquote>
+<div><p>The beginning time of the event</p>
+</div></blockquote>
+<p><strong>end</strong> : int</p>
+<blockquote>
+<div><p>The end time of the event</p>
+</div></blockquote>
+<p><strong>weight</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>A weight for parametric modulation (default = 1)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.design.extras.StimulationProtocol.export2brainvoyager">
+<code class="descname">export2brainvoyager</code><span class="sig-paren">(</span><em>exp_name</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol.export2brainvoyager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol.export2brainvoyager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the stimulation protocol to BrainVoyager &#8216;.prt&#8217; format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>exp_name</strong> : str</p>
+<blockquote>
+<div><p>The name of the Experiment</p>
+</div></blockquote>
+<p><strong>filename</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the file to write</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.design.extras.StimulationProtocol.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>filename</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a stimulation protocol from a csv file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename</strong> : str</p>
+<blockquote>
+<div><p>The filename to read the protocol from</p>
+</div></blockquote>
+<p><strong>encoding</strong> : str, optional</p>
+<blockquote class="last">
+<div><p>The encoding to be used when reading from the file</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.design.extras.StimulationProtocol.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/design/extras/_stimulationprotocol.html#StimulationProtocol.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.design.extras.StimulationProtocol.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the stimulation protocol to a csv file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the file to save the protocol to</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.design.permute.html" title="expyriment.design.permute"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.design.extras.defaults.html" title="expyriment.design.extras.defaults"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.design.html" >expyriment.design</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.design.extras.html" >expyriment.design.extras</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

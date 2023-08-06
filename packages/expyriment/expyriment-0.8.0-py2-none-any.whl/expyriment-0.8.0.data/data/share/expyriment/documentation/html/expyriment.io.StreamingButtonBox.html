@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.io.StreamingButtonBox &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.io" href="expyriment.io.html" />
+    <link rel="next" title="expyriment.io.TextInput" href="expyriment.io.TextInput.html" />
+    <link rel="prev" title="expyriment.io.SerialPort" href="expyriment.io.SerialPort.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TextInput.html" title="expyriment.io.TextInput"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.SerialPort.html" title="expyriment.io.SerialPort"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" accesskey="U">expyriment.io</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-io-streamingbuttonbox">
+<h1>expyriment.io.StreamingButtonBox<a class="headerlink" href="#expyriment-io-streamingbuttonbox" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.io.StreamingButtonBox">
+<em class="property">class </em><code class="descclassname">expyriment.io.</code><code class="descname">StreamingButtonBox</code><span class="sig-paren">(</span><em>interface</em>, <em>baseline</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_streamingbuttonbox.html#StreamingButtonBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.StreamingButtonBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a streaming button box input.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.io.StreamingButtonBox.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>interface</em>, <em>baseline</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_streamingbuttonbox.html#StreamingButtonBox.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.StreamingButtonBox.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a streaming button box input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>interface</strong> : io.SerialPort or io.ParallelPort</p>
+<blockquote>
+<div><p>an interface object</p>
+</div></blockquote>
+<p><strong>baseline</strong> : int</p>
+<blockquote class="last">
+<div><p>code that is sent when nothing is pressed (int)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.StreamingButtonBox.baseline">
+<code class="descname">baseline</code><a class="headerlink" href="#expyriment.io.StreamingButtonBox.baseline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for baseline.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.StreamingButtonBox.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>codes=None</em>, <em>bitwise_comparison=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_streamingbuttonbox.html#StreamingButtonBox.check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.StreamingButtonBox.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for response codes.</p>
+<p>If bitwise_comparison = True, the function performs a bitwise
+comparison (logical and) between codes and received input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>codes</strong> : int or list, optional</p>
+<blockquote>
+<div><p>certain bit pattern or list of bit pattern to wait for,
+if codes is not set (None) the function returns
+for any event that differs from the baseline</p>
+</div></blockquote>
+<p><strong>bitwise_comparison</strong> : bool, optional</p>
+<blockquote>
+<div><p>make a bitwise comparison (default=False)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>key</strong> : int</p>
+<blockquote class="last">
+<div><p>key code or None</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.StreamingButtonBox.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_streamingbuttonbox.html#StreamingButtonBox.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.StreamingButtonBox.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the receive buffer (if available).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.StreamingButtonBox.interface">
+<code class="descname">interface</code><a class="headerlink" href="#expyriment.io.StreamingButtonBox.interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.StreamingButtonBox.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.io.StreamingButtonBox.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.StreamingButtonBox.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.io.StreamingButtonBox.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.StreamingButtonBox.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>codes=None</em>, <em>duration=None</em>, <em>no_clear_buffer=False</em>, <em>bitwise_comparison=False</em>, <em>check_for_control_keys=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_streamingbuttonbox.html#StreamingButtonBox.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.StreamingButtonBox.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for responses defined as codes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>codes</strong> : int or list, optional</p>
+<blockquote>
+<div><p>bit pattern to wait for
+if codes is not set (None) the function returns for any
+event that differs from the baseline</p>
+</div></blockquote>
+<p><strong>duration</strong> : int, optional</p>
+<blockquote>
+<div><p>maximal time to wait in ms</p>
+</div></blockquote>
+<p><strong>no_clear_buffer</strong> : bool, optional</p>
+<blockquote>
+<div><p>do not clear the buffer (default = False)</p>
+</div></blockquote>
+<p><strong>bitwise_comparison</strong> : bool, optional</p>
+<blockquote>
+<div><p>make a bitwise comparison (default = False)</p>
+</div></blockquote>
+<p><strong>check_for_control_keys</strong> : bool, optional</p>
+<blockquote>
+<div><p>checks if control key has been pressed (default=True)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>key</strong> : int</p>
+<blockquote>
+<div><p>key code (or None) that quitted waiting</p>
+</div></blockquote>
+<p><strong>rt</strong> : int</p>
+<blockquote class="last">
+<div><p>reaction time</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">design.experiment.register_wait_callback_function</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p>If bitwise_comparision = True, the function performs a bitwise
+comparison (logical and) between codes and received input and waits
+until a certain bit pattern is set.</p>
+<p>This will also by default check for control keys (quit and pause).
+Thus, keyboard events will be cleared from the cue and cannot be
+received by a Keyboard().check() anymore!</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TextInput.html" title="expyriment.io.TextInput"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.SerialPort.html" title="expyriment.io.SerialPort"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

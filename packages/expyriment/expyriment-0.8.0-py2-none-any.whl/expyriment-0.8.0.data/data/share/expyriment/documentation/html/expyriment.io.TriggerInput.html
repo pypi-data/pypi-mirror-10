@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.io.TriggerInput &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.io" href="expyriment.io.html" />
+    <link rel="next" title="expyriment.misc" href="expyriment.misc.html" />
+    <link rel="prev" title="expyriment.io.TouchScreenButtonBox" href="expyriment.io.TouchScreenButtonBox.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.misc.html" title="expyriment.misc"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TouchScreenButtonBox.html" title="expyriment.io.TouchScreenButtonBox"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" accesskey="U">expyriment.io</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-io-triggerinput">
+<h1>expyriment.io.TriggerInput<a class="headerlink" href="#expyriment-io-triggerinput" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.io.TriggerInput">
+<em class="property">class </em><code class="descclassname">expyriment.io.</code><code class="descname">TriggerInput</code><span class="sig-paren">(</span><em>interface</em>, <em>default_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_triggerinput.html#TriggerInput"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TriggerInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a trigger input.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.io.TriggerInput.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>interface</em>, <em>default_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_triggerinput.html#TriggerInput.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TriggerInput.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a trigger input.</p>
+<p>Parameters
+interface    &#8211; the interface to use (expyrment.io.SerialPort or</p>
+<blockquote>
+<div>expyriment.io.ParallelPort object)</div></blockquote>
+<p>default_code &#8211; the default code of the trigger (int) (optional)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TriggerInput.default_code">
+<code class="descname">default_code</code><a class="headerlink" href="#expyriment.io.TriggerInput.default_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for default_code</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TriggerInput.get_triggers">
+<code class="descname">get_triggers</code><span class="sig-paren">(</span><em>code=None</em>, <em>bitwise_comparison=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_triggerinput.html#TriggerInput.get_triggers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TriggerInput.get_triggers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of received triggers.</p>
+<p>For not missing any triggers the history has to be updated regularly
+(e.g. by calling this method)!
+Returns None if no history is used.</p>
+<p>If bitwise_comparision = True, the function performs a bitwise
+comparison (logical and) between code and received input and waits
+until a certain bit pattern is set.</p>
+<p>Parameters
+code &#8211; a specific code to get (int) (optional)
+bitwise_comparison &#8211; make a bitwise comparison (default=False)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TriggerInput.interface">
+<code class="descname">interface</code><a class="headerlink" href="#expyriment.io.TriggerInput.interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for interface</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TriggerInput.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.io.TriggerInput.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TriggerInput.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.io.TriggerInput.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.TriggerInput.trigger_count">
+<code class="descname">trigger_count</code><a class="headerlink" href="#expyriment.io.TriggerInput.trigger_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of received triggers.</p>
+<p>For not missing any triggers the history has to be updated regularly
+(e.g. by calling this method)!
+Returns None if no history is used.</p>
+<p>If bitwise_comparision = True, the function performs a bitwise
+comparison (logical and) between code and received input and waits
+until a certain bit pattern is set.</p>
+<p>Parameters
+code &#8211; a specific code to count (int) (optional)
+bitwise_comparison &#8211; make a bitwise comparison (default=False)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.TriggerInput.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>code=None</em>, <em>bitwise_comparison=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/_triggerinput.html#TriggerInput.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.TriggerInput.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for a trigger.</p>
+<p>Returns the code received and the reaction time [code, rt].</p>
+<p>If bitwise_comparison = True, the function performs a bitwise
+comparison (logical and) between code and received input and waits
+until a certain bit pattern is set.</p>
+<p>Parameters
+code &#8211; a specific code to wait for (int) (optional)
+bitwise_comparison &#8211; make a bitwise comparison (default=False)</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">design.experiment.register_wait_callback_function</span></code></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.misc.html" title="expyriment.misc"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.TouchScreenButtonBox.html" title="expyriment.io.TouchScreenButtonBox"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

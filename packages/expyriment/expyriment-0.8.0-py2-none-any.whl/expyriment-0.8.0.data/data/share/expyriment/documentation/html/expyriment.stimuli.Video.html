@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.stimuli.Video &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.stimuli" href="expyriment.stimuli.html" />
+    <link rel="next" title="Changelog" href="Changelog.html" />
+    <link rel="prev" title="expyriment.stimuli.Tone" href="expyriment.stimuli.Tone.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Changelog.html" title="Changelog"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.stimuli.Tone.html" title="expyriment.stimuli.Tone"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.stimuli.html" accesskey="U">expyriment.stimuli</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-stimuli-video">
+<h1>expyriment.stimuli.Video<a class="headerlink" href="#expyriment-stimuli-video" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.stimuli.Video">
+<em class="property">class </em><code class="descclassname">expyriment.stimuli.</code><code class="descname">Video</code><span class="sig-paren">(</span><em>filename</em>, <em>position=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a general video stimulus.</p>
+<p>This class uses a background thread for playing the video!</p>
+<p>Only MPEG-1 movies with MP3 audio are supported. You can use ffmpeg
+(www.ffmpeg.org) to convert from other formats:</p>
+<blockquote>
+<div>ffmpeg -i &lt;inputfile&gt; -vcodec mpeg1video -acodec libmp3lame -intra -qscale 2  &lt;outputfile.mpg&gt;</div></blockquote>
+<p>The -qscale option is the quality setting. It can take values from 1 to 31.
+1 is the best quality, but big file size. 31 is the worst quality, but
+small file size. Play around with this setting to get a good balance
+between quality and file size.</p>
+<p>When the audio from the video should be played as well, the audiosystem
+has to be stopped (by calling expyriment.control.stop_audiosystem() )
+BEFORE the video stimulus is preloaded! After the stimulus has been played
+the audiosystem can be started again (by calling
+expyriment.control.start_audiosystem() ).</p>
+<p>When showing videos in large dimensions, and your computer is not fast
+enough, frames might be dropped! When using Video.wait_frame() or
+Video.wait_end(), dropped video frames will be reported and logged.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.stimuli.Video.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>filename</em>, <em>position=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a video stimulus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename</strong> : str</p>
+<blockquote>
+<div><p>filename (incl. path) of the video</p>
+</div></blockquote>
+<p><strong>position</strong> : (int, int), optional</p>
+<blockquote class="last">
+<div><p>position of the stimulus</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Only MPEG-1 movies with MP3 audio are supported. You can use ffmpeg
+(www.ffmpeg.org) to convert from other formats:</p>
+<blockquote>
+<div>ffmpeg -i &lt;inputfile&gt; -vcodec mpeg1video -acodec libmp3lame -intra -qscale 2  &lt;outputfile.mpg&gt;</div></blockquote>
+<p>The -qscale option is the quality setting. It can take values from 1 to 31.
+1 is the best quality, but big file size. 31 is the worst quality, but
+small file size. Play around with this setting to get a good balance
+between quality and file size.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.stimuli.Video.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a deep copy of the stimulus.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.filename">
+<code class="descname">filename</code><a class="headerlink" href="#expyriment.stimuli.Video.filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for filename.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance playback position.</p>
+<p>This will not forward immediately, but play a short period of the
+beginning of the file! This is a Pygame issue which we cannot fix right
+now.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>seconds</strong> : int</p>
+<blockquote class="last">
+<div><p>amount to advance (in seconds)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.frame">
+<code class="descname">frame</code><a class="headerlink" href="#expyriment.stimuli.Video.frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to get the current frame.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.has_audio">
+<code class="descname">has_audio</code><a class="headerlink" href="#expyriment.stimuli.Video.has_audio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to check if movie has audio.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.has_video">
+<code class="descname">has_video</code><a class="headerlink" href="#expyriment.stimuli.Video.has_video" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to check if movie has video.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.id">
+<code class="descname">id</code><a class="headerlink" href="#expyriment.stimuli.Video.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.is_playing">
+<code class="descname">is_playing</code><a class="headerlink" href="#expyriment.stimuli.Video.is_playing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to check if movie is playing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.is_preloaded">
+<code class="descname">is_preloaded</code><a class="headerlink" href="#expyriment.stimuli.Video.is_preloaded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for is_preloaded.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.length">
+<code class="descname">length</code><a class="headerlink" href="#expyriment.stimuli.Video.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to get the length of the movie.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.stimuli.Video.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.pause">
+<code class="descname">pause</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.pause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the video stimulus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.play">
+<code class="descname">play</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.play"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play the video stimulus from the current position.</p>
+<p class="rubric">Notes</p>
+<p>When the audio from the video should be played as well, the audiosystem
+has to be stopped (by calling expyriment.control.stop_audiosystem() )
+BEFORE the video stimulus is preloaded! After the stimulus has been played
+the audiosystem can be started again (by calling
+expyriment.control.start_audiosystem() ).</p>
+<p>When showing videos in large dimensions, and your computer is not fast
+enough, frames might be dropped! When using Video.wait_frame() or
+Video.wait_end(), dropped video frames will be reported and logged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.position">
+<code class="descname">position</code><a class="headerlink" href="#expyriment.stimuli.Video.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for position.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.preload">
+<code class="descname">preload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.preload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.preload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preload stimulus to memory.</p>
+<p class="rubric">Notes</p>
+<p>When the audio from the video should be played as well, the audiosystem
+has to be stopped (by calling expyriment.control.stop_audiosystem() )
+BEFORE the video stimulus is preloaded! After the stimulus has been played
+the audiosystem can be started again (by calling
+expyriment.control.start_audiosystem() ).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.present">
+<code class="descname">present</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.present"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.present" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play the video and present current frame.</p>
+<p>This method starts video playback and presents a single frame (the
+current one). When using OpenGL, the method blocks until this frame is
+actually being written to the screen.</p>
+<p class="rubric">Notes</p>
+<p>When the audio from the video should be played as well, the audiosystem
+has to be stopped (by calling expyriment.control.stop_audiosystem() )
+BEFORE the video stimulus is preloaded! After the stimulus has been played
+the audiosystem can be started again (by calling
+expyriment.control.start_audiosystem() ).</p>
+<p>When showing videos in large dimensions, and your computer is not fast
+enough, frames might be dropped! When using Video.wait_frame() or
+Video.wait_end(), dropped video frames will be reported and logged.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.rewind">
+<code class="descname">rewind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.rewind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.rewind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rewind to start of video stimulus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.stimuli.Video.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.size">
+<code class="descname">size</code><a class="headerlink" href="#expyriment.stimuli.Video.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to get the resolution of the movie.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the video stimulus.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.stimuli.Video.time">
+<code class="descname">time</code><a class="headerlink" href="#expyriment.stimuli.Video.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Property to get the current playback time.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.unload">
+<code class="descname">unload</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.unload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.unload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unload stimulus from memory.</p>
+<p>This removes the reference to the object in memory.
+It is up to the garbage collector to actually remove it from memory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the screen on each new frame.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.wait_end">
+<code class="descname">wait_end</code><span class="sig-paren">(</span><em>last_frame=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.wait_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.wait_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait until video has ended and constantly update screen.</p>
+<p class="rubric">Notes</p>
+<p>This will also check for control keys (quit and pause).
+Thus, keyboard events will be cleared from the cue and cannot be
+received by a Keyboard().check() anymore!
+If keybaord events should not be cleared, a loop has to be created
+manually like:</p>
+<div class="highlight-python"><div class="highlight"><pre>movie.present()
+while movie.is_playing:
+    movie.update()
+    key = exp.keyboard.check()
+    if key == ...
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.stimuli.Video.wait_frame">
+<code class="descname">wait_frame</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/stimuli/_video.html#Video.wait_frame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.stimuli.Video.wait_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait until certain frame was shown and constantly update screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>frame</strong> : int</p>
+<blockquote class="last">
+<div><p>number of the frame to stop after</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This function will also check for control keys (quit and pause).
+Thus, keyboard events will be cleared from the cue and cannot be
+received by a Keyboard().check() anymore!
+If keybaord events should not be cleared, a loop has to be created
+manually like:</p>
+<div class="highlight-python"><div class="highlight"><pre>movie.present()
+    while movie.is_playing:
+    movie.update()
+    key = exp.keyboard.check()
+    if key == ...
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Changelog.html" title="Changelog"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.stimuli.Tone.html" title="expyriment.stimuli.Tone"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.stimuli.html" >expyriment.stimuli</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Presenting videos in Expyriment &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="Advanced" href="Advanced.html" />
+    <link rel="next" title="The Expyriment plugin system (extras)" href="Plugins.html" />
+    <link rel="prev" title="Using fonts" href="Fonts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Plugins.html" title="The Expyriment plugin system (extras)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Fonts.html" title="Using fonts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="Advanced.html" accesskey="U">Advanced</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="presenting-videos-in-expyriment">
+<h1>Presenting videos in Expyriment<a class="headerlink" href="#presenting-videos-in-expyriment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-formats">
+<h2>Video formats<a class="headerlink" href="#video-formats" title="Permalink to this headline">¶</a></h2>
+<p>Expyriment only plays MPEG1 videos with MP3 audio right now (and unfortunately, the Pygame backend that is responsible for video playback seems to be very picky on the details of this).
+To encode any video into the correct format, use ffmpeg (<a class="reference external" href="https://www.ffmpeg.org">https://www.ffmpeg.org</a>) and convert in the following way:</p>
+<div class="highlight-python"><div class="highlight"><pre>ffmpeg -i &lt;inputfile&gt; -vcodec mpeg1video -acodec libmp3lame -intra -qscale 2  &lt;outputfile.mpg&gt;
+</pre></div>
+</div>
+<p>The -qscale option is the quality setting. It can take values from 1 to 31. 1 is the best quality, but big file size. 31 is the worst quality, but small file size. Play around with this setting to get a good balance between quality and file size.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Create a video object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_video</span> <span class="o">=</span> <span class="n">expyriment</span><span class="o">.</span><span class="n">stimuli</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If the video has sound, then the audio system has to be stopped (temporarily), such that the video system can play sound):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">expyriment</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">stop_audiosystem</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Preload the video into memory, before playing it back:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_video</span><span class="o">.</span><span class="n">preload</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To actually present the video on screen, understanding the various methods of the video object is crucial:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>play()</strong> will simply start video playback in the background. This has no effect on the screen, no frames from the video are presented automatically. Use this, if you want to get each frame from the video manually and present them at your liking (using the update() method, see below).</li>
+<li><strong>present()</strong> will do a bit more. It will start video playback and it will present the very first frame of the video onto the screen for you. Just like present method of other visual stimuli in Expyriment, the method will only return, once the stimulus (in that case the first video frame) has actually been presented on the screen, giving you important information about when the participants are actually starting to see your video.</li>
+<li><strong>update()</strong> will take the current frame (from a playing video) and present it to the screen. As with present(), the method blocks until the frame is actually visible on the screen.</li>
+<li><strong>wait_end()</strong> will basically do, what update does, but continuously, for each frame, until the end of the video.</li>
+<li><strong>wait_frame()</strong> is the same as wait_end, but up to a specified frame only, instead until the end of the video.</li>
+</ul>
+<p>The perhaps most common situation is thus to use a combination of present() and wait_end().</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The following example shows how to present a video from start to end:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">expyriment</span> <span class="kn">import</span> <span class="n">control</span><span class="p">,</span> <span class="n">stimuli</span>
+
+<span class="n">video</span> <span class="o">=</span> <span class="n">stimuli</span><span class="o">.</span><span class="n">Video</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">)</span>  <span class="c"># Create video object</span>
+
+<span class="n">expyriment</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">stop_audiosystem</span><span class="p">()</span>  <span class="c"># Stop audio system</span>
+
+<span class="n">v</span><span class="o">.</span><span class="n">preload</span><span class="p">()</span>  <span class="c"># Preload video</span>
+<span class="n">v</span><span class="o">.</span><span class="n">present</span><span class="p">()</span>  <span class="c"># Start video playback and present first frame</span>
+<span class="n">v</span><span class="o">.</span><span class="n">wait_end</span><span class="p">()</span> <span class="c"># Continuously present the next frame until video stops</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Advanced.html">Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="APIReferenceTool.html">API reference tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testsuite.html">Test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CommandLineInterface.html">Command line interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocessing.html">Data preprocessing and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Unicode.html">Using non-English characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fonts.html">Using fonts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Presenting videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugin system (extras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Defaults.html">Defaults (settings)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware.html">Hardware compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timing.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Problems.html">Problems &amp; Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Plugins.html" title="The Expyriment plugin system (extras)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Fonts.html" title="Using fonts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="Advanced.html" >Advanced</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

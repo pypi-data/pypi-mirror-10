@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Platform-specific instructions: Android &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="Installation" href="Installation.html" />
+    <link rel="next" title="Beginner’s tutorial to get started with Expyriment" href="Tutorial.html" />
+    <link rel="prev" title="Platform-specific instructions: OS X" href="Installation.OSX.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Tutorial.html" title="Beginner’s tutorial to get started with Expyriment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Installation.OSX.html" title="Platform-specific instructions: OS X"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="GettingStarted.html" >Getting started</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="Installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="platform-specific-instructions-android">
+<span id="android"></span><h1>Platform-specific instructions: Android<a class="headerlink" href="#platform-specific-instructions-android" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>With Python and Pygame being ported to Android (<a class="reference external" href="http://pygame.renpy.org">PGS4A</a>), it is in principle
+possible to use Expyriment on Android devices, however, without OpenGL support.
+This can be achieved by compiling Python, Pygame and Expyriment into a Java
+app, using <a class="reference external" href="http://pygame.renpy.org">PGS4A</a>.
+For ease of use, we provide the &#8220;Expyriment Android Runtime&#8221;, an Android
+application which can be used to directly run experiments on an Andoroid device
+(with Android &gt; 2.2).</p>
+</div>
+<div class="section" id="installing-expyriment">
+<h2>Installing Expyriment<a class="headerlink" href="#installing-expyriment" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to run experiments on Android devices is to use our &#8220;Expyriment
+Android Runtime&#8221; appplication.
+You can download the current version from our <a class="reference external" href="https://github.com/expyriment/expyriment-android-runtime/releases">Android release
+page</a>.</p>
+</div>
+<div class="section" id="installing-expyriment-scripts">
+<h2>Installing Expyriment scripts<a class="headerlink" href="#installing-expyriment-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Once installed, the application will look for Expyriment scripts (each in its own
+subdirectory) in a directory called &#8216;expyriment&#8217;, located at the root level of
+either storage device under &#8216;mnt&#8217; (i.e. the internal or external SD card).
+Examples of correctly located Expyriment scripts include:</p>
+<blockquote>
+<div><p>/mnt/sdcard0/expyriment/exp1/exp1.py</p>
+<p>/mnt/sdcard0/expyriment/exp2/exp2.py</p>
+<p>/mnt/extSdCard/expyriment/exp3/exp3.py</p>
+<p>/mnt/extSdCard/expyriment/exp4/exp4.py</p>
+</div></blockquote>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Extra plugins not supported</strong></dt>
+<dd>The current version of the &#8220;Expyriment Android Runtime&#8221; does not support extras plugins.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="GettingStarted.html">Getting started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tutorial.html">Beginner`s tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Examples.html">Example experiments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Tutorial.html" title="Beginner’s tutorial to get started with Expyriment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Installation.OSX.html" title="Platform-specific instructions: OS X"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="GettingStarted.html" >Getting started</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="Installation.html" >Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

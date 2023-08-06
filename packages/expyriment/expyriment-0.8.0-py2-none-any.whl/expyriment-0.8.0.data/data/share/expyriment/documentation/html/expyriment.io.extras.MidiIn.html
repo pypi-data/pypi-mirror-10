@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>expyriment.io.extras.MidiIn &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="expyriment.io.extras" href="expyriment.io.extras.html" />
+    <link rel="next" title="expyriment.io.extras.MidiOut" href="expyriment.io.extras.MidiOut.html" />
+    <link rel="prev" title="expyriment.io.extras.CedrusResponseDevice" href="expyriment.io.extras.CedrusResponseDevice.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.MidiOut.html" title="expyriment.io.extras.MidiOut"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.CedrusResponseDevice.html" title="expyriment.io.extras.CedrusResponseDevice"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.io.extras.html" accesskey="U">expyriment.io.extras</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expyriment-io-extras-midiin">
+<h1>expyriment.io.extras.MidiIn<a class="headerlink" href="#expyriment-io-extras-midiin" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="expyriment.io.extras.MidiIn">
+<em class="property">class </em><code class="descclassname">expyriment.io.extras.</code><code class="descname">MidiIn</code><span class="sig-paren">(</span><em>device</em>, <em>buffer_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiin.html#MidiIn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class implementing a MIDI input.</p>
+<p><strong>EXPERIMENTAL!</strong></p>
+<p>Due to a bug in Pygame&#8217;s midi module, closing a MidiIn (or the programme)
+will cause an error message. Until this is fixed in Pygame, MidiIn will
+stay in extras.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="expyriment.io.extras.MidiIn.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>device</em>, <em>buffer_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiin.html#MidiIn.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiIn.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a MIDI input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>device</strong> : int or str</p>
+<blockquote>
+<div><p>id or name of the MIDI device</p>
+</div></blockquote>
+<p><strong>buffer_size</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>number of events to be buffered</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiIn.buffer_size">
+<code class="descname">buffer_size</code><a class="headerlink" href="#expyriment.io.extras.MidiIn.buffer_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for buffer_size.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiIn.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiin.html#MidiIn.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiIn.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the input buffer.</p>
+<p>This can take more than 1 ms!</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="expyriment.io.extras.MidiIn.get_devices">
+<em class="property">static </em><code class="descname">get_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiin.html#MidiIn.get_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiIn.get_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all MIDI input devices connected to the system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiIn.id">
+<code class="descname">id</code><a class="headerlink" href="#expyriment.io.extras.MidiIn.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="expyriment.io.extras.MidiIn.logging">
+<code class="descname">logging</code><a class="headerlink" href="#expyriment.io.extras.MidiIn.logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter for logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiIn.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>num_events=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiin.html#MidiIn.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiIn.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read MIDI events from device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>num_events</strong> : int, optional</p>
+<blockquote>
+<div><p>number of events to read (default=1)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> : timestpamed</p>
+<blockquote class="last">
+<div><p>A timestpamed midi event will look like this:
+[status, data1, data2, data3], timestamp]</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiIn.set_logging">
+<code class="descname">set_logging</code><span class="sig-paren">(</span><em>onoff</em><span class="sig-paren">)</span><a class="headerlink" href="#expyriment.io.extras.MidiIn.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging of this object on or off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>onoff</strong> : bool</p>
+<blockquote class="last">
+<div><p>set logging on (True) or off (False)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>See also design.experiment.set_log_level fur further information about
+event logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="expyriment.io.extras.MidiIn.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>events</em>, <em>duration=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/expyriment/io/extras/_midiin.html#MidiIn.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#expyriment.io.extras.MidiIn.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for (a) certain event(s).</p>
+<p>Events to wait for are in the form of a list with 4 elements and do
+not include a timestamp: [status, data1, data2, data3]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>events</strong> : int or list</p>
+<blockquote>
+<div><p>event(s) to wait for</p>
+</div></blockquote>
+<p><strong>duration</strong> : int, optional</p>
+<blockquote>
+<div><p>maximal time to wait in ms</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>evt</strong> : int</p>
+<blockquote>
+<div><p>found event</p>
+</div></blockquote>
+<p><strong>rt</strong> : int</p>
+<blockquote class="last">
+<div><p>reaction time in ms</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">design.experiment.register_wait_callback_function</span></code></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="expyriment.html">API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expyriment.control.html">expyriment.control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.design.html">expyriment.design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="expyriment.io.html">expyriment.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.misc.html">expyriment.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expyriment.stimuli.html">expyriment.stimuli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.MidiOut.html" title="expyriment.io.extras.MidiOut"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="expyriment.io.extras.CedrusResponseDevice.html" title="expyriment.io.extras.CedrusResponseDevice"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="expyriment.html" >expyriment</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="expyriment.io.html" >expyriment.io</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="expyriment.io.extras.html" >expyriment.io.extras</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

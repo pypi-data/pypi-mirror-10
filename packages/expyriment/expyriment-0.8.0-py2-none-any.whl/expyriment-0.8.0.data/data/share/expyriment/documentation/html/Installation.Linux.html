@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Platform-specific instructions: Linux &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="Installation" href="Installation.html" />
+    <link rel="next" title="Platform-specific instructions: OS X" href="Installation.OSX.html" />
+    <link rel="prev" title="Platform-specific instructions: Windows" href="Installation.Windows.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Installation.OSX.html" title="Platform-specific instructions: OS X"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Installation.Windows.html" title="Platform-specific instructions: Windows"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="GettingStarted.html" >Getting started</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="Installation.html" accesskey="U">Installation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="platform-specific-instructions-linux">
+<span id="linux"></span><h1>Platform-specific instructions: Linux<a class="headerlink" href="#platform-specific-instructions-linux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="all-linux-distributions">
+<h2>All Linux distributions<a class="headerlink" href="#all-linux-distributions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Use your distribution&#8217;s package manager to install</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Python 2</li>
+<li>pip</li>
+<li>Pygame</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">In a command line, run</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo pip install --upgrade pip
+sudo pip install --upgrade expyriment
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For the alternative packages (optional):</p>
+<ol class="arabic simple" start="3">
+<li>Use your distribution&#8217;s package manager to install</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Numpy</li>
+<li>PyParallel</li>
+<li>PySerial</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="debian-ubuntu-and-derivatives">
+<h2>Debian, Ubuntu and derivatives<a class="headerlink" href="#debian-ubuntu-and-derivatives" title="Permalink to this headline">¶</a></h2>
+<p>We provide a <a class="reference external" href="https://www.debian.org/">Debian</a> packages for Expyriment (<code class="docutils literal"><span class="pre">python-expyriment</span></code>).  We
+suggest to install <code class="docutils literal"><span class="pre">python-expyriment</span></code> via <a class="reference external" href="http://neuro.debian.net/">NeuroDebian</a>, a platform
+providing a large collection of neuroscience research software. For detailed
+instructions see:
+<a class="reference external" href="http://neuro.debian.net/pkgs/python-expyriment.html">Installing Expyriment via Neurodebian</a></p>
+<p><em>Note</em>: If you have a previous version of Expyriment installed from source,
+please first uninstall the old version using the following command (replace <em>X</em>
+to match your Python version):</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo rm /usr/local/lib/python2.X/dist-packages/expyriment
+</pre></div>
+</div>
+<p>Unstable pre-releases of Expyriment for Ubuntu can be found in our <a class="reference external" href="https://launchpad.net/~lindemann09/+archive/expyriment">Expyriment PPA</a>.</p>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Switch off desktop effects, when running an experiment</strong></p>
+<blockquote>
+<div>Several window managers nowadays come with a compositing engine to produce
+3D desktop effects. To get accurate timing of the visual stimulus
+presentation it is important to switch off desktop effects in your window
+manager!</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="GettingStarted.html">Getting started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Tutorial.html">Beginner`s tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Examples.html">Example experiments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Installation.OSX.html" title="Platform-specific instructions: OS X"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Installation.Windows.html" title="Platform-specific instructions: Windows"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="GettingStarted.html" >Getting started</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="Installation.html" >Installation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

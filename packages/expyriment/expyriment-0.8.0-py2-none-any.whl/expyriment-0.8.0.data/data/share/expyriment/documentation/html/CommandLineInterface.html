@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Command line interface &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="Advanced" href="Advanced.html" />
+    <link rel="next" title="Data preprocessing and exporting" href="DataPreprocessing.html" />
+    <link rel="prev" title="Expyriment test suite" href="Testsuite.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DataPreprocessing.html" title="Data preprocessing and exporting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Testsuite.html" title="Expyriment test suite"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="Advanced.html" accesskey="U">Advanced</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="command-line-interface">
+<h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>python -m expyriment.cli [OPTIONS] [EXPYRIMENT SCRIPT]
+
+The Expyriment command line interface provides a collection of convenient
+methods helpful for the development and testing of experiments as well as
+functions to join the data output.
+
+    OPTIONS:
+      -g | -0         No OpenGL (no vsync / no blocking)
+      -1              OpenGL (vsync / no blocking)
+      -2              OpenGL (vsync / blocking)
+      -3              OpenGL (vsync / alternative blocking)
+      -t              No time stamps for output files
+      -w              Window mode
+      -f              Fast mode (no initialize delay and fast quitting)
+      -a              Auto create subject ID
+      -i              Intensive logging (log level 2)
+      -d              Develop mode (equivalent to -wfat)
+      -b              Alternative blocking mode (blocking mode 2)
+
+      -C              Create Expyriment template
+      -J              Join data files to one single csv file
+      -R              Join data files and create R data frame (in RDS file)
+      -S              Print system information
+      -T              Run the Expyriment Test Suite
+      -A              Start the Expyrimnent API Reference Tool
+      -B              Open browser with API reference
+      -h              Show this help
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Advanced.html">Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="APIReferenceTool.html">API reference tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testsuite.html">Test suite</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Command line interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocessing.html">Data preprocessing and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Unicode.html">Using non-English characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fonts.html">Using fonts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Video.html">Presenting videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugin system (extras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Defaults.html">Defaults (settings)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware.html">Hardware compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timing.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Problems.html">Problems &amp; Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DataPreprocessing.html" title="Data preprocessing and exporting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Testsuite.html" title="Expyriment test suite"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="Advanced.html" >Advanced</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

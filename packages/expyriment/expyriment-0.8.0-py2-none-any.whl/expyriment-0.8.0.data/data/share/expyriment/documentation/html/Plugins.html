@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Expyriment plugin system (extras) &mdash; Expyriment 0.8.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Expyriment 0.8.0 documentation" href="index.html" />
+    <link rel="up" title="Advanced" href="Advanced.html" />
+    <link rel="next" title="Defaults (settings)" href="Defaults.html" />
+    <link rel="prev" title="Presenting videos in Expyriment" href="Video.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Defaults.html" title="Defaults (settings)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Video.html" title="Presenting videos in Expyriment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="Advanced.html" accesskey="U">Advanced</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-expyriment-plugin-system-extras">
+<h1>The Expyriment plugin system (extras)<a class="headerlink" href="#the-expyriment-plugin-system-extras" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The design, stimuli, io and misc packages can be extended with plugins
+(additional classes) that can be accessed via the &#8216;extras&#8217; namespace of each
+package. There are two locations Expyriment will look for installed plugins:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>In the <code class="docutils literal"><span class="pre">extras</span></code> directories of the corresponding packages of the
+Expyriment installation.</li>
+<li>In the <code class="docutils literal"><span class="pre">design</span></code>, <code class="docutils literal"><span class="pre">stmuli</span></code>, <code class="docutils literal"><span class="pre">io</span></code> and <code class="docutils literal"><span class="pre">misc</span></code> directories within a
+<code class="docutils literal"><span class="pre">.expyriment</span></code> or <code class="docutils literal"><span class="pre">~expyriment</span></code> directory located in the current user&#8217;s
+home directory</li>
+</ol>
+</div></blockquote>
+<p>In both cases, plugins will be integrated into the <em>.extras</em> namespace of each
+package (e.g. <code class="docutils literal"><span class="pre">expyriment.stimuli.extras.DotCloud</span></code>).</p>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>Basically, extra plugins are a simple python module with a single class, where
+the filename is the class name in lowercase. Additionally a file called
+<code class="docutils literal"><span class="pre">classname_defaults.py</span></code> can be created which will hold the default values for
+all parameters given when initializing the class. The naming convention is
+<code class="docutils literal"><span class="pre">classname_parameter</span></code>.
+For design and misc extras this is all there is, but for io and stimuli plugins,
+additional conventions need to be taken care of.</p>
+<div class="section" id="io-extras">
+<h3>io.extras<a class="headerlink" href="#io-extras" title="Permalink to this headline">¶</a></h3>
+<p>IO plugins have to inherit from <code class="docutils literal"><span class="pre">expyriment.io.Input</span></code> or <code class="docutils literal"><span class="pre">expyriment.io.Output</span></code>
+or both. This means they can also inherit from any other io class.</p>
+</div>
+<div class="section" id="stimuli-extras">
+<h3>stimuli.extras<a class="headerlink" href="#stimuli-extras" title="Permalink to this headline">¶</a></h3>
+<p>Stimulus plugins have to inherit from <code class="docutils literal"><span class="pre">expyriment.stimuli.Stimulus</span></code>. This means
+they can also inherit from any other stimulus class.
+Additionally, every visual extra stimulus class (inherited from <code class="docutils literal"><span class="pre">expyriment.stimuli.Visual</span></code>)
+needs a <code class="docutils literal"><span class="pre">_create_surface</span></code> method that defines what happens when the stimulus is preloaded,
+plotted or presented.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/xpy_button.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Advanced.html">Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="APIReferenceTool.html">API reference tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testsuite.html">Test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CommandLineInterface.html">Command line interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataPreprocessing.html">Data preprocessing and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Unicode.html">Using non-English characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fonts.html">Using fonts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Video.html">Presenting videos</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Plugin system (extras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Defaults.html">Defaults (settings)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware.html">Hardware compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Timing.html">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Problems.html">Problems &amp; Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expyriment.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreviousVersions.html">Previous versions</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Defaults.html" title="Defaults (settings)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Video.html" title="Presenting videos in Expyriment"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Expyriment 0.8.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="Advanced.html" >Advanced</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Florian Krause &amp; Oliver Lindemann.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
