@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: mistune-hilite
+Version: 0.1.0
+Summary: Python-Markdown Code Hilite port for Mistune
+Home-page: https://github.com/dvl/mistune-hilite
+Author: André Luiz
+Author-email: contato@xdvl.info
+License: MIT
+Description: Mistune-Hilite
+        ==============
+        
+        `Python-Markdown Code Hilite <https://pythonhosted.org/Markdown/extensions/code_hilite.html>`_  port for `Mistune <https://github.com/lepture/mistune>`_.
+        
+        Installation
+        ------------
+        
+        .. code:: shell
+        
+            $ pip install mistune-hilite
+        
+        
+        Usage
+        -----
+        
+        .. code:: python
+        
+            import mistune
+            import mistune_hilite
+        
+            text = '''
+            def hello_world():
+                print('Hello World')
+            '''
+        
+            renderer = mistune_hilite.HiliteRenderer()
+            markdown = mistune.Markdown(renderer=renderer)
+        
+            html = markdown(text)
+        
+        Options
+        -------
+        
+        TODO
+        
+        License
+        -------
+        
+        MIT
+        
+Keywords: sintax highlight hilite mistune
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Utilities
