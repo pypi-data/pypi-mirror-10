@@ -1,0 +1,13 @@
+pytz
+tzlocal
+
+[dev]
+check-manifest
+bumpversion
+ipdb
+
+[test]
+nose
+coverage
+coveralls
+pylint
