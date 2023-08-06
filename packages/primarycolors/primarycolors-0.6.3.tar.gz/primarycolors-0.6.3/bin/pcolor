@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
+import sys
+import select
+import argparse
+from six import BytesIO, PY3
+from primarycolors import PrimaryColors
+
+
+def nested_print(params):
+    for param in params:
+        print(param, end=' ')
+    else:
+        print()
+
+
+def pcolor():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--image", help="An image for processing.", type=str, default='')
+    parser.add_argument("-s", "--sorted", help="The output color sorted.",  action="store_true")
+    parser.add_argument("-r", "--rgb", help="Output colors in RGB-space colors.", action="store_true")
+    parser.add_argument("-w", "--web", help="Output colors in hexadecimal format for WEB.",  action="store_true")
+    parser.add_argument("-x", "--hex", help="Output colors in hexadecimal format",  action="store_true")
+    parser.add_argument("-l", "--hsl", help="Output colors in HSL-space colors.",  action="store_true")
+    args = parser.parse_args()
+
+    if args.image:
+        try:
+            p = PrimaryColors(args.image)
+        except IOError as e:
+            sys.stderr.write("%s\n" % e)
+            sys.exit(1)
+
+    # read image from pipe.
+    elif select.select([sys.stdin, ], [], [], 0.0)[0]:
+        try:
+            if PY3:
+                p = PrimaryColors(BytesIO(sys.stdin.buffer.read()))  # python v.3
+            else:
+                p = PrimaryColors(BytesIO(sys.stdin.read()))  # python v.2
+        except OSError as e:
+            sys.stderr.write("%s\n" % e)
+            sys.exit(1)
+
+    # if the image is not specified.
+    else:
+        parser.print_help()
+        sys.exit()
+
+    opts = [opt for opt in args.__dict__ if args.__dict__[opt] and opt != 'image']
+
+    fn_dict = {
+        'web': p.web,
+        'hsl': p.hsl,
+        'hex': p.hex,
+        'rgb': p.rgb,
+        'sorted': p.sorted_colors
+    }
+
+    if opts:
+        for opt in opts:
+            nested_print(fn_dict.get(opt))
+    else:
+        nested_print(p.hex)
+
+if __name__ == '__main__':
+    pcolor()
