@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: python-aqbanking
+Version: 0.0.1
+Summary: This is a python wrapper for AqBanking
+Home-page: https://github.com/monofox/python-aqbanking
+Author: Lukas Schreiner
+Author-email: dev@lschreiner.de
+License: GPLv3+
+Description: This is a python wrapper for AqBanking - so of course you need the AqBanking and Gwenhywfar dependencies 
+        installed for a successful compilation. The only supported things at the moment: get balance of an account, 
+        get the transactions of an account (with limitation to start and end date), list configured accounts in 
+        AqBanking, check an IBAN.
+Keywords: aqbanking banking hbci financial
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Programming Language :: Python :: 3 :: Only
