@@ -1,0 +1,119 @@
+Metadata-Version: 1.1
+Name: turnip
+Version: 0.1
+Summary: turnip
+Home-page: https://launchpad.net/turnip
+Author: LAZR Developers
+Author-email: lazr-developers@lists.launchpad.net
+License: AGPL v3
+Download-URL: https://launchpad.net/turnip/+download
+Description: ======
+        turnip
+        ======
+        
+        turnip is a flexible and scalable Git server suite written in Python
+        using Twisted.
+        
+        The various servers provide customisable virtual hosting, with flexible
+        authentication and authorisation, and individual horizontal scaling from
+        the frontend to the storage layer.
+        
+        None of the Python interfaces here should be considered stable.
+        
+        
+        Architecture
+        ------------
+        
+        turnip's architecture is designed to maximise simplicity, scalability
+        and robustness. Each server provides roughly one service, and an
+        installation need only run the servers that it desires. Most servers
+        eschew local state to ease horizontal scaling, and those that do have
+        local state can replicate and/or shard it.
+        
+        There are two separate server stacks: pack and API. The pack stack
+        communicates with Git clients via the pack protocol (git://), smart
+        HTTP, or smart SSH. The HTTP and SSH frontends unwrap the tunneled pack
+        protocol, and forward it onto the midends as a normal pack protocol
+        connection. The separate HTTP API stack provides a programmatic remote
+        interface to high-level read and write operations on the repositories
+        
+        
+        Frontends:
+         * Pack
+         * Smart HTTP
+         * Smart SSH
+         * HTTP API
+        
+        Midends:
+         * Pack virtualisation
+         * API virtualisation
+        
+        Backends:
+         * Pack
+         * API
+        
+        
+        Internal protocol
+        -----------------
+        
+        turnip uses an extension of the Git pack protocol for most communication
+        between its servers. The only change is that turnip requests can specify
+        arbitrary named parameters, not just a hostname.
+        
+        The relevant part of the Git pack protocol's git-proto-request is
+        represented in ABNF as follows:
+        
+           git-proto-request = request-command SP pathname NUL [ host-parameter NUL ]
+           host-parameter = "host=" hostname [ ":" port ]
+        
+        turnip-proto-request alters it to this:
+        
+           turnip-proto-request = request-command SP pathname NUL *( param NUL )
+           param = param-name "=" param-value
+           param-name = *( %x01-3C / %x3E-FF ) ; exclude NUL and =
+           param-value = *%x01-FF ; exclude NUL
+        
+        The only additional parameters implemented today are
+        'turnip-stateless-rpc' and 'turnip-advertise-refs', which are used by
+        the smart HTTP server to proxy to the standard pack protocol.
+        
+        
+        Development
+        -----------
+        
+        Pack smart-http/ssh services can be started with:
+        
+            python turnipserver.py
+        
+        The HTTP API can be started with:
+        
+           make run-api                  
+        
+        
+        Deployment
+        ----------
+        
+        Turnip is deployed with the turnip juju charm, available from bzr branch lp:~canonical-launchpad-branches/charms/trusty/turnip/devel.
+        
+        To deploy with the local provider:
+        
+           juju switch local
+           juju bootstrap
+           juju deploy --repository=/path/to/loca/charm/repo/root local:trusty/turnip
+        
+        
+        ===============
+        NEWS for turnip
+        ===============
+        
+        0.1 (2015-06-02)
+        ================
+        
+        - Initial release.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
