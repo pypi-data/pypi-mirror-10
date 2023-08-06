@@ -1,0 +1,176 @@
+<div class="container-fluid container-compact os-tab-container" ng-controller="Statistics">
+  <tabset>
+    <tab heading="CPU统计" select="cpu.init()">
+      <div class="row os-row-no-padding">
+        <div class="col-sm-12">
+          <div class="panel os-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">CPU总计</h3>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal os-form" role="form">
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">用户进程</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.user}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">系统内核</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.system}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">ni</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.nice}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">空闲</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.idle}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">等待I/0</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.iowait}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">硬中断</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.irq}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">软中断</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.softirq}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">steal</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.steal}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">guest</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.total.guest}}</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="panel os-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">内存</h3>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal os-form" role="form">
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">内存总量</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.mem.total | byte : 2}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">使用总量</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.mem.used | byte : 2}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">可用总量</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.mem.available | byte : 2}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">空闲</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.mem.free | byte : 2}}</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">内核缓存</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.mem.buffers | byte : 2}}</p>
+                  </div>
+                  <label class="col-sm-1 control-label">缓冲区</label>
+                  <div class="col-sm-2">
+                    <p class="form-control-static">{{cpu.mem.cached | byte : 2}}</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="panel os-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">CPU详细</h3>
+            </div>
+            <div class="panel-body">
+              <div class="col-sm-12 os-table-container">
+                <table class="table os-table">
+                  <thead>
+                    <tr>
+                      <th class="col-sm-1">NO.</th>
+                      <th class="col-sm-1">用户进程</th>
+                      <th class="col-sm-1">系统内核</th>
+                      <th class="col-sm-1">ni</th>
+                      <th class="col-sm-1">空闲</th>
+                      <th class="col-sm-1">等待I/0</th>
+                      <th class="col-sm-1">硬中断</th>
+                      <th class="col-sm-1">软中断</th>
+                      <th class="col-sm-1">steal</th>
+                      <th class="col-sm-1">guest</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="p in cpu.per track by $index">
+                      <td>{{$index | index}}</td>
+                      <td>{{p.user}}</td>
+                      <td>{{p.system}}</td>
+                      <td>{{p.nice}}</td>
+                      <td>{{p.idle}}</td>
+                      <td>{{p.iowait}}</td>
+                      <td>{{p.irq}}</td>
+                      <td>{{p.softirq}}</td>
+                      <td>{{p.steal}}</td>
+                      <td>{{p.guest}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+    <tab heading="IO统计" select="io.init()">
+      <div class="row os-row-no-padding">
+        <div class="col-sm-12">
+          <div class="panel os-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">CPU</h3>
+            </div>
+            <div class="panel-body">
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+    <tab heading="网络统计" select="io.init()">
+      <div class="row os-row-no-padding">
+        <div class="col-sm-12">
+          <div class="panel os-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">CPU</h3>
+            </div>
+            <div class="panel-body">
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+    <tab heading="系统进程" select="io.init()">
+      <div class="row os-row-no-padding">
+        <div class="col-sm-12">
+          <div class="panel os-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">CPU</h3>
+            </div>
+            <div class="panel-body">
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+  </tabset>
+</div>
