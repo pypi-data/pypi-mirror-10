@@ -1,0 +1,3 @@
+include dsm/defaults.conf
+recursive-include docker-compose *.sh
+recursive-include docker-gen *.sh
