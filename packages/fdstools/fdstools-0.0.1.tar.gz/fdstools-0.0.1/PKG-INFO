@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: fdstools
+Version: 0.0.1
+Summary: Forensic DNA Sequencing Tools
+Home-page: https://git.lumc.nl/jhoogenboom/fdstools/blob/master/README.rst
+Author: Jerry Hoogenboom
+Author-email: jerryhoogenboom@outlook.com
+License: LGPLv3+
+Description: 
+        Tools for characterisation and filtering of PCR stutter artefacts and other
+        systemic noise in Next Generation Sequencing data of forensic STR markers.
+        
+Keywords: bioinformatics forensics stutter NGS sequencing STR
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Legal Industry
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
