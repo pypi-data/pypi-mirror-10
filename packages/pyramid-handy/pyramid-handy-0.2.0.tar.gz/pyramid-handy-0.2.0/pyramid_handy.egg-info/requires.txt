@@ -1,0 +1,9 @@
+pyramid
+six
+
+[tests]
+webtest
+pytest
+pytest-cov
+pytest-xdist
+pytest-capturelog
