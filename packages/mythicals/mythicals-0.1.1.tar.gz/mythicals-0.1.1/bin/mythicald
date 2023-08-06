@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+"""
+Command line interface for running mythical daemons:
+
+    - http
+
+so e.g. for http:
+
+.. code:: bash
+
+    $ bin/mythicald -c /etc/mythical/mythical.conf -- -c /etc/mythical/http/gunicorn.conf -w 1
+
+everything else:
+
+    - sftp
+
+is managed by supervisord.
+"""
+import argparse
+import os
+import sys
+
+import gunicorn.app.wsgiapp
+
+
+def run(args):
+    script = gunicorn.app.wsgiapp.run
+    script_args = [sys.argv[0], args.app]
+    if args.remainder:
+        script_args.extend(args.remainder[1:])
+    del sys.argv[:]
+    sys.argv.extend(script_args)
+    return script()
+
+
+def parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--conf-file', metavar='PATH')
+    parser.add_argument('remainder', nargs=argparse.REMAINDER)
+    parser.set_defaults(command=run, app='mythicals.http:app')
+    return parser
+
+
+def main():
+    args = parser().parse_args()
+    if args.conf_file:
+        os.environ['MYTHICALS_CONF'] = args.conf_file
+    elif (not os.environ.get('MYTHICALS_CONF') and
+          os.path.exists('/etc/mythical/mythical.conf')):
+        os.environ['MYTHICALS_CONF'] = '/etc/mythical/mythical.conf'
+    sys.exit(args.command(args) or 0)
+
+
+if __name__ == '__main__':
+    main()

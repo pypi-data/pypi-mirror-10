@@ -1,0 +1,65 @@
+#!/usr/bin/env python
+"""
+Commands for interacting with a mythical installation:
+
+.. code:: bash
+
+    $ mythicals --help
+
+"""
+import logging
+import os
+import sys
+
+import mythicals
+
+
+def setup_logging(args):
+    log_conf = args.log_conf
+    if log_conf is None:
+        log_conf = None
+        for candidate in ['/etc/mythical/log.conf']:
+            if os.path.exists(candidate):
+                log_conf = candidate
+                break
+    if log_conf:
+        logging.config.dictConfig(
+            eval(open(log_conf, 'r').read(), {'mythicals': mythicals})
+        )
+        if args.log_level is not None:
+            logging.getLogger().setLevel(args.log_level)
+    else:
+        logging.basicConfig(
+            level=args.log_level or logging.WARN,
+            format='%(asctime)s : %(levelname)s : %(name)s : %(message)s',
+            stream=sys.stderr,
+        )
+
+
+def conf_file(args):
+    if args.conf_file:
+        return args.conf_file
+    if os.environ.get('MYTHICALS_CONF'):
+        return os.environ.get('MYTHICALS_CONF')
+    for conf_file in [
+            'mythicals.conf',
+            os.path.expanduser(os.path.join('~', 'mythicals.conf')),
+            '/etc/mythical/mythical.conf',
+        ]:
+        if os.path.exists(conf_file):
+            return conf_file
+
+
+def main():
+    parser = mythicals.commands.parser()
+    args = parser.parse_args()
+    setup_logging(args)
+    mythicals.init(conf_file(args))
+    result = args.command(args)
+    if result is None:
+        result = 0
+    sys.exit(result)
+
+
+if __name__ == '__main__':
+    main()
