@@ -1,0 +1,6 @@
+[console_scripts]
+zuul = zuul.cmd.client:main
+zuul-cloner = zuul.cmd.cloner:main
+zuul-merger = zuul.cmd.merger:main
+zuul-server = zuul.cmd.server:main
+
