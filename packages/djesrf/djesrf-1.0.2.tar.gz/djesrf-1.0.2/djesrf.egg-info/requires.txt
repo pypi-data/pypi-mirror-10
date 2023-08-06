@@ -1,0 +1,11 @@
+djes
+djangorestframework
+
+[dev]
+flake8
+pytest
+pytest-django
+pytest-cov
+model_mommy
+coveralls
+drf-nested-serializers
