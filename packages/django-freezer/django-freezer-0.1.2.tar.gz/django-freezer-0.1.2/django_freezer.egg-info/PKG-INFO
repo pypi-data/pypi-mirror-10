@@ -1,0 +1,59 @@
+Metadata-Version: 1.1
+Name: django-freezer
+Version: 0.1.2
+Summary: Print pip freeze in your admin panel
+Home-page: https://github.com/inirudebwoy/django-freezer
+Author: Michal Klich
+Author-email: michal@michalklich.com
+License: UNKNOWN
+Description: ==============
+        Django Freezer
+        ==============
+        .. image:: https://travis-ci.org/inirudebwoy/django-freezer.svg?branch=master
+            :target: https://travis-ci.org/inirudebwoy/django-freezer
+        
+        Code can be found here.
+        https://github.com/inirudebwoy/django-freezer
+        
+        Docs.
+        http://django-freezer.readthedocs.org
+        
+        Installation
+        ============
+        Install from pip::
+        
+          pip install django-freezer
+        
+        Put package in INSTALLED_APPS.::
+        
+          INSTALLED_APPS += ('django_freezer',)
+        
+        In urls.py add import of AdminSiteExtended from djangofreezer::
+        
+          from django_freezer.admin import AdminSiteExtended
+        
+        Next create new extended site before calling autodiscover()::
+        
+          admin.site = AdminSiteExtended()
+        
+        If you are using Django 1.7 and higher than it is necessery to disable autodiscover
+        as per `manual <https://docs.djangoproject.com/en/1.7/ref/contrib/admin/#django.contrib.admin.autodiscover>`_
+        
+        Running unit tests
+        ==================
+        Just use tox::
+          $ tox
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: Django
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

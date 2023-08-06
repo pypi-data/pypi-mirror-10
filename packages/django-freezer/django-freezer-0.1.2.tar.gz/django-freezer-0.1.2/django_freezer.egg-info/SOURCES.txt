@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_freezer/__init__.py
+django_freezer/admin.py
+django_freezer/models.py
+django_freezer/test_settings.py
+django_freezer/tests.py
+django_freezer/views.py
+django_freezer.egg-info/PKG-INFO
+django_freezer.egg-info/SOURCES.txt
+django_freezer.egg-info/dependency_links.txt
+django_freezer.egg-info/top_level.txt
+django_freezer/static/django_freezer/css/admin_freezer.css
+django_freezer/templates/django_freezer/index.html
