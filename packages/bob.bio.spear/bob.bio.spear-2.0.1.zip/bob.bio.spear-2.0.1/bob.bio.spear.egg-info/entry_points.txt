@@ -1,0 +1,23 @@
+[bob.bio.algorithm]
+gmm_256g = bob.bio.spear.config.algorithm.gmm_256g:algorithm
+
+[bob.bio.database]
+mobio-female = bob.bio.spear.config.database.mobio_female:database
+mobio-male = bob.bio.spear.config.database.mobio_male:database
+voxforge = bob.bio.spear.config.database.voxforge:database
+
+[bob.bio.extractor]
+htk = bob.bio.spear.config.extractor.htk:extractor
+lfcc_60 = bob.bio.spear.config.extractor.lfcc_60:extractor
+mfcc_60 = bob.bio.spear.config.extractor.mfcc_60:extractor
+spro = bob.bio.spear.config.extractor.spro:extractor
+
+[bob.bio.preprocessor]
+energy_2gauss = bob.bio.spear.config.preprocessor.energy_2gauss:preprocessor
+energy_thr = bob.bio.spear.config.preprocessor.energy_thr:preprocessor
+external = bob.bio.spear.config.preprocessor.external:preprocessor
+mod_4hz = bob.bio.spear.config.preprocessor.mod_4hz:preprocessor
+
+[console_scripts]
+baselines.py = bob.bio.spear.script.baselines:main
+
