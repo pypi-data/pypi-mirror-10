@@ -1,0 +1,13 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+aggregator	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^aggregator = Aggregator()$/;"	v	language:Python
+arguments	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^arguments = docopt(__doc__)$/;"	v	language:Python
+cf	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^    cf = Fetcher()$/;"	v	language:Python
+delta	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^delta = timedelta(seconds=int(arguments["--delay"]))$/;"	v	language:Python
+next_start	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^        next_start = now$/;"	v	language:Python
+next_start	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^        next_start = start + nr * delta$/;"	v	language:Python
+next_start	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^next_start = None$/;"	v	language:Python
+now	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^    now = datetime.now()$/;"	v	language:Python
+rounds	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^rounds = int(arguments["--rounds"])$/;"	v	language:Python
+seconds_to_wait	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^    seconds_to_wait = (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6) \/ 10**6$/;"	v	language:Python
+start	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^start = datetime.now()$/;"	v	language:Python
+td	/data/home/ahilmann/private/dev/minion/src/main/scripts/fetch-connections	/^    td = next_start - now$/;"	v	language:Python
