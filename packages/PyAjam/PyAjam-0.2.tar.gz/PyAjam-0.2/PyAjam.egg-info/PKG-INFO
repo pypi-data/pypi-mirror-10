@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: PyAjam
+Version: 0.2
+Summary: Python binding for Asterisk AJAM interface
+Home-page: http://devedge.bour.cc/wiki/Pyajam
+Author: Guillaume Bour
+Author-email: guillaume@bour.cc
+License: GNU General Public License v3
+Download-URL: http://devedge.bour.cc/resources/pyajam/src/pyajam.latest.tar.gz
+Description: Pyajam allows to interact with an asterisk server using the AJAM interface, in a pythonic way
+Keywords: Asterisk AJAM API VoIP
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Natural Language :: English
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
