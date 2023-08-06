@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: pntools
+Version: 0.1.1
+Summary: Petri net and labelled partial order tools
+Home-page: https://github.com/irgangla/pntools
+Author: Thomas Irgang
+Author-email: pntools@irgang-la.com
+License: MIT
+Description: PNTools
+        =======
+        
+        PNTools is a collection of small Python 3 scripts. This
+        scripts support parsing of pnml and lpo files, define a
+        data structure for Petri nets and labelled partial orders
+        and contain algorithms to work with such structures.
+        
+        
+        
+Keywords: Petri net labelled partial order pnml lpo
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
