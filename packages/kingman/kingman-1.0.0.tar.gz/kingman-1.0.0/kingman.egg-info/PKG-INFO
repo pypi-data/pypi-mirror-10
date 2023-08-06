@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: kingman
+Version: 1.0.0
+Summary: An example Python package to simulate Kingman's coalescent
+Home-page: http://pypi.python.org/pypi/kingman
+Author: Jerome Kelleher
+Author-email: jerome.kelleher@well.ox.ac.uk
+License: GNU GPLv3+
+Description: =======
+        kingman
+        =======
+        
+        This is an example Python package, which is intended to illustrate the current
+        best practices in Python development and packaging.  The intended audience is
+        for Bioinformatics, so the package itself simulates a Kingman's coalescent, a
+        simple but fundamental process in population genetics. See the `CodeMonkeys
+        blog post <http://wtchgcodemonkeys.github.io/Packaging_Python/>`_ for a full
+        discussion of this package. Documentation for the package is available
+        on `ReadTheDocs <http://kingman.readthedocs.org/en/latest/>`_.
+        
+Keywords: Coalescent simulation,Python packaging
+Platform: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
