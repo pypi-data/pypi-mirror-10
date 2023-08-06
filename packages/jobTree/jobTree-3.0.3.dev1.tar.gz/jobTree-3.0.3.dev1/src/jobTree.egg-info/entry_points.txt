@@ -1,0 +1,7 @@
+[console_scripts]
+jobTreeStats = jobTree.utils.jobTreeStats:main
+multijob = jobTree.batchSystems.multijob:main
+jobTreeStatus = jobTree.utils.jobTreeStatus:main
+jobTreeKill = jobTree.utils.jobTreeKill:main
+jobTreeRestarts = jobTree.utils.jobTreeRestarts:main
+
