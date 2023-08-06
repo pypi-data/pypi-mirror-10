@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: hitchcron
+Version: 0.2
+Summary: Plugin to mimic a cron for use with the Hitch testing framework.
+Home-page: https://hitch.readthedocs.org/
+Author: Colm O'Connor
+Author-email: colm.oconnor.github@gmail.com
+License: AGPL
+Description: HitchCron
+        =========
+        
+        HitchCron is a plugin for the Hitch test framework that lets you mimic
+        the effect of having a cron run during your tests by running a command
+        repeatedly.
+        
+        
+        Use with Hitch
+        ==============
+        
+        Install like so::
+        
+            $ hitch install hitchcron
+        
+        .. code-block:: python
+        
+                # Service definition in engine's setUp:
+                self.services['Cron'] = hitchcron.CronService(
+                    run=self.services['Django'].manage("trigger").command,      # Python list containing command + args
+                    every=1,                                                    # Run every 1 seconds
+                )
+        
+        See this service in action at the DjangoRemindMe_ project.
+        
+        
+        .. _HitchServe: https://github.com/hitchtest/hitchserve
+        .. _DjangoRemindMe: https://github.com/hitchtest/django-remindme
+        
+Keywords: hitch testing framework bdd tdd declarative tests testing service cron
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
