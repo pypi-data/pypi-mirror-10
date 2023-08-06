@@ -1,0 +1,9 @@
+rasterio>=0.18
+click>=3.0
+Numpy>=1.7
+affine>=1.2
+gpsdio>=0.0.4
+
+[test]
+pytest
+pytest-cov
