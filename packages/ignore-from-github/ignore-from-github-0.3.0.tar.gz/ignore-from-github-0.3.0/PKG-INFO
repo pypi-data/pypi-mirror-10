@@ -1,0 +1,39 @@
+Metadata-Version: 1.1
+Name: ignore-from-github
+Version: 0.3.0
+Summary: Add common sets of ignored file types to your .gitignore easily
+Home-page: https://github.com/anrosent/ignore.git
+Author: Anson Rosenthal
+Author-email: anson.rosenthal@gmail.com
+License: MIT License
+Description: ignore
+        ===
+        
+        `ignore` allows you to quickly add common sets of file types to your `.gitignore` file. It pulls from `https://github.com/github/gitignore`.
+        ```
+            $   ignore python
+            $   cat .gitignore
+        
+            # Byte-compiled / optimized / DLL files
+            __pycache__/
+            *.py[cod]
+            *$py.class
+        
+            # C extensions
+            *.so
+            .
+            .
+            .
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Software Development
+Classifier: Intended Audience :: Developers
