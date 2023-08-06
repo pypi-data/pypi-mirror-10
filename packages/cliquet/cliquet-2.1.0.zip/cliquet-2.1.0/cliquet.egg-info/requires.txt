@@ -1,0 +1,36 @@
+colander
+cornice >= 1.0
+python-dateutil
+pyramid_multiauth >= 0.5
+redis
+requests
+six
+structlog
+ujson
+
+[monitoring]
+colander
+cornice >= 1.0
+python-dateutil
+pyramid_multiauth >= 0.5
+redis
+requests
+six
+structlog
+ujson
+raven
+statsd
+newrelic
+werkzeug
+
+[postgresql]
+colander
+cornice >= 1.0
+python-dateutil
+pyramid_multiauth >= 0.5
+redis
+requests
+six
+structlog
+ujson
+psycopg2>2.5
