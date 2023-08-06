@@ -1,0 +1,13 @@
+{% with blog_post.tags.all as tags %}
+    {% if tags %}
+        <ul class="tags">
+        {% for tag in tags %}
+            <li>
+                <a href="{{ blog_post.blog_index.url }}?tag={{ tag }}">
+                    {{ tag }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
