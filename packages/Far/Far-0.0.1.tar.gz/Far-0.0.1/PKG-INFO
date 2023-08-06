@@ -1,0 +1,65 @@
+Metadata-Version: 1.0
+Name: Far
+Version: 0.0.1
+Summary: Find and Replace
+Home-page: https://github.com/shubhamchaudhary/far
+Author: Shubham Chaudhary
+Author-email: me@shubhamchaudhary.in
+License: GPLv3+
+Description: Far
+        ===
+        
+        |PyPI Version| |PyPI Downloads| |PyPI License| |GitHub tag| |GitHub
+        release|
+        
+        |Build Status Travis-CI| |Coverage Status| |Build Status Snap-CI|
+        |Requirements Status|
+        
+        |GitHub issues| |Stories in Ready|
+        
+        ::
+        
+            find . -type f -not -path '*/\.git*' -exec sed -i 's/foo/bar/g' {} + 
+        
+        Why is doing a find and replace with pattern so messy?
+        
+        Let's *find* a solution for this problem.
+        
+        Installation
+        ^^^^^^^^^^^^
+        
+        Far will be available from PyPi
+        
+        ::
+        
+            # pip install far
+        
+        Contributors
+        ^^^^^^^^^^^^
+        
+        Checkout CONTRIBUTION.md file
+        
+        .. |PyPI Version| image:: https://img.shields.io/pypi/v/far.svg
+           :target: https://pypi.python.org/pypi/far
+        .. |PyPI Downloads| image:: https://img.shields.io/pypi/dm/far.svg
+           :target: https://pypi.python.org/pypi/far
+        .. |PyPI License| image:: https://img.shields.io/pypi/l/far.svg
+           :target: https://pypi.python.org/pypi/far
+        .. |GitHub tag| image:: https://img.shields.io/github/tag/shubhamchaudhary/far.svg
+           :target: https://github.com/shubhamchaudhary/far/releases
+        .. |GitHub release| image:: https://img.shields.io/github/release/shubhamchaudhary/far.svg
+           :target: https://github.com/shubhamchaudhary/far/releases/latest
+        .. |Build Status Travis-CI| image:: https://travis-ci.org/shubhamchaudhary/far.svg
+           :target: https://travis-ci.org/shubhamchaudhary/far
+        .. |Coverage Status| image:: https://coveralls.io/repos/shubhamchaudhary/far/badge.svg?branch=master
+           :target: https://coveralls.io/r/shubhamchaudhary/far?branch=master
+        .. |Build Status Snap-CI| image:: https://snap-ci.com/shubhamchaudhary/far/branch/master/build_image
+           :target: https://snap-ci.com/shubhamchaudhary/far/branch/master
+        .. |Requirements Status| image:: https://requires.io/github/shubhamchaudhary/far/requirements.svg?branch=master
+           :target: https://requires.io/github/shubhamchaudhary/far/requirements/?branch=master
+        .. |GitHub issues| image:: https://img.shields.io/github/issues/shubhamchaudhary/far.svg?style=plastic
+           :target: https://github.com/shubhamchaudhary/far/issues
+        .. |Stories in Ready| image:: https://badge.waffle.io/shubhamchaudhary/far.png?label=ready&title=Ready
+           :target: https://waffle.io/shubhamchaudhary/far
+        
+Platform: UNKNOWN
