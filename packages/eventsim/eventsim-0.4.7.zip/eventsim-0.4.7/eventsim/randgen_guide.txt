@@ -1,0 +1,118 @@
+HOW TO USE
+-----------
+
+To use eventsim, you need to install it then import it as below
+if using:
+	from eventsim.randgen import *
+	from eventsim.randgen import generate
+
+	you can then use generate class to call other methods on your generated list
+
+	just call function names directly
+	e.g. v = generate (3, 10, 5)
+
+	v.getcum() will return the cummulative probability of each item in the list of generated values.
+
+if using:
+	import eventsim.randgen
+	use it like this:
+		eventsim.randgen.generate(3, 10, 5)
+
+	or still, import eventsim.randgen as gen
+	so you can then do 
+
+	v = gen.generate(3, 10, 5)
+	v.getprob() which returns the probability of each occurrence in the random number generator
+
+
+RANDGEN
+--------
+
+The randgen class takes as little as no arguments and a maximum of five which I will be explaining later on.
+
+To use this you need to first of all import the generate class:
+
+IMPORTING THE RANDGEN CLASS
+---------------------------
+
+from eventsim.randgen import generate or 
+from eventsim.randgen import *
+
+you then need to create an instance of the generate class to work upon:
+
+CREATING AN INSTANCE
+---------------------
+
+v = generate([arguments])
+
+RANDGEN CLASS ARGUMENTS
+-------------------------
+
+*"r" for reversed (descending order)
+*"s" for sorted (ascending order)
+no optional - random order
+
+-opt- means optional
+
+
+options | Examples
+------------------
+
+v = generate()
+v = generate(-optional-) or v = generate("s")
+
+v = generate(length) | v = generate(5)
+v = generate(length, -optional-) | v = generate(10, "r")
+
+v = generate(startvalue, endvalue) | v = generate(0,10)
+v = generate(startvalue, endvalue, -opt-) | v = generate(0,10, "s")
+
+v = generate(start, stop, length) | v = generate(0, 10, 5)
+v = generate(start, stop, length, -opt-) | v = generate(0, 10, 5, "r")
+
+v = generate(start, stop, step, length) | v = generate(2, 10, 2, 7)
+v = generate(start, stop, step, length, -opt-) | v = generate(2, 10, 2, 7, "r")
+
+
+METHODS
+--------
+After the instance has been generated like the examples above, methods that can be called on it are as follows:
+
+Please note that v is just an instance. Any other name can be used instead and all returned results are lists.
+They take no arguments.
+
+v.outcome() - This returns the generated outcome 
+v.unique() - This returns non-duplicated outcomes
+v.occur() - This returns how many times an item is found
+v.getprob() - This returns the probability of all generated outcomes
+v.getcum() - This returns the cummulative probability of all outcomes.
+
+manual("randgen") or manual("models") prints out the necessary manual depending on the specified argument.
+
+the module must be imported as all or this manual should be imported manually
+
+from eventsim.randgen import *
+from eventsim.randgen import manual
+
+Example
+--------
+
+from eventsim.randgen import *
+sample1 = generate(0, 20, 2, 10, "s")
+
+print("outcome: ", sample1.outcome())
+print("Unique: ", sample1.unique())
+print("Occurrence: ", sample1.occur())
+print("Probability: ", sample1.getprob())
+print("Cummulative: ", sample1.getcum())
+
+Result
+-------
+
+outcome:  [0, 6, 8, 8, 10, 10, 16, 18, 20, 20]
+Unique:  [0, 6, 8, 10, 16, 18, 20]
+Occurrence:  [1, 1, 2, 2, 1, 1, 2]
+Probability:  [0.1, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2]
+Cummulative:  [0.1, 0.2, 0.4, 0.6, 0.7, 0.8, 1.0]
+
+Stuck?, see an example in the folder to give you more understanding.
