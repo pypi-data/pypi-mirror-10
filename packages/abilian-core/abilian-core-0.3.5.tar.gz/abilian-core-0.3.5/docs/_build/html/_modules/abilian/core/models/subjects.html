@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.core.models.subjects &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../../index.html"/>
+        <link rel="up" title="abilian.core.models" href="../models.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id3">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id4">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id5">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id6">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id7">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id8">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id9">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id10">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id11">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id12">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id13">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id14">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../models.html">abilian.core.models</a> &raquo;</li>
+      
+    <li>abilian.core.models.subjects</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.core.models.subjects</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Subject classes (i.e. people, groups, etc.).</span>
+
+<span class="sd">See ICOM-ics-v1.0 &quot;Subject Branch&quot;.</span>
+
+<span class="sd">TODO: I&#39;m not a big fan of the &quot;subject&quot; name. Could be replaced by something</span>
+<span class="sd">else, like &quot;people&quot; or &quot;principal&quot; ?</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span><span class="p">,</span> <span class="n">abstractproperty</span>
+<span class="kn">import</span> <span class="nn">bcrypt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="kn">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span><span class="p">,</span> <span class="n">backref</span><span class="p">,</span> <span class="n">deferred</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm.query</span> <span class="kn">import</span> <span class="n">Query</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Table</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">UniqueConstraint</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.types</span> <span class="kn">import</span> <span class="p">(</span>
+  <span class="n">Integer</span><span class="p">,</span> <span class="n">UnicodeText</span><span class="p">,</span> <span class="n">LargeBinary</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">DateTime</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">UserMixin</span><span class="p">,</span> <span class="n">current_app</span>
+
+<span class="kn">from</span> <span class="nn">abilian.core</span> <span class="kn">import</span> <span class="n">sqlalchemy</span> <span class="k">as</span> <span class="n">sa_types</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">db</span><span class="p">,</span> <span class="n">IdMixin</span><span class="p">,</span> <span class="n">TimestampedMixin</span><span class="p">,</span> <span class="n">Indexable</span><span class="p">,</span> <span class="n">SEARCHABLE</span><span class="p">,</span> <span class="n">SYSTEM</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;User&#39;</span><span class="p">,</span> <span class="s">&#39;Group&#39;</span><span class="p">,</span> <span class="s">&#39;Principal&#39;</span><span class="p">]</span>
+
+
+<span class="c"># Tables for many-to-many relationships</span>
+<span class="n">following</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
+  <span class="s">&#39;following&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+  <span class="n">Column</span><span class="p">(</span><span class="s">&#39;follower_id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">)),</span>
+  <span class="n">Column</span><span class="p">(</span><span class="s">&#39;followee_id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">)),</span>
+  <span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">&#39;follower_id&#39;</span><span class="p">,</span> <span class="s">&#39;followee_id&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">membership</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
+  <span class="s">&#39;membership&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+  <span class="n">Column</span><span class="p">(</span><span class="s">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">)),</span>
+  <span class="n">Column</span><span class="p">(</span><span class="s">&#39;group_id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;group.id&#39;</span><span class="p">)),</span>
+  <span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">&#39;user_id&#39;</span><span class="p">,</span> <span class="s">&#39;group_id&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c"># Should not be needed (?)</span>
+<span class="n">administratorship</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
+  <span class="s">&#39;administratorship&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+  <span class="n">Column</span><span class="p">(</span><span class="s">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">)),</span>
+  <span class="n">Column</span><span class="p">(</span><span class="s">&#39;group_id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;group.id&#39;</span><span class="p">)),</span>
+  <span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">&#39;user_id&#39;</span><span class="p">,</span> <span class="s">&#39;group_id&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">_RANDOM_PASSWORD_CHARS</span> <span class="o">=</span> <span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span>
+                          <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+                          <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">gen_random_password</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">rg</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">SystemRandom</span><span class="p">()</span>
+  <span class="k">return</span> <span class="s">u&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">_RANDOM_PASSWORD_CHARS</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">PasswordStrategy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+  <span class="nd">@abstractproperty</span>
+  <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Strategy name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+  <span class="nd">@abstractmethod</span>
+  <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predicate to tell wether password match user&#39;s or not.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+  <span class="nd">@abstractmethod</span>
+  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a string to be stored as user password</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">ClearPasswordStrategy</span><span class="p">(</span><span class="n">PasswordStrategy</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Don&#39;t encrypt at all.</span>
+
+<span class="sd">  This strategy should not ever be used elsewhere than in tests. It&#39;s useful</span>
+<span class="sd">  in tests since a hash like bcrypt is designed to be slow.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&quot;clear&quot;</span>
+
+  <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">password</span>
+
+  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+      <span class="n">password</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">password</span>
+
+
+<span class="k">class</span> <span class="nc">BcryptPasswordStrategy</span><span class="p">(</span><span class="n">PasswordStrategy</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Hash passwords using bcrypt.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;bcrypt&#39;</span>
+
+  <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">current_passwd</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span>
+    <span class="c"># crypt work only on str, not unicode</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">current_passwd</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+      <span class="n">current_passwd</span> <span class="o">=</span> <span class="n">current_passwd</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+      <span class="n">password</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">hashpw</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">current_passwd</span><span class="p">)</span> <span class="o">==</span> <span class="n">current_passwd</span>
+
+  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+      <span class="n">password</span> <span class="o">=</span> <span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">hashpw</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">gensalt</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">UserQuery</span><span class="p">(</span><span class="n">Query</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">get_by_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Principal"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.Principal">[docs]</a><span class="k">class</span> <span class="nc">Principal</span><span class="p">(</span><span class="n">IdMixin</span><span class="p">,</span> <span class="n">TimestampedMixin</span><span class="p">,</span> <span class="n">Indexable</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;A principal is either a User or a Group.&quot;&quot;&quot;</span>
+
+  <span class="n">__indexation_args__</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="n">__indexation_args__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Indexable</span><span class="o">.</span><span class="n">__indexation_args__</span><span class="p">)</span>
+  <span class="n">index_to</span> <span class="o">=</span> <span class="n">__indexation_args__</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;index_to&#39;</span><span class="p">,</span> <span class="p">())</span>
+  <span class="n">__indexation_args__</span><span class="p">[</span><span class="s">&#39;index_to&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+      <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;name_prefix&#39;</span><span class="p">,</span> <span class="s">&#39;text&#39;</span><span class="p">)),</span>
+    <span class="p">)</span>
+  <span class="k">del</span> <span class="n">index_to</span>
+
+<div class="viewcode-block" id="Principal.has_role"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.Principal.has_role">[docs]</a>  <span class="k">def</span> <span class="nf">has_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">services</span><span class="p">[</span><span class="s">&#39;security&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role</span><span class="p">)</span>
+
+
+</div></div>
+<div class="viewcode-block" id="User"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User">[docs]</a><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Principal</span><span class="p">,</span> <span class="n">UserMixin</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&#39;user&#39;</span>
+  <span class="n">__editable__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span> <span class="s">&#39;last_name&#39;</span><span class="p">,</span> <span class="s">&#39;email&#39;</span><span class="p">,</span> <span class="s">&#39;password&#39;</span><span class="p">]</span>
+  <span class="n">__exportable__</span> <span class="o">=</span> <span class="n">__editable__</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;created_at&#39;</span><span class="p">,</span> <span class="s">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">]</span>
+
+  <span class="n">__password_strategy__</span> <span class="o">=</span> <span class="n">BcryptPasswordStrategy</span><span class="p">()</span>
+
+  <span class="n">entity_type</span> <span class="o">=</span> <span class="s">u&#39;{}.{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">__module__</span><span class="p">,</span> <span class="s">&#39;User&#39;</span><span class="p">)</span>
+
+  <span class="n">query_class</span> <span class="o">=</span> <span class="n">UserQuery</span>
+
+  <span class="c"># Basic information</span>
+  <span class="n">first_name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">SEARCHABLE</span><span class="p">)</span>
+  <span class="n">last_name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">SEARCHABLE</span><span class="p">)</span>
+  <span class="c"># Should we add gender, salutation ?</span>
+
+  <span class="c"># System information</span>
+  <span class="n">email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">can_login</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">u&quot;*&quot;</span><span class="p">,</span>
+                    <span class="n">info</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;audit_hide_content&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span>
+
+  <span class="n">photo</span> <span class="o">=</span> <span class="n">deferred</span><span class="p">(</span><span class="n">Column</span><span class="p">(</span><span class="n">LargeBinary</span><span class="p">))</span>
+
+  <span class="n">last_active</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">SYSTEM</span><span class="p">)</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">sa_types</span><span class="o">.</span><span class="n">Locale</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+  <span class="n">timezone</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">sa_types</span><span class="o">.</span><span class="n">Timezone</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+  <span class="n">__table_args__</span> <span class="o">=</span> <span class="p">(</span><span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">&#39;email&#39;</span><span class="p">),)</span>
+
+  <span class="n">followers</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s">&quot;User&quot;</span><span class="p">,</span> <span class="n">secondary</span><span class="o">=</span><span class="n">following</span><span class="p">,</span>
+                           <span class="n">primaryjoin</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;User.id == following.c.follower_id&#39;</span><span class="p">),</span>
+                           <span class="n">secondaryjoin</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;User.id == following.c.followee_id&#39;</span><span class="p">),</span>
+                           <span class="n">backref</span><span class="o">=</span><span class="s">&#39;followees&#39;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">Principal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">UserMixin</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_login</span> <span class="ow">and</span> <span class="n">password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+<div class="viewcode-block" id="User.authenticate"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.authenticate">[docs]</a>  <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">!=</span> <span class="s">&quot;*&quot;</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__password_strategy__</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="User.set_password"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.set_password">[docs]</a>  <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Encrypts and sets password.&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__password_strategy__</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="User.follow"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.follow">[docs]</a>  <span class="k">def</span> <span class="nf">follow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">followee</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">followee</span> <span class="o">==</span> <span class="bp">self</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;User can&#39;t follow self&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">followees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">followee</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="User.unfollow"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.unfollow">[docs]</a>  <span class="k">def</span> <span class="nf">unfollow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">followee</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">followee</span> <span class="o">==</span> <span class="bp">self</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;User can&#39;t follow self&quot;</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">followees</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">followee</span><span class="p">)</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">followees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="User.join"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.join">[docs]</a>  <span class="k">def</span> <span class="nf">join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="User.leave"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.leave">[docs]</a>  <span class="k">def</span> <span class="nf">leave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+  <span class="c">#</span>
+  <span class="c"># Boolean properties</span>
+  <span class="c">#</span></div>
+<div class="viewcode-block" id="User.is_following"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.is_following">[docs]</a>  <span class="k">def</span> <span class="nf">is_following</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">other</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">followees</span>
+</div>
+<div class="viewcode-block" id="User.is_member_of"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.is_member_of">[docs]</a>  <span class="k">def</span> <span class="nf">is_member_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">members</span>
+</div>
+<div class="viewcode-block" id="User.is_admin_of"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.User.is_admin_of">[docs]</a>  <span class="k">def</span> <span class="nf">is_admin_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">admins</span>
+</div>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">is_online</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_active</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_active</span> <span class="o">&lt;=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="c">#</span>
+  <span class="c"># Other properties</span>
+  <span class="c">#</span>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s">u&#39;{first_name} {last_name}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="ow">or</span> <span class="s">u&#39;&#39;</span><span class="p">,</span>
+                                              <span class="n">last_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="ow">or</span> <span class="s">u&#39;&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">or</span> <span class="s">u&#39;Unknown&#39;</span>
+
+  <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+  <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span>
+    <span class="k">return</span> <span class="s">&#39;&lt;{mod}.{cls} id={id!r} email={email!r} at 0x{addr:x}&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+      <span class="n">mod</span><span class="o">=</span><span class="n">cls</span><span class="o">.</span><span class="n">__module__</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">cls</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+      <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+</div>
+<span class="nd">@sa.event.listens_for</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="s">&quot;mapper_configured&quot;</span><span class="p">,</span> <span class="n">propagate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_add_user_indexes</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">class_</span><span class="p">):</span>
+  <span class="c"># this is a functional index (indexes on a function result), we cannot define</span>
+  <span class="c"># it in __table_args__.</span>
+  <span class="c">#</span>
+  <span class="c"># see: https://groups.google.com/d/msg/sqlalchemy/CgSJUlelhGs/_Nj3f201hs4J</span>
+  <span class="n">idx</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="s">&#39;user_unique_lowercase_email&#39;</span><span class="p">,</span>
+                        <span class="n">sa</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">class_</span><span class="o">.</span><span class="n">email</span><span class="p">),</span>
+                        <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">idx</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s">&#39;engines&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;postgresql&#39;</span><span class="p">,)</span>
+
+
+<div class="viewcode-block" id="Group"><a class="viewcode-back" href="../../../../api.html#abilian.core.models.subjects.Group">[docs]</a><span class="k">class</span> <span class="nc">Group</span><span class="p">(</span><span class="n">Principal</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="n">__indexable__</span> <span class="o">=</span> <span class="bp">False</span>
+  <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&#39;group&#39;</span>
+  <span class="n">__editable__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;description&#39;</span><span class="p">]</span>
+  <span class="n">__exportable__</span> <span class="o">=</span> <span class="n">__editable__</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;created_at&#39;</span><span class="p">,</span> <span class="s">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s">&#39;id&#39;</span><span class="p">]</span>
+
+  <span class="n">entity_type</span> <span class="o">=</span> <span class="s">u&#39;{}.{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">__module__</span><span class="p">,</span> <span class="s">&#39;Group&#39;</span><span class="p">)</span>
+
+  <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">SEARCHABLE</span><span class="p">)</span>
+  <span class="n">description</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">SEARCHABLE</span><span class="p">)</span>
+
+  <span class="n">members</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span>
+    <span class="s">&quot;User&quot;</span><span class="p">,</span>
+    <span class="n">collection_class</span><span class="o">=</span><span class="nb">set</span><span class="p">,</span>
+    <span class="n">secondary</span><span class="o">=</span><span class="n">membership</span><span class="p">,</span>
+    <span class="n">backref</span><span class="o">=</span><span class="n">backref</span><span class="p">(</span><span class="s">&#39;groups&#39;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;select&#39;</span><span class="p">,</span> <span class="n">collection_class</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="n">admins</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s">&quot;User&quot;</span><span class="p">,</span> <span class="n">collection_class</span><span class="o">=</span><span class="nb">set</span><span class="p">,</span>
+                        <span class="n">secondary</span><span class="o">=</span><span class="n">administratorship</span><span class="p">)</span>
+
+  <span class="n">photo</span> <span class="o">=</span> <span class="n">deferred</span><span class="p">(</span><span class="n">Column</span><span class="p">(</span><span class="n">LargeBinary</span><span class="p">))</span>
+
+  <span class="n">public</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

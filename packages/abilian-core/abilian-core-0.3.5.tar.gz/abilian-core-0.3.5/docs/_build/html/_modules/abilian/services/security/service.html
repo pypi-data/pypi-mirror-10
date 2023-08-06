@@ -1,0 +1,811 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.services.security.service &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id3">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id4">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id5">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id6">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id7">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id8">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id9">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id10">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id11">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id12">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id13">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id14">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.services.security.service</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.services.security.service</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Security service, manages roles and permissions.</span>
+
+<span class="sd">Currently very simple (simplisitic?).</span>
+
+<span class="sd">Roles and permissions are just strings, and are currently hardcoded.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">g</span><span class="p">,</span> <span class="n">current_app</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">subqueryload</span><span class="p">,</span> <span class="n">object_session</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">sql</span>
+
+<span class="kn">from</span> <span class="nn">abilian.core.models.subjects</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">Group</span>
+<span class="kn">from</span> <span class="nn">abilian.core.entities</span> <span class="kn">import</span> <span class="n">Entity</span>
+<span class="kn">from</span> <span class="nn">abilian.core.extensions</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">abilian.core.util</span> <span class="kn">import</span> <span class="n">noproxy</span>
+<span class="kn">from</span> <span class="nn">abilian.services</span> <span class="kn">import</span> <span class="n">Service</span><span class="p">,</span> <span class="n">ServiceState</span>
+<span class="kn">from</span> <span class="nn">abilian.services.security.models</span> <span class="kn">import</span> <span class="p">(</span>
+  <span class="n">SecurityAudit</span><span class="p">,</span> <span class="n">RoleAssignment</span><span class="p">,</span> <span class="n">Anonymous</span><span class="p">,</span> <span class="n">Admin</span><span class="p">,</span> <span class="n">Manager</span><span class="p">,</span>
+  <span class="n">Owner</span><span class="p">,</span> <span class="n">Creator</span><span class="p">,</span>
+  <span class="n">InheritSecurity</span><span class="p">,</span> <span class="n">Role</span><span class="p">,</span> <span class="n">Permission</span><span class="p">,</span> <span class="n">READ</span><span class="p">,</span> <span class="n">WRITE</span>
+<span class="p">)</span>
+
+
+<span class="n">PERMISSION</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s">&#39;read&#39;</span><span class="p">,</span> <span class="s">&#39;write&#39;</span><span class="p">,</span> <span class="s">&#39;manage&#39;</span><span class="p">])</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;security&#39;</span><span class="p">,</span> <span class="s">&#39;SecurityError&#39;</span><span class="p">,</span> <span class="s">&#39;SecurityService&#39;</span><span class="p">,</span>
+           <span class="s">&#39;InheritSecurity&#39;</span><span class="p">,</span> <span class="s">&#39;SecurityAudit&#39;</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">SecurityError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+
+<div class="viewcode-block" id="SecurityServiceState"><a class="viewcode-back" href="../../../../api.html#abilian.services.security.service.SecurityServiceState">[docs]</a><span class="k">class</span> <span class="nc">SecurityServiceState</span><span class="p">(</span><span class="n">ServiceState</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+  <span class="n">use_cache</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="c">#: True if security has changed</span>
+  <span class="n">needs_db_flush</span> <span class="o">=</span> <span class="bp">False</span>
+
+</div>
+<span class="k">def</span> <span class="nf">require_flush</span><span class="p">(</span><span class="n">fun</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; Decorator for methods that need to query security. It ensures all security</span>
+<span class="sd">  related operations are flushed to DB, but avoids unneeded flushes.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="nd">@wraps</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">ensure_flushed</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">service</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">needs_db_flush</span><span class="p">:</span>
+      <span class="n">session</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+      <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">_flushing</span>
+          <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="p">(</span><span class="n">RoleAssignment</span><span class="p">,</span> <span class="n">SecurityAudit</span><span class="p">))</span>
+                  <span class="k">for</span> <span class="n">models</span> <span class="ow">in</span> <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">new</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">dirty</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">deleted</span><span class="p">)</span>
+                  <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">models</span><span class="p">)):</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+      <span class="n">service</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">needs_db_flush</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">return</span> <span class="n">fun</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">ensure_flushed</span>
+
+
+<span class="c"># noinspection PyComparisonWithNone</span>
+<span class="k">class</span> <span class="nc">SecurityService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;security&#39;</span>
+  <span class="n">AppStateClass</span> <span class="o">=</span> <span class="n">SecurityServiceState</span>
+
+  <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+    <span class="n">Service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">use_cache</span> <span class="o">=</span> <span class="bp">True</span>
+
+  <span class="k">def</span> <span class="nf">_needs_flush</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Mark next security queries needs DB flush to have up to date information</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">needs_db_flush</span> <span class="o">=</span> <span class="bp">True</span>
+
+  <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+  <span class="k">def</span> <span class="nf">_current_user_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns the current user, or SYSTEM user.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">user</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="c"># security log</span>
+  <span class="nd">@require_flush</span>
+  <span class="k">def</span> <span class="nf">entries_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Entity</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SecurityAudit</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">SecurityAudit</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="n">obj</span><span class="p">)</span>\
+      <span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">SecurityAudit</span><span class="o">.</span><span class="n">happened_at</span><span class="o">.</span><span class="n">desc</span><span class="p">())</span>\
+      <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+  <span class="c"># inheritance</span>
+  <span class="k">def</span> <span class="nf">set_inherit_security</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">inherit_security</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">InheritSecurity</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Entity</span><span class="p">)</span>
+
+    <span class="n">obj</span><span class="o">.</span><span class="n">inherit_security</span> <span class="o">=</span> <span class="n">inherit_security</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="n">manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_user_manager</span><span class="p">()</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="p">(</span><span class="n">SecurityAudit</span><span class="o">.</span><span class="n">SET_INHERIT</span> <span class="k">if</span> <span class="n">inherit_security</span>
+          <span class="k">else</span> <span class="n">SecurityAudit</span><span class="o">.</span><span class="n">UNSET_INHERIT</span><span class="p">)</span>
+    <span class="n">audit</span> <span class="o">=</span> <span class="n">SecurityAudit</span><span class="p">(</span><span class="n">manager</span><span class="o">=</span><span class="n">manager</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span>
+                          <span class="n">object_id</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                          <span class="n">object_type</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">entity_type</span><span class="p">,</span>
+                          <span class="n">object_name</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">audit</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_needs_flush</span><span class="p">()</span>
+
+  <span class="c">#</span>
+  <span class="c"># Roles-related API.</span>
+  <span class="c">#</span>
+  <span class="nd">@require_flush</span>
+  <span class="k">def</span> <span class="nf">get_roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gets all the roles attached to given `user`, on a given `object`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">principal</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&#39;is_anonymous&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">principal</span><span class="o">.</span><span class="n">is_anonymous</span><span class="p">():</span>
+      <span class="k">return</span> <span class="p">[</span><span class="n">Anonymous</span><span class="p">]</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">role</span><span class="p">)</span>
+    <span class="n">filter_col</span> <span class="o">=</span> <span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user</span>
+                  <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span>
+                  <span class="k">else</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">filter_col</span> <span class="o">==</span> <span class="n">principal</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">Entity</span><span class="p">)</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="nb">object</span><span class="p">)</span>
+    <span class="n">roles</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">()}</span>
+
+    <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">role</span> <span class="ow">in</span> <span class="p">((</span><span class="s">&#39;creator&#39;</span><span class="p">,</span> <span class="n">Creator</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;owner&#39;</span><span class="p">,</span> <span class="n">Owner</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="o">==</span> <span class="n">principal</span><span class="p">:</span>
+          <span class="n">roles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
+
+  <span class="nd">@require_flush</span>
+  <span class="k">def</span> <span class="nf">get_principals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                     <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return all users which are assigned given role</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">Role</span><span class="p">):</span>
+      <span class="n">role</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">role</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">users</span> <span class="ow">or</span> <span class="n">groups</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">anonymous</span><span class="p">:</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">users</span><span class="p">:</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">groups</span><span class="p">:</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="nb">object</span><span class="p">)</span>
+    <span class="n">principals</span> <span class="o">=</span> <span class="p">{(</span><span class="n">ra</span><span class="o">.</span><span class="n">user</span> <span class="ow">or</span> <span class="n">ra</span><span class="o">.</span><span class="n">group</span><span class="p">)</span> <span class="k">for</span> <span class="n">ra</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">()}</span>
+
+    <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">role</span> <span class="ow">in</span> <span class="p">(</span><span class="n">Creator</span><span class="p">,</span> <span class="n">Owner</span><span class="p">):</span>
+      <span class="n">p</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="n">creator</span> <span class="k">if</span> <span class="n">role</span> <span class="o">==</span> <span class="n">Creator</span> <span class="k">else</span> <span class="nb">object</span><span class="o">.</span><span class="n">owner</span>
+      <span class="k">if</span> <span class="n">p</span><span class="p">:</span>
+        <span class="n">principals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">principals</span><span class="p">)</span>
+
+  <span class="nd">@require_flush</span>
+  <span class="k">def</span> <span class="nf">_all_roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">):</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">object_id</span><span class="p">,</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">role</span><span class="p">)</span>\
+      <span class="o">.</span><span class="n">outerjoin</span><span class="p">(</span><span class="n">Entity</span><span class="p">)</span>\
+      <span class="o">.</span><span class="n">add_columns</span><span class="p">(</span><span class="n">Entity</span><span class="o">.</span><span class="n">_entity_type</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">User</span><span class="p">):</span>
+      <span class="n">filter_cond</span> <span class="o">=</span> <span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="n">principal</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">principal</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">filter_cond</span> <span class="o">|=</span> <span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group</span> <span class="ow">in</span> <span class="n">principal</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">filter_cond</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="n">principal</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">all_roles</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">object_id</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">object_type</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">object_id</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">object_key</span> <span class="o">=</span> <span class="bp">None</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">object_key</span> <span class="o">=</span> <span class="s">u&#39;{}:{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">object_type</span><span class="p">,</span> <span class="n">object_id</span><span class="p">)</span>
+      <span class="n">all_roles</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">object_key</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">all_roles</span>
+
+  <span class="k">def</span> <span class="nf">_role_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_role_cache</span><span class="p">(</span><span class="n">principal</span><span class="p">):</span>
+      <span class="c"># FIXME: should call _fill_role_cache?</span>
+      <span class="n">principal</span><span class="o">.</span><span class="n">__roles_cache__</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">return</span> <span class="n">principal</span><span class="o">.</span><span class="n">__roles_cache__</span>
+
+  <span class="k">def</span> <span class="nf">_has_role_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&quot;__roles_cache__&quot;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_set_role_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">,</span> <span class="n">cache</span><span class="p">):</span>
+    <span class="n">principal</span><span class="o">.</span><span class="n">__roles_cache__</span> <span class="o">=</span> <span class="n">cache</span>
+
+  <span class="k">def</span> <span class="nf">_fill_role_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Fill role cache for `principal` (User or Group), in order to avoid too</span>
+<span class="sd">    many queries when checking role access with &#39;has_role&#39;</span>
+
+<span class="sd">    Return role_cache of `principal`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">use_cache</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_role_cache</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span> <span class="ow">or</span> <span class="n">overwrite</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_set_role_cache</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_roles</span><span class="p">(</span><span class="n">principal</span><span class="p">))</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_role_cache</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span>
+
+  <span class="nd">@require_flush</span>
+  <span class="k">def</span> <span class="nf">_fill_role_cache_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principals</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Fill role cache for `principals` (Users and/or Groups), in order to</span>
+<span class="sd">    avoid too many queries when checking role access with &#39;has_role&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">use_cache</span><span class="p">:</span>
+      <span class="k">return</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="p">)</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">principals</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">User</span><span class="p">)))</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">principals</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">Group</span><span class="p">)))</span>
+    <span class="n">groups</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">((</span><span class="n">g</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users</span>
+                     <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">groups</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+      <span class="n">users</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_role_cache</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
+      <span class="n">groups</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">groups</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_role_cache</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">users</span> <span class="ow">or</span> <span class="n">groups</span><span class="p">):</span>
+      <span class="k">return</span>
+
+    <span class="c"># ensure principals processed here will have role cache. Thus users or</span>
+    <span class="c"># groups without any role will have an empty role cache, to avoid unneeded</span>
+    <span class="c"># individual DB query when calling self._fill_role_cache(p).</span>
+    <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_role_cache</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="p">{}),</span> <span class="p">(</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">groups</span><span class="p">)))</span>
+
+    <span class="n">filter_cond</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">users</span><span class="p">:</span>
+      <span class="n">filter_cond</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user_id</span><span class="o">.</span><span class="n">in_</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">groups</span><span class="p">:</span>
+      <span class="n">filter_cond</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group_id</span><span class="o">.</span><span class="n">in_</span><span class="p">((</span><span class="n">g</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">)))</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">sql</span><span class="o">.</span><span class="n">or_</span><span class="p">(</span><span class="o">*</span><span class="n">filter_cond</span><span class="p">))</span>
+    <span class="n">ra_users</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">ra_groups</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">ra</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+      <span class="k">if</span> <span class="n">ra</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+        <span class="n">all_roles</span> <span class="o">=</span> <span class="n">ra_users</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">ra</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="p">{})</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">all_roles</span> <span class="o">=</span> <span class="n">ra_groups</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">ra</span><span class="o">.</span><span class="n">group</span><span class="p">,</span> <span class="p">{})</span>
+
+      <span class="n">object_key</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s">u&#39;{}:{:d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ra</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">entity_type</span><span class="p">,</span> <span class="n">ra</span><span class="o">.</span><span class="n">object_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ra</span><span class="o">.</span><span class="n">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+        <span class="k">else</span> <span class="bp">None</span>
+      <span class="p">)</span>
+      <span class="n">all_roles</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">object_key</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ra</span><span class="o">.</span><span class="n">role</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">all_roles</span> <span class="ow">in</span> <span class="n">ra_groups</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_set_role_cache</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">all_roles</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">user</span><span class="p">,</span> <span class="n">all_roles</span> <span class="ow">in</span> <span class="n">ra_users</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+      <span class="k">for</span> <span class="n">gr</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
+        <span class="n">group_roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill_role_cache</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">object_key</span><span class="p">,</span> <span class="n">roles</span> <span class="ow">in</span> <span class="n">group_roles</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+          <span class="n">obj_roles</span> <span class="o">=</span> <span class="n">all_roles</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">object_key</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+          <span class="n">obj_roles</span> <span class="o">|=</span> <span class="n">roles</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_set_role_cache</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">all_roles</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">has_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    True if `principal` has `role` (either globally, if `object` is None, or on</span>
+<span class="sd">    the specific `object`).</span>
+
+<span class="sd">    :param:role:  can be a list or tuple of strings or a :class:`Role` instance</span>
+
+<span class="sd">    `object` can be an :class:`Entity`, a string, or `None`.</span>
+
+<span class="sd">    Note: we&#39;re using a cache for efficiency here. TODO: check that we&#39;re not</span>
+<span class="sd">    over-caching.</span>
+
+<span class="sd">    Note2: caching could also be moved upfront to when the user is loaded.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">principal</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">noproxy</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">principal</span> <span class="ow">is</span> <span class="n">Anonymous</span>
+        <span class="ow">or</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&#39;is_anonymous&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">principal</span><span class="o">.</span><span class="n">is_anonymous</span><span class="p">())):</span>
+      <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c"># root always have any role</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">User</span><span class="p">)</span> <span class="ow">and</span> <span class="n">principal</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="c"># admin &amp; manager always have role</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="p">(</span><span class="n">Role</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">)):</span>
+      <span class="n">role</span> <span class="o">=</span> <span class="p">(</span><span class="n">role</span><span class="p">,)</span>
+    <span class="n">valid_roles</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="n">Admin</span><span class="p">,</span> <span class="n">Manager</span><span class="p">)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">role</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">object</span><span class="p">:</span>
+      <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">Entity</span><span class="p">)</span>
+      <span class="n">object_key</span> <span class="o">=</span> <span class="s">u&quot;{}:{:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">object_type</span><span class="p">,</span> <span class="nb">object</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">object_key</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">use_cache</span><span class="p">:</span>
+      <span class="n">cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill_role_cache</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="n">Admin</span> <span class="ow">in</span> <span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="p">()):</span>
+        <span class="c"># user is a global admin</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+      <span class="k">if</span> <span class="n">object_key</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+        <span class="n">roles</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">object_key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_roles</span> <span class="o">&amp;</span> <span class="n">roles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+      <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">all_roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_roles</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">Admin</span> <span class="ow">in</span> <span class="n">all_roles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="p">()):</span>
+      <span class="c"># user is a global admin</span>
+      <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="n">roles</span> <span class="o">=</span> <span class="n">all_roles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">object_key</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_roles</span> <span class="o">&amp;</span> <span class="n">roles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+  <span class="k">def</span> <span class="nf">grant_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grants `role` to `user` (either globally, if `obj` is None, or on</span>
+<span class="sd">    the specific `obj`).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">principal</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">noproxy</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span>
+    <span class="n">manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_user_manager</span><span class="p">()</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">object_session</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span>
+                <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                <span class="n">user</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">principal</span> <span class="ow">is</span> <span class="n">Anonymous</span>
+        <span class="ow">or</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&#39;is_anonymous&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">principal</span><span class="o">.</span><span class="n">is_anonymous</span><span class="p">())):</span>
+      <span class="n">args</span><span class="p">[</span><span class="s">&#39;anonymous&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">User</span><span class="p">):</span>
+      <span class="n">args</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">principal</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">args</span><span class="p">[</span><span class="s">&#39;group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">principal</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="c"># role already granted, nothing to do</span>
+      <span class="k">return</span>
+
+    <span class="c"># same as above but in current, not yet flushed objects in session. We</span>
+    <span class="c"># cannot call flush() in grant_role() since this method may be called a</span>
+    <span class="c"># great number of times in the same transaction, and sqlalchemy limits to</span>
+    <span class="c"># 100 flushes before triggering a warning</span>
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="p">(</span><span class="n">o</span> <span class="k">for</span> <span class="n">models</span> <span class="ow">in</span> <span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">new</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">dirty</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">models</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">RoleAssignment</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="o">==</span> <span class="n">val</span> <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">return</span>
+
+    <span class="n">ra</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ra</span><span class="p">)</span>
+    <span class="n">audit</span> <span class="o">=</span> <span class="n">SecurityAudit</span><span class="p">(</span><span class="n">manager</span><span class="o">=</span><span class="n">manager</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">SecurityAudit</span><span class="o">.</span><span class="n">GRANT</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">audit</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">id</span>
+      <span class="n">audit</span><span class="o">.</span><span class="n">object_type</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">entity_type</span>
+      <span class="n">object_name</span> <span class="o">=</span> <span class="s">u&#39;&#39;</span>
+      <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;path&#39;</span><span class="p">,</span> <span class="s">&#39;__path_before_delete&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">):</span>
+          <span class="n">object_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+      <span class="n">audit</span><span class="o">.</span><span class="n">object_name</span> <span class="o">=</span> <span class="n">object_name</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">audit</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_needs_flush</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&quot;__roles_cache__&quot;</span><span class="p">):</span>
+      <span class="k">del</span> <span class="n">principal</span><span class="o">.</span><span class="n">__roles_cache__</span>
+
+  <span class="k">def</span> <span class="nf">ungrant_role</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ungrants `role` to `user` (either globally, if `object` is None, or on</span>
+<span class="sd">    the specific `object`).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">principal</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">noproxy</span><span class="p">(</span><span class="n">principal</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">object_session</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span>
+    <span class="n">manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_user_manager</span><span class="p">()</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="nb">object</span><span class="p">,</span>
+                <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">role</span> <span class="o">==</span> <span class="n">role</span><span class="p">,</span>
+                 <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="nb">object</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">principal</span> <span class="ow">is</span> <span class="n">Anonymous</span>
+        <span class="ow">or</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&#39;is_anonymous&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">principal</span><span class="o">.</span><span class="n">is_anonymous</span><span class="p">())):</span>
+      <span class="n">args</span><span class="p">[</span><span class="s">&#39;anonymous&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+      <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">False</span><span class="p">,</span>
+               <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="bp">None</span><span class="p">,</span>
+               <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">User</span><span class="p">):</span>
+      <span class="n">args</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">principal</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="n">principal</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">args</span><span class="p">[</span><span class="s">&#39;group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">principal</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="n">principal</span><span class="p">)</span>
+
+    <span class="n">ra</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">ra</span><span class="p">)</span>
+    <span class="n">audit</span> <span class="o">=</span> <span class="n">SecurityAudit</span><span class="p">(</span><span class="n">manager</span><span class="o">=</span><span class="n">manager</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">SecurityAudit</span><span class="o">.</span><span class="n">REVOKE</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">audit</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_needs_flush</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="s">&quot;__roles_cache__&quot;</span><span class="p">):</span>
+      <span class="k">del</span> <span class="n">principal</span><span class="o">.</span><span class="n">__roles_cache__</span>
+
+  <span class="nd">@require_flush</span>
+  <span class="k">def</span> <span class="nf">get_role_assignements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">object_session</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="p">:</span>
+      <span class="n">session</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">RoleAssignment</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="nb">object</span><span class="p">)</span>\
+         <span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">subqueryload</span><span class="p">(</span><span class="s">&#39;user.groups&#39;</span><span class="p">))</span>
+
+    <span class="n">role_assignments</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ra</span> <span class="ow">in</span> <span class="n">role_assignments</span><span class="p">:</span>
+      <span class="n">principal</span> <span class="o">=</span> <span class="bp">None</span>
+      <span class="k">if</span> <span class="n">ra</span><span class="o">.</span><span class="n">anonymous</span><span class="p">:</span>
+        <span class="n">principal</span> <span class="o">=</span> <span class="n">Anonymous</span>
+      <span class="k">elif</span> <span class="n">ra</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+        <span class="n">principal</span> <span class="o">=</span> <span class="n">ra</span><span class="o">.</span><span class="n">user</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">principal</span> <span class="o">=</span> <span class="n">ra</span><span class="o">.</span><span class="n">group</span>
+      <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">principal</span><span class="p">,</span> <span class="n">ra</span><span class="o">.</span><span class="n">role</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+  <span class="c">#</span>
+  <span class="c"># Permission API, currently hardcoded</span>
+  <span class="c">#</span>
+  <span class="k">def</span> <span class="nf">has_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">inherit</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                     <span class="n">roles</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    @param `obj`: target object to check permissions.</span>
+<span class="sd">    @param `inherit`: check with permission inheritance. By default, check only</span>
+<span class="sd">    local roles.</span>
+<span class="sd">    @param `roles`: additional valid role or iterable of roles having</span>
+<span class="sd">                    `permission`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">permission</span><span class="p">,</span> <span class="n">Permission</span><span class="p">):</span>
+      <span class="k">assert</span> <span class="n">permission</span> <span class="ow">in</span> <span class="n">PERMISSION</span>
+      <span class="n">permission</span> <span class="o">=</span> <span class="n">Permission</span><span class="p">(</span><span class="n">permission</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">noproxy</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="c"># root always have any permission</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">User</span><span class="p">)</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="n">valid_roles</span> <span class="o">=</span> <span class="p">{</span><span class="n">Manager</span><span class="p">,</span> <span class="n">Admin</span><span class="p">}</span>  <span class="c"># have all permissions</span>
+
+    <span class="k">if</span> <span class="n">roles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">roles</span><span class="p">,</span> <span class="p">(</span><span class="n">Role</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+        <span class="n">roles</span> <span class="o">=</span> <span class="p">(</span><span class="n">roles</span><span class="p">,)</span>
+
+      <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roles</span><span class="p">:</span>
+        <span class="n">valid_roles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Role</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">Anonymous</span> <span class="ow">in</span> <span class="n">valid_roles</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="c"># implicit role-permission mapping</span>
+    <span class="k">if</span> <span class="n">permission</span> <span class="ow">in</span> <span class="p">(</span><span class="n">READ</span><span class="p">,</span> <span class="n">WRITE</span><span class="p">,):</span>
+      <span class="n">valid_roles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Role</span><span class="p">(</span><span class="s">&#39;writer&#39;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">permission</span> <span class="o">==</span> <span class="n">READ</span><span class="p">:</span>
+      <span class="n">valid_roles</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Role</span><span class="p">(</span><span class="s">&#39;reader&#39;</span><span class="p">))</span>
+
+    <span class="n">checked_objs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="n">obj</span><span class="p">]</span> <span class="c"># first test global roles, then object local</span>
+                               <span class="c"># roles</span>
+
+    <span class="k">if</span> <span class="n">inherit</span> <span class="ow">and</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">inherit_security</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">parent</span>
+        <span class="n">checked_objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="n">principals</span> <span class="o">=</span> <span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_fill_role_cache_batch</span><span class="p">(</span><span class="n">principals</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">any</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">has_role</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">valid_roles</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">principal</span> <span class="ow">in</span> <span class="n">principals</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">checked_objs</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">filter_with_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="n">obj_list</span><span class="p">,</span> <span class="n">inherit</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">noproxy</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span> <span class="n">obj</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">obj_list</span>
+             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_permission</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">inherit</span><span class="p">)</span> <span class="p">]</span>
+
+
+<span class="c"># Instanciate the service</span>
+<span class="n">security</span> <span class="o">=</span> <span class="n">SecurityService</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

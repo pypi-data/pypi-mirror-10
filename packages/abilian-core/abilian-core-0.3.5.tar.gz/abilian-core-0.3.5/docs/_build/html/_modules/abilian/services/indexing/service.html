@@ -1,0 +1,866 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.services.indexing.service &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id3">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id4">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id5">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id6">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id7">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id8">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id9">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id10">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id11">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id12">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id13">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id14">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.services.indexing.service</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.services.indexing.service</h1><div class="highlight"><pre>
+<span class="c"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Indexing service for Abilian.</span>
+
+<span class="sd">Adds Whoosh indexing capabilities to SQLAlchemy models.</span>
+
+<span class="sd">Based on Flask-whooshalchemy by Karl Gyllstrom.</span>
+
+<span class="sd">:copyright: (c) 2013-2014 by Abilian SAS</span>
+<span class="sd">:copyright: (c) 2012 by Stefane Fermigier</span>
+<span class="sd">:copyright: (c) 2012 by Karl Gyllstrom</span>
+<span class="sd">:license: BSD (see LICENSE.txt)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">isclass</span>
+
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="kn">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">event</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm.session</span> <span class="kn">import</span> <span class="n">Session</span>
+
+<span class="kn">import</span> <span class="nn">whoosh.index</span>
+<span class="kn">from</span> <span class="nn">whoosh.collectors</span> <span class="kn">import</span> <span class="n">WrappingCollector</span>
+<span class="kn">from</span> <span class="nn">whoosh.filedb.filestore</span> <span class="kn">import</span> <span class="n">RamStorage</span><span class="p">,</span> <span class="n">FileStorage</span>
+<span class="kn">from</span> <span class="nn">whoosh.writing</span> <span class="kn">import</span> <span class="n">AsyncWriter</span><span class="p">,</span> <span class="n">CLEAR</span>
+<span class="kn">from</span> <span class="nn">whoosh.qparser</span> <span class="kn">import</span> <span class="n">DisMaxParser</span>
+<span class="kn">from</span> <span class="nn">whoosh.analysis</span> <span class="kn">import</span> <span class="n">StemmingAnalyzer</span><span class="p">,</span> <span class="n">CharsetFilter</span>
+<span class="kn">import</span> <span class="nn">whoosh.query</span> <span class="kn">as</span> <span class="nn">wq</span>
+<span class="kn">from</span> <span class="nn">whoosh.support.charset</span> <span class="kn">import</span> <span class="n">accent_map</span>
+
+<span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">shared_task</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">_app_ctx_stack</span><span class="p">,</span> <span class="n">appcontext_pushed</span>
+<span class="kn">from</span> <span class="nn">flask.ext.login</span> <span class="kn">import</span> <span class="n">current_user</span>
+<span class="kn">from</span> <span class="nn">flask.globals</span> <span class="kn">import</span> <span class="n">_lookup_app_object</span>
+
+<span class="kn">from</span> <span class="nn">abilian.services</span> <span class="kn">import</span> <span class="n">Service</span><span class="p">,</span> <span class="n">ServiceState</span>
+<span class="kn">from</span> <span class="nn">abilian.services.security</span> <span class="kn">import</span> <span class="n">Role</span><span class="p">,</span> <span class="n">Anonymous</span><span class="p">,</span> <span class="n">Authenticated</span><span class="p">,</span> <span class="n">security</span>
+<span class="kn">from</span> <span class="nn">abilian.core</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="kn">from</span> <span class="nn">abilian.core.models.subjects</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">Group</span>
+<span class="kn">from</span> <span class="nn">abilian.core.util</span> <span class="kn">import</span> <span class="n">fqcn</span> <span class="k">as</span> <span class="n">base_fqcn</span><span class="p">,</span> <span class="n">friendly_fqcn</span>
+<span class="kn">from</span> <span class="nn">abilian.core.entities</span> <span class="kn">import</span> <span class="n">Entity</span><span class="p">,</span> <span class="n">Indexable</span>
+<span class="kn">from</span> <span class="nn">abilian.core.extensions</span> <span class="kn">import</span> <span class="n">db</span>
+
+<span class="kn">from</span> <span class="nn">.adapter</span> <span class="kn">import</span> <span class="n">SAAdapter</span>
+<span class="kn">from</span> <span class="nn">.schema</span> <span class="kn">import</span> <span class="n">DefaultSearchSchema</span><span class="p">,</span> <span class="n">indexable_role</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">_TEXT_ANALYZER</span> <span class="o">=</span> <span class="n">StemmingAnalyzer</span><span class="p">()</span> <span class="o">|</span> <span class="n">CharsetFilter</span><span class="p">(</span><span class="n">accent_map</span><span class="p">)</span>
+
+<span class="n">_pending_indexation_attr</span> <span class="o">=</span> <span class="s">&#39;abilian_pending_indexation&#39;</span>
+
+<span class="c"># as of whoosh 2.5.7, a method is missing on WrappingCollector. See</span>
+<span class="c"># https://bitbucket.org/mchaput/whoosh/issue/394/error-when-searching-with-groupedby-and</span>
+<span class="n">_PATCHED</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">_PATCHED</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">wrapping_collector_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">global_docnum</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">global_docnum</span><span class="p">)</span>
+
+  <span class="kn">from</span> <span class="nn">abilian.core.logging</span> <span class="kn">import</span> <span class="n">patch_logger</span>
+  <span class="n">patch_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">WrappingCollector</span><span class="o">.</span><span class="n">remove</span><span class="p">)</span>
+  <span class="n">WrappingCollector</span><span class="o">.</span><span class="n">remove</span> <span class="o">=</span> <span class="n">wrapping_collector_remove</span>
+  <span class="n">_PATCHED</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="k">del</span> <span class="n">patch_logger</span>
+  <span class="k">del</span> <span class="n">wrapping_collector_remove</span>
+<span class="c"># END PATCH</span>
+
+
+<span class="k">def</span> <span class="nf">fqcn</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">Entity</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">entity_type</span>
+  <span class="k">return</span> <span class="n">base_fqcn</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">IndexServiceState</span><span class="p">(</span><span class="n">ServiceState</span><span class="p">):</span>
+  <span class="n">whoosh_base</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">indexes</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">indexed_classes</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">indexed_fqcn</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">search_filter_funcs</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">value_provider_funcs</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">ServiceState</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">indexes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">indexed_classes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">indexed_fqcn</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">search_filter_funcs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">value_provider_funcs</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">to_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_lookup_app_object</span><span class="p">(</span><span class="n">_pending_indexation_attr</span><span class="p">)</span>
+
+  <span class="nd">@to_update.setter</span>
+  <span class="k">def</span> <span class="nf">to_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">_app_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+    <span class="k">if</span> <span class="n">top</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;working outside of application context&#39;</span><span class="p">)</span>
+
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">_pending_indexation_attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="WhooshIndexService"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService">[docs]</a><span class="k">class</span> <span class="nc">WhooshIndexService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Index documents using whoosh</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;indexing&#39;</span>
+  <span class="n">AppStateClass</span> <span class="o">=</span> <span class="n">IndexServiceState</span>
+
+  <span class="n">_listening</span> <span class="o">=</span> <span class="bp">False</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">Service</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">adapters_cls</span> <span class="o">=</span> <span class="p">[</span><span class="n">SAAdapter</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">adapted</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">schemas</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="n">DefaultSearchSchema</span><span class="p">()}</span>
+
+<div class="viewcode-block" id="WhooshIndexService.init_app"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.init_app">[docs]</a>  <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+    <span class="n">Service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="n">whoosh_base</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;WHOOSH_BASE&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">whoosh_base</span><span class="p">:</span>
+      <span class="n">whoosh_base</span> <span class="o">=</span> <span class="s">&quot;whoosh&quot;</span>  <span class="c"># Default value</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">whoosh_base</span><span class="p">):</span>
+      <span class="n">whoosh_base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="n">whoosh_base</span><span class="p">)</span>
+
+    <span class="n">state</span><span class="o">.</span><span class="n">whoosh_base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">whoosh_base</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_listening</span><span class="p">:</span>
+      <span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">Session</span><span class="p">,</span> <span class="s">&quot;after_flush&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">after_flush</span><span class="p">)</span>
+      <span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">Session</span><span class="p">,</span> <span class="s">&quot;after_commit&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">after_commit</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_listening</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">appcontext_pushed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clear_update_queue</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+    <span class="n">signals</span><span class="o">.</span><span class="n">register_js_api</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_do_register_js_api</span><span class="p">)</span>
+</div>
+  <span class="k">def</span> <span class="nf">_do_register_js_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">):</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">sender</span>
+    <span class="n">js_api</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">js_api</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;search&#39;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">js_api</span><span class="p">[</span><span class="s">&#39;object_types&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">searchable_object_types</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="WhooshIndexService.register_search_filter"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.register_search_filter">[docs]</a>  <span class="k">def</span> <span class="nf">register_search_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register a function that returns a query used for filtering search</span>
+<span class="sd">    results. This query is And&#39;ed with other filters.</span>
+
+<span class="sd">    If no filtering should be performed the function must return None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">search_filter_funcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.register_value_provider"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.register_value_provider">[docs]</a>  <span class="k">def</span> <span class="nf">register_value_provider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register a function that may alter content of indexable document.</span>
+
+<span class="sd">    It is used in :meth:`get_document` and called after adapter has built</span>
+<span class="sd">    document.</span>
+
+<span class="sd">    The function must accept (document, obj) as arguments, and return</span>
+<span class="sd">    the new document object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">value_provider_funcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.clear_update_queue"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.clear_update_queue">[docs]</a>  <span class="k">def</span> <span class="nf">clear_update_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">to_update</span> <span class="o">=</span> <span class="p">[]</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.start"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.start">[docs]</a>  <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">Service</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_classes</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">init_indexes</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">clear_update_queue</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.init_indexes"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.init_indexes">[docs]</a>  <span class="k">def</span> <span class="nf">init_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create indexes for schemas.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">schema</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">schemas</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+      <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+        <span class="n">storage</span> <span class="o">=</span> <span class="n">TestingStorage</span><span class="p">()</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">index_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">whoosh_base</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">index_path</span><span class="p">):</span>
+          <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">index_path</span><span class="p">)</span>
+        <span class="n">storage</span> <span class="o">=</span> <span class="n">FileStorage</span><span class="p">(</span><span class="n">index_path</span><span class="p">)</span>
+
+      <span class="n">FileIndex</span> <span class="o">=</span> <span class="n">whoosh</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">FileIndex</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">storage</span><span class="o">.</span><span class="n">index_exists</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="n">FileIndex</span> <span class="o">=</span> <span class="n">whoosh</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">FileIndex</span><span class="o">.</span><span class="n">create</span>
+
+      <span class="n">index</span> <span class="o">=</span> <span class="n">FileIndex</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+      <span class="n">state</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.clear"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.clear">[docs]</a>  <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove all content from indexes, and unregister all classes.</span>
+
+<span class="sd">    After clear() the service is stopped. It must be started again to create</span>
+<span class="sd">    new indexes and register classes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Resetting indexes&#39;</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">indexes</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+      <span class="n">writer</span> <span class="o">=</span> <span class="n">AsyncWriter</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+      <span class="n">writer</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="n">merge</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">mergetype</span><span class="o">=</span><span class="n">CLEAR</span><span class="p">)</span>
+
+    <span class="n">state</span><span class="o">.</span><span class="n">indexes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">indexed_classes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">indexed_fqcn</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">clear_update_queue</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.index"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.index">[docs]</a>  <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;default&#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</div>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">default_search_fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return default field names and boosts to be used for searching. Can be</span>
+<span class="sd">    configured with `SEARCH_DEFAULT_BOOSTS`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SEARCH_DEFAULT_BOOSTS&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="p">:</span>
+     <span class="n">config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+         <span class="n">name</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+         <span class="n">name_prefix</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
+         <span class="n">description</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
+         <span class="n">text</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,)</span>
+     <span class="k">return</span> <span class="n">config</span>
+
+<div class="viewcode-block" id="WhooshIndexService.searchable_object_types"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.searchable_object_types">[docs]</a>  <span class="k">def</span> <span class="nf">searchable_object_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List of (object_types, friendly name) present in the index.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+      <span class="c"># index does not exists: service never started, may happens during tests</span>
+      <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">with</span> <span class="n">idx</span><span class="o">.</span><span class="n">reader</span><span class="p">()</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+      <span class="n">indexed</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">field_terms</span><span class="p">(</span><span class="s">&#39;object_type&#39;</span><span class="p">)))</span>
+    <span class="n">app_indexed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexed_fqcn</span>
+
+    <span class="k">return</span> <span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="n">friendly_fqcn</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">indexed</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">app_indexed</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.search"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.search">[docs]</a>  <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s">&#39;default&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">Models</span><span class="o">=</span><span class="p">(),</span>
+             <span class="n">object_types</span><span class="o">=</span><span class="p">(),</span> <span class="n">prefix</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">facet_by_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+             <span class="o">**</span><span class="n">search_args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface to search indexes.</span>
+
+<span class="sd">    :param q: unparsed search string.</span>
+<span class="sd">    :param index: name of index to use for search.</span>
+<span class="sd">    :param fields: optionnal mapping of field names -&gt; boost factor?</span>
+<span class="sd">    :param Models: list of Model classes to limit search on.</span>
+<span class="sd">    :param object_types: same as `Models`, but directly the model string.</span>
+<span class="sd">    :param prefix: enable or disable search by prefix</span>
+<span class="sd">    :param facet_by_type: if set, returns a dict of object_type: results with a</span>
+<span class="sd">         max of `limit` matches for each type.</span>
+<span class="sd">    :param search_args: any valid parameter for</span>
+<span class="sd">        :meth:`whoosh.searching.Search.search`. This includes `limit`,</span>
+<span class="sd">        `groupedby` and `sortedby`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fields</span><span class="p">:</span>
+      <span class="n">fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_search_fields</span>
+
+    <span class="n">valid_fields</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">index</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">names</span><span class="p">(</span><span class="n">check_names</span><span class="o">=</span><span class="n">fields</span><span class="p">)</span>
+                       <span class="k">if</span> <span class="n">prefix</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;_prefix&#39;</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">invalid</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span> <span class="o">-</span> <span class="n">valid_fields</span><span class="p">:</span>
+      <span class="k">del</span> <span class="n">fields</span><span class="p">[</span><span class="n">invalid</span><span class="p">]</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">DisMaxParser</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+
+    <span class="n">filters</span> <span class="o">=</span> <span class="n">search_args</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;filter&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">filters</span><span class="p">]</span> <span class="k">if</span> <span class="n">filters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="p">[]</span>
+    <span class="k">del</span> <span class="n">search_args</span><span class="p">[</span><span class="s">&#39;filter&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s">&#39;is_manager&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">g</span><span class="o">.</span><span class="n">is_manager</span><span class="p">:</span>
+      <span class="c"># security access filter</span>
+      <span class="n">user</span> <span class="o">=</span> <span class="n">current_user</span>
+      <span class="n">roles</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexable_role</span><span class="p">(</span><span class="n">user</span><span class="p">)]</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">is_anonymous</span><span class="p">():</span>
+        <span class="n">roles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indexable_role</span><span class="p">(</span><span class="n">Anonymous</span><span class="p">))</span>
+        <span class="n">roles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indexable_role</span><span class="p">(</span><span class="n">Authenticated</span><span class="p">))</span>
+        <span class="n">roles</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">indexable_role</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">user</span><span class="o">.</span><span class="n">groups</span><span class="p">])</span>
+        <span class="n">roles</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">indexable_role</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">security</span><span class="o">.</span><span class="n">get_roles</span><span class="p">(</span><span class="n">user</span><span class="p">)])</span>
+
+      <span class="n">filter_q</span> <span class="o">=</span> <span class="n">wq</span><span class="o">.</span><span class="n">Or</span><span class="p">([</span><span class="n">wq</span><span class="o">.</span><span class="n">Term</span><span class="p">(</span><span class="s">&#39;allowed_roles_and_users&#39;</span><span class="p">,</span> <span class="n">role</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">role</span> <span class="ow">in</span> <span class="n">roles</span><span class="p">])</span>
+      <span class="n">filters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filter_q</span><span class="p">)</span>
+
+    <span class="n">object_types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">object_types</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">Models</span><span class="p">:</span>
+      <span class="n">object_type</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">entity_type</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">object_type</span><span class="p">:</span>
+        <span class="k">continue</span>
+      <span class="n">object_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">object_type</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">object_types</span><span class="p">:</span>
+      <span class="n">object_types</span> <span class="o">&amp;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexed_fqcn</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="c"># ensure we don&#39;t show content types previously indexed but not yet</span>
+      <span class="c"># cleaned from index</span>
+      <span class="n">object_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexed_fqcn</span>
+
+    <span class="c"># limit object_type</span>
+    <span class="n">filter_q</span> <span class="o">=</span> <span class="n">wq</span><span class="o">.</span><span class="n">Or</span><span class="p">([</span><span class="n">wq</span><span class="o">.</span><span class="n">Term</span><span class="p">(</span><span class="s">&#39;object_type&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">object_types</span><span class="p">])</span>
+    <span class="n">filters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filter_q</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">search_filter_funcs</span><span class="p">:</span>
+      <span class="n">filter_q</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+      <span class="k">if</span> <span class="n">filter_q</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">filters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filter_q</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">filters</span><span class="p">:</span>
+      <span class="n">filter_q</span> <span class="o">=</span> <span class="n">wq</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">filters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="c">#search_args[&#39;filter&#39;] = filter_q</span>
+      <span class="n">query</span> <span class="o">=</span> <span class="n">filter_q</span> <span class="o">&amp;</span> <span class="n">query</span>
+
+    <span class="k">if</span> <span class="n">facet_by_type</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">object_types</span><span class="p">:</span>
+        <span class="n">object_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">searchable_object_types</span><span class="p">()]</span>
+
+      <span class="c"># limit number of documents to score, per object type</span>
+      <span class="n">collapse_limit</span> <span class="o">=</span> <span class="mi">5</span>
+      <span class="n">search_args</span><span class="p">[</span><span class="s">&#39;groupedby&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;object_type&#39;</span>
+      <span class="n">search_args</span><span class="p">[</span><span class="s">&#39;collapse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;object_type&#39;</span>
+      <span class="n">search_args</span><span class="p">[</span><span class="s">&#39;collapse_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">collapse_limit</span>
+      <span class="n">search_args</span><span class="p">[</span><span class="s">&#39;limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">search_args</span><span class="p">[</span><span class="s">&#39;collapse_limit&#39;</span><span class="p">]</span>
+                              <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">object_types</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">index</span><span class="o">.</span><span class="n">searcher</span><span class="p">(</span><span class="n">closereader</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">searcher</span><span class="p">:</span>
+      <span class="c"># &#39;closereader&#39; is needed, else results cannot by used outside &#39;with&#39;</span>
+      <span class="c"># statement</span>
+      <span class="n">results</span> <span class="o">=</span> <span class="n">searcher</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">search_args</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="n">facet_by_type</span><span class="p">:</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="p">{</span> <span class="n">doc_id</span><span class="p">:</span> <span class="n">pos</span>
+                      <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">top_n</span><span class="p">)}</span>
+        <span class="n">sr</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">typename</span><span class="p">,</span> <span class="n">doc_ids</span> <span class="ow">in</span> <span class="n">sr</span><span class="o">.</span><span class="n">groups</span><span class="p">(</span><span class="s">&#39;object_type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+          <span class="n">results</span><span class="p">[</span><span class="n">typename</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">sr</span><span class="p">[</span><span class="n">positions</span><span class="p">[</span><span class="n">oid</span><span class="p">]]</span>
+                               <span class="k">for</span> <span class="n">oid</span> <span class="ow">in</span> <span class="n">doc_ids</span><span class="p">[:</span><span class="n">collapse_limit</span><span class="p">]]</span>
+
+      <span class="k">return</span> <span class="n">results</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.search_for_class"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.search_for_class">[docs]</a>  <span class="k">def</span> <span class="nf">search_for_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">cls</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s">&#39;default&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">search_args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">Models</span><span class="o">=</span><span class="p">(</span><span class="n">fqcn</span><span class="p">(</span><span class="n">cls</span><span class="p">),),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">search_args</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.register_classes"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.register_classes">[docs]</a>  <span class="k">def</span> <span class="nf">register_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">cls</span> <span class="k">for</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">_decl_class_registry</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+               <span class="k">if</span> <span class="n">isclass</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">Indexable</span><span class="p">)</span>
+               <span class="ow">and</span> <span class="n">cls</span><span class="o">.</span><span class="n">__indexable__</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">indexed_classes</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">app_state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.register_class"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.register_class">[docs]</a>  <span class="k">def</span> <span class="nf">register_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cls</span><span class="p">,</span> <span class="n">app_state</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Registers a model class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">app_state</span> <span class="k">if</span> <span class="n">app_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span>
+
+    <span class="k">for</span> <span class="n">Adapter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapters_cls</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">Adapter</span><span class="o">.</span><span class="n">can_adapt</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span>
+
+    <span class="n">cls_fqcn</span> <span class="o">=</span> <span class="n">fqcn</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">adapted</span><span class="p">[</span><span class="n">cls_fqcn</span><span class="p">]</span> <span class="o">=</span> <span class="n">Adapter</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">schemas</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">])</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">indexed_classes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+    <span class="n">state</span><span class="o">.</span><span class="n">indexed_fqcn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cls_fqcn</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.after_flush"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.after_flush">[docs]</a>  <span class="k">def</span> <span class="nf">after_flush</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">flush_context</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="ow">or</span> <span class="n">session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">():</span>
+      <span class="k">return</span>
+
+    <span class="n">to_update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">to_update</span>
+    <span class="n">session_objs</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="p">(</span><span class="s">&#39;new&#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">new</span><span class="p">),</span>
+      <span class="p">(</span><span class="s">&#39;deleted&#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">deleted</span><span class="p">),</span>
+      <span class="p">(</span><span class="s">&#39;changed&#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">dirty</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">objs</span> <span class="ow">in</span> <span class="n">session_objs</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="n">fqcn</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
+        <span class="n">adapter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapted</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">adapter</span><span class="o">.</span><span class="n">indexable</span><span class="p">:</span>
+          <span class="k">continue</span>
+
+        <span class="n">to_update</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">obj</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.after_commit"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.after_commit">[docs]</a>  <span class="k">def</span> <span class="nf">after_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Any db updates go through here. We check if any of these models have</span>
+<span class="sd">    ``__searchable__`` fields, indicating they need to be indexed. With these</span>
+<span class="sd">    we update the whoosh index for the model. If no index exists, it will be</span>
+<span class="sd">    created here; this could impose a penalty on the initial commit of a model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span>
+        <span class="ow">or</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="o">.</span><span class="n">nested</span>  <span class="c"># inside a sub-transaction:</span>
+                                       <span class="c"># not yet written in DB</span>
+        <span class="ow">or</span> <span class="n">session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()):</span>
+      <span class="c"># note: we have not tested too far if session is enclosed in a transaction</span>
+      <span class="c"># at connection level. For now it&#39;s not a standard use case, it would most</span>
+      <span class="c"># likely happens during tests (which don&#39;t do that for now)</span>
+      <span class="k">return</span>
+
+    <span class="n">primary_field</span> <span class="o">=</span> <span class="s">&#39;id&#39;</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">op</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">to_update</span><span class="p">:</span>
+      <span class="n">model_name</span> <span class="o">=</span> <span class="n">fqcn</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">model_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapted</span> <span class="ow">or</span> \
+          <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapted</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span><span class="o">.</span><span class="n">indexable</span><span class="p">:</span>
+        <span class="c"># safeguard</span>
+        <span class="k">continue</span>
+
+      <span class="c"># safeguard against DetachedInstanceError</span>
+      <span class="k">if</span> <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">object_session</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">op</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">primary_field</span><span class="p">),</span> <span class="p">{}))</span>
+
+    <span class="k">if</span> <span class="n">items</span><span class="p">:</span>
+      <span class="n">index_update</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">&#39;default&#39;</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">clear_update_queue</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.get_document"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.get_document">[docs]</a>  <span class="k">def</span> <span class="nf">get_document</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">adapter</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">class_name</span> <span class="o">=</span> <span class="n">fqcn</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
+      <span class="n">adapter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adapted</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">adapter</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">adapter</span><span class="o">.</span><span class="n">indexable</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="n">document</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">get_document</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">document</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">document</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">continue</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">Group</span><span class="p">,</span> <span class="n">Role</span><span class="p">)):</span>
+        <span class="n">document</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">indexable_role</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">document</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;allowed_roles_and_users&#39;</span><span class="p">):</span>
+      <span class="c"># no data for security: assume anybody can access the document</span>
+      <span class="n">document</span><span class="p">[</span><span class="s">&#39;allowed_roles_and_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">indexable_role</span><span class="p">(</span><span class="n">Anonymous</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">value_provider_funcs</span><span class="p">:</span>
+      <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">document</span> <span class="o">=</span> <span class="n">res</span>
+
+    <span class="k">return</span> <span class="n">document</span>
+</div>
+<div class="viewcode-block" id="WhooshIndexService.index_objects"><a class="viewcode-back" href="../../../../api.html#abilian.services.indexing.WhooshIndexService.index_objects">[docs]</a>  <span class="k">def</span> <span class="nf">index_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objects</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s">&#39;default&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Bulk index a list of objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">objects</span><span class="p">:</span>
+      <span class="k">return</span>
+
+    <span class="n">index_name</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="n">index_name</span><span class="p">]</span>
+    <span class="n">indexed</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="n">index</span><span class="o">.</span><span class="n">writer</span><span class="p">()</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">:</span>
+        <span class="n">document</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_document</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">document</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+          <span class="k">continue</span>
+
+        <span class="n">object_key</span> <span class="o">=</span> <span class="n">document</span><span class="p">[</span><span class="s">&#39;object_key&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">object_key</span> <span class="ow">in</span> <span class="n">indexed</span><span class="p">:</span>
+          <span class="k">continue</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">delete_by_term</span><span class="p">(</span><span class="s">&#39;object_key&#39;</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">add_document</span><span class="p">(</span><span class="o">**</span><span class="n">document</span><span class="p">)</span>
+        <span class="n">indexed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">object_key</span><span class="p">)</span>
+
+</div></div>
+<span class="n">service</span> <span class="o">=</span> <span class="n">WhooshIndexService</span><span class="p">()</span>
+
+
+<span class="nd">@shared_task</span><span class="p">(</span><span class="n">ignore_result</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index_update</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  :param:index: index name</span>
+<span class="sd">  :param:items: list of (operation, full class name, primary key, data) tuples.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">index_name</span> <span class="o">=</span> <span class="n">index</span>
+  <span class="n">index</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">app_state</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="n">index_name</span><span class="p">]</span>
+  <span class="n">adapted</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">adapted</span>
+
+  <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_bind</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="n">autocommit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s">&#39;_model_changes&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="c"># Flask-Sqlalchemy up to 1.0 needs this</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s">&#39;_model_changes&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+  <span class="n">updated</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+  <span class="n">writer</span> <span class="o">=</span> <span class="n">AsyncWriter</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">op</span><span class="p">,</span> <span class="n">cls_name</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">pk</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+      <span class="c"># always delete. Whoosh manual says that &#39;update&#39; is actually delete + add</span>
+      <span class="c"># operation</span>
+      <span class="n">object_key</span> <span class="o">=</span> <span class="s">u&#39;{}:{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cls_name</span><span class="p">,</span> <span class="n">pk</span><span class="p">)</span>
+      <span class="n">writer</span><span class="o">.</span><span class="n">delete_by_term</span><span class="p">(</span><span class="s">&#39;object_key&#39;</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+      <span class="n">adapter</span> <span class="o">=</span> <span class="n">adapted</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cls_name</span><span class="p">)</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">adapter</span><span class="p">:</span>
+        <span class="c"># FIXME: log to sentry?</span>
+        <span class="k">continue</span>
+
+      <span class="k">if</span> <span class="n">object_key</span> <span class="ow">in</span> <span class="n">updated</span><span class="p">:</span>
+        <span class="c"># don&#39;t add twice the same document in same transaction. The writer will</span>
+        <span class="c"># not delete previous records, ending in duplicate records for same</span>
+        <span class="c"># document.</span>
+        <span class="k">continue</span>
+
+      <span class="k">if</span> <span class="n">op</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&quot;new&quot;</span><span class="p">,</span> <span class="s">&quot;changed&quot;</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">begin</span><span class="p">():</span>
+          <span class="n">obj</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">pk</span><span class="p">,</span> <span class="n">_session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+          <span class="c"># deleted after task queued, but before task run</span>
+          <span class="k">continue</span>
+
+        <span class="n">document</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">get_document</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">add_document</span><span class="p">(</span><span class="o">**</span><span class="n">document</span><span class="p">)</span>
+        <span class="n">updated</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">object_key</span><span class="p">)</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+    <span class="k">raise</span>
+
+  <span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="n">writer</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="c"># async thread: wait for its termination</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+  <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+    <span class="c"># happens when actual writer was alraedy available: asyncwriter needn&#39;t to</span>
+    <span class="c"># start a thread</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">TestingStorage</span><span class="p">(</span><span class="n">RamStorage</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  RamStorage whoses temp_storage method returns another TestingStorage</span>
+<span class="sd">  instead of a FileStorage.</span>
+
+<span class="sd">  Reason is that FileStorage.temp_storage() creates temp file in</span>
+
+<span class="sd">  /tmp/index_name.tmp/, which is subject to race conditions when many</span>
+<span class="sd">  tests are ran in parallel, including different abilian-based packages.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="k">def</span> <span class="nf">temp_storage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">TestingStorage</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
