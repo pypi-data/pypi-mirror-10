@@ -1,0 +1,88 @@
+Metadata-Version: 1.1
+Name: pywebtasks
+Version: 0.1.3
+Summary: Python wrapper for Auth0's Webtask API.
+Home-page: https://github.com/ssebastianj/pywebtasks
+Author: Sebastián J. Seba
+Author-email: ssebastianj@gmail.com
+License: MIT
+Description: PyWebtasks: A Python wrapper for Auth0's Webtasks API
+        =====================================================
+        
+        .. image:: https://img.shields.io/pypi/v/pywebtasks.svg
+            :target: https://pypi.python.org/pypi/pywebtasks
+        
+        .. image:: https://img.shields.io/pypi/dm/pywebtasks.svg
+                :target: https://pypi.python.org/pypi/pywebtasks
+        
+        .. image:: http://img.shields.io/travis/ssebastianj/pywebtasks.png
+           :target: https://travis-ci.org/ssebastianj/pywebtasks
+        
+        
+        
+        Installation
+        ------------
+        To install PyWebtasks, simply:
+        
+        .. code-block:: bash
+        
+            $ pip install pywebtasks
+        
+        Usage
+        -----
+        Create a new webtask token:
+        
+        .. code-block:: python
+        
+            >>> from pywebtasks import tokens
+            >>> wt_token = tokens.create('your_auth_webtask_token')
+        
+        To view your user's auth webtask token go to the `webtask.io token section <https://webtask.io/token>`_.
+        
+        To revoke a webtask token:
+        
+        .. code-block:: python
+        
+            >>> tokens.revoke(wt_token)
+        
+        Run a webtask from a string:
+        
+        .. code-block:: python
+        
+            >>> import pywebtasks
+            >>> js_code = '''return function (context, cb) {
+                               cb(null, "Hello, JS world!");
+                             };
+                          '''
+            >>> req = pywebtasks.run(js_code,
+                                     'a_wt_container_name-0',
+                                     'a_webtask_token')
+            >>> req.content
+            'Hello, JS world!'
+        
+        
+        If you want to run the content of a source code file (for example, `javascript.js </test_code/javascript.js>`_), you can use the ``run_file`` function:
+        
+        .. code-block:: python
+        
+            >>> req = pywebtasks.run_file('/path/to/a/file.js',
+                                          'a_wt_container_name-0',
+                                          'a_webtask_token')
+            >>> req.content
+            'Hello, JS world!'
+        
+        
+        
+Keywords: pywebtasks
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
