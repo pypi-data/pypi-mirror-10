@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: django-git-hooks
+Version: 0.1.4
+Summary: Небольшое приложение, для простого git pull репозитория из корня проекта при GET запросе по урлу.
+Home-page: UNKNOWN
+Author: Dezu
+Author-email: zhukovvitaliy@mail.ru
+License: MIT License
+Description: ** Просто приложение для выполнения команды git pull
+        
+Keywords: django,git,pull
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Requires: django (>= 1.3)
