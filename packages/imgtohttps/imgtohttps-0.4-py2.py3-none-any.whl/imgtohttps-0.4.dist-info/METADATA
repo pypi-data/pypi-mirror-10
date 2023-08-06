@@ -1,0 +1,104 @@
+Metadata-Version: 2.0
+Name: imgtohttps
+Version: 0.4
+Summary: Simple image uploader
+Home-page: https://github.com/Orhideous/imgtohttps
+Author: Andriy Kushnir (Orhideous)
+Author-email: orhideous@gmail.com
+License: GPLv3
+Keywords: Imgur
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Utilities
+Requires-Dist: Flask
+Requires-Dist: Flask-Redis
+Requires-Dist: imgurpython
+Requires-Dist: itsdangerous
+Requires-Dist: Jinja2
+Requires-Dist: MarkupSafe
+Requires-Dist: redis
+Requires-Dist: requests
+Requires-Dist: Werkzeug
+
+=====================
+Simple image uploader
+=====================
+
+About
+=====
+
+Microservice for uploading all insecure images to Imgur by url.
+
+Use Redis as cache backend and metadata storage.
+
+Installation
+============
+
+Install uwsgi and python3 plugin::
+
+    sudo apt-get install uwsgi uwsgi-plugin-python3
+
+Make virtualenv::
+
+    cd /opt
+    pyvenv-3.4 img_service
+    source img_service/bin/activate
+
+Install from PyPI::
+
+    pip install imgtohttps
+
+Create config file for app::
+
+    [uwsgi]
+    plugins = python34
+    master = true
+    enable-threads = true
+    processes = 4
+    module = imgtohttps.application:app
+    virtualenv = /opt/img_service
+    chdir = /opt/img_service
+    touch-reload = /opt/img_service/reload
+    env=APP_SETTINGS=settings.Production
+
+Connect to nginx::
+
+    server {
+        listen		127.0.0.1:2100;
+        access_log off;
+        location / {
+            uwsgi_pass	unix:/run/uwsgi/app/img_service/socket;
+            include		uwsgi_params;
+        }
+    }
+
+Usage
+=====
+
+Request::
+
+    curl -X POST -H "Content-Type: application/json" -d '{"url": "http://example.com/image.png"}' http://localhost:2100
+
+Response::
+
+    {"url": "https://i.imgur.com/AxQwu0h.png"}
+
+Error::
+
+    {"error": "Some error message"}
+
+
+
