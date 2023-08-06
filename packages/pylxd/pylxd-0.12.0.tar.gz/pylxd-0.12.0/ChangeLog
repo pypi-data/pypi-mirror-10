@@ -1,0 +1,93 @@
+CHANGES
+=======
+
+0.12
+----
+
+* tag 0.12
+* Fi alias listing
+* Fix contianer -> container
+* Fix enviorn -> environ
+* fix alias list
+* Add more tests
+* Remove functional tests
+* Update tests
+* Fix image_defined
+* Add more hosts tests
+* Add more host tests
+* Add missing file
+* Re-do unittests
+* fix container status
+* Add container_update
+* Fix get_status
+* Improve error checking
+* Add alias existance
+* raise more useful exception
+* Add certificate unit tests
+* Drop unused imports
+* Fix typo
+* Check for existance
+* Fix image_defined
+* Various fixes
+* Update profile usage
+* Fix up hosts
+* Fix some bugs add lxd_version
+* fix image export; allow image upload from blob
+* add support for connecting to remote LXD hosts
+* fix typo in run_command
+* fix date parsing and typo
+* Add exec support
+* Add snapshot support
+* Add support for contiainer_running
+* container_defined
+* Add container timeout
+* Add container defined
+* Fix typo in operations
+* update requiremets.txt to fix a bug. Fixes #3
+* remove oslo_utils and calculate the size directly. Fixes #4
+* Fix get_status
+* Changes the old print to the new print compatible with py2 and py3 and changes the error messages to reflect the actual error
+
+0.1
+---
+
+* Add missing example
+* Update Readme
+* Add example and various fix ups for example
+* wire up more containers
+* Add version and container support
+* fix typos
+* Wire up certificates
+* Fix up pep8 warnings
+* Wire up profiles
+* rename client to API
+* wire up operation
+* wire up network
+* Wire up image alias
+* Wire up images
+* Wire up hosts
+* Fix warnings and pep8 issues
+* Refactor pylxd connection
+* image updates
+* fix typos
+* add kernel and lxc version
+* more refactoring
+* more refactoring
+* refactor hosts again
+* fix typo
+* add trust info
+* break out host info
+* start wiring up host_info
+* fix exception handling
+* more smarts for host_up
+* Fix host ping
+* fix typo
+* wire up a bit harder
+* Wire up ping
+* Fix typo
+* Fix hosts
+* Add host_ping example
+* Add skeleton
+* Update connections info
+* Initial commit
+* Initial Cookiecutter Commit
