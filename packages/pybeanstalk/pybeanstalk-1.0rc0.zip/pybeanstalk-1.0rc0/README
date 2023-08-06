@@ -1,0 +1,37 @@
+PyBeanstalk:
+Copyright 2008-2015
+
+A client library for beanstalkd. beanstalkd is a lightweight job queuing daemon
+based on libevent. It is meant to be used across multiple systems, and takes
+inspiration from memcache. More details on beanstalk can be found at:
+http://xph.us/software/beanstalkd/
+
+This client library aims to be simple and extensible. It provides both a single thread,
+single connection serialized (select-based) beanstalk connection with optional, simple
+thread pool implementation, and a basic Twisted client. They can be used directly,
+or be used as basis for for more sophisticated client applications. Please see
+the examples directory for usage examples.
+
+To install, just run python setup.py install from this directory. For the Twisted client,
+install the 'twisted' extra (python setup.py install [twisted]).
+
+Please see the examples directory for usage examples.
+
+The package home is at https://github.com/beanstalkd/pybeanstalk, with an issue tracker
+and a wiki. Issue reports and pull requests most welcome.
+
+
+Copyright notice:
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program (In file named COPYING).  If not, see <http://www.gnu.org/licenses/>.
