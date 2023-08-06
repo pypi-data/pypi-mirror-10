@@ -1,0 +1,6 @@
+include LICENSE
+include README.rst
+recursive-include mezzanine_sermons/static *
+recursive-include mezzanine_sermons/templates *
+recursive-include mezzanine_sermons/migrations *
+recursive-include docs *
