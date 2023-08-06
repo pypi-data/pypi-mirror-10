@@ -1,0 +1,27 @@
+<registry>
+  <records interface="fourdigits.seo.browser.settings.ISeoSettings">
+    <value key="loginFormTitle"></value>
+    <value key="loginFormDescription"></value>
+    <value key="registerFormTitle"></value>
+    <value key="registerFormDescription"></value>
+    <value key="contactInfoTitle"></value>
+    <value key="contactInfoDescription"></value>
+    <value key="indexLoginForm">False</value>
+    <value key="indexRegisterForm">False</value>
+    <value key="indexContactInfo">False</value>
+    <value key="exposeTwitterCard">False</value>
+    <value key="exposeOpenGraph">False</value>
+    <value key="exposeAuthorOpenGraph">False</value>
+    <value key="googlePlusPublisherPage"></value>
+    <value key="twitterSiteAccount"></value>
+    <value key="favicon">string:${portal_url}/favicon.ico</value>
+    <value key="touchIconIphone">string:${portal_url}/touch_icon.png</value>
+    <value key="touchIconIphoneRetina"></value>
+    <value key="touchIconIpad"></value>
+    <value key="touchIconIpadRetina"></value>
+    <value key="openGraphFallbackImage"></value>
+    <value key="includeSiteNameInTitle">True</value>
+    <value key="siteNameSeparator">&amp;mdash;</value>
+    <value key="exposePublicationDate"></value>
+  </records>
+</registry>

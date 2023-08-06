@@ -1,0 +1,6 @@
+<meta tal:repeat="keyval view/metatags"
+      tal:attributes="name python:keyval[0]; content python:keyval[1];" />
+<meta tal:repeat="keyval view/itemprops"
+      tal:attributes="itemprop python:keyval[0]; content python:keyval[1];" />
+<meta tal:repeat="keyval view/og_metatags"
+      tal:attributes="property python:keyval[0]; content python:keyval[1];" />

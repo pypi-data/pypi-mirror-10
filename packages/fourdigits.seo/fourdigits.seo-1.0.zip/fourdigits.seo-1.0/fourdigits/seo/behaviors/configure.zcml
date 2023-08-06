@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="fourdigits.seo">
+
+  <include package="plone.behavior" file="meta.zcml" />
+
+  <plone:behavior
+      title="SEO"
+      description="Adds Title, Description override fields and indexing options."
+      provides=".seo.ISeo"
+      factory=".seo.Seo"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      marker=".seo.ISeo"
+      />
+
+  <adapter
+      provides=".seo.ISeoAdapter"
+      for="*"
+      factory=".seo.SeoAdapter"
+      />
+
+  <plone:behavior
+      title="Image"
+      description="Adds Image reference field used for sharing link."
+      provides=".image.IImage"
+      factory=".image.Image"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      marker=".image.IImage"
+      />
+
+  <plone:behavior
+      title="Canonical"
+      description="Adds a canonical object reference field used in the head."
+      provides=".canonical.ICanonical"
+      factory=".canonical.Canonical"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      marker=".canonical.ICanonical"
+      />
+
+  <plone:behavior
+      title="Multi Language"
+      description="Adds multi language links to the head tag."
+      provides=".multilanguage.IMultiLanguage"
+      factory=".multilanguage.MultiLanguage"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      marker=".multilanguage.IMultiLanguage"
+      />
+
+</configure>

@@ -1,0 +1,9 @@
+include *.rst
+include *.GPL
+include *.py
+include buildout.cfg
+
+graft fourdigits
+
+global-exclude *.pyc
+exclude .Python
