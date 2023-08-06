@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: dclab
+Version: 0.1.1
+Summary: Data analysis for real-time deformability cytometry.
+Home-page: https://github.com/ZellMechanik-Dresden/dclab
+Author: Paul Müller
+Author-email: paul.mueller@biotec.tu-dresden.de
+License: GPL v2
+Description: # dclab
+        python library for the post-measurement analysis of real-time deformability cytometry (RT-DC) data sets
+        
+Keywords: RTDC,deformation,cytometry,zellmechanik
+Platform: ALL
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Intended Audience :: Science/Research
