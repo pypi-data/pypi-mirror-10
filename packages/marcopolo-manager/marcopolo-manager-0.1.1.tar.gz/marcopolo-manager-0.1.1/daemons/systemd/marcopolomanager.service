@@ -1,0 +1,17 @@
+[Unit]
+Description=MarcoPolo core services management utility
+After=marcod.service
+After=polod.service
+
+[Service]
+
+ExecStart=/usr/bin/marcopolomanagerd &>/dev/null
+ExecReload=/usr/bin/marcopolomanagerreload &>/dev/null
+
+Type=simple
+User=root
+Group=root
+PIDFile=/var/run/marcomanagerd.pid
+
+[Install]
+WantedBy=multi-user.target

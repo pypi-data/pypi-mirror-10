@@ -1,0 +1,4 @@
+[console_scripts]
+marcopolomanagerd = marcopolomanager.runner:main
+marcopolomanagerreload = marcopolomanager.marcopolomanagerreload:main
+
