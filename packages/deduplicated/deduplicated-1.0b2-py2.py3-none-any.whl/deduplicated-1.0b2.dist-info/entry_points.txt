@@ -1,0 +1,4 @@
+[console_scripts]
+deduplicated = deduplicated.cmd:main
+deduplicated-web = deduplicated.web:main [web]
+
