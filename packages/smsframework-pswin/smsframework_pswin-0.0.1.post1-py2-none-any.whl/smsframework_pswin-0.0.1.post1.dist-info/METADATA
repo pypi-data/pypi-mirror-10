@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: smsframework-pswin
+Version: 0.0.1.post1
+Summary: SMS framework: PSWin provider
+Home-page: https://github.com/dignio/py-smsframework-pswin
+Author: Dignio
+Author-email: UNKNOWN
+License: MIT
+Keywords: sms,message,notification,receive,send,pswin
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Operating System :: OS Independent
+Requires-Dist: smsframework (>=0.0.1)
+Requires-Dist: requests (==2.4.3)
+Provides-Extra: _dev
+Requires-Dist: wheel; extra == '_dev'
+Requires-Dist: nose; extra == '_dev'
+Requires-Dist: flask; extra == '_dev'
+Provides-Extra: receiver
+Requires-Dist: flask (>=0.10); extra == 'receiver'
+
+smsframework\_pswin
+===================
+
+SMS framework: PSWin provider
+
+
