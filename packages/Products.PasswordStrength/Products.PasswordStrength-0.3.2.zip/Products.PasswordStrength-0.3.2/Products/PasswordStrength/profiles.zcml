@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="PasswordStrength">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Password Strength Plugin"
+      directory="profiles/default"
+      description="PAS plugin that ensures strong passwords."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+</configure>
