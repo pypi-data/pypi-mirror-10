@@ -1,0 +1,5 @@
+include DESCRIPTION.rst
+include data/etc/crowd_pam.conf
+include data/etc/pam.d/*
+include data/man/crowd_pam.8
+include data/usr/share/pam-configs/pam_config_python

@@ -1,0 +1,111 @@
+.\" Manpage for crowd_pam
+.TH man 8 "04 Jun 2015" "0.0.1" "crowd_pam man page"
+.SH NAME
+    crowd_pam.py : PAM authentication against Atlassian Crowd
+
+.SH SYNOPSIS
+    Linux Pluggable Authentication Module (PAM) to allow Linux systems to 
+    authenticate end-users against Atlassian Crowd identity management 
+    systems.
+
+.SH DESCRIPTION
+    Given an Atlassian Crowd server with either its internal user database 
+    or some other backend user management system (e.g. LDAP), this utility 
+    makes it possible to establish a single-sign-on environment for Linux 
+    systems whereby users can log into Linux systems with the same password
+     they use against other Crowd backed systems.
+
+    When a user attempts to log into a Linux system running crowd_pam.py,
+    the username is verified against Crowd and if the user exists in Crowd, 
+    a corresponding local Linux user account will be created.  Then if the 
+    user's username and password pass authentication, the user will be 
+    allowed to sign into the system.
+
+    If the user is a member of groups in Crowd that do not exist on the 
+    local Linux machine, crowd_pam.py will create the groups on the local 
+    Linux system.  If a user is removed from a group membership on Crowd, 
+    he/she will be removed from the user group on the local Linux system.
+
+
+.SH EXAMPLES
+
+    Prerequisites:
+
+    (1) Establish a licensed Atlassian Crowd Server (https://www.atlassian.
+        com/software/crowd/overview) and its backend authentication 
+        mechanism (e.g. LDAP).
+
+    (2) Install a Linux system with Python 2.7 and the Python PIP package
+        manager.
+
+    (3) Ensure that the Linux system (client) can communicate over tcp using 
+        the port to which the Crowd server is bound.
+
+    Installing crowd_pam.py (for production):
+   
+    (1) Log into the Linux system (client).
+    (2) Execute "pip crowd_pam" to install the system.
+    (3) Execute "crowd_pam_configure" to create a new configuration file.  
+        This optional utility will prompt the user for the necessary minimum
+        information needed to link the Linux server to Atlassian Crowd.
+
+        	For usage information, see "crowd_pam_configure --help"
+
+    Installing crowd_pam.py (for development purposes):
+   
+    We provide a Vagrantfile for deploying crowd_pam.py to an Ubuntu Linux
+    environment for development purposes.  Simply use ./build-and-deploy.sh
+
+    After all, like Tron, we fight for the users!
+
+
+
+    Example configuration file:
+	{
+    	"logLevel":"DEBUG",
+    	"crowd_url":"http://172.20.0.160:8095/crowd/",
+    	"crowd_application":"application name",
+        "crowd_password":"password",
+    	"crowd_timeout":3600
+    }
+
+    The crowd url needs to have a full scheme (and the trailing /crowd/ in the default configuration). HTTPS is *highly* recommended. (Otherwise, credentials are crossing the wire in the clear.)
+
+.SH SEE ALSO
+    useradd(8)
+
+.SH ERRATA
+	We observed that Atlassian Crowd supports unicode characters in usernames and other records.  However, as per IEEE Std 1003.1-2001, unicode is not supported for usernames and for this reason crowd_pam.py will fail to login users who's username contains any unicode characters.  Any group names which contain unicode characters will also be ignored by crowd_pam.py.
+
+.SH BUGS
+    On first login to a machine (for a user which has no local Linux user account), the login will fail but the user will be created.  A second login attempt will succeed.
+
+.SH AUTHOR
+
+   Sam Caldwell <scaldwell@atlassian.com>
+
+   Zach Boody <zboody@atlassian.com>
+
+   Brendan Shaklovitz <bshaklovitz@atlassian.com>
+
+   Cassondra Taylor <ctaylor@atlassian.com>
+
+   Special thanks goes out to Tom O'Connor whose proof-of-concept code and
+   assistance during the conceptual stages of this project lead us to make
+   it our project for Atlassian's Ship-It 31.  
+   (See https://github.com/tomoconnor/pam_python_crowd.)
+
+.SH COPYRIGHT
+	Copyright @ 2015 Atlassian Pty Ltd
+ 
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+ 
+       http://www.apache.org/licenses/LICENSE-2.0
+ 
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
