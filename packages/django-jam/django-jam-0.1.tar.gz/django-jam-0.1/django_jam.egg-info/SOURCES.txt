@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.py
+django_jam.egg-info/PKG-INFO
+django_jam.egg-info/SOURCES.txt
+django_jam.egg-info/dependency_links.txt
+django_jam.egg-info/requires.txt
+django_jam.egg-info/top_level.txt
+jam/__about__.py
+jam/__init__.py
+jam/views.py
+jam/templates/floppyforms/rows/default.html
+jam/templates/floppyforms/rows/div.fieldrow.html
+jam/templates/frontadmin/list.html
+jam/templates/frontadmin/update.html

@@ -1,0 +1,13 @@
+{% extends 'frontadmin/organisations/list.html' %}
+
+
+{% block main %}
+  <section>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+
+    <div class="formrow"><button type="submit">Save</button></div>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jeet / Stylus / Jade - Test Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'frontadmin/assets/stylesheets/base.css' %}">
+    <script src="{% static 'frontadmin/assets/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+  </head>
+  <body>
+    <!--if lt IE 8
+    p.chromeframe.
+      You are using an <strong>outdated</strong> browser.
+      Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      to improve your experience.
+
+    -->
+    <header>
+      <div class="logo"><a href="/" class="logo">Home</a></div>
+      <div class="toolbar">
+        <h2>Mike</h2>
+      </div>
+    </header>
+    <nav id="main">
+      <ul>
+        <li><a href="#headings">Headings</a></li>
+        <li><a href="forms.html">Forms</a></li>
+        <li class="expanded"><a href="">Item Three</a>
+          <ul>
+            <li><a href="#">More</a></li>
+          </ul>
+        </li>
+        <li><a href="buttons.html">Buttons</a></li>
+        <li><a href="coding-style.html">Coding style</a></li>
+      </ul>
+    </nav>
+    <main>
+    {% block main %}
+    <ul>
+    {% for object in object_list %}
+    <li><a href="{% url 'frontadmin:organisations.organisation.update' pk=object.pk %}">{{ object }}</li>
+    {% endfor %}
+    </ul>
+    {% endblock main%}
+    </main>
+    <footer>
+      <div>
+        <p>Built with Jeet + Stylus</p>
+      </div>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static "frontadmin/assets/js/vendor/jquery-1.10.2.min.js" %}"><\/script>')</script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
