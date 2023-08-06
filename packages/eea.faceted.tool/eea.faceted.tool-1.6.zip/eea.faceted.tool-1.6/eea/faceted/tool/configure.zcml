@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="eea.faceted">
+
+  <include file="profiles.zcml" />
+  <include package="plone.app.form" />
+  <include package="eea.faceted.vocabularies" />
+
+  <include package=".storage" />
+  <include package=".search" />
+  <include package=".browser" />
+  <include package=".exportimport" />
+
+</configure>

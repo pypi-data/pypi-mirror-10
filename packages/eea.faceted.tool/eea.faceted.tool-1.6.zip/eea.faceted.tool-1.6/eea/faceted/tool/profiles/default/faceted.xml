@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<object name="portal_faceted" meta_type="EEA Faceted Tool">
+ <portal_type name="Report">
+  <property name="title">Publication</property>
+  <property name="search_type">Folder</property>
+  <property name="search_interface">eea.reports.interfaces.IReportContainerEnhanced</property>
+ </portal_type>
+</object>
