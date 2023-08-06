@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: subdivx-download
+Version: 0.3
+Summary: A program to retrieve the best matching subtitle from subdivx.com
+Home-page: https://github.com/nqnwebs/subdivx.com-subtitle-retriever
+Author: Martin Gaitan, based on a Michel Peterson's work
+Author-email: gaitan@gmail.com
+License: GNU GENERAL PUBLIC LICENCE v3.0
+Description: A fork of Michel Peterson's subdivx.com-subtitle-retriever
+        Retrieve the best matching subtitle (in spanish) for a show episode from subdivx.com
+        
+        This fork simplify the way to use a stand-alone program, allowing
+        give a path (a filename or directory) as unique parameter.
+        
+        Also added this features:
+        
+        - Unpack rared subtitles beside zipped ones
+        - Better matching: look for *group* mention in subtitle description
+        - Rename subtitles after unpack it
+        - Packaging. pip installable ``setup.py`` and code modularized
+        - Can retrieve subtitles for a partially downloaded files (``*.part``, ``*.temp``, ``*.tmp``)
+        
+        Install
+        -------
+        
+        You can install it using pip::
+        
+            $ sudo pip install git+git://github.com/nqnwebs/subdivx.com-subtitle-retriever.git
+        
+        
+        Usage
+        -----
+        
+        usage: subdivx-download [-h] [--quiet] path
+        
+        positional arguments:
+          path         file or directory to retrieve subtitles
+        
+        optional arguments:
+          -h, --help   show this help message and exit
+          --quiet, -q
+        
+        
+        .. tip::
+        
+            Run ``subdivx-download`` before ``tvnamer`` to give more metadata
+            in your subtitle seach
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
