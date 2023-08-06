@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+ansible_test/__init__.py
+ansible_test.egg-info/PKG-INFO
+ansible_test.egg-info/SOURCES.txt
+ansible_test.egg-info/dependency_links.txt
+ansible_test.egg-info/requires.txt
+ansible_test.egg-info/top_level.txt
+ansible_test/resources/Dockerfile.j2
+ansible_test/resources/inventory.yml
+ansible_test/resources/playbook.yml
+bin/ansible-test
