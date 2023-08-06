@@ -1,0 +1,101 @@
+Metadata-Version: 1.0
+Name: mediacloud
+Version: 2.22.2
+Summary: MediaCloud API Client Library
+Home-page: http://mediacloud.org
+Author: Rahul Bhargava
+Author-email: rahulb@media.mit.edu
+License: MIT
+Description: MediaCloud Python API Client
+        ============================
+        
+        This is the source code of the python client for the `MediaCloud API
+        v2 <https://github.com/berkmancenter/mediacloud/blob/master/doc/api_2_0_spec/api_2_0_spec.md>`__.
+        
+        Usage
+        -----
+        
+        ::
+        
+            pip install mediacloud
+        
+        Then `sign up for an API
+        key <https://core.mediacloud.org/login/register>`__:
+        
+        Examples
+        --------
+        
+        To get all the stories associated with a query and dump the output to
+        json:
+        
+        .. code:: python
+        
+            import mediacloud, json
+            mc = mediacloud.api.MediaCloud('MY_API_KEY')
+            stories = mc.storyList('( hacking AND civic ) OR ( hackathon AND civic)', '+publish_date:[2013-01-01T00:00:00Z TO 2014-04-19T00:00:00Z] AND +media_sets_id:1')
+            print json.dumps(stories)
+        
+        Find out how many sentences in the US mainstream media that mentioned
+        "Zimbabwe" and "president" in 2013:
+        
+        .. code:: python
+        
+            import mediacloud
+            mc = mediacloud.api.MediaCloud('MY_API_KEY')
+            res = mc.sentenceCount('( zimbabwe AND president)', '+publish_date:[2013-01-01T00:00:00Z TO 2013-12-31T00:00:00Z] AND +media_sets_id:1')
+            print res['count'] # prints the number of sentences found
+        
+        Find the most commonly used words in sentences from the US mainstream
+        media that mentioned "Zimbabwe" and "president" in 2013:
+        
+        .. code:: python
+        
+            import mediacloud
+            mc = mediacloud.api.MediaCloud('MY_API_KEY')
+            words = mc.wordCount('( zimbabwe AND president)', '+publish_date:[2013-01-01T00:00:00Z TO 2013-12-31T00:00:00Z] AND +media_sets_id:1')
+            print words[0]  #prints the most common word
+        
+        To find out all the details about one particular story by id:
+        
+        .. code:: python
+        
+            import mediacloud
+            mc = mediacloud.api.MediaCloud('MY_API_KEY')
+            story = mc.story(169440976)
+            print story['url']  # prints the url the story came from
+        
+        To save the first 100 stories from one day to a database:
+        
+        .. code:: python
+        
+            import mediacloud
+            mc = mediacloud.api.MediaCloud('MY_API_KEY')
+            db = mediacloud.storage.MongoStoryDatabase('one_day')
+            stories = mc.storyList('*', '+publish_date:[2014-01-01T00:00:00Z TO 2014-01-01T23:59:59Z]',0,100)
+            [db.addStory(s) for story in stories]
+            print db.storyCount()
+        
+        Take a look at the ``apitest.py`` and ``storagetest.py`` for more
+        detailed examples.
+        
+        Development
+        -----------
+        
+        Testing
+        -------
+        
+        First run all the tests. Copy ``mc-client.config.template`` to
+        ``mc-client.config`` and edit it. Then run ``python tests.py``.
+        
+        Notice you get a ``mediacloud-api.log`` that tells you about each query
+        it runs.
+        
+        Distribution
+        ------------
+        
+        To build the distributon, update the version number in
+        ``mediacloud/__init__.py``. Then run ``python setup.py sdist`` to test
+        out a version. Then when you're ready to push to pypi run
+        ``python setup.py sdist upload -r pypi``.
+        
+Platform: UNKNOWN
