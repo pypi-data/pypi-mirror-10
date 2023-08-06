@@ -1,0 +1,98 @@
+Metadata-Version: 1.1
+Name: wildcard.cloudflare
+Version: 2.0.3
+Summary: UNKNOWN
+Home-page: http://svn.plone.org/svn/collective/
+Author: Nathan Van Gheem
+Author-email: nathan@vangheem.us
+License: GPL version 2
+Description: Introduction
+        ============
+        
+        .. image:: https://www.wildcardcorp.com/logo.png
+           :height: 50
+           :width: 382
+           :alt: Original work by wildcardcorp.com
+           :align: right
+        
+        
+        This is a very simple package to integrate the Content Delivery Network (CDN) CloudFlare into the ability to do cache purging
+        with plone.app.caching. 
+        
+        Warning
+        -------
+        
+        Version 2.x is for the new cloudflare API: https://api.cloudflare.com/#zone-purge-all-files
+        
+        Version 1.x is for the old api. Please use what version your cloudflare account is using
+        
+        Usage
+        -----
+        
+        - Install "CloudFlare Cache Purging" addon
+        - Go to "Caching" control panel and make sure "Enable purging" is checked
+          in the "Caching proxies" tab.
+        - Make sure to also configure which content types to enable purging on and
+          make sure to check if you are using virtual host urls
+        - Go to the "CloudFlare" control panel and fill in settings
+        - Make test purge requests
+        
+        
+        Tested with Plone 4.3.x
+        
+        Changelog
+        =========
+        
+        2.0.3 (2015-06-16)
+        ------------------
+        
+        - fix brown bag release
+        
+        2.0.2 (2015-06-16)
+        ------------------
+        
+        - handle virtual host urls
+        
+        2.0.1 (2015-06-16)
+        ------------------
+        
+        - never started the worker thread to process invalidations. yikes
+        
+        2.0b1 (2015-06-01)
+        ------------------
+        
+        - support new cloudflare api endpoint
+        
+        
+        1.0b2 (2015-02-09)
+        ------------------
+        
+        - add invalidate button
+          [vangheem]
+        
+        1.0b1 (2015-02-05)
+        ------------------
+        
+        - avoid // in urls
+          [vangheem]
+        
+        1.0a3 (2014-09-15)
+        ------------------
+        
+        - fix not being able to use http, https only schemes
+        
+        
+        1.0a2 (2014-05-07)
+        ------------------
+        
+        - spelling
+        
+        1.0a1 (2014-05-02)
+        ------------------
+        
+        - Initial release
+        
+Keywords: plone caching purging cloudflare
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
