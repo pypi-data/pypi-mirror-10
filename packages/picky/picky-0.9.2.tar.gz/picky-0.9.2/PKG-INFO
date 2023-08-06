@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: picky
+Version: 0.9.2
+Summary: A tool for checking versions of packages used by conda or pip are as specified in their requirements files.
+Home-page: https://github.com/Simplistix/picky
+Author: Chris Withers
+Author-email: chris@simplistix.co.uk
+License: MIT
+Description: =====
+        Picky
+        =====
+        
+        Picky is a tool for making sure that the packages you have installed
+        with `pip`__ or `conda`__ match those you have specified.
+        
+        It also will let you easily maintain those specifications, even in the
+        situation where some packages are installed by pip while others are
+        installed using conda.
+        
+        __ https://pip.pypa.io/en/stable/
+        
+        __ http://conda.pydata.org/docs/
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4

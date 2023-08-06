@@ -1,0 +1,16 @@
+
+[:python_version=="2.6"]
+argparse
+
+[build]
+sphinx
+pkginfo
+setuptools-git
+twine
+wheel
+
+[test]
+testfixtures
+nose
+nose_fixes
+nose-cov
