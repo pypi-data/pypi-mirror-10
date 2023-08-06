@@ -1,0 +1,242 @@
+running install
+running bdist_egg
+running egg_info
+writing pygmi.egg-info\PKG-INFO
+writing dependency_links to pygmi.egg-info\dependency_links.txt
+writing entry points to pygmi.egg-info\entry_points.txt
+writing top-level names to pygmi.egg-info\top_level.txt
+writing requirements to pygmi.egg-info\requires.txt
+reading manifest file 'pygmi.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'pygmi.egg-info\SOURCES.txt'
+installing library code to build\bdist.win-amd64\egg
+running install_lib
+running build_py
+creating build\bdist.win-amd64\egg
+creating build\bdist.win-amd64\egg\pygmi
+creating build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\crisp_clust.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\datatypes.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\fuzzy_clust.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\graphs.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\graphtool.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\menu.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\var_ratio.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\xie_beni.py -> build\bdist.win-amd64\egg\pygmi\clust
+copying build\lib\pygmi\clust\__init__.py -> build\bdist.win-amd64\egg\pygmi\clust
+creating build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\linepointer.png -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.main.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.ddisp.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.iodefs.exportkmz.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.iodefs.importpicture.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.layer.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.mext.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.misc.rangedcopy.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.param.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.prof.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.pfmod.pview.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.cooper.gradients.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.cooper.tilt.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.cooper.visibility.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.dataprep.datagrid.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.dataprep.datamerge.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.dataprep.datareproj.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.dataprep.rtp.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.ginterp.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.igrf.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.normalisation.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.smooth.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+copying build\lib\pygmi\helpdocs\pygmi.raster.tiltdepth.html -> build\bdist.win-amd64\egg\pygmi\helpdocs
+creating build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\bringtofront.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\cgs2.emf -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\delete.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\Help.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\linepointer.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\logo256.ico -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\logo256.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\pointer.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\pygmi.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\images\sendtoback.png -> build\bdist.win-amd64\egg\pygmi\images
+copying build\lib\pygmi\main.py -> build\bdist.win-amd64\egg\pygmi
+copying build\lib\pygmi\menu_default.py -> build\bdist.win-amd64\egg\pygmi
+copying build\lib\pygmi\misc.py -> build\bdist.win-amd64\egg\pygmi
+creating build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\cubes.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\datatypes.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\grvmag3d.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\iodefs.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\menu.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\misc.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\pfmod.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\tab_ddisp.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\tab_layer.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\tab_mext.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\tab_param.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\tab_prof.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\tab_pview.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+copying build\lib\pygmi\pfmod\__init__.py -> build\bdist.win-amd64\egg\pygmi\pfmod
+creating build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\cooper.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\dataprep.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\datatypes.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\equation_editor.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\ginterp.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\graphs.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\igrf.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\IGRF11.COF -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\iodefs.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\menu.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\normalisation.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\show_table.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\smooth.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\tiltdepth.py -> build\bdist.win-amd64\egg\pygmi\raster
+copying build\lib\pygmi\raster\__init__.py -> build\bdist.win-amd64\egg\pygmi\raster
+creating build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\beachball.py -> build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\datatypes.py -> build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\del_rec.py -> build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\iodefs.py -> build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\menu.py -> build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\scan_imp.py -> build\bdist.win-amd64\egg\pygmi\seis
+copying build\lib\pygmi\seis\__init__.py -> build\bdist.win-amd64\egg\pygmi\seis
+creating build\bdist.win-amd64\egg\pygmi\test
+copying build\lib\pygmi\test\pfmod.py -> build\bdist.win-amd64\egg\pygmi\test
+copying build\lib\pygmi\test\tests.py -> build\bdist.win-amd64\egg\pygmi\test
+copying build\lib\pygmi\test\__init__.py -> build\bdist.win-amd64\egg\pygmi\test
+creating build\bdist.win-amd64\egg\pygmi\vector
+copying build\lib\pygmi\vector\datatypes.py -> build\bdist.win-amd64\egg\pygmi\vector
+copying build\lib\pygmi\vector\graphs.py -> build\bdist.win-amd64\egg\pygmi\vector
+copying build\lib\pygmi\vector\iodefs.py -> build\bdist.win-amd64\egg\pygmi\vector
+copying build\lib\pygmi\vector\menu.py -> build\bdist.win-amd64\egg\pygmi\vector
+copying build\lib\pygmi\vector\__init__.py -> build\bdist.win-amd64\egg\pygmi\vector
+copying build\lib\pygmi\__init__.py -> build\bdist.win-amd64\egg\pygmi
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\crisp_clust.py to crisp_clust.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\datatypes.py to datatypes.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\fuzzy_clust.py to fuzzy_clust.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\graphs.py to graphs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\graphtool.py to graphtool.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\menu.py to menu.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\var_ratio.py to var_ratio.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\xie_beni.py to xie_beni.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\clust\__init__.py to __init__.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\main.py to main.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\menu_default.py to menu_default.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\misc.py to misc.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\cubes.py to cubes.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\datatypes.py to datatypes.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\grvmag3d.py to grvmag3d.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\iodefs.py to iodefs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\menu.py to menu.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\misc.py to misc.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\pfmod.py to pfmod.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\tab_ddisp.py to tab_ddisp.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\tab_layer.py to tab_layer.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\tab_mext.py to tab_mext.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\tab_param.py to tab_param.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\tab_prof.py to tab_prof.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\tab_pview.py to tab_pview.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\pfmod\__init__.py to __init__.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\cooper.py to cooper.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\dataprep.py to dataprep.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\datatypes.py to datatypes.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\equation_editor.py to equation_editor.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\ginterp.py to ginterp.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\graphs.py to graphs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\igrf.py to igrf.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\iodefs.py to iodefs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\menu.py to menu.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\normalisation.py to normalisation.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\show_table.py to show_table.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\smooth.py to smooth.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\tiltdepth.py to tiltdepth.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\raster\__init__.py to __init__.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\beachball.py to beachball.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\datatypes.py to datatypes.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\del_rec.py to del_rec.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\iodefs.py to iodefs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\menu.py to menu.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\scan_imp.py to scan_imp.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\seis\__init__.py to __init__.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\test\pfmod.py to pfmod.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\test\tests.py to tests.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\test\__init__.py to __init__.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\vector\datatypes.py to datatypes.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\vector\graphs.py to graphs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\vector\iodefs.py to iodefs.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\vector\menu.py to menu.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\vector\__init__.py to __init__.cpython-34.pyc
+byte-compiling build\bdist.win-amd64\egg\pygmi\__init__.py to __init__.cpython-34.pyc
+creating build\bdist.win-amd64\egg\EGG-INFO
+copying pygmi.egg-info\PKG-INFO -> build\bdist.win-amd64\egg\EGG-INFO
+copying pygmi.egg-info\SOURCES.txt -> build\bdist.win-amd64\egg\EGG-INFO
+copying pygmi.egg-info\dependency_links.txt -> build\bdist.win-amd64\egg\EGG-INFO
+copying pygmi.egg-info\entry_points.txt -> build\bdist.win-amd64\egg\EGG-INFO
+copying pygmi.egg-info\requires.txt -> build\bdist.win-amd64\egg\EGG-INFO
+copying pygmi.egg-info\top_level.txt -> build\bdist.win-amd64\egg\EGG-INFO
+creating 'dist\pygmi-2.2.7-py3.4.egg' and adding 'build\bdist.win-amd64\egg' to it
+removing 'build\bdist.win-amd64\egg' (and everything under it)
+Processing pygmi-2.2.7-py3.4.egg
+creating c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages\pygmi-2.2.7-py3.4.egg
+Extracting pygmi-2.2.7-py3.4.egg to c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Adding pygmi 2.2.7 to easy-install.pth file
+
+Installed c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages\pygmi-2.2.7-py3.4.egg
+Processing dependencies for pygmi==2.2.7
+Searching for numba==0.18.2
+Best match: numba 0.18.2
+Adding numba 0.18.2 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for numexpr==2.4.3
+Best match: numexpr 2.4.3
+Adding numexpr 2.4.3 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for GDAL==1.11.2
+Best match: GDAL 1.11.2
+Adding GDAL 1.11.2 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for PyQt4==4.11.3
+Best match: PyQt4 4.11.3
+Adding PyQt4 4.11.3 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for matplotlib==1.4.3
+Best match: matplotlib 1.4.3
+Adding matplotlib 1.4.3 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for scipy==0.15.1
+Best match: scipy 0.15.1
+Adding scipy 0.15.1 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for numpy==1.9.2
+Best match: numpy 1.9.2
+Adding numpy 1.9.2 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for pyparsing==2.0.3
+Best match: pyparsing 2.0.3
+Adding pyparsing 2.0.3 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for six==1.9.0
+Best match: six 1.9.0
+Adding six 1.9.0 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for pytz==2015.2
+Best match: pytz 2015.2
+Adding pytz 2015.2 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Searching for python-dateutil==2.4.2
+Best match: python-dateutil 2.4.2
+Adding python-dateutil 2.4.2 to easy-install.pth file
+
+Using c:\winpython-64bit-3.4.3.3\python-3.4.3.amd64\lib\site-packages
+Finished processing dependencies for pygmi==2.2.7
