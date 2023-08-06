@@ -1,0 +1,40 @@
+======
+README
+======
+
+Let's test the source code with our custom checker:
+
+  >>> import p01.checker
+  >>> import j01.form
+
+  >>> checker = p01.checker.Checker()
+  >>> checker.check(j01.form)
+  --------------------
+  cdn/css/j01.form.css
+  --------------------
+  1165: Rule is empty.
+        .bootstrap-select {
+  1167: Unexpected token '220px\0' at line 1167, col 10.
+        width: 220px\0;
+  1415: Expected end of value but found '\9'.
+        margin-top: 1px \9;
+  1533: Expected end of value but found '\9'.
+        margin-top: 4px \9;
+  2025: Expected end of value but found '\9'.
+        margin-top: 1px \9;
+  --------------------------
+  cdn/css/j01.form.forms.css
+  --------------------------
+  33: Expected end of value but found '\9'.
+        margin-top: 1px \9;
+  151: Expected end of value but found '\9'.
+        margin-top: 4px \9;
+  643: Expected end of value but found '\9'.
+        margin-top: 1px \9;
+  ---------------------------
+  cdn/css/j01.form.select.css
+  ---------------------------
+  51: Rule is empty.
+        .bootstrap-select {
+  53: Unexpected token '220px\0' at line 53, col 10.
+        width: 220px\0;
