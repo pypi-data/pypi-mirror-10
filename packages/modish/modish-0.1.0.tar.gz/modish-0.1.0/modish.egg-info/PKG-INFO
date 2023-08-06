@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: modish
+Version: 0.1.0
+Summary: Modish is a python package to estimate modality of splicing, percent methylated, any data that is normalized between 0 and 1
+Home-page: https://github.com/olgabot/modish
+Author: Olga Botvinnik
+Author-email: olga.botvinnik@gmail.com
+License: BSD
+Description: ===============================
+        modish: Modality Estimator
+        ===============================
+        
+        .. image:: https://img.shields.io/travis/olgabot/modish.svg
+                :target: https://travis-ci.org/olgabot/modish
+        
+        .. image:: https://img.shields.io/pypi/v/modish.svg
+                :target: https://pypi.python.org/pypi/modish
+        
+        
+        Modish is a python package to estimate modality of splicing, percent methylated, any data that is normalized between 0 and 1
+        
+        * Free software: BSD license
+        * Documentation: https://modish.readthedocs.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-07-08)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: modish
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
