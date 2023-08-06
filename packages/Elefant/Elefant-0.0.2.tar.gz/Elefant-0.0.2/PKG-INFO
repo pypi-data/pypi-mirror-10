@@ -1,0 +1,51 @@
+Metadata-Version: 1.1
+Name: Elefant
+Version: 0.0.2
+Summary: Backing up and restoring Postgres databases using S3 for automation
+Home-page: http://packages.python.org/elefant
+Author: Will Drevo
+Author-email: will.drevo@gmail.com
+License: MIT
+Description: elefant
+        ---
+        
+        Allows you to backup and restore your Heroku database
+        using your own private storage in S3. This allow circumventing
+        the backup limit in Heroku plans and also gives peace of mind 
+        that your data is backed up somewhere else besides Heroku.
+        
+        Tested on Postgres 9.4.
+        
+        Usage: 
+        
+        * Ensure AWS credentials are set up in environment variables
+        * Ensure heroku is logged in with $ heroku login 
+        
+        ## Example 
+        
+        ```python
+        from elefant import Elefant
+        
+        
+        # create Elefant object, passing in the Heroku app name
+        hb = Elefant("myapp")
+        
+        print "Making and backup and uploading to S3..."
+        hb.backup() 
+        
+        print "Availiable backups:"
+        backups = hb.backups 
+        for b in backups: 
+        	print b.name
+        
+        print "Restoring from most recent backup..."
+        hb.restore(b) 
+        
+        print "Restoring from most recent backup using a string..."
+        hb.restore(b.name)
+        ```
+Keywords: python heroku postgres backup s3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
