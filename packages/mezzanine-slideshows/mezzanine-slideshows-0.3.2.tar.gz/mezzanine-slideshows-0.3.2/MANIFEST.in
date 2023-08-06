@@ -1,0 +1,6 @@
+include LICENSE
+include README.rst
+recursive-include mezzanine_slideshows/static *
+recursive-include mezzanine_slideshows/templates *
+recursive-include mezzanine_slideshows/migrations *
+recursive-include docs *

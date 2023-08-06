@@ -1,0 +1,47 @@
+{% load mezzanine_tags staticfiles %}
+
+{% for slideshow in slideshows %}
+    {% if slideshow.page.id == page.id %}
+        {% with slideshow.gallery as gallery %}
+            {% with gallery.images.all as images %}
+            <div class="home-gallery row">
+                <div class="col-md-12">
+                    <h3>{{ slideshow.slideshow_title }}</h3>
+                    <p>{{ slideshow.slideshow_description }}</p>
+                    <div id="owl-homepage" class="owl-carousel">
+                        {% for image in images %}
+                        <div>
+                            <a class="mezzanine-slideshows-popup" rel="#image-{{ image.id }}" title="{{ image.description }}" href="{{ image.file.url }}">
+                            <img class="img-responsive thumbnail" src="{{ MEDIA_URL }}{% thumbnail image.file 320 200 %}">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endwith %}
+            <script>
+                $(document).ready(function() {
+                    $("#owl-homepage").owlCarousel({
+                        slideSpeed : 500,
+                        paginationSpeed: 1200,
+                        autoPlay: true,
+                        mouseDrag: false,
+                        pagination: false,
+                        items: 4,
+                        navigation: true,
+                        scrollPerPage: false
+                    });
+                });
+                $(document).ready(function() {
+                    $('.mezzanine-slideshows-popup').magnificPopup({
+                        type: 'image',
+                        gallery: {
+                            enabled: true
+                        }
+                    });
+                });
+            </script>
+        {% endwith %}
+    {% endif %}
+{% endfor %}
