@@ -1,0 +1,45 @@
+Metadata-Version: 2.0
+Name: redis-gadgets
+Version: 0.1.7
+Summary: Light-weight tools to implement high-level features in Redis
+Home-page: http://keep.com
+Author: Keep.com development team
+Author-email: opensource@keep.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: nose (>=1.3.0)
+Requires-Dist: redis (>=2.0.0)
+
+# redis-gadgets
+
+This is a collection of helper tools built on top of redis.
+
+[![Build Status](https://travis-ci.org/saltmine/redis-gadgets.svg)](https://travis-ci.org/saltmine/redis-gadgets)
+
+# Note On Testing
+
+Most of the code here is a thin wrapper over a few redis calls.  Testing it
+without connecting to redis is pretty useless, as such.  To that end, the tests
+make (default) redis connections to pass into the barious tools.  These tests
+are destructive.  The tests run on db=15 with a default Redis connection and will
+clobber all keys matching ``redis_gadgets.unique_count.BASE_NAMESPACE*``. You may
+want to override the test connection to fit your needs.
+
+Pull requests with a better way to do this are welcome.
+
+
+# Unique tracker
+
+This tool uses redis bit sets to track unique events per day.  The tool maps
+between arbitrary string ids and bit offsets, within a namespace (i.e. a given
+id-namespace pair maps to a unique bit offset).  This allows for a relatively
+compact offset space while still enabling tracking of multiple things, e.g.
+unique users viewing pages and unique pages viewed.  There is a default
+namespace 'global' if you don't need this feature.
+
+Events are tracked on day granularity, so the same id-event pairing will only
+be counted once per day. Counts can then be prodouced for arbitrary date
+ranges, using bitwise logical operators.  These rollups are cached with a redis
+expiration timer.
+
+
