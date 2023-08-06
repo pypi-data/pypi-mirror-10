@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: convertbng
+Version: 0.1.4
+Summary: Fast lon, lat to BNG conversion
+Home-page: https://github.com/urschrei/rust_bng
+Author: Stephan Hügel
+Author-email: urschrei@gmail.com
+License: MIT License
+Download-URL: https://github.com/urschrei/rust_bng/tarball/v0.1.4
+Description: Fast lon, lat to BNG conversion
+        ---------------------------------------------
+        
+        Uses a Rust 1.0 binary to perform fast lon, lat to BNG conversion
+        
+        This module exposes a single method: util.convert()
+        
+        call it like so:
+        
+        
+        from convertbng.util import convert
+        
+        res = convert(lon, lat)
+        
+        
+        
+        This version requires Python 2.7.x / 3.4.x
+Keywords: Geo
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
