@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pyuic4 gui_Layout.ui -o gui_Layout.py
