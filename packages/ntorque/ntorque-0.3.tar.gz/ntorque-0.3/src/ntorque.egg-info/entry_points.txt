@@ -1,0 +1,8 @@
+[setuptools.file_finders]
+ls = setuptools_git:gitlsfiles
+
+[console_scripts]
+ntorque_requeue = ntorque.work.requeue:main
+ntorque_consume = ntorque.work.consume:main
+ntorque_cleanup = ntorque.work.cleanup:main
+
