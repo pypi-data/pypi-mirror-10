@@ -1,0 +1,7 @@
+coverage>=3.7,<4
+codecov
+nose>=1.3,<2
+mock
+-r requirements.txt
+
+
