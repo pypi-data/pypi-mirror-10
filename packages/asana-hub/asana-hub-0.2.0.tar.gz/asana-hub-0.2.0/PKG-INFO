@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: asana-hub
+Version: 0.2.0
+Summary: A python lib & tool for creating issues and tasks simultaneously on github and asana, and keeping them in sync.
+Home-page: https://github.com/loudr/asana-hub
+Author: Josh Whelchel
+Author-email: josh+asanahub@loudr.fm
+License: MIT
+Download-URL: https://github.com/loudr/asana-hub/tarball/0.2.0
+Description: UNKNOWN
+Keywords: github,asana,connect
+Platform: UNKNOWN
+Requires: asana
+Requires: PyGithub
+Requires: certifi
+Requires: requests
+Requires: urllib3
