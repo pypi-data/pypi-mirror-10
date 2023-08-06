@@ -1,0 +1,6 @@
+#!/bin/sh
+
+SWIG=swig
+
+$SWIG -c++ -python -threads -outdir steps -o swig/steps_wrap.cpp swig/steps_swig.i
+$SWIG -c++ -python -threads -outdir steps -o swig/steps_wrap_numpy.cpp swig/steps_swig_numpy.i
