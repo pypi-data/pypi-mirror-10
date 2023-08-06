@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+README.rst
+setup.cfg
+setup.py
+veriloggen/__init__.py
+veriloggen/module.py
+veriloggen/toverilog.py
+veriloggen/veriloggen.py
+veriloggen/vtypes.py
+veriloggen.egg-info/PKG-INFO
+veriloggen.egg-info/SOURCES.txt
+veriloggen.egg-info/dependency_links.txt
+veriloggen.egg-info/top_level.txt
+veriloggen/utils/__init__.py
+veriloggen/utils/tmpcount.py
+veriloggen/utils/version.py
