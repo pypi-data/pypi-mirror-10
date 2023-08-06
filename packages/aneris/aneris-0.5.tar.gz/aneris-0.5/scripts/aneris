@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+
+from aneris import aneris_tui
+
+aneris_tui.start()
+
