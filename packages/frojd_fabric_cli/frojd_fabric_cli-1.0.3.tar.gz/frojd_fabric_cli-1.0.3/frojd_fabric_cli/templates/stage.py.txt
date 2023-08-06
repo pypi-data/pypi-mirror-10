@@ -1,0 +1,27 @@
+"""
+{{ stage.NAME }} environment
+"""
+
+from fabric.state import env
+from fabric.decorators import task
+from frojd_fabric.utils import get_stage_var
+
+
+@task
+def {{ stage.NAME }}:
+    {% if stage.RECIPE %}# Recipe
+    from frojd_fabric.recipes import {{ stage.RECIPE }}{% endif %}
+
+    # Metadata
+    env.stage = "{{ stage.NAME }}"
+
+    # VC
+    env.branch = None
+
+    # SSH Config
+    env.hosts = [get_stage_var("HOST")]
+    env.user = get_stage_var("USER")
+    env.password = get_stage_var("PASSWORD", "")
+    env.key_filename = get_stage_var("KEY_FILENAME")
+    env.forward_agent = {{ stage.FORWARD_AGENT | default("False") }}
+
