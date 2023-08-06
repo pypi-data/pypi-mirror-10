@@ -1,0 +1,62 @@
+Metadata-Version: 2.0
+Name: csvpp
+Version: 0.1.0
+Summary: CSV reformatter to align columns
+Home-page: https://github.com/johanlu/csvpp
+Author: Johan Lübcke
+Author-email: johan@lubcke.se
+License: MIT
+Keywords: csvpp
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+
+=============================
+CVS Pretty Printer
+=============================
+
+.. image:: https://badge.fury.io/py/csvpp.png
+    :target: http://badge.fury.io/py/csvpp
+
+.. image:: https://travis-ci.org/johanlu/csvpp.png?branch=master
+    :target: https://travis-ci.org/johanlu/csvpp
+
+.. image:: https://pypip.in/d/csvpp/badge.png
+    :target: https://pypi.python.org/pypi/csvpp
+
+
+CSV reformatter to align columns
+
+
+Features
+--------
+
+* TODO
+
+
+
+
+Documentation
+-------------
+
+The full documentation is at http://csvpp.rtfd.org.
+
+
+
+History
+-------
+
+0.1.0 (2015-07-08)
+++++++++++++++++++
+
+* First release on PyPI.
+
+
