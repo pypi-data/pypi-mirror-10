@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+PXL.egg-info/PKG-INFO
+PXL.egg-info/SOURCES.txt
+PXL.egg-info/dependency_links.txt
+PXL.egg-info/requires.txt
+PXL.egg-info/top_level.txt
+pxl/__init__.py
+pxl/fdiff.py
+pxl/styleplot.py
+pxl/timeseries.py
+pxl/tests/__init__.py
+pxl/tests/styleplot_test.py
+pxl/tests/timeseries_test.py
