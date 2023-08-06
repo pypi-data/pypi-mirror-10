@@ -1,0 +1,94 @@
+surveil:
+  #build: .
+  image: surveil/surveil:0.8.0
+  links:
+   - mongo
+   - influxdb
+   - alignak
+  ports:
+   - "8080:8080"
+  environment:
+    PBR_VERSION: "PROD"
+    #SURVEIL_AUTH_BACKEND: "keystone"
+    #SURVEIL_KEYSTONE_HOST: "198.72.123.131"
+    #SURVEIL_KEYSTONE_AUTH_PROTOCOL: "http"
+    #SURVEIL_OS_USERNAME: "admin"
+    #SURVEIL_OS_PASSWORD: "password"
+    #SURVEIL_OS_TENANT_NAME: "admin"
+
+surveilosinterface:
+  #build: .
+  image: surveil/surveil:0.8.0
+  links:
+    - surveil
+  environment:
+    PBR_VERSION: "PROD"
+    #SURVEIL_API_URL: "http://surveil:8080/v2"
+    #SURVEIL_AUTH_URL: "http://surveil:8080/v2/auth"
+    #SURVEIL_VERSION: "2_0"
+    #RABBIT_HOST: "192.168.49.239"
+    #RABBIT_PORT: 5672
+    #QUEUE: "test"
+    #RABBIT_USER: "admin"
+    #RABBIT_PASSWORD: "admin"
+    #SURVEIL_OS_AUTH_URL: "http://keystone:5000/v2.0"
+    #SURVEIL_OS_USERNAME: "admin"
+    #SURVEIL_OS_PASSWORD: "password"
+    #SURVEIL_TENANT_NAME: "admin"
+    #SURVEIL_DEFAULT_TAGS: "linux-openstackceilometer"
+    #SURVEIL_NETWORK_LABEL: "surveil"
+  command: bash -c "cd /opt/surveil && ./setup.sh && /opt/surveil/env/bin/python setup.py develop && surveil-os-interface"
+
+alignak:
+  #build: tools/docker/alignak_container/
+  image: surveil/surveil-alignak:0.8.0
+  links:
+    - mongo
+    - influxdb
+  ports:
+    - "7767:7767"
+
+mongo:
+  image: mongo
+  ports:
+   - "27017:27017"
+  command:
+      "mongod --smallfiles"
+  volumes:
+   - ./container-data/mongodb:/data/db
+
+influxdb:
+  image: surveil/influxdb:0.9.0
+  environment:
+    PRE_CREATE_DB: "db"
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+  volumes:
+   - ./container-data/influxdb:/data
+
+grafana:
+  image: surveil/grafana:2.1.0-pre1
+  environment:
+    GRAFANA_ROOT_URL: "%(protocol)s://%(domain)s:%(http_port)s/grafana/"
+    GRAFANA_AUTH_PROXY_ENABLED: true
+    GRAFANA_AUTH_PROXY_HEADER_NAME: grafana-user
+  links:
+    - influxdb
+
+bansho:
+  image: surveil/bansho:0.8.0
+  environment:
+    BANSHO_BACKEND: "surveil"
+    #BANSHO_SURVEIL_URL: "http://surveil:8080/"
+    #BANSHO_AUTH_URL: "http://198.72.123.131:5000/v2.0/"
+    INFLUXDB_HOST: "influxdb"
+    INFLUXDB_PORT: "8086"
+    INFLUXDB_NAME: "db"
+    INFLUXDB_USER: "root"
+    INFLUXDB_PASS: "root"
+  ports:
+    - "80:8888"
+  links:
+    - surveil
+    - grafana
