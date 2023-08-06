@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link href="{{ static_url('css/app.css') }}" rel="stylesheet">
+</head>
+
+<body data-ng-app="logdog.app">
+
+    <md-toolbar layout="column" class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Menu">
+            <md-icon md-svg-icon="{{ static_url('img/icons/navigation/svg/production/ic_menu_18px.svg') }}"/>
+        </md-button>
+        <h4>logdog</h4>
+    </md-toolbar>
+
+    <md-content class="md-padding">
+        <md-tabs md-dynamic-height md-border-bottom class="md-padding">
+            <md-tab label="Raw Log">
+                <div data-ng-controller="LogViewCtl">
+
+                    <div layout="column" class="jumbotron">
+                        <i data-ng-show="isRunning" class="mdi-navigation-refresh text-muted loading-icon"></i>
+
+                        <md-whiteframe class="md-whiteframe-z1" style="margin: 2px;">
+                            <div
+                                class="log-view"
+                                data-log-viewer
+                                data-socket="socket"
+                                data-log-viewer-api="logViewerApi"
+                                data-scroll-to-end-enabled="scrollToEndEnabled">
+                            </div>
+                        </md-whiteframe>
+
+
+                        <div layout="row" layout-align="end center">
+                            <i data-ng-class="{'mdi-av-play-circle-outline': !isRunning,
+                                               'mdi-av-pause-circle-outline': isRunning}"></i>
+
+                            <md-button class="md-primary" data-ng-click="onStartStop()">[[ isRunning ? 'pause' : 'resume' ]]</md-button>
+                            <md-button class="md-warn" data-ng-click="onClear()">clear</md-button>
+                            <label title="Scroll to the end"><md-switch data-ng-model="scrollToEndEnabled"/></label>
+                        </div>
+
+                    </div>
+                </div>
+            </md-tab>
+
+            <md-tab label="Eperimental">
+            </md-tab>
+
+        </md-tabs>
+    </md-content>
+
+    <!-- js -->
+    <script src="{{ static_url('js/app.js') }}"></script>
+
+    <script type="text/ng-template" id="partial/log-viewer.html">
+        <pre id="id-log-lines"></pre>
+    </script>
+</body>
+</html>
