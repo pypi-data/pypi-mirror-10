@@ -1,0 +1,4 @@
+include README.md
+include setup.py
+recursive-include websocket_channel *.py
+recursive-include websocket_channel/static *
