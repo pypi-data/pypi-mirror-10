@@ -1,0 +1,159 @@
+#!/usr/bin/env python
+"""
+Really silly schema migration framework, built for SQLAlchemy.
+
+Commands:
+    migrate METADATA ENGINE_FROM ENGINE_TO
+        Migrate schema or data from one engine to another.
+
+    upgrade UPGRADE_FN ENGINE
+        Perform in-place upgrade of a schema in an engine.
+
+    replace METADATA ENGINE
+        Similar to migrate but does in-database table insert-select and rename-swap.
+
+    create METADATA ENGINE
+        Creates schema defined by METADATA within ENGINE.
+        That is, metadata.create_all(checkfirst=True)
+
+Examples:
+    %prog migrate model.meta:metadata \\
+        "mysql://foo:bar@localhost/baz" "sqlite:///:memory:" \\
+
+    %prog upgrade migration.001_change_fancy_column:upgrade \\
+        "mysql://foo:bar@localhost/baz"
+
+    %prog replace model.meta:metadata \\
+        "mysql://foo:bar@localhost/baz" \\
+        --only-tables "user"
+
+    %prog create model.meta:metadata \\
+        "mysql://foo:bar@localhost/baz"
+
+Hint: The upgrade command can also be used to downgrade, just point it
+to the relevant downgrade function. For extra awesomeness, use schema-altering
+DDLs provided by sqlalchemy-migrate.
+"""
+import sqlalchemy
+import sys
+import time
+
+from sqlalchemygrate import migrations
+
+import logging
+log = logging.getLogger(__name__)
+
+from optparse import OptionParser, OptionGroup
+
+
+def import_module(path):
+    # FIXME: There's a builtin for this in Python 2.7
+    modname, objname = path.split(':', 1)
+    obj = __import__(modname, fromlist=[objname])
+    return reduce(getattr, objname.split('.'), obj)
+
+
+def main():
+    usage="%prog COMMAND [ARGS ...]\n" + __doc__
+
+    # FIXME: Use argparse someday
+    parser = OptionParser(usage)
+    parser.add_option("--verbose", "-v", dest="verbose", action="count", help="Enable verbose output. Use twice to enable debug output.")
+    parser.add_option("--show-sql", dest="show_sql", action="store_true", default=False, help="Echo SQLAlchemy queries.")
+
+    migrate_group = OptionGroup(parser, "migrate")
+    migrate_group.add_option("--only-tables", dest="only_tables", metavar="TABLES", help="Only perform migration on the given tables. (comma-separated table names)")
+    migrate_group.add_option("--skip-tables", dest="skip_tables", metavar="TABLES", help="Skip migration on the given tables. (comma-separated table names)")
+    migrate_group.add_option("--limit", dest="limit", type="int", default=100000, help="Number to select per insert loop. (default: %default)")
+    migrate_group.add_option("--convert-map", dest="convert_map", metavar="DICT", help="(Optional) Convert table_name:function mapping to run data through. Example: migration.v1:convert_map, where convert_map = {'oldtable': [('newtable', somefn)]}")
+    migrate_group.add_option("--populate", dest="populate_fn", metavar="FN", help="(Optional) Pass ``metadata_from`` and ``metadata_to`` to populate_fn for preprocessing before conversion.")
+    parser.add_option_group(migrate_group)
+
+    options, args = parser.parse_args()
+
+    if not args:
+        parser.error("Must specify a command.")
+
+    command = args[0].lower()
+
+    logging_level = logging.WARN
+
+    if options.verbose > 1:
+        logging_level = logging.DEBUG
+    elif options.verbose > 0:
+        logging_level = logging.INFO
+
+    logging.basicConfig(level=logging_level, format='%(asctime)s %(levelname)-8s %(message)s')
+
+    only_tables = None
+    if options.only_tables:
+        only_tables = [t.strip() for t in options.only_tables.split(',')]
+
+    skip_tables = None
+    if options.skip_tables:
+        skip_tables = [t.strip() for t in options.skip_tables.split(',')]
+
+    if len(args) < 2:
+        parser.error("You must specify an object path and an engine.")
+
+    obj_path = args[1]
+    if ':' not in obj_path:
+        parser.error("Object path most be in the format: path.to.module:obj")
+    elif '://' in obj_path:
+        parser.error("The syntax changed since you last used it, the first parameter is now an object path.")
+
+    obj = import_module(obj_path)
+
+    if command == 'migrate':
+        if len(args) < 4:
+            parser.error("Need to specify two engines.")
+
+        convert_map = {}
+        if options.convert_map:
+            convert_map = import_module(options.convert_map)
+
+        populate_fn = None
+        if options.populate_fn:
+            populate_fn = import_module(options.populate_fn)
+
+        e1 = sqlalchemy.create_engine(args[2])
+        e2 = sqlalchemy.create_engine(args[3], echo=options.show_sql)
+
+        now = time.time()
+        migrations.migrate(e1, e2, metadata=obj, convert_map=convert_map, populate_fn=populate_fn, only_tables=only_tables, skip_tables=skip_tables, limit=options.limit)
+        log.info("Done in {0:.2f}s".format(time.time()-now))
+
+    elif command == 'upgrade':
+        if len(args) < 3:
+            parser.error("Need to specify an engine and an upgrade function path.")
+
+        e = sqlalchemy.create_engine(args[2], echo=options.show_sql)
+        migrations.upgrade(e, obj)
+
+    elif command == 'replace':
+
+        if len(args) < 3:
+            parser.error("Need to specify an engine and a metadata object path.")
+
+        e = sqlalchemy.create_engine(args[2], echo=options.show_sql)
+
+        now = time.time()
+        migrations.migrate_replace(e, metadata=obj, only_tables=only_tables, skip_tables=skip_tables)
+        log.info("Done in {0:.2f}s".format(time.time()-now))
+
+    elif command == 'create':
+
+        if len(args) < 2:
+            parser.error("You need to specify an engine.")
+
+        e = sqlalchemy.create_engine(args[2], echo=options.show_sql)
+        obj.create_all(bind=e, checkfirst=True)
+
+    else:
+        parser.error("Unrecognized command: {0}".format(command))
+
+
+if __name__ == '__main__':
+    n = main()
+    if n:
+        sys.exit(n)
