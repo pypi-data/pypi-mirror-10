@@ -1,0 +1,16 @@
+MANIFEST.in
+RELEASE-VERSION
+setup.py
+version.py
+clutter_webcam_viewer/__init__.py
+clutter_webcam_viewer/__main__.py
+clutter_webcam_viewer/pipeline.py
+clutter_webcam_viewer/pipeline_manager.py
+clutter_webcam_viewer/svg.py
+clutter_webcam_viewer/warp.py
+clutter_webcam_viewer/warp_control.py
+clutter_webcam_viewer.egg-info/PKG-INFO
+clutter_webcam_viewer.egg-info/SOURCES.txt
+clutter_webcam_viewer.egg-info/dependency_links.txt
+clutter_webcam_viewer.egg-info/requires.txt
+clutter_webcam_viewer.egg-info/top_level.txt
