@@ -1,0 +1,80 @@
+DocTest for the vdex module
+--------------------------------
+(c) 2007 by Martin Raspe (hertzhaft@biblhertz.it)
+
+    >>> from imsvdex.vdex import VDEXManager, VDEXError
+    >>> from StringIO import StringIO
+    >>> from os import path
+    >>> from pkg_resources import resource_filename
+
+Parse a test XML string
+
+    >>> filename = resource_filename('imsvdex', path.join('tests', 'test.xml'))
+    >>> file=open(filename)
+    >>> vm=VDEXManager(file)
+
+    >>> vm.getVocabName()
+    'Person'
+
+    >>> vm.getVocabName(lang='it')
+    'Persona'
+
+    >>> vm.getVocabIdentifier()
+    'it.biblhertz.zuccaro.vocabs.person_person'
+
+    >>> vm.getTermCaptionById('relative',lang='de')
+    'ist verwandt mit'
+
+    >>> vm.getTermCaptionById('relative',lang='en')
+    'is relative of'
+
+    >>> vm.getTermCaptionById('relative')
+    'is relative of'
+
+For lang='*' return a dictionary with all translations keyed by language
+
+    >>> vm.getTermCaptionById('relative',lang='*')
+    {'fr': 'est parent avec', 'de': 'ist verwandt mit', 'en': 'is relative of', 'it': u'\xe8 parente di'}
+
+    >>> vm.getTermDescriptionById('relative',lang='*')
+    {}
+
+Get it all (for Archetypes)
+
+    >>> vm.getVocabularyDict(lang='de')
+    {'identical': ('(unnamed term)', None), 'relative': ('ist verwandt mit', {'child': ('ist Kind von', None)})}
+
+A variant
+
+    >>> file=open(filename)
+
+    >>> vm=VDEXManager(file,fallback="True")
+
+Don't return "(unnamed term)" for a missing term, return the caption in the default language instead
+
+    >>> vm.getTermCaptionById('identical')
+    'is identical with'
+
+    >>> vm.getTermCaptionById('identical',lang='de')
+    'is identical with'
+
+    >>> e = vm.getTermWildcardById('identical', 'ns:zuccaro.biblhertz.it', 'test')
+    >>> e[0].text
+    'Schas'
+
+Try to parse from a string
+
+    >>> file = open(filename)
+    >>> xmlstring = file.read()
+    >>> vm=VDEXManager(xmlstring)
+
+Try to parse an empty string
+
+    >>> xmlstring = ''
+    >>> try:
+    ...  vm=VDEXManager(xmlstring)
+    ... except VDEXError:
+    ...  result = 'error'
+    >>> result
+    'error'
+
