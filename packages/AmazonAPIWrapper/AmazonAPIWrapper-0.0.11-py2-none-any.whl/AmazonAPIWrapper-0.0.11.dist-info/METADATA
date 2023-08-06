@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: AmazonAPIWrapper
+Version: 0.0.11
+Summary: Amazon API Wrapper
+Home-page: https://github.com/lv10/amazonapi
+Author: lv10
+Author-email: luis@lv10.me
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: beautifulsoup4 (==4.4.0)
+Requires-Dist: argparse (==1.2.1)
+Requires-Dist: requests (==2.7.0)
+Requires-Dist: wsgiref (==0.1.2)
+Requires-Dist: lxml (==3.4.4)
+
+UNKNOWN
+
+
