@@ -1,0 +1,5 @@
+[console_scripts]
+edssh = sshed.edssh:main
+sshed = sshed.sshed:main
+sshed_client = sshed.sshed_client:main
+
