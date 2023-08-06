@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>unicode_ids extension &mdash; unicode_ids 2.0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/traditional.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="unicode_ids 2.0.5 documentation" href="index.html" />
+    <link rel="next" title="unicode_ids拡張(日本語版説明書)" href="README_ja.html" />
+    <link rel="prev" title="unicode_ids" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="README_ja.html" title="unicode_ids拡張(日本語版説明書)"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="unicode_ids"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">unicode_ids 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="unicode-ids-extension">
+<h1>unicode_ids extension<a class="headerlink" href="#unicode-ids-extension" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Japanese version of this document is also available, on the <a class="reference external" href="http://h12u.com/sphinx/unicode_ids/README_ja.html">site</a> or the doc
+folder of this package.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Currently, June 3, 2015, Sphinx 1.3.1 generates &#8216;id&#8217; attributes
+in HTML without Non-ASCII characters. This behavior is requirement
+of HTML4.01.</p>
+<p>But today, these characters can be usable with latest web browsers
+and HTML5 specification.</p>
+<p>Also, the Sphinx replaces non-ASCII URLs into ASCII only with
+imcompatible way against current web standards.</p>
+<p>This extension fixes both problems above at every runtime.
+The patchs is applied to both docutils and Sphinx to make ideal
+behavior.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>2-clause BSD, same as the Sphinx project.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can install or uninstall this package like another Python packages.
+Also, you can use this package without installing this package on your Python
+systems, the configuration file of Sphinx(<span class="fn-rst">conf.py</span>) enable you to use.</p>
+<div class="section" id="system-requirements">
+<h3>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Tested with 32bit version of Python 2.7.10 and 64bit version of 3.4.3,
+both on the Microsoft Windows 8.1 Pro 64bit edition. But with another
+versions and on another OSs would be usable.</p>
+<p>Python 3 is required if you need full unicode support.
+When used with Python 2, the usable character set is limited
+with local encoding.</p>
+<p>There&#8217;s a thing important to know: This extension depends on both
+docutils 0.12 and Sphinx 1.3.1. The patching is usable <em>UNTIL</em> the
+some functions keep same as ones on these versions.</p>
+</div>
+<div class="section" id="how-to-install">
+<h3>How to install<a class="headerlink" href="#how-to-install" title="Permalink to this headline">¶</a></h3>
+<p>You can install this package as you will do with another one.</p>
+<ol class="arabic">
+<li><p class="first">Open a console and do <code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicode_ids</span></code>.</p>
+<p>On the MS-Windows,
+<code class="code docutils literal"><span class="pre">&lt;python_installed_path&gt;\Scripts\pip.exe</span> <span class="pre">install</span> <span class="pre">unicode_ids</span></code>.</p>
+</li>
+<li><p class="first">Or when you get zip archive like <span class="fn-rst">unicode_ids-2.0.5(.zip)</span>
+where &#8216;2.0.5&#8217; is version number,
+change current directiory to the folder that has the zip file,
+and do <code class="code docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicode_ids-2.0.5.zip</span></code>.</p>
+<p>On the MS-Windows,
+<code class="code docutils literal"><span class="pre">&lt;python_installed_path&gt;\Scripts\pip.exe</span> <span class="pre">install</span> <span class="pre">unicode_ids-2.0.5.zip</span></code>.</p>
+</li>
+<li><p class="first">Or, this way is the Sphinx specific, you can use this package just extracted
+any folder you want. the <span class="fn-rst">conf.py</span> enables you to use the themes and
+extensions.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="how-to-use">
+<h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p>As another extensions, you can use this extension by editing <span class="fn-rst">conf.py</span>.</p>
+<p>First, you should add:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># add 3 lines below</span>
+<span class="kn">import</span> <span class="nn">distutils.sysconfig</span>
+<span class="n">site_package_path</span> <span class="o">=</span> <span class="n">distutils</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_python_lib</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">site_package_path</span><span class="p">,</span> <span class="s">&#39;sphinxcontrib/unicode_ids&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Or, when you don&#8217;t install with pip or like,</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># add just 1 line below</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&lt;path_to_the_folder_contains_unicode_ids_py&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, add unicode_ids extension into <code class="code docutils literal"><span class="pre">extension</span></code> list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">extension</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;unicode_ids&#39;</span><span class="p">,</span> <span class="p">]</span> <span class="c"># Of course you can add another extensions.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-know-unicode-is-acceptable-with-identifiers">
+<h2>How to know Unicode is acceptable with identifiers<a class="headerlink" href="#how-to-know-unicode-is-acceptable-with-identifiers" title="Permalink to this headline">¶</a></h2>
+<p>This section is written at 2015-06-03(JST, UTC+9).</p>
+<div class="section" id="uri-general-with-html">
+<h3>URI general with HTML<a class="headerlink" href="#uri-general-with-html" title="Permalink to this headline">¶</a></h3>
+<p>HTML4.01 <a class="reference internal" href="#html401" id="id1">[HTML401]</a> restricts usable characters <code class="code docutils literal"><span class="pre">A-Za-z0-9_:.</span></code>
+and hypen <cite>-</cite>. But also recommends how to do with
+<a class="reference external" href="http://www.w3.org/TR/html401/appendix/notes.html#h-B.2">B.2.1 Non-ASCII characters in URI attribute values</a>.</p>
+<p>By transforming as told at the section, the URIs consist of
+ASCII 7 bit characters only. In the HTML4.01, we should always
+UTF-8 to encode/decode URIs, but also be noted some old documents
+may expect another local encoding to encode/decode.</p>
+<p>HTML5 <a class="reference internal" href="#html5" id="id2">[HTML5]</a> <a class="reference internal" href="#html51" id="id3">[HTML51]</a> specification has the section <a class="reference external" href="http://www.w3.org/TR/html5/infrastructure.html#urls">2.5 URLs</a>.
+The section shows more complex way to determine the encodings.
+When the URL is given with local encodings or source documents are
+encoded with local encoding, we should use that one instead of UTF-8.</p>
+<p>Considering both specifications, we should always make HTML files with
+UTF-8 encoded, to make clear percent hexadecimal arrays represent unicode
+string transformed by UTF-8.</p>
+<p>There&#8217;re another standards, W3C URL <a class="reference internal" href="#w3curl" id="id4">[W3CURL]</a> and
+WHATWG URL Living Standard <a class="reference internal" href="#whatwgurl" id="id5">[WHATWGURL]</a> .
+They also defines URL code units, URL code points and percent-encoded bytes.
+They say the percent-encoded bytes should represent UTF-8 sequences.</p>
+</div>
+<div class="section" id="identifiers-anchors-on-html">
+<h3>Identifiers (anchors) on HTML<a class="headerlink" href="#identifiers-anchors-on-html" title="Permalink to this headline">¶</a></h3>
+<p>HTML5 defines &#8216;id&#8217; attribute(see <a class="reference external" href="http://www.w3.org/TR/html5/dom.html#the-id-attribute">3.2.5.1 The id attribute</a>) as
+the <a class="reference external" href="http://www.w3.org/TR/html5/infrastructure.html#concept-id">unique identifier</a>.</p>
+<p>In the explanation of the word &#8216;DOM&#8217; described the
+<a class="reference external" href="http://www.w3.org/TR/html5/infrastructure.html#dependencies">2.2.2 Dependencies</a>
+section, you can know &#8216;The concept of an element&#8217;s unique
+identifier (ID)&#8217; is one of the &#8216;features are defined in the
+DOM specification&#8217;.</p>
+<p>In DOM4 <a class="reference internal" href="#dom4" id="id6">[DOM4]</a> , <a class="reference external" href="http://www.w3.org/TR/dom#interface-element">5.8 Interface Element</a>
+defines the &#8216;id&#8217; attribute as <code class="code docutils literal"><span class="pre">DOMString</span></code> and the
+specification says the <a class="reference external" href="http://www.w3.org/TR/dom#concept-id">Elements can have an associated unique
+identifier (ID)</a>.</p>
+<p>As described at <a class="reference external" href="http://www.w3.org/TR/dom#dom-core">9 Historical/9.2 DOM Core</a>, <code class="code docutils literal"><span class="pre">DOMString</span></code> is now
+&#8216;defined in Web IDL&#8217;.</p>
+<p>With W3C WebIDL <a class="reference internal" href="#webidl" id="id7">[WebIDL]</a>
+at <a class="reference external" href="http://www.w3.org/TR/WebIDL/#idl-DOMString">3.10.15 DOMString</a> section,
+the DOMString is defined as a sequence of code units.
+The <a class="reference external" href="http://www.w3.org/TR/WebIDL/#dfn-code-unit">code unit</a>
+is also defined on the WebIDL as a 16 bit unsigned integer,
+and is corresponding to UTF-16 encoding.</p>
+<p>As shown, we can know the IDs of the HTML elements can be
+written with unicode characters. That can be considered
+UTF-16 encoded internally. Note that current CSS3 does not
+allow starting with digits, two hyphens or a hyphen followed
+by a digit(see next section).</p>
+<p>Note that DOM3 defines <code class="code docutils literal"><span class="pre">DOMString</span></code> at DOM3CORE <a class="reference internal" href="#dom3core" id="id8">[DOM3CORE]</a>,
+see the section <a class="reference external" href="http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-C74D1578">1.2.1 The DOMString Type</a>.</p>
+</div>
+<div class="section" id="identifiers-on-css">
+<h3>Identifiers on CSS<a class="headerlink" href="#identifiers-on-css" title="Permalink to this headline">¶</a></h3>
+<p>Cascading Style Sheet(CSS) is now level 3. Starts from CSS3, the stability is
+defined module by module which are defined CSS 2.1.(see
+the <a class="reference external" href="http://www.w3.org/TR/css-2010/#intro">1.1 Introduction</a> section of
+CSS Snapshot 2010 <a class="reference internal" href="#csssnapshot" id="id10">[CSSSnapshot]</a> .</p>
+<p>On CSS2.1 <a class="reference internal" href="#css21" id="id11">[CSS21]</a> <a class="reference internal" href="#css22" id="id12">[CSS22]</a> <a class="reference external" href="http://www.w3.org/TR/CSS21/syndata.html#characters">4.1.3 Characters and case</a> section
+shows the set of the characters we can use to define identifiers.
+The 2nd paragraph says:</p>
+<blockquote>
+<div>In CSS, identifiers (including element names, classes, and IDs in selectors)
+can contain only the characters [a-zA-Z0-9] and ISO 10646 characters U+00A0
+and higher, plus the hyphen (-) and the underscore (_); they cannot start
+with a digit, two hyphens, or a hyphen followed by a digit ...(snip)</div></blockquote>
+<p>As shown above, we can use Non-ASCII characters for identifiers. ISO 10646 is
+almost same with Unicode. And currently, CSS3 seems to use same definition for
+the identifiers.</p>
+</div>
+<div class="section" id="identifiers-on-javascript-ecmascript">
+<h3>Identifiers on JavaScript/ECMAScript<a class="headerlink" href="#identifiers-on-javascript-ecmascript" title="Permalink to this headline">¶</a></h3>
+<p>ECMAScript <a class="reference internal" href="#ecmascript" id="id13">[ECMAScript]</a> is the name of global standard of JavaScript, roughly to say :)</p>
+<p>In the specification of the ECMAScript, the section <a class="reference external" href="http://www.ecma-international.org/ecma-262/5.1/#sec-7.6">7.6 Identifier Names
+and Identifiers</a>
+shows usable characters for identifiers.</p>
+<p>The section clearly allows use Unicode characters. It seems some character
+group are not able to use, but in fact, the rule contains &#8216;Unicode escape
+sequence&#8217;. This means finally any character we can use.</p>
+</div>
+</div>
+<div class="section" id="related-products">
+<h2>Related products<a class="headerlink" href="#related-products" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinx_html5_basic_theme">sphinx_html5_basic_theme</a></li>
+</ul>
+</div>
+<div class="section" id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<p>Suzumizaki-Kimitaka, 2011-2015</p>
+</div>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>2.0.5(2015-07-04):</p>
+<blockquote>
+<div><ul class="simple">
+<li>Extracted alone from <a class="reference external" href="https://pypi.python.org/pypi/yogosyu">Yogosyu</a> extension.</li>
+<li>First uploaded to PyPI.</li>
+</ul>
+</div></blockquote>
+<p>2013-12-07:</p>
+<blockquote>
+<div>Add Python 3 support.</div></blockquote>
+<p>2013-12-06:</p>
+<blockquote>
+<div>updated to meet Sphinx 1.2.</div></blockquote>
+<p>2011-05-24:</p>
+<blockquote>
+<div>First release. Included in <a class="reference external" href="https://pypi.python.org/pypi/yogosyu">Yogosyu</a> extension.</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils citation" frame="void" id="html401" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[HTML401]</a></td><td><a class="reference external" href="http://www.w3.org/TR/html401/">HTML 4.01</a>, <a class="reference external" href="http://www.w3.org/TR/1999/REC-html401-19991224/">1999-12-24REC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="html5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[HTML5]</a></td><td><a class="reference external" href="http://www.w3.org/TR/html5/">HTML 5</a>, <a class="reference external" href="http://www.w3.org/TR/2014/REC-html5-20141028/">2014-10-28REC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="html51" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[HTML51]</a></td><td><a class="reference external" href="http://www.w3.org/TR/html51/">HTML 5.1</a>, <a class="reference external" href="http://www.w3.org/TR/2015/WD-html51-20150506/">2015-05-06WD</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="w3curl" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[W3CURL]</a></td><td><a class="reference external" href="http://www.w3.org/TR/url/">W3C URL</a>, <a class="reference external" href="http://www.w3.org/TR/2014/WD-url-1-20141209/">2015-12-09WD</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="whatwgurl" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[WHATWGURL]</a></td><td><a class="reference external" href="https://url.spec.whatwg.org/">WHATWG URL Living Standard</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="dom4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[DOM4]</a></td><td><a class="reference external" href="http://www.w3.org/TR/dom/">W3C DOM 4</a>, <a class="reference external" href="http://www.w3.org/TR/2015/WD-dom-20150428/">2015-04-28LC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="webidl" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[WebIDL]</a></td><td><a class="reference external" href="http://www.w3.org/TR/WebIDL/">(W3C) WebIDL</a>, <a class="reference external" href="http://www.w3.org/TR/2012/CR-WebIDL-20120419/">2012-04-19CR</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="dom3core" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[DOM3CORE]</a></td><td><a class="reference external" href="http://www.w3.org/TR/DOM-Level-3-Core/">DOM Level 3 Core</a>, <a class="reference external" href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/">2004-04-07REC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="csssnapshot" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[CSSSnapshot]</a></td><td><a class="reference external" href="http://www.w3.org/TR/css-2010/">CSS Snapshot 2010</a>, <a class="reference external" href="http://www.w3.org/TR/2011/NOTE-css-2010-20110512/">2011-05-12NOTE</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="css21" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[CSS21]</a></td><td><a class="reference external" href="http://www.w3.org/TR/CSS2/">CSS 2.1</a>, <a class="reference external" href="http://www.w3.org/TR/2011/REC-CSS2-20110607/">2011-06-07REC</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="css22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[CSS22]</a></td><td><a class="reference external" href="http://dev.w3.org/csswg/css2/">CSS 2.2</a>, 2015-05-28WD(only permalink is broken)</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="ecmascript" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[ECMAScript]</a></td><td><a class="reference external" href="http://www.ecma-international.org/ecma-262/5.1/">ECMAScript 5.1</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">unicode_ids extension</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#system-requirements">System requirements</a></li>
+<li><a class="reference internal" href="#how-to-install">How to install</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-use">How to use</a></li>
+<li><a class="reference internal" href="#how-to-know-unicode-is-acceptable-with-identifiers">How to know Unicode is acceptable with identifiers</a><ul>
+<li><a class="reference internal" href="#uri-general-with-html">URI general with HTML</a></li>
+<li><a class="reference internal" href="#identifiers-anchors-on-html">Identifiers (anchors) on HTML</a></li>
+<li><a class="reference internal" href="#identifiers-on-css">Identifiers on CSS</a></li>
+<li><a class="reference internal" href="#identifiers-on-javascript-ecmascript">Identifiers on JavaScript/ECMAScript</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-products">Related products</a></li>
+<li><a class="reference internal" href="#author">Author</a></li>
+<li><a class="reference internal" href="#history">History</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">unicode_ids</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="README_ja.html"
+                        title="next chapter">unicode_ids拡張(日本語版説明書)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="README_ja.html" title="unicode_ids拡張(日本語版説明書)"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="unicode_ids"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">unicode_ids 2.0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Suzumizaki-Kimitaka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
