@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+ipquery/__init__.py
+ipquery.egg-info/PKG-INFO
+ipquery.egg-info/SOURCES.txt
+ipquery.egg-info/dependency_links.txt
+ipquery.egg-info/entry_points.txt
+ipquery.egg-info/pbr.json
+ipquery.egg-info/requires.txt
+ipquery.egg-info/top_level.txt
+ipquery/templates/base.html
+ipquery/templates/main_page.html
+ipquery/templates/unauthorized.html
+ipquery/templates/user.html
