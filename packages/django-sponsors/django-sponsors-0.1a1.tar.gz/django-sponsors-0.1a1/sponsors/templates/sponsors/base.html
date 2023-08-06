@@ -1,0 +1,57 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block css %}
+            <link rel="stylesheet" href="{% static "sponsors/css/sponors.css" %}">
+        {% endblock %}
+
+        <title>{% block title %}{% endblock %}</title>
+
+        {% block extra_css %}
+        {% endblock %}
+
+        {% block extra_js %}
+        {% endblock %}
+
+        {% block extra_font %}
+        {% endblock %}
+
+    </head>
+    <body>
+        {% block tooltips %}
+        {% endblock tooltips %}
+
+        <div class="page-container">
+
+            <div class="page-header">
+                {% block page_header %}
+                {% endblock %}
+            </div>
+
+            <div class='content'>
+                {% block breadcrumbs %} {% endblock %}
+
+                <div id="message"></div>
+
+                {% block menu %}{% endblock %}
+
+                {% block caption %}{% endblock %}
+
+                {% block content %}{% endblock content %}
+            </div>
+
+            <footer class="clearfix" role="contentinfo">
+                {% block footer %}
+                {% endblock %}
+            </footer>
+        </div>
+
+        {% block extra_body %}
+        {% endblock %}
+
+    </body>
+
+</html>

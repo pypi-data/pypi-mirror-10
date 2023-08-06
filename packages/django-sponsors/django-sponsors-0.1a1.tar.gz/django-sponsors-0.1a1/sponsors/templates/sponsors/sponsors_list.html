@@ -1,0 +1,29 @@
+{% extends "sponsors/base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Sponsors" %}
+{% endblock %}
+
+{% block page_header %}
+    <h1>{% trans "Sponsors" %}</h1>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
+
+{% block caption %}
+    <h2 class="text-center">{% trans "Sponsors" %}</h2>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for obj in object_list %}
+            <li>{{ obj.name }} - {{ obj.description }}</li>
+        {% empty %}
+            <li>No sponsors yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
