@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: canfarcloud
+Version: 0.2
+Summary: CANFAR Cloud Python Clients
+Home-page: https://github.com/canfar/python-canfar-clients
+Author: Ed Chapin, Jeff Burke, Dustin Jenkins
+Author-email: cadc@nrc.ca
+License: GNU Affero General Public License v3.0
+Description: Python client libraries and scripts for CANFAR cloud services
+Platform: UNKNOWN
+Requires: pyOpenSSL
+Requires: lxml
+Requires: requests
+Requires: canfar
+Provides: canfarcloud
