@@ -1,0 +1,5 @@
+#!/home/vagrant/.virtualenvs/colordiffs/bin/python
+
+from colordiffs import main
+
+main()
