@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+
+from ohh import cli, Runner, OhhError
+
+if __name__ == '__main__':
+    args = cli.parse()
+    runner = Runner(args.basedir)
+    try:
+        runner.run(args.action)
+    except OhhError as e:
+        print("error: " + e.message)
