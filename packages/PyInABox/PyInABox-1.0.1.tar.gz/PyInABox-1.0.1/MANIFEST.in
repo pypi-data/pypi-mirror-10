@@ -1,0 +1,5 @@
+recursive-include PyInABox *.html
+recursive-include PyInABox *.sh
+recursive-include PyInABox *.py
+recursive-include PyInABox *.js
+include README.md

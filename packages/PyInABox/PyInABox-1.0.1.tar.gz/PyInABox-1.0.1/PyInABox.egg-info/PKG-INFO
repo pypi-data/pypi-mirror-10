@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: PyInABox
+Version: 1.0.1
+Summary: Implementation of shell running on top of python-vte and Athena LivePage
+Home-page: https://github.com/perkinslr/PyInABox
+Author: Logan Perkins
+Author-email: perkins@injeanieousdesigns.com
+License: ZLIB
+Description: # PyInABox
+        Server-side-shell implemented on top of Divmod's Athena LivePage an python-vte with minimal ncurses support.
+        
+        By default the vte runs the command login in a loop, then exits.  It is possible to run other commands, or set up a chroot in the vte before giving control to the user, but remember it runs on the server, so is a potential security hole.  Add authentication as appropriate.
+        
+Keywords: vte COMET AJAX
+Platform: UNKNOWN
+Requires: zope.interface
+Requires: nevow
