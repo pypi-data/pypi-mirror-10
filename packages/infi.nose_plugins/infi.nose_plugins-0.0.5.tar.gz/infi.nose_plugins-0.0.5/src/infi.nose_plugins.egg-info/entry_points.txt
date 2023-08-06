@@ -1,0 +1,10 @@
+[console_scripts]
+
+
+[gui_scripts]
+
+
+[nose.plugins]
+logbook = infi.nose_plugins.logbook:LogbookPlugin
+stderr = infi.nose_plugins.stderr:LoggingToStderrPlugin
+
