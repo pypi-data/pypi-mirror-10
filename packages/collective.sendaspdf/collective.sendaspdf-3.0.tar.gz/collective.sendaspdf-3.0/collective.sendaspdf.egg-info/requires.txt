@@ -1,0 +1,8 @@
+setuptools
+jquery.pyproxy>=0.3
+
+[test]
+pdfminer
+Products.PloneTestCase
+zope.app.testing
+zope.securitypolicy
