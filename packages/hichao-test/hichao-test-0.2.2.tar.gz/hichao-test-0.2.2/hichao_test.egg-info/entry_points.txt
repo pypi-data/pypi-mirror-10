@@ -1,0 +1,4 @@
+[console_scripts]
+hichao_distinct = hichao_test.curl_builder:main
+hichao_curl = hichao_test.curl_reader:main
+

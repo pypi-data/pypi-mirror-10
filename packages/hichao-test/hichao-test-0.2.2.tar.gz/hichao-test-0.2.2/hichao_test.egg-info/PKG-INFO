@@ -1,0 +1,97 @@
+Metadata-Version: 1.1
+Name: hichao-test
+Version: 0.2.2
+Summary: hichao-test is a Tool that HTTP Test base on linux curl.
+Home-page: https://github.com/wujuguang/hichao-test.git
+Author: kylinfish
+Author-email: kylinfish@126.com
+License: MIT License
+Description: hichao-test
+        -----------
+        
+        hichao-test is a Tool that HTTP Test base on linux curl.
+        
+        简介:
+        =====
+        
+        pycharm自带个工具，在菜单Tools --> Test RESTful Web Service可以打开，可视化界面的操作，但不利于参数输入后保存以及后续的复用。此工具基于以上缺点，直接借助linux工具，结合实际的个人需求与想法，以拦截请求、保存请求、复用的流程进行，为方便个人所用定制。
+        
+        使用:
+        =====
+        
+            依赖:
+            
+            linux系统需要安装curl
+            ::
+        
+                $ sudo yum install curl
+                $ sudo apt-get install curl
+        
+            模块介绍：
+            ::
+        
+                curl_reader.py:
+                    - 读取存放测试脚本的文件, 以命令行的形式执行(指定的行脚本, 指定范围的行脚本).
+                    - 利用 linux curl 构建测试脚本, 减少服务端开发过程中, 在测试上对客户端的依赖.
+        
+                @django_request:
+                用于Django项目
+        
+                @pyramid_request:
+                用于Pyramid项目
+        
+                @tornado_request:
+                用于Tornado项目
+        
+                    - 测试时, 输出POST信息到控制台.
+                    - 拦截测试时请求数据, 保存并构建curl脚本保存到文件.
+        
+                curl_builder.py:
+                    - 构建生成curl测试请求数据, 以便于后续回归测试, 供curl_reader.py自动化.
+                    - 对之前生成报告文件做去重处理.
+        
+        
+            在shell终端:
+            ::
+            
+            $ hichao_curl -h
+            $ hichao_distinct -h
+        
+        
+        
+        Changelog
+        =========
+        
+        0.2.2 - 18-JUN-2015
+        -------------------
+        
+        * Fix some bugs.
+        * Add code comment.
+        * Some objects for extended separation.
+        
+        0.2.0 - 11-Apr-2015
+        -------------------
+        
+        * Add decorator for Django or Tornado project.
+        * Add build curl script function.
+        
+        0.1.0 - 06-Apr-2015
+        -------------------
+        
+        * First release.
+        * Read the script from file and execute it.
+        
+Keywords: hichao-test
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
