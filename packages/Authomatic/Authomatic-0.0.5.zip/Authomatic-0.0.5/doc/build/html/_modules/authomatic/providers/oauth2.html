@@ -1,0 +1,766 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+
+
+
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
+
+
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+
+	<title>authomatic.providers.oauth2 | Authomatic</title>
+    	<link rel="icon" type="image/x-icon" href="../../../_static/img/favicon.ico" />
+	
+	
+	
+	<meta property="og:title" content="authomatic.providers.oauth2 | Authomatic" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://peterhudec.github.io/authomatic/_modules/authomatic/providers/oauth2.html" />
+	<meta property="og:image" content="http://peterhudec.github.io/authomatic/_static/img/authomatic-seo.gif" />
+	
+	
+	<meta property="og:description" content="Simple yet powerful authorization / authentication client library for Python WEB applications." />
+	<meta property="og:site_name" content="Authomatic" />
+	
+	
+    
+    
+	<meta name="description" content="Simple yet powerful authorization / authentication client library for Python WEB applications.">
+    
+	
+	
+	
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../../_static/css/authomatic.css" type="text/css" />
+    	
+	<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    	<script type="text/javascript" src="../../../_static/jquery.js"></script>
+    	<script type="text/javascript" src="../../../_static/underscore.js"></script>
+    	<script type="text/javascript" src="../../../_static/doctools.js"></script>
+    	<script type="text/javascript" src="../../../_static/foundation/js/vendor/custom.modernizr.js"></script>
+    
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var s = document.createElement('script');
+    var t = document.getElementsByTagName('script')[0];
+
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//api.flattr.com/js/0.6/load.js?mode=auto';
+
+    t.parentNode.insertBefore(s, t);
+ })();
+/* ]]> */
+</script>
+
+</head>
+
+
+
+<body>
+	
+	<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=249464911861131";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script><div id="root"><div class="contain-to-grid">
+			<nav class="top-bar">
+				<ul class="title-area">
+					<li class="name">
+					  <h1><a href="../../../index.html">Authomatic</a></h1>
+					</li>
+					<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+				</ul>
+				 
+				<section class="top-bar-section">
+					<ul class="left"><li class="divider"></li></ul>
+					
+						<ul class="">
+<li class="has-dropdown toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul class="dropdown ">
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/config.html">Config</a></li>
+<li class="has-dropdown toctree-l2"><a class="reference internal" href="../../../reference/adapters.html">Adapters</a><ul class="dropdown ">
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/adapters.html#available-adapters">Available Adapters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/adapters.html#implementing-an-adapter">Implementing an Adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes.html">Classes</a></li>
+<li class="has-dropdown toctree-l2"><a class="reference internal" href="../../../reference/providers.html">Providers</a><ul class="dropdown ">
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#oauth2-providers">OAuth 2.0 Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#oauth1-providers">OAuth 1.0a Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#openid-providers">OpenID Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#google-app-engine-openid-providers">Google App Engine OpenID Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#abstract-classes-for-providers">Abstract Classes for Providers</a></li>
+</ul>
+</li>
+<li class="has-dropdown toctree-l2"><a class="reference internal" href="../../../reference/extras.html">Extras</a><ul class="dropdown ">
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/extras.html#flask-extras">Flask Extras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/extras.html#gae-extras">Google App Engine Extras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/extras.html#interfaces">Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/javascript.html">JavaScript</a></li>
+</ul>
+</li>
+<li class="has-dropdown toctree-l1"><a class="reference internal" href="../../../examples/index.html">Tutorials / Examples</a><ul class="dropdown ">
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/simple.html">Simple Webapp2 Google App Engine Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/credentials.html">Advanced Webapp2 Google App Engine Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/flask-simple.html">Simple Flask Example</a></li>
+</ul>
+</li>
+</ul>
+
+					
+					<ul class="left">
+						
+	<li class="divider"></li>
+
+	
+		
+			<li><a href="../../../genindex.html"  title="General Index">index</a></li>
+		
+		
+			<li><a href="../../../py-modindex.html"  title="Python Module Index">modules</a></li>
+		
+
+	
+					</ul>
+				</section>
+			</nav>
+		</div><div id="header">
+			<div class="row">
+				
+		        <div id="logo-container" class="large-6 columns">
+		        	
+	<div>
+		<a href="../../../index.html">
+		
+	    	
+	    		<img id="logo" src="../../../_static/img/authomatic.svg" />
+	    	
+		
+		</a>
+	</div>
+
+		        </div>
+		        <div class="large-6 columns">
+		            <p id="motto">
+						<span>Authomatic</span><br />
+is an <em>authorization</em> / <em>authentication</em><br />
+client library for Python web applications<br />
+inspired by Alex Vagin’s
+<a href="http://code.google.com/p/gae-simpleauth/" target="_blank">Simpleauth</a>.<br /> 
+In fact, I almost named it <em>Deathsimpleauth</em>,<br /> 
+but that name would be too long<br />
+for a succinct library.
+					</p>
+		        </div>
+		        
+		    </div>
+	    </div>
+	    
+	    <div class="social-buttons">
+	    	<ul>
+	    		<li>
+	    			<div class="fb-like" data-href="http://peterhudec.github.io/authomatic/_modules/authomatic/providers/oauth2.html" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>
+	    		</li>
+	    		<li>
+	    			<div class="g-plusone" data-size="medium" data-href="http://peterhudec.github.io/authomatic/_modules/authomatic/providers/oauth2.html"></div>
+	    		</li>
+	    		<li>
+	    			<a href="https://twitter.com/share" class="twitter-share-button" data-via="AuthomaticPy">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	    		</li>
+	    		
+	    		<li>
+	    			<iframe src="http://ghbtns.com/github-btn.html?user=peterhudec&repo=authomatic&type=watch&count=true"
+  							allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+	    		</li>
+	    		
+	    		<li>
+	    			<script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+					<script type="IN/Share" data-counter="right"></script>
+	    		</li>
+	    		
+	    		<li>
+	    			<a	class="FlattrButton"
+	    				href="http://peterhudec.github.io/foundation-sphinx-theme/cards/html"
+	    				data-flattr-uid="peterhudec"
+	    				data-flattr-category="software"
+	    				data-flattr-button="compact"
+	    				data-flattr-tags=""
+	    				data-flattr-description="Simple yet powerful authorization / authentication client library for Python WEB applications."
+	    				title="authomatic.providers.oauth2 | Authomatic"></a>
+	    		</li>
+	    		
+	    		<li class="reddit">
+	    			<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js">
+	    				reddit_newwindow='1';
+	    			</script>
+	    		</li>
+	    	</ul>
+	    	
+	    </div>
+		
+		
+		
+		<div class="row">
+	</div>
+		
+		
+		<div class="row">
+			
+			<div id="content" class="large-9 push-3 columns">
+				
+  <h1>Source code for authomatic.providers.oauth2</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">OAuth 2.0 Providers</span>
+<span class="sd">-------------------</span>
+
+<span class="sd">Providers which implement the |oauth2|_ protocol.</span>
+
+<span class="sd">.. autosummary::</span>
+<span class="sd">    </span>
+<span class="sd">    Facebook</span>
+<span class="sd">    Google</span>
+<span class="sd">    WindowsLive</span>
+<span class="sd">    OAuth2</span>
+<span class="sd">    </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">authomatic</span> <span class="kn">import</span> <span class="n">providers</span>
+<span class="kn">from</span> <span class="nn">authomatic.exceptions</span> <span class="kn">import</span> <span class="n">CancellationError</span><span class="p">,</span> <span class="n">FailureError</span><span class="p">,</span> <span class="n">OAuth2Error</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">authomatic.core</span> <span class="kn">as</span> <span class="nn">core</span>
+<span class="kn">import</span> <span class="nn">authomatic.settings</span> <span class="kn">as</span> <span class="nn">settings</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Facebook&#39;</span><span class="p">,</span> <span class="s">&#39;Google&#39;</span><span class="p">,</span> <span class="s">&#39;WindowsLive&#39;</span><span class="p">,</span> <span class="s">&#39;OAuth2&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="OAuth2"><a class="viewcode-back" href="../../../reference/providers.html#authomatic.providers.oauth2.OAuth2">[docs]</a><span class="k">class</span> <span class="nc">OAuth2</span><span class="p">(</span><span class="n">providers</span><span class="o">.</span><span class="n">AuthorisationProvider</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for |oauth2|_ providers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c"># I intruduced this dictionary because of Facebook,</span>
+    <span class="c"># who likes to invent its own terminology for OAuth 2.0!!!</span>
+    <span class="n">_term_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">refresh_token</span><span class="o">=</span><span class="s">&#39;refresh_token&#39;</span><span class="p">,</span>
+                      <span class="n">authorization_code</span><span class="o">=</span><span class="s">&#39;authorization_code&#39;</span><span class="p">,</span>
+                      <span class="n">password</span><span class="o">=</span><span class="s">&#39;password&#39;</span><span class="p">,</span>  
+                      <span class="n">client_credentials</span><span class="o">=</span><span class="s">&#39;client_credentials&#39;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Accepts additional keyword arguments:</span>
+<span class="sd">        </span>
+<span class="sd">        :param list scope:</span>
+<span class="sd">            List of strings specifying requested permissions as described in the</span>
+<span class="sd">            `OAuth 2.0 spec &lt;http://tools.ietf.org/html/rfc6749#section-3.3&gt;`_.</span>
+<span class="sd">        </span>
+<span class="sd">        As well as those inherited from :class:`.AuthorisationProvider` constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="nb">super</span><span class="p">(</span><span class="n">OAuth2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwarg</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="s">&#39;scope&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    
+    
+    <span class="c">#===========================================================================</span>
+    <span class="c"># Internal methods</span>
+    <span class="c">#===========================================================================</span>
+    
+    
+    <span class="k">def</span> <span class="nf">_scope_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override this to handle differences between accepted format of scope across different providers.</span>
+<span class="sd">        </span>
+<span class="sd">        :attr list scope:</span>
+<span class="sd">            List of scopes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c"># Most providers accept csv scope.</span>
+        <span class="k">return</span> <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span> <span class="k">if</span> <span class="n">scope</span> <span class="k">else</span> <span class="s">&#39;&#39;</span>
+    
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_create_request_elements</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">request_type</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                                 <span class="n">method</span><span class="o">=</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="n">redirect_uri</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">csrf</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+        
+        <span class="n">params</span> <span class="o">=</span> <span class="n">params</span> <span class="ow">or</span> <span class="p">{}</span>
+        
+        <span class="n">consumer_key</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">consumer_key</span> <span class="ow">or</span> <span class="s">&#39;&#39;</span>
+        <span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">consumer_secret</span> <span class="ow">or</span> <span class="s">&#39;&#39;</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">token</span> <span class="ow">or</span> <span class="s">&#39;&#39;</span>
+        <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">refresh_token</span> <span class="ow">or</span> <span class="n">credentials</span><span class="o">.</span><span class="n">token</span> <span class="ow">or</span> <span class="s">&#39;&#39;</span>
+        
+        <span class="c"># Separate url base and query parameters.</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">base_params</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_split_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+                
+        <span class="c"># Add params extracted from URL.</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">base_params</span><span class="p">))</span>
+        
+        <span class="k">if</span> <span class="n">request_type</span> <span class="o">==</span> <span class="n">cls</span><span class="o">.</span><span class="n">USER_AUTHORISATION_REQUEST_TYPE</span><span class="p">:</span>
+            <span class="c"># User authorisation request.</span>
+            <span class="k">if</span> <span class="n">consumer_key</span> <span class="ow">and</span> <span class="n">redirect_uri</span> <span class="ow">and</span> <span class="n">scope</span> <span class="ow">and</span> <span class="n">csrf</span><span class="p">:</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;client_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">consumer_key</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;redirect_uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">redirect_uri</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;scope&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scope</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csrf</span> <span class="ow">or</span> <span class="n">cls</span><span class="o">.</span><span class="n">csrf_generator</span><span class="p">()</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;response_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;code&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OAuth2Error</span><span class="p">(</span><span class="s">&#39;Credentials with valid consumer_key and arguments redirect_uri, scope and &#39;</span> <span class="o">+</span> \
+                                  <span class="s">&#39;state are required to create OAuth 2.0 user authorisation request elements!&#39;</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">request_type</span> <span class="o">==</span> <span class="n">cls</span><span class="o">.</span><span class="n">ACCESS_TOKEN_REQUEST_TYPE</span><span class="p">:</span>
+            <span class="c"># Access token request.</span>
+            <span class="k">if</span> <span class="n">token</span> <span class="ow">and</span> <span class="n">consumer_key</span> <span class="ow">and</span> <span class="n">consumer_secret</span> <span class="ow">and</span> <span class="n">redirect_uri</span><span class="p">:</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;client_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">consumer_key</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;client_secret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">consumer_secret</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;redirect_uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">redirect_uri</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;grant_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_term_dict</span><span class="p">[</span><span class="s">&#39;authorization_code&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OAuth2Error</span><span class="p">(</span><span class="s">&#39;Credentials with valid token, consumer_key, consumer_secret and argument &#39;</span> <span class="o">+</span> \
+                                  <span class="s">&#39;redirect_uri are required to create OAuth 2.0 acces token request elements!&#39;</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">request_type</span> <span class="o">==</span> <span class="n">cls</span><span class="o">.</span><span class="n">REFRESH_TOKEN_REQUEST_TYPE</span><span class="p">:</span>
+            <span class="c"># Access token request.</span>
+            <span class="k">if</span> <span class="n">refresh_token</span> <span class="ow">and</span> <span class="n">consumer_key</span> <span class="ow">and</span> <span class="n">consumer_secret</span><span class="p">:</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">cls</span><span class="o">.</span><span class="n">_term_dict</span><span class="p">[</span><span class="s">&#39;refresh_token&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">refresh_token</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;client_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">consumer_key</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;client_secret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">consumer_secret</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;grant_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_term_dict</span><span class="p">[</span><span class="s">&#39;refresh_token&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OAuth2Error</span><span class="p">(</span><span class="s">&#39;Credentials with valid refresh_token, consumer_key, consumer_secret &#39;</span> <span class="o">+</span> \
+                                  <span class="s">&#39;are required to create OAuth 2.0 refresh token request elements!&#39;</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">request_type</span> <span class="o">==</span> <span class="n">cls</span><span class="o">.</span><span class="n">PROTECTED_RESOURCE_REQUEST_TYPE</span><span class="p">:</span>
+            <span class="c"># Protected resource request.</span>
+            <span class="k">if</span> <span class="n">token</span><span class="p">:</span>
+                <span class="n">params</span><span class="p">[</span><span class="s">&#39;access_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OAuth2Error</span><span class="p">(</span><span class="s">&#39;Credentials with valid token are required to create &#39;</span> <span class="o">+</span> \
+                                  <span class="s">&#39;OAuth 2.0 protected resources request elements!&#39;</span><span class="p">)</span>
+        
+        <span class="n">params</span> <span class="o">=</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        
+        <span class="n">body</span> <span class="o">=</span> <span class="bp">None</span>
+        
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;POST&#39;</span><span class="p">,</span> <span class="s">&#39;PUT&#39;</span><span class="p">):</span>
+            <span class="c"># Send params in the body</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># Send params as query string</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s">&#39;?&#39;</span> <span class="o">+</span> <span class="n">params</span>
+        
+        <span class="k">return</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">method</span>
+    
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_refresh_credentials_if</span><span class="p">(</span><span class="n">credentials</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override this to specify conditions when it is worth to refresh credentials.</span>
+<span class="sd">        </span>
+<span class="sd">        .. warning:: |classmethod|</span>
+<span class="sd">        </span>
+<span class="sd">        :param credentials:</span>
+<span class="sd">            :class:`.Credentials`</span>
+<span class="sd">        </span>
+<span class="sd">        :returns:</span>
+<span class="sd">            ``True`` or ``False``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">True</span>
+    
+    
+    <span class="c">#===========================================================================</span>
+    <span class="c"># Exposed methods</span>
+    <span class="c">#===========================================================================</span>
+    
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">to_tuple</span><span class="p">(</span><span class="n">credentials</span><span class="p">):</span>
+        
+        <span class="c"># OAuth 2.0 needs only token, refresh_token and expiration date.</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">credentials</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="n">credentials</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">,</span> <span class="n">credentials</span><span class="o">.</span><span class="n">expiration_time</span><span class="p">)</span>
+    
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">deserialized_tuple</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
+        
+        <span class="n">provider_id</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">,</span> <span class="n">expiration_time</span> <span class="o">=</span> <span class="n">deserialized_tuple</span>
+        
+        <span class="k">return</span> <span class="n">core</span><span class="o">.</span><span class="n">Credentials</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+                                <span class="n">refresh_token</span><span class="o">=</span><span class="n">refresh_token</span><span class="p">,</span>
+                                <span class="n">provider_type</span><span class="o">=</span><span class="n">cls</span><span class="o">.</span><span class="n">get_type</span><span class="p">(),</span>
+                                <span class="n">provider_id</span><span class="o">=</span><span class="n">provider_id</span><span class="p">,</span>
+                                <span class="n">expiration_time</span><span class="o">=</span><span class="n">expiration_time</span><span class="p">,</span>
+                                <span class="n">provider_class</span><span class="o">=</span><span class="n">cls</span><span class="p">)</span>
+    
+    
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OAuth2.refresh_credentials"><a class="viewcode-back" href="../../../reference/providers.html#authomatic.providers.oauth2.OAuth2.refresh_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_credentials</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">credentials</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Refreshes :class:`.Credentials` by providing fresh **token**,</span>
+<span class="sd">        **refresh_token** and **expire_in**.</span>
+<span class="sd">        </span>
+<span class="sd">        :returns:</span>
+<span class="sd">            :class:`.Response`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cls</span><span class="o">.</span><span class="n">_refresh_credentials_if</span><span class="p">(</span><span class="n">credentials</span><span class="p">):</span>
+            <span class="k">return</span>
+        
+        <span class="c"># We need consumer key and secret to make this kind of request.</span>
+        <span class="n">cfg</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">credentials</span><span class="o">.</span><span class="n">provider_name</span><span class="p">)</span>
+        <span class="n">credentials</span><span class="o">.</span><span class="n">consumer_key</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;consumer_key&#39;</span><span class="p">)</span>
+        <span class="n">credentials</span><span class="o">.</span><span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;consumer_secret&#39;</span><span class="p">)</span>
+        
+        <span class="n">request_elements</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_create_request_elements</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="n">cls</span><span class="o">.</span><span class="n">REFRESH_TOKEN_REQUEST_TYPE</span><span class="p">,</span>
+                                                        <span class="n">credentials</span><span class="o">=</span><span class="n">credentials</span><span class="p">,</span>
+                                                        <span class="n">url</span><span class="o">=</span><span class="n">cls</span><span class="o">.</span><span class="n">access_token_url</span><span class="p">,</span>
+                                                        <span class="n">method</span><span class="o">=</span><span class="s">&#39;POST&#39;</span><span class="p">)</span>
+        
+        <span class="n">cls</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Refreshing credentials.&#39;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_fetch</span><span class="p">(</span><span class="o">*</span><span class="n">request_elements</span><span class="p">)</span>
+        
+        <span class="c"># We no longer need consumer info.</span>
+        <span class="n">credentials</span><span class="o">.</span><span class="n">consumer_key</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">credentials</span><span class="o">.</span><span class="n">consumer_secret</span> <span class="o">=</span> <span class="bp">None</span>
+        
+        <span class="c"># Extract the refreshed data.</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;access_token&#39;</span><span class="p">)</span>
+        <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;refresh_token&#39;</span><span class="p">)</span>
+        
+        <span class="c"># Update credentials only if there is access token.</span>
+        <span class="k">if</span> <span class="n">access_token</span><span class="p">:</span>
+            <span class="n">credentials</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">access_token</span>
+            <span class="n">credentials</span><span class="o">.</span><span class="n">expire_in</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;expire_in&#39;</span><span class="p">)</span>
+            
+            <span class="c"># Update refresh token only if there is a new one.</span>
+            <span class="k">if</span> <span class="n">refresh_token</span><span class="p">:</span>
+                <span class="n">credentials</span><span class="o">.</span><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">refresh_token</span>
+            
+            <span class="c"># Handle different naming conventions across providers.</span>
+            <span class="n">credentials</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_credentials_parser</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">response</span>
+    
+    </div>
+    <span class="nd">@providers.login_decorator</span>
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
+        <span class="c"># get request parameters from which we can determine the login phase</span>
+        <span class="n">authorisation_code</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;code&#39;</span><span class="p">)</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;error&#39;</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">)</span>      
+        
+        <span class="k">if</span> <span class="n">authorisation_code</span> <span class="ow">and</span> <span class="n">state</span><span class="p">:</span>
+            <span class="c">#===================================================================</span>
+            <span class="c"># Phase 2 after redirect with success</span>
+            <span class="c">#===================================================================</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Continuing OAuth 2.0 authorisation procedure after redirect.&#39;</span><span class="p">)</span>
+            
+            <span class="c"># validate CSRF token</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Validating request by comparing request state with stored state.&#39;</span><span class="p">)</span>
+            <span class="n">stored_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session_get</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">stored_state</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FailureError</span><span class="p">(</span><span class="s">&#39;Unable to retrieve stored state!&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="n">stored_state</span> <span class="o">==</span> <span class="n">state</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FailureError</span><span class="p">(</span><span class="s">&#39;The returned state &quot;{}&quot; doesn</span><span class="se">\&#39;</span><span class="s">t match with the stored state!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
+                                   <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_authorisation_url</span><span class="p">)</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Request is valid.&#39;</span><span class="p">)</span>
+            
+            <span class="c"># exchange authorisation code for access token by the provider</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Fetching access token from {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">access_token_url</span><span class="p">))</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">authorisation_code</span>
+            
+            <span class="n">request_elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_request_elements</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ACCESS_TOKEN_REQUEST_TYPE</span><span class="p">,</span>
+                                                             <span class="n">credentials</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">,</span>
+                                                             <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">access_token_url</span><span class="p">,</span>
+                                                             <span class="n">method</span><span class="o">=</span><span class="s">&#39;POST&#39;</span><span class="p">,</span>
+                                                             <span class="n">redirect_uri</span><span class="o">=</span><span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+                                                             <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">access_token_params</span><span class="p">)</span>
+            
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fetch</span><span class="p">(</span><span class="o">*</span><span class="n">request_elements</span><span class="p">)</span>
+            
+            <span class="n">access_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;access_token&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;refresh_token&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">access_token</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FailureError</span><span class="p">(</span><span class="s">&#39;Failed to obtain OAuth 2.0 access token from {}! HTTP status code: {}.&#39;</span>\
+                                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">access_token_url</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">),</span>
+                                  <span class="n">original_message</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+                                  <span class="n">code</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                                  <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">access_token_url</span><span class="p">)</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Got access token.&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">refresh_token</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Got refresh access token.&#39;</span><span class="p">)</span>
+            
+            <span class="c"># OAuth 2.0 credentials need only access token, refresh token and expire_in.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">access_token</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">refresh_token</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">expire_in</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;expire_in&#39;</span><span class="p">)</span>
+            <span class="c"># so we can reset these two guys</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="o">.</span><span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+            
+            <span class="c"># update credentials</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_credentials_parser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>            
+            
+            <span class="c"># create user</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_or_create_user</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">)</span>
+            
+            <span class="c">#===================================================================</span>
+            <span class="c"># We&#39;re done!</span>
+            <span class="c">#===================================================================</span>
+            
+        <span class="k">elif</span> <span class="n">error</span><span class="p">:</span>
+            <span class="c">#===================================================================</span>
+            <span class="c"># Phase 2 after redirect with error</span>
+            <span class="c">#===================================================================</span>
+            
+            <span class="n">error_reason</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;error_reason&#39;</span><span class="p">)</span>
+            <span class="n">error_description</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;error_description&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">error_reason</span> <span class="o">==</span> <span class="s">&#39;user_denied&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">CancellationError</span><span class="p">(</span><span class="n">error_description</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_authorisation_url</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FailureError</span><span class="p">(</span><span class="n">error_description</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_authorisation_url</span><span class="p">)</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c">#===================================================================</span>
+            <span class="c"># Phase 1 before redirect</span>
+            <span class="c">#===================================================================</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Starting OAuth 2.0 authorisation procedure.&#39;</span><span class="p">)</span>
+            
+            <span class="c"># generate csfr</span>
+            <span class="n">csrf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">csrf_generator</span><span class="p">()</span>
+            <span class="c"># and store it to session</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session_set</span><span class="p">(</span><span class="s">&#39;state&#39;</span><span class="p">,</span> <span class="n">csrf</span><span class="p">)</span>
+                        
+            <span class="n">request_elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_request_elements</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">USER_AUTHORISATION_REQUEST_TYPE</span><span class="p">,</span>
+                                                            <span class="n">credentials</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">,</span>
+                                                            <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_authorisation_url</span><span class="p">,</span>
+                                                            <span class="n">redirect_uri</span><span class="o">=</span><span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+                                                            <span class="n">scope</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_scope_parser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="p">),</span>
+                                                            <span class="n">csrf</span><span class="o">=</span><span class="n">csrf</span><span class="p">,</span>
+                                                            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_authorisation_params</span><span class="p">)</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s">&#39;Redirecting user to {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            
+            <span class="n">core</span><span class="o">.</span><span class="n">middleware</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">request_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+</div>
+<div class="viewcode-block" id="Facebook"><a class="viewcode-back" href="../../../reference/providers.html#authomatic.providers.oauth2.Facebook">[docs]</a><span class="k">class</span> <span class="nc">Facebook</span><span class="p">(</span><span class="n">OAuth2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Facebook |oauth2|_ provider.&quot;&quot;&quot;</span>
+    
+    <span class="n">user_authorisation_url</span> <span class="o">=</span> <span class="s">&#39;https://www.facebook.com/dialog/oauth&#39;</span>
+    <span class="n">access_token_url</span> <span class="o">=</span> <span class="s">&#39;https://graph.facebook.com/oauth/access_token&#39;</span>
+    <span class="n">user_info_url</span> <span class="o">=</span> <span class="s">&#39;https://graph.facebook.com/me&#39;</span>
+    
+    <span class="c"># Facebook is original as usual and has its own name for &quot;refresh_token&quot;!!!</span>
+    <span class="n">_term_dict</span> <span class="o">=</span> <span class="n">OAuth2</span><span class="o">.</span><span class="n">_term_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">_term_dict</span><span class="p">[</span><span class="s">&#39;refresh_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;fb_exchange_token&#39;</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_user_parser</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">picture</span> <span class="o">=</span> <span class="s">&#39;http://graph.facebook.com/{}/picture?type=large&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">user</span>
+        
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_credentials_parser</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        We need to override this method to fix Facebooks naming deviation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c"># Facebook returns &quot;expires&quot; instead of &quot;expire_in&quot;.</span>
+        <span class="n">credentials</span><span class="o">.</span><span class="n">expire_in</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;expires&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">credentials</span>
+
+</div>
+<div class="viewcode-block" id="Google"><a class="viewcode-back" href="../../../reference/providers.html#authomatic.providers.oauth2.Google">[docs]</a><span class="k">class</span> <span class="nc">Google</span><span class="p">(</span><span class="n">OAuth2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Google |oauth2|_ provider.&quot;&quot;&quot;</span>
+    
+    <span class="n">user_authorisation_url</span> <span class="o">=</span> <span class="s">&#39;https://accounts.google.com/o/oauth2/auth&#39;</span>
+    <span class="n">access_token_url</span> <span class="o">=</span> <span class="s">&#39;https://accounts.google.com/o/oauth2/token&#39;</span>
+    <span class="n">user_info_url</span> <span class="o">=</span> <span class="s">&#39;https://www.googleapis.com/oauth2/v1/userinfo&#39;</span>
+    
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_refresh_credentials_if</span><span class="p">(</span><span class="n">credentials</span><span class="p">):</span>
+        <span class="c"># Refres credentials only if there is refresh_token.</span>
+        <span class="k">return</span> <span class="n">credentials</span><span class="o">.</span><span class="n">refresh_token</span>
+    
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_user_parser</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;given_name&#39;</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;family_name&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user</span>
+    
+    
+    <span class="k">def</span> <span class="nf">_scope_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Google has space-separated scopes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span>
+    
+    </div>
+<div class="viewcode-block" id="WindowsLive"><a class="viewcode-back" href="../../../reference/providers.html#authomatic.providers.oauth2.WindowsLive">[docs]</a><span class="k">class</span> <span class="nc">WindowsLive</span><span class="p">(</span><span class="n">OAuth2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Windows Live |oauth2|_ provider.&quot;&quot;&quot;</span>
+    
+    <span class="n">user_authorisation_url</span> <span class="o">=</span> <span class="s">&#39;https://oauth.live.com/authorize&#39;</span>
+    <span class="n">access_token_url</span> <span class="o">=</span> <span class="s">&#39;https://oauth.live.com/token&#39;</span>
+    <span class="n">user_info_url</span> <span class="o">=</span> <span class="s">&#39;https://apis.live.net/v5.0/me&#39;</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_user_parser</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;emails&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;preferred&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user</span>
+</pre></div></div>
+
+			</div>
+			
+			
+			
+			<div id="navigation" class="large-3 pull-9 columns">
+				<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/config.html">Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/adapters.html">Adapters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/adapters.html#available-adapters">Available Adapters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/adapters.html#implementing-an-adapter">Implementing an Adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/classes.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/providers.html">Providers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#oauth2-providers">OAuth 2.0 Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#oauth1-providers">OAuth 1.0a Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#openid-providers">OpenID Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#google-app-engine-openid-providers">Google App Engine OpenID Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/providers.html#abstract-classes-for-providers">Abstract Classes for Providers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/extras.html">Extras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/extras.html#flask-extras">Flask Extras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/extras.html#gae-extras">Google App Engine Extras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/extras.html#interfaces">Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/javascript.html">JavaScript</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Tutorials / Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/simple.html">Simple Webapp2 Google App Engine Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/credentials.html">Advanced Webapp2 Google App Engine Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/flask-simple.html">Simple Flask Example</a></li>
+</ul>
+</li>
+</ul>
+
+			</div>
+			
+		</div>
+		
+		<div id="root_footer"></div>
+	</div><div id="footer"><div id="bottom-nav"><span><a href="../../../genindex.html"  title="General Index">index</a></span>
+				<span><a href="../../../py-modindex.html"  title="Python Module Index">modules</a></span>
+				</div><div id="footer-notice">
+			    	&copy; Copyright 2012,
+			    	
+			    		<a href="http://peterhudec.com">Peter Hudec</a>
+			    		<a class="google-plus-badge" href="//plus.google.com/117034840853387702598?rel=author" rel="author" style="text-decoration:none;">
+						<img src="//ssl.gstatic.com/images/icons/gplus-16.png" alt="Google+"/></a>.
+		        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+	    </div></div><script>
+		document.write('<script src=' +
+		('__proto__' in {} ? '../../../_static/foundation/js/vendor/zepto' : 'js/vendor/jquery') +
+		'.js><\/script>')
+	</script>
+	<script src="../../../_static/foundation/js/foundation.min.js"></script>
+	<script src="../../../_static/foundation/js/foundation/foundation.topbar.js"></script>
+	<script>
+		$(document).foundation();
+		
+		/**
+		 * Fallback svg to png.
+		 * Taken from Todd Motto's article:
+		 * http://toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script/
+		 */
+		if(!Modernizr.svg) {
+		    $('img[src*="svg"]').attr('src', function() {
+		        return $(this).attr('src').replace('.svg', '.png');
+		    });
+		}
+		
+		// Reset width of all table columns.
+		$('col').attr('width', null);
+		
+		// Add "returns" class to all returns elements
+		$(".field-name:contains('Returns:')").parent().addClass('returns');
+		
+		
+		(function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+		
+		
+		
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-40554445-4']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		
+	</script>
+	
+		<a	id="github-ribbon"
+			style="right: 0; border: 0;"
+			href="https://github.com/peterhudec/authomatic">
+			<img
+				 src="../../../_static/img/github-ribbon-right.png"
+				 alt="Fork me on GitHub">
+		</a>
+	
+</body>
+
+</html>
