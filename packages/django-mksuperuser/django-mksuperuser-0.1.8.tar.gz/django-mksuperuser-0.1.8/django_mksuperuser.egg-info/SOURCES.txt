@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_mksuperuser/__init__.py
+django_mksuperuser/models.py
+django_mksuperuser.egg-info/PKG-INFO
+django_mksuperuser.egg-info/SOURCES.txt
+django_mksuperuser.egg-info/dependency_links.txt
+django_mksuperuser.egg-info/top_level.txt
+django_mksuperuser/fixtures/initial_data.json
+django_mksuperuser/migrations/0001_createsuperuser.py
+django_mksuperuser/migrations/__init__.py
