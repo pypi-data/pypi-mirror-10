@@ -1,0 +1,16 @@
+CHANGELOG
+
+2015-07-09 1.2.1
+  * [ADD] `get_queryset` for grain indexing possibility
+  * [ADD] Option to deactivate auto-indexing
+  * [FIX] Various bugs
+
+2015-07-04 1.2.0
+  * [REMOVE] algolia_buildindex command. Use algolia_reindex instead.
+  * [CHANGE] Settings format. Last format is still supported.
+  * [ADD] Unit test.
+  * [ADD] Tag capacity
+  * [ADD] Conditional indexing
+  * [ADD] Search capacity on backend
+  * [FIX] Invalid custom_objectID attribute
+  * [FIX] Exception throw by the command when using Django 1.7
