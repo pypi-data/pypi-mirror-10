@@ -1,0 +1,17 @@
+[pygments.lexers]
+ipython3 = IPython.lib.lexers:IPython3Lexer
+ipythonconsole = IPython.lib.lexers:IPythonConsoleLexer
+ipython = IPython.lib.lexers:IPythonLexer
+
+[console_scripts]
+ipcluster3 = IPython.parallel.apps.ipclusterapp:launch_new_instance
+ipython3 = IPython:start_ipython
+iptest3 = IPython.testing.iptestcontroller:main
+ipengine3 = IPython.parallel.apps.ipengineapp:launch_new_instance
+ipcluster = IPython.parallel.apps.ipclusterapp:launch_new_instance
+ipcontroller3 = IPython.parallel.apps.ipcontrollerapp:launch_new_instance
+ipengine = IPython.parallel.apps.ipengineapp:launch_new_instance
+ipython = IPython:start_ipython
+iptest = IPython.testing.iptestcontroller:main
+ipcontroller = IPython.parallel.apps.ipcontrollerapp:launch_new_instance
+
