@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Cesspool</title>
+    <script type="text/javascript" src="./assets/underscore.js"></script>
+    <script type="text/javascript" src="./assets/underscore.string.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/jquery-ui.js"></script>
+    <script type="text/javascript" src="./assets/backbone.js"></script>
+    <script type="text/javascript" src="./assets/handlebars.js"></script>
+    <script type="text/javascript" src="./assets/shmooze.js"></script>
+    <script type="text/javascript">
+        window.no_autorefresh = false;
+    </script>
+    <script class="torrent-template" type="text/x-handlebars-template">
+        {{#if_eq state eq='complete'}}
+            <a class="get-it complete" href="{{ web_path }}">{{ name }}</a>
+            <a href="{{ magnet_url }}">(torrent)</a>
+            (ratio: {{ round ratio dp=2}})
+        {{/if_eq}}
+        {{#if_eq state eq='error'}}
+            <strong>Error: {{ error }}</strong>
+            <a class="get-it error" href="{{ web_path }}">{{ name }}</a>
+        {{/if_eq}}
+        <a href="#" class="rm">&nbsp;</a>
+        {{#if_eq state eq="running"}}
+            <a class="get-it in-progress" href="{{ web_path }}">{{ name }}</a>
+            <a href="{{ magnet_url }}">(torrent)</a>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: {{percent progress of=1}}%">
+                </div>
+        {{/if_eq}}
+
+        <!-- 
+        {{ uid  }}
+        {{ url }} 
+        {{ type }} 
+        -->
+    </script>
+    <script type="text/javascript" src="./assets/cesspool.js"></script>
+    <!-- <link rel="stylesheet" href="http://jqueryui.com/themes/base/jquery.ui.all.css"> -->
+    <link rel="stylesheet" href="./assets/cesspool.css">
+    <style type="text/css"></style>
+</head>
+<body>
+        <div class="content">
+            <h1 class="title">Cesspool</h1>
+            <div class="whitebox add">
+                <form action="#" method="GET" autocomplete="off" class="torrent-form">
+                    <input placeholder="Enter torrent link here" type="text" class="add torrent-link"> 
+                    <!-- <input type="submit" class="submit disconnect-hide"> -->
+                </form>
+            </div> 
+
+            <ul class="pool"></ol>
+        </div>
+</body>
+</html>

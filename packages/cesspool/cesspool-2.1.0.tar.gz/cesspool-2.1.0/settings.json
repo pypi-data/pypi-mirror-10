@@ -1,0 +1,16 @@
+{
+    "public": ["fg_color", "bg_color", "name", "web_path"],
+    "fg_color":"#EBEBEB",
+    "bg_color":"#E6D000",
+    "name": "Cesspool",
+    "log_database": "$HOME/cesspool.db",
+    "static_path": "$HOME/cesspool/www/",
+    "download_path": "$HOME/cesspool/www/downloads",
+    "web_path": "http://localhost:8091/downloads",
+    "wsgi_prefix": "/",
+    "ports": {
+        "pool": 5680,
+        "wsgi": 8090,
+        "downloads": 8091
+    }
+}
