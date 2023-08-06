@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include tota11y/static *
+recursive-include tota11y/templates *
