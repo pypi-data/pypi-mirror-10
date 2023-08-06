@@ -1,0 +1,22 @@
+git add
+git checkout -b spaces2tabs
+git checkout master
+
+git commit -a -m ""
+
+git diff
+git list
+git log
+git merge spaces2tabs
+git pull
+git push
+git show
+git status
+
+nosetests --nologcapture test/test_ebscopy.py
+nosetests --nologcapture test/test_ebscopy.py:CreateSessionsWithENV
+
+python setup.py register sdist upload
+python setup.py register 
+python setup.py sdist
+
