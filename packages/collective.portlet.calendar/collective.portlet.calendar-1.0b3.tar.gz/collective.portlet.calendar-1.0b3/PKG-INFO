@@ -1,0 +1,215 @@
+Metadata-Version: 1.0
+Name: collective.portlet.calendar
+Version: 1.0b3
+Summary: Extended Calendar Portlet: A configurable implementation of a Calendar Portlet for Plone.
+Home-page: https://github.com/collective/collective.portlet.calendar
+Author: Simples Consultoria
+Author-email: products@simplesconsultoria.com.br
+License: GPL
+Description: *************************
+        Extended Calendar Portlet
+        *************************
+        
+        .. contents:: Table of Contents
+        
+        Life, the Universe, and Everything
+        ----------------------------------
+        
+        This package provides a configurable implementation of a Calendar Portlet.
+        
+        It is possible to give the calendar portlet a header, to search only for events 
+        with given **keywords**, a set of **review states** and constrain its results
+        to only an area of your site, selecting a root folder.
+        
+        If filters given by portlet's configuration panel are not enough, you can
+        select a **collection** instead of a folder, and all given criteria will be
+        used to filter yours events.
+        
+        Even though Plone's default Calendar Portlet implementation is useful for most
+        sites if you want to segment calendar's events or to provide more than one
+        calendar per page, Extended Calendar Portlet comes to rescue.
+        
+        Filtering by review state
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        
+        Standard Plone calendar portlet use a global site settings for filter by review
+        states (``portal_calendar`` ZMI tool, "Configure" settings).
+        
+        As this new portlet offer the same filter, the global site settings is
+        *ignored* and the portlet's "Review state" data is used instead (even if
+        empty).
+        
+        The only exception are collections, where both global settings and portlet
+        settings are ignored; you must manually provide a review state criteria in the
+        collections if you need it.
+        
+        Mostly Harmless
+        ---------------
+        
+        .. image:: https://secure.travis-ci.org/collective/collective.portlet.calendar.png?branch=master
+            :alt: Travis CI badge
+            :target: http://travis-ci.org/collective/collective.portlet.calendar
+        
+        .. image:: https://coveralls.io/repos/collective/collective.portlet.calendar/badge.png?branch=master
+            :alt: Coveralls badge
+            :target: https://coveralls.io/r/collective/collective.portlet.calendar
+        
+        Got an idea? Found a bug? Let us know by `opening a support ticket`_.
+        
+        .. _`opening a support ticket`: https://github.com/collective/collective.portlet.calendar/issues
+        
+        Don't Panic
+        -----------
+        
+        Installation
+        ^^^^^^^^^^^^
+        
+        To enable this package in a buildout-based installation:
+        
+        #. Edit your buildout.cfg and add add the following to it::
+        
+            [buildout]
+            ...
+            eggs =
+                 collective.portlet.calendar
+        
+        After updating the configuration you need to run ''bin/buildout'', which will
+        take care of updating your system.
+        
+        Go to the 'Site Setup' page in a Plone site and click on the 'Add-ons' link.
+        
+        Check the box next to ``collective.portlet.calendar`` and click the 'Activate'
+        button.
+        
+        .. Note::
+            You may have to empty your browser cache and save your resource registries
+            in order to see the effects of the product installation.
+        
+        Screenshot
+        ----------
+        
+        .. image:: https://github.com/collective/collective.portlet.calendar/raw/master/screenshot.png
+            :align: center
+            :scale: 50%
+        
+        Contributors
+        ------------
+        
+        - Érico Andrei
+        - Luca Fabbri
+        - Ales Zabal
+        - Héctor Velarde
+        
+        Development of this product was sponsored by `TRT13`_.
+        
+        .. _`TRT13`: http://www.xmlvalidation.com/
+        
+        
+        Changelog
+        ---------
+        
+        1.0b3 (2015-07-07)
+        ^^^^^^^^^^^^^^^^^^
+        
+        - Change in the review state usage behavior: if no value is specified do not
+          use the global site settings (that was a bit unexpected) but do not filter
+          by review state at all.
+          [keul]
+        - Be sure that start/end criteria in collections never use values outside the
+          current month
+          [keul]
+        - Fixed issue that make calendar display weird days when Collections use start
+          or end criteria as calendar machinery already do
+          [keul]
+        - Calendar URI querystring parameters are now applied when root object is used
+          [keul]
+        - Fixed issue in the ``_render_cachekey`` method that gives some unexpected
+          results with collections under certain circumstances
+          [keul]
+        - Fixed illogical behavior with collections: if you do not provide any
+          ``review_state`` filter, a static ("published", "private") was used
+          [keul]
+        - Folder were not selectable as root object [keul]
+        - **Drop support for Plone 4.0 and 4.1**.
+          [hvelarde]
+        - Remove also browserlayer when running unistall profile. [keul]
+        - Uninstall profiles was not run on uninstall [keul]
+        - Removed useless paster generated code (there's no Archetypes contents there).
+          [keul]
+        - Support for new-style collections from plone.app.collection package.
+          This **drop Plone 3.3 compatibility**. [keul]
+        - Removed kss attributes and added modern HTML 5 ones. This make the
+          calendar JavaScript works on Plone 4.3. [keul]
+        - Links to search page are @@ prefixed. [keul]
+        - Fixed issue when not providing a portlet name. [keul]
+        - Fixed layout: when not providing a title, the portlet looks like default
+          Plone calendar. [keul]
+        - Fixed portlet cache key. It was not looking for additional parameters.
+          [keul]
+        - Calendar portlet title in management screen were stored forever. [keul]
+        
+        1.0b2 (2012-05-10)
+        ^^^^^^^^^^^^^^^^^^
+        
+        - Added basic installation tests. [hvelarde]
+        
+        
+        1.0b1 (2012-05-10)
+        ^^^^^^^^^^^^^^^^^^
+        
+        - Tested Plone 4.2 compatibility. [hvelarde]
+        
+        - Updated package information and development buildout configurations.
+          [hvelarde]
+        
+        - Added Basque translation. [shagi]
+        
+        
+        0.6 (2011-05-19)
+        ^^^^^^^^^^^^^^^^
+        
+        - Added Italian translation. [keul]
+        
+        - Added Brazilian Portuguese translation. [erico_andrei]
+        
+        - Now also Plone 3.3 compatible. [keul]
+        
+        - Change the translation domain, fixing all the i18ndude stuff (that were not
+          working), because while using the "plone" ones was not possible to translate
+          anything. [keul]
+        
+        - Selecting a collection, all other filters are ignored (if you want a
+          review_state or Subject filter, put it in the collection itself). [keul]
+        
+        - Added and fixed tests. [keul]
+        
+        - Minimal pyflakes changes. [keul]
+        
+        
+        0.5 (2011-05-06)
+        ^^^^^^^^^^^^^^^^
+        
+        - Providing a base css to our portlet. [erico_andrei]
+        
+        - Allows restricting the results to only a subset of the site. [erico_andrei]
+        
+        - Adding portlet name/title. [erico_andrei]
+        
+        - Initial release. [erico_andrei]
+        
+        
+Keywords: plone portlet calendar
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.2
+Classifier: Framework :: Plone :: 4.3
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

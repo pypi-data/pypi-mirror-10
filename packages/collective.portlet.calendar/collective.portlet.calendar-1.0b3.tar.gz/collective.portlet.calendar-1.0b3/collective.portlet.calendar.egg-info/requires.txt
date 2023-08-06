@@ -1,0 +1,16 @@
+plone.app.collection
+plone.app.portlets
+plone.memoize
+plone.portlets
+Products.CMFCore
+Products.GenericSetup
+setuptools
+zope.component
+zope.interface
+zope.schema
+
+[test]
+plone.app.testing
+plone.browserlayer
+plone.testing
+unittest2
