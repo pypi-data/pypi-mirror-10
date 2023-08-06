@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: hdpwordseg
+Version: 1.1.0.0
+Summary: HDP Word Segmentor
+Home-page: https://bitbucket.org/kaamanita/hdpwordseg
+Author: Prachya Boonkwan
+Author-email: kaamanita@gmail.com
+License: UNKNOWN
+Description: Word segmentation module based on Hierarchical     Dirichlet Processes (Goldwater's PhD thesis, 2007;     Mochihashi et al., ACL 2009). This implementation is developed     by Prachya Boonkwan, National Electronics and Computer Technology     Center (NECTEC), Thailand. (C) April 2015. All right reserved.
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Free for non-commercial use
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Topic :: Utilities

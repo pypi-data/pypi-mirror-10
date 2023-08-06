@@ -1,0 +1,6 @@
+#!/usr/bin/env pypy
+#-*- coding: utf-8 -*-
+
+import hdp.hdpwordseg
+
+hdp.hdpwordseg.main()
