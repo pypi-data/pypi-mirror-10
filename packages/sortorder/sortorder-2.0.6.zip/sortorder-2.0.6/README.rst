@@ -1,0 +1,143 @@
+sortorder extension
+====================
+
+.. note::
+
+   Japanese version of this document is also available, on the `site <http://h12u.com/sphinx/sortorder/README_ja.html>`_ or the doc folder of this package.
+
+.. role:: fn_rst
+
+Introduction
+------------
+Currently, June 1, 2015, Sphinx 1.3.1 cannot generate localized heading in
+index pages and glossary directives. This package make the *gate* to make
+the Sphinx internationalized. This means another package is required to
+do, I will make the one named 'Gosyu', please find that on pip.
+
+This package does not depends on the Sphinx. You can use this for another
+text proccesing product.
+
+License
+-------
+2-clause BSD, same as the Sphinx project.
+
+Installation
+------------
+You can install or uninstall this package like another Python packages.
+Also, you can use this package without installing this package on your Python
+systems, the configuration file of Sphinx(:fn_rst:`conf.py`) enable you to use.
+
+Requirements
+............
+Tested with 32bit version of Python 2.7.9 and 64bit version of 3.4.3,
+both on the Microsoft Windows 8.1 Pro 64bit edition.
+But with another versions and on another OSs would be usable.
+
+How to install
+..............
+Again, you can install this package as you will do with another one.
+
+#. Open a console and do :code:`pip install sortorder`.
+
+   On the MS-Windows,
+   :code:`<python_installed_path>\Scripts\pip.exe install sortorder`.
+
+#. Or when you get zip archive like :fn_rst:`sortorder-2.0.6(.zip)`
+   where '2.0.6' is version number,
+   change current directiory to the folder that has the zip file,
+   and do :code:`setup.py sortorder-2.0.6.zip`.
+
+   On the MS-Windows,
+   :code:`<python_installed_path>\Scripts\pip.exe install sortorder-2.0.6.zip`.
+
+#. Or, this way is the Sphinx specific, you can use this package just extracted
+   any folder you want. the :fn_rst:`conf.py` enables you to use the themes and
+   extensions.
+
+How to use (with Sphinx)
+------------------------
+To know how to use the sort order you already have, see yogosyu_ or gosyu_.
+
+If you want to use one of the preset sort orders this package has, just
+:code:`language = 'xx'`. it causes automatically load :fn_rst:`sortorder.xx`.
+
+Currently, :code:`xx` is available :code:`ja`, :code:`eo`, :code:`el` and
+:code:`ru` for the presets.
+
+To know how to make your own sortorder, see :fn_rst:`sortorder/__init__.py`.
+
+In short:
+
+- determine the filename of the new module and create it.
+  if you name :fn_rst:`sort_order_xx.py`, it will automatically loaded
+  when :code:`language = 'xx'` is declared.
+- write :code:`import sortorder`.
+- make the class inherits :code:`sortorder.SortOrderBase`.
+- override :code:`get_string_to_sort` and :code:`get_group_name`.
+- make :code:`get_default_sort_order`\ returns the instance of the class.
+- make :code:`setup`. see any of :fn_rst:`sortorder.xx` included this package.
+
+How to use (General)
+--------------------
+If you have this module not installed by pip, you should first do
+:code:`sys.path.insert(0, '<the_folder_you_copied_the_extension_file>')`.
+
+Second, if you want directly use :code:`ja.py` (Japanese), :code:`eo.py` (Esperanto), 
+:code:`el.py` (Greek) or :code:`ru.py` (Russian), Just do :code:`import sortorder.xxx`
+where :code:`xxx` is language code like :code:`ja`, :code:`eo`, etc.
+
+Otherwise, you should make the your sort-order module as you want.
+You should define the new class which inherits
+:code:`sortorder.SortOrderBase`. The filename of the module should
+prefixed :code:`sort_order_`, like :fn_rst:`sort_order_xx.py`.
+
+:code:`get_default_sort_order` and :code:`setup` methods are only used by
+the Sphinx document generator.
+
+After you make :fn_rst:`sort_order_xx.py` or you have it someone gives, add the path
+of the \.py file to :code:`sys.path` like above. Next import the module:
+
+.. code-block:: python
+
+   sys.path.insert(0, '<the_folder_you_copied_the_extension_file>')
+   # (snip...)
+   import sort_order_xx # may automatically import sortorder.__init__.py
+
+But :fn_rst:`sortorder.__init__` has the method :code:`get_sort_order`.
+You can add your code some automatic feature like used with the Sphinx,
+by defining :code:`get_default_sort_order` method in your module.
+
+Author
+------
+Suzumizaki-Kimitaka(鈴見咲君高), 2011-2015
+
+History
+-------
+2.0.6(2015-07-04):
+
+  Fix document(this file) for PyPI.
+
+2.0.5(2015-07-04):
+
+  - Part from yogosyu_ extension.
+  - First uploded to PyPI.
+
+2013-12-07:
+
+  Add Python 3 support.
+
+2013-12-06:
+
+  Updated to meet Sphinx 1.2.
+
+2011-06-28:
+
+  Russian and Greek versions added.
+
+2011-05-24:
+
+  First release. Included in yogosyu_ extension.
+  Japanese and Esperanto versions included.
+
+.. _yogosyu: https://pypi.python.org/pypi/yogosyu
+.. _gosyu: https://pypi.python.org/pypi/gosyu
