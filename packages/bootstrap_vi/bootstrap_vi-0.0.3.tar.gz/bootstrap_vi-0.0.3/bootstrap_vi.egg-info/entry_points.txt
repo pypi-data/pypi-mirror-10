@@ -1,0 +1,6 @@
+[console_scripts]
+bootstrap_vi = bootstrap_vi:main
+
+[distutils.commands]
+bootstrap_virtualenv = bootstrap_vi:BootstrapVI
+
