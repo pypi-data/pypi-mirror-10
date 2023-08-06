@@ -1,0 +1,2372 @@
+object ppReport: TppReport
+  AutoStop = False
+  DataPipeline = daFIBQueryDataView1.DocumentosPVta
+  PrinterSetup.BinName = 'Default'
+  PrinterSetup.DocumentName = 'Report'
+  PrinterSetup.PaperName = 'Letter'
+  PrinterSetup.PrinterName = 'Default'
+  PrinterSetup.mmMarginBottom = 6350
+  PrinterSetup.mmMarginLeft = 6350
+  PrinterSetup.mmMarginRight = 6350
+  PrinterSetup.mmMarginTop = 6350
+  PrinterSetup.mmPaperHeight = 279401
+  PrinterSetup.mmPaperWidth = 215900
+  PrinterSetup.PaperSize = 1
+  SaveAsTemplate = True
+  Template.DatabaseSettings.DataPipeline = plRBItem
+  Template.DatabaseSettings.Name = 'pv_cobros_sub'
+  Template.DatabaseSettings.NameField = 'NAME'
+  Template.DatabaseSettings.TemplateField = 'TEMPLATE'
+  Template.FileName = 
+    'C:\Users\SIC2-U\Documents\BitBucket\reportes_sic\reportes_sic\Pu' +
+    'nto de venta\Reportes\COBROS Y DEVOLUCIONES.rtm'
+  Template.Format = ftASCII
+  AllowPrintToFile = True
+  DeviceType = 'Screen'
+  EmailSettings.ReportFormat = 'PDF'
+  Language = lgSpanishMexico
+  OutlineSettings.CreateNode = True
+  OutlineSettings.CreatePageNodes = True
+  OutlineSettings.Enabled = False
+  OutlineSettings.Visible = False
+  ShowAutoSearchDialog = True
+  TextSearchSettings.DefaultString = '<HallarTexto>'
+  TextSearchSettings.Enabled = False
+  Left = 4
+  Top = 208
+  Version = '10.08'
+  mmColumnWidth = 0
+  DataPipelineName = 'DocumentosPVta'
+  object ppHeaderBand1: TppHeaderBand
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 123296
+    mmPrintPosition = 0
+    object ppSubReport1: TppSubReport
+      UserName = 'srDoctosCobros'
+      ExpandAll = False
+      NewPrintJob = False
+      OutlineSettings.CreateNode = True
+      TraverseAllData = False
+      DataPipelineName = 'DocumentosPVta'
+      mmHeight = 39952
+      mmLeft = 0
+      mmTop = 0
+      mmWidth = 203200
+      BandType = 0
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      object ppChildReport1: TppChildReport
+        AutoStop = False
+        DataPipeline = daFIBQueryDataView1.DocumentosPVta
+        PrinterSetup.BinName = 'Default'
+        PrinterSetup.DocumentName = 'Report'
+        PrinterSetup.PaperName = 'Letter'
+        PrinterSetup.PrinterName = 'Default'
+        PrinterSetup.mmMarginBottom = 6350
+        PrinterSetup.mmMarginLeft = 6350
+        PrinterSetup.mmMarginRight = 6350
+        PrinterSetup.mmMarginTop = 6350
+        PrinterSetup.mmPaperHeight = 279401
+        PrinterSetup.mmPaperWidth = 215900
+        PrinterSetup.PaperSize = 1
+        Template.DatabaseSettings.DataPipeline = plRBItem
+        Template.DatabaseSettings.NameField = 'NAME'
+        Template.DatabaseSettings.TemplateField = 'TEMPLATE'
+        Template.SaveTo = stDatabase
+        Template.Format = ftASCII
+        Units = utScreenPixels
+        Version = '10.08'
+        mmColumnWidth = 0
+        DataPipelineName = 'DocumentosPVta'
+        object ppTitleBand1: TppTitleBand
+          mmBottomOffset = 0
+          mmHeight = 13229
+          mmPrintPosition = 0
+          object ppShape2: TppShape
+            UserName = 'Shape2'
+            Brush.Color = clScrollBar
+            ParentWidth = True
+            mmHeight = 8731
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 203200
+            BandType = 1
+          end
+          object ppLabel10: TppLabel
+            UserName = 'Label10'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Cliente'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 794
+            mmTop = 9790
+            mmWidth = 15875
+            BandType = 1
+          end
+          object ppLabel11: TppLabel
+            UserName = 'Label11'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Folio'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 35190
+            mmTop = 9790
+            mmWidth = 10054
+            BandType = 1
+          end
+          object ppLabel12: TppLabel
+            UserName = 'Label12'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Fecha'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 51065
+            mmTop = 9790
+            mmWidth = 11906
+            BandType = 1
+          end
+          object ppLabel13: TppLabel
+            UserName = 'Label13'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Importe'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 71438
+            mmTop = 9790
+            mmWidth = 17463
+            BandType = 1
+          end
+          object ppLabel14: TppLabel
+            UserName = 'Label14'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Impuestos'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 91811
+            mmTop = 9790
+            mmWidth = 21167
+            BandType = 1
+          end
+          object ppLabel15: TppLabel
+            UserName = 'Label15'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Total'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 125148
+            mmTop = 9790
+            mmWidth = 11642
+            BandType = 1
+          end
+          object ppLabel16: TppLabel
+            UserName = 'Label16'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Cobros'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 141552
+            mmTop = 9790
+            mmWidth = 14023
+            BandType = 1
+          end
+          object ppLabel17: TppLabel
+            UserName = 'Label17'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Condici'#243'n'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 158221
+            mmTop = 9790
+            mmWidth = 19050
+            BandType = 1
+          end
+          object ppLabel18: TppLabel
+            UserName = 'Label18'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Documentos de Punto de Venta'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 10
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 4233
+            mmLeft = 70644
+            mmTop = 1852
+            mmWidth = 52917
+            BandType = 1
+          end
+        end
+        object ppDetailBand2: TppDetailBand
+          mmBottomOffset = 0
+          mmHeight = 3175
+          mmPrintPosition = 0
+          object ppDBText2: TppDBText
+            UserName = 'DBText2'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'NOMBRE_2'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 2910
+            mmLeft = 158221
+            mmTop = 265
+            mmWidth = 20638
+            BandType = 4
+          end
+          object ppDBText3: TppDBText
+            UserName = 'DBText3'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'TOTAL_IMPUESTOS'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 2910
+            mmLeft = 93134
+            mmTop = 265
+            mmWidth = 19844
+            BandType = 4
+          end
+          object ppDBText5: TppDBText
+            UserName = 'DBText5'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'IMPORTE_NETO'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 2910
+            mmLeft = 71438
+            mmTop = 265
+            mmWidth = 17463
+            BandType = 4
+          end
+          object ppDBText9: TppDBText
+            UserName = 'DBText9'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'FECHA'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 2910
+            mmLeft = 51065
+            mmTop = 265
+            mmWidth = 17198
+            BandType = 4
+          end
+          object ppDBText11: TppDBText
+            UserName = 'DBText101'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'NOMBRE'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 2910
+            mmLeft = 794
+            mmTop = 265
+            mmWidth = 37042
+            BandType = 4
+          end
+          object ppVariable4: TppVariable
+            UserName = 'vFolio1'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            BlankWhenZero = False
+            CalcOrder = 0
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            mmHeight = 2879
+            mmLeft = 35190
+            mmTop = 265
+            mmWidth = 6519
+            BandType = 4
+          end
+          object ppVariable5: TppVariable
+            UserName = 'vTipoDocumento1'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            BlankWhenZero = False
+            CalcOrder = 1
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 2921
+            mmLeft = 179917
+            mmTop = 265
+            mmWidth = 23283
+            BandType = 4
+          end
+          object ppVariable6: TppVariable
+            UserName = 'vTotalDocumento1'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            BlankWhenZero = False
+            CalcOrder = 2
+            DataType = dtCurrency
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 2879
+            mmLeft = 117740
+            mmTop = 265
+            mmWidth = 18965
+            BandType = 4
+          end
+          object ppDBText12: TppDBText
+            UserName = 'DBText12'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'SUM_IMPORTES_DOCTOS_CC_1'
+            DataPipeline = daFIBQueryDataView2.ImportesDocumentosCxc
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            ParentDataPipeline = False
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'ImportesDocumentosCxc'
+            mmHeight = 2879
+            mmLeft = 143140
+            mmTop = 265
+            mmWidth = 12435
+            BandType = 4
+          end
+        end
+        object ppSummaryBand1: TppSummaryBand
+          mmBottomOffset = 0
+          mmHeight = 4498
+          mmPrintPosition = 0
+          object ppDBCalc1: TppDBCalc
+            UserName = 'vTotalImpuestos'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'TOTAL_IMPUESTOS'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 3387
+            mmLeft = 95779
+            mmTop = 1058
+            mmWidth = 17198
+            BandType = 7
+          end
+          object ppDBCalc2: TppDBCalc
+            UserName = 'vTotalImportes'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'IMPORTE_NETO'
+            DataPipeline = daFIBQueryDataView1.DocumentosPVta
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta'
+            mmHeight = 3440
+            mmLeft = 71702
+            mmTop = 1058
+            mmWidth = 17198
+            BandType = 7
+          end
+          object ppLine1: TppLine
+            UserName = 'Line1'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            ParentWidth = True
+            Style = lsDouble
+            Weight = 0.750000000000000000
+            mmHeight = 1323
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 203200
+            BandType = 7
+          end
+          object ppVariable2: TppVariable
+            UserName = 'vGTotal'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            BlankWhenZero = False
+            CalcOrder = 0
+            DataType = dtCurrency
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 126502
+            mmTop = 1058
+            mmWidth = 10287
+            BandType = 7
+          end
+          object ppDBCalc3: TppDBCalc
+            UserName = 'DBCalc1'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'SUM_IMPORTES_DOCTOS_CC_1'
+            DataPipeline = daFIBQueryDataView2.ImportesDocumentosCxc
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            ParentDataPipeline = False
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'ImportesDocumentosCxc'
+            mmHeight = 3440
+            mmLeft = 138377
+            mmTop = 1058
+            mmWidth = 17198
+            BandType = 7
+          end
+        end
+        object raCodeModule1: TraCodeModule
+          ProgramStream = {
+            01060A54726150726F6772616D094368696C645479706502130B50726F677261
+            6D4E616D65060E476C6F62616C4F6E4372656174650B50726F6772616D547970
+            65070B747450726F63656475726506536F75726365065370726F636564757265
+            20476C6F62616C4F6E4372656174653B0D0A626567696E0D0A20202020207661
+            72546F74616C446F63746F73203A3D207647546F74616C2E4173446F75626C65
+            203B0D0A656E643B0D0A0001060F5472614576656E7448616E646C65720B5072
+            6F6772616D4E616D65060D76466F6C696F314F6E43616C630B50726F6772616D
+            54797065070B747450726F63656475726506536F757263650C9301000070726F
+            6365647572652076466F6C696F314F6E43616C63287661722056616C75653A20
+            56617269616E74293B0D0A626567696E0D0A202069662028446F63756D656E74
+            6F73505674615B27466F6C696F20283229275D203D20272729207468656E0D0A
+            2020626567696E0D0A2020202056616C7565203A3D2020446F63756D656E746F
+            73505674615B27466F6C696F275D3B0D0A2020656E640D0A2020656C73650D0A
+            2020626567696E0D0A2020202056616C7565203A3D20446F63756D656E746F73
+            505674615B27466F6C696F20283229275D3B0D0A2020656E643B0D0A20206966
+            2028446F63756D656E746F73505674615B2745737461747573275D203D202744
+            2729207468656E0D0A2020626567696E0D0A202020202020202076466F6C696F
+            312E466F6E742E436F6C6F72203A3D20636C5265643B0D0A2020202020202020
+            656E640D0A2020656C73650D0A2020626567696E0D0A2020202020202076466F
+            6C696F312E466F6E742E436F6C6F72203A3D20636C57696E646F77546578743B
+            0D0A2020656E643B0D0A656E643B0D0A0D436F6D706F6E656E744E616D650607
+            76466F6C696F31094576656E744E616D6506064F6E43616C63074576656E7449
+            4402210001060F5472614576656E7448616E646C65720B50726F6772616D4E61
+            6D650615765469706F446F63756D656E746F314F6E43616C630B50726F677261
+            6D54797065070B747450726F63656475726506536F7572636506CE70726F6365
+            6475726520765469706F446F63756D656E746F314F6E43616C63287661722056
+            616C75653A2056617269616E74293B0D0A626567696E0D0A202069662028446F
+            63756D656E746F73505674615B27466F6C696F20283229275D203D2027272920
+            7468656E0D0A2020626567696E0D0A2020202056616C7565203A3D20274D6F73
+            747261646F72273B0D0A2020656E640D0A2020656C73650D0A2020626567696E
+            0D0A2020202056616C7565203A3D202746616374757261273B0D0A2020656E64
+            3B0D0A656E643B0D0A0D436F6D706F6E656E744E616D65060F765469706F446F
+            63756D656E746F31094576656E744E616D6506064F6E43616C63074576656E74
+            494402210001060F5472614576656E7448616E646C65720B50726F6772616D4E
+            616D65061676546F74616C446F63756D656E746F314F6E43616C630B50726F67
+            72616D54797065070B747450726F63656475726506536F75726365069D70726F
+            6365647572652076546F74616C446F63756D656E746F314F6E43616C63287661
+            722056616C75653A2056617269616E74293B0D0A626567696E0D0A0D0A202056
+            616C7565203A3D2020446F63756D656E746F73505674615B27496D706F727465
+            206E65746F275D202B2020446F63756D656E746F73505674615B27546F74616C
+            20646520696D70756573746F73275D3B0D0A0D0A656E643B0D0A0D436F6D706F
+            6E656E744E616D65061076546F74616C446F63756D656E746F31094576656E74
+            4E616D6506064F6E43616C63074576656E74494402210001060F547261457665
+            6E7448616E646C65720B50726F6772616D4E616D65060F44425465787431324F
+            6E5072696E740B50726F6772616D54797065070B747450726F63656475726506
+            536F757263650C1F01000070726F6365647572652044425465787431324F6E50
+            72696E743B0D0A626567696E0D0A2020202020202069662028496D706F727465
+            73446F63756D656E746F734378635B27496D706F727465275D3C28446F63756D
+            656E746F73505674615B27496D706F727465206E65746F275D2B446F63756D65
+            6E746F73505674615B27546F74616C20646520696D70756573746F73275D2929
+            207468656E0D0A2020626567696E0D0A20202020202020204442546578743132
+            2E466F6E742E436F6C6F72203A3D20636C5265643B0D0A2020656E640D0A2020
+            656C73650D0A2020626567696E0D0A2020202020202044425465787431322E46
+            6F6E742E436F6C6F72203A3D20636C57696E646F77546578743B0D0A2020656E
+            643B0D0A656E643B0D0A0D436F6D706F6E656E744E616D650608444254657874
+            3132094576656E744E616D6506074F6E5072696E74074576656E744944022000
+            01060F5472614576656E7448616E646C65720B50726F6772616D4E616D65060D
+            7647546F74616C4F6E43616C630B50726F6772616D54797065070B747450726F
+            63656475726506536F7572636506A470726F636564757265207647546F74616C
+            4F6E43616C63287661722056616C75653A2056617269616E74293B0D0A626567
+            696E0D0A0D0A2020766172546F74616C446F63746F73203A3D2076546F74616C
+            496D70756573746F732E56616C7565202B2076546F74616C496D706F72746573
+            2E56616C75653B0D0A202056616C7565203A3D20202020766172546F74616C44
+            6F63746F73203B0D0A0D0A0D0A656E643B0D0A0D436F6D706F6E656E744E616D
+            6506077647546F74616C094576656E744E616D6506064F6E43616C6307457665
+            6E74494402210000}
+        end
+      end
+    end
+    object ppSubReport2: TppSubReport
+      UserName = 'srDevoluciones'
+      ExpandAll = False
+      NewPrintJob = False
+      OutlineSettings.CreateNode = True
+      TraverseAllData = False
+      DataPipelineName = 'DocumentosPVta2'
+      mmHeight = 44715
+      mmLeft = 0
+      mmTop = 42598
+      mmWidth = 203200
+      BandType = 0
+      mmBottomOffset = 0
+      mmOverFlowOffset = 0
+      mmStopPosition = 0
+      object ppChildReport2: TppChildReport
+        AutoStop = False
+        DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+        PrinterSetup.BinName = 'Default'
+        PrinterSetup.DocumentName = 'Report'
+        PrinterSetup.PaperName = 'Letter'
+        PrinterSetup.PrinterName = 'Default'
+        PrinterSetup.mmMarginBottom = 6350
+        PrinterSetup.mmMarginLeft = 6350
+        PrinterSetup.mmMarginRight = 6350
+        PrinterSetup.mmMarginTop = 6350
+        PrinterSetup.mmPaperHeight = 279401
+        PrinterSetup.mmPaperWidth = 215900
+        PrinterSetup.PaperSize = 1
+        Template.DatabaseSettings.DataPipeline = plRBItem
+        Template.DatabaseSettings.NameField = 'NAME'
+        Template.DatabaseSettings.TemplateField = 'TEMPLATE'
+        Template.SaveTo = stDatabase
+        Template.Format = ftASCII
+        Version = '10.08'
+        mmColumnWidth = 0
+        DataPipelineName = 'DocumentosPVta2'
+        object ppTitleBand2: TppTitleBand
+          mmBottomOffset = 0
+          mmHeight = 16669
+          mmPrintPosition = 0
+          object ppLabel1: TppLabel
+            UserName = 'Label1'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Condici'#243'n'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 158750
+            mmTop = 13494
+            mmWidth = 39952
+            BandType = 1
+          end
+          object ppLabel2: TppLabel
+            UserName = 'Label2'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Impuestos'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 88636
+            mmTop = 13494
+            mmWidth = 25400
+            BandType = 1
+          end
+          object ppLabel3: TppLabel
+            UserName = 'Label3'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Importe'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 64823
+            mmTop = 13494
+            mmWidth = 24077
+            BandType = 1
+          end
+          object ppLabel4: TppLabel
+            UserName = 'Label4'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Fecha'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 51858
+            mmTop = 13494
+            mmWidth = 23019
+            BandType = 1
+          end
+          object ppLabel5: TppLabel
+            UserName = 'Label5'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Folio'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 34396
+            mmTop = 13494
+            mmWidth = 13229
+            BandType = 1
+          end
+          object ppLabel6: TppLabel
+            UserName = 'Label6'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Cliente'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 0
+            mmTop = 13494
+            mmWidth = 21696
+            BandType = 1
+          end
+          object ppLabel7: TppLabel
+            UserName = 'Label7'
+            AutoSize = False
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Total'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3387
+            mmLeft = 113506
+            mmTop = 13494
+            mmWidth = 25400
+            BandType = 1
+          end
+          object ppShape1: TppShape
+            UserName = 'Shape1'
+            Brush.Color = clScrollBar
+            ParentWidth = True
+            mmHeight = 8731
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 203200
+            BandType = 1
+          end
+          object ppLabel8: TppLabel
+            UserName = 'Label8'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            Caption = 'Devoluciones'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 10
+            Font.Style = [fsBold]
+            TextAlignment = taCentered
+            Transparent = True
+            mmHeight = 4233
+            mmLeft = 90223
+            mmTop = 1852
+            mmWidth = 23019
+            BandType = 1
+          end
+        end
+        object ppHeaderBand2: TppHeaderBand
+          mmBottomOffset = 0
+          mmHeight = 0
+          mmPrintPosition = 0
+        end
+        object ppDetailBand3: TppDetailBand
+          mmBottomOffset = 0
+          mmHeight = 3175
+          mmPrintPosition = 0
+          object ppDBText1: TppDBText
+            UserName = 'DBText1'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'NOMBRE_2'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 2910
+            mmLeft = 158486
+            mmTop = 0
+            mmWidth = 37835
+            BandType = 4
+          end
+          object ppDBText4: TppDBText
+            UserName = 'DBText4'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'TOTAL_IMPUESTOS'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 2879
+            mmLeft = 92340
+            mmTop = 0
+            mmWidth = 21696
+            BandType = 4
+          end
+          object ppDBText6: TppDBText
+            UserName = 'DBText6'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'IMPORTE_NETO'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 2879
+            mmLeft = 73554
+            mmTop = 0
+            mmWidth = 15346
+            BandType = 4
+          end
+          object ppDBText7: TppDBText
+            UserName = 'DBText7'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'FECHA'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 2910
+            mmLeft = 51858
+            mmTop = 0
+            mmWidth = 21960
+            BandType = 4
+          end
+          object ppDBText8: TppDBText
+            UserName = 'DBText8'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'FOLIO'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 2910
+            mmLeft = 34396
+            mmTop = 0
+            mmWidth = 16404
+            BandType = 4
+          end
+          object ppDBText10: TppDBText
+            UserName = 'DBText10'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'NOMBRE'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 2910
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 38365
+            BandType = 4
+          end
+          object ppVariable1: TppVariable
+            UserName = 'vTotalDocumento'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            BlankWhenZero = False
+            CalcOrder = 0
+            DataType = dtDouble
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 7
+            Font.Style = []
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 2879
+            mmLeft = 119856
+            mmTop = 265
+            mmWidth = 18965
+            BandType = 4
+          end
+        end
+        object ppSummaryBand2: TppSummaryBand
+          mmBottomOffset = 0
+          mmHeight = 5821
+          mmPrintPosition = 0
+          object ppDBCalc4: TppDBCalc
+            UserName = 'vTotalImportesDevoluciones'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'IMPORTE_NETO'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 3440
+            mmLeft = 71702
+            mmTop = 2381
+            mmWidth = 17198
+            BandType = 7
+          end
+          object ppDBCalc5: TppDBCalc
+            UserName = 'vTotalImpuestosDevoluciones'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            DataField = 'TOTAL_IMPUESTOS'
+            DataPipeline = daFIBQueryDataView3.DocumentosPVta2
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            DataPipelineName = 'DocumentosPVta2'
+            mmHeight = 3387
+            mmLeft = 96838
+            mmTop = 2381
+            mmWidth = 17198
+            BandType = 7
+          end
+          object ppLine2: TppLine
+            UserName = 'Line2'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            ParentWidth = True
+            Style = lsDouble
+            Weight = 0.750000000000000000
+            mmHeight = 2117
+            mmLeft = 0
+            mmTop = 529
+            mmWidth = 203200
+            BandType = 7
+          end
+          object ppVariable3: TppVariable
+            UserName = 'vTotalDevoluciones'
+            Border.BorderPositions = []
+            Border.Color = clBlack
+            Border.Style = psSolid
+            Border.Visible = False
+            BlankWhenZero = False
+            CalcOrder = 0
+            DataType = dtCurrency
+            DisplayFormat = '$#,0.00;($#,0.00)'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Name = 'Arial'
+            Font.Size = 8
+            Font.Style = [fsBold]
+            TextAlignment = taRightJustified
+            Transparent = True
+            mmHeight = 3440
+            mmLeft = 117211
+            mmTop = 2381
+            mmWidth = 21696
+            BandType = 7
+          end
+        end
+        object raCodeModule3: TraCodeModule
+          ProgramStream = {
+            01060A54726150726F6772616D094368696C645479706502130B50726F677261
+            6D4E616D65060E476C6F62616C4F6E4372656174650B50726F6772616D547970
+            65070B747450726F63656475726506536F75726365066870726F636564757265
+            20476C6F62616C4F6E4372656174653B0D0A626567696E0D0A20202020202020
+            766172546F74616C4465766F6C7563696F6E6573203A3D2076546F74616C4465
+            766F6C7563696F6E65732E417343757272656E6379203B0D0A656E643B0D0A00
+            01060F5472614576656E7448616E646C65720B50726F6772616D4E616D650615
+            76546F74616C446F63756D656E746F4F6E43616C630B50726F6772616D547970
+            65070B747450726F63656475726506536F75726365069D70726F636564757265
+            2076546F74616C446F63756D656E746F4F6E43616C63287661722056616C7565
+            3A2056617269616E74293B0D0A626567696E0D0A0D0A202056616C7565203A3D
+            2020446F63756D656E746F7350567461325B27496D706F727465206E65746F27
+            5D202B20446F63756D656E746F7350567461325B27546F74616C20646520696D
+            70756573746F73275D3B0D0A0D0A656E643B0D0A0D436F6D706F6E656E744E61
+            6D65060F76546F74616C446F63756D656E746F094576656E744E616D6506064F
+            6E43616C63074576656E74494402210001060F5472614576656E7448616E646C
+            65720B50726F6772616D4E616D65061876546F74616C4465766F6C7563696F6E
+            65734F6E43616C630B50726F6772616D54797065070B747450726F6365647572
+            6506536F7572636506CF70726F6365647572652076546F74616C4465766F6C75
+            63696F6E65734F6E43616C63287661722056616C75653A2056617269616E7429
+            3B0D0A626567696E0D0A0D0A2020766172546F74616C4465766F6C7563696F6E
+            6573203A3D202076546F74616C496D706F727465734465766F6C7563696F6E65
+            732E56616C7565202B202076546F74616C496D70756573746F734465766F6C75
+            63696F6E65732E56616C75653B0D0A202056616C7565203A3D20766172546F74
+            616C4465766F6C7563696F6E65733B0D0A0D0A656E643B0D0A0D436F6D706F6E
+            656E744E616D65061276546F74616C4465766F6C7563696F6E6573094576656E
+            744E616D6506064F6E43616C63074576656E74494402210000}
+        end
+      end
+    end
+  end
+  object ppDetailBand1: TppDetailBand
+    PrintHeight = phDynamic
+    mmBottomOffset = 0
+    mmHeight = 0
+    mmPrintPosition = 0
+  end
+  object ppSummaryBand3: TppSummaryBand
+    mmBottomOffset = 0
+    mmHeight = 28575
+    mmPrintPosition = 0
+    object ppShape4: TppShape
+      UserName = 'Shape4'
+      ParentWidth = True
+      mmHeight = 15875
+      mmLeft = 0
+      mmTop = 12700
+      mmWidth = 203200
+      BandType = 7
+    end
+    object ppShape3: TppShape
+      UserName = 'Shape3'
+      Brush.Color = clScrollBar
+      ParentWidth = True
+      mmHeight = 8202
+      mmLeft = 0
+      mmTop = 4233
+      mmWidth = 203200
+      BandType = 7
+    end
+    object ppVariable7: TppVariable
+      UserName = 'vDiferencia'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      BlankWhenZero = False
+      CalcOrder = 0
+      DataType = dtCurrency
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      TextAlignment = taRightJustified
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 105590
+      mmTop = 24342
+      mmWidth = 15240
+      BandType = 7
+    end
+    object ppLabel9: TppLabel
+      UserName = 'Label9'
+      AutoSize = False
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Caption = 'Totales'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 10
+      Font.Style = [fsBold]
+      TextAlignment = taCentered
+      Transparent = True
+      mmHeight = 4191
+      mmLeft = 0
+      mmTop = 6085
+      mmWidth = 203465
+      BandType = 7
+    end
+    object ppVariable8: TppVariable
+      UserName = 'vTotalDoctos'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      BlankWhenZero = False
+      CalcOrder = 1
+      DataType = dtCurrency
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      TextAlignment = taRightJustified
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 103177
+      mmTop = 13758
+      mmWidth = 17653
+      BandType = 7
+    end
+    object ppVariable9: TppVariable
+      UserName = 'vTotalDevoluciones'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      BlankWhenZero = False
+      CalcOrder = 2
+      DataType = dtCurrency
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      TextAlignment = taRightJustified
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 94446
+      mmTop = 19050
+      mmWidth = 26501
+      BandType = 7
+    end
+    object ppLabel19: TppLabel
+      UserName = 'Label19'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Caption = 'Total Documentos'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 1588
+      mmTop = 13758
+      mmWidth = 34396
+      BandType = 7
+    end
+    object ppLabel20: TppLabel
+      UserName = 'Label20'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Caption = 'Total Devoluciones'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 1588
+      mmTop = 19050
+      mmWidth = 33602
+      BandType = 7
+    end
+    object ppLabel21: TppLabel
+      UserName = 'Label21'
+      Border.BorderPositions = []
+      Border.Color = clBlack
+      Border.Style = psSolid
+      Border.Visible = False
+      Caption = 'Diferencia'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Name = 'Arial'
+      Font.Size = 8
+      Font.Style = [fsBold]
+      Transparent = True
+      mmHeight = 3387
+      mmLeft = 1588
+      mmTop = 24342
+      mmWidth = 21696
+      BandType = 7
+    end
+  end
+  object raCodeModule2: TraCodeModule
+    ProgramStream = {
+      01060D54726156617250726F6772616D094368696C645479706502110B50726F
+      6772616D4E616D6506095661726961626C65730B50726F6772616D5479706507
+      0B747450726F63656475726506536F75726365066470726F6365647572652056
+      61726961626C65733B0D0A7661720D0A766172546F74616C446F63746F733A20
+      446F75626C653B0D0A766172546F74616C4465766F6C7563696F6E65733A2044
+      6F75626C653B0D0A0D0A626567696E0D0A0D0A656E643B0D0A0001060F547261
+      4576656E7448616E646C65720B50726F6772616D4E616D650611764469666572
+      656E6369614F6E43616C630B50726F6772616D54797065070B747450726F6365
+      6475726506536F75726365067670726F63656475726520764469666572656E63
+      69614F6E43616C63287661722056616C75653A2056617269616E74293B0D0A62
+      6567696E0D0A0D0A202056616C7565203A3D20766172546F74616C446F63746F
+      73202D20766172546F74616C4465766F6C7563696F6E65733B0D0A0D0A656E64
+      3B0D0A0D436F6D706F6E656E744E616D65060B764469666572656E6369610945
+      76656E744E616D6506064F6E43616C63074576656E74494402210001060F5472
+      614576656E7448616E646C65720B50726F6772616D4E616D65061276546F7461
+      6C446F63746F734F6E43616C630B50726F6772616D54797065070B747450726F
+      63656475726506536F75726365066070726F6365647572652076546F74616C44
+      6F63746F734F6E43616C63287661722056616C75653A2056617269616E74293B
+      0D0A626567696E0D0A0D0A202056616C7565203A3D20766172546F74616C446F
+      63746F733B0D0A0D0A656E643B0D0A0D436F6D706F6E656E744E616D65060C76
+      546F74616C446F63746F73094576656E744E616D6506064F6E43616C63074576
+      656E74494402210001060F5472614576656E7448616E646C65720B50726F6772
+      616D4E616D65061876546F74616C4465766F6C7563696F6E65734F6E43616C63
+      0B50726F6772616D54797065070B747450726F63656475726506536F75726365
+      066D70726F6365647572652076546F74616C4465766F6C7563696F6E65734F6E
+      43616C63287661722056616C75653A2056617269616E74293B0D0A626567696E
+      0D0A0D0A202056616C7565203A3D2020766172546F74616C4465766F6C756369
+      6F6E65733B0D0A0D0A656E643B0D0A0D436F6D706F6E656E744E616D65061276
+      546F74616C4465766F6C7563696F6E6573094576656E744E616D6506064F6E43
+      616C63074576656E74494402210000}
+  end
+  object daDataModule1: TdaDataModule
+    object daFIBQueryDataView1: TdaFIBQueryDataView
+      UserName = 'Query_DocumentosPVta'
+      Height = 338
+      Left = 10
+      NameColumnWidth = 182
+      SizeColumnWidth = 35
+      SortMode = 0
+      Top = 10
+      TypeColumnWidth = 52
+      Width = 626
+      AutoSearchTabOrder = 0
+      object DocumentosPVta: TppChildDBPipeline
+        AutoCreateFields = False
+        UserName = 'DocumentosPVta'
+        object ppField1: TppField
+          FieldAlias = 'Nombre del cliente'
+          FieldName = 'NOMBRE'
+          FieldLength = 100
+          IsDetail = True
+          DisplayWidth = 100
+          Position = 0
+          TableName = 'CLIENTES_1'
+        end
+        object ppField2: TppField
+          FieldAlias = 'Folio'
+          FieldName = 'FOLIO'
+          FieldLength = 9
+          DisplayWidth = 9
+          Position = 1
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField3: TppField
+          FieldAlias = 'Fecha'
+          FieldName = 'FECHA'
+          FieldLength = 0
+          DataType = dtDate
+          DisplayWidth = 0
+          Position = 2
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField4: TppField
+          FieldAlias = 'Importe neto'
+          FieldName = 'IMPORTE_NETO'
+          FieldLength = 2
+          DataType = dtDouble
+          DisplayWidth = 2
+          Position = 3
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField5: TppField
+          FieldAlias = 'Total de impuestos'
+          FieldName = 'TOTAL_IMPUESTOS'
+          FieldLength = 2
+          DataType = dtDouble
+          DisplayWidth = 2
+          Position = 4
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField6: TppField
+          FieldAlias = 'Nombre de la condici'#243'n de pago'
+          FieldName = 'NOMBRE_2'
+          FieldLength = 50
+          IsDetail = True
+          DisplayWidth = 50
+          Position = 5
+          TableName = 'CONDICIONES_PAGO_1'
+        end
+        object ppField7: TppField
+          FieldAlias = 'Tipo de documento'
+          FieldName = 'TIPO_DOCTO'
+          FieldLength = 1
+          DisplayWidth = 1
+          Position = 6
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField8: TppField
+          FieldAlias = 'Folio (2)'
+          FieldName = 'FOLIO_2'
+          FieldLength = 9
+          IsDetail = True
+          DisplayWidth = 9
+          Position = 7
+          TableName = 'DOCTOS_PV_2'
+        end
+        object ppField9: TppField
+          FieldAlias = 'Tipo de documento (2)'
+          FieldName = 'TIPO_DOCTO_2'
+          FieldLength = 1
+          IsDetail = True
+          DisplayWidth = 1
+          Position = 8
+          TableName = 'DOCTOS_PV_2'
+        end
+        object ppField10: TppField
+          FieldAlias = 'Documento destino Id'
+          FieldName = 'DOCTO_DEST_ID'
+          FieldLength = 0
+          IsDetail = True
+          DataType = dtInteger
+          DisplayWidth = 0
+          Position = 9
+          TableName = 'DOCTOS_ENTRE_SIS_1'
+        end
+        object ppField11: TppField
+          FieldAlias = 'Estatus'
+          FieldName = 'ESTATUS'
+          FieldLength = 1
+          DisplayWidth = 1
+          Position = 10
+          TableName = 'DOCTOS_PV_1'
+        end
+      end
+      object daSQL1: TdaSQL
+        CollationType = ctASCII
+        DatabaseName = 'dtbsMicrosip'
+        DatabaseType = dtInterBase
+        DataPipelineName = 'DocumentosPVta'
+        Distinct = True
+        IsCaseSensitive = True
+        LinkColor = clMaroon
+        MaxSQLFieldAliasLength = 25
+        SQLText.Strings = (
+          'SELECT DISTINCT CLIENTES_1.NOMBRE, '
+          '                DOCTOS_PV_1.FOLIO, '
+          '                DOCTOS_PV_1.FECHA, '
+          '                DOCTOS_PV_1.IMPORTE_NETO, '
+          '                DOCTOS_PV_1.TOTAL_IMPUESTOS, '
+          '                CONDICIONES_PAGO_1.NOMBRE NOMBRE_2, '
+          '                DOCTOS_PV_1.TIPO_DOCTO, '
+          '                DOCTOS_PV_2.FOLIO FOLIO_2, '
+          '                DOCTOS_PV_2.TIPO_DOCTO TIPO_DOCTO_2, '
+          '                DOCTOS_ENTRE_SIS_1.DOCTO_DEST_ID, '
+          '                DOCTOS_PV_1.ESTATUS'
+          'FROM DOCTOS_PV DOCTOS_PV_1'
+          '      LEFT OUTER JOIN CLIENTES CLIENTES_1 ON '
+          '     (CLIENTES_1.CLIENTE_ID = DOCTOS_PV_1.CLIENTE_ID)'
+          '      INNER JOIN CONDICIONES_PAGO CONDICIONES_PAGO_1 ON '
+          '     (CONDICIONES_PAGO_1.COND_PAGO_ID = CLIENTES_1.COND_PAGO_ID)'
+          '      LEFT OUTER JOIN DOCTOS_PV_LIGAS DOCTOS_PV_LIGAS_1 ON '
+          
+            '     (DOCTOS_PV_LIGAS_1.DOCTO_PV_FTE_ID = DOCTOS_PV_1.DOCTO_PV_I' +
+            'D)'
+          '      LEFT OUTER JOIN DOCTOS_PV DOCTOS_PV_2 ON '
+          
+            '     (DOCTOS_PV_2.DOCTO_PV_ID = DOCTOS_PV_LIGAS_1.DOCTO_PV_DEST_' +
+            'ID)'
+          '      LEFT OUTER JOIN DOCTOS_ENTRE_SIS DOCTOS_ENTRE_SIS_1 ON '
+          '     (DOCTOS_ENTRE_SIS_1.DOCTO_FTE_ID = DOCTOS_PV_1.DOCTO_PV_ID)'
+          'WHERE ('#39'c'#39' <> '#39'c'#39' ) AND ('
+          '      ( DOCTOS_PV_1.TIPO_DOCTO = '#39'V'#39' )'
+          '       AND ( DOCTOS_ENTRE_SIS_1.CLAVE_SIS_DEST = '#39'CC'#39' )'
+          '       AND ( DOCTOS_ENTRE_SIS_1.CLAVE_SIS_FTE = '#39'PV'#39' )'
+          '       AND ( DOCTOS_ENTRE_SIS_1.TIPO_DOCTO = '#39'C'#39' )'
+          '      )')
+        SQLType = sqSQL2
+        object daCriteria1: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Operator = dacoBetween
+          object TdaField
+            Alias = 'Fecha'
+            AutoSearch = True
+            DataType = dtDate
+            DisplayWidth = 0
+            FieldAlias = 'Fecha'
+            FieldLength = 0
+            FieldName = 'FECHA'
+            SQLFieldName = 'FECHA'
+            TableAlias = 'DocumentosPVta'
+            TableName = 'DOCTOS_PV'
+            TableSQLAlias = 'DOCTOS_PV_1'
+          end
+        end
+        object daCriteria2: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Value = 'V'
+          object TdaField
+            Alias = 'Tipo de documento'
+            DisplayWidth = 1
+            FieldAlias = 'Tipo de documento'
+            FieldLength = 1
+            FieldName = 'TIPO_DOCTO'
+            SQLFieldName = 'TIPO_DOCTO'
+            TableAlias = 'DocumentosPVta'
+            TableName = 'DOCTOS_PV'
+            TableSQLAlias = 'DOCTOS_PV_1'
+          end
+        end
+        object daCriteria3: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Value = 'CC'
+          object TdaField
+            Alias = 'Clave del sistema destino'
+            DisplayWidth = 2
+            FieldAlias = 'Clave del sistema destino'
+            FieldLength = 2
+            FieldName = 'CLAVE_SIS_DEST'
+            SQLFieldName = 'CLAVE_SIS_DEST'
+            TableAlias = 'DoctosEntreSistemas'
+            TableName = 'DOCTOS_ENTRE_SIS'
+            TableSQLAlias = 'DOCTOS_ENTRE_SIS_1'
+          end
+        end
+        object daCriteria4: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Value = 'PV'
+          object TdaField
+            Alias = 'Clave del sistema fuente'
+            DisplayWidth = 2
+            FieldAlias = 'Clave del sistema fuente'
+            FieldLength = 2
+            FieldName = 'CLAVE_SIS_FTE'
+            SQLFieldName = 'CLAVE_SIS_FTE'
+            TableAlias = 'DoctosEntreSistemas'
+            TableName = 'DOCTOS_ENTRE_SIS'
+            TableSQLAlias = 'DOCTOS_ENTRE_SIS_1'
+          end
+        end
+        object daCriteria5: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Value = 'C'
+          object TdaField
+            Alias = 'Tipo de documento generado'
+            DisplayWidth = 1
+            FieldAlias = 'Tipo de documento generado'
+            FieldLength = 1
+            FieldName = 'TIPO_DOCTO'
+            SQLFieldName = 'TIPO_DOCTO'
+            TableAlias = 'DoctosEntreSistemas'
+            TableName = 'DOCTOS_ENTRE_SIS'
+            TableSQLAlias = 'DOCTOS_ENTRE_SIS_1'
+          end
+        end
+        object daField1: TdaField
+          Alias = 'Nombre del cliente'
+          DisplayWidth = 100
+          FieldAlias = 'Nombre del cliente'
+          FieldLength = 100
+          FieldName = 'NOMBRE'
+          IsDetail = True
+          SQLFieldName = 'NOMBRE'
+          TableAlias = 'Clientes'
+          TableName = 'CLIENTES'
+          TableSQLAlias = 'CLIENTES_1'
+        end
+        object daField2: TdaField
+          Alias = 'Folio'
+          DisplayWidth = 9
+          FieldAlias = 'Folio'
+          FieldLength = 9
+          FieldName = 'FOLIO'
+          SQLFieldName = 'FOLIO'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField3: TdaField
+          Alias = 'Fecha'
+          DataType = dtDate
+          DisplayWidth = 0
+          FieldAlias = 'Fecha'
+          FieldLength = 0
+          FieldName = 'FECHA'
+          SQLFieldName = 'FECHA'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField4: TdaField
+          Alias = 'Importe neto'
+          DataType = dtDouble
+          DisplayWidth = 2
+          FieldAlias = 'Importe neto'
+          FieldLength = 2
+          FieldName = 'IMPORTE_NETO'
+          SQLFieldName = 'IMPORTE_NETO'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField5: TdaField
+          Alias = 'Total de impuestos'
+          DataType = dtDouble
+          DisplayWidth = 2
+          FieldAlias = 'Total de impuestos'
+          FieldLength = 2
+          FieldName = 'TOTAL_IMPUESTOS'
+          SQLFieldName = 'TOTAL_IMPUESTOS'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField6: TdaField
+          Alias = 'Nombre de la condici'#243'n de pago'
+          DisplayWidth = 50
+          FieldAlias = 'Nombre de la condici'#243'n de pago'
+          FieldLength = 50
+          FieldName = 'NOMBRE'
+          IsDetail = True
+          SQLFieldName = 'NOMBRE_2'
+          TableAlias = 'CondicionesPago'
+          TableName = 'CONDICIONES_PAGO'
+          TableSQLAlias = 'CONDICIONES_PAGO_1'
+        end
+        object daField7: TdaField
+          Alias = 'Tipo de documento'
+          DisplayWidth = 1
+          FieldAlias = 'Tipo de documento'
+          FieldLength = 1
+          FieldName = 'TIPO_DOCTO'
+          SQLFieldName = 'TIPO_DOCTO'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField8: TdaField
+          Alias = 'Folio (2)'
+          DisplayWidth = 9
+          FieldAlias = 'Folio'
+          FieldLength = 9
+          FieldName = 'FOLIO'
+          IsDetail = True
+          SQLFieldName = 'FOLIO_2'
+          TableAlias = 'DocumentosPVta (2)'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_2'
+        end
+        object daField9: TdaField
+          Alias = 'Tipo de documento (2)'
+          DisplayWidth = 1
+          FieldAlias = 'Tipo de documento'
+          FieldLength = 1
+          FieldName = 'TIPO_DOCTO'
+          IsDetail = True
+          SQLFieldName = 'TIPO_DOCTO_2'
+          TableAlias = 'DocumentosPVta (2)'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_2'
+        end
+        object daField10: TdaField
+          Alias = 'Documento destino Id'
+          DataType = dtInteger
+          DisplayWidth = 0
+          FieldAlias = 'Documento destino Id'
+          FieldLength = 0
+          FieldName = 'DOCTO_DEST_ID'
+          IsDetail = True
+          SQLFieldName = 'DOCTO_DEST_ID'
+          TableAlias = 'DoctosEntreSistemas'
+          TableName = 'DOCTOS_ENTRE_SIS'
+          TableSQLAlias = 'DOCTOS_ENTRE_SIS_1'
+        end
+        object daField11: TdaField
+          Alias = 'Estatus'
+          DisplayWidth = 1
+          FieldAlias = 'Estatus'
+          FieldLength = 1
+          FieldName = 'ESTATUS'
+          SQLFieldName = 'ESTATUS'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField12: TdaField
+          ChildType = 2
+          Alias = 'Folio'
+          DisplayWidth = 9
+          FieldAlias = 'Folio'
+          FieldLength = 9
+          FieldName = 'FOLIO'
+          SQLFieldName = 'FOLIO'
+          TableAlias = 'DocumentosPVta (2)'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_2'
+        end
+        object daTable1: TdaTable
+          ChildType = 5
+          Alias = 'DocumentosPVta'
+          JoinType = dajtNone
+          SQLAlias = 'DOCTOS_PV_1'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+        end
+        object daTable2: TdaTable
+          ChildType = 5
+          Alias = 'Clientes'
+          JoinType = dajtLeftOuter
+          SQLAlias = 'CLIENTES_1'
+          TableAlias = 'Clientes'
+          TableName = 'CLIENTES'
+          object daTableJoin1: TdaTableJoin
+            ChildType = 6
+            object daField14: TdaField
+              ChildType = 3
+              Alias = 'Cliente Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Cliente Id'
+              FieldLength = 0
+              FieldName = 'CLIENTE_ID'
+              SQLFieldName = 'CLIENTE_ID'
+              TableAlias = 'Clientes'
+              TableName = 'CLIENTES'
+              TableSQLAlias = 'CLIENTES_1'
+            end
+            object daField13: TdaField
+              ChildType = 4
+              Alias = 'Cliente Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Cliente Id'
+              FieldLength = 0
+              FieldName = 'CLIENTE_ID'
+              SQLFieldName = 'CLIENTE_ID'
+              TableAlias = 'DocumentosPVta'
+              TableName = 'DOCTOS_PV'
+              TableSQLAlias = 'DOCTOS_PV_1'
+            end
+          end
+        end
+        object daTable3: TdaTable
+          ChildType = 5
+          Alias = 'CondicionesPago'
+          SQLAlias = 'CONDICIONES_PAGO_1'
+          TableAlias = 'CondicionesPago'
+          TableName = 'CONDICIONES_PAGO'
+          object daTableJoin2: TdaTableJoin
+            ChildType = 6
+            object daField16: TdaField
+              ChildType = 3
+              Alias = 'Condici'#243'n de pago Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Condici'#243'n de pago Id'
+              FieldLength = 0
+              FieldName = 'COND_PAGO_ID'
+              SQLFieldName = 'COND_PAGO_ID'
+              TableAlias = 'CondicionesPago'
+              TableName = 'CONDICIONES_PAGO'
+              TableSQLAlias = 'CONDICIONES_PAGO_1'
+            end
+            object daField15: TdaField
+              ChildType = 4
+              Alias = 'Condici'#243'n de pago Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Condici'#243'n de pago Id'
+              FieldLength = 0
+              FieldName = 'COND_PAGO_ID'
+              SQLFieldName = 'COND_PAGO_ID'
+              TableAlias = 'Clientes'
+              TableName = 'CLIENTES'
+              TableSQLAlias = 'CLIENTES_1'
+            end
+          end
+        end
+        object daTable4: TdaTable
+          ChildType = 5
+          Alias = 'DocumentosPVtaLigas'
+          JoinType = dajtLeftOuter
+          SQLAlias = 'DOCTOS_PV_LIGAS_1'
+          TableAlias = 'DocumentosPVtaLigas'
+          TableName = 'DOCTOS_PV_LIGAS'
+          object daTableJoin3: TdaTableJoin
+            ChildType = 6
+            object daField18: TdaField
+              ChildType = 3
+              Alias = 'Docto fuente Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Docto fuente Id'
+              FieldLength = 0
+              FieldName = 'DOCTO_PV_FTE_ID'
+              SQLFieldName = 'DOCTO_PV_FTE_ID'
+              TableAlias = 'DocumentosPVtaLigas'
+              TableName = 'DOCTOS_PV_LIGAS'
+              TableSQLAlias = 'DOCTOS_PV_LIGAS_1'
+            end
+            object daField17: TdaField
+              ChildType = 4
+              Alias = 'Docto Pv Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Docto Pv Id'
+              FieldLength = 0
+              FieldName = 'DOCTO_PV_ID'
+              SQLFieldName = 'DOCTO_PV_ID'
+              TableAlias = 'DocumentosPVta'
+              TableName = 'DOCTOS_PV'
+              TableSQLAlias = 'DOCTOS_PV_1'
+            end
+          end
+        end
+        object daTable5: TdaTable
+          ChildType = 5
+          Alias = 'DocumentosPVta'
+          JoinType = dajtLeftOuter
+          SQLAlias = 'DOCTOS_PV_2'
+          TableAlias = 'DocumentosPVta (2)'
+          TableName = 'DOCTOS_PV'
+          object daTableJoin4: TdaTableJoin
+            ChildType = 6
+            object daField20: TdaField
+              ChildType = 3
+              Alias = 'Docto Pv Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Docto Pv Id'
+              FieldLength = 0
+              FieldName = 'DOCTO_PV_ID'
+              SQLFieldName = 'DOCTO_PV_ID'
+              TableAlias = 'DocumentosPVta (2)'
+              TableName = 'DOCTOS_PV'
+              TableSQLAlias = 'DOCTOS_PV_2'
+            end
+            object daField19: TdaField
+              ChildType = 4
+              Alias = 'Docto destino Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Docto destino Id'
+              FieldLength = 0
+              FieldName = 'DOCTO_PV_DEST_ID'
+              SQLFieldName = 'DOCTO_PV_DEST_ID'
+              TableAlias = 'DocumentosPVtaLigas'
+              TableName = 'DOCTOS_PV_LIGAS'
+              TableSQLAlias = 'DOCTOS_PV_LIGAS_1'
+            end
+          end
+        end
+        object daTable6: TdaTable
+          ChildType = 5
+          Alias = 'DoctosEntreSistemas'
+          JoinType = dajtLeftOuter
+          SQLAlias = 'DOCTOS_ENTRE_SIS_1'
+          TableAlias = 'DoctosEntreSistemas'
+          TableName = 'DOCTOS_ENTRE_SIS'
+          object daTableJoin5: TdaTableJoin
+            ChildType = 6
+            object daField22: TdaField
+              ChildType = 3
+              Alias = 'Documento fuente Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Documento fuente Id'
+              FieldLength = 0
+              FieldName = 'DOCTO_FTE_ID'
+              SQLFieldName = 'DOCTO_FTE_ID'
+              TableAlias = 'DoctosEntreSistemas'
+              TableName = 'DOCTOS_ENTRE_SIS'
+              TableSQLAlias = 'DOCTOS_ENTRE_SIS_1'
+            end
+            object daField21: TdaField
+              ChildType = 4
+              Alias = 'Docto Pv Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Docto Pv Id'
+              FieldLength = 0
+              FieldName = 'DOCTO_PV_ID'
+              SQLFieldName = 'DOCTO_PV_ID'
+              TableAlias = 'DocumentosPVta'
+              TableName = 'DOCTOS_PV'
+              TableSQLAlias = 'DOCTOS_PV_1'
+            end
+          end
+        end
+      end
+    end
+    object daFIBQueryDataView2: TdaFIBQueryDataView
+      UserName = 'Query_ImportesDocumentosCxc'
+      Height = 230
+      Left = 667
+      NameColumnWidth = 105
+      SizeColumnWidth = 35
+      SortMode = 0
+      Top = 6
+      TypeColumnWidth = 52
+      Width = 290
+      AutoSearchTabOrder = 0
+      MasterDataViewUserName = 'Query_DocumentosPVta'
+      object ImportesDocumentosCxc: TppChildDBPipeline
+        AutoCreateFields = False
+        SkipWhenNoRecords = False
+        UserName = 'ImportesDocumentosCxc'
+        MasterDataPipelineName = 'DocumentosPVta'
+        object ppField1: TppField
+          FieldAlias = 'Cargo acreditado Id'
+          FieldName = 'DOCTO_CC_ACR_ID'
+          FieldLength = 0
+          DataType = dtInteger
+          DisplayWidth = 0
+          Position = 0
+          TableName = 'IMPORTES_DOCTOS_CC_1'
+        end
+        object ppField2: TppField
+          FieldAlias = 'Importe'
+          FieldName = 'SUM_IMPORTES_DOCTOS_CC_1'
+          FieldLength = 2
+          Linkable = False
+          DataType = dtDouble
+          DisplayWidth = 2
+          Position = 1
+          TableName = 'IMPORTES_DOCTOS_CC_1'
+        end
+        object TppMasterFieldLink
+          MasterFieldName = 'FOLIO_2'
+          CollationType = ctASCII
+          GuidCollationType = gcString
+          DetailFieldName = 'FOLIO'
+          DetailSortOrder = soAscending
+          IsCaseSensitive = True
+        end
+        object TppMasterFieldLink
+          MasterFieldName = 'DOCTO_DEST_ID'
+          CollationType = ctASCII
+          GuidCollationType = gcString
+          DetailFieldName = 'DOCTO_CC_ACR_ID'
+          DetailSortOrder = soAscending
+          IsCaseSensitive = True
+        end
+      end
+      object daSQL2: TdaSQL
+        CollationType = ctASCII
+        DatabaseName = 'dtbsMicrosip'
+        DatabaseType = dtInterBase
+        DataPipelineName = 'ImportesDocumentosCxc'
+        IsCaseSensitive = True
+        GroupByFieldsSynced = True
+        LinkColor = clNavy
+        MaxSQLFieldAliasLength = 25
+        SkipWhenNoRecords = False
+        SQLText.Strings = (
+          'SELECT IMPORTES_DOCTOS_CC_1.DOCTO_CC_ACR_ID, '
+          
+            '       SUM(IMPORTES_DOCTOS_CC_1.IMPORTE) SUM_IMPORTES_DOCTOS_CC_' +
+            '1'
+          'FROM IMPORTES_DOCTOS_CC IMPORTES_DOCTOS_CC_1'
+          'WHERE ('#39'c'#39' <> '#39'c'#39' ) AND ('
+          '      ( IMPORTES_DOCTOS_CC_1.TIPO_IMPTE = '#39'R'#39' ))'
+          'GROUP BY IMPORTES_DOCTOS_CC_1.DOCTO_CC_ACR_ID')
+        SQLType = sqSQL2
+        object daCalculation1: TdaCalculation
+          ChildType = 8
+          Alias = 'Importe'
+          DataType = dtDouble
+          DisplayWidth = 2
+          FieldAlias = 'Importe'
+          FieldLength = 2
+          FieldName = 'IMPORTE'
+          Linkable = False
+          SQLFieldName = 'SUM_IMPORTES_DOCTOS_CC_1'
+          TableAlias = 'ImportesDocumentosCxc'
+          TableName = 'IMPORTES_DOCTOS_CC'
+          TableSQLAlias = 'IMPORTES_DOCTOS_CC_1'
+          CalcType = dacaSum
+        end
+        object daCriteria1: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Value = 'R'
+          object TdaField
+            Alias = 'Tipo de importe'
+            DisplayWidth = 1
+            FieldAlias = 'Tipo de importe'
+            FieldLength = 1
+            FieldName = 'TIPO_IMPTE'
+            SQLFieldName = 'TIPO_IMPTE'
+            TableAlias = 'ImportesDocumentosCxc'
+            TableName = 'IMPORTES_DOCTOS_CC'
+            TableSQLAlias = 'IMPORTES_DOCTOS_CC_1'
+          end
+        end
+        object daField1: TdaField
+          Alias = 'Cargo acreditado Id'
+          DataType = dtInteger
+          DisplayWidth = 0
+          FieldAlias = 'Cargo acreditado Id'
+          FieldLength = 0
+          FieldName = 'DOCTO_CC_ACR_ID'
+          SQLFieldName = 'DOCTO_CC_ACR_ID'
+          TableAlias = 'ImportesDocumentosCxc'
+          TableName = 'IMPORTES_DOCTOS_CC'
+          TableSQLAlias = 'IMPORTES_DOCTOS_CC_1'
+        end
+        object daField2: TdaField
+          ChildType = 1
+          Alias = 'Cargo acreditado Id'
+          DataType = dtInteger
+          DisplayWidth = 0
+          FieldAlias = 'Cargo acreditado Id'
+          FieldLength = 0
+          FieldName = 'DOCTO_CC_ACR_ID'
+          SQLFieldName = 'DOCTO_CC_ACR_ID'
+          TableAlias = 'ImportesDocumentosCxc'
+          TableName = 'IMPORTES_DOCTOS_CC'
+          TableSQLAlias = 'IMPORTES_DOCTOS_CC_1'
+        end
+        object daTable1: TdaTable
+          ChildType = 5
+          Alias = 'ImportesDocumentosCxc'
+          JoinType = dajtNone
+          SQLAlias = 'IMPORTES_DOCTOS_CC_1'
+          TableAlias = 'ImportesDocumentosCxc'
+          TableName = 'IMPORTES_DOCTOS_CC'
+        end
+        object TdaSQLLink
+          ChildType = 9
+          object daField3: TdaField
+            ChildType = 10
+            Alias = 'Documento destino Id'
+            DataType = dtInteger
+            DisplayWidth = 0
+            FieldAlias = 'Documento destino Id'
+            FieldLength = 0
+            FieldName = 'DOCTO_DEST_ID'
+            IsDetail = True
+            SQLFieldName = 'DOCTO_DEST_ID'
+            TableAlias = 'DoctosEntreSistemas'
+            TableName = 'DOCTOS_ENTRE_SIS'
+            TableSQLAlias = 'DOCTOS_ENTRE_SIS_1'
+          end
+          object daField4: TdaField
+            ChildType = 11
+            Alias = 'Cargo acreditado Id'
+            DataType = dtInteger
+            DisplayWidth = 0
+            FieldAlias = 'Cargo acreditado Id'
+            FieldLength = 0
+            FieldName = 'DOCTO_CC_ACR_ID'
+            SQLFieldName = 'DOCTO_CC_ACR_ID'
+            TableAlias = 'ImportesDocumentosCxc'
+            TableName = 'IMPORTES_DOCTOS_CC'
+            TableSQLAlias = 'IMPORTES_DOCTOS_CC_1'
+          end
+        end
+      end
+    end
+    object daFIBQueryDataView3: TdaFIBQueryDataView
+      UserName = 'Query_DocumentosPVta2'
+      Height = 199
+      Left = 1007
+      NameColumnWidth = 105
+      SizeColumnWidth = 35
+      SortMode = 0
+      Top = 10
+      TypeColumnWidth = 52
+      Width = 200
+      AutoSearchTabOrder = 0
+      object DocumentosPVta2: TppChildDBPipeline
+        AutoCreateFields = False
+        UserName = 'DocumentosPVta2'
+        object ppField1: TppField
+          FieldAlias = 'Nombre del cliente'
+          FieldName = 'NOMBRE'
+          FieldLength = 100
+          IsDetail = True
+          DisplayWidth = 100
+          Position = 0
+          TableName = 'CLIENTES_1'
+        end
+        object ppField2: TppField
+          FieldAlias = 'Folio'
+          FieldName = 'FOLIO'
+          FieldLength = 9
+          DisplayWidth = 9
+          Position = 1
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField3: TppField
+          FieldAlias = 'Fecha'
+          FieldName = 'FECHA'
+          FieldLength = 0
+          DataType = dtDate
+          DisplayWidth = 0
+          Position = 2
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField4: TppField
+          FieldAlias = 'Importe neto'
+          FieldName = 'IMPORTE_NETO'
+          FieldLength = 2
+          DataType = dtDouble
+          DisplayWidth = 2
+          Position = 3
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField5: TppField
+          FieldAlias = 'Total de impuestos'
+          FieldName = 'TOTAL_IMPUESTOS'
+          FieldLength = 2
+          DataType = dtDouble
+          DisplayWidth = 2
+          Position = 4
+          TableName = 'DOCTOS_PV_1'
+        end
+        object ppField6: TppField
+          FieldAlias = 'Nombre de la condici'#243'n de pago'
+          FieldName = 'NOMBRE_2'
+          FieldLength = 50
+          IsDetail = True
+          DisplayWidth = 50
+          Position = 5
+          TableName = 'CONDICIONES_PAGO_1'
+        end
+      end
+      object daSQL3: TdaSQL
+        CollationType = ctASCII
+        DatabaseName = 'dtbsMicrosip'
+        DatabaseType = dtInterBase
+        DataPipelineName = 'DocumentosPVta2'
+        IsCaseSensitive = True
+        LinkColor = clGreen
+        MaxSQLFieldAliasLength = 25
+        SQLText.Strings = (
+          'SELECT CLIENTES_1.NOMBRE, DOCTOS_PV_1.FOLIO, '
+          '       DOCTOS_PV_1.FECHA, '
+          '       DOCTOS_PV_1.IMPORTE_NETO, '
+          '       DOCTOS_PV_1.TOTAL_IMPUESTOS, '
+          '       CONDICIONES_PAGO_1.NOMBRE NOMBRE_2'
+          'FROM DOCTOS_PV DOCTOS_PV_1'
+          '      LEFT OUTER JOIN CLIENTES CLIENTES_1 ON '
+          '     (CLIENTES_1.CLIENTE_ID = DOCTOS_PV_1.CLIENTE_ID)'
+          '      INNER JOIN CONDICIONES_PAGO CONDICIONES_PAGO_1 ON '
+          '     (CONDICIONES_PAGO_1.COND_PAGO_ID = CLIENTES_1.COND_PAGO_ID)'
+          'WHERE ('#39'c'#39' <> '#39'c'#39' ) AND ('
+          '      ( DOCTOS_PV_1.TIPO_DOCTO = '#39'D'#39' ))')
+        SQLType = sqSQL2
+        object daCriteria1: TdaCriteria
+          ChildType = 7
+          Level = 0
+          Value = 'D'
+          object TdaField
+            Alias = 'Tipo de documento'
+            DisplayWidth = 1
+            FieldAlias = 'Tipo de documento'
+            FieldLength = 1
+            FieldName = 'TIPO_DOCTO'
+            SQLFieldName = 'TIPO_DOCTO'
+            TableAlias = 'DocumentosPVta'
+            TableName = 'DOCTOS_PV'
+            TableSQLAlias = 'DOCTOS_PV_1'
+          end
+        end
+        object daField1: TdaField
+          Alias = 'Nombre del cliente'
+          DisplayWidth = 100
+          FieldAlias = 'Nombre del cliente'
+          FieldLength = 100
+          FieldName = 'NOMBRE'
+          IsDetail = True
+          SQLFieldName = 'NOMBRE'
+          TableAlias = 'Clientes'
+          TableName = 'CLIENTES'
+          TableSQLAlias = 'CLIENTES_1'
+        end
+        object daField2: TdaField
+          Alias = 'Folio'
+          DisplayWidth = 9
+          FieldAlias = 'Folio'
+          FieldLength = 9
+          FieldName = 'FOLIO'
+          SQLFieldName = 'FOLIO'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField3: TdaField
+          Alias = 'Fecha'
+          DataType = dtDate
+          DisplayWidth = 0
+          FieldAlias = 'Fecha'
+          FieldLength = 0
+          FieldName = 'FECHA'
+          SQLFieldName = 'FECHA'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField4: TdaField
+          Alias = 'Importe neto'
+          DataType = dtDouble
+          DisplayWidth = 2
+          FieldAlias = 'Importe neto'
+          FieldLength = 2
+          FieldName = 'IMPORTE_NETO'
+          SQLFieldName = 'IMPORTE_NETO'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField5: TdaField
+          Alias = 'Total de impuestos'
+          DataType = dtDouble
+          DisplayWidth = 2
+          FieldAlias = 'Total de impuestos'
+          FieldLength = 2
+          FieldName = 'TOTAL_IMPUESTOS'
+          SQLFieldName = 'TOTAL_IMPUESTOS'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+          TableSQLAlias = 'DOCTOS_PV_1'
+        end
+        object daField6: TdaField
+          Alias = 'Nombre de la condici'#243'n de pago'
+          DisplayWidth = 50
+          FieldAlias = 'Nombre de la condici'#243'n de pago'
+          FieldLength = 50
+          FieldName = 'NOMBRE'
+          IsDetail = True
+          SQLFieldName = 'NOMBRE_2'
+          TableAlias = 'CondicionesPago'
+          TableName = 'CONDICIONES_PAGO'
+          TableSQLAlias = 'CONDICIONES_PAGO_1'
+        end
+        object daTable1: TdaTable
+          ChildType = 5
+          Alias = 'DocumentosPVta'
+          JoinType = dajtNone
+          SQLAlias = 'DOCTOS_PV_1'
+          TableAlias = 'DocumentosPVta'
+          TableName = 'DOCTOS_PV'
+        end
+        object daTable2: TdaTable
+          ChildType = 5
+          Alias = 'Clientes'
+          JoinType = dajtLeftOuter
+          SQLAlias = 'CLIENTES_1'
+          TableAlias = 'Clientes'
+          TableName = 'CLIENTES'
+          object daTableJoin1: TdaTableJoin
+            ChildType = 6
+            object daField8: TdaField
+              ChildType = 3
+              Alias = 'Cliente Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Cliente Id'
+              FieldLength = 0
+              FieldName = 'CLIENTE_ID'
+              SQLFieldName = 'CLIENTE_ID'
+              TableAlias = 'Clientes'
+              TableName = 'CLIENTES'
+              TableSQLAlias = 'CLIENTES_1'
+            end
+            object daField7: TdaField
+              ChildType = 4
+              Alias = 'Cliente Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Cliente Id'
+              FieldLength = 0
+              FieldName = 'CLIENTE_ID'
+              SQLFieldName = 'CLIENTE_ID'
+              TableAlias = 'DocumentosPVta'
+              TableName = 'DOCTOS_PV'
+              TableSQLAlias = 'DOCTOS_PV_1'
+            end
+          end
+        end
+        object daTable3: TdaTable
+          ChildType = 5
+          Alias = 'CondicionesPago'
+          SQLAlias = 'CONDICIONES_PAGO_1'
+          TableAlias = 'CondicionesPago'
+          TableName = 'CONDICIONES_PAGO'
+          object daTableJoin2: TdaTableJoin
+            ChildType = 6
+            object daField10: TdaField
+              ChildType = 3
+              Alias = 'Condici'#243'n de pago Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Condici'#243'n de pago Id'
+              FieldLength = 0
+              FieldName = 'COND_PAGO_ID'
+              SQLFieldName = 'COND_PAGO_ID'
+              TableAlias = 'CondicionesPago'
+              TableName = 'CONDICIONES_PAGO'
+              TableSQLAlias = 'CONDICIONES_PAGO_1'
+            end
+            object daField9: TdaField
+              ChildType = 4
+              Alias = 'Condici'#243'n de pago Id'
+              DataType = dtInteger
+              DisplayWidth = 0
+              FieldAlias = 'Condici'#243'n de pago Id'
+              FieldLength = 0
+              FieldName = 'COND_PAGO_ID'
+              SQLFieldName = 'COND_PAGO_ID'
+              TableAlias = 'Clientes'
+              TableName = 'CLIENTES'
+              TableSQLAlias = 'CLIENTES_1'
+            end
+          end
+        end
+      end
+    end
+  end
+  object ppParameterList1: TppParameterList
+  end
+end
