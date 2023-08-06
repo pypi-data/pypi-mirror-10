@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: cffi_magic
+Version: 0.0.2
+Summary: A module that define a cffi magic for IPython
+Home-page: https://github.com/Carreau/cffi_magic
+License: UNKNOWN
+Author: Matthias Bussonnier
+Author-email: bussonniermatthias@gmail.com
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: cffi
+
+CFFI magi
+=========
+
+Quick iteration of cffi in notebooks.
+
+.. code:: python
+
+    %%cffi int quint(int);
+    int quint(int n)
+    {
+        return 5*n;
+    }
+
+    # quint(9) # 45
+
