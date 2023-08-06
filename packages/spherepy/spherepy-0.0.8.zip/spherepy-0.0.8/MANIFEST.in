@@ -1,0 +1,5 @@
+include COPYING README.md
+include spherepy/tests/*.py
+recursive-include src *
+
+
