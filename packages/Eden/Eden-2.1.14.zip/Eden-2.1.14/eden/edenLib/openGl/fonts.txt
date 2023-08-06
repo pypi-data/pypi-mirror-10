@@ -1,0 +1,9 @@
+Create a texture atlas containing all chars.
+Getting a char means getting its atlas coords (pos and size).
+The render each char to the appropriate substrate coords.
+
+Chars come from a dict:
+
+{<char>: <pos>, <size>}
+
+Rendering chars to a surface with constant size means that texture coords (m) are given with respect to denormalized surface coords (m).

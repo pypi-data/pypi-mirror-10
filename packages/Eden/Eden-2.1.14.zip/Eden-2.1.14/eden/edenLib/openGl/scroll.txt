@@ -1,0 +1,21 @@
+Compute hardStartIndex, startIndex and cursorIndex as follows:
+
+1. Adapt text
+(dependency on keyText and keyDown)
+
+2. Compute hardStartIndex of new text from oldStartIndex
+(dependency on text)
+
+3. Compute rawCore from hardStartIndex, assuming new viewport starts at old startIndex,
+until 1 line after viewport end
+(dependency on hardStartIndex)
+
+4. Compute edit state
+(dependency on rawCore)
+
+5. Compute scrolled core
+(dependency on edit state)
+
+6. Compute cursor coords in scrolled core
+
+Problem: hardStartIndex depends on the altered text

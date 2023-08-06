@@ -1,0 +1,8 @@
+1. Denormalize bounding box by multiplying it with the size matrix
+2. Get multiple lines of text with absolute character size
+3. Compute character cell vertex locations in the denormalized bounding box
+Each cell should have 4 vertices, which are not shared with the next cell
+4. Assign the 4 normalized texture coordinates of the appropriate character to the 4 cell vertices.
+5. Homogenize the cell coordinates and multiply them by the homogenized translation x rotation matrix. 
+6. Set the core memory for each cell.
+7. Render.
