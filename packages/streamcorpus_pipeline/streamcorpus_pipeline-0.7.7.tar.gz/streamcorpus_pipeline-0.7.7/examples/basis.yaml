@@ -1,0 +1,38 @@
+
+streamcorpus_pipeline:
+  root_path:
+  tmp_dir_path:  tmp
+  reader: john_smith_custom_reader #from_local_chunks
+
+  log_level: DEBUG
+
+  external_stages_path: examples/john_smith_custom_reader.py
+
+  john_smith_custom_reader:
+    ground_truth_path: data/john-smith/ground-truth.tsv
+
+  incremental_transforms:
+  - clean_visible
+  - language
+  - basis
+
+  basis:
+    path_in_third:  /third/basis/basis-tech-2014-02-14/
+
+  output_chunk_max_count: 10000
+
+  batch_transforms: 
+  - multi_token_match_align_labels
+
+  multi_token_match_align_labels:
+    update_labels: true
+    annotator_id: bagga-and-baldwin
+    tagger_id: basis
+
+
+  writers: [to_local_chunks]
+
+  to_local_chunks:
+    output_type: otherdir
+    output_path: foo2
+    output_name: "%(source)s-%(num)d-%(md5)s"
