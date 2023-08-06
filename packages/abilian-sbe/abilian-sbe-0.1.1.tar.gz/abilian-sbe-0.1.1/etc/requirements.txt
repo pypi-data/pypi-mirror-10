@@ -1,0 +1,9 @@
+# Abilian Core
+abilian-core>=0.3.6,<0.4
+
+# Used for language detection in the document management app.
+# TODO: replace by langid ?
+guess-language-spirit>=0.5.1,<0.6
+
+# Charset detection
+chardet
