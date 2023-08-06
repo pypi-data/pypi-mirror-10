@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cf.List &mdash; Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Documentation" href="../index.html" />
+    <link rel="up" title="Classes of the cf module" href="../class.html" />
+    <link rel="next" title="cf.List.copy" href="../generated/cf.List.copy.html" />
+    <link rel="prev" title="cf.Dict.values" href="../generated/cf.Dict.values.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../generated/cf.List.copy.html" title="cf.List.copy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../generated/cf.Dict.values.html" title="cf.Dict.values"
+             accesskey="P">previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" accesskey="U">Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cf-list">
+<h1>cf.List<a class="headerlink" href="#cf-list" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cf.List">
+<em class="property">class </em><tt class="descclassname">cf.</tt><tt class="descname">List</tt><big>(</big><em>elements=None</em><big>)</big><a class="reference external" href="https://bitbucket.org/cfpython/cf-python/src/v1.0.3/cf/utils.py#cl-16"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cf.List" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">_abcoll.MutableSequence</span></tt></p>
+<p>A list-like object with attributes.</p>
+<p><strong>Initialization</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt>sequence <span class="classifier-delimiter">:</span> <span class="classifier">iterable, optional</span></dt>
+<dd><p class="first last">Define a new list with these elements.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="list-methods">
+<h2>List methods<a class="headerlink" href="#list-methods" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.copy.html#cf.List.copy" title="cf.List.copy"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<td>Return a deep copy.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.count.html#cf.List.count" title="cf.List.count"><tt class="xref py py-obj docutils literal"><span class="pre">count</span></tt></a></td>
+<td>Return the number of occurrences of a value</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.delattr.html#cf.List.delattr" title="cf.List.delattr"><tt class="xref py py-obj docutils literal"><span class="pre">delattr</span></tt></a></td>
+<td>Delete a named attribute on each element of the list.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.equals.html#cf.List.equals" title="cf.List.equals"><tt class="xref py py-obj docutils literal"><span class="pre">equals</span></tt></a></td>
+<td>True if two instances are equal, False otherwise.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.getattr.html#cf.List.getattr" title="cf.List.getattr"><tt class="xref py py-obj docutils literal"><span class="pre">getattr</span></tt></a></td>
+<td>Get a named attribute from each element of the list.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.index.html#cf.List.index" title="cf.List.index"><tt class="xref py py-obj docutils literal"><span class="pre">index</span></tt></a></td>
+<td>Return the first index of a value.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.iter.html#cf.List.iter" title="cf.List.iter"><tt class="xref py py-obj docutils literal"><span class="pre">iter</span></tt></a></td>
+<td>Return an iterator over the results of a method applied to each element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.method.html#cf.List.method" title="cf.List.method"><tt class="xref py py-obj docutils literal"><span class="pre">method</span></tt></a></td>
+<td>Return an list of the results of a method applied to each element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.setattr.html#cf.List.setattr" title="cf.List.setattr"><tt class="xref py py-obj docutils literal"><span class="pre">setattr</span></tt></a></td>
+<td>Set a named attribute on each element of the list.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="list-list-like-methods">
+<h2>List list-like methods<a class="headerlink" href="#list-list-like-methods" title="Permalink to this headline">¶</a></h2>
+<p>These methods provide functionality exactly as their counterparts in a
+built-in <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#list" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a>.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.append.html#cf.List.append" title="cf.List.append"><tt class="xref py py-obj docutils literal"><span class="pre">append</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.extend.html#cf.List.extend" title="cf.List.extend"><tt class="xref py py-obj docutils literal"><span class="pre">extend</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.insert.html#cf.List.insert" title="cf.List.insert"><tt class="xref py py-obj docutils literal"><span class="pre">insert</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.pop.html#cf.List.pop" title="cf.List.pop"><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.remove.html#cf.List.remove" title="cf.List.remove"><tt class="xref py py-obj docutils literal"><span class="pre">remove</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.List.reverse.html#cf.List.reverse" title="cf.List.reverse"><tt class="xref py py-obj docutils literal"><span class="pre">reverse</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.List.sort.html#cf.List.sort" title="cf.List.sort"><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cf.List</a><ul>
+<li><a class="reference internal" href="#list-methods">List methods</a></li>
+<li><a class="reference internal" href="#list-list-like-methods">List list-like methods</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../generated/cf.Dict.values.html"
+                        title="previous chapter">cf.Dict.values</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../generated/cf.List.copy.html"
+                        title="next chapter">cf.List.copy</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classes/cf.List.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../generated/cf.List.copy.html" title="cf.List.copy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../generated/cf.Dict.values.html" title="cf.Dict.values"
+             >previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" >Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, David Hassell.
+      Last updated on Jun 23, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

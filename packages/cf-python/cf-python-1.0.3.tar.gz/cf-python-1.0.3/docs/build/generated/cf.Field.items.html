@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cf.Field.items &mdash; Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Documentation" href="../index.html" />
+    <link rel="up" title="cf.Field" href="../classes/cf.Field.html" />
+    <link rel="next" title="cf.Field.items_axes" href="cf.Field.items_axes.html" />
+    <link rel="prev" title="cf.Field.item_axes" href="cf.Field.item_axes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cf.Field.items_axes.html" title="cf.Field.items_axes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cf.Field.item_axes.html" title="cf.Field.item_axes"
+             accesskey="P">previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" >Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li>
+          <li><a href="../classes/cf.Field.html" accesskey="U">cf.Field</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cf-field-items">
+<h1>cf.Field.items<a class="headerlink" href="#cf-field-items" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="cf.Field.items">
+<tt class="descclassname">Field.</tt><tt class="descname">items</tt><big>(</big><em>items=None</em>, <em>role=None</em>, <em>axes=None</em>, <em>ndim=None</em>, <em>exact=False</em>, <em>inverse=False</em>, <em>match_and=True</em>, <em>strict_axes=False</em><big>)</big><a class="reference external" href="https://bitbucket.org/cfpython/cf-python/src/v1.0.3/cf/field.py#cl-9062"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cf.Field.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return domain items from the field.</p>
+<p>An item is a dimension coordinate, an auxiliary coordinate, a cell
+measure or a coordinate reference object.</p>
+<p>The output is a dictionary whose key/value pairs are domain
+identifiers with corresponding values of items of the domain.</p>
+<p>By default all items of the domain are returned, but particular items
+may be selected with the keyword parameters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Selection</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>items</em></td>
+<td>Items whose properties or attributes satisfy given conditions</td>
+</tr>
+<tr class="row-odd"><td><em>role</em></td>
+<td>Items with particular roles</td>
+</tr>
+<tr class="row-even"><td><em>axes</em></td>
+<td>Items which span particular axes</td>
+</tr>
+<tr class="row-odd"><td><em>ndim</em></td>
+<td>Items with particular numbers of data array axes</td>
+</tr>
+</tbody>
+</table>
+<p>When multiple keyword parameters are given, the returned items are the
+intersection of the selections.</p>
+<p>The returned items are not copies, so in-place changes to them are
+stored in the field&#8217;s domain.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="cf.Field.auxs.html#cf.Field.auxs" title="cf.Field.auxs"><tt class="xref py py-obj docutils literal"><span class="pre">auxs</span></tt></a>, <a class="reference internal" href="cf.Field.axes.html#cf.Field.axes" title="cf.Field.axes"><tt class="xref py py-obj docutils literal"><span class="pre">axes</span></tt></a>, <a class="reference internal" href="cf.Field.measures.html#cf.Field.measures" title="cf.Field.measures"><tt class="xref py py-obj docutils literal"><span class="pre">measures</span></tt></a>, <a class="reference internal" href="cf.Field.coords.html#cf.Field.coords" title="cf.Field.coords"><tt class="xref py py-obj docutils literal"><span class="pre">coords</span></tt></a>, <a class="reference internal" href="cf.Field.dims.html#cf.Field.dims" title="cf.Field.dims"><tt class="xref py py-obj docutils literal"><span class="pre">dims</span></tt></a>, <a class="reference internal" href="cf.Field.item.html#cf.Field.item" title="cf.Field.item"><tt class="xref py py-obj docutils literal"><span class="pre">item</span></tt></a>, <a class="reference internal" href="cf.Field.match.html#cf.Field.match" title="cf.Field.match"><tt class="xref py py-obj docutils literal"><span class="pre">match</span></tt></a>
+<a class="reference internal" href="cf.Field.remove_items.html#cf.Field.remove_items" title="cf.Field.remove_items"><tt class="xref py py-obj docutils literal"><span class="pre">remove_items</span></tt></a>, <a class="reference internal" href="cf.Field.refs.html#cf.Field.refs" title="cf.Field.refs"><tt class="xref py py-obj docutils literal"><span class="pre">refs</span></tt></a></p>
+</div>
+<p><strong>Quick start examples</strong></p>
+<p>There is great flexibility in the types of item selection which can be
+specified, and as a result the documentation is very detailed. These
+preliminary, simple examples show that the usage need not always be
+complicated and may help with understanding the keyword descriptions.</p>
+<ol class="arabic">
+<li><p class="first">Select all items whose identities (as returned by their <tt class="xref py py-obj docutils literal"><span class="pre">identity</span></tt>
+methods) start &#8220;height&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="s">&#39;height&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select all items which span only one axis:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">ndim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select all cell measure objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s">&#39;m&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select all items which span the &#8220;time&#8221; axis:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">axes</span><span class="o">=</span><span class="s">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select all CF latitude coordinate objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select all multidimensional dimension and auxiliary coordinate
+objects which span at least the &#8220;time&#8221; and/or &#8220;height&#8221; axes and
+whose long names contain the string &#8220;qwerty&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="s">&#39;long_name:.*qwerty&#39;</span><span class="p">,</span> 
+<span class="gp">... </span>        <span class="n">role</span><span class="o">=</span><span class="s">&#39;da&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="s">&#39;height&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="n">ndim</span><span class="o">=</span><span class="n">cf</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Further examples are given within and after the description of the
+parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>items <span class="classifier-delimiter">:</span> <span class="classifier"><em>optional</em></span></dt>
+<dd><blockquote class="first">
+<div><p>Select items whose properties or attributes satisfy the given
+conditions.</p>
+<p><em>items</em> may be <a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, a string, a dictionary or a <a class="reference internal" href="../classes/cf.Query.html#cf.Query" title="cf.Query"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Query</span></tt></a>
+object; or a sequence of any of these:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or an empty dictionary. All items are
+selected. This is the default.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><ul>
+<li><p class="first">A string specifying one of the CF coordinate type:
+<tt class="docutils literal"><span class="pre">'T'</span></tt>, <tt class="docutils literal"><span class="pre">'X'</span></tt>, <tt class="docutils literal"><span class="pre">'Y'</span></tt> or <tt class="docutils literal"><span class="pre">'Z'</span></tt></p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select CF time items: <tt class="docutils literal"><span class="pre">items='T'</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><ul>
+<li><p class="first">A string which identifies items based on their
+string-valued metadata. The value may take one of the
+following forms:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Interpretation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Contains <tt class="docutils literal"><span class="pre">':'</span></tt></td>
+<td>Selects on the CF property specified
+before the first <tt class="docutils literal"><span class="pre">':'</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Contains <tt class="docutils literal"><span class="pre">'%'</span></tt></td>
+<td>Selects on the attribute specified
+before the first <tt class="docutils literal"><span class="pre">'%'</span></tt></td>
+</tr>
+<tr class="row-even"><td>Anything else</td>
+<td>Selects on identity as returned by the
+<tt class="xref py py-obj docutils literal"><span class="pre">identity</span></tt> method</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>By default the part of the string to be compared with the
+item is treated as a regular expression understood by the
+<a class="reference external" href="http://docs.python.org/2.7/library/re.html#module-re" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">re</span></tt></a> module and an item is selected if its
+appropriate value matches the regular expression using the
+<a class="reference external" href="http://docs.python.org/2.7/library/re.html#re.match" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">re.match</span></tt></a> method (i.e. if zero or more characters
+at the beginning of item&#8217;s value match the regular
+expression pattern). See the <em>exact</em> parameter for
+details.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with standard names which begin &#8220;lat&#8221;:
+<tt class="docutils literal"><span class="pre">items='lat'</span></tt>.</p>
+</dd>
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with long names which begin &#8220;air&#8221;:
+<tt class="docutils literal"><span class="pre">items='long_name:air'</span></tt>.</p>
+</dd>
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with netCDF variable names which begin
+&#8220;lon&#8221;: <tt class="docutils literal"><span class="pre">items='ncvar%lon'</span></tt>.</p>
+</dd>
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with identities which end with the
+letter &#8220;z&#8221;: <tt class="docutils literal"><span class="pre">items='.*z$'</span></tt>.</p>
+</dd>
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with long names which start with the
+string &#8221;.*a&#8221;: <tt class="docutils literal"><span class="pre">items='long_name%\.\*a'</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><ul>
+<li><p class="first">A dictionary which identifies properties of the items with
+corresponding tests on their values. An item is selected
+if <strong>all</strong> of the tests in the dictionary are passed.</p>
+<p>In general, each dictionary key is a CF property name with
+a corresponding value to be compared against the item&#8217;s CF
+property value.</p>
+<p>If the dictionary value is a string then by default it is
+treated as a regular expression understood by the
+<a class="reference external" href="http://docs.python.org/2.7/library/re.html#module-re" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">re</span></tt></a> module and an item is selected if its
+appropriate value matches the regular expression using the
+<a class="reference external" href="http://docs.python.org/2.7/library/re.html#re.match" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">re.match</span></tt></a> method (i.e. if zero or more characters
+at the beginning of item&#8217;s value match the regular
+expression pattern). See the <em>exact</em> parameter for
+details.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with standard name of exactly
+&#8220;air_temperature&#8221; and long name beginning with the
+letter &#8220;a&#8221;: <tt class="docutils literal"><span class="pre">items={'standard_name':</span>
+<span class="pre">cf.eq('air_temperature'),</span> <span class="pre">'long_name':</span> <span class="pre">'a'}</span></tt> (see
+<a class="reference internal" href="cf.eq.html#cf.eq" title="cf.eq"><tt class="xref py py-obj docutils literal"><span class="pre">cf.eq</span></tt></a>).</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Some key/value pairs have a special interpretation:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Special key</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'units'</span></tt></td>
+<td>The value must be a string and by
+default is evaluated for
+equivalence, rather than equality,
+with an item&#8217;s <a class="reference internal" href="cf.Field.units.html#cf.Field.units" title="cf.Field.units"><tt class="xref py py-obj docutils literal"><span class="pre">units</span></tt></a> property,
+for example a value of <tt class="docutils literal"><span class="pre">'Pa'</span></tt>
+will match units of Pascals or
+hectopascals, etc. See the <em>exact</em>
+parameter.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">'calendar'</span></tt></td>
+<td>The value must be a string and by
+default is evaluated for
+equivalence, rather than equality,
+with an item&#8217;s <a class="reference internal" href="cf.Field.calendar.html#cf.Field.calendar" title="cf.Field.calendar"><tt class="xref py py-obj docutils literal"><span class="pre">calendar</span></tt></a>
+property, for example a value of
+<tt class="docutils literal"><span class="pre">'noleap'</span></tt> will match a calendar
+of noleap or 365_day. See the
+<em>exact</em> parameter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/2.7/library/constants.html#None" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></td>
+<td>The value is interpreted as for a
+string value of the <em>items</em>
+parameter. For example,
+<tt class="docutils literal"><span class="pre">items={None:</span> <span class="pre">'air'}</span></tt> is
+equivalent to <tt class="docutils literal"><span class="pre">items='air'</span></tt>,
+<tt class="docutils literal"><span class="pre">items={None:</span> <span class="pre">'ncvar%pressure'}</span></tt>
+is equivalent to
+<tt class="docutils literal"><span class="pre">items='ncvar%pressure'</span></tt> and
+<tt class="docutils literal"><span class="pre">items={None:</span> <span class="pre">'Y'}</span></tt> is equivalent
+to <tt class="docutils literal"><span class="pre">items='Y'</span></tt>.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with standard name starting with
+&#8220;air&#8221;, units of temperature and a netCDF variable name
+of &#8220;tas&#8221; you could set
+<tt class="docutils literal"><span class="pre">items={'standard_name':</span> <span class="pre">'air',</span> <span class="pre">'units':</span> <span class="pre">'K',</span> <span class="pre">None:</span>
+<span class="pre">'ncvar%tas$'}</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<blockquote class="last">
+<div><blockquote>
+<div><ul>
+<li><p class="first">A domain item identifier (such as <tt class="docutils literal"><span class="pre">'dim1'</span></tt>, <tt class="docutils literal"><span class="pre">'aux0'</span></tt>,
+<tt class="docutils literal"><span class="pre">'msr2'</span></tt>, <tt class="docutils literal"><span class="pre">'ref0'</span></tt>, etc.). Selects the corresponding
+item.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select the item with domain identifier &#8220;dim1&#8221;:
+<tt class="docutils literal"><span class="pre">items='dim1'</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>If <em>items</em> is a sequence of any combination of the above then
+the selected items are the union of those selected by each
+element of the sequence.</p>
+<blockquote>
+<div><p><em>Example:</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">([</span><span class="s">&#39;aux1&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s">&#39;time&#39;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="p">{</span><span class="s">&#39;units&#39;</span><span class="p">:</span> <span class="s">&#39;degreeN&#39;</span><span class="p">,</span> <span class="s">&#39;long_name&#39;</span><span class="p">:</span> <span class="s">&#39;foo&#39;</span><span class="p">}])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;aux1&#39;</span><span class="p">,</span> <span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;units&#39;</span><span class="p">:</span> <span class="s">&#39;degreeN&#39;</span><span class="p">,</span> <span class="s">&#39;long_name&#39;</span><span class="p">:</span> <span class="s">&#39;foo&#39;</span><span class="p">}]:</span>
+<span class="gp">... </span>    <span class="n">y</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the sequence is empty then no items are selected.</p>
+</div></blockquote>
+</dd>
+<dt>role <span class="classifier-delimiter">:</span> <span class="classifier">(sequence of) str, optional</span></dt>
+<dd><p class="first">Select items of the given roles. Valid roles are:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">role</th>
+<th class="head">Items selected</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'d'</span></tt></td>
+<td>Dimension coordinate objects</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">'a'</span></tt></td>
+<td>Auxiliary coordinate objects</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">'m'</span></tt></td>
+<td>Cell measure objects</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">'r'</span></tt></td>
+<td>Coordinate reference objects</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Multiple roles may be specified by a multi-character string or
+a sequence.</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">Selecting auxiliary coordinate and cell measure objects
+may be done with any of the following values of <em>role</em>:
+<tt class="docutils literal"><span class="pre">'am'</span></tt>, <tt class="docutils literal"><span class="pre">'ma'</span></tt>, <tt class="docutils literal"><span class="pre">('a',</span> <span class="pre">'m')</span></tt>, <tt class="docutils literal"><span class="pre">['m',</span> <span class="pre">'a']</span></tt>,
+<tt class="docutils literal"><span class="pre">set(['a',</span> <span class="pre">'m'])</span></tt>, etc.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>axes <span class="classifier-delimiter">:</span> <span class="classifier"><em>optional</em></span></dt>
+<dd><p class="first">Select items which span at least one of the specified axes,
+taken in any order (as well as possibly spanning other,
+unspecified axes). The axes are those that would be selected
+by this call of the field&#8217;s <a class="reference internal" href="cf.Field.axes.html#cf.Field.axes" title="cf.Field.axes"><tt class="xref py py-obj docutils literal"><span class="pre">axes</span></tt></a> method: <tt class="docutils literal"><span class="pre">f.axes(axes,</span>
+<span class="pre">exact=exact)</span></tt>. See <a class="reference internal" href="cf.Field.axes.html#cf.Field.axes" title="cf.Field.axes"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Field.axes</span></tt></a> for details. The
+<em>strict_axes</em> parameter modifies this behaviour.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items which the time axes you could set:
+<tt class="docutils literal"><span class="pre">axes='T'</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Note that more complex specifications of axes are possible,
+since the <em>axes</em> parameter may take as its value any output
+of the field&#8217;s <a class="reference internal" href="cf.Field.axes.html#cf.Field.axes" title="cf.Field.axes"><tt class="xref py py-obj docutils literal"><span class="pre">axes</span></tt></a> method.</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items which span one dimensional time axes you
+could set: <tt class="docutils literal"><span class="pre">axes=f.axes('T',</span> <span class="pre">ndim=1)</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>ndim <span class="classifier-delimiter">:</span> <span class="classifier"><em>optional</em></span></dt>
+<dd><p class="first">Select items whose number of data array axes satisfy the given
+condition. Items are selected if they have <em>ndim</em> data aray
+axes. A range of data numbers of array axes may be selected if
+<em>ndim</em> is a <a class="reference internal" href="../classes/cf.Query.html#cf.Query" title="cf.Query"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Query</span></tt></a> object.</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last"><tt class="docutils literal"><span class="pre">ndim=1</span></tt> selects items which span exactly one axis and
+<tt class="docutils literal"><span class="pre">ndim=cf.ge(2)</span></tt> selects items which span two or more
+axes (see <a class="reference internal" href="cf.ge.html#cf.ge" title="cf.ge"><tt class="xref py py-obj docutils literal"><span class="pre">cf.ge</span></tt></a>).</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>exact <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first">The <em>exact</em> parameter applies to the interpretation of
+string-valued conditions given by values of the <em>items</em>
+parameter. By default <em>exact</em> is False, which means that:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A string value is treated as a regular expression
+understood by the <a class="reference external" href="http://docs.python.org/2.7/library/re.html#module-re" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">re</span></tt></a> module.</li>
+<li>Units and calendar values in an <em>items</em> dictionary are
+evaluated for equivalence rather then equality
+(e.g. <tt class="docutils literal"><span class="pre">'metre'</span></tt> is equivalent to <tt class="docutils literal"><span class="pre">'m'</span></tt> and to
+<tt class="docutils literal"><span class="pre">'km'</span></tt>).</li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with a standard name which begins with
+&#8220;air&#8221; and any units of pressure:
+<tt class="docutils literal"><span class="pre">f.items({'standard_name':</span> <span class="pre">'air',</span> <span class="pre">'units':</span> <span class="pre">'hPa'})</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>If <em>exact</em> is True then:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A string value is not treated as a regular expression.</li>
+<li>Units and calendar values in an <em>items</em> dictionary are
+evaluated for exact equality rather than equivalence
+(e.g. <tt class="docutils literal"><span class="pre">'metre'</span></tt> is equal to <tt class="docutils literal"><span class="pre">'m'</span></tt>, but not to
+<tt class="docutils literal"><span class="pre">'km'</span></tt>).</li>
+</ul>
+</div></blockquote>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with a standard name of exactly
+&#8220;air_pressure&#8221; and units of exactly hectopascals:
+<tt class="docutils literal"><span class="pre">f.items({'standard_name':</span> <span class="pre">'air_pressure',</span> <span class="pre">'units':</span>
+<span class="pre">'hPa'},</span> <span class="pre">exact=True)</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Note that <a class="reference internal" href="../classes/cf.Query.html#cf.Query" title="cf.Query"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Query</span></tt></a> objects provide a mechanism for
+overriding the <em>exact</em> parameter for individual values.</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last"><tt class="docutils literal"><span class="pre">f.items({'standard_name':</span> <span class="pre">cf.eq('air',</span> <span class="pre">exact=False),</span>
+<span class="pre">'units':</span> <span class="pre">'hPa'},</span> <span class="pre">exact=True)</span></tt> will select items with a
+standard name which begins &#8220;air&#8221; but with units of exactly
+hectopascals (see <a class="reference internal" href="cf.eq.html#cf.eq" title="cf.eq"><tt class="xref py py-obj docutils literal"><span class="pre">cf.eq</span></tt></a>).</p>
+</dd>
+<dt><em>Example:</em></dt>
+<dd><p class="first last"><tt class="docutils literal"><span class="pre">f.items({'standard_name':</span> <span class="pre">cf.eq('air_pressure'),</span>
+<span class="pre">'units':</span> <span class="pre">'hPa'})</span></tt> will select items with a standard name
+of exactly &#8220;air_pressure&#8221; but with any units of pressure
+(see <a class="reference internal" href="cf.eq.html#cf.eq" title="cf.eq"><tt class="xref py py-obj docutils literal"><span class="pre">cf.eq</span></tt></a>).</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>match_and <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first">By default <em>match_and</em> is True and then an item is selected if
+it satisfies the conditions specified by each test parameter
+(<em>items</em>, <em>role</em>, <em>axes</em> and <em>ndim</em>).</p>
+<p>If <em>match_and</em> is False then an item is selected if it
+satisfies at least one of the conditions specified by the test
+parameters (<em>items</em>, <em>role</em>, <em>axes</em> and <em>ndim</em>).</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last">To select items with identity beginning with &#8220;ocean&#8221;
+<strong>and</strong> at least 2 data array axes: <tt class="docutils literal"><span class="pre">f.items('ocean',</span>
+<span class="pre">ndim=cf.ge(2))</span></tt> (see <a class="reference internal" href="cf.gt.html#cf.gt" title="cf.gt"><tt class="xref py py-obj docutils literal"><span class="pre">cf.gt</span></tt></a>).</p>
+</dd>
+</dl>
+<p><em>Example:</em></p>
+<blockquote>
+<div><p>To select items with identity beginning with &#8220;ocean&#8221;
+<strong>or</strong> at least 2 data array axes: <tt class="docutils literal"><span class="pre">f.items('ocean',</span>
+<span class="pre">ndim=cf.ge(2),</span> <span class="pre">match_and=False)</span></tt></p>
+</div></blockquote>
+</div></blockquote>
+</dd>
+<dt>strict_axes <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first">The <em>strict_axes</em> parameter applies to the interpretation of
+<em>axes</em> parameter. By default <em>strict_axes</em> is False and items
+are selected which span at least one of the specified axes,
+taken in any order (as well as possibly spanning other,
+unspecified axes).</p>
+<p class="last">If <em>strict_axes</em> is True then items are selected which span
+exactly all of the specified axes, taken in any order.</p>
+</dd>
+<dt>inverse <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first">If True then select items other than those selected by all
+other criteria.</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt><em>Example:</em></dt>
+<dd><p class="first last"><tt class="docutils literal"><span class="pre">f.items(role='da',</span> <span class="pre">inverse=True)</span></tt> selects the same
+items as <tt class="docutils literal"><span class="pre">f.items(role='mr')</span></tt>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt>out <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">A dictionary whose keys are domain item identifiers with
+corresponding values of items of the domain. The dictionary
+may be empty.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Examples:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cf.Field.item_axes.html"
+                        title="previous chapter">cf.Field.item_axes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cf.Field.items_axes.html"
+                        title="next chapter">cf.Field.items_axes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/generated/cf.Field.items.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cf.Field.items_axes.html" title="cf.Field.items_axes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cf.Field.item_axes.html" title="cf.Field.item_axes"
+             >previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" >Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li>
+          <li><a href="../classes/cf.Field.html" >cf.Field</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, David Hassell.
+      Last updated on Jun 23, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

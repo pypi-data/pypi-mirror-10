@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cf.AncillaryVariables &mdash; Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Documentation" href="../index.html" />
+    <link rel="up" title="Classes of the cf module" href="../class.html" />
+    <link rel="next" title="cf.AncillaryVariables.subspace" href="../generated/cf.AncillaryVariables.subspace.html" />
+    <link rel="prev" title="cf.FieldList.sort" href="../generated/cf.FieldList.sort.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../generated/cf.AncillaryVariables.subspace.html" title="cf.AncillaryVariables.subspace"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../generated/cf.FieldList.sort.html" title="cf.FieldList.sort"
+             accesskey="P">previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" accesskey="U">Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cf-ancillaryvariables">
+<h1>cf.AncillaryVariables<a class="headerlink" href="#cf-ancillaryvariables" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cf.AncillaryVariables">
+<em class="property">class </em><tt class="descclassname">cf.</tt><tt class="descname">AncillaryVariables</tt><big>(</big><em>fields=None</em><big>)</big><a class="reference external" href="https://bitbucket.org/cfpython/cf-python/src/v1.0.3/cf/ancillaryvariables.py#cl-10"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cf.AncillaryVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cf.fieldlist.FieldList</span></tt></p>
+<p>A sequence of ancillary variable fields stored in a list-like object.</p>
+<p><strong>Initialization</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt>fields <span class="classifier-delimiter">:</span> <span class="classifier">(sequence of) cf.Field, optional</span></dt>
+<dd><p class="first last">Create a new field list with these fields.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Examples:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fl</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">FieldList</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fl</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span>
+<span class="go">&lt;CF Field: air_temperature() K&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fl</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">FieldList</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fl</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fl</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">FieldList</span><span class="p">([</span><span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fl</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fl</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">FieldList</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">FieldList</span><span class="p">([</span><span class="n">f</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fl</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="section" id="ancillaryvariables-attributes">
+<h2>AncillaryVariables attributes<a class="headerlink" href="#ancillaryvariables-attributes" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.subspace.html#cf.AncillaryVariables.subspace" title="cf.AncillaryVariables.subspace"><tt class="xref py py-obj docutils literal"><span class="pre">subspace</span></tt></a></td>
+<td>Subspace each field in the list, returning a new list of fields.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ancillaryvariables-methods">
+<h2>AncillaryVariables methods<a class="headerlink" href="#ancillaryvariables-methods" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.append.html#cf.AncillaryVariables.append" title="cf.AncillaryVariables.append"><tt class="xref py py-obj docutils literal"><span class="pre">append</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.aux.html#cf.AncillaryVariables.aux" title="cf.AncillaryVariables.aux"><tt class="xref py py-obj docutils literal"><span class="pre">aux</span></tt></a></td>
+<td>Return an auxiliary coordinate object, or its domain identifier, from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.auxs.html#cf.AncillaryVariables.auxs" title="cf.AncillaryVariables.auxs"><tt class="xref py py-obj docutils literal"><span class="pre">auxs</span></tt></a></td>
+<td>Return auxiliary coordinate objects from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.axes.html#cf.AncillaryVariables.axes" title="cf.AncillaryVariables.axes"><tt class="xref py py-obj docutils literal"><span class="pre">axes</span></tt></a></td>
+<td>Return domain axis identifiers from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.binary_mask.html#cf.AncillaryVariables.binary_mask" title="cf.AncillaryVariables.binary_mask"><tt class="xref py py-obj docutils literal"><span class="pre">binary_mask</span></tt></a></td>
+<td>Return a binary (0 and 1) missing data mask for each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.chunk.html#cf.AncillaryVariables.chunk" title="cf.AncillaryVariables.chunk"><tt class="xref py py-obj docutils literal"><span class="pre">chunk</span></tt></a></td>
+<td>Partition the data array for each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.clip.html#cf.AncillaryVariables.clip" title="cf.AncillaryVariables.clip"><tt class="xref py py-obj docutils literal"><span class="pre">clip</span></tt></a></td>
+<td>Clip (limit) the values in the data array for each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.close.html#cf.AncillaryVariables.close" title="cf.AncillaryVariables.close"><tt class="xref py py-obj docutils literal"><span class="pre">close</span></tt></a></td>
+<td>Close all referenced open data files from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.coord.html#cf.AncillaryVariables.coord" title="cf.AncillaryVariables.coord"><tt class="xref py py-obj docutils literal"><span class="pre">coord</span></tt></a></td>
+<td>Return a dimension or auxiliary coordinate object, or its domain identifier, from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.coords.html#cf.AncillaryVariables.coords" title="cf.AncillaryVariables.coords"><tt class="xref py py-obj docutils literal"><span class="pre">coords</span></tt></a></td>
+<td>Return dimension or auxiliary coordinate objects from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.copy.html#cf.AncillaryVariables.copy" title="cf.AncillaryVariables.copy"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<td>Return a deep copy.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.cos.html#cf.AncillaryVariables.cos" title="cf.AncillaryVariables.cos"><tt class="xref py py-obj docutils literal"><span class="pre">cos</span></tt></a></td>
+<td>Take the trigonometric cosine of the data array for each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.count.html#cf.AncillaryVariables.count" title="cf.AncillaryVariables.count"><tt class="xref py py-obj docutils literal"><span class="pre">count</span></tt></a></td>
+<td>Return the number of occurrences of a value</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.data_axes.html#cf.AncillaryVariables.data_axes" title="cf.AncillaryVariables.data_axes"><tt class="xref py py-obj docutils literal"><span class="pre">data_axes</span></tt></a></td>
+<td>Return the axes of a domain item from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.datum.html#cf.AncillaryVariables.datum" title="cf.AncillaryVariables.datum"><tt class="xref py py-obj docutils literal"><span class="pre">datum</span></tt></a></td>
+<td>Return an element of the data array for each field as a standard Python scalar.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.delattr.html#cf.AncillaryVariables.delattr" title="cf.AncillaryVariables.delattr"><tt class="xref py py-obj docutils literal"><span class="pre">delattr</span></tt></a></td>
+<td>Delete a named attribute on each element of the list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.delprop.html#cf.AncillaryVariables.delprop" title="cf.AncillaryVariables.delprop"><tt class="xref py py-obj docutils literal"><span class="pre">delprop</span></tt></a></td>
+<td>Delete a CF property from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.dim.html#cf.AncillaryVariables.dim" title="cf.AncillaryVariables.dim"><tt class="xref py py-obj docutils literal"><span class="pre">dim</span></tt></a></td>
+<td>Return a dimension coordinate object, or its domain identifier, from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.dims.html#cf.AncillaryVariables.dims" title="cf.AncillaryVariables.dims"><tt class="xref py py-obj docutils literal"><span class="pre">dims</span></tt></a></td>
+<td>Return dimension coordinate objects from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.dump.html#cf.AncillaryVariables.dump" title="cf.AncillaryVariables.dump"><tt class="xref py py-obj docutils literal"><span class="pre">dump</span></tt></a></td>
+<td>Return a full description of each the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.equals.html#cf.AncillaryVariables.equals" title="cf.AncillaryVariables.equals"><tt class="xref py py-obj docutils literal"><span class="pre">equals</span></tt></a></td>
+<td>True if two instances are equal, False otherwise.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.expand_dims.html#cf.AncillaryVariables.expand_dims" title="cf.AncillaryVariables.expand_dims"><tt class="xref py py-obj docutils literal"><span class="pre">expand_dims</span></tt></a></td>
+<td>Insert a size 1 axis into the data array of each field .</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.fill_value.html#cf.AncillaryVariables.fill_value" title="cf.AncillaryVariables.fill_value"><tt class="xref py py-obj docutils literal"><span class="pre">fill_value</span></tt></a></td>
+<td>Return the data array missing data value for each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.extend.html#cf.AncillaryVariables.extend" title="cf.AncillaryVariables.extend"><tt class="xref py py-obj docutils literal"><span class="pre">extend</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.flip.html#cf.AncillaryVariables.flip" title="cf.AncillaryVariables.flip"><tt class="xref py py-obj docutils literal"><span class="pre">flip</span></tt></a></td>
+<td>Flip axes of the data array for each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.getattr.html#cf.AncillaryVariables.getattr" title="cf.AncillaryVariables.getattr"><tt class="xref py py-obj docutils literal"><span class="pre">getattr</span></tt></a></td>
+<td>Get a named attribute from each element of the list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.getprop.html#cf.AncillaryVariables.getprop" title="cf.AncillaryVariables.getprop"><tt class="xref py py-obj docutils literal"><span class="pre">getprop</span></tt></a></td>
+<td>Get a CF property from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.hasattr.html#cf.AncillaryVariables.hasattr" title="cf.AncillaryVariables.hasattr"><tt class="xref py py-obj docutils literal"><span class="pre">hasattr</span></tt></a></td>
+<td>Return whether an attribute exists for each element of the list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.hasprop.html#cf.AncillaryVariables.hasprop" title="cf.AncillaryVariables.hasprop"><tt class="xref py py-obj docutils literal"><span class="pre">hasprop</span></tt></a></td>
+<td>For each field, return True if a CF property exists, otherise False.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.identity.html#cf.AncillaryVariables.identity" title="cf.AncillaryVariables.identity"><tt class="xref py py-obj docutils literal"><span class="pre">identity</span></tt></a></td>
+<td>Return the identity of each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.index.html#cf.AncillaryVariables.index" title="cf.AncillaryVariables.index"><tt class="xref py py-obj docutils literal"><span class="pre">index</span></tt></a></td>
+<td>Return the first index of a value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.indices.html#cf.AncillaryVariables.indices" title="cf.AncillaryVariables.indices"><tt class="xref py py-obj docutils literal"><span class="pre">indices</span></tt></a></td>
+<td>For each field, return the data array indices which correspond to item values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.insert.html#cf.AncillaryVariables.insert" title="cf.AncillaryVariables.insert"><tt class="xref py py-obj docutils literal"><span class="pre">insert</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.insert_data.html#cf.AncillaryVariables.insert_data" title="cf.AncillaryVariables.insert_data"><tt class="xref py py-obj docutils literal"><span class="pre">insert_data</span></tt></a></td>
+<td>Insert a new data array into the only field in place.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.item.html#cf.AncillaryVariables.item" title="cf.AncillaryVariables.item"><tt class="xref py py-obj docutils literal"><span class="pre">item</span></tt></a></td>
+<td>Return a domain item, or its domain identifier, from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.item_axes.html#cf.AncillaryVariables.item_axes" title="cf.AncillaryVariables.item_axes"><tt class="xref py py-obj docutils literal"><span class="pre">item_axes</span></tt></a></td>
+<td>Return the axes of a domain item from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.items.html#cf.AncillaryVariables.items" title="cf.AncillaryVariables.items"><tt class="xref py py-obj docutils literal"><span class="pre">items</span></tt></a></td>
+<td>Return domain items from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.iter.html#cf.AncillaryVariables.iter" title="cf.AncillaryVariables.iter"><tt class="xref py py-obj docutils literal"><span class="pre">iter</span></tt></a></td>
+<td>Return an iterator over the results of a method applied to the field list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.mask_invalid.html#cf.AncillaryVariables.mask_invalid" title="cf.AncillaryVariables.mask_invalid"><tt class="xref py py-obj docutils literal"><span class="pre">mask_invalid</span></tt></a></td>
+<td>Mask the data array of each field where invalid values occur (NaNs or infs).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.match.html#cf.AncillaryVariables.match" title="cf.AncillaryVariables.match"><tt class="xref py py-obj docutils literal"><span class="pre">match</span></tt></a></td>
+<td>Test whether or not each field satisfies the given conditions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.measure.html#cf.AncillaryVariables.measure" title="cf.AncillaryVariables.measure"><tt class="xref py py-obj docutils literal"><span class="pre">measure</span></tt></a></td>
+<td>Return a cell measure object, or its domain identifier, from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.measures.html#cf.AncillaryVariables.measures" title="cf.AncillaryVariables.measures"><tt class="xref py py-obj docutils literal"><span class="pre">measures</span></tt></a></td>
+<td>Return cell measure objects from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.method.html#cf.AncillaryVariables.method" title="cf.AncillaryVariables.method"><tt class="xref py py-obj docutils literal"><span class="pre">method</span></tt></a></td>
+<td>Return the results of a method applied to each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.name.html#cf.AncillaryVariables.name" title="cf.AncillaryVariables.name"><tt class="xref py py-obj docutils literal"><span class="pre">name</span></tt></a></td>
+<td>Return a name for each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.override_units.html#cf.AncillaryVariables.override_units" title="cf.AncillaryVariables.override_units"><tt class="xref py py-obj docutils literal"><span class="pre">override_units</span></tt></a></td>
+<td>Override the data array units in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.pop.html#cf.AncillaryVariables.pop" title="cf.AncillaryVariables.pop"><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.ref.html#cf.AncillaryVariables.ref" title="cf.AncillaryVariables.ref"><tt class="xref py py-obj docutils literal"><span class="pre">ref</span></tt></a></td>
+<td>Return a coordinate reference object, or its domain identifier, from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.refs.html#cf.AncillaryVariables.refs" title="cf.AncillaryVariables.refs"><tt class="xref py py-obj docutils literal"><span class="pre">refs</span></tt></a></td>
+<td>Return coordinate reference objects from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.remove.html#cf.AncillaryVariables.remove" title="cf.AncillaryVariables.remove"><tt class="xref py py-obj docutils literal"><span class="pre">remove</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.remove_axes.html#cf.AncillaryVariables.remove_axes" title="cf.AncillaryVariables.remove_axes"><tt class="xref py py-obj docutils literal"><span class="pre">remove_axes</span></tt></a></td>
+<td>Remove and return axes from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.remove_axis.html#cf.AncillaryVariables.remove_axis" title="cf.AncillaryVariables.remove_axis"><tt class="xref py py-obj docutils literal"><span class="pre">remove_axis</span></tt></a></td>
+<td>Remove and return an axis from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.remove_data.html#cf.AncillaryVariables.remove_data" title="cf.AncillaryVariables.remove_data"><tt class="xref py py-obj docutils literal"><span class="pre">remove_data</span></tt></a></td>
+<td>Remove and return the data array from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.remove_item.html#cf.AncillaryVariables.remove_item" title="cf.AncillaryVariables.remove_item"><tt class="xref py py-obj docutils literal"><span class="pre">remove_item</span></tt></a></td>
+<td>Remove and return a domain item from each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.remove_items.html#cf.AncillaryVariables.remove_items" title="cf.AncillaryVariables.remove_items"><tt class="xref py py-obj docutils literal"><span class="pre">remove_items</span></tt></a></td>
+<td>Remove and return domain items from each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.reverse.html#cf.AncillaryVariables.reverse" title="cf.AncillaryVariables.reverse"><tt class="xref py py-obj docutils literal"><span class="pre">reverse</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.select.html#cf.AncillaryVariables.select" title="cf.AncillaryVariables.select"><tt class="xref py py-obj docutils literal"><span class="pre">select</span></tt></a></td>
+<td>Return the fields which satisfy the given conditions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.set_equals.html#cf.AncillaryVariables.set_equals" title="cf.AncillaryVariables.set_equals"><tt class="xref py py-obj docutils literal"><span class="pre">set_equals</span></tt></a></td>
+<td>True if two instances are set-wise equal, False otherwise.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.setattr.html#cf.AncillaryVariables.setattr" title="cf.AncillaryVariables.setattr"><tt class="xref py py-obj docutils literal"><span class="pre">setattr</span></tt></a></td>
+<td>Set a named attribute on each element of the list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.setprop.html#cf.AncillaryVariables.setprop" title="cf.AncillaryVariables.setprop"><tt class="xref py py-obj docutils literal"><span class="pre">setprop</span></tt></a></td>
+<td>Set a CF property on each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.sin.html#cf.AncillaryVariables.sin" title="cf.AncillaryVariables.sin"><tt class="xref py py-obj docutils literal"><span class="pre">sin</span></tt></a></td>
+<td>Take the trigonometric sine of the data array of each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.sort.html#cf.AncillaryVariables.sort" title="cf.AncillaryVariables.sort"><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></a></td>
+<td>Sort the fields in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.squeeze.html#cf.AncillaryVariables.squeeze" title="cf.AncillaryVariables.squeeze"><tt class="xref py py-obj docutils literal"><span class="pre">squeeze</span></tt></a></td>
+<td>Insert size 1 axes into the data array of each field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.subspace.html#cf.AncillaryVariables.subspace" title="cf.AncillaryVariables.subspace"><tt class="xref py py-obj docutils literal"><span class="pre">subspace</span></tt></a></td>
+<td>Subspace each field in the list, returning a new list of fields.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.transpose.html#cf.AncillaryVariables.transpose" title="cf.AncillaryVariables.transpose"><tt class="xref py py-obj docutils literal"><span class="pre">transpose</span></tt></a></td>
+<td>Permute the dimensions of the data array of each field in place.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.unsqueeze.html#cf.AncillaryVariables.unsqueeze" title="cf.AncillaryVariables.unsqueeze"><tt class="xref py py-obj docutils literal"><span class="pre">unsqueeze</span></tt></a></td>
+<td>Insert size 1 axes into the data array of each field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.AncillaryVariables.where.html#cf.AncillaryVariables.where" title="cf.AncillaryVariables.where"><tt class="xref py py-obj docutils literal"><span class="pre">where</span></tt></a></td>
+<td>Set data array elements depending on a condition.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cf.AncillaryVariables</a><ul>
+<li><a class="reference internal" href="#ancillaryvariables-attributes">AncillaryVariables attributes</a></li>
+<li><a class="reference internal" href="#ancillaryvariables-methods">AncillaryVariables methods</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../generated/cf.FieldList.sort.html"
+                        title="previous chapter">cf.FieldList.sort</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../generated/cf.AncillaryVariables.subspace.html"
+                        title="next chapter">cf.AncillaryVariables.subspace</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classes/cf.AncillaryVariables.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../generated/cf.AncillaryVariables.subspace.html" title="cf.AncillaryVariables.subspace"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../generated/cf.FieldList.sort.html" title="cf.FieldList.sort"
+             >previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" >Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, David Hassell.
+      Last updated on Jun 23, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

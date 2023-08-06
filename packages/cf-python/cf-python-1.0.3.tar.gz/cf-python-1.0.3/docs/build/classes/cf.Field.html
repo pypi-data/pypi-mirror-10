@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cf.Field &mdash; Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Documentation" href="../index.html" />
+    <link rel="up" title="Classes of the cf module" href="../class.html" />
+    <link rel="next" title="cf.Field.add_offset" href="../generated/cf.Field.add_offset.html" />
+    <link rel="prev" title="cf.Variable.where" href="../generated/cf.Variable.where.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../generated/cf.Field.add_offset.html" title="cf.Field.add_offset"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../generated/cf.Variable.where.html" title="cf.Variable.where"
+             accesskey="P">previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" accesskey="U">Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cf-field">
+<h1>cf.Field<a class="headerlink" href="#cf-field" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cf.Field">
+<em class="property">class </em><tt class="descclassname">cf.</tt><tt class="descname">Field</tt><big>(</big><em>properties={}</em>, <em>attributes={}</em>, <em>data=None</em>, <em>domain=None</em>, <em>flags=None</em>, <em>ancillary_variables=None</em>, <em>axes=None</em>, <em>auto_cyclic=True</em>, <em>copy=True</em><big>)</big><a class="reference external" href="https://bitbucket.org/cfpython/cf-python/src/v1.0.3/cf/field.py#cl-150"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cf.Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cf.variable.Variable</span></tt></p>
+<p>A field construct according to the CF data model.</p>
+<p>A field is a container for a data array and metadata comprising
+properties to describe the physical nature of the data and a
+coordinate system (called a domain) which describes the positions of
+each element of the data array.</p>
+<p>The field&#8217;s domain may contain dimensions and auxiliary coordinate and
+cell measure objects (which themselves contain data arrays and
+properties to describe them) and coordinate reference objects.</p>
+<p>All components of a field are optional.</p>
+<p><strong>Miscellaneous</strong></p>
+<p>Field objects are picklable.</p>
+<p><strong>Initialization</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt>properties <span class="classifier-delimiter">:</span> <span class="classifier">dict, optional</span></dt>
+<dd><p class="first last">Provide the new field with CF properties from the dictionary&#8217;s
+key/value pairs.</p>
+</dd>
+<dt>data <span class="classifier-delimiter">:</span> <span class="classifier">cf.Data, optional</span></dt>
+<dd><p class="first last">Provide the new field with an N-dimensional data array in a
+<a class="reference internal" href="cf.Data.html#cf.Data" title="cf.Data"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Data</span></tt></a> object.</p>
+</dd>
+<dt>domain <span class="classifier-delimiter">:</span> <span class="classifier">cf.Domain, optional</span></dt>
+<dd><p class="first last">Provide the new field with a coordinate system in a
+<a class="reference internal" href="cf.Domain.html#cf.Domain" title="cf.Domain"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Domain</span></tt></a> object. By default an empty domain is created.</p>
+</dd>
+<dt>attributes <span class="classifier-delimiter">:</span> <span class="classifier">dict, optional</span></dt>
+<dd><p class="first last">Provide the new field with attributes from the dictionary&#8217;s
+key/value pairs.</p>
+</dd>
+<dt>flags <span class="classifier-delimiter">:</span> <span class="classifier">cf.Flags, optional</span></dt>
+<dd><p class="first last">Provide the new field with self-describing flag values in a
+<a class="reference internal" href="cf.Flags.html#cf.Flags" title="cf.Flags"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Flags</span></tt></a> object.</p>
+</dd>
+<dt>ancillary_variables <span class="classifier-delimiter">:</span> <span class="classifier">cf.AncillaryVariables, optional</span></dt>
+<dd><p class="first last">Provide the new field with ancillary variable fields in a
+<a class="reference internal" href="cf.AncillaryVariables.html#cf.AncillaryVariables" title="cf.AncillaryVariables"><tt class="xref py py-obj docutils literal"><span class="pre">cf.AncillaryVariables</span></tt></a> object.</p>
+</dd>
+<dt>axes <span class="classifier-delimiter">:</span> <span class="classifier">sequence of str, optional</span></dt>
+<dd><p class="first">A list of domain axis identifiers (<tt class="docutils literal"><span class="pre">'dimN'</span></tt>), stating the
+axes, in order, of field&#8217;s data array. By default these axis
+identifiers will be the sequence of consecutive axis
+identifiers <tt class="docutils literal"><span class="pre">'dim0'</span></tt> up to <tt class="docutils literal"><span class="pre">'dimM'</span></tt>, where <tt class="docutils literal"><span class="pre">M</span></tt> is the
+number of axes of the data array, or an empty sequence if the
+data array is a scalar.</p>
+<p>If an axis of the data array already exists in the domain then
+the it must have the same size as the domain axis. If it does
+not exist in the domain then a new axis will be created.</p>
+<p class="last">By default the axes will either be those defined for the data
+array by the domain or, if these do not exist, the domain axis
+identifiers whose sizes unambiguously match the data array.</p>
+</dd>
+<dt>auto_cyclic <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">If False then do not auto-detect cyclic axes. By default
+cyclic axes are auto-detected with the <a class="reference internal" href="../generated/cf.Field.setcyclic.html#cf.Field.setcyclic" title="cf.Field.setcyclic"><tt class="xref py py-obj docutils literal"><span class="pre">setcyclic</span></tt></a> method.</p>
+</dd>
+<dt>copy <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">If False then do not deep copy arguments prior to
+initialization. By default arguments are deep copied.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="field-cf-properties">
+<span id="id1"></span><h2>Field CF Properties<a class="headerlink" href="#field-cf-properties" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.add_offset.html#cf.Field.add_offset" title="cf.Field.add_offset"><tt class="xref py py-obj docutils literal"><span class="pre">add_offset</span></tt></a></td>
+<td>The add_offset CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.calendar.html#cf.Field.calendar" title="cf.Field.calendar"><tt class="xref py py-obj docutils literal"><span class="pre">calendar</span></tt></a></td>
+<td>The calendar CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.cell_methods.html#cf.Field.cell_methods" title="cf.Field.cell_methods"><tt class="xref py py-obj docutils literal"><span class="pre">cell_methods</span></tt></a></td>
+<td>The <a class="reference internal" href="cf.CellMethods.html#cf.CellMethods" title="cf.CellMethods"><tt class="xref py py-obj docutils literal"><span class="pre">cf.CellMethods</span></tt></a> object containing the CF cell methods of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.comment.html#cf.Field.comment" title="cf.Field.comment"><tt class="xref py py-obj docutils literal"><span class="pre">comment</span></tt></a></td>
+<td>The comment CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.Conventions.html#cf.Field.Conventions" title="cf.Field.Conventions"><tt class="xref py py-obj docutils literal"><span class="pre">Conventions</span></tt></a></td>
+<td>The Conventions CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field._FillValue.html#cf.Field._FillValue" title="cf.Field._FillValue"><tt class="xref py py-obj docutils literal"><span class="pre">_FillValue</span></tt></a></td>
+<td>The _FillValue CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.flag_masks.html#cf.Field.flag_masks" title="cf.Field.flag_masks"><tt class="xref py py-obj docutils literal"><span class="pre">flag_masks</span></tt></a></td>
+<td>The flag_masks CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.flag_meanings.html#cf.Field.flag_meanings" title="cf.Field.flag_meanings"><tt class="xref py py-obj docutils literal"><span class="pre">flag_meanings</span></tt></a></td>
+<td>The flag_meanings CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.flag_values.html#cf.Field.flag_values" title="cf.Field.flag_values"><tt class="xref py py-obj docutils literal"><span class="pre">flag_values</span></tt></a></td>
+<td>The flag_values CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.history.html#cf.Field.history" title="cf.Field.history"><tt class="xref py py-obj docutils literal"><span class="pre">history</span></tt></a></td>
+<td>The history CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.institution.html#cf.Field.institution" title="cf.Field.institution"><tt class="xref py py-obj docutils literal"><span class="pre">institution</span></tt></a></td>
+<td>The institution CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.leap_month.html#cf.Field.leap_month" title="cf.Field.leap_month"><tt class="xref py py-obj docutils literal"><span class="pre">leap_month</span></tt></a></td>
+<td>The leap_month CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.leap_year.html#cf.Field.leap_year" title="cf.Field.leap_year"><tt class="xref py py-obj docutils literal"><span class="pre">leap_year</span></tt></a></td>
+<td>The leap_year CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.long_name.html#cf.Field.long_name" title="cf.Field.long_name"><tt class="xref py py-obj docutils literal"><span class="pre">long_name</span></tt></a></td>
+<td>The long_name CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.missing_value.html#cf.Field.missing_value" title="cf.Field.missing_value"><tt class="xref py py-obj docutils literal"><span class="pre">missing_value</span></tt></a></td>
+<td>The missing_value CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.month_lengths.html#cf.Field.month_lengths" title="cf.Field.month_lengths"><tt class="xref py py-obj docutils literal"><span class="pre">month_lengths</span></tt></a></td>
+<td>The month_lengths CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.references.html#cf.Field.references" title="cf.Field.references"><tt class="xref py py-obj docutils literal"><span class="pre">references</span></tt></a></td>
+<td>The references CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.scale_factor.html#cf.Field.scale_factor" title="cf.Field.scale_factor"><tt class="xref py py-obj docutils literal"><span class="pre">scale_factor</span></tt></a></td>
+<td>The scale_factor CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.source.html#cf.Field.source" title="cf.Field.source"><tt class="xref py py-obj docutils literal"><span class="pre">source</span></tt></a></td>
+<td>The source CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.standard_error_multiplier.html#cf.Field.standard_error_multiplier" title="cf.Field.standard_error_multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">standard_error_multiplier</span></tt></a></td>
+<td>The standard_error_multiplier CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.standard_name.html#cf.Field.standard_name" title="cf.Field.standard_name"><tt class="xref py py-obj docutils literal"><span class="pre">standard_name</span></tt></a></td>
+<td>The standard_name CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.title.html#cf.Field.title" title="cf.Field.title"><tt class="xref py py-obj docutils literal"><span class="pre">title</span></tt></a></td>
+<td>The title CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.units.html#cf.Field.units" title="cf.Field.units"><tt class="xref py py-obj docutils literal"><span class="pre">units</span></tt></a></td>
+<td>The units CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.valid_max.html#cf.Field.valid_max" title="cf.Field.valid_max"><tt class="xref py py-obj docutils literal"><span class="pre">valid_max</span></tt></a></td>
+<td>The valid_max CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.valid_min.html#cf.Field.valid_min" title="cf.Field.valid_min"><tt class="xref py py-obj docutils literal"><span class="pre">valid_min</span></tt></a></td>
+<td>The valid_min CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.valid_range.html#cf.Field.valid_range" title="cf.Field.valid_range"><tt class="xref py py-obj docutils literal"><span class="pre">valid_range</span></tt></a></td>
+<td>The valid_range CF property.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="field-attributes">
+<span id="id2"></span><h2>Field attributes<a class="headerlink" href="#field-attributes" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.ancillary_variables.html#cf.Field.ancillary_variables" title="cf.Field.ancillary_variables"><tt class="xref py py-obj docutils literal"><span class="pre">ancillary_variables</span></tt></a></td>
+<td>A <a class="reference internal" href="cf.AncillaryVariables.html#cf.AncillaryVariables" title="cf.AncillaryVariables"><tt class="xref py py-obj docutils literal"><span class="pre">cf.AncillaryVariables</span></tt></a> object containing CF ancillary data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.array.html#cf.Field.array" title="cf.Field.array"><tt class="xref py py-obj docutils literal"><span class="pre">array</span></tt></a></td>
+<td>A numpy array deep copy of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.attributes.html#cf.Field.attributes" title="cf.Field.attributes"><tt class="xref py py-obj docutils literal"><span class="pre">attributes</span></tt></a></td>
+<td>A dictionary of the attributes which are not CF properties.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.data.html#cf.Field.data" title="cf.Field.data"><tt class="xref py py-obj docutils literal"><span class="pre">data</span></tt></a></td>
+<td>The <a class="reference internal" href="cf.Data.html#cf.Data" title="cf.Data"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Data</span></tt></a> object containing the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.day.html#cf.Field.day" title="cf.Field.day"><tt class="xref py py-obj docutils literal"><span class="pre">day</span></tt></a></td>
+<td>The day of each data array element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.domain.html#cf.Field.domain" title="cf.Field.domain"><tt class="xref py py-obj docutils literal"><span class="pre">domain</span></tt></a></td>
+<td>The <a class="reference internal" href="cf.Domain.html#cf.Domain" title="cf.Domain"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Domain</span></tt></a> object containing the field&#8217;s domain.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.dtarray.html#cf.Field.dtarray" title="cf.Field.dtarray"><tt class="xref py py-obj docutils literal"><span class="pre">dtarray</span></tt></a></td>
+<td>An independent numpy array of date-time objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.dtvarray.html#cf.Field.dtvarray" title="cf.Field.dtvarray"><tt class="xref py py-obj docutils literal"><span class="pre">dtvarray</span></tt></a></td>
+<td>A numpy array view the data array converted to date-time objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.dtype.html#cf.Field.dtype" title="cf.Field.dtype"><tt class="xref py py-obj docutils literal"><span class="pre">dtype</span></tt></a></td>
+<td>The <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.9)"><tt class="xref py py-obj docutils literal"><span class="pre">numpy</span></tt></a> data type of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.Flags.html#cf.Field.Flags" title="cf.Field.Flags"><tt class="xref py py-obj docutils literal"><span class="pre">Flags</span></tt></a></td>
+<td>A <a class="reference internal" href="cf.Flags.html#cf.Flags" title="cf.Flags"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Flags</span></tt></a> object containing self-describing CF flag values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.hardmask.html#cf.Field.hardmask" title="cf.Field.hardmask"><tt class="xref py py-obj docutils literal"><span class="pre">hardmask</span></tt></a></td>
+<td>Whether the mask is hard (True) or soft (False).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.hour.html#cf.Field.hour" title="cf.Field.hour"><tt class="xref py py-obj docutils literal"><span class="pre">hour</span></tt></a></td>
+<td>The hour of each data array element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.isscalar.html#cf.Field.isscalar" title="cf.Field.isscalar"><tt class="xref py py-obj docutils literal"><span class="pre">isscalar</span></tt></a></td>
+<td>True if and only if the data array is a scalar array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.mask.html#cf.Field.mask" title="cf.Field.mask"><tt class="xref py py-obj docutils literal"><span class="pre">mask</span></tt></a></td>
+<td>A field containing the mask of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.minute.html#cf.Field.minute" title="cf.Field.minute"><tt class="xref py py-obj docutils literal"><span class="pre">minute</span></tt></a></td>
+<td>The minute of each data array element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.month.html#cf.Field.month" title="cf.Field.month"><tt class="xref py py-obj docutils literal"><span class="pre">month</span></tt></a></td>
+<td>The month of each data array element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.ndim.html#cf.Field.ndim" title="cf.Field.ndim"><tt class="xref py py-obj docutils literal"><span class="pre">ndim</span></tt></a></td>
+<td>Number of dimensions in the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.properties.html#cf.Field.properties" title="cf.Field.properties"><tt class="xref py py-obj docutils literal"><span class="pre">properties</span></tt></a></td>
+<td>A dictionary of the CF properties.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.rank.html#cf.Field.rank" title="cf.Field.rank"><tt class="xref py py-obj docutils literal"><span class="pre">rank</span></tt></a></td>
+<td>The number of axes in the domain of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.second.html#cf.Field.second" title="cf.Field.second"><tt class="xref py py-obj docutils literal"><span class="pre">second</span></tt></a></td>
+<td>The second of each data array element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.shape.html#cf.Field.shape" title="cf.Field.shape"><tt class="xref py py-obj docutils literal"><span class="pre">shape</span></tt></a></td>
+<td>Tuple of the data array&#8217;s dimension sizes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.size.html#cf.Field.size" title="cf.Field.size"><tt class="xref py py-obj docutils literal"><span class="pre">size</span></tt></a></td>
+<td>Number of elements in the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.subspace.html#cf.Field.subspace" title="cf.Field.subspace"><tt class="xref py py-obj docutils literal"><span class="pre">subspace</span></tt></a></td>
+<td>Return a new object which will get or set a subspace of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.unique.html#cf.Field.unique" title="cf.Field.unique"><tt class="xref py py-obj docutils literal"><span class="pre">unique</span></tt></a></td>
+<td>The unique elements of the array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.Units.html#cf.Field.Units" title="cf.Field.Units"><tt class="xref py py-obj docutils literal"><span class="pre">Units</span></tt></a></td>
+<td>The <a class="reference internal" href="cf.Units.html#cf.Units" title="cf.Units"><tt class="xref py py-obj docutils literal"><span class="pre">cf.Units</span></tt></a> object containing the units of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.varray.html#cf.Field.varray" title="cf.Field.varray"><tt class="xref py py-obj docutils literal"><span class="pre">varray</span></tt></a></td>
+<td>A numpy array view of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.year.html#cf.Field.year" title="cf.Field.year"><tt class="xref py py-obj docutils literal"><span class="pre">year</span></tt></a></td>
+<td>The year of each data array element.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="field-methods">
+<span id="id3"></span><h2>Field methods<a class="headerlink" href="#field-methods" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.allclose.html#cf.Field.allclose" title="cf.Field.allclose"><tt class="xref py py-obj docutils literal"><span class="pre">allclose</span></tt></a></td>
+<td>Returns True if two broadcastable fields have have equal array values to within numerical tolerance.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.anchor.html#cf.Field.anchor" title="cf.Field.anchor"><tt class="xref py py-obj docutils literal"><span class="pre">anchor</span></tt></a></td>
+<td>Roll a cyclic axis so that the given value lies in the first coordinate cell.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.asdatetime.html#cf.Field.asdatetime" title="cf.Field.asdatetime"><tt class="xref py py-obj docutils literal"><span class="pre">asdatetime</span></tt></a></td>
+<td>Change the internal representation of data array elements from numeric reference times to datatime-like objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.asreftime.html#cf.Field.asreftime" title="cf.Field.asreftime"><tt class="xref py py-obj docutils literal"><span class="pre">asreftime</span></tt></a></td>
+<td>Change the internal representation of data array elements from datatime-like objects to numeric reference times.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.aux.html#cf.Field.aux" title="cf.Field.aux"><tt class="xref py py-obj docutils literal"><span class="pre">aux</span></tt></a></td>
+<td>Return an auxiliary coordinate object of the domain, or its domain identifier.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.auxs.html#cf.Field.auxs" title="cf.Field.auxs"><tt class="xref py py-obj docutils literal"><span class="pre">auxs</span></tt></a></td>
+<td>Return auxiliary coordinate objects of the domain.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.axes.html#cf.Field.axes" title="cf.Field.axes"><tt class="xref py py-obj docutils literal"><span class="pre">axes</span></tt></a></td>
+<td>Return domain axis identifiers from the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.axes_sizes.html#cf.Field.axes_sizes" title="cf.Field.axes_sizes"><tt class="xref py py-obj docutils literal"><span class="pre">axes_sizes</span></tt></a></td>
+<td>Return the size a of a domain axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.axis.html#cf.Field.axis" title="cf.Field.axis"><tt class="xref py py-obj docutils literal"><span class="pre">axis</span></tt></a></td>
+<td>Return a domain axis identifier.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.axis_name.html#cf.Field.axis_name" title="cf.Field.axis_name"><tt class="xref py py-obj docutils literal"><span class="pre">axis_name</span></tt></a></td>
+<td>Return the canonical name for an axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.axis_size.html#cf.Field.axis_size" title="cf.Field.axis_size"><tt class="xref py py-obj docutils literal"><span class="pre">axis_size</span></tt></a></td>
+<td>Return the size a of a domain axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.binary_mask.html#cf.Field.binary_mask" title="cf.Field.binary_mask"><tt class="xref py py-obj docutils literal"><span class="pre">binary_mask</span></tt></a></td>
+<td>Return a binary (0 and 1) missing data mask of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.ceil.html#cf.Field.ceil" title="cf.Field.ceil"><tt class="xref py py-obj docutils literal"><span class="pre">ceil</span></tt></a></td>
+<td>Return the ceiling of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.chunk.html#cf.Field.chunk" title="cf.Field.chunk"><tt class="xref py py-obj docutils literal"><span class="pre">chunk</span></tt></a></td>
+<td>Partition the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.clip.html#cf.Field.clip" title="cf.Field.clip"><tt class="xref py py-obj docutils literal"><span class="pre">clip</span></tt></a></td>
+<td>Clip (limit) the values in the data array in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.close.html#cf.Field.close" title="cf.Field.close"><tt class="xref py py-obj docutils literal"><span class="pre">close</span></tt></a></td>
+<td>Close all files referenced by the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.collapse.html#cf.Field.collapse" title="cf.Field.collapse"><tt class="xref py py-obj docutils literal"><span class="pre">collapse</span></tt></a></td>
+<td>Collapse axes of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.coord.html#cf.Field.coord" title="cf.Field.coord"><tt class="xref py py-obj docutils literal"><span class="pre">coord</span></tt></a></td>
+<td>Return a dimension or auxiliary coordinate object of the domain, or its domain identifier.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.coords.html#cf.Field.coords" title="cf.Field.coords"><tt class="xref py py-obj docutils literal"><span class="pre">coords</span></tt></a></td>
+<td>Return dimension and auxiliary coordinate objects of the domain.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.copy.html#cf.Field.copy" title="cf.Field.copy"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<td>Return a deep copy.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.cos.html#cf.Field.cos" title="cf.Field.cos"><tt class="xref py py-obj docutils literal"><span class="pre">cos</span></tt></a></td>
+<td>Take the trigonometric cosine of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.cyclic.html#cf.Field.cyclic" title="cf.Field.cyclic"><tt class="xref py py-obj docutils literal"><span class="pre">cyclic</span></tt></a></td>
+<td>Set the cyclicity of an axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.data_axes.html#cf.Field.data_axes" title="cf.Field.data_axes"><tt class="xref py py-obj docutils literal"><span class="pre">data_axes</span></tt></a></td>
+<td>Return the domain axes identifiers of the field&#8217;s data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.datum.html#cf.Field.datum" title="cf.Field.datum"><tt class="xref py py-obj docutils literal"><span class="pre">datum</span></tt></a></td>
+<td>Return an element of the data array as a standard Python scalar.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.delattr.html#cf.Field.delattr" title="cf.Field.delattr"><tt class="xref py py-obj docutils literal"><span class="pre">delattr</span></tt></a></td>
+<td>Delete a named attribute.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.delprop.html#cf.Field.delprop" title="cf.Field.delprop"><tt class="xref py py-obj docutils literal"><span class="pre">delprop</span></tt></a></td>
+<td>Delete a CF property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.dim.html#cf.Field.dim" title="cf.Field.dim"><tt class="xref py py-obj docutils literal"><span class="pre">dim</span></tt></a></td>
+<td>Return a dimension coordinate object of the domain, or its domain identifier.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.dims.html#cf.Field.dims" title="cf.Field.dims"><tt class="xref py py-obj docutils literal"><span class="pre">dims</span></tt></a></td>
+<td>Return dimension coordinate objects of the domain.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.dump.html#cf.Field.dump" title="cf.Field.dump"><tt class="xref py py-obj docutils literal"><span class="pre">dump</span></tt></a></td>
+<td>Return a string containing a description of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.equals.html#cf.Field.equals" title="cf.Field.equals"><tt class="xref py py-obj docutils literal"><span class="pre">equals</span></tt></a></td>
+<td>True if two fields are logically equal, False otherwise.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.equivalent.html#cf.Field.equivalent" title="cf.Field.equivalent"><tt class="xref py py-obj docutils literal"><span class="pre">equivalent</span></tt></a></td>
+<td>True if and only if two fields are logically equivalent.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.equivalent_data.html#cf.Field.equivalent_data" title="cf.Field.equivalent_data"><tt class="xref py py-obj docutils literal"><span class="pre">equivalent_data</span></tt></a></td>
+<td>Return True if two fields have equivalent data arrays.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.equivalent_domain.html#cf.Field.equivalent_domain" title="cf.Field.equivalent_domain"><tt class="xref py py-obj docutils literal"><span class="pre">equivalent_domain</span></tt></a></td>
+<td>Return True if two fields have equivalent data domains.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.expand_dims.html#cf.Field.expand_dims" title="cf.Field.expand_dims"><tt class="xref py py-obj docutils literal"><span class="pre">expand_dims</span></tt></a></td>
+<td>Insert a size 1 axis into the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.fill_value.html#cf.Field.fill_value" title="cf.Field.fill_value"><tt class="xref py py-obj docutils literal"><span class="pre">fill_value</span></tt></a></td>
+<td>Return the data array missing data value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.flip.html#cf.Field.flip" title="cf.Field.flip"><tt class="xref py py-obj docutils literal"><span class="pre">flip</span></tt></a></td>
+<td>Flip (reverse the direction of) axes of the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.floor.html#cf.Field.floor" title="cf.Field.floor"><tt class="xref py py-obj docutils literal"><span class="pre">floor</span></tt></a></td>
+<td>Return the floor of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.getattr.html#cf.Field.getattr" title="cf.Field.getattr"><tt class="xref py py-obj docutils literal"><span class="pre">getattr</span></tt></a></td>
+<td>Get a named attribute.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.getprop.html#cf.Field.getprop" title="cf.Field.getprop"><tt class="xref py py-obj docutils literal"><span class="pre">getprop</span></tt></a></td>
+<td>Get a CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.hasattr.html#cf.Field.hasattr" title="cf.Field.hasattr"><tt class="xref py py-obj docutils literal"><span class="pre">hasattr</span></tt></a></td>
+<td>Return whether an attribute exists.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.hasprop.html#cf.Field.hasprop" title="cf.Field.hasprop"><tt class="xref py py-obj docutils literal"><span class="pre">hasprop</span></tt></a></td>
+<td>Return True if a CF property exists, otherise False.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.identity.html#cf.Field.identity" title="cf.Field.identity"><tt class="xref py py-obj docutils literal"><span class="pre">identity</span></tt></a></td>
+<td>Return the variable&#8217;s identity.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.indices.html#cf.Field.indices" title="cf.Field.indices"><tt class="xref py py-obj docutils literal"><span class="pre">indices</span></tt></a></td>
+<td>Create data array indices based on domain metadata.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.insert_aux.html#cf.Field.insert_aux" title="cf.Field.insert_aux"><tt class="xref py py-obj docutils literal"><span class="pre">insert_aux</span></tt></a></td>
+<td>Insert an auxiliary coordinate object into the domain in place.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.insert_axis.html#cf.Field.insert_axis" title="cf.Field.insert_axis"><tt class="xref py py-obj docutils literal"><span class="pre">insert_axis</span></tt></a></td>
+<td>Insert an axis into the domain in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.insert_data.html#cf.Field.insert_data" title="cf.Field.insert_data"><tt class="xref py py-obj docutils literal"><span class="pre">insert_data</span></tt></a></td>
+<td>Insert a new data array into the field in place.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.insert_dim.html#cf.Field.insert_dim" title="cf.Field.insert_dim"><tt class="xref py py-obj docutils literal"><span class="pre">insert_dim</span></tt></a></td>
+<td>Insert a dimension coordinate object into the domain in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.insert_measure.html#cf.Field.insert_measure" title="cf.Field.insert_measure"><tt class="xref py py-obj docutils literal"><span class="pre">insert_measure</span></tt></a></td>
+<td>Insert an cell measure object into the domain in place.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.insert_ref.html#cf.Field.insert_ref" title="cf.Field.insert_ref"><tt class="xref py py-obj docutils literal"><span class="pre">insert_ref</span></tt></a></td>
+<td>Insert a coordinate reference object into the domain in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.iscyclic.html#cf.Field.iscyclic" title="cf.Field.iscyclic"><tt class="xref py py-obj docutils literal"><span class="pre">iscyclic</span></tt></a></td>
+<td>Whether or not a particular axis is cyclic.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.item.html#cf.Field.item" title="cf.Field.item"><tt class="xref py py-obj docutils literal"><span class="pre">item</span></tt></a></td>
+<td>Return an item, or its domain identifier, from the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.item_axes.html#cf.Field.item_axes" title="cf.Field.item_axes"><tt class="xref py py-obj docutils literal"><span class="pre">item_axes</span></tt></a></td>
+<td>Return the axes of a domain item of the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.items.html#cf.Field.items" title="cf.Field.items"><tt class="xref py py-obj docutils literal"><span class="pre">items</span></tt></a></td>
+<td>Return domain items from the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.items_axes.html#cf.Field.items_axes" title="cf.Field.items_axes"><tt class="xref py py-obj docutils literal"><span class="pre">items_axes</span></tt></a></td>
+<td>Return the axes of domain items of the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.iter.html#cf.Field.iter" title="cf.Field.iter"><tt class="xref py py-obj docutils literal"><span class="pre">iter</span></tt></a></td>
+<td>Return a single element iterable for the output of a method (with arguments).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.mask_invalid.html#cf.Field.mask_invalid" title="cf.Field.mask_invalid"><tt class="xref py py-obj docutils literal"><span class="pre">mask_invalid</span></tt></a></td>
+<td>Mask the array where invalid values occur (NaNs or infs).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.max.html#cf.Field.max" title="cf.Field.max"><tt class="xref py py-obj docutils literal"><span class="pre">max</span></tt></a></td>
+<td>The maximum of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.mean.html#cf.Field.mean" title="cf.Field.mean"><tt class="xref py py-obj docutils literal"><span class="pre">mean</span></tt></a></td>
+<td>The unweighted mean the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.match.html#cf.Field.match" title="cf.Field.match"><tt class="xref py py-obj docutils literal"><span class="pre">match</span></tt></a></td>
+<td>Test whether or not the field satisfies the given conditions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.measure.html#cf.Field.measure" title="cf.Field.measure"><tt class="xref py py-obj docutils literal"><span class="pre">measure</span></tt></a></td>
+<td>Return a <a class="reference internal" href="cf.CellMeasure.html#cf.CellMeasure" title="cf.CellMeasure"><tt class="xref py py-obj docutils literal"><span class="pre">cf.CellMeasure</span></tt></a> object of the domain, or its domain identifier.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.measures.html#cf.Field.measures" title="cf.Field.measures"><tt class="xref py py-obj docutils literal"><span class="pre">measures</span></tt></a></td>
+<td>Return cell measure objects of the domain.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.method.html#cf.Field.method" title="cf.Field.method"><tt class="xref py py-obj docutils literal"><span class="pre">method</span></tt></a></td>
+<td>Return the results of a callable method (with arguments) applied to the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.mid_range.html#cf.Field.mid_range" title="cf.Field.mid_range"><tt class="xref py py-obj docutils literal"><span class="pre">mid_range</span></tt></a></td>
+<td>The unweighted average of the maximum and minimum of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.min.html#cf.Field.min" title="cf.Field.min"><tt class="xref py py-obj docutils literal"><span class="pre">min</span></tt></a></td>
+<td>The minimum of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.name.html#cf.Field.name" title="cf.Field.name"><tt class="xref py py-obj docutils literal"><span class="pre">name</span></tt></a></td>
+<td>Return a name for the variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.override_units.html#cf.Field.override_units" title="cf.Field.override_units"><tt class="xref py py-obj docutils literal"><span class="pre">override_units</span></tt></a></td>
+<td>Override the data array units in place.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.period.html#cf.Field.period" title="cf.Field.period"><tt class="xref py py-obj docutils literal"><span class="pre">period</span></tt></a></td>
+<td>Return the period of a potentially cyclic axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.range.html#cf.Field.range" title="cf.Field.range"><tt class="xref py py-obj docutils literal"><span class="pre">range</span></tt></a></td>
+<td>The absolute difference between the maximum and minimum of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.ref.html#cf.Field.ref" title="cf.Field.ref"><tt class="xref py py-obj docutils literal"><span class="pre">ref</span></tt></a></td>
+<td>Return a coordinate reference object of the domain, or its domain identifier.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.refs.html#cf.Field.refs" title="cf.Field.refs"><tt class="xref py py-obj docutils literal"><span class="pre">refs</span></tt></a></td>
+<td>Return coordinate references of the domain.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.remove_axes.html#cf.Field.remove_axes" title="cf.Field.remove_axes"><tt class="xref py py-obj docutils literal"><span class="pre">remove_axes</span></tt></a></td>
+<td>Remove and return axes from the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.remove_axis.html#cf.Field.remove_axis" title="cf.Field.remove_axis"><tt class="xref py py-obj docutils literal"><span class="pre">remove_axis</span></tt></a></td>
+<td>Remove and return an axis from the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.remove_data.html#cf.Field.remove_data" title="cf.Field.remove_data"><tt class="xref py py-obj docutils literal"><span class="pre">remove_data</span></tt></a></td>
+<td>Remove and return the data array of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.remove_item.html#cf.Field.remove_item" title="cf.Field.remove_item"><tt class="xref py py-obj docutils literal"><span class="pre">remove_item</span></tt></a></td>
+<td>Remove and return a domain item from the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.remove_items.html#cf.Field.remove_items" title="cf.Field.remove_items"><tt class="xref py py-obj docutils literal"><span class="pre">remove_items</span></tt></a></td>
+<td>Remove and return domain items from the domain.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.rint.html#cf.Field.rint" title="cf.Field.rint"><tt class="xref py py-obj docutils literal"><span class="pre">rint</span></tt></a></td>
+<td>Round elements of the data array to the nearest integer.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.roll.html#cf.Field.roll" title="cf.Field.roll"><tt class="xref py py-obj docutils literal"><span class="pre">roll</span></tt></a></td>
+<td>Roll the field along a cyclic axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.sample_size.html#cf.Field.sample_size" title="cf.Field.sample_size"><tt class="xref py py-obj docutils literal"><span class="pre">sample_size</span></tt></a></td>
+<td>The number of non-missing data elements in the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.sd.html#cf.Field.sd" title="cf.Field.sd"><tt class="xref py py-obj docutils literal"><span class="pre">sd</span></tt></a></td>
+<td>The unweighted sample standard deviation of the data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.select.html#cf.Field.select" title="cf.Field.select"><tt class="xref py py-obj docutils literal"><span class="pre">select</span></tt></a></td>
+<td>Return the field if it satisfies the given conditions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.setattr.html#cf.Field.setattr" title="cf.Field.setattr"><tt class="xref py py-obj docutils literal"><span class="pre">setattr</span></tt></a></td>
+<td>Set a named attribute.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.setcyclic.html#cf.Field.setcyclic" title="cf.Field.setcyclic"><tt class="xref py py-obj docutils literal"><span class="pre">setcyclic</span></tt></a></td>
+<td>Set axes to be cyclic if they meet conditions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.setprop.html#cf.Field.setprop" title="cf.Field.setprop"><tt class="xref py py-obj docutils literal"><span class="pre">setprop</span></tt></a></td>
+<td>Set a CF property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.sin.html#cf.Field.sin" title="cf.Field.sin"><tt class="xref py py-obj docutils literal"><span class="pre">sin</span></tt></a></td>
+<td>Take the trigonometric sine of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.sort.html#cf.Field.sort" title="cf.Field.sort"><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></a></td>
+<td>Sort of the field in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.squeeze.html#cf.Field.squeeze" title="cf.Field.squeeze"><tt class="xref py py-obj docutils literal"><span class="pre">squeeze</span></tt></a></td>
+<td>Remove size 1 axes from the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.subspace.html#cf.Field.subspace" title="cf.Field.subspace"><tt class="xref py py-obj docutils literal"><span class="pre">subspace</span></tt></a></td>
+<td>Return a new object which will get or set a subspace of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.sum.html#cf.Field.sum" title="cf.Field.sum"><tt class="xref py py-obj docutils literal"><span class="pre">sum</span></tt></a></td>
+<td>The sum of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.transpose.html#cf.Field.transpose" title="cf.Field.transpose"><tt class="xref py py-obj docutils literal"><span class="pre">transpose</span></tt></a></td>
+<td>Permute the axes of the data array in place.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.trunc.html#cf.Field.trunc" title="cf.Field.trunc"><tt class="xref py py-obj docutils literal"><span class="pre">trunc</span></tt></a></td>
+<td>Return the truncated values of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.unsqueeze.html#cf.Field.unsqueeze" title="cf.Field.unsqueeze"><tt class="xref py py-obj docutils literal"><span class="pre">unsqueeze</span></tt></a></td>
+<td>Insert size 1 axes into the data array of the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.var.html#cf.Field.var" title="cf.Field.var"><tt class="xref py py-obj docutils literal"><span class="pre">var</span></tt></a></td>
+<td>The unweighted sample variance of the data array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.weights.html#cf.Field.weights" title="cf.Field.weights"><tt class="xref py py-obj docutils literal"><span class="pre">weights</span></tt></a></td>
+<td>Return weights for the data array values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../generated/cf.Field.where.html#cf.Field.where" title="cf.Field.where"><tt class="xref py py-obj docutils literal"><span class="pre">where</span></tt></a></td>
+<td>Set data array elements depending on a condition.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="field-class-methods">
+<h2>Field class methods<a class="headerlink" href="#field-class-methods" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../generated/cf.Field.concatenate.html#cf.Field.concatenate" title="cf.Field.concatenate"><tt class="xref py py-obj docutils literal"><span class="pre">concatenate</span></tt></a></td>
+<td>Join a sequence of fields together.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="field-arithmetic-and-comparison-operations">
+<h2>Field arithmetic and comparison operations<a class="headerlink" href="#field-arithmetic-and-comparison-operations" title="Permalink to this headline">¶</a></h2>
+<p>See the section on <a class="reference internal" href="../field_manipulation.html#arithmetic-and-comparison"><em>arithmetic and comparison operations</em></a>.</p>
+</div>
+<div class="section" id="field-special-methods">
+<h2>Field special methods<a class="headerlink" href="#field-special-methods" title="Permalink to this headline">¶</a></h2>
+<p><strong>Standard library functions</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/cf.Field.__deepcopy__.html#cf.Field.__deepcopy__" title="cf.Field.__deepcopy__"><tt class="xref py py-obj docutils literal"><span class="pre">__deepcopy__</span></tt></a></td>
+<td>Used if copy.deepcopy is called.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Container customization</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/cf.Field.__len__.html#cf.Field.__len__" title="cf.Field.__len__"><tt class="xref py py-obj docutils literal"><span class="pre">__len__</span></tt></a></td>
+<td>The built-in function <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#len" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">len</span></tt></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/cf.Field.__getitem__.html#cf.Field.__getitem__" title="cf.Field.__getitem__"><tt class="xref py py-obj docutils literal"><span class="pre">__getitem__</span></tt></a></td>
+<td>x.__getitem__(index) &lt;==&gt; x[index]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/cf.Field.__contains__.html#cf.Field.__contains__" title="cf.Field.__contains__"><tt class="xref py py-obj docutils literal"><span class="pre">__contains__</span></tt></a></td>
+<td>Membership test operator <tt class="docutils literal"><span class="pre">in</span></tt></td>
+</tr>
+</tbody>
+</table>
+<p><strong>String representations</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/cf.Field.__repr__.html#cf.Field.__repr__" title="cf.Field.__repr__"><tt class="xref py py-obj docutils literal"><span class="pre">__repr__</span></tt></a></td>
+<td>The built-in function <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#repr" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">repr</span></tt></a></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/cf.Field.__str__.html#cf.Field.__str__" title="cf.Field.__str__"><tt class="xref py py-obj docutils literal"><span class="pre">__str__</span></tt></a></td>
+<td>The built-in function <a class="reference external" href="http://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cf.Field</a><ul>
+<li><a class="reference internal" href="#field-cf-properties">Field CF Properties</a></li>
+<li><a class="reference internal" href="#field-attributes">Field attributes</a></li>
+<li><a class="reference internal" href="#field-methods">Field methods</a></li>
+<li><a class="reference internal" href="#field-class-methods">Field class methods</a></li>
+<li><a class="reference internal" href="#field-arithmetic-and-comparison-operations">Field arithmetic and comparison operations</a></li>
+<li><a class="reference internal" href="#field-special-methods">Field special methods</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../generated/cf.Variable.where.html"
+                        title="previous chapter">cf.Variable.where</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../generated/cf.Field.add_offset.html"
+                        title="next chapter">cf.Field.add_offset</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/classes/cf.Field.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../generated/cf.Field.add_offset.html" title="cf.Field.add_offset"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../generated/cf.Variable.where.html" title="cf.Variable.where"
+             >previous</a> |</li>
+  <li><a target="_blank" href="http://cfpython.bitbucket.org">cf-python</a> &raquo;</li>
+  <li><select onchange="location = this.options[this.selectedIndex].value;">
+
+      <option value="../../1.0/index.html">1.0
+
+      <option value="../../0.9.9/index.html">0.9.9
+
+      <option value="../../0.9.8.3/index.html">0.9.8.3
+
+      <option value="../../archive.html">Archive
+
+      </select>
+  </li>
+  
+        <li><a href="../index.html">Documentation</a> &raquo;</li>
+
+          <li><a href="../reference.html" >Reference manual</a> &raquo;</li>
+          <li><a href="../class.html" >Classes of the <tt class="docutils literal"><span class="pre">cf</span></tt> module</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, David Hassell.
+      Last updated on Jun 23, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
