@@ -1,0 +1,66 @@
+resource_registry:
+  OS::TripleO::BlockStorage: puppet/cinder-storage-puppet.yaml
+  OS::TripleO::BlockStorage::Net::SoftwareConfig: net-config-noop.yaml
+  OS::TripleO::Compute: puppet/compute-puppet.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: net-config-bridge.yaml
+  OS::TripleO::SoftwareDeployment: OS::Heat::StructuredDeployment
+  OS::TripleO::Controller: puppet/controller-puppet.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: net-config-bridge.yaml
+  OS::TripleO::ObjectStorage: puppet/swift-storage-puppet.yaml
+  OS::TripleO::ObjectStorage::Net::SoftwareConfig: net-config-noop.yaml
+  OS::TripleO::CephStorage: puppet/ceph-storage-puppet.yaml
+  OS::TripleO::CephStorage::Net::SoftwareConfig: net-config-noop.yaml
+  OS::TripleO::ControllerPostDeployment: puppet/controller-post-puppet.yaml
+  # set to controller-config-pacemaker.yaml to enable pacemaker
+  OS::TripleO::ControllerConfig: puppet/controller-config.yaml
+  OS::TripleO::ComputePostDeployment: puppet/compute-post-puppet.yaml
+  OS::TripleO::ObjectStoragePostDeployment: puppet/swift-storage-post.yaml
+  OS::TripleO::BlockStoragePostDeployment: puppet/cinder-storage-post.yaml
+  OS::TripleO::CephStoragePostDeployment: puppet/ceph-storage-post-puppet.yaml
+  OS::TripleO::SwiftDevicesAndProxy::SoftwareConfig: puppet/swift-devices-and-proxy-config.yaml
+  OS::TripleO::CephClusterConfig::SoftwareConfig: puppet/ceph-cluster-config.yaml
+  OS::TripleO::AllNodes::SoftwareConfig: puppet/all-nodes-config.yaml
+  OS::TripleO::BootstrapNode::SoftwareConfig: puppet/bootstrap-config.yaml
+  OS::TripleO::NodeUserData: firstboot/userdata_default.yaml
+  OS::TripleO::NodeExtraConfigPost: extraconfig/post_deploy/default.yaml
+
+  # TripleO overcloud networks
+  OS::TripleO::Network: network/networks.yaml
+
+  OS::TripleO::Network::External: network/noop.yaml
+  OS::TripleO::Network::InternalApi: network/noop.yaml
+  OS::TripleO::Network::StorageMgmt: network/noop.yaml
+  OS::TripleO::Network::Storage: network/noop.yaml
+  OS::TripleO::Network::Tenant: network/noop.yaml
+
+  OS::TripleO::Network::Ports::NetIpMap: network/ports/net_ip_map.yaml
+  OS::TripleO::Network::Ports::NetIpListMap: network/ports/net_ip_list_map.yaml
+
+  # Port assignments for the controller role
+  OS::TripleO::Controller::Ports::ExternalPort: network/ports/noop.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: network/ports/noop.yaml
+  OS::TripleO::Controller::Ports::StoragePort: network/ports/noop.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: network/ports/noop.yaml
+  OS::TripleO::Controller::Ports::TenantPort: network/ports/noop.yaml
+
+  # Port assignments for the compute role
+  OS::TripleO::Compute::Ports::InternalApiPort: network/ports/noop.yaml
+  OS::TripleO::Compute::Ports::StoragePort: network/ports/noop.yaml
+  OS::TripleO::Compute::Ports::TenantPort: network/ports/noop.yaml
+
+  # Port assignments for the ceph storage role
+  OS::TripleO::CephStorage::Ports::StoragePort: network/ports/noop.yaml
+  OS::TripleO::CephStorage::Ports::StorageMgmtPort: network/ports/noop.yaml
+
+  # Port assignments for the swift storage role
+  OS::TripleO::SwiftStorage::Ports::InternalApiPort: network/ports/noop.yaml
+  OS::TripleO::SwiftStorage::Ports::StoragePort: network/ports/noop.yaml
+  OS::TripleO::SwiftStorage::Ports::StorageMgmtPort: network/ports/noop.yaml
+
+  # Port assignments for the block storage role
+  OS::TripleO::BlockStorage::Ports::InternalApiPort: network/ports/noop.yaml
+  OS::TripleO::BlockStorage::Ports::StoragePort: network/ports/noop.yaml
+  OS::TripleO::BlockStorage::Ports::StorageMgmtPort: network/ports/noop.yaml
+
+parameter_defaults:
+  EnablePackageInstall: false
