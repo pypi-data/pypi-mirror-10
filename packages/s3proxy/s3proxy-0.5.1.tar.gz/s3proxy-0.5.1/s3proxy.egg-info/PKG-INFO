@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: s3proxy
+Version: 0.5.1
+Summary: HTTP Proxy for S3 buckets
+Home-page: https://github.com/reversefold/python-s3proxy
+Author: Justin Patrin
+Author-email: papercrane@reversefold.com
+License: License :: OSI Approved :: MIT License
+Download-URL: https://github.com/reversefold/python-s3proxy/tarball/release/0.5.1
+Description: 
+                Exposes an HTTP endpoint for a given S3 bucket and prefix.
+                Supports exposing private S3 keys through an IAM key/secret.
+                Transparently serves index.html for URLs ending in / and will
+                generate an index when no index.html is found.
+        
+                Originally meant as a way to serve a private pypi repository
+                on an S3 bucket.
+            
+Platform: UNKNOWN
