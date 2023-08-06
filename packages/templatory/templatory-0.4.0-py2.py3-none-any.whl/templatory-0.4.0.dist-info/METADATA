@@ -1,0 +1,108 @@
+Metadata-Version: 2.0
+Name: templatory
+Version: 0.4.0
+Summary: Takes a *context* and renders one or more Jinja *templates* with it.
+Home-page: https://github.com/brutus/templator
+Author: Brutus [DMC]
+Author-email: brutus.dmc@googlemail.com
+License: GNU GPLv3
+Keywords: templates,jinja,jinja2,markdown,restructuredtext,kson,yaml
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+
+# Templator
+
+Takes a *context* and renders one or more [Jinja] *templates* with it. You can
+build the context by manually setting keywords, loading data files or giving
+content as markup files.
+
+- Supports [Markdown] and [ReStructuredText] as input formats for markup files
+- and [JSON] and [YAML] as formats for data files.
+
+
+## Usage
+
+    usage: templator [--content <FILE>…] [--data <FILE>…] [--extra <KEY> <VALUE>]… [--css <FILE>…] [--js <FILE>…] [<TEMPLATE>]…
+
+    Builds a context and prints the render TEMPLATEs to `stdout`.
+
+    positional arguments:
+      FILE                  JINJA2 template(s) to use (default: simple HTML5
+                            wrapper)
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      --version             show program's version number and exit
+      -v, --verbose         show additional output
+      --debug [VERBOSE]     show context and exit
+      -l, --list            lists all special context variables for the default
+                            template
+
+    Input:
+      Load data into the context.
+
+      -c FILE [FILE ...], --content FILE [FILE ...]
+                            `content` for the context — MD or RST files get
+                            rendered before usage
+      -d FILE [FILE ...], --data FILE [FILE ...]
+                            add data from FILE (JSON / YAML) to the context
+      -e STRING STRING, --extra STRING STRING
+                            add `key value` pair to the context
+
+    Output:
+      Pass the context to the template(s). If no template is set, a default HTML
+      5 template is used.
+
+      -C FILE [FILE ...], --css FILE [FILE ...]
+                            include the content of each FILE in it's own `style`
+                            tag
+      -J FILE [FILE ...], --javascript FILE [FILE ...]
+                            include the content of each FILE in it's own `script`
+                            tag
+      -M STRING, --merger STRING
+                            join output of all templates with this STRING
+      --minimize            minimize output (for HTML)
+
+
+## Examples
+
+    $ templator -e content 'Hello World!' -e title 'Testy'
+    <!doctype html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Testy</title>
+    </head>
+    <body>Hello World!</body>
+    </html>
+
+    $ templator -e content 'Hello World!' -e title 'Testy' --minimize
+    <!doctype html>
+    <html> <head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>Testy</title></head> <body>Hello World!</body> </html>
+
+    $ echo '*Hello*' > testytest.md; templator -c testytest.md
+    <!doctype html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body><p><em>Hello</em></p></body>
+    </html>
+
+
+[jinja]: http://jinja.pocoo.org/
+[markdown]: http://spec.commonmark.org/
+[restructuredtext]: http://docutils.sourceforge.net/docs/user/rst/quickref.html
+[json]: http://json.org/
+[yaml]: http://yaml.org/
+
+
