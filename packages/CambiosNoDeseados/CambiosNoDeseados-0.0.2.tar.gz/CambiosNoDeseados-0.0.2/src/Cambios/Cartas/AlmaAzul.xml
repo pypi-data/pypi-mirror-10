@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo="Personaje" subtipo='P'>
+
+    <nombre>Alma Azul</nombre>
+
+    <clases/>
+
+    <nivel>1</nivel>
+
+    <atributos>
+        <salud>1</salud>
+        <consentracion>3</consentracion>
+        <agilidad>1</agilidad>
+    </atributos>
+
+    <imagen archivo='AlmaAzul.png'>
+        <titulo><![CDATA[La Esencia de un pensamiento compartido por muchos atraves de las tierras]]></titulo>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>6</serial>
+        <vercion>1</vercion>
+    </metadatos>
+
+</carta>
+

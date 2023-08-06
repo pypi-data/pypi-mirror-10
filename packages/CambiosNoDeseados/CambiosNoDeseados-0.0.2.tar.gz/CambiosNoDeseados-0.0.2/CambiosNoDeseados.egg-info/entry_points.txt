@@ -1,0 +1,6 @@
+[console_scripts]
+Cambios-Servidor = Cambios.servidor:main
+
+[gui_scripts]
+CambiosNoDeseados = Cambios.cliente:main
+

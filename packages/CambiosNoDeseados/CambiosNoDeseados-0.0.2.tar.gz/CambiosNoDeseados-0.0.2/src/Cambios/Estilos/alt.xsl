@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xsl:stylesheet version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
+
+    <xsl:template match='/'>
+        <html lang="es">
+        <head>
+            <meta charset='UTF-8'/>
+            <base href='FILE:///home/wolfang/tee/'/>
+            <link rel="stylesheet" type="text/css" href="Estilos/alt.css"/>
+            <title><xsl:value-of select='carta/nombre'/></title>
+        </head>
+        <body>
+            <xsl:apply-templates select='carta'/>
+        </body>
+      </html>
+    </xsl:template>
+
+    <xsl:template match='carta'>
+
+        <div class='fondo'>
+            <xsl:apply-templates select='imagen'/>
+        </div>
+
+        <div class='cara' tipo='{@tipo}' subtipo='{@subtipo}'>
+            <div class='tipo'>
+                <xsl:choose>
+                    <xsl:when test='@tipo = "Personaje"'>
+                        <img src='Iconos/nvl.png' alt='NVL' class='nvl' />
+                        <img src='Iconos/{nivel}.png' alt='{nivel}' class='icono' />
+                    </xsl:when>
+                    <xsl:when test='@tipo = "Recurso"'>
+                        <img src='Iconos/S{@subtipo}.png' alt='{@subtipo}' class='icono' />
+                        <img src='Iconos/{peso}.png' alt='{peso}' class='valor' />
+                    </xsl:when>
+                    <xsl:when test='@tipo = "Habilidad"'>
+                        <img src='Iconos/{@subtipo}.png' alt='{@subtipo}' class='icono' />
+                    </xsl:when>
+                </xsl:choose>
+            </div>
+            <div class='nombre'>
+                <h1 class='titulo'><xsl:value-of select='nombre'/></h1>
+            </div>
+            <div class='clases'>
+                <xsl:choose>
+                    <xsl:when test='clases!=""'>
+                        <xsl:apply-templates select='clases'/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        &#160;
+                    </xsl:otherwise>
+                </xsl:choose>
+            </div>
+            <p class='historia'><xsl:value-of select='imagen/titulo'/></p>
+            <xsl:choose>
+                <xsl:when test='@tipo = "Recurso"'>
+                    <div class='descripcion'>
+                        <div class='tipo'>
+                            <img class='icono' src='Iconos/{@subtipo}.png' alt='{@subtipo}'/>
+                        </div>
+                        <div class='valor'>
+                            <img class='icono' src='Iconos/{valor}.png' alt='{valor}'/>
+                        </div>
+                    </div>
+                </xsl:when>
+                <xsl:when test='@tipo = "Personaje"'>
+                    <xsl:apply-templates select='atributos'/>
+                </xsl:when>
+            </xsl:choose>
+            <xsl:apply-templates select='habilidad'/>
+            <div class='pie'>
+                <xsl:apply-templates select='metadatos'/>
+            </div>
+        </div>
+
+    </xsl:template>
+
+    <xsl:template match='clases'>
+        <xsl:apply-templates select='clase'/>
+    </xsl:template>
+
+    <xsl:template match='clase'>
+        <div class='clase'>
+            <img src='Iconos/{.}.png' alt='{.}' class='icono' />
+        </div>
+    </xsl:template>
+
+    <xsl:template match='atributos'>
+        <div class='atributos'>
+            <div class='bloque'>
+                <img src='Iconos/SResistencia.png' alt='Salud' class='icono' />
+                <img src='Iconos/{salud}.png' alt='{salud}' class='valor' />
+            </div>
+            <div class='bloque'>
+                <img src='Iconos/SEnergia.png' alt='consentración' class='icono' />
+                <img src='Iconos/{consentracion}.png' alt='{consentracion}' class='valor' />
+            </div>
+            <div class='bloque'>
+                <img src='Iconos/SAgilidad.png' alt='Movilidad' class='icono' />
+                <img src='Iconos/{agilidad}.png' alt='{agilidad}' class='valor' />
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template match='habilidad'>
+        <div class='habilidad'>
+            <div class='costo'>
+                <xsl:choose>
+                    <xsl:when test='costo!=""'>
+                        <xsl:apply-templates select='costo'/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        &#160;
+                    </xsl:otherwise>
+                </xsl:choose>
+            </div>
+            <xsl:if test='extra!=""'>
+                <div class='extra'>
+                    <xsl:apply-templates select='extra'/>
+                </div>
+            </xsl:if>
+            <div class='principal'>
+                <div class='cabeza'>
+                    <span class='titulo'><xsl:value-of select='titulo'/></span>
+                    <span class='activacion'><xsl:value-of select='activacion'/></span>
+                </div>
+                <div class='cuerpo'>
+                    <xsl:choose>
+                        <xsl:when test='efecto'>
+                            <xsl:apply-templates select='efecto'/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            &#160;
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template match='efecto'>
+        <p class='efecto'><xsl:apply-templates/></p>
+    </xsl:template>
+
+    <xsl:template match='costo'>
+        <xsl:for-each select='token'>
+            <div class='fila'>
+                <xsl:apply-templates select='.'/>
+            </div>
+        </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template match='extra'>
+        <xsl:for-each select='token'>
+            <div class='fila'>
+                <xsl:apply-templates select='.'/>
+            </div>
+        </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template match='token'>
+        <div class='token'>
+            <xsl:if test='@min or @valor or @max'>
+                <div class='cantidad'>
+                    <xsl:if test='@min'>
+                        <img src='Iconos/{@min}.png' alt='{@min}' class='min'/>
+                        <img src='Iconos/:.png' alt=':' class='min-sep'/>
+                    </xsl:if>
+                    <xsl:if test='@valor'>
+                        <img src='Iconos/{@valor}.png' alt='{@valor}' class='valor'/>
+                    </xsl:if>
+                    <xsl:if test='@max'>
+                        <img src='Iconos/:.png' alt=':' class='max-sep'/>
+                        <img src='Iconos/{@min}.png' alt='{@min}' class='max'/>
+                    </xsl:if>
+                </div>
+            </xsl:if>
+            <img src='Iconos/{@tipo}.png' alt='{@tipo}' class='tipo'/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match='imagen'>
+        <xsl:choose>
+            <xsl:when test='@archivo'>
+                <img src='Imagenes/{@archivo}' alt='{alternativo}' class='imagen' />
+            </xsl:when>
+            <xsl:otherwise>
+                <img src='Imagenes/Fondo.png' alt='{alternativo}' class='imagen' />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match='metadatos'>
+        <div class='autor'>
+            <xsl:for-each select='autor'>
+                <span class='autores'>©<xsl:value-of select='.'/></span>
+            </xsl:for-each>
+        </div>
+        <span class='serial'>#&#160;<xsl:value-of select='substring(/carta/@subtipo,1,1)'/><xsl:value-of select='serial'/>–<xsl:value-of select='vercion'/></span>
+        <span class='temporada'>
+            <xsl:value-of select='temporada'/>
+        </span>
+    </xsl:template>
+
+</xsl:stylesheet>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo="Personaje" subtipo='P'>
+
+    <nombre>Alma Roja</nombre>
+
+    <clases/>
+
+    <nivel>1</nivel>
+
+    <atributos>
+        <salud>3</salud>
+        <consentracion>1</consentracion>
+        <agilidad>1</agilidad>
+    </atributos>
+
+    <imagen archivo='AlmaRoja.png'>
+        <titulo><![CDATA[La Esencia de una ideologia diseñada para durar eternamente]]></titulo>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>5</serial>
+        <vercion>1</vercion>
+    </metadatos>
+
+</carta>

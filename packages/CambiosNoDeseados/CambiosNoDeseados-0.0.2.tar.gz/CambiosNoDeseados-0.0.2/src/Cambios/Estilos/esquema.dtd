@@ -1,0 +1,41 @@
+<!ELEMENT carta (nombre,  clases, nivel?, peso?, valor?, atributos?, habilidad?, imagen, metadatos)>
+<!ATTLIST carta tipo (Personaje|Habilidad|Recurso) #REQUIRED subtipo CDATA ''>
+
+<!ELEMENT nombre (#PCDATA)>
+
+<!ELEMENT clases (clase*)>
+<!ELEMENT clase (#PCDATA)>
+
+<!ELEMENT nivel (#PCDATA)>
+
+<!ELEMENT peso (#PCDATA)>
+<!ELEMENT valor (#PCDATA)>
+
+<!ELEMENT atributos (salud, consentracion, agilidad)>
+<!ELEMENT salud (#PCDATA)>
+<!ELEMENT consentracion (#PCDATA)>
+<!ELEMENT agilidad (#PCDATA)>
+
+<!ELEMENT habilidad (titulo, activacion, costo, efecto+, extra)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT activacion (#PCDATA)>
+<!ELEMENT costo (token*)>
+<!ELEMENT efecto (#PCDATA|token)*>
+<!ELEMENT extra (token*)>
+<!ELEMENT token EMPTY>
+<!ATTLIST token tipo CDATA #REQUIRED valor CDATA '1'>
+
+<!ELEMENT imagen (titulo, alternativo, artista+)>
+<!ATTLIST imagen archivo CDATA 'Fondo.png'>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT alternativo (#PCDATA)>
+<!ELEMENT artista (#PCDATA)>
+
+<!ELEMENT metadatos (temporada, expancion, serial, vercion)>
+<!ATTLIST metadatos licencia CDATA #FIXED "®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+<!ELEMENT temporada (#PCDATA)>
+<!ATTLIST temporada numero CDATA '1'>
+<!ELEMENT expancion (#PCDATA)>
+<!ATTLIST expancion numero CDATA '1'>
+<!ELEMENT serial (#PCDATA)>
+<!ELEMENT vercion (#PCDATA)>

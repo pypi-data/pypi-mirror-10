@@ -1,0 +1,547 @@
+ @page {
+    size: 59mm 86mm;
+    margin: 0cm;
+}
+
+*
+{
+    text-align: center;
+    vertical-align: top;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    font-family: 'Linux Libertine O';
+    font-size: 10px;
+}
+
+body
+{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    width: 59mm;
+    height: 86mm;
+}
+
+
+.cara
+{
+    position: absolute;
+    top: 0mm;
+    left: 0mm;
+
+    height: 77.4mm;
+    width: 53mm;
+
+    margin: 4.3mm 3mm;
+}
+
+.fondo
+{
+    position: absolute;
+    top: 0mm;
+    left: 0mm;
+    width: 59mm;
+    height: 86mm;
+}
+
+.fondo > .imagen
+{
+    width: 100%;
+    height: 100%;
+}
+
+.cara > .tipo
+{
+    display: inline-block;
+    width: 7.5mm;
+    height: 7.5mm;
+
+    position: absolute;
+    left: 0mm;
+    top: 0mm;
+}
+
+.cara > .tipo > .icono
+{
+    display: block;
+    width: 100%;
+
+    position: absolute;
+
+    font-weight: bold;
+    font-size: 7.5mm;
+    text-align: left;
+}
+
+.cara > .tipo > .nvl
+{
+    display: block;
+    width: 50%;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.cara > .tipo > .valor
+{
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin: 25%;
+
+    position: absolute;
+
+    font-weight: bold;
+    font-size: 7.5mm;
+    text-align: left;
+}
+
+.cara > .nombre
+{
+    display: inline-block;
+    width: 45.5mm;
+    height: 7.5mm;
+
+    position: absolute;
+    right: 0mm;
+    top: 0mm;
+
+    background-color: #000000;
+    opacity: 0.75;
+
+    border-radius: 2.5mm;
+}
+
+.cara > .nombre > .titulo
+{
+    width: 100%;
+    height: 100%;
+
+    padding: 0.25em;
+
+    font-family: "Linux Biolinum O";
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.cara > .clases
+{
+    position: absolute;
+    top: 7.5mm;
+    left: 0mm;
+
+    display: inline-block;
+    width: 7.5mm;
+    padding: 3.25mm 0mm;
+}
+
+.cara > .clases > .clase
+{
+    display: block;
+    width: 7.5mm;
+    height: 7.5mm;
+
+    margin: 1mm 0mm;
+}
+
+.cara > .clases > .clase > .icono
+{
+    width: 100%;
+
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+}
+
+.cara > .historia
+{
+    display: block;
+    width: 75%;
+
+    position: absolute;
+    top: 8.5mm;
+    right: 0mm;
+
+    text-align: right;
+    font-size: 0.8em;
+}
+
+.cara > .descripcion
+{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+
+    display: inline-block;
+    width: 7.5mm;
+    height: 15mm;
+
+    font-family: 'Linux Libertine Display O';
+    font-size: 0.7em;
+    line-height: 100%;
+}
+
+.cara > .descripcion > .tipo
+{
+    position: absolute;
+    bottom: 0mm;
+
+    display: block;
+    width: 100%;
+    height: 50%;
+}
+
+.cara > .descripcion > .tipo > .icono
+{
+    width: 7.5mm;
+}
+
+.cara > .descripcion > .valor
+{
+    position: absolute;
+    top: 0mm;
+
+    display: block;
+    width: 100%;
+    height: 50%;
+}
+
+.cara > .descripcion > .valor > .icono
+{
+    width: 7.5mm;
+}
+
+.cara > .atributos
+{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+
+    display: inline-block;
+    width: 7.5mm;
+    height: auto;
+
+    border-radius: 2.5mm;
+    opacity: 0.75;
+}
+
+.cara > .atributos > .bloque
+{
+    display: block;
+    width: 7.5mm;
+    height: 7.5mm;
+
+    position: relative;
+}
+
+.cara > .atributos > .bloque > .icono
+{
+    position: absolute;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.cara > .atributos > .bloque > .valor
+{
+    position: absolute;
+
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin: 25%;
+}
+
+.cara > .pie
+{
+    display: block;
+    width: 100%;
+    height: 2mm;
+
+    position: absolute;
+    bottom: -3.15mm;
+    left: 0mm;
+}
+
+.cara > .pie > .temporada
+{
+    display: inline-block;
+    width: 50%;
+    padding:0.25mm;
+
+    font-size: 1.5mm;
+    font-weight: bold;
+}
+
+.cara > .pie > .serial
+{
+    display: inline-block;
+    width: 15%;
+    padding:0.25mm;
+
+    font-size: 1.5mm;
+    font-weight: bold;
+}
+
+.cara > .pie > .autor
+{
+    display: inline-block;
+    width: 35%;
+}
+
+.cara > .pie > .autor > .autores
+{
+    display: inline-block;
+    padding:0.25mm;
+
+    font-size: 1.5mm;
+    font-weight: bold;
+}
+
+.habilidad
+{
+    display: inline-block;
+/*
+    width: 52mm;
+*/
+/*
+    height: 22.5mm;
+*/
+
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 2.5mm;
+    opacity: 0.75;
+}
+
+.cara[tipo='Habilidad'] .habilidad > .costo
+{
+    display: inline-block;
+}
+
+.habilidad > .costo
+{
+    display: none;
+    width: 7.5mm;
+
+/*
+    position: absolute;
+    left: 0mm;
+    bottom: 0px;
+*/
+}
+
+.habilidad > .costo > .fila
+{
+    padding: 0.25mm;
+}
+
+.habilidad > .costo > .fila > .token
+{
+    height: 4.5mm;
+    width: 4.5mm;
+}
+
+.habilidad > .principal
+{
+    display: inline-block;
+    width: 44.5mm;
+
+    position: relative;
+    left: 0mm;
+}
+
+.habilidad > .extra + .principal
+{
+    display: inline-block;
+    width: 37mm;
+
+    position: relative;
+    left: -7.5mm;
+}
+
+.habilidad > .principal > .cabeza
+{
+    width: 100%;
+    height: 1.25em;
+
+    position: relative;
+
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 2.5mm;
+}
+
+.habilidad > .principal > .cabeza > .titulo
+{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-bottom: 0.3em;
+
+    position: absolute;
+    left: 0px;
+
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.habilidad > .principal > .cabeza > .activacion
+{
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    padding-right: 5%;
+    padding-bottom: 0.3em;
+
+    position: absolute;
+    right: 0px;
+
+    font-size: 1em;
+    text-align: right;
+}
+
+.habilidad > .principal > .cuerpo
+{
+    width: 100%;
+    padding: 0.5em;
+
+    position: relative;
+
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 2.5mm;
+}
+
+.habilidad > .principal > .cuerpo > .efecto
+{
+    display: block;
+    padding: 0.125em 0.25em;
+
+    font-size: 0.8em;
+    text-align: left;
+    line-height: 90%;
+}
+
+.habilidad > .extra
+{
+    display: inline-block;
+    width: 7.5mm;
+
+    position: relative;
+    right: -37mm;
+}
+
+.habilidad > .extra > .fila
+{
+    display: block;
+    padding: 0.25mm;
+}
+
+.habilidad > .extra > .fila > .token
+{
+    height: 4.5mm;
+    width: 4.55mm;
+}
+
+.token
+{
+    display: inline-block;
+    width: 1.25em;
+    height: 1.25em;
+
+    position: relative;
+}
+
+.token > .cantidad
+{
+    display: inline-block;
+    height: 60%;
+    width: 60%;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.token > .cantidad > .valor
+{
+    width: 100%;
+    height: 100%;
+}
+
+.token > .tipo
+{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.token > .cantidad + .tipo
+{
+    display: inline-block;
+    height: 60%;
+    width: 60%;
+
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.cara[subtipo="Energia"] .nombre
+{
+    background-color: #86b1c3;
+}
+
+.cara[subtipo="Agilidad"] .nombre
+{
+    background-color: #efdd11;
+}
+
+.cara[subtipo="Resistencia"] .nombre
+{
+    background-color: #ff3322;
+}
+
+.cara[subtipo="Inmediata"] .nombre
+{
+    background-color: #fca31f;
+}
+
+.cara[subtipo="Continua"] .nombre
+{
+    background-color: #93bc59;
+}
+
+.cara[subtipo="Sucesiva"] .nombre
+{
+    background-color: #669999;
+}
+
+.cara[subtipo="Acumulativa"] .nombre
+{
+    background-color: #005b9a;
+}
+
+.cara[tipo="Personaje"] .nombre
+{
+    background-color: #000000;
+}

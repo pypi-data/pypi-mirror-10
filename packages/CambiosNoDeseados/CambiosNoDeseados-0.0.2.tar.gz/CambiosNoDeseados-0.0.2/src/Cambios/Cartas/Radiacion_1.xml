@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo='Habilidad' subtipo='Continua'>
+
+    <nombre>Radiación</nombre>
+
+    <clases/>
+
+    <habilidad>
+        <titulo>Energisar</titulo>
+        <activacion>Pasivo</activacion>
+        <costo>
+            <token tipo='Energia' valor='1'/>
+        </costo>
+        <efecto>Todos tus Aliados en rango ganan <token tipo='Energia' valor='1'/></efecto>
+        <efecto>Todos tus Enemigos en rango pierden <token tipo='Energia' valor='1'/></efecto>
+        <extra>
+            <token tipo='Explosivo' valor='1'/>
+        </extra>
+    </habilidad>
+
+    <imagen>
+        <titulo/>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>10</serial>
+        <vercion>1</vercion>
+    </metadatos>
+
+</carta>

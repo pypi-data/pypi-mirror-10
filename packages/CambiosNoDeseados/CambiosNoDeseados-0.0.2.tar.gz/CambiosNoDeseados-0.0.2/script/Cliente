@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+
+from Cambios.cliente import Cliente, cargarJugador
+
+
+def main(jugador, servidor, puerto):
+    jugador = cargarJugador(jugador)
+    juego = Cliente(jugador, servidor, puerto)
+    juego.start()
+    juego.join()
+
+sys.argv = ['Cliente', 'Config_1', 'localhost:31425']
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print "Uso:", sys.argv[0], "Configuracion Conservidor:puerto"
+        print "e.g.", sys.argv[0], "Config_1 localhost:31425"
+    else:
+        conf = sys.argv[1]
+        host, port = sys.argv[2].split(":")
+        main(conf, host, int(port))
