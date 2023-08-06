@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: MRI_FFT
+Version: 0.1.1
+Summary: Optimized functions for performing 1D, 2D and 3D inverse Fourier's transforms, using Reikna and FFTW
+Home-page: https://www.dropbox.com/sh/tsjhzubwm0k5o9j/AABIBwPLRJG6gvN9WeBZv4JMa?dl=0
+Author: Thomas Bealing
+Author-email: thomasbealing@gmail.com
+License: GPL-3
+Description: ===============
+         README
+        ===============
+        
+        MRI-FFT is a package for efficiently calculating the inverse Fourier’s Transform. It contains classes for 1D, 2D, and 3D iFFTs, and there are two routes available to process the data:
+        
+        - direct iFFTs, for when all of the k-space data is available immediately
+        - decomposed iFFTs, to enable data to be processed during a scan
+Keywords: MRI FFT iFFT Reikna FFTW
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
