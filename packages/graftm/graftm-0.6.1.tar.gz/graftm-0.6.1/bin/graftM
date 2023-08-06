@@ -1,0 +1,216 @@
+#!/usr/bin/env python
+
+##### ##### ##### ##### ##### ##### #####
+#                                       #
+#                 graftM                #
+#                                       #
+#  A pipeline for gene centric analyses #
+#          of metagenome datasets       #
+#                                       #
+##### ##### ##### ##### ##### ##### #####
+
+__author__ = "Joel Boyd, Ben Woodcroft"
+__copyright__ = "Copyright 2014"
+__credits__ = ["Joel Boyd", "Ben Woodcroft"]
+__license__ = "GPL3"
+__maintainer__ = "Joel Boyd, Ben Woodcroft"
+__email__ = "joel.boyd near uq.net.au, b.woodcroft near uq.edu.au"
+__status__ = "Development"
+
+import argparse
+import sys
+import os
+import logging
+
+sys.path = [os.path.join(os.path.dirname(os.path.realpath(__file__)),'..')]+sys.path
+import graftm.run
+
+class CustomHelpFormatter(argparse.HelpFormatter):
+    def _split_lines(self, text, width):
+        return text.splitlines()
+
+    def _get_help_string(self, action):
+        h = action.help
+        if '%(default)' not in action.help:
+            if action.default != '' and \
+               action.default != [] and \
+               action.default != None \
+               and action.default != False:
+                if action.default is not argparse.SUPPRESS:
+                    defaulting_nargs = [argparse.OPTIONAL,
+                                        argparse.ZERO_OR_MORE]
+
+                    if action.option_strings or action.nargs in defaulting_nargs:
+
+                        if '\n' in h:
+                            lines = h.splitlines()
+                            lines[0] += ' (default: %(default)s)'
+                            h = '\n'.join(lines)
+                        else:
+                            h += ' (default: %(default)s)'
+        return h
+
+    def _fill_text(self, text, width, indent):
+        return ''.join([indent + line for line in text.splitlines(True)])
+
+def phelp():
+    print """
+                                       GraftM  %s
+
+             A suite of tools for the rapid analysis of large sequence datasets.
+
+                                Joel Boyd, Ben Woodcroft
+
+=====================================================================================================
+COMMUNITY PROFILING
+
+    graft       -       Search for and phylogenetically classify reads associated with a single
+                        marker gene, and construct a community profile
+                        e.g. usage:
+                            $ graftM graft --forward <READS> --graftm_package <GRAFTM_PACKAGE>
+
+=====================================================================================================
+UTILITIES
+
+    create      -       Create a graftM packages from sequence alignments and classifications. 
+                        See graftM create -h
+
+=====================================================================================================
+""" % (graftm.__version__)
+
+debug={1:logging.CRITICAL,
+       2:logging.ERROR,
+       3:logging.WARNING,
+       4:logging.INFO,
+       5:logging.DEBUG}
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('--version', action='version', version='graftM v%s' % graftm.__version__)
+
+    subparsers = parser.add_subparsers(help="--", dest='subparser_name')
+
+    # Standard GraftM pipeline.
+    graft_parser = subparsers.add_parser('graft',
+                                        description='Search and classify marker genes to construct community profiles',
+                                        epilog=__author__)
+    input_options = graft_parser.add_argument_group('input options')
+    input_options.add_argument('--forward', nargs='+', metavar='forward read (or single read file)', help='One or more files of forward reads .fa, or .fq.gz format.', required=True)
+    input_options.add_argument('--reverse', nargs='+',metavar='reverse read', help='[do NOT use unless you understand the difficulties with this] Optional reverse raw sequence file(s) in .fa, or .fq.gz format', default=argparse.SUPPRESS)
+    input_options.add_argument('--graftm_package', metavar='reference_package', help='Reference package of gene family', default=argparse.SUPPRESS)
+
+    running_options = graft_parser.add_argument_group('running options')
+    running_options.add_argument('--threads', type=int, metavar='threads', help='number of threads to use', default=5)
+    running_options.add_argument('--input_sequence_type', help='Specify whether the input sequence is "nucleotide" or "protein" sequence data (default=will attempt to auto-detect)', choices = ['protein', 'nucleotide'],  default=argparse.SUPPRESS)
+    
+    searching_options = graft_parser.add_argument_group('searching options')
+    searching_options.add_argument('--eval', metavar='evalue', help='evalue cutoff for the hmmsearch (default = 1e-5)', default= '1e-5')
+    searching_options.add_argument('--search_and_align_only', action="store_true", help='Stop after reads have been identified (default=False)', default=False)
+    searching_options.add_argument('--euk_check', action="store_true", help='Search whole sample for 18S and attempt to estimate relative percentage of Eukaryotes (default=False)', default=False)
+    
+    placement_options = graft_parser.add_argument_group('placement options')
+    placement_options.add_argument('--placements_cutoff', metavar='confidence', help='Cutoff of placement confidence level (0.5 - 1), default = 0.75', default=0.75)
+    placement_options.add_argument('--resolve_placements', action="store_true", help='Force taxonomy down to the best placement')
+    placement_options.add_argument('--merge_reads', action="store_true", help='Merge forward and reverse read alignments for placement')
+
+
+    nucleotide_options = graft_parser.add_argument_group('nucleotide search-specific options')
+    nucleotide_options.add_argument('--search_hmm_files', nargs='+', help='Specify .hmm files to use in search step', default=argparse.SUPPRESS)
+    nucleotide_options.add_argument('--search_hmm_list_file', metavar='newline-separated file with paths to each search HMM', default=argparse.SUPPRESS)
+    nucleotide_options.add_argument('--aln_hmm_file', help='Specify a single .hmm file to use in align step (default: the search_hmm_file if there is only 1)', default=argparse.SUPPRESS)
+    nucleotide_options.add_argument('--euk_hmm_file', help='Specify the .hmm file to use in the check for euk contamination', default=argparse.SUPPRESS)
+    nucleotide_options.add_argument('--check_total_euks', action="store_true", help='Search whole sample for 18S and attempt to estimate relative percentage of Eukaryotes (default=False)', default=False)
+    
+    protein_options = graft_parser.add_argument_group('protein search-specific options')
+    min_orf_length_default = 96
+    protein_options.add_argument('--min_orf_length', metavar='length', help='Minimum number of nucleotides in an open reading frame (default: %s)' % min_orf_length_default, default=min_orf_length_default, type=int)
+    protein_options.add_argument('--restrict_read_length', metavar='length', help='Only use this many base pairs at the start of each sequence searched (default: no restriction)', type=int)
+    logging_options = graft_parser.add_argument_group('logging options')
+    logging_options.add_argument('--verbosity', metavar='verbosity', help='1 - 5, 1 being silent, 5 being noisy indeed. Default = 4', type=int, default=4)
+    logging_options.add_argument('--log', metavar='logfile', help='output logging information to file', type=str, default=False)
+    output_options = graft_parser.add_argument_group('output options')
+    output_options.add_argument('--output_directory', metavar='reference_package', help='Output directory name. If unspecified, this file will be named GraftM_output', default="GraftM_output")
+    output_options.add_argument('--force', action="store_true", help='Force overwrite the output directory, even if one already exists with the same name (default=False)', default=False)
+
+    
+    
+    # Filter pipeline - Remove rRNA genes from transcriptome dataset.
+    filter_parser = subparsers.add_parser('filter',
+                                         description='Remove rRNA genes from transcriptome dataset.',
+                                         epilog=__author__)
+    filter_parser.add_argument('--reads', metavar='<READS>', help='File to be filtered', required=True)
+    filter_parser.add_argument('--filter_hmms', metavar='<FILTER_HMMS>', help='Directory with HMMs to use when filtering.', required=True)
+    filter_parser.add_argument('--output', metavar='<OUTPUT>', help='Directory within which to place filtered reads, and sorted hits')
+
+
+    # Assemble - Attempt to assemble as many full length genes as possible.
+    assemble_parser = subparsers.add_parser('assemble',
+                                            description='Attempt to assemble as many genes as possible.',
+                                            epilog=__author__)
+    assemble_parser.add_argument('--graft_run', metavar='File produced ', help='guppy file produced by graftM, comma separated (default=True)', default=True)
+    assemble_parser.add_argument('--kmer', metavar='k-mer',  help='k-mer to use for assembly with velvet (default = 51)', default = '51')
+    assemble_parser.add_argument('--assembly_type', metavar='type of assembly', help='phrap or velvet assembly',choices = ['phrap', 'velvet', 'finishm'], default='velvet')
+    assemble_parser.add_argument('--finish', action = 'store_true', help='finish the velvet assembly with an overlap assembly (default=False)', default=False)
+
+
+    # Create - Create a gpkg from a sequence database and a hmm
+    create_parser = subparsers.add_parser('create',
+                                            description='Create a graftM packages from sequence alignments and classifications',
+                                            formatter_class=CustomHelpFormatter,
+                                            epilog='''Example usage:
+
+ With an alignment of sequences, and a taxonomy file specifying the taxonomy of
+ each:
+  $ graftM create --alignment my_alignment.fasta --taxonomy my_taxonomy.tsv
+  
+ The taxonomy file is a 2 column tab separated file, where the first column
+ is the sequence identifier and the second a taxonomy string describing that
+ sequence e.g.
+ 
+sequence1    k__kingdom1; p__phylum2
+
+ Internally, the taxonomic levels separated by '; ' are assumed to be kingdom,
+ phylum, class, order, family, genus, species. However, this may not matter
+ for the purposes of using graftM. The prefixes e.g. 'k__' are not required.
+
+ Often, the tree cannot be automatically rerooted because of the computational
+ difficulty of that task, and so must be done by hand. To specify a rooted
+ tree,
+  $ graftM create --alignment my_alignment.fasta --taxonomy my_taxonomy.tsv --rerooted_tree my_tree.tre
+
+''')
+
+    create = create_parser.add_argument_group('Common options')
+    create.add_argument('--taxonomy', metavar='TAX', help='File containing two tab separated columns, the first with the ID of the sequences, the second with the taxonomy string (required unless --rerooted_annotated_tree is specified)')
+    create.add_argument('--alignment', metavar='ALN', help='An alignment with which to build a custom HMM and tree (required)', required=True)
+    create.add_argument('--rerooted_tree', help='A tree with which to build the refpkg, appropriately rooted. (default: generate tree with FastTree and attempt reroot with taxtastic)')
+    create_lesser_options=create_parser.add_argument_group('Lesser used options')
+    create_lesser_options.add_argument('--rerooted_annotated_tree', metavar='newick_tree', help='Define taxonomy through this annotated newick file. (default: use taxonomy from --taxonomy)')
+    create_lesser_options.add_argument('--min_aligned_percent', type=int, metavar='percent', help='Check the alignments of all sequences cover at least this much of the HMM', default=50)
+    create_lesser_options.add_argument('--output', metavar='PATH', help='Name of output GraftM package (default: use name derived from alignment)')
+    create_lesser_options.add_argument('--tree_log', help='A log file for the tree. (default: generate from tree and alignment)')
+    create_logging_options=create_parser.add_argument_group('Logging options')
+    create_logging_options.add_argument('--verbosity', metavar='verbosity', help='1 - 5, 1 being silent, 5 being noisy indeed', type=int, default=4)
+    create_output_options=create_parser.add_argument_group('Output options')
+    create_logging_options.add_argument('--log', metavar='logfile', help='output logging information to file', type=str, default=False)
+
+
+    # Pathfinder - Find a whole pathway of genes in a metagenome/transcriptome.
+    pathfinder_parser = subparsers.add_parser('pathfinder',
+                                              description='Find a whole pathway of genes in a metagenome/transcriptome.',
+                                              epilog=__author__)
+    
+    if(len(sys.argv) == 1 or sys.argv[1] == '-h' or sys.argv[1] == '--help'):
+        phelp()
+    else:
+        args = parser.parse_args()
+        if args.log:
+            if os.path.isfile(args.log): raise Exception("File %s exists" % args.log)
+            logging.basicConfig(filename=args.log, level=debug[args.verbosity], format='%(asctime)s %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+        else:
+            logging.basicConfig(level=debug[args.verbosity], format='%(asctime)s %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+
+        graftm.run.Run(args).main()
+
+
+
