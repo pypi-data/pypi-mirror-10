@@ -1,0 +1,20 @@
+[paste.app_factory]
+basic_app = montague_testapps.apps:make_basic_app
+configed = montague_testapps.configapps:SimpleApp.make_app
+other = montague_testapps.apps:make_basic_app2
+
+[paste.composit_factory]
+remote_addr = montague_testapps.apps:make_remote_addr
+
+[paste.filter_app_factory]
+caps2 = montague_testapps.apps:CapFilter
+
+[paste.filter_factory]
+caps = montague_testapps.apps:make_cap_filter
+
+[paste.server_factory]
+server_factory = montague_testapps.servers:make_server_factory
+
+[paste.server_runner]
+server_runner = montague_testapps.servers:make_server_runner
+
