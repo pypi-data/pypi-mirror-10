@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: autoloads
+Version: 0.2.2.3
+Summary: python web and databases's tools.
+Home-page: https://github.com/wujuguang/autoloads.git
+Author: wuxiaoge
+Author-email: returnliu@gmail.com
+License: MIT License
+Description: autoloads
+        =========
+        
+        python web and databases's tools.
+        
+        简介:
+        =====
+        
+        **autoloads** 是tornado web 简易开发工具包，支持数据库models自动生成加载，
+        handler采用装饰器方式配置，并自动扫描handler并加载，使用方式见demo。
+        
+        
+        
+        
+        Changelog
+        =========
+        
+        0.2.2.3 - 30-Jun-2015
+        ---------------------
+        
+        * 修改bug.
+        
+        0.2.2.1 - 19-Jun-2015
+        ---------------------
+        
+        * 重构, 并为可读性而增加注释, 增加Demo, 规范风格PEP8, 兼容之前项目.
+        
+        0.1 - 14-Jan-2015
+        -----------------
+        
+        * 青哥之前的版本.
+        
+Keywords: autoloads
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
