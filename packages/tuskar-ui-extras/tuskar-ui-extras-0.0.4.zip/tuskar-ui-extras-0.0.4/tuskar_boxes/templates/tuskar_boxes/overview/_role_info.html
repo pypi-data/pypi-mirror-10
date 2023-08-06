@@ -1,0 +1,35 @@
+{% spaceless %}
+{% load i18n %}
+{% load url from future %}
+{% load form_helpers %}
+<div
+  class="{% if role.is_valid %}boxes-role-{{ role.name|slugify }}{% else %}boxes-role-invalid{% endif %} boxes-role"
+  data-name="{{ role.name|slugify }}"
+  {% if not role.is_valid %}title="{% trans 'Please edit this role to fill out any necessary missing configuration.' %}"{% endif %}
+>
+  <div class="row">
+    <div class="col-xs-5 deploy-role-count">
+      {{ role.field|add_bootstrap_class }}
+      {{ role.flavor_field|add_bootstrap_class }}
+    </div>
+    <div class="col-xs-7 deploy-role-label">
+      <div class="deployment-roles-label">
+        {% if not role.is_valid %}<b class="fa fa-lg fa-fw fa-question"></b>{% endif %}
+        {{ role.name|title }}
+      </div>
+    </div>
+    <div class="deploy-role-icon">
+      <a name="role-edit-{{role.name|slugify}}"
+      href="{% url 'horizon:infrastructure:roles:update' role_id=role.id %}"
+      class="btn ajax-modal">
+        <b class="fa fa-lg fa-fw fa-pencil"></b>
+      </a>
+    </div>
+    <div class="deploy-role-remove">
+      <a name="role-remove-{{role.name|slugify}}" href="#" class="btn">
+        <b class="fa fa-lg fa-fw fa-times"></b>
+      </a>
+    </div>
+  </div>
+</div>
+{% endspaceless %}

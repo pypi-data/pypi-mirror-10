@@ -1,0 +1,89 @@
+CHANGES
+=======
+
+0.0.4
+-----
+
+* Fix typo in boxes_progress.js
+* Small nitpick in the docs
+* Update .gitreview file to point to review.gerrithub.io:29418
+* Validate role using its api method
+
+sprint-4
+--------
+
+* Avoid division by zero when calculating distribution
+* Make the flavor labels translatable and matching the wireframes
+* Add global service configuration dialog
+* Render roles without images differently
+* Display flavorless nodes, hide the node counts
+* Siwtch the 'validation' and 'roles' columns
+* Add more buttons to the overview page
+* Inherit from node/urls.py and extend it
+* Add a link to the installation instructions to the README
+* Fix a syntax errors in the docs
+
+0.0.3
+-----
+
+* Extended documentation on SAT6 integration
+* Various SAT6 integration fixes
+* Reset role's nodes to 0 if it has no flavor
+* Simple test for the tuskar.boxes_progress
+* Some basic unit tests for the tuskar.boxes js module
+* Add test infrastructure for QUnit tests
+* Add is_updating status handling
+* Move tarballs to the top of test-requirements.txt
+* Correctly display role-flavor association
+* Fix call of _get_errata_data
+* Changing requirements to versions compatible with RHEL7
+* Get rid of the "with" warnings in tests
+
+0.0.2
+-----
+
+* Support POC mode correctly
+* Show popups on node boxes everywhere
+* Basic view tests for tuskar_boxes
+* Nodes boxes did not display in ajax updates on progress
+* Fix alignment of the edit role icon in the plan edit view
+* Show system load from last hour on overview page
+
+0.0.1
+-----
+
+* Scale the node boxes when there are lots of them
+* Make the live deployment view match wireframes
+* Add node counts to the plan edit view
+* Add edit role icon to the plan edit view
+* Get the Satellite connection parameters from Heat
+* Display node information in a popup over the node boxes
+* Use the pluggable eslint instead of jshint
+* Fix pep8 warnings
+* Make the tests run
+* Set maximums for numberpicker in the plan edit view
+* Update node status on progress page with ajax
+* Add sexy boxes to the deployment status page
+* Reimplement the Satellite integration in Python
+* More robust extending of url patterns
+* Move js and css out of the template file
+* Make tuskar_sat_ui installable by copying a panel file
+* Small fixes for the plan edit
+* Don't count autodiscovered nodes as available
+* Add flavor saving
+* Sexy boxes drag and drop
+* Copy of the current Overview panel from tuskar
+* Add tuskar_boxes plugin and clean up setup.cfg
+* Add .gitreview file
+* updated for latest node details template
+* updated to match current tuskar_ui node details template
+* Revert "Adding ng-resource & ng-table"
+* Adding ng-resource & ng-table
+* Include all of the horizon's js too
+* Include _scripts.html in details.html directly
+* Make it a Django app
+* More tweaking
+* moving code to overrides
+* More fixes for customization_module method
+* Initial commit of sat6 addon, probably too much
+* Initial commit
