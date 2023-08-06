@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: cadc
+Version: 0.2.1
+Summary: CADC Python Clients
+Home-page: http://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca
+Author: Canadian Astronomy Data Centre
+Author-email: cadc@nrc.ca
+License: GPLv3
+Description: Python client libraries and scripts for CADC web services
+Platform: UNKNOWN
+Requires: lxml
+Requires: canfar
+Provides: cadc
