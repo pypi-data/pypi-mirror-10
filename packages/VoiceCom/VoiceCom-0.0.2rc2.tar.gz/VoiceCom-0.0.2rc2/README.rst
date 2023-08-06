@@ -1,0 +1,58 @@
+========
+VoiceCom
+========
+
+.. image:: https://img.shields.io/github/license/koehlja/voicecom.svg
+    :target: https://github.com/koehlja/VoiceCom/blob/master/LICENSE.rst
+
+.. image:: https://img.shields.io/travis/koehlja/VoiceCom.svg
+    :target: https://travis-ci.org/koehlja/VoiceCom
+
+.. image:: https://img.shields.io/coveralls/koehlja/VoiceCom.svg
+    :target: https://coveralls.io/r/koehlja/VoiceCom
+
+.. image:: https://img.shields.io/pypi/v/voicecom.svg
+    :target: https://pypi.python.org/pypi/VoiceCom
+
+VoiceCom is an open source Voice-User-Interface (VUI), which is designed to excel at various areas where conventional interfaces might be slower or inapplicable. Developers can create custom plugins for it in order to enhance it even further.
+
+**Everything is still in a very-very-very early development phase.**
+
+.. contents::
+
+
+Installation
+============
+
+You can chose between installing
+
+* a stable version from the Python Package Index (PyPI), or
+* the newest development version from GitHub.
+
+Keep in mind that the GitHub version might contain serious bugs. On the other hand, the PyPI version could not include the newest feature. Choose the one you prefer.
+
+
+To install VoiceCom from PyPI::
+
+    $ pip install voicecom
+
+To install VoiceCom from GitHub::
+
+    $ git clone https://github.com/koehlja/VoiceCom.git
+    $ cd VoiceCom
+    $ sudo setup.py install
+
+
+Requirements
+============
+
+Only Python 2 is currently supported.
+The requirements list will be updated soon.
+
+
+Support
+============
+If you run into a problem, please look through the `GitHub Issues`__ first, since you might find a solution for the problem you are experiencing. If that does not solve your case, please `open a new issue`__ and make sure to include the log file under ``~/.voicecom/logs/voicecom.log``.
+
+__ https://github.com/koehlja/VoiceCom/issues?q=is%3Aissue
+__ https://github.com/koehlja/VoiceCom/issues/new
