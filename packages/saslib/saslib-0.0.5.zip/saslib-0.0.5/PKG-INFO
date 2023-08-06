@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: saslib
+Version: 0.0.5
+Summary: An HTML report generator to perform the meta data lookup like PROC CONTENTS in SAS
+Home-page:  https://github.com/dapangmao/saslib
+Author: chao huang
+Author-email: hchao8@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: sas,sas7bdat,html
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
+Requires: sas7bdat
+Requires: jinja2
