@@ -1,0 +1,11 @@
+modes   : dump
+db url  : mongodb://54.221.194.147:24242/radicalpilot
+cachedir: /home/merzky/saga/radical.pilot
+session : rp.session.ip-10-184-31-85.treikalis.016562.0007
+session : rp.session.ip-10-184-31-85.treikalis.016562.0007
+ +-- db   radicalpilot
+ | +-- coll rp.session.ip-10-184-31-85.treikalis.016562.0007
+ | +-- coll rp.session.ip-10-184-31-85.treikalis.016562.0007.pm
+ | +-- coll rp.session.ip-10-184-31-85.treikalis.016562.0007.p
+ | +-- coll rp.session.ip-10-184-31-85.treikalis.016562.0007.um
+ | +-- coll rp.session.ip-10-184-31-85.treikalis.016562.0007.cu

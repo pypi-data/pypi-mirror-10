@@ -1,0 +1,2119 @@
+{
+    "pilot": [
+        {
+            "_id": "pilot.0000", 
+            "commands": [
+                {
+                    "arg": null, 
+                    "time": 1429640196.242, 
+                    "type": "Cancel_Pilot"
+                }
+            ], 
+            "cores_per_node": null, 
+            "description": {
+                "access_schema": null, 
+                "cleanup": true, 
+                "cores": 20, 
+                "memory": null, 
+                "project": "unc101", 
+                "queue": null, 
+                "resource": "xsede.blacklight", 
+                "runtime": 56, 
+                "sandbox": null
+            }, 
+            "finished": null, 
+            "global_sandbox": "/usr/users/9/mturilli/radical.pilot.sandbox", 
+            "heartbeat": null, 
+            "input_transfer_finished": null, 
+            "input_transfer_started": null, 
+            "log": [
+                {
+                    "message": "Using bootstrapper /home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh", 
+                    "timestamp": 1429638172.225
+                }, 
+                {
+                    "message": "Copying bootstrapper 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh' to agent sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000//pilot_bootstrapper.sh).", 
+                    "timestamp": 1429638172.225
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/utils/radical.utils-0.28.tar.gz' to sdist sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/).", 
+                    "timestamp": 1429638183.592
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/saga/saga-python-0.28.tar.gz' to sdist sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/).", 
+                    "timestamp": 1429638184.106
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/pilot/controller/..//radical.pilot-v0.28-2-g7473553-master.tar.gz' to sdist sandbox (sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/).", 
+                    "timestamp": 1429638184.638
+                }, 
+                {
+                    "message": "Submitting SAGA job with description: {'Queue': 'batch', 'Executable': '/bin/bash', 'TotalPhysicalMemory': None, 'WorkingDirectory': '/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/', 'Project': 'unc101', 'WallTimeLimit': 56, 'Arguments': ['-l pilot_bootstrapper.sh', \" -b 'radical.utils-0.28.tar.gz:saga-python-0.28.tar.gz:radical.pilot-v0.28-2-g7473553-master.tar.gz' -c '20' -d '10' -g '/usr/users/9/mturilli/radical.pilot.sandbox/ve_blacklight' -j 'DPLACE' -k 'MPIRUN_DPLACE' -l 'TORQUE' -m '54.221.194.147:24242' -n 'radicalpilot' -o 'POPEN' -p 'pilot.0000' -q 'CONTINUOUS' -r '56' -s 'rp.session.ip-10-184-31-85.mturilli.016546.0001' -t 'multicore' -u 'create' -v 'debug' -e 'source /usr/share/modules/init/bash' -e 'module load python' -e 'unset PYTHONPATH' -x 'lue'\"], 'Error': 'agent.err', 'Output': 'agent.out', 'TotalCPUCount': 20}", 
+                    "timestamp": 1429638187.67
+                }, 
+                {
+                    "message": "SAGA job submitted with job id [pbs+ssh://blacklight.psc.xsede.org/?ppn=16]-[451314]", 
+                    "timestamp": 1429638188.027
+                }
+            ], 
+            "nodes": null, 
+            "output_transfer_finished": null, 
+            "output_transfer_started": null, 
+            "pilotmanager": "5536a83a23769c619f0e7501", 
+            "saga_job_id": "[pbs+ssh://blacklight.psc.xsede.org/?ppn=16]-[451314]", 
+            "sagajobid": null, 
+            "sandbox": "sftp://blacklight.psc.xsede.org/usr/users/9/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0000/", 
+            "started": null, 
+            "state": "PendingActive", 
+            "statehistory": [
+                {
+                    "state": "PendingLaunch", 
+                    "timestamp": 1429638172.087
+                }, 
+                {
+                    "state": "Launching", 
+                    "timestamp": 1429638172.221
+                }, 
+                {
+                    "state": "PendingActive", 
+                    "timestamp": 1429638188.027
+                }
+            ], 
+            "submitted": 1429638172.089, 
+            "unit_ids": [], 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "_id": "pilot.0001", 
+            "commands": [
+                {
+                    "arg": null, 
+                    "time": 1429640196.242, 
+                    "type": "Cancel_Pilot"
+                }
+            ], 
+            "cores_per_node": null, 
+            "description": {
+                "access_schema": null, 
+                "cleanup": true, 
+                "cores": 20, 
+                "memory": null, 
+                "project": "TG-MCB090174", 
+                "queue": null, 
+                "resource": "xsede.stampede", 
+                "runtime": 56, 
+                "sandbox": null
+            }, 
+            "finished": null, 
+            "global_sandbox": "/work/02855/mturilli/radical.pilot.sandbox", 
+            "heartbeat": null, 
+            "input_transfer_finished": null, 
+            "input_transfer_started": null, 
+            "log": [
+                {
+                    "message": "Using bootstrapper /home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh", 
+                    "timestamp": 1429638188.031
+                }, 
+                {
+                    "message": "Copying bootstrapper 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh' to agent sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001//pilot_bootstrapper.sh).", 
+                    "timestamp": 1429638188.032
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/utils/radical.utils-0.28.tar.gz' to sdist sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/).", 
+                    "timestamp": 1429638193.446
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/saga/saga-python-0.28.tar.gz' to sdist sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/).", 
+                    "timestamp": 1429638194.176
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/pilot/controller/..//radical.pilot-v0.28-2-g7473553-master.tar.gz' to sdist sandbox (sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/).", 
+                    "timestamp": 1429638194.99
+                }, 
+                {
+                    "message": "Submitting SAGA job with description: {'Queue': 'normal', 'Executable': '/bin/bash', 'TotalPhysicalMemory': None, 'WorkingDirectory': '/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/', 'Project': 'TG-MCB090174', 'WallTimeLimit': 56, 'Arguments': ['-l pilot_bootstrapper.sh', \" -b 'radical.utils-0.28.tar.gz:saga-python-0.28.tar.gz:radical.pilot-v0.28-2-g7473553-master.tar.gz' -c '20' -d '10' -g '/work/02855/mturilli/radical.pilot.sandbox/ve_stampede' -j 'SSH' -k 'MPIRUN_RSH' -l 'SLURM' -m '54.221.194.147:24242' -n 'radicalpilot' -o 'POPEN' -p 'pilot.0001' -q 'CONTINUOUS' -r '56' -s 'rp.session.ip-10-184-31-85.mturilli.016546.0001' -t 'multicore' -u 'update' -v 'local' -e 'module purge' -e 'module load TACC' -e 'module load cluster' -e 'module load Linux' -e 'module load mvapich2' -e 'module load python' -e 'module unload xalt' -e 'export TACC_DELETE_FILES=TRUE' -i 'python' -x 'lue'\"], 'Error': 'agent.err', 'Output': 'agent.out', 'TotalCPUCount': 20}", 
+                    "timestamp": 1429638197.678
+                }, 
+                {
+                    "message": "SAGA job submitted with job id [slurm+ssh://stampede.tacc.utexas.edu/]-[5144337]", 
+                    "timestamp": 1429638208.098
+                }
+            ], 
+            "nodes": null, 
+            "output_transfer_finished": null, 
+            "output_transfer_started": null, 
+            "pilotmanager": "5536a83a23769c619f0e7501", 
+            "saga_job_id": "[slurm+ssh://stampede.tacc.utexas.edu/]-[5144337]", 
+            "sagajobid": null, 
+            "sandbox": "sftp://stampede.tacc.utexas.edu/work/02855/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0001/", 
+            "started": null, 
+            "state": "PendingActive", 
+            "statehistory": [
+                {
+                    "state": "PendingLaunch", 
+                    "timestamp": 1429638179.168
+                }, 
+                {
+                    "state": "Launching", 
+                    "timestamp": 1429638188.029
+                }, 
+                {
+                    "state": "PendingActive", 
+                    "timestamp": 1429638208.098
+                }
+            ], 
+            "submitted": 1429638179.169, 
+            "unit_ids": [], 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "_id": "pilot.0002", 
+            "callbackhistory": [
+                {
+                    "state": "Launching", 
+                    "timestamp": 1429638208.334
+                }, 
+                {
+                    "state": "PendingActive", 
+                    "timestamp": 1429638218.364
+                }, 
+                {
+                    "state": "Active", 
+                    "timestamp": 1429638377.754
+                }, 
+                {
+                    "state": "Canceled", 
+                    "timestamp": 1429640205.697
+                }
+            ], 
+            "commands": [], 
+            "cores_per_node": 16, 
+            "description": {
+                "access_schema": null, 
+                "cleanup": true, 
+                "cores": 20, 
+                "memory": null, 
+                "project": "unc101", 
+                "queue": null, 
+                "resource": "xsede.gordon", 
+                "runtime": 56, 
+                "sandbox": null
+            }, 
+            "finished": 1429640205.865, 
+            "global_sandbox": "/home/mturilli/radical.pilot.sandbox", 
+            "heartbeat": null, 
+            "input_transfer_finished": null, 
+            "input_transfer_started": null, 
+            "log": [
+                {
+                    "message": "Using bootstrapper /home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh", 
+                    "timestamp": 1429638208.103
+                }, 
+                {
+                    "message": "Copying bootstrapper 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/lib/python2.7/site-packages/radical/pilot/bootstrapper/default_bootstrapper.sh' to agent sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//pilot_bootstrapper.sh).", 
+                    "timestamp": 1429638208.104
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/utils/radical.utils-0.28.tar.gz' to sdist sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/).", 
+                    "timestamp": 1429638210.41
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/saga/saga-python-0.28.tar.gz' to sdist sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/).", 
+                    "timestamp": 1429638211.39
+                }, 
+                {
+                    "message": "Copying sdist 'file://localhost//home/mturilli/Virtualenvs/RP-0.28/local/lib/python2.7/site-packages/radical/pilot/controller/..//radical.pilot-v0.28-2-g7473553-master.tar.gz' to sdist sandbox (sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/).", 
+                    "timestamp": 1429638212.681
+                }, 
+                {
+                    "message": "Submitting SAGA job with description: {'Queue': 'normal', 'Executable': '/bin/bash', 'TotalPhysicalMemory': None, 'WorkingDirectory': '/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/', 'Project': 'unc101', 'WallTimeLimit': 56, 'Arguments': ['-l pilot_bootstrapper.sh', \" -b 'radical.utils-0.28.tar.gz:saga-python-0.28.tar.gz:radical.pilot-v0.28-2-g7473553-master.tar.gz' -c '20' -d '10' -g '/home/mturilli/radical.pilot.sandbox/ve_gordon' -j 'SSH' -k 'MPIRUN_RSH' -l 'TORQUE' -m '54.221.194.147:24242' -n 'radicalpilot' -o 'POPEN' -p 'pilot.0002' -q 'CONTINUOUS' -r '56' -s 'rp.session.ip-10-184-31-85.mturilli.016546.0001' -t 'multicore' -u 'create' -v 'debug' -e 'module purge' -e 'module load python intel mvapich2_ib gnubase' -x 'lue'\"], 'Error': 'agent.err', 'Output': 'agent.out', 'TotalCPUCount': 20}", 
+                    "timestamp": 1429638216.735
+                }, 
+                {
+                    "message": "SAGA job submitted with job id [pbs+ssh://gordon.sdsc.xsede.org/]-[2016689]", 
+                    "timestamp": 1429638217.495
+                }, 
+                {
+                    "message": "CANCEL received. Terminating.", 
+                    "timestamp": 1429640204.678
+                }, 
+                {
+                    "message": "real 1828.645286 sec | user 8.070 sec | system 1.793 sec | mem 39304.00 kB", 
+                    "timestamp": 1429640204.678
+                }, 
+                {
+                    "message": "Terminated (_terminate set).", 
+                    "timestamp": 1429640205.865
+                }, 
+                {
+                    "message": "real 1828.846895 sec | user 8.073 sec | system 1.796 sec | mem 39328.00 kB", 
+                    "timestamp": 1429640205.865
+                }
+            ], 
+            "logfile": "[... CONTENT SHORTENED ...]\n-----|'}\n2015-04-21 13:16:30,951 - radical.pilot.agent - INFO - slot status before reschedule: {'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 951641), 'slotstate': '|----------------|----------------|'}\n2015-04-21 13:16:30,952 - radical.pilot.agent - INFO - slot status after  reschedule: {'timestamp': datetime.datetime(2015, 4, 21, 20, 16, 30, 952708), 'slotstate': '|----------------|----------------|'}\n2015-04-21 13:16:31,125 - radical.pilot.agent - DEBUG - bulk update result: {'nModified': 1, 'nUpserted': 0, 'nMatched': 1, 'writeErrors': [], 'upserted': [], 'writeConcernErrors': [], 'nRemoved': 0, 'nInserted': 0}\n2015-04-21 13:16:32,218 - radical.pilot.agent - DEBUG - bulk update result: {'nModified': 1, 'nUpserted': 0, 'nMatched': 1, 'writeErrors': [], 'upserted': [], 'writeConcernErrors': [], 'nRemoved': 0, 'nInserted': 0}\n2015-04-21 13:16:44,678 - radical.pilot.agent - WARNING - CANCEL received. Terminating.\n2015-04-21 13:16:45,865 - radical.pilot.agent - WARNING - Terminated (_terminate set).\n", 
+            "nodes": [
+                "gcn-9-76", 
+                "gcn-9-75"
+            ], 
+            "output_transfer_finished": null, 
+            "output_transfer_started": null, 
+            "pilotmanager": "5536a83a23769c619f0e7501", 
+            "saga_job_id": "[pbs+ssh://gordon.sdsc.xsede.org/]-[2016689]", 
+            "sagajobid": null, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "started": 1429638377.56, 
+            "state": "Canceled", 
+            "statehistory": [
+                {
+                    "state": "PendingLaunch", 
+                    "timestamp": 1429638181.963
+                }, 
+                {
+                    "state": "Launching", 
+                    "timestamp": 1429638208.1
+                }, 
+                {
+                    "state": "PendingActive", 
+                    "timestamp": 1429638217.495
+                }, 
+                {
+                    "state": "Active", 
+                    "timestamp": 1429638377.56
+                }, 
+                {
+                    "state": "Canceled", 
+                    "timestamp": 1429640204.678
+                }, 
+                {
+                    "state": "Canceled", 
+                    "timestamp": 1429640205.865
+                }
+            ], 
+            "stderr": null, 
+            "stdout": null, 
+            "submitted": 1429638181.965, 
+            "unit_ids": [
+                "unit.000004", 
+                "unit.000002", 
+                "unit.000007", 
+                "unit.000001", 
+                "unit.000005", 
+                "unit.000006", 
+                "unit.000003", 
+                "unit.000000"
+            ], 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }
+    ], 
+    "pmgr": [
+        {
+            "_id": "5536a83a23769c619f0e7501", 
+            "data": {}, 
+            "pilot_launcher_workers": 1
+        }
+    ], 
+    "session": {
+        "_id": "rp.session.ip-10-184-31-85.mturilli.016546.0001", 
+        "connected": 1429638169.714, 
+        "created": 1429638169.714, 
+        "name": "rp.session.ip-10-184-31-85.mturilli.016546.0001"
+    }, 
+    "umgr": [
+        {
+            "_id": "5536a84523769c619f0e7502", 
+            "input_transfer_workers": 2, 
+            "output_transfer_workers": 2, 
+            "scheduler": "backfilling"
+        }
+    ], 
+    "unit": [
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_5", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_5"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_5", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_5"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000004", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.019
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638378.526
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638382.588
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638383.595
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639283.847
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639288.896
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "2", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_5", 
+                    "Stage_1_Output/Stage_1_Output_0_5", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 2, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_5", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_5"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_4", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_5", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_5"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429639283.348, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.762
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_5 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000004/Stage_1_Input/Stage_1_Input_0_5", 
+                    "timestamp": 1429638382.006
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638382.01
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638382.414
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429638382.573
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429639283.349
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429639283.354
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_5", 
+                    "timestamp": 1429639284.673
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000004/Stage_1_Output/Stage_1_Output_0_5 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_5", 
+                    "timestamp": 1429639288.134
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429639288.142
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000004", 
+            "slots": [
+                "gcn-9-76:0", 
+                "gcn-9-76:1"
+            ], 
+            "started": 1429638382.573, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.655
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638377.835
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638382.011
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638382.25
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638382.414
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638382.573
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639283.349
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639284.671
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639288.145
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_5 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_5 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_5 with bufsize: 65536\n", 
+            "submitted": 1429638182.657, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_3", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_3"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_3", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_3"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000002", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.017
+                }, 
+                {
+                    "state": "PendingInputStaging", 
+                    "timestamp": 1429638378.529
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638382.589
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638386.621
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638387.628
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639287.884
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639292.942
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "16", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_3", 
+                    "Stage_1_Output/Stage_1_Output_0_3", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 16, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_3", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_3"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_2", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_3", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_3"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429639287.063, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.766
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_3 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000002/Stage_1_Input/Stage_1_Input_0_3", 
+                    "timestamp": 1429638384.293
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638384.297
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638386.49
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429638386.563
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429639287.064
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429639287.067
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_3", 
+                    "timestamp": 1429639289.156
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000002/Stage_1_Output/Stage_1_Output_0_3 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_3", 
+                    "timestamp": 1429639290.441
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429639290.446
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000002", 
+            "slots": [
+                "gcn-9-76:6", 
+                "gcn-9-76:7", 
+                "gcn-9-76:8", 
+                "gcn-9-76:9", 
+                "gcn-9-76:10", 
+                "gcn-9-76:11", 
+                "gcn-9-76:12", 
+                "gcn-9-76:13", 
+                "gcn-9-76:14", 
+                "gcn-9-76:15", 
+                "gcn-9-75:0", 
+                "gcn-9-75:1", 
+                "gcn-9-75:2", 
+                "gcn-9-75:3", 
+                "gcn-9-75:4", 
+                "gcn-9-75:5"
+            ], 
+            "started": 1429638386.563, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.639
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638382.012
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638386.044
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638386.323
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638386.49
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638386.563
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639287.064
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639289.154
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639292.732
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_3 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_3 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_3 with bufsize: 65536\n", 
+            "submitted": 1429638182.64, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_8", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_8"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_8", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_8"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000007", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.023
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638378.527
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638384.609
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638386.621
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639285.862
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639290.915
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "4", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_8", 
+                    "Stage_1_Output/Stage_1_Output_0_8", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 4, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_8", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_8"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_7", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_8", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_8"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429639285.156, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.764
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_8 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000007/Stage_1_Input/Stage_1_Input_0_8", 
+                    "timestamp": 1429638384.158
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638384.296
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638384.587
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429638384.667
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429639285.157
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429639285.16
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_8", 
+                    "timestamp": 1429639285.717
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000007/Stage_1_Output/Stage_1_Output_0_8 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_8", 
+                    "timestamp": 1429639289.542
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429639290.445
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000007", 
+            "slots": [
+                "gcn-9-76:2", 
+                "gcn-9-76:3", 
+                "gcn-9-76:4", 
+                "gcn-9-76:5"
+            ], 
+            "started": 1429638384.667, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.676
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638378.508
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638384.299
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638384.428
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638384.587
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638384.667
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639285.157
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639285.687
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639290.447
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_8 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_8 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_8 with bufsize: 65536\n", 
+            "submitted": 1429638182.678, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_2", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_2"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_2", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_2"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000001", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.017
+                }, 
+                {
+                    "state": "PendingInputStaging", 
+                    "timestamp": 1429638378.535
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638384.61
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638388.636
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638389.642
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639290.917
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639293.954
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "8", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_2", 
+                    "Stage_1_Output/Stage_1_Output_0_2", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 8, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_2", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_2"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_1", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_2", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_2"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429639289.974, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.771
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_2 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000001/Stage_1_Input/Stage_1_Input_0_2", 
+                    "timestamp": 1429638386.039
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638386.043
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638388.954
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429638389.039
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429639289.975
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429639289.977
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_2", 
+                    "timestamp": 1429639290.451
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000001/Stage_1_Output/Stage_1_Output_0_2 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_2", 
+                    "timestamp": 1429639291.722
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429639291.727
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000001", 
+            "slots": [
+                "gcn-9-75:8", 
+                "gcn-9-75:9", 
+                "gcn-9-75:10", 
+                "gcn-9-75:11", 
+                "gcn-9-75:12", 
+                "gcn-9-75:13", 
+                "gcn-9-75:14", 
+                "gcn-9-75:15"
+            ], 
+            "started": 1429638389.039, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.617
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638384.3
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638388.602
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638388.794
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638388.954
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638389.039
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639289.975
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639290.449
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639293.737
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_2 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_2 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_2 with bufsize: 65536\n", 
+            "submitted": 1429638182.639, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_6", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_6"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_6", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_6"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000005", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.021
+                }, 
+                {
+                    "state": "PendingInputStaging", 
+                    "timestamp": 1429638378.53
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638384.609
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638387.629
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638388.635
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638389.642
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639289.906
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639291.929
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "2", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_6", 
+                    "Stage_1_Output/Stage_1_Output_0_6", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 2, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_6", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_6"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_5", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_6", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_6"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429639288.668, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.769
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_6 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000005/Stage_1_Input/Stage_1_Input_0_6", 
+                    "timestamp": 1429638385.879
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638386.042
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638388.113
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429638388.188
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429639288.669
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429639288.672
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_6", 
+                    "timestamp": 1429639289.547
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000005/Stage_1_Output/Stage_1_Output_0_6 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_6", 
+                    "timestamp": 1429639290.803
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429639291.726
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000005", 
+            "slots": [
+                "gcn-9-75:6", 
+                "gcn-9-75:7"
+            ], 
+            "started": 1429638388.187, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.657
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638384.16
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638387.597
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638387.952
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638388.113
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429638388.187
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639288.669
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429639289.544
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429639291.728
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_6 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_6 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_6 with bufsize: 65536\n", 
+            "submitted": 1429638182.67, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_7", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_7"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_7", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_7"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000006", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.021
+                }, 
+                {
+                    "state": "PendingInputStaging", 
+                    "timestamp": 1429638378.535
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638386.622
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638389.643
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638390.649
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429639285.871
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640186.433
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429640191.526
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "4", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_7", 
+                    "Stage_1_Output/Stage_1_Output_0_7", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 4, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_7", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_7"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_6", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_7", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_7"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429640185.834, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.772
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_7 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000006/Stage_1_Input/Stage_1_Input_0_7", 
+                    "timestamp": 1429638387.52
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638387.596
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638390.083
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429639285.241
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429640185.835
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429640185.839
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_7", 
+                    "timestamp": 1429640187.515
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000006/Stage_1_Output/Stage_1_Output_0_7 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_7", 
+                    "timestamp": 1429640191.231
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429640191.234
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000006", 
+            "slots": [
+                "gcn-9-76:0", 
+                "gcn-9-76:1", 
+                "gcn-9-76:2", 
+                "gcn-9-76:3"
+            ], 
+            "started": 1429639285.241, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.67
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638385.881
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638389.607
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638389.914
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638390.083
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429639285.241
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640185.835
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640187.513
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429640191.236
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_7 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_7 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_7 with bufsize: 65536\n", 
+            "submitted": 1429638182.676, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_4", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_4"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_4", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_4"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000003", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.018
+                }, 
+                {
+                    "state": "PendingInputStaging", 
+                    "timestamp": 1429638378.537
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638387.629
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638391.657
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638392.663
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429639291.932
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640191.531
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429640194.556
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "16", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_4", 
+                    "Stage_1_Output/Stage_1_Output_0_4", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 16, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_4", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_4"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_3", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_4", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_4"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429640190.95, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.775
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_4 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000003/Stage_1_Input/Stage_1_Input_0_4", 
+                    "timestamp": 1429638389.054
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638389.606
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638392.085
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429639290.402
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429640190.951
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429640190.953
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_4", 
+                    "timestamp": 1429640192.243
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000003/Stage_1_Output/Stage_1_Output_0_4 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_4", 
+                    "timestamp": 1429640193.567
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429640193.571
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000003", 
+            "slots": [
+                "gcn-9-76:12", 
+                "gcn-9-76:13", 
+                "gcn-9-76:14", 
+                "gcn-9-76:15", 
+                "gcn-9-75:0", 
+                "gcn-9-75:1", 
+                "gcn-9-75:2", 
+                "gcn-9-75:3", 
+                "gcn-9-75:4", 
+                "gcn-9-75:5", 
+                "gcn-9-75:6", 
+                "gcn-9-75:7", 
+                "gcn-9-75:8", 
+                "gcn-9-75:9", 
+                "gcn-9-75:10", 
+                "gcn-9-75:11"
+            ], 
+            "started": 1429639290.402, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.641
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638387.526
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638391.615
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638391.921
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638392.085
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429639290.402
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640190.951
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640192.241
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429640193.572
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_4 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_4 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_4 with bufsize: 65536\n", 
+            "submitted": 1429638182.655, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }, 
+        {
+            "Agent_Input_Directives": [], 
+            "Agent_Input_Status": null, 
+            "Agent_Output_Directives": [], 
+            "Agent_Output_Status": null, 
+            "FTW_Input_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Input/Stage_1_Input_0_1", 
+                    "state": "Done", 
+                    "target": "Stage_1_Input/Stage_1_Input_0_1"
+                }
+            ], 
+            "FTW_Input_Status": "Done", 
+            "FTW_Output_Directives": [
+                {
+                    "action": "Transfer", 
+                    "flags": [
+                        "CreateParents", 
+                        "SkipFailed"
+                    ], 
+                    "priority": 0, 
+                    "source": "Stage_1_Output/Stage_1_Output_0_1", 
+                    "state": "Done", 
+                    "target": "Stage_1_Output/Stage_1_Output_0_1"
+                }
+            ], 
+            "FTW_Output_Status": "Done", 
+            "_id": "unit.000000", 
+            "callbackhistory": [
+                {
+                    "state": "Unscheduled", 
+                    "timestamp": 1429638183.016
+                }, 
+                {
+                    "state": "PendingInputStaging", 
+                    "timestamp": 1429638378.537
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638386.622
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638390.65
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638391.656
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429639288.9
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640188.448
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429640195.568
+                }
+            ], 
+            "description": {
+                "arguments": [
+                    "serial", 
+                    "8", 
+                    "900.0", 
+                    "65536", 
+                    "65536", 
+                    "1", 
+                    "1", 
+                    "0", 
+                    "Stage_1_Input/Stage_1_Input_0_1", 
+                    "Stage_1_Output/Stage_1_Output_0_1", 
+                    "20000"
+                ], 
+                "cleanup": true, 
+                "cores": 8, 
+                "environment": null, 
+                "executable": "task", 
+                "input_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Input/Stage_1_Input_0_1", 
+                        "target": "Stage_1_Input/Stage_1_Input_0_1"
+                    }
+                ], 
+                "kernel": null, 
+                "mpi": false, 
+                "name": "Stage_1_Stage_1_0", 
+                "output_staging": [
+                    {
+                        "action": "Transfer", 
+                        "flags": [
+                            "CreateParents", 
+                            "SkipFailed"
+                        ], 
+                        "priority": 0, 
+                        "source": "Stage_1_Output/Stage_1_Output_0_1", 
+                        "target": "Stage_1_Output/Stage_1_Output_0_1"
+                    }
+                ], 
+                "post_exec": null, 
+                "pre_exec": [], 
+                "restartable": false, 
+                "stderr": null, 
+                "stdout": null
+            }, 
+            "exec_locs": null, 
+            "exit_code": 0, 
+            "finished": 1429640187.641, 
+            "log": [
+                {
+                    "message": "unit remains unscheduled", 
+                    "timestamp": 1429638182.72
+                }, 
+                {
+                    "message": "Scheduled for data transfer to ComputePilot pilot.0002.", 
+                    "timestamp": 1429638377.774
+                }, 
+                {
+                    "message": "Transferring input file file://localhost//home/mturilli/testing/RP/Stage_1_Input/Stage_1_Input_0_1 -> sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000000/Stage_1_Input/Stage_1_Input_0_1", 
+                    "timestamp": 1429638387.593
+                }, 
+                {
+                    "message": "All FTW Input Staging Directives done - 1.", 
+                    "timestamp": 1429638387.596
+                }, 
+                {
+                    "message": "unit needs no input staging", 
+                    "timestamp": 1429638390.958
+                }, 
+                {
+                    "message": "unit execution start", 
+                    "timestamp": 1429639287.131
+                }, 
+                {
+                    "message": "unit execution completed", 
+                    "timestamp": 1429640187.642
+                }, 
+                {
+                    "message": "FTW output staging needed", 
+                    "timestamp": 1429640187.644
+                }, 
+                {
+                    "message": "Starting transfer of Stage_1_Output/Stage_1_Output_0_1", 
+                    "timestamp": 1429640188.895
+                }, 
+                {
+                    "message": "Transferring output file sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000000/Stage_1_Output/Stage_1_Output_0_1 -> file://localhost/home/mturilli/testing/RP/Stage_1_Output/Stage_1_Output_0_1", 
+                    "timestamp": 1429640192.723
+                }, 
+                {
+                    "message": "All FTW output staging directives done - 1.", 
+                    "timestamp": 1429640193.57
+                }
+            ], 
+            "pilot": "pilot.0002", 
+            "pilot_sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002/", 
+            "restartable": false, 
+            "sandbox": "sftp://gordon.sdsc.xsede.org/home/mturilli/radical.pilot.sandbox/rp.session.ip-10-184-31-85.mturilli.016546.0001-pilot.0002//unit.000000", 
+            "slots": [
+                "gcn-9-76:4", 
+                "gcn-9-76:5", 
+                "gcn-9-76:6", 
+                "gcn-9-76:7", 
+                "gcn-9-76:8", 
+                "gcn-9-76:9", 
+                "gcn-9-76:10", 
+                "gcn-9-76:11"
+            ], 
+            "started": 1429639287.131, 
+            "state": "Done", 
+            "statehistory": [
+                {
+                    "state": "Scheduling", 
+                    "timestamp": 1429638182.616
+                }, 
+                {
+                    "state": "StagingInput", 
+                    "timestamp": 1429638386.045
+                }, 
+                {
+                    "state": "PendingExecution", 
+                    "timestamp": 1429638390.612
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638390.793
+                }, 
+                {
+                    "state": "Allocating", 
+                    "timestamp": 1429638390.958
+                }, 
+                {
+                    "state": "Executing", 
+                    "timestamp": 1429639287.131
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640187.642
+                }, 
+                {
+                    "state": "StagingOutput", 
+                    "timestamp": 1429640188.889
+                }, 
+                {
+                    "state": "Done", 
+                    "timestamp": 1429640194.576
+                }
+            ], 
+            "stderr": "", 
+            "stdout": "serial: 12\nreading input file: Stage_1_Input/Stage_1_Input_0_1 size: 1048576 num_reads: 16\nread : 1048576 bytes to Stage_1_Input/Stage_1_Input_0_1 with bufsize: 65536\nsleep interval: 900.000000\nwrite: 20000 bytes to Stage_1_Output/Stage_1_Output_0_1 with bufsize: 65536\n", 
+            "submitted": 1429638182.617, 
+            "unitmanager": "5536a84523769c619f0e7502"
+        }
+    ]
+}
