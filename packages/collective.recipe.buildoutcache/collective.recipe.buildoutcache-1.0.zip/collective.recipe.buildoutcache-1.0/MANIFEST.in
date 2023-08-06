@@ -1,0 +1,15 @@
+# include all python files
+global-include *.py
+global-include *.pyw
+
+include *.rst
+include MANIFEST.in
+include Makefile
+include buildout.cfg
+
+graft collective
+graft docs
+
+#exclude all bytecode
+global-exclude *.pyo
+global-exclude *.pyc
