@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.py
+phjs_manager.egg-info/PKG-INFO
+phjs_manager.egg-info/SOURCES.txt
+phjs_manager.egg-info/dependency_links.txt
+phjs_manager.egg-info/requires.txt
+phjs_manager.egg-info/top_level.txt
+src/phjs-manager.py
+src/classes/__init__.py
+src/classes/config_adapter.py
+src/classes/container_pool.py
+src/classes/docker_adapter.py
