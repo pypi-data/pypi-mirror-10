@@ -1,0 +1,29 @@
+plone.api
+plone.app.registry
+plone.directives.form
+plone.registry
+Products.CMFCore
+Products.CMFPlone >=4.2
+Products.CMFQuickInstallerTool
+Products.GenericSetup
+Products.PluggableAuthService
+setuptools
+zope.globalrequest
+zope.i18nmessageid
+zope.interface
+zope.lifecycleevent
+zope.schema
+
+[test]
+AccessControl
+plone.app.dexterity
+plone.app.iterate
+plone.app.robotframework
+plone.app.testing [robot] >=4.2.2
+plone.browserlayer
+plone.testing
+Products.PlonePAS
+robotsuite
+testfixtures
+zope.component
+zope.event
