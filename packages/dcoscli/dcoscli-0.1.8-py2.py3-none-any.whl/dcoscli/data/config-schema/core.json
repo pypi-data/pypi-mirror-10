@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "title": "Your email address",
+      "description": "Your email address"
+    },
+    "dcos_url": {
+      "type": "string",
+      "title": "DCOS URL",
+      "description": "The URL to the location of the DCOS"
+    },
+    "refresh_token": {
+      "type": "string",
+      "title": "Your OAuth refresh token",
+      "description": "Your OAuth refresh token"
+    },
+    "reporting": {
+      "type": "boolean",
+      "title": "Usage Reporting",
+      "description": "Whether to report usage events to Mesosphere",
+      "default": true
+    },
+    "token": {
+      "type": "string",
+      "title": "Your OAuth access token",
+      "description": "Your OAuth access token"
+    },
+    "mesos_master_url": {
+        "type": "string",
+        "title": "Mesos Master URL",
+        "description":
+        "Mesos Master URL.  Must be of the format: \"http://host:port\""
+    }
+  },
+  "additionalProperties": false
+}
