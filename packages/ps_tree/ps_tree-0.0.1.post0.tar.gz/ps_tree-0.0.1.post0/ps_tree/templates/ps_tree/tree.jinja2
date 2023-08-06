@@ -1,0 +1,46 @@
+{% extends "/sacrud/list.jinja2" %}
+
+{% block body %}
+    <div class="widget widget_type_single">
+        <div class="widget-title">
+            {{ _(table.verbose_name or table.__tablename__) }}
+        </div>
+        <form id="sacrud-form" class="sacrud-grid-content__left-inner" method="post"
+              action="{{ request.route_url(PYRAMID_SACRUD_MASS_ACTION,
+                                           table=table.__tablename__) }}">
+            {% include 'ps_tree/toolbar.jinja2' %}
+            <div class="widget-content">
+                <div class="widget-panel clear-fix">
+                    <label class="widget-panel__item" for="SelectAll">
+                        <input class="widget-panel__item-checkbox" id="SelectAll" type="checkbox" />
+                        <span class="widget-panel__item-text">Select all</span>
+                    </label>
+                    <input class="selected-action" type="hidden" value="0" name="selected_action" />
+                </div>
+                <div id="tree" class="jq-tree"></div>
+            </div>
+            {% include 'ps_tree/toolbar.jinja2' %}
+        </form>
+    </div>
+    <ul class="jqtree-menu" id="treeContextMenu">
+        <li class="jqtree-menu__item">
+            <a href="#delete" class="jqtree-menu__item-link">{{ _ps('Delete') }}</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block extra_css %}
+    {{ super() }}
+    <link href="{{ request.static_url('ps_tree:static/css/__ps_tree.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block extra_js %}
+    {{ super() }}
+    <script type="text/javascript">
+        var DATA_URL = '{{ request.route_url('ps_tree_get_tree', tablename=table.__tablename__) }}';
+        var MOVE_URL = '/ps_tree/{{ table.__tablename__ }}/move/';
+    </script>
+    <script src="{{ request.static_url('ps_tree:static/js/__ps_tree.js') }}"></script>
+    <script src="{{ request.static_url('ps_tree:static/js/vendor/tree.jquery.js') }}"></script>
+    <script src="{{ request.static_url('ps_tree:static/js/jqTreeContextMenu.js') }}"></script>
+{% endblock %}
