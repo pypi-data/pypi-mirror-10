@@ -1,0 +1,4 @@
+[32;1mOK:[22;39m msg.prefix == 123
+[32;1mOK:[22;39m msg.suffix == 321
+[32;1mOK:[22;39m msg.which_values == OneOfMessage_first_tag
+[32;1mOK:[22;39m msg.values.first == 999

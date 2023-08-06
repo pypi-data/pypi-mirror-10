@@ -1,0 +1,73 @@
+file /home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86/tests/SConstruct,line 49:
+	Configure(confdir = .sconf_temp)
+scons: Configure: Checking for C header file stdbool.h... 
+.sconf_temp/conftest_0.c <-
+  |
+  |#include "stdbool.h"
+  |
+  |
+gcc -o .sconf_temp/conftest_0.o -c -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_0.c
+scons: Configure: yes
+
+scons: Configure: Checking for C header file stdint.h... 
+.sconf_temp/conftest_1.c <-
+  |
+  |#include "stdint.h"
+  |
+  |
+gcc -o .sconf_temp/conftest_1.o -c -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_1.c
+scons: Configure: yes
+
+scons: Configure: Checking for C header file stddef.h... 
+.sconf_temp/conftest_2.c <-
+  |
+  |#include "stddef.h"
+  |
+  |
+gcc -o .sconf_temp/conftest_2.o -c -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_2.c
+scons: Configure: yes
+
+scons: Configure: Checking for C header file string.h... 
+.sconf_temp/conftest_3.c <-
+  |
+  |#include "string.h"
+  |
+  |
+gcc -o .sconf_temp/conftest_3.o -c -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_3.c
+scons: Configure: yes
+
+scons: Configure: Checking for C header file stdlib.h... 
+.sconf_temp/conftest_4.c <-
+  |
+  |#include "stdlib.h"
+  |
+  |
+gcc -o .sconf_temp/conftest_4.o -c -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_4.c
+scons: Configure: yes
+
+pkg-config protobuf --variable=includedir > .sconf_temp/conftest_5
+"/usr/local/bin/protoc" --version > .sconf_temp/conftest_6
+scons: Configure: Checking for C library mudflap... 
+.sconf_temp/conftest_7.c <-
+  |
+  |
+  |
+  |int
+  |main() {
+  |  
+  |return 0;
+  |}
+  |
+gcc -o .sconf_temp/conftest_7.o -c -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_7.c
+gcc -o .sconf_temp/conftest_7 .sconf_temp/conftest_7.o -lmudflap
+/usr/bin/ld: cannot find -lmudflap
+collect2: error: ld returned 1 exit status
+scons: Configure: no
+
+scons: Configure: Checking support for CCFLAGS="-Wcast-qual -Wlogical-op -Wconversion -fstrict-aliasing -Wstrict-aliasing=1 -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wstack-protector "... 
+.sconf_temp/conftest_8.c <-
+  |int main() {return 0;}
+gcc -o .sconf_temp/conftest_8.o -c -Wcast-qual -Wlogical-op -Wconversion -fstrict-aliasing -Wstrict-aliasing=1 -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wstack-protector -I/home/christian/.virtualenvs/md-x64/src/nanopb-helpers/nanopb_helpers/bin/nanopb-0.3.2-linux-x86 .sconf_temp/conftest_8.c
+scons: Configure: yes
+
+

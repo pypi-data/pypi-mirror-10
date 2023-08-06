@@ -1,0 +1,131 @@
+
+----Test pb_read and pb_istream_t----
+[32;1mOK:[22;39m pb_read(&stream, buffer2, 6)
+[32;1mOK:[22;39m memcmp(buffer2, "foobar", 6) == 0
+[32;1mOK:[22;39m stream.bytes_left == sizeof(buffer1) - 6
+[32;1mOK:[22;39m pb_read(&stream, buffer2 + 6, stream.bytes_left)
+[32;1mOK:[22;39m memcmp(buffer1, buffer2, sizeof(buffer1)) == 0
+[32;1mOK:[22;39m stream.bytes_left == 0
+[32;1mOK:[22;39m !pb_read(&stream, buffer2, 1)
+
+----Test pb_read with custom callback----
+[32;1mOK:[22;39m pb_read(&stream, buffer, 5)
+[32;1mOK:[22;39m memcmp(buffer, "xxxxx", 5) == 0
+[32;1mOK:[22;39m !pb_read(&stream, buffer, 50)
+[32;1mOK:[22;39m !pb_read(&stream, buffer, 5)
+[32;1mOK:[22;39m pb_read(&stream, buffer, 15)
+
+----Test pb_decode_varint----
+[32;1mOK:[22;39m (s = S("\x00"), pb_decode_varint(&s, &u) && u == 0)
+[32;1mOK:[22;39m (s = S("\x01"), pb_decode_varint(&s, &u) && u == 1)
+[32;1mOK:[22;39m (s = S("\xAC\x02"), pb_decode_varint(&s, &u) && u == 300)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\x0F"), pb_decode_varint(&s, &u) && u == UINT32_MAX)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\x0F"), pb_decode_varint(&s, (uint64_t*)&i) && i == UINT32_MAX)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01"), pb_decode_varint(&s, (uint64_t*)&i) && i == -1)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01"), pb_decode_varint(&s, &u) && u == UINT64_MAX)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01"), !pb_decode_varint(&s, &u))
+
+----Test pb_decode_varint32----
+[32;1mOK:[22;39m (s = S("\x00"), pb_decode_varint32(&s, &u) && u == 0)
+[32;1mOK:[22;39m (s = S("\x01"), pb_decode_varint32(&s, &u) && u == 1)
+[32;1mOK:[22;39m (s = S("\xAC\x02"), pb_decode_varint32(&s, &u) && u == 300)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\x0F"), pb_decode_varint32(&s, &u) && u == UINT32_MAX)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\xFF\x01"), !pb_decode_varint32(&s, &u))
+
+----Test pb_skip_varint----
+[32;1mOK:[22;39m (s = S("\x00""foobar"), pb_skip_varint(&s) && s.bytes_left == 6)
+[32;1mOK:[22;39m (s = S("\xAC\x02""foobar"), pb_skip_varint(&s) && s.bytes_left == 6)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01""foobar"), pb_skip_varint(&s) && s.bytes_left == 6)
+[32;1mOK:[22;39m (s = S("\xFF"), !pb_skip_varint(&s))
+
+----Test pb_skip_string----
+[32;1mOK:[22;39m (s = S("\x00""foobar"), pb_skip_string(&s) && s.bytes_left == 6)
+[32;1mOK:[22;39m (s = S("\x04""testfoobar"), pb_skip_string(&s) && s.bytes_left == 6)
+[32;1mOK:[22;39m (s = S("\x04"), !pb_skip_string(&s))
+[32;1mOK:[22;39m (s = S("\xFF"), !pb_skip_string(&s))
+
+----Test pb_dec_varint using uint32_t----
+[32;1mOK:[22;39m pb_dec_varint(&s, &f, &d) && d == 1
+[32;1mOK:[22;39m pb_dec_varint(&s, &f, &d) && (d == 0xFFFFFF00 || d == 0x00FFFFFF)
+
+----Test pb_dec_svarint using int32_t----
+[32;1mOK:[22;39m (s = S("\x01"), pb_dec_svarint(&s, &f, &d) && d == -1)
+[32;1mOK:[22;39m (s = S("\x02"), pb_dec_svarint(&s, &f, &d) && d == 1)
+[32;1mOK:[22;39m (s = S("\xfe\xff\xff\xff\x0f"), pb_dec_svarint(&s, &f, &d) && d == INT32_MAX)
+[32;1mOK:[22;39m (s = S("\xff\xff\xff\xff\x0f"), pb_dec_svarint(&s, &f, &d) && d == INT32_MIN)
+
+----Test pb_dec_svarint using uint64_t----
+[32;1mOK:[22;39m (s = S("\x01"), pb_dec_svarint(&s, &f, &d) && d == -1)
+[32;1mOK:[22;39m (s = S("\x02"), pb_dec_svarint(&s, &f, &d) && d == 1)
+[32;1mOK:[22;39m (s = S("\xFE\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01"), pb_dec_svarint(&s, &f, &d) && d == INT64_MAX)
+[32;1mOK:[22;39m (s = S("\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01"), pb_dec_svarint(&s, &f, &d) && d == INT64_MIN)
+
+----Test pb_dec_fixed32 using float (failures here may be caused by imperfect rounding)----
+[32;1mOK:[22;39m (s = S("\x00\x00\x00\x00"), pb_dec_fixed32(&s, &f, &d) && d == 0.0f)
+[32;1mOK:[22;39m (s = S("\x00\x00\xc6\x42"), pb_dec_fixed32(&s, &f, &d) && d == 99.0f)
+[32;1mOK:[22;39m (s = S("\x4e\x61\x3c\xcb"), pb_dec_fixed32(&s, &f, &d) && d == -12345678.0f)
+[32;1mOK:[22;39m (s = S("\x00"), !pb_dec_fixed32(&s, &f, &d) && d == -12345678.0f)
+
+----Test pb_dec_fixed64 using double (failures here may be caused by imperfect rounding)----
+[32;1mOK:[22;39m (s = S("\x00\x00\x00\x00\x00\x00\x00\x00"), pb_dec_fixed64(&s, &f, &d) && d == 0.0)
+[32;1mOK:[22;39m (s = S("\x00\x00\x00\x00\x00\xc0\x58\x40"), pb_dec_fixed64(&s, &f, &d) && d == 99.0)
+[32;1mOK:[22;39m (s = S("\x00\x00\x00\xc0\x29\x8c\x67\xc1"), pb_dec_fixed64(&s, &f, &d) && d == -12345678.0f)
+
+----Test pb_dec_bytes----
+[32;1mOK:[22;39m (s = S("\x00"), pb_dec_bytes(&s, &f, &d) && d.size == 0)
+[32;1mOK:[22;39m (s = S("\x01\xFF"), pb_dec_bytes(&s, &f, &d) && d.size == 1 && d.bytes[0] == 0xFF)
+[32;1mOK:[22;39m (s = S("\x05xxxxx"), pb_dec_bytes(&s, &f, &d) && d.size == 5)
+[32;1mOK:[22;39m (s = S("\x05xxxx"), !pb_dec_bytes(&s, &f, &d))
+[32;1mOK:[22;39m (s = S("\x10xxxxxxxxxx"), !pb_dec_bytes(&s, &f, &d))
+
+----Test pb_dec_string----
+[32;1mOK:[22;39m (s = S("\x00"), pb_dec_string(&s, &f, &d) && d[0] == '\0')
+[32;1mOK:[22;39m (s = S("\x04xyzz"), pb_dec_string(&s, &f, &d) && strcmp(d, "xyzz") == 0)
+[32;1mOK:[22;39m (s = S("\x05xyzzy"), !pb_dec_string(&s, &f, &d))
+
+----Testing pb_decode with repeated int32 field----
+[32;1mOK:[22;39m (s = S(""), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 0)
+[32;1mOK:[22;39m (s = S("\x08\x01\x08\x02"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 2 && dest.data[0] == 1 && dest.data[1] == 2)
+[32;1mOK:[22;39m pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 10 && dest.data[9] == 10
+[32;1mOK:[22;39m !pb_decode(&s, IntegerArray_fields, &dest)
+
+----Testing pb_decode with packed int32 field----
+[32;1mOK:[22;39m (s = S("\x0A\x00"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 0)
+[32;1mOK:[22;39m (s = S("\x0A\x01\x01"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 1 && dest.data[0] == 1)
+[32;1mOK:[22;39m (s = S("\x0A\x0A\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 10 && dest.data[0] == 1 && dest.data[9] == 10)
+[32;1mOK:[22;39m (s = S("\x0A\x0B\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B"), !pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x0A\xFF"), !pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x0A\x01"), !pb_decode(&s, IntegerArray_fields, &dest))
+
+----Testing pb_decode with unknown fields----
+[32;1mOK:[22;39m (s = S("\x18\x0F\x08\x01"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 1 && dest.data[0] == 1)
+[32;1mOK:[22;39m (s = S("\x19\x00\x00\x00\x00\x00\x00\x00\x00\x08\x01"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 1 && dest.data[0] == 1)
+[32;1mOK:[22;39m (s = S("\x1A\x00\x08\x01"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 1 && dest.data[0] == 1)
+[32;1mOK:[22;39m (s = S("\x1B\x08\x01"), !pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x1D\x00\x00\x00\x00\x08\x01"), pb_decode(&s, IntegerArray_fields, &dest) && dest.data_count == 1 && dest.data[0] == 1)
+
+----Testing pb_decode with callbacks----
+[32;1mOK:[22;39m (s = S("\x08\x55"), pb_decode(&s, CallbackArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x0A\x03\x55\x55\x55"), pb_decode(&s, CallbackArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x0A\x03\x55\x55\x55"), pb_decode(&s, CallbackArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x0D\xAA\xAA\xAA\xAA"), pb_decode(&s, CallbackArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x09\xAA\xAA\xAA\xAA\xAA\xAA\xAA\xAA"), pb_decode(&s, CallbackArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x0B\x00"), !pb_decode(&s, CallbackArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x08\x55"), !pb_decode(&s, CallbackArray_fields, &dest))
+
+----Testing pb_decode message termination----
+[32;1mOK:[22;39m (s = S(""), pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x00"), pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x08\x01"), pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x08\x01\x00"), pb_decode(&s, IntegerArray_fields, &dest))
+[32;1mOK:[22;39m (s = S("\x08"), !pb_decode(&s, IntegerArray_fields, &dest))
+
+----Testing pb_decode_delimited----
+[32;1mOK:[22;39m (s = S("\x09\x0A\x07\x0A\x05\x01\x02\x03\x04\x05"), pb_decode_delimited(&s, IntegerContainer_fields, &dest)) && dest.submsg.data_count == 5
+
+----Testing allocate_field----
+[32;1mOK:[22;39m allocate_field(&s, &data, 10, 10) && data != NULL
+[32;1mOK:[22;39m allocate_field(&s, &data, 10, 20) && data != NULL
+[32;1mOK:[22;39m !allocate_field(&s, &data, very_big, 2) && data == oldvalue
+[32;1mOK:[22;39m !allocate_field(&s, &data, somewhat_big, 2) && data == oldvalue
+[32;1mOK:[22;39m !allocate_field(&s, &data, not_so_big, not_so_big) && data == oldvalue

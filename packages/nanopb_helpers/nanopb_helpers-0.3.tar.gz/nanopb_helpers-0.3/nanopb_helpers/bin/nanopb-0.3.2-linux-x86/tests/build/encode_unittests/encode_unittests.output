@@ -1,0 +1,103 @@
+
+----Test pb_write and pb_ostream_t----
+[32;1mOK:[22;39m pb_write(&stream, buffer1, sizeof(buffer1))
+[32;1mOK:[22;39m memcmp(buffer1, buffer2, sizeof(buffer1)) == 0
+[32;1mOK:[22;39m !pb_write(&stream, buffer1, 1)
+[32;1mOK:[22;39m stream.bytes_written == sizeof(buffer1)
+
+----Test pb_write with custom callback----
+[32;1mOK:[22;39m pb_write(&stream, buffer1, 5)
+[32;1mOK:[22;39m !pb_write(&stream, buffer1, 5)
+
+----Test pb_encode_varint----
+[32;1mOK:[22;39m WRITES(pb_encode_varint(&s, 0), "\0")
+[32;1mOK:[22;39m WRITES(pb_encode_varint(&s, 1), "\1")
+[32;1mOK:[22;39m WRITES(pb_encode_varint(&s, 0x7F), "\x7F")
+[32;1mOK:[22;39m WRITES(pb_encode_varint(&s, 0x80), "\x80\x01")
+[32;1mOK:[22;39m WRITES(pb_encode_varint(&s, UINT32_MAX), "\xFF\xFF\xFF\xFF\x0F")
+[32;1mOK:[22;39m WRITES(pb_encode_varint(&s, UINT64_MAX), "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01")
+
+----Test pb_encode_tag----
+[32;1mOK:[22;39m WRITES(pb_encode_tag(&s, PB_WT_STRING, 5), "\x2A")
+[32;1mOK:[22;39m WRITES(pb_encode_tag(&s, PB_WT_VARINT, 99), "\x98\x06")
+
+----Test pb_encode_tag_for_field----
+[32;1mOK:[22;39m WRITES(pb_encode_tag_for_field(&s, &field), "\x50")
+[32;1mOK:[22;39m WRITES(pb_encode_tag_for_field(&s, &field), "\x51")
+[32;1mOK:[22;39m WRITES(pb_encode_tag_for_field(&s, &field), "\x52")
+[32;1mOK:[22;39m WRITES(pb_encode_tag_for_field(&s, &field), "\x55")
+
+----Test pb_encode_string----
+[32;1mOK:[22;39m WRITES(pb_encode_string(&s, (const uint8_t*)"abcd", 4), "\x04""abcd")
+[32;1mOK:[22;39m WRITES(pb_encode_string(&s, (const uint8_t*)"abcd\x00", 5), "\x05""abcd\x00")
+[32;1mOK:[22;39m WRITES(pb_encode_string(&s, (const uint8_t*)"", 0), "\x00")
+
+----Test pb_enc_varint and pb_enc_svarint----
+[32;1mOK:[22;39m WRITES(pb_enc_varint(&s, &field, &value), "\x01")
+[32;1mOK:[22;39m WRITES(pb_enc_svarint(&s, &field, &max), "\xfe\xff\xff\xff\x0f")
+[32;1mOK:[22;39m WRITES(pb_enc_svarint(&s, &field, &min), "\xff\xff\xff\xff\x0f")
+[32;1mOK:[22;39m WRITES(pb_enc_svarint(&s, &field, &lmax), "\xFE\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01")
+[32;1mOK:[22;39m WRITES(pb_enc_svarint(&s, &field, &lmin), "\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01")
+
+----Test pb_enc_fixed32 using float----
+[32;1mOK:[22;39m WRITES(pb_enc_fixed32(&s, NULL, &fvalue), "\x00\x00\x00\x00")
+[32;1mOK:[22;39m WRITES(pb_enc_fixed32(&s, NULL, &fvalue), "\x00\x00\xc6\x42")
+[32;1mOK:[22;39m WRITES(pb_enc_fixed32(&s, NULL, &fvalue), "\x4e\x61\x3c\xcb")
+
+----Test pb_enc_fixed64 using double----
+[32;1mOK:[22;39m WRITES(pb_enc_fixed64(&s, NULL, &dvalue), "\x00\x00\x00\x00\x00\x00\x00\x00")
+[32;1mOK:[22;39m WRITES(pb_enc_fixed64(&s, NULL, &dvalue), "\x00\x00\x00\x00\x00\xc0\x58\x40")
+[32;1mOK:[22;39m WRITES(pb_enc_fixed64(&s, NULL, &dvalue), "\x00\x00\x00\xc0\x29\x8c\x67\xc1")
+
+----Test pb_enc_bytes----
+[32;1mOK:[22;39m WRITES(pb_enc_bytes(&s, &BytesMessage_fields[0], &value), "\x05xyzzy")
+[32;1mOK:[22;39m WRITES(pb_enc_bytes(&s, &BytesMessage_fields[0], &value), "\x00")
+
+----Test pb_enc_string----
+[32;1mOK:[22;39m WRITES(pb_enc_string(&s, &StringMessage_fields[0], &value), "\x05xyzzy")
+[32;1mOK:[22;39m WRITES(pb_enc_string(&s, &StringMessage_fields[0], &value), "\x00")
+[32;1mOK:[22;39m WRITES(pb_enc_string(&s, &StringMessage_fields[0], &value), "\x0Axxxxxxxxxx")
+
+----Test pb_encode with int32 array----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, IntegerArray_fields, &msg), "\x0A\x05\x01\x02\x03\x04\x05")
+[32;1mOK:[22;39m WRITES(pb_encode(&s, IntegerArray_fields, &msg), "")
+[32;1mOK:[22;39m !pb_encode(&s, IntegerArray_fields, &msg)
+
+----Test pb_encode with float array----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, FloatArray_fields, &msg), "\x0A\x04\x00\x00\xc6\x42")
+[32;1mOK:[22;39m WRITES(pb_encode(&s, FloatArray_fields, &msg), "")
+[32;1mOK:[22;39m !pb_encode(&s, FloatArray_fields, &msg)
+
+----Test array size limit in pb_encode----
+[32;1mOK:[22;39m (msg.data_count = 10) && pb_encode(&s, FloatArray_fields, &msg)
+[32;1mOK:[22;39m (msg.data_count = 11) && !pb_encode(&s, FloatArray_fields, &msg)
+
+----Test pb_encode with callback field.----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, CallbackArray_fields, &msg), "\x08\x55")
+
+----Test pb_encode with packed array in a submessage.----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, IntegerContainer_fields, &msg), "\x0A\x07\x0A\x05\x01\x02\x03\x04\x05")
+
+----Test pb_encode with bytes message.----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, BytesMessage_fields, &msg), "\x0A\x03xyz")
+[32;1mOK:[22;39m !pb_encode(&s, BytesMessage_fields, &msg)
+
+----Test pb_encode_delimited.----
+[32;1mOK:[22;39m WRITES(pb_encode_delimited(&s, IntegerContainer_fields, &msg), "\x09\x0A\x07\x0A\x05\x01\x02\x03\x04\x05")
+
+----Test pb_get_encoded_size.----
+[32;1mOK:[22;39m pb_get_encoded_size(&size, IntegerContainer_fields, &msg) && size == 9
+
+----Test pb_encode with callback field in a submessage.----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, CallbackContainer_fields, &msg), "\x0A\x02\x08\x55")
+[32;1mOK:[22;39m WRITES(pb_encode(&s, CallbackContainerContainer_fields, &msg2), "\x0A\x04\x0A\x02\x08\x55")
+[32;1mOK:[22;39m !pb_encode(&s, CallbackContainer_fields, &msg)
+[32;1mOK:[22;39m !pb_encode(&s, CallbackContainerContainer_fields, &msg2)
+
+----Test that StringMessage_size is correct----
+[32;1mOK:[22;39m pb_encode(&s, StringMessage_fields, &msg)
+[32;1mOK:[22;39m s.bytes_written == StringMessage_size
+
+----Test string pointer encoding.----
+[32;1mOK:[22;39m WRITES(pb_encode(&s, StringPointerContainer_fields, &msg), "\x0a\x00")
+[32;1mOK:[22;39m WRITES(pb_encode(&s, StringPointerContainer_fields, &msg), "\x0a\x01Z")

@@ -1,0 +1,60 @@
+
+----Test field sizes----
+[32;1mOK:[22;39m sizeof(msg.req_int8) == 1
+[32;1mOK:[22;39m sizeof(msg.req_uint8) == 1
+[32;1mOK:[22;39m sizeof(msg.req_sint8) == 1
+[32;1mOK:[22;39m sizeof(msg.req_int16) == 2
+[32;1mOK:[22;39m sizeof(msg.req_uint16) == 2
+[32;1mOK:[22;39m sizeof(msg.req_sint16) == 2
+[32;1mOK:[22;39m sizeof(msg.req_int32) == 4
+[32;1mOK:[22;39m sizeof(msg.req_uint32) == 4
+[32;1mOK:[22;39m sizeof(msg.req_sint32) == 4
+[32;1mOK:[22;39m sizeof(msg.req_int64) == 8
+[32;1mOK:[22;39m sizeof(msg.req_uint64) == 8
+[32;1mOK:[22;39m sizeof(msg.req_sint64) == 8
+
+----Test roundtrip at maximum value----
+[32;1mOK:[22;39m pb_encode(&s, DefaultSizes_fields, &msg1)
+[32;1mOK:[22;39m pb_decode(&s, IntSizes_fields, &msg2) == 1
+[32;1mOK:[22;39m (int64_t)msg2.req_int8 == 127
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint8 == 255
+[32;1mOK:[22;39m (int64_t)msg2.req_sint8 == 127
+[32;1mOK:[22;39m (int64_t)msg2.req_int16 == 32767
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint16 == 65535
+[32;1mOK:[22;39m (int64_t)msg2.req_sint16 == 32767
+[32;1mOK:[22;39m (int64_t)msg2.req_int32 == (2147483647)
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint32 == (4294967295U)
+[32;1mOK:[22;39m (int64_t)msg2.req_sint32 == (2147483647)
+[32;1mOK:[22;39m (int64_t)msg2.req_int64 == (9223372036854775807L)
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint64 == (18446744073709551615UL)
+[32;1mOK:[22;39m (int64_t)msg2.req_sint64 == (9223372036854775807L)
+[32;1mOK:[22;39m pb_encode(&s, IntSizes_fields, &msg2)
+[32;1mOK:[22;39m s.bytes_written == msgsize
+[32;1mOK:[22;39m memcmp(buffer1, buffer2, msgsize) == 0
+
+----Test roundtrip at minimum value----
+[32;1mOK:[22;39m pb_encode(&s, DefaultSizes_fields, &msg1)
+[32;1mOK:[22;39m pb_decode(&s, IntSizes_fields, &msg2) == 1
+[32;1mOK:[22;39m (int64_t)msg2.req_int8 == -128
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint8 == 0
+[32;1mOK:[22;39m (int64_t)msg2.req_sint8 == -128
+[32;1mOK:[22;39m (int64_t)msg2.req_int16 == -32768
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint16 == 0
+[32;1mOK:[22;39m (int64_t)msg2.req_sint16 == -32768
+[32;1mOK:[22;39m (int64_t)msg2.req_int32 == (-2147483647-1)
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint32 == 0
+[32;1mOK:[22;39m (int64_t)msg2.req_sint32 == (-2147483647-1)
+[32;1mOK:[22;39m (int64_t)msg2.req_int64 == (-9223372036854775807L-1)
+[32;1mOK:[22;39m (uint64_t)msg2.req_uint64 == 0
+[32;1mOK:[22;39m (int64_t)msg2.req_sint64 == (-9223372036854775807L-1)
+[32;1mOK:[22;39m pb_encode(&s, IntSizes_fields, &msg2)
+[32;1mOK:[22;39m s.bytes_written == msgsize
+[32;1mOK:[22;39m memcmp(buffer1, buffer2, msgsize) == 0
+
+----Test overflow detection----
+[32;1mOK:[22;39m pb_encode(&s, DefaultSizes_fields, &msg1)
+[32;1mOK:[22;39m pb_decode(&s, IntSizes_fields, &msg2) == 0
+[32;1mOK:[22;39m pb_encode(&s, DefaultSizes_fields, &msg1)
+[32;1mOK:[22;39m pb_decode(&s, IntSizes_fields, &msg2) == 0
+[32;1mOK:[22;39m pb_encode(&s, DefaultSizes_fields, &msg1)
+[32;1mOK:[22;39m pb_decode(&s, IntSizes_fields, &msg2) == 0

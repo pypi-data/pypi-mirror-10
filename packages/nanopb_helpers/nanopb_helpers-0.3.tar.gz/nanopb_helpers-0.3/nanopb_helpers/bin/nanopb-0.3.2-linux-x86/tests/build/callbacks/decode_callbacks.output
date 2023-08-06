@@ -1,0 +1,14 @@
+stringvalue: "Hello world!"
+int32value: 42
+fixed32value: 42
+fixed64value: 42
+submsg {
+  stringvalue: "Hello world!"
+  int32value: 42
+  fixed32value: 42
+  fixed64value: 42
+}
+repeatedstring: "Hello world!"
+repeatedstring: ""
+repeatedstring: "Test"
+repeatedstring: "Test2"

@@ -1,0 +1,146 @@
+req_int32: -1001
+req_int64: -1002
+req_uint32: 1003
+req_uint64: 1004
+req_sint32: -1005
+req_sint64: -1006
+req_bool: true
+req_fixed32: 1008
+req_sfixed32: -1009
+req_float: 1010
+req_fixed64: 1011
+req_sfixed64: -1012
+req_double: 1013
+req_string: "1014"
+req_bytes: "1015"
+req_submsg {
+  substuff1: "1016"
+  substuff2: 1016
+}
+req_enum: Truth
+req_emptymsg {
+}
+rep_int32: 0
+rep_int32: 0
+rep_int32: 0
+rep_int32: 0
+rep_int32: -2001
+rep_int64: 0
+rep_int64: 0
+rep_int64: 0
+rep_int64: 0
+rep_int64: -2002
+rep_uint32: 0
+rep_uint32: 0
+rep_uint32: 0
+rep_uint32: 0
+rep_uint32: 2003
+rep_uint64: 0
+rep_uint64: 0
+rep_uint64: 0
+rep_uint64: 0
+rep_uint64: 2004
+rep_sint32: 0
+rep_sint32: 0
+rep_sint32: 0
+rep_sint32: 0
+rep_sint32: -2005
+rep_sint64: 0
+rep_sint64: 0
+rep_sint64: 0
+rep_sint64: 0
+rep_sint64: -2006
+rep_bool: false
+rep_bool: false
+rep_bool: false
+rep_bool: false
+rep_bool: true
+rep_fixed32: 0
+rep_fixed32: 0
+rep_fixed32: 0
+rep_fixed32: 0
+rep_fixed32: 2008
+rep_sfixed32: 0
+rep_sfixed32: 0
+rep_sfixed32: 0
+rep_sfixed32: 0
+rep_sfixed32: -2009
+rep_float: 0
+rep_float: 0
+rep_float: 0
+rep_float: 0
+rep_float: 2010
+rep_fixed64: 0
+rep_fixed64: 0
+rep_fixed64: 0
+rep_fixed64: 0
+rep_fixed64: 2011
+rep_sfixed64: 0
+rep_sfixed64: 0
+rep_sfixed64: 0
+rep_sfixed64: 0
+rep_sfixed64: -2012
+rep_double: 0
+rep_double: 0
+rep_double: 0
+rep_double: 0
+rep_double: 2013
+rep_string: ""
+rep_string: ""
+rep_string: ""
+rep_string: ""
+rep_string: "2014"
+rep_bytes: ""
+rep_bytes: ""
+rep_bytes: ""
+rep_bytes: ""
+rep_bytes: "2015"
+rep_submsg {
+  substuff1: ""
+  substuff2: 0
+}
+rep_submsg {
+  substuff1: ""
+  substuff2: 0
+}
+rep_submsg {
+  substuff1: ""
+  substuff2: 0
+}
+rep_submsg {
+  substuff1: ""
+  substuff2: 0
+}
+rep_submsg {
+  substuff1: "2016"
+  substuff2: 2016
+  substuff3: 2016
+}
+rep_enum: Zero
+rep_enum: Zero
+rep_enum: Zero
+rep_enum: Zero
+rep_enum: Truth
+rep_emptymsg {
+}
+rep_emptymsg {
+}
+rep_emptymsg {
+}
+rep_emptymsg {
+}
+rep_emptymsg {
+}
+req_limits {
+  int32_min: -2147483648
+  int32_max: 2147483647
+  uint32_min: 0
+  uint32_max: 4294967295
+  int64_min: -9223372036854775808
+  int64_max: 9223372036854775807
+  uint64_min: 0
+  uint64_max: 18446744073709551615
+  enum_min: Negative
+  enum_max: Positive
+}
+end: 1099
