@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: yufou
+Version: 0.0.1
+Summary: Retrieve radar image.
+Home-page: https://github.com/bcho/yufou
+Author: hbc
+Author-email: bcxxxxxx@gmail.com
+License: MIT
+Description: # 雨否 yufou
+        
+        今天你的城市下雨吗？
+        
+        [![Build Status](https://travis-ci.org/bcho/yufou.svg)](https://travis-ci.org/bcho/yufou)
+        
+        
+        ## TODO
+        
+        - [ ] 通过地名反查附近雷达 (geo?)
+        
+        
+        ## LICENSE
+        
+        MIT
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
