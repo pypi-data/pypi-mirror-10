@@ -1,0 +1,4 @@
+
+        [ckan.plugins]
+        s3filestore=ckanext.s3filestore.plugin:S3FileStorePlugin
+    
