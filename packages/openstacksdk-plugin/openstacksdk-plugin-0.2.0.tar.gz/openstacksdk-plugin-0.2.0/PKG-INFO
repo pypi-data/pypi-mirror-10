@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: openstacksdk-plugin
+Version: 0.2.0
+Summary: OpenStack SDK example plugin
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Description: ===================
+        openstacksdk-plugin
+        ===================
+        
+        OpenStack SDK Example Plugin
+        
+        This repository contains an example OpenStack SDK plugin that you can use to
+        create your own plugin.  Just fork the repository or copy it if you like.
+        The most important part are the entry points.
+        
+        To try out the example plugin, install the package and run the following:
+        
+            openstacksdk
+        
+        The script loads the example plugin and calls the two methods of the
+        proxy.
+        
+        * Free software: Apache license
+        * Documentation: http://docs.openstack.org/developer/openstacksdk-plugin
+        * Source: http://git.openstack.org/cgit/openstack/openstacksdk-plugin
+        * Bugs: http://bugs.launchpad.net/python-openstacksdk
+        
+        TODO
+        ----
+        
+        * Write docs describing how to make a plugin
+        * Fix this README with proper links to source and documentation
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4

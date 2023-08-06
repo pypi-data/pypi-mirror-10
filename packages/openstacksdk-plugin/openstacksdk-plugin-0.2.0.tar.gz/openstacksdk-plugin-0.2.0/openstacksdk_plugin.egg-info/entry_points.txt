@@ -1,0 +1,6 @@
+[openstacksdk_plugin.example]
+example = openstacksdk_plugin.example.example_service:ExampleService
+
+[console_scripts]
+openstacksdk = openstacksdk_plugin.shell:main
+
