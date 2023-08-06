@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: shpinfo
+Version: 0.1.0
+Summary: A command line program to print meta information about the given shapefile.
+Home-page: https://github.com/yaph/shpinfo
+Author: Ramiro Gómez
+Author-email: code@ramiro.org
+License: MIT
+Description: ===============================
+        shpinfo
+        ===============================
+        
+        .. image:: https://img.shields.io/travis/yaph/shpinfo.svg
+                :target: https://travis-ci.org/yaph/shpinfo
+        
+        .. image:: https://img.shields.io/pypi/v/shpinfo.svg
+                :target: https://pypi.python.org/pypi/shpinfo
+        
+        
+        A command line program to print meta information about the given shapefile.
+        
+        * Free software: MIT license
+        * Documentation: https://pythonhosted.org/shpinfo/.
+        
+        Usage
+        -----
+        
+        .. code:: Bash
+        
+            shpinfo myfile.shp
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2015-06-27)
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: gis geospatial geography shapefile
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
