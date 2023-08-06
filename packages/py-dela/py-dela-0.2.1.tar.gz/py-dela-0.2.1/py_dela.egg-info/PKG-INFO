@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: py-dela
+Version: 0.2.1
+Summary: Python DELA Dictionary(Unitex) support library
+Home-page: https://github.com/ulyssesrr/py-dela
+Author: Ulysses Rangel Ribeiro
+Author-email: ulyssesrr@gmail.com
+License: LGPL
+Download-URL: https://github.com/ulyssesrr/py-dela/tarball/0.2.1
+Description: # py-dela
+        Python DELA Dictionary Library
+        
+        This python library handles DELA dictionaries used by Unitex such as [THESE](http://www-igm.univ-mlv.fr/~unitex/index.php?page=7).
+        
+        # Example
+        	if __name__ == '__main__':
+        		lexicon = Lexicon("/home/ulysses/Applications/Unitex3.1beta/Portuguese (Brazil)/Dela/")
+        		print(lexicon.get_lemmas(sys.argv[1]))
+        
+Keywords: dela,unitex,lemmatization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Linguistic
