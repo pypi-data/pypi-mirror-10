@@ -1,0 +1,12 @@
+[redis]
+host = localhost
+port = 6379
+password =
+db = 0
+
+[ipython]
+# context can be a comma separated list of IPython parallel profiles
+context=general
+
+# The default context to be used
+default=general
