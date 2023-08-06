@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.project">
+
+    <include package=".browser" />
+    <include package="plone.app.z3cform" />
+    <include package="plone.app.dexterity" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.project"
+        directory="profiles/default"
+        description="Project Management With Dexterity Content Types"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+  
+    <!-- Custom edit form -->
+
+    <browser:page
+        for="collective.project.client.IClient"
+        name="edit"
+        class="collective.project.client.EditForm"
+        permission="cmf.ModifyPortalContent" />
+
+</configure>
