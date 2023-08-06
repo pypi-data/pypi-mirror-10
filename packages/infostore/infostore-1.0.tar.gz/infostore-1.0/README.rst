@@ -1,0 +1,72 @@
+Welcome to Infostore!
+====================
+This is a few classes for use in python data storage
+
+General use
+-----------------------
+
+To create a table:
+
+``>>>from infostore import infobase``
+
+>>>data = infobase(name, [list, of, values])``
+
+``>>>data.new_infobase()``
+
+This will create a new table and store it
+
+You can then add a row like so:
+
+``>>>data.add_row([items, to, add])``
+
+You can always print your data like so:
+
+``>>>print data``
+
+``| Num | list  | of | values |``
+
+``| --- | ----- | -- | ------ |``
+
+``|   1 | items | to | add    |``
+
+Note: items will be closer together
+
+You can also make a hierarchy!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``from infostore import hierarchy``
+
+``data = hierarchy('title', [catagories])``
+
+``data.new()``
+
+``data.save()``
+
+I personally use this for school notes on things like textbooks
+
+There are also Grids!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``from infostore import grid, point``
+
+``g = grid('title', [size, via, list]) #you put integers instead of words``
+
+``g.new()``
+
+``g.grid[0][0][0].append(point(0,0,0, [data])()) #this is to add stuff to your grid``
+
+``g.save()``
+
+Changelog
+----------------------------------
+- 0.8.Alpha
+- 1.0 Added Grids, Hierarchies, and points oh my!
+
+Notes for this release:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Grids, Hierarchies, and notes are all new classes for use here
+- updated the storage structue, so you may want to save that somewhere else
+
+If you have any bugs or ideas, or anything else:
+------------------------------------------------
+email me at shadow889566@gmail.com

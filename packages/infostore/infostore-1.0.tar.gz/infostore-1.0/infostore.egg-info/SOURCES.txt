@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+infostore/__init__.py
+infostore/infostore.py
+infostore.egg-info/PKG-INFO
+infostore.egg-info/SOURCES.txt
+infostore.egg-info/dependency_links.txt
+infostore.egg-info/not-zip-safe
+infostore.egg-info/requires.txt
+infostore.egg-info/top_level.txt
+infostore/storage/grids.py
+infostore/storage/info.txt
+infostore/storage/infobases.py
+infostore/storage/notesapp.py
