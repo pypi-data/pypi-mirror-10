@@ -1,0 +1,10 @@
+#!/usr/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'softsynth==0.3.2','console_scripts','synth'
+__requires__ = 'softsynth==0.3.2'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('softsynth==0.3.2', 'console_scripts', 'synth')()
+    )
