@@ -1,0 +1,28 @@
+CHANGES
+=======
+
+0.2.0
+-----
+
+* Let pbr manage version
+* Consume edeploy facts from Swift
+* bump version in setup.cfg to match tag
+* bump version in setup.cfg to match tag
+* Fix newline at the end of README.rst
+
+0.1.1
+-----
+
+* Add a README
+
+0.1.0
+-----
+
+* small packaging fixes
+* Seperate profile matching from instrospection
+* Rename to ahc-tools
+* Add rdo-discover-hardware script to be used on discovery ramdisk
+* Fix PBR not installing actual Python files
+* Add a CLI client to run cardiff against Ironic DB
+* Ignore pbr-generated files
+* Basic structure for the project

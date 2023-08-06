@@ -1,0 +1,8 @@
+[oslo.config.opts]
+ahc_tools.common.swift = ahc_tools.common.swift:list_opts
+ahc_tools = ahc_tools.conf:list_opts
+
+[console_scripts]
+ahc-match = ahc_tools.match:main
+ahc-report = ahc_tools.report:main
+

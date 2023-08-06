@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: ahc-tools
+Version: 0.2.0
+Summary: Tools for RDO-manager automatic health checks
+Home-page: http://www.redhat.com/
+Author: John Trowbridge
+Author-email: trown@redhat.com
+License: UNKNOWN
+Description: Tools for RDO-Manager automatic health checks
+        =============================================
+        
+        These are tools to perform advanced reporting and role matching based on the
+        introspection results from `OpenStack Ironic`_ prior to doing an
+        **RDO-Manager** deployment. This is based on the `AHC`_ concept from the
+        **enovance edeploy** install method.
+        
+        .. _OpenStack Ironic: https://wiki.openstack.org/wiki/Ironic
+        .. _AHC: https://github.com/enovance/edeploy/blob/master/docs/AHC.rst
+        
+        Usage
+        -----
+        
+        Usage documentation is currently provided as part of the
+        `RDO-Manager documentation`_
+        
+        .. _RDO-Manager documentation: https://repos.fedorapeople.org/repos/openstack-m/instack-undercloud/html/index.html
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
