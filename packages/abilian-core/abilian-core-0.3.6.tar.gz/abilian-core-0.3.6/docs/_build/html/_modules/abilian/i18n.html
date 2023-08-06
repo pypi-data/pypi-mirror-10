@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.i18n &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.i18n</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.i18n</h1><div class="highlight"><pre>
+<span class="c"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">I18n.</span>
+
+<span class="sd">To mark strings for transalation::</span>
+
+<span class="sd">    from abilian.i18n import _</span>
+<span class="sd">    _(u&#39;message to translate&#39;)</span>
+
+<span class="sd">Use :data:`_` for gettext, :data:`_l` for lazy_gettext, :data:`_n` for</span>
+<span class="sd">ngettext.</span>
+
+<span class="sd">:data:`Babel extension&lt;babel&gt;` support multiple translation paths. This</span>
+<span class="sd">allows to add more catalogs to search for translations, in LIFO</span>
+<span class="sd">order. This feature can be used to override some translations in a</span>
+<span class="sd">custom application, be providing a catalog with messages to override::</span>
+
+<span class="sd">    current_app.extensions[&#39;babel&#39;].add_translations(&#39;abilian.core&#39;)</span>
+
+<span class="sd">See :meth:`add_translations&lt;Babel.add_translations&gt;`.</span>
+
+<span class="sd">To extract messages to build the message catalog template (.pot), use the</span>
+<span class="sd">following &quot;`-k`&quot; parameters:</span>
+
+<span class="sd">.. code-block:: bash</span>
+
+<span class="sd">    $ pybabel extract -F babel.cfg -k &quot;_n:1,2&quot; -k &quot;_l&quot; -o &quot;msg.pot&quot; &quot;src&quot;</span>
+
+
+<span class="sd">This can be made easier by placing in `setup.cfg`:</span>
+
+<span class="sd">.. code-block:: ini</span>
+
+<span class="sd">    [extract_messages]</span>
+<span class="sd">    mapping_file = babel.cfg</span>
+<span class="sd">    keywords = _n:1,2 _l</span>
+<span class="sd">    output-file = msg.pot</span>
+<span class="sd">    input-dirs = src</span>
+
+
+<span class="sd">And just type:</span>
+
+<span class="sd">.. code-block:: bash</span>
+
+<span class="sd">    $ python setup.py extract_messages</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">unicodedata</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">from</span> <span class="nn">babel</span> <span class="kn">import</span> <span class="n">Locale</span>
+<span class="kn">from</span> <span class="nn">babel.localedata</span> <span class="kn">import</span> <span class="n">locale_identifiers</span>
+<span class="kn">from</span> <span class="nn">babel.support</span> <span class="kn">import</span> <span class="n">Translations</span>
+<span class="kn">from</span> <span class="nn">babel.dates</span> <span class="kn">import</span> <span class="n">LOCALTZ</span><span class="p">,</span> <span class="n">get_timezone</span><span class="p">,</span> <span class="n">get_timezone_gmt</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">g</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">_request_ctx_stack</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">import</span> <span class="nn">flask_babel</span>
+<span class="kn">from</span> <span class="nn">flask_babel</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Babel</span> <span class="k">as</span> <span class="n">BabelBase</span><span class="p">,</span>
+    <span class="n">gettext</span><span class="p">,</span> <span class="n">lazy_gettext</span><span class="p">,</span> <span class="n">ngettext</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s">&#39;babel&#39;</span><span class="p">,</span>
+  <span class="s">&#39;gettext&#39;</span><span class="p">,</span> <span class="s">&#39;_&#39;</span><span class="p">,</span>
+  <span class="s">&#39;lazy_gettext&#39;</span><span class="p">,</span> <span class="s">&#39;_l&#39;</span><span class="p">,</span> <span class="s">&#39;localeselector&#39;</span><span class="p">,</span>
+  <span class="s">&#39;ngettext&#39;</span><span class="p">,</span> <span class="s">&#39;_n&#39;</span><span class="p">,</span>
+  <span class="s">&#39;set_locale&#39;</span><span class="p">,</span>
+  <span class="s">&#39;timezoneselector&#39;</span><span class="p">,</span>
+  <span class="s">&#39;VALID_LANGUAGES_CODE&#39;</span><span class="p">,</span>
+  <span class="s">&#39;render_template_i18n&#39;</span>
+<span class="p">]</span>
+
+<span class="c">#: gettext alias</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">gettext</span>
+
+<span class="c">#: lazy_gettext alias</span>
+<span class="n">_l</span> <span class="o">=</span> <span class="n">lazy_gettext</span>
+<span class="c">#: ngettext alias</span>
+<span class="n">_n</span> <span class="o">=</span> <span class="n">ngettext</span>
+
+<span class="c">#: accepted languages codes</span>
+<span class="n">VALID_LANGUAGES_CODE</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">lang</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">locale_identifiers</span><span class="p">()</span>
+                                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_default_locale</span><span class="p">():</span>
+  <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;babel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">default_locale</span>
+
+
+<span class="k">def</span> <span class="nf">_get_locale</span><span class="p">():</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">flask_babel</span><span class="o">.</span><span class="n">get_locale</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">locale</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_default_locale</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">locale</span>
+
+
+<span class="k">def</span> <span class="nf">__gettext_territory</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">_get_locale</span><span class="p">()</span>
+  <span class="k">return</span> <span class="p">(</span>
+      <span class="n">locale</span><span class="o">.</span><span class="n">territories</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+      <span class="ow">or</span> <span class="n">get_default_locale</span><span class="p">()</span><span class="o">.</span><span class="n">territories</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">code</span><span class="p">))</span>
+
+<span class="c">#: get localized territory name</span>
+<span class="k">def</span> <span class="nf">country_name</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">__gettext_territory</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+<span class="c">#: lazy version of :func:`country_name`</span>
+<span class="k">def</span> <span class="nf">lazy_country_name</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+  <span class="kn">from</span> <span class="nn">speaklater</span> <span class="kn">import</span> <span class="n">make_lazy_string</span>
+  <span class="k">return</span> <span class="n">make_lazy_string</span><span class="p">(</span><span class="n">__gettext_territory</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">default_country</span><span class="p">():</span>
+  <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;DEFAULT_COUNTRY&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">country_choices</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">default_country_first</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Return a list of (code, countries), alphabetically sorted on localized</span>
+<span class="sd">  country name.</span>
+
+<span class="sd">  :param first: Country code to be placed at the top</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">_get_locale</span><span class="p">()</span>
+  <span class="n">territories</span> <span class="o">=</span> <span class="p">[(</span><span class="n">code</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">locale</span><span class="o">.</span><span class="n">territories</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span>
+                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span> <span class="c"># skip 3-digit regions</span>
+
+  <span class="k">if</span> <span class="n">first</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">default_country_first</span><span class="p">:</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">default_country</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">sortkey</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">first</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s">u&#39;0&#39;</span>
+    <span class="k">return</span> <span class="n">to_lower_ascii</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+  <span class="n">territories</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">sortkey</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">territories</span>
+
+
+<span class="k">def</span> <span class="nf">supported_app_locales</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  language codes and labels supported by current application</span>
+
+<span class="sd">  :return: an iterable of `(:class:`babel.Locale`, label)`, label being the</span>
+<span class="sd">  locale language human name in current locale.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">_get_locale</span><span class="p">()</span>
+  <span class="n">codes</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;BABEL_ACCEPT_LANGUAGES&#39;</span><span class="p">]</span>
+  <span class="k">return</span> <span class="p">((</span><span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">),</span> <span class="n">locale</span><span class="o">.</span><span class="n">languages</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">code</span><span class="p">))</span>
+          <span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">timezones_choices</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Timezones values and their labels for current locale.</span>
+
+<span class="sd">  :return: an iterable of `(code, label)`, code being a timezone code and label</span>
+<span class="sd">  the timezone name in current locale.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">utcnow</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+  <span class="n">locale</span> <span class="o">=</span> <span class="n">_get_locale</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">tz</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">common_timezones</span><span class="p">):</span>
+    <span class="n">tz</span> <span class="o">=</span> <span class="n">get_timezone</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">tz</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">utcnow</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tz</span><span class="p">))</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="s">u&#39;({}) {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_timezone_gmt</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">),</span> <span class="n">tz</span><span class="o">.</span><span class="n">zone</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="p">(</span><span class="n">tz</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="c">#get_timezone_name(tz, locale=locale))</span>
+
+
+<div class="viewcode-block" id="Babel"><a class="viewcode-back" href="../../api.html#abilian.i18n.Babel">[docs]</a><span class="k">class</span> <span class="nc">Babel</span><span class="p">(</span><span class="n">BabelBase</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Allow to load translations from other modules</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">_translations_paths</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">BabelBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">Babel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_translations_paths</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s">&#39;translations&#39;</span><span class="p">),</span> <span class="s">&#39;messages&#39;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="Babel.add_translations"><a class="viewcode-back" href="../../api.html#abilian.i18n.Babel.add_translations">[docs]</a>  <span class="k">def</span> <span class="nf">add_translations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module_name</span><span class="p">,</span>
+                       <span class="n">translations_dir</span><span class="o">=</span><span class="s">&#39;translations&#39;</span><span class="p">,</span>
+                       <span class="n">domain</span><span class="o">=</span><span class="s">&#39;messages&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds translations from external module. For example::</span>
+
+<span class="sd">        babel.add_translations(&#39;abilian.core&#39;)</span>
+
+<span class="sd">    Will add translations files from `abilian.core` module.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">translations_dir</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">module</span><span class="o">.</span><span class="n">__path__</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()):</span>
+        <span class="k">continue</span>
+
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+          <span class="s">&quot;Babel translations: read access not allowed {}, skipping.&quot;</span>
+          <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">repr</span><span class="p">(</span><span class="nb">unicode</span><span class="p">((</span><span class="n">path</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)))</span>
+        <span class="p">)</span>
+        <span class="k">continue</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_translations_paths</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">unicode</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">domain</span><span class="p">))</span>
+
+</div></div>
+<span class="k">def</span> <span class="nf">_get_translations_multi_paths</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Returns the correct gettext translations that should be used for this</span>
+<span class="sd">  request. This will never fail and return a dummy translation object</span>
+<span class="sd">  if used outside of the request or if a translation cannot be found.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+  <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
+
+  <span class="n">translations</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">&#39;babel_translations&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">babel_ext</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;babel&#39;</span><span class="p">]</span>
+    <span class="n">translations</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">trs</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="c"># reverse order: thus the application catalog is loaded last, so that</span>
+    <span class="c"># translations from libraries can be overriden</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">babel_ext</span><span class="o">.</span><span class="n">_translations_paths</span><span class="p">):</span>
+      <span class="n">trs</span> <span class="o">=</span> <span class="n">Translations</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span>
+                              <span class="n">locales</span><span class="o">=</span><span class="p">[</span><span class="n">flask_babel</span><span class="o">.</span><span class="n">get_locale</span><span class="p">()],</span>
+                              <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">)</span>
+
+      <span class="c"># babel.support.Translations is a subclass of</span>
+      <span class="c"># babel.support.NullTranslations, so we test if object has a &#39;merge&#39;</span>
+      <span class="c"># method</span>
+
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">trs</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">trs</span><span class="p">,</span> <span class="s">&#39;merge&#39;</span><span class="p">):</span>
+        <span class="c"># got None or NullTranslations instance</span>
+        <span class="k">continue</span>
+      <span class="k">elif</span> <span class="p">(</span><span class="n">translations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="s">&#39;merge&#39;</span><span class="p">)):</span>
+          <span class="n">translations</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">trs</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="n">translations</span> <span class="o">=</span> <span class="n">trs</span>
+
+    <span class="c"># ensure translations is at least a NullTranslations object</span>
+    <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">translations</span> <span class="o">=</span> <span class="n">trs</span>
+
+    <span class="n">ctx</span><span class="o">.</span><span class="n">babel_translations</span> <span class="o">=</span> <span class="n">translations</span>
+
+  <span class="k">return</span> <span class="n">translations</span>
+
+<span class="c"># monkey patch flask-babel</span>
+<span class="n">flask_babel</span><span class="o">.</span><span class="n">get_translations</span> <span class="o">=</span> <span class="n">_get_translations_multi_paths</span>
+
+<span class="c">#: importable instance of :class:`Babel`</span>
+<span class="n">babel</span> <span class="o">=</span> <span class="n">Babel</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="localeselector"><a class="viewcode-back" href="../../api.html#abilian.i18n.localeselector">[docs]</a><span class="k">def</span> <span class="nf">localeselector</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Default locale selector used in abilian applications</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="c"># if a user is logged in, use the locale from the user settings</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="s">&#39;locale&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">locale</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">locale</span>
+
+  <span class="c"># Otherwise, try to guess the language from the user accept header the browser</span>
+  <span class="c"># transmits.  By default we support en/fr. The best match wins.</span>
+  <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">accept_languages</span><span class="o">.</span><span class="n">best_match</span><span class="p">(</span>
+    <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;BABEL_ACCEPT_LANGUAGES&#39;</span><span class="p">]</span>
+  <span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="timezoneselector"><a class="viewcode-back" href="../../api.html#abilian.i18n.timezoneselector">[docs]</a><span class="k">def</span> <span class="nf">timezoneselector</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Default timezone selector used in abilian applications</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">LOCALTZ</span>
+
+</div>
+<span class="nd">@contextmanager</span>
+<div class="viewcode-block" id="set_locale"><a class="viewcode-back" href="../../api.html#abilian.i18n.set_locale">[docs]</a><span class="k">def</span> <span class="nf">set_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Change current locale.</span>
+
+<span class="sd">  Can be used as a context manager to temporary change locale::</span>
+
+<span class="sd">      with set_locale(&#39;fr&#39;) as fr_locale:</span>
+<span class="sd">          ...</span>
+
+<span class="sd">  :type locale: :class:`babel.core.Locale` or `str`</span>
+<span class="sd">  :param locale: locale to use. If it&#39;s a string if must be a valid locale</span>
+<span class="sd">                 specification</span>
+<span class="sd">  :rtype: :class:`babel.core.Locale`</span>
+<span class="sd">  :return: locale set</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+  <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">yield</span>
+
+  <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="n">Locale</span><span class="p">):</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">locale</span><span class="p">)</span>
+
+  <span class="n">current_locale</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">&#39;babel_locale&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+  <span class="n">ctx</span><span class="o">.</span><span class="n">babel_locale</span> <span class="o">=</span> <span class="n">locale</span>
+  <span class="k">yield</span> <span class="n">locale</span>
+  <span class="n">ctx</span><span class="o">.</span><span class="n">babel_locale</span> <span class="o">=</span> <span class="n">current_locale</span>
+
+</div>
+<span class="k">def</span> <span class="nf">get_template_i18n</span><span class="p">(</span><span class="n">template_name</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build template list with preceding locale if found</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="n">locale</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">template_name</span>
+
+  <span class="n">template_list</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">parts</span> <span class="o">=</span> <span class="n">template_name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">root</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">suffix</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+  <span class="k">if</span> <span class="n">locale</span><span class="o">.</span><span class="n">territory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">locale_string</span> <span class="o">=</span> <span class="s">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">locale</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">locale</span><span class="o">.</span><span class="n">territory</span><span class="p">])</span>
+    <span class="n">localized_template_path</span> <span class="o">=</span> <span class="s">u&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">root</span><span class="p">,</span> <span class="n">locale_string</span><span class="p">,</span> <span class="n">suffix</span><span class="p">])</span>
+    <span class="n">template_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">localized_template_path</span><span class="p">)</span>
+
+  <span class="n">localized_template_path</span> <span class="o">=</span> <span class="s">u&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">root</span><span class="p">,</span> <span class="n">locale</span><span class="o">.</span><span class="n">language</span><span class="p">,</span> <span class="n">suffix</span><span class="p">])</span>
+  <span class="n">template_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">localized_template_path</span><span class="p">)</span>
+
+  <span class="c"># append the default</span>
+  <span class="n">template_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">template_name</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">template_list</span>
+
+
+<div class="viewcode-block" id="render_template_i18n"><a class="viewcode-back" href="../../api.html#abilian.i18n.render_template_i18n">[docs]</a><span class="k">def</span> <span class="nf">render_template_i18n</span><span class="p">(</span><span class="n">template_name_or_list</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Try to build an ordered list of template to satisfy the current locale</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">template_list</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="c"># Use locale if present in **context</span>
+  <span class="k">if</span> <span class="s">&#39;locale&#39;</span> <span class="ow">in</span> <span class="n">context</span><span class="p">:</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">context</span><span class="p">[</span><span class="s">&#39;locale&#39;</span><span class="p">])</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="c"># Use get_locale() or default_locale</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">flask_babel</span><span class="o">.</span><span class="n">get_locale</span><span class="p">()</span>
+
+  <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">template_name_or_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+    <span class="n">template_list</span> <span class="o">=</span> <span class="n">get_template_i18n</span><span class="p">(</span><span class="n">template_name_or_list</span><span class="p">,</span> <span class="n">locale</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="c"># Search for locale for each member of the list, do not bypass</span>
+    <span class="k">for</span> <span class="n">template</span> <span class="ow">in</span> <span class="n">template_name_or_list</span><span class="p">:</span>
+        <span class="n">template_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_template_i18n</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">locale</span><span class="p">))</span>
+
+  <span class="k">with</span> <span class="n">set_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="n">template_list</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">)</span>
+
+</div>
+<span class="n">_NOT_WORD_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;[^\w\s]+&#39;</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">to_lower_ascii</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">_NOT_WORD_RE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">u&#39; &#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s">&#39;NFKD&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;ascii&#39;</span><span class="p">,</span> <span class="s">&#39;ignore&#39;</span><span class="p">)</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;ascii&#39;</span><span class="p">)</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+  <span class="n">value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;[_\s]+&#39;</span><span class="p">,</span> <span class="s">u&#39; &#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

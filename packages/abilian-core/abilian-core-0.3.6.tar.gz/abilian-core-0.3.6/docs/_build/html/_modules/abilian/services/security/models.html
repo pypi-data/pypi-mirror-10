@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.services.security.models &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.services.security.models</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.services.security.models</h1><div class="highlight"><pre>
+<span class="c"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">total_ordering</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="kn">import</span> <span class="p">(</span>
+  <span class="n">Column</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Index</span><span class="p">,</span> <span class="n">UniqueConstraint</span><span class="p">,</span> <span class="n">CheckConstraint</span>
+  <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.types</span> <span class="kn">import</span> <span class="p">(</span>
+  <span class="n">Integer</span><span class="p">,</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">TypeDecorator</span><span class="p">,</span> <span class="n">UnicodeText</span>
+  <span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">abilian.i18n</span> <span class="kn">import</span> <span class="n">_l</span>
+<span class="kn">from</span> <span class="nn">abilian.core.singleton</span> <span class="kn">import</span> <span class="n">UniqueName</span>
+<span class="kn">from</span> <span class="nn">abilian.core.entities</span> <span class="kn">import</span> <span class="n">Entity</span>
+<span class="kn">from</span> <span class="nn">abilian.core.models.subjects</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">Group</span>
+<span class="kn">from</span> <span class="nn">abilian.core.extensions</span> <span class="kn">import</span> <span class="n">db</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;RoleAssignment&#39;</span><span class="p">,</span> <span class="s">&#39;SecurityAudit&#39;</span><span class="p">,</span> <span class="s">&#39;InheritSecurity&#39;</span><span class="p">,</span>
+           <span class="s">&#39;Permission&#39;</span><span class="p">,</span> <span class="s">&#39;MANAGE&#39;</span><span class="p">,</span> <span class="s">&#39;READ&#39;</span><span class="p">,</span> <span class="s">&#39;WRITE&#39;</span><span class="p">,</span>
+           <span class="s">&#39;Role&#39;</span><span class="p">,</span> <span class="s">&#39;Anonymous&#39;</span><span class="p">,</span> <span class="s">&#39;Authenticated&#39;</span><span class="p">,</span> <span class="s">&#39;Admin&#39;</span><span class="p">,</span> <span class="s">&#39;Manager&#39;</span><span class="p">,</span>
+           <span class="s">&#39;Creator&#39;</span><span class="p">,</span> <span class="s">&#39;Owner&#39;</span><span class="p">,</span> <span class="s">&#39;Reader&#39;</span><span class="p">,</span> <span class="s">&#39;Writer&#39;</span><span class="p">,</span>
+           <span class="s">&#39;RoleType&#39;</span><span class="p">]</span>
+
+
+<span class="nd">@total_ordering</span>
+<span class="k">class</span> <span class="nc">Permission</span><span class="p">(</span><span class="n">UniqueName</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Defines permission by name. Permission instances are unique by name.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;label&#39;</span><span class="p">,)</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="n">UniqueName</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">label</span> <span class="o">=</span> <span class="s">u&#39;permission_&#39;</span> <span class="o">+</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+      <span class="n">label</span> <span class="o">=</span> <span class="n">_l</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+
+  <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__lt__</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+
+
+<span class="nd">@total_ordering</span>
+<span class="k">class</span> <span class="nc">Role</span><span class="p">(</span><span class="n">UniqueName</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Defines role by name. Roles instances are unique by name.</span>
+
+<span class="sd">  :param assignable: this role is can be assigned through security service.</span>
+<span class="sd">  Non-assignable roles are roles automatically given depending on context (ex:</span>
+<span class="sd">  Anonymous/Authenticated).</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;label&#39;</span><span class="p">,</span> <span class="s">&#39;assignable&#39;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="n">UniqueName</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">label</span> <span class="o">=</span> <span class="s">u&#39;role_&#39;</span> <span class="o">+</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">):</span>
+      <span class="n">label</span> <span class="o">=</span> <span class="n">_l</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assignable</span> <span class="o">=</span> <span class="n">assignable</span>
+
+  <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__lt__</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">other</span><span class="p">))</span>
+
+  <span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">assignable_roles</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="n">roles</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cls</span><span class="o">.</span><span class="n">__instances__</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">assignable</span><span class="p">]</span>
+    <span class="n">roles</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">roles</span>
+
+
+<span class="k">class</span> <span class="nc">RoleType</span><span class="p">(</span><span class="n">TypeDecorator</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Store :class:`Role`</span>
+
+<span class="sd">  Usage::</span>
+<span class="sd">    RoleType()</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">impl</span> <span class="o">=</span> <span class="n">String</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">TypeDecorator</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+  <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="c">#: marker for role assigned to &#39;Anonymous&#39;</span>
+<span class="n">Anonymous</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;anonymous&#39;</span><span class="p">,</span> <span class="n">_l</span><span class="p">(</span><span class="s">u&#39;role_anonymous&#39;</span><span class="p">),</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c">#: marker for role assigned to &#39;Authenticated&#39;</span>
+<span class="n">Authenticated</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;authenticated&#39;</span><span class="p">,</span> <span class="n">_l</span><span class="p">(</span><span class="s">u&#39;role_authenticated&#39;</span><span class="p">),</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c">#: marker for `admin` role</span>
+<span class="n">Admin</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;admin&#39;</span><span class="p">,</span> <span class="n">_l</span><span class="p">(</span><span class="s">u&#39;role_administrator&#39;</span><span class="p">))</span>
+
+<span class="c">#: marker for `manager` role</span>
+<span class="n">Manager</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;manager&#39;</span><span class="p">,</span> <span class="n">_l</span><span class="p">(</span><span class="s">u&#39;role_manager&#39;</span><span class="p">),</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">Creator</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;creator&#39;</span><span class="p">,</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">Owner</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;owner&#39;</span><span class="p">,</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">Reader</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;reader&#39;</span><span class="p">,</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">Writer</span> <span class="o">=</span> <span class="n">Role</span><span class="p">(</span><span class="s">&#39;writer&#39;</span><span class="p">,</span> <span class="n">assignable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c"># Permissions</span>
+<span class="n">READ</span> <span class="o">=</span> <span class="n">Permission</span><span class="p">(</span><span class="s">u&#39;read&#39;</span><span class="p">)</span>
+<span class="n">WRITE</span> <span class="o">=</span> <span class="n">Permission</span><span class="p">(</span><span class="s">u&#39;write&#39;</span><span class="p">)</span>
+<span class="n">MANAGE</span> <span class="o">=</span> <span class="n">Permission</span><span class="p">(</span><span class="s">u&#39;manage&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">RoleAssignment</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;roleassignment&quot;</span>
+  <span class="n">__table_args__</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">CheckConstraint</span><span class="p">(</span>
+      <span class="s">&quot;(CAST(anonymous AS INTEGER) = 1)&quot;</span>
+      <span class="s">&quot; OR &quot;</span>
+      <span class="s">&quot;((CAST(anonymous AS INTEGER) = 0)&quot;</span>
+      <span class="s">&quot; AND &quot;</span>
+      <span class="s">&quot; ((user_id IS NOT NULL AND group_id IS NULL)&quot;</span>
+      <span class="s">&quot;  OR &quot;</span>
+      <span class="s">&quot;  (user_id IS NULL AND group_id IS NOT NULL)))&quot;</span><span class="p">,</span>
+      <span class="n">name</span><span class="o">=</span><span class="s">&quot;roleassignment_ck_user_xor_group&quot;</span><span class="p">),</span>
+    <span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">&#39;anonymous&#39;</span><span class="p">,</span> <span class="s">&#39;user_id&#39;</span><span class="p">,</span> <span class="s">&#39;group_id&#39;</span><span class="p">,</span> <span class="s">&#39;role&#39;</span><span class="p">,</span> <span class="s">&#39;object_id&#39;</span><span class="p">,</span>
+                     <span class="n">name</span><span class="o">=</span><span class="s">&#39;assignment_mapped_role_unique&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+
+  <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">autoincrement</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">role</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">RoleType</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">anonymous</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="s">&#39;anonymous&#39;</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">user_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&#39;CASCADE&#39;</span><span class="p">))</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;joined&#39;</span><span class="p">)</span>
+  <span class="n">group_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;group.id&#39;</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&#39;CASCADE&#39;</span><span class="p">))</span>
+  <span class="n">group</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">Group</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;joined&#39;</span><span class="p">)</span>
+
+  <span class="n">object_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Entity</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&#39;CASCADE&#39;</span><span class="p">))</span>
+  <span class="nb">object</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">Entity</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;select&#39;</span><span class="p">)</span>
+
+
+<span class="c"># On postgres the UniqueConstraint will not be effective because at least 1</span>
+<span class="c"># columns will have NULL value:</span>
+<span class="c">#</span>
+<span class="c"># From http://www.postgresql.org/docs/9.1/static/ddl-constraints.html</span>
+<span class="c">#</span>
+<span class="c"># &quot;That means even in the presence of a unique constraint it is possible to</span>
+<span class="c"># store duplicate rows that contain a null value in at least one of the</span>
+<span class="c"># constrained columns.&quot;</span>
+<span class="c">#</span>
+<span class="c"># The solution is to build specific UNIQUE indexes, only for postgres</span>
+<span class="c">#</span>
+<span class="c"># noinspection PyComparisonWithNone</span>
+<span class="k">def</span> <span class="nf">_postgres_indexes</span><span class="p">():</span>
+  <span class="n">role</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">role</span>
+  <span class="n">user_id</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">user_id</span>
+  <span class="n">group_id</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">group_id</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">object_id</span>
+  <span class="n">anonymous</span> <span class="o">=</span> <span class="n">RoleAssignment</span><span class="o">.</span><span class="n">anonymous</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;roleassignment_idx_{}_unique&#39;</span><span class="o">.</span><span class="n">format</span>
+  <span class="n">engines</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;postgresql&#39;</span><span class="p">,)</span>
+  <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Index</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">(</span><span class="s">&#39;user_role&#39;</span><span class="p">),</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">postgresql_where</span><span class="o">=</span><span class="p">((</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="p">),</span>
+    <span class="n">Index</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">(</span><span class="s">&#39;group_role&#39;</span><span class="p">),</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">postgresql_where</span><span class="o">=</span><span class="p">((</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="p">),</span>
+    <span class="n">Index</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">(</span><span class="s">&#39;anonymous_role&#39;</span><span class="p">),</span> <span class="n">role</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">postgresql_where</span><span class="o">=</span><span class="p">((</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">True</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)),</span>
+    <span class="p">),</span>
+    <span class="n">Index</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">(</span><span class="s">&#39;user_role_object&#39;</span><span class="p">),</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+        <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">postgresql_where</span><span class="o">=</span><span class="p">((</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">group_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">obj</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="p">),</span>
+    <span class="n">Index</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">(</span><span class="s">&#39;group_role_object&#39;</span><span class="p">),</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span>
+        <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">postgresql_where</span><span class="o">=</span><span class="p">((</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">obj</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="p">),</span>
+    <span class="n">Index</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">(</span><span class="s">&#39;anonymous_role_object&#39;</span><span class="p">),</span> <span class="n">role</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">postgresql_where</span><span class="o">=</span><span class="p">((</span><span class="n">anonymous</span> <span class="o">==</span> <span class="bp">True</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">group_id</span> <span class="o">==</span> <span class="bp">None</span><span class="p">)</span>
+                          <span class="o">&amp;</span> <span class="p">(</span><span class="n">obj</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="p">),</span>
+  <span class="p">]</span>
+
+  <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indexes</span><span class="p">:</span>
+    <span class="n">idx</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s">&#39;engines&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">engines</span>
+
+  <span class="k">return</span> <span class="n">indexes</span>
+
+<span class="n">_postgres_indexes</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">_postgres_indexes</span>
+
+
+<span class="k">class</span> <span class="nc">SecurityAudit</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Logs changes on security.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">GRANT</span> <span class="o">=</span> <span class="s">u&#39;GRANT&#39;</span>
+  <span class="n">REVOKE</span> <span class="o">=</span> <span class="s">u&#39;REVOKE&#39;</span>
+  <span class="n">SET_INHERIT</span> <span class="o">=</span> <span class="s">u&#39;SET_INHERIT&#39;</span>
+  <span class="n">UNSET_INHERIT</span> <span class="o">=</span> <span class="s">u&#39;UNSET_INHERIT&#39;</span>
+
+  <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;securityaudit&quot;</span>
+  <span class="n">__table_args__</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="c"># constraint: either a inherit/no_inherit op on an object AND no user no group</span>
+    <span class="c">#             either a grant/revoke on a user XOR a group.</span>
+    <span class="n">CheckConstraint</span><span class="p">(</span>
+        <span class="s">&quot;(op IN (&#39;{grant}&#39;, &#39;{revoke}&#39;) &quot;</span>
+        <span class="s">&quot; AND object_id IS NOT NULL&quot;</span>
+        <span class="s">&quot; AND user_id IS NULL &quot;</span>
+        <span class="s">&quot; AND group_id IS NULL &quot;</span>
+        <span class="s">&quot; AND (CAST(anonymous AS INTEGER) = 0)&quot;</span>
+        <span class="s">&quot;)&quot;</span>
+        <span class="s">&quot; OR &quot;</span>
+        <span class="s">&quot;(op NOT IN (&#39;{grant}&#39;, &#39;{revoke}&#39;)&quot;</span>
+        <span class="s">&quot; AND &quot;</span>
+        <span class="s">&quot; (((CAST(anonymous AS INTEGER) = 1) &quot;</span>
+        <span class="s">&quot;   AND user_id IS NULL AND group_id IS NULL)&quot;</span>
+        <span class="s">&quot;  OR &quot;</span>
+        <span class="s">&quot;  ((CAST(anonymous AS INTEGER) = 0) &quot;</span>
+        <span class="s">&quot;   AND ((user_id IS NOT NULL AND group_id IS NULL)&quot;</span>
+        <span class="s">&quot;  OR &quot;</span>
+        <span class="s">&quot;  (user_id IS NULL AND group_id IS NOT NULL)))&quot;</span>
+        <span class="s">&quot;))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grant</span><span class="o">=</span><span class="n">SET_INHERIT</span><span class="p">,</span> <span class="n">revoke</span><span class="o">=</span><span class="n">UNSET_INHERIT</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;securityaudit_ck_user_xor_group&quot;</span><span class="p">),</span>
+      <span class="p">)</span>
+
+  <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">happened_at</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+  <span class="n">op</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Enum</span><span class="p">(</span><span class="n">GRANT</span><span class="p">,</span> <span class="n">REVOKE</span><span class="p">,</span> <span class="n">SET_INHERIT</span><span class="p">,</span> <span class="n">UNSET_INHERIT</span><span class="p">,</span>
+                   <span class="n">name</span><span class="o">=</span><span class="s">&#39;securityaudit_enum_op&#39;</span><span class="p">))</span>
+  <span class="n">role</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">RoleType</span><span class="p">)</span>
+
+  <span class="n">manager_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+  <span class="n">manager</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">foreign_keys</span><span class="o">=</span><span class="n">manager_id</span><span class="p">)</span>
+  <span class="n">anonymous</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="s">&#39;anonymous&#39;</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">user_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;user.id&#39;</span><span class="p">))</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s">&quot;User&quot;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;joined&#39;</span><span class="p">,</span> <span class="n">foreign_keys</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+  <span class="n">group_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;group.id&#39;</span><span class="p">))</span>
+  <span class="n">group</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s">&quot;Group&quot;</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;joined&#39;</span><span class="p">)</span>
+
+  <span class="n">_fk_object_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span>
+                         <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Entity</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="s">&quot;SET NULL&quot;</span><span class="p">))</span>
+  <span class="nb">object</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">Entity</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="s">&#39;select&#39;</span><span class="p">)</span>
+
+  <span class="n">object_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+  <span class="n">object_type</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+  <span class="n">object_name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">UnicodeText</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">InheritSecurity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Mixin for objects with a parent relation and security inheritance.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">inherit_security</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="n">info</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;auditable&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

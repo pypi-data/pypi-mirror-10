@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.web.forms &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.web.forms</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.web.forms</h1><div class="highlight"><pre>
+<span class="c"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Extensions to WTForms fields, widgets and validators.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">wtforms.fields</span> <span class="kn">import</span> <span class="n">HiddenField</span>
+<span class="kn">from</span> <span class="nn">wtforms.fields.core</span> <span class="kn">import</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">wtforms_alchemy</span> <span class="kn">import</span> <span class="n">model_form_factory</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">current_user</span>
+<span class="kn">from</span> <span class="nn">flask_wtf.form</span> <span class="kn">import</span> <span class="n">Form</span> <span class="k">as</span> <span class="n">BaseForm</span>
+
+<span class="kn">from</span> <span class="nn">abilian.i18n</span> <span class="kn">import</span> <span class="n">_</span><span class="p">,</span> <span class="n">_n</span>
+<span class="kn">from</span> <span class="nn">abilian.services.security</span> <span class="kn">import</span> <span class="n">READ</span><span class="p">,</span> <span class="n">WRITE</span><span class="p">,</span> <span class="n">Role</span><span class="p">,</span> <span class="n">Anonymous</span>
+<span class="kn">from</span> <span class="nn">abilian.core.logging</span> <span class="kn">import</span> <span class="n">patch_logger</span>
+
+<span class="kn">from</span> <span class="nn">.fields</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c"># noqa</span>
+<span class="kn">from</span> <span class="nn">.filters</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c"># noqa</span>
+<span class="kn">from</span> <span class="nn">.validators</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c"># noqa</span>
+<span class="kn">from</span> <span class="nn">.widgets</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c"># noqa</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="c">#  setup Form class with babel support</span>
+<span class="k">class</span> <span class="nc">_BabelTranslation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">gettext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">ngettext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_n</span><span class="p">(</span><span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+
+<span class="n">BabelTranslation</span> <span class="o">=</span> <span class="n">_BabelTranslation</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="FormPermissions"><a class="viewcode-back" href="../../../api.html#abilian.web.forms.FormPermissions">[docs]</a><span class="k">class</span> <span class="nc">FormPermissions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Form role/permission manager</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">Anonymous</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+               <span class="n">fields_read</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fields_write</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Role</span><span class="p">):</span>
+      <span class="n">default</span> <span class="o">=</span> <span class="p">(</span><span class="n">default</span><span class="p">,)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">default</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">permission</span><span class="p">,</span> <span class="n">roles</span> <span class="ow">in</span> <span class="p">((</span><span class="n">READ</span><span class="p">,</span> <span class="n">read</span><span class="p">),</span> <span class="p">(</span><span class="n">WRITE</span><span class="p">,</span> <span class="n">write</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="n">roles</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">continue</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">roles</span><span class="p">,</span> <span class="n">Role</span><span class="p">):</span>
+        <span class="n">roles</span> <span class="o">=</span> <span class="p">(</span><span class="n">roles</span><span class="p">,)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="n">permission</span><span class="p">]</span> <span class="o">=</span> <span class="n">roles</span>
+
+    <span class="k">for</span> <span class="n">fields</span><span class="p">,</span> <span class="n">permission</span> <span class="ow">in</span> <span class="p">((</span><span class="n">fields_read</span><span class="p">,</span> <span class="n">READ</span><span class="p">),</span> <span class="p">(</span><span class="n">fields_write</span><span class="p">,</span> <span class="n">WRITE</span><span class="p">)):</span>
+      <span class="k">if</span> <span class="n">fields</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">allowed_roles</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+          <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">allowed_roles</span><span class="p">,</span> <span class="n">Role</span><span class="p">):</span>
+            <span class="n">allowed_roles</span> <span class="o">=</span> <span class="p">(</span><span class="n">allowed_roles</span><span class="p">,)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="nb">dict</span><span class="p">())[</span><span class="n">permission</span><span class="p">]</span> <span class="o">=</span> <span class="n">allowed_roles</span>
+
+<div class="viewcode-block" id="FormPermissions.has_permission"><a class="viewcode-back" href="../../../api.html#abilian.web.forms.FormPermissions.has_permission">[docs]</a>  <span class="k">def</span> <span class="nf">has_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">allowed_roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
+    <span class="n">definition</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">eval_roles</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">fun</span><span class="p">:</span> <span class="n">fun</span><span class="p">(</span><span class="n">permission</span><span class="o">=</span><span class="n">permission</span><span class="p">,</span>
+                                 <span class="n">field</span><span class="o">=</span><span class="n">field</span><span class="p">,</span>
+                                 <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">field</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">definition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">Field</span><span class="p">):</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">name</span>
+      <span class="k">if</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
+        <span class="n">definition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">permission</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
+      <span class="n">allowed_roles</span> <span class="o">=</span> <span class="n">definition</span><span class="p">[</span><span class="n">permission</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">allowed_roles</span><span class="p">):</span>
+      <span class="n">allowed_roles</span> <span class="o">=</span> <span class="n">eval_roles</span><span class="p">(</span><span class="n">allowed_roles</span><span class="p">)</span>
+
+    <span class="n">roles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">allowed_roles</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">eval_roles</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="n">Role</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+        <span class="n">roles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">roles</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+    <span class="n">svc</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">services</span><span class="p">[</span><span class="s">&#39;security&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">svc</span><span class="o">.</span><span class="n">has_permission</span><span class="p">(</span><span class="n">user</span><span class="p">,</span>
+                              <span class="n">permission</span><span class="p">,</span>
+                              <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span>
+                              <span class="n">roles</span><span class="o">=</span><span class="n">roles</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="Form"><a class="viewcode-back" href="../../../api.html#abilian.web.forms.Form">[docs]</a><span class="k">class</span> <span class="nc">Form</span><span class="p">(</span><span class="n">BaseForm</span><span class="p">):</span>
+
+  <span class="n">_groups</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+  <span class="c">#: :class:`FormPermissions` instance</span>
+  <span class="n">_permissions</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">permission</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;permission&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">user</span><span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="n">current_user</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">Form</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_field_groups</span> <span class="o">=</span> <span class="p">{}</span> <span class="c"># map field -&gt; group</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">_groups</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">_groups</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">_groups</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fields</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_groups</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_field_groups</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span>
+
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;obj&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">permission</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_permissions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="c"># we are going to alter groups: copy dict on instance to preserve class</span>
+      <span class="c"># definition</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_groups</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+      <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fields</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">_groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_groups</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+
+      <span class="n">has_permission</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_permissions</span><span class="o">.</span><span class="n">has_permission</span><span class="p">,</span>
+                               <span class="n">permission</span><span class="p">,</span>
+                               <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+      <span class="n">empty_form</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">has_permission</span><span class="p">()</span>
+
+      <span class="k">for</span> <span class="n">field_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">empty_form</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_permission</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="n">field_name</span><span class="p">):</span>
+          <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;{}(permission={!r}): field {!r}: removed&#39;</span>
+                       <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span>
+                                 <span class="n">field_name</span><span class="p">))</span>
+          <span class="k">del</span> <span class="bp">self</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span>
+          <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_field_groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">group</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_groups</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_get_translations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">BabelTranslation</span>
+
+  <span class="k">def</span> <span class="nf">_fields_for_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">field_names</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_groups</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">group</span> <span class="o">==</span> <span class="n">g</span><span class="p">:</span>
+          <span class="n">fields</span> <span class="o">=</span> <span class="n">field_names</span>
+          <span class="k">break</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Group </span><span class="si">%s</span><span class="s"> not found&quot;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">group</span><span class="p">))</span>
+      <span class="k">return</span> <span class="n">fields</span>
+
+  <span class="k">def</span> <span class="nf">_has_required</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields_for_group</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">required</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_count_errors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields_for_group</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span> <span class="k">if</span> <span class="bp">self</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">errors</span><span class="p">])</span>
+
+</div>
+<span class="n">ModelForm</span> <span class="o">=</span> <span class="n">model_form_factory</span><span class="p">(</span><span class="n">Form</span><span class="p">)</span>
+
+<span class="c">### PATCH wtforms.field.core.Field ####################</span>
+<span class="n">_PATCHED</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">_PATCHED</span><span class="p">:</span>
+  <span class="n">Field</span><span class="o">.</span><span class="n">view_template</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="n">_wtforms_Field_init</span> <span class="o">=</span> <span class="n">Field</span><span class="o">.</span><span class="n">__init__</span>
+  <span class="k">def</span> <span class="nf">_core_field_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">view_widget</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="s">&#39;view_widget&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+      <span class="n">view_widget</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;view_widget&#39;</span><span class="p">)</span>
+
+    <span class="n">_wtforms_Field_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">view_widget</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">view_widget</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">widget</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">view_widget</span> <span class="o">=</span> <span class="n">view_widget</span>
+
+  <span class="n">patch_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">Field</span><span class="o">.</span><span class="n">__init__</span><span class="p">)</span>
+  <span class="n">Field</span><span class="o">.</span><span class="n">__init__</span> <span class="o">=</span> <span class="n">_core_field_init</span>
+  <span class="k">del</span> <span class="n">_core_field_init</span>
+
+  <span class="c">#  support &#39;widget_options&#39; for some custom widgets</span>
+  <span class="n">_wtforms_Field_render</span> <span class="o">=</span> <span class="n">Field</span><span class="o">.</span><span class="n">__call__</span>
+  <span class="k">def</span> <span class="nf">_core_field_render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">&#39;widget_options&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;widget_options&#39;</span><span class="p">]:</span>
+      <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;widget_options&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_wtforms_Field_render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+  <span class="n">patch_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">Field</span><span class="o">.</span><span class="n">__call__</span><span class="p">)</span>
+  <span class="n">Field</span><span class="o">.</span><span class="n">__call__</span> <span class="o">=</span> <span class="n">_core_field_render</span>
+  <span class="k">del</span> <span class="n">_core_field_render</span>
+
+  <span class="k">def</span> <span class="nf">render_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s">&#39;widget_options&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;widget_options&#39;</span><span class="p">]:</span>
+      <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;widget_options&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view_widget</span><span class="p">,</span> <span class="s">&#39;render_view&#39;</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_widget</span><span class="o">.</span><span class="n">render_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">DefaultViewWidget</span><span class="p">()</span><span class="o">.</span><span class="n">render_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+  <span class="n">patch_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Add method </span><span class="si">%s</span><span class="s">.Field.render_view&#39;</span> <span class="o">%</span> <span class="n">Field</span><span class="o">.</span><span class="n">__module__</span><span class="p">)</span>
+  <span class="n">Field</span><span class="o">.</span><span class="n">render_view</span> <span class="o">=</span> <span class="n">render_view</span>
+  <span class="k">del</span> <span class="n">render_view</span>
+
+  <span class="k">def</span> <span class="nf">is_hidden</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    WTForms is not consistent with hidden fields, since `flags.hidden` is not</span>
+<span class="sd">    set on `HiddenField` :-(</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">hidden</span>
+            <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">HiddenField</span><span class="p">))</span>
+
+  <span class="n">patch_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Add method </span><span class="si">%s</span><span class="s">.Field.is_hidden&#39;</span> <span class="o">%</span> <span class="n">Field</span><span class="o">.</span><span class="n">__module__</span><span class="p">)</span>
+  <span class="n">Field</span><span class="o">.</span><span class="n">is_hidden</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">is_hidden</span><span class="p">)</span>
+  <span class="k">del</span> <span class="n">is_hidden</span>
+
+  <span class="n">_PATCHED</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="c">### END PATCH wtforms.field.core.Field #################</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

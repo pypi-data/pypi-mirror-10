@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.core.sqlalchemy &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.core.sqlalchemy</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.core.sqlalchemy</h1><div class="highlight"><pre>
+<span class="c"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot; Additional data types for sqlalchemy</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="kn">import</span> <span class="n">StrictVersion</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+<span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">import</span> <span class="nn">babel</span>
+<span class="kn">from</span> <span class="nn">flask.ext.sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span> <span class="k">as</span> <span class="n">SAExtension</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="kn">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.ext.mutable</span> <span class="kn">import</span> <span class="n">Mutable</span>
+
+<span class="kn">from</span> <span class="nn">.logging</span> <span class="kn">import</span> <span class="n">patch_logger</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">FLASK_SA_VERSION</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">(</span><span class="s">&#39;Flask-SQLAlchemy&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+
+
+<span class="nd">@sa.event.listens_for</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">Pool</span><span class="p">,</span> <span class="s">&quot;checkout&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="ping_connection"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.ping_connection">[docs]</a><span class="k">def</span> <span class="nf">ping_connection</span><span class="p">(</span><span class="n">dbapi_connection</span><span class="p">,</span> <span class="n">connection_record</span><span class="p">,</span> <span class="n">connection_proxy</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Ensure connections are valid.</span>
+
+<span class="sd">  From: `http://docs.sqlalchemy.org/en/rel_0_8/core/pooling.html`</span>
+
+<span class="sd">  In case db has been restarted pool may return invalid connections.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">dbapi_connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;SELECT 1&quot;</span><span class="p">)</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="c"># optional - dispose the whole pool</span>
+    <span class="c"># instead of invalidating one at a time</span>
+    <span class="c"># connection_proxy._pool.dispose()</span>
+
+    <span class="c"># raise DisconnectionError - pool will try</span>
+    <span class="c"># connecting again up to three times before raising.</span>
+    <span class="k">raise</span> <span class="n">sa</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">DisconnectionError</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</div>
+<div class="viewcode-block" id="AbilianBaseSAExtension"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.AbilianBaseSAExtension">[docs]</a><span class="k">class</span> <span class="nc">AbilianBaseSAExtension</span><span class="p">(</span><span class="n">SAExtension</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Base subclass of :class:`flask.ext.sqlalchemy.SQLAlchemy`. Add</span>
+<span class="sd">  our custom driver hacks.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AbilianBaseSAExtension.apply_driver_hacks"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.AbilianBaseSAExtension.apply_driver_hacks">[docs]</a>  <span class="k">def</span> <span class="nf">apply_driver_hacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+    <span class="n">SAExtension</span><span class="o">.</span><span class="n">apply_driver_hacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">drivername</span> <span class="o">==</span> <span class="s">&#39;sqlite&#39;</span><span class="p">:</span>
+      <span class="n">connect_args</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;connect_args&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+      <span class="k">if</span> <span class="s">&#39;isolation_level&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">connect_args</span><span class="p">:</span>
+        <span class="c"># required to support savepoints/rollback without error. It disables</span>
+        <span class="c"># implicit BEGIN/COMMIT statements made by pysqlite (a COMMIT kills all</span>
+        <span class="c"># savepoints made).</span>
+        <span class="n">connect_args</span><span class="p">[</span><span class="s">&#39;isolation_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">elif</span> <span class="n">info</span><span class="o">.</span><span class="n">drivername</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;postgres&#39;</span><span class="p">):</span>
+      <span class="n">options</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;client_encoding&#39;</span><span class="p">,</span> <span class="s">&#39;utf8&#39;</span><span class="p">)</span>
+
+</div></div>
+<span class="k">if</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="n">FLASK_SA_VERSION</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">StrictVersion</span><span class="p">(</span><span class="s">&#39;1.0&#39;</span><span class="p">):</span>
+  <span class="c"># SA extension&#39;s scoped session supports &#39;bind&#39; parameter only after 1.0. This</span>
+  <span class="c"># is a fix for it. This is required to ensure transaction rollback during</span>
+  <span class="c"># tests, but it&#39;s useful in some use cases too.</span>
+  <span class="kn">from</span> <span class="nn">flask.ext.sqlalchemy</span> <span class="kn">import</span> <span class="n">_SignallingSession</span> <span class="k">as</span> <span class="n">BaseSession</span>
+
+  <span class="k">class</span> <span class="nc">SignallingSession</span><span class="p">(</span><span class="n">BaseSession</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">autocommit</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">autoflush</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_app</span><span class="p">()</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_model_changes</span> <span class="o">=</span> <span class="p">{}</span>
+      <span class="n">bind</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;bind&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">db</span><span class="o">.</span><span class="n">engine</span>
+      <span class="c"># actually we are overriding BaseSession.__init__, so we don&#39;t want to</span>
+      <span class="c"># call it! Directly call BaseSession parent __init__</span>
+      <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">Session</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">autocommit</span><span class="o">=</span><span class="n">autocommit</span><span class="p">,</span> <span class="n">autoflush</span><span class="o">=</span><span class="n">autoflush</span><span class="p">,</span>
+                              <span class="n">bind</span><span class="o">=</span><span class="n">bind</span><span class="p">,</span> <span class="n">binds</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_binds</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">),</span>
+                              <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SQLAlchemy"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.SQLAlchemy">[docs]</a>  <span class="k">class</span> <span class="nc">SQLAlchemy</span><span class="p">(</span><span class="n">AbilianBaseSAExtension</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">create_scoped_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;Helper factory method that creates a scoped session.&quot;&quot;&quot;</span>
+      <span class="c"># override needed to use our SignallingSession implementation</span>
+      <span class="k">if</span> <span class="n">options</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+      <span class="n">scopefunc</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;scopefunc&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">scoped_session</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">SignallingSession</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">),</span>
+                                   <span class="n">scopefunc</span><span class="o">=</span><span class="n">scopefunc</span><span class="p">)</span>
+
+</div>
+<span class="k">else</span><span class="p">:</span>
+  <span class="c"># Flask-SQLAlchemy &gt; 1.0: bind parameter is supported</span>
+  <span class="n">SQLAlchemy</span> <span class="o">=</span> <span class="n">AbilianBaseSAExtension</span>
+
+<span class="k">del</span> <span class="n">FLASK_SA_VERSION</span>
+
+
+<span class="c"># PATCH flask_sqlalchemy for proper info in debug toolbar.</span>
+<span class="c">#</span>
+<span class="c"># Original code works only when current app code is involved. If using 3rd party</span>
+<span class="c"># app the query is logged but source is marked &quot;unknown&quot;. Our patch is a &quot;best</span>
+<span class="c"># guess&quot;.</span>
+<span class="k">def</span> <span class="nf">_calling_context</span><span class="p">(</span><span class="n">app_path</span><span class="p">):</span>
+  <span class="n">frm</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">entered_sa_code</span> <span class="o">=</span> <span class="n">exited_sa_code</span> <span class="o">=</span> <span class="bp">False</span>
+  <span class="n">sa_caller</span> <span class="o">=</span> <span class="s">&#39;&lt;unknown&gt;&#39;</span>
+  <span class="n">format_name</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;{frm.f_code.co_filename}:{frm.f_lineno} &#39;</span>
+                 <span class="s">&#39;({frm.f_code.co_name})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+
+  <span class="k">while</span> <span class="n">frm</span><span class="o">.</span><span class="n">f_back</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">f_globals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;__name__&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="n">app_path</span> <span class="ow">or</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">app_path</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span><span class="p">)):</span>
+      <span class="k">return</span> <span class="n">format_name</span><span class="p">(</span><span class="n">frm</span><span class="o">=</span><span class="n">frm</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">exited_sa_code</span><span class="p">:</span>
+      <span class="n">in_sa_code</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span> <span class="o">==</span> <span class="s">&#39;sqlalchemy&#39;</span> <span class="ow">or</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;sqlalchemy.&#39;</span><span class="p">))</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">entered_sa_code</span><span class="p">:</span>
+        <span class="n">entered_sa_code</span> <span class="o">=</span> <span class="n">in_sa_code</span>
+      <span class="k">elif</span> <span class="ow">not</span> <span class="n">in_sa_code</span><span class="p">:</span>
+        <span class="c"># exited from sa stack: retain name</span>
+        <span class="n">sa_caller</span> <span class="o">=</span> <span class="n">format_name</span><span class="p">(</span><span class="n">frm</span><span class="o">=</span><span class="n">frm</span><span class="p">)</span>
+        <span class="n">exited_sa_code</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="n">frm</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">f_back</span>
+
+  <span class="k">return</span> <span class="n">sa_caller</span>
+
+<span class="kn">import</span> <span class="nn">flask.ext.sqlalchemy</span> <span class="kn">as</span> <span class="nn">flask_sa</span>
+<span class="n">patch_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">flask_sa</span><span class="o">.</span><span class="n">_calling_context</span><span class="p">)</span>
+<span class="n">flask_sa</span><span class="o">.</span><span class="n">_calling_context</span> <span class="o">=</span> <span class="n">_calling_context</span>
+<span class="k">del</span> <span class="n">flask_sa</span>
+<span class="c"># END PATCH</span>
+
+
+<div class="viewcode-block" id="filter_cols"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.filter_cols">[docs]</a><span class="k">def</span> <span class="nf">filter_cols</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">filtered_columns</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Return columnsnames for a model except named ones. Useful for defer()</span>
+<span class="sd">  for example to retain only columns of interest</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">class_mapper</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">key</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">iterate_properties</span>
+              <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s">&#39;columns&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">filtered_columns</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="MutationDict"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict">[docs]</a><span class="k">class</span> <span class="nc">MutationDict</span><span class="p">(</span><span class="n">Mutable</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Provides a dictionary type with mutability support.&quot;&quot;&quot;</span>
+
+  <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="MutationDict.coerce"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict.coerce">[docs]</a>  <span class="k">def</span> <span class="nf">coerce</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert plain dictionaries to MutationDict.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">MutationDict</span><span class="p">):</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MutationDict</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+      <span class="c"># this call will raise ValueError</span>
+      <span class="k">return</span> <span class="n">Mutable</span><span class="o">.</span><span class="n">coerce</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">value</span>
+
+  <span class="c">#  pickling support. see:</span>
+  <span class="c">#  http://docs.sqlalchemy.org/en/rel_0_8/orm/extensions/mutable.html#supporting-pickling</span></div>
+  <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+  <span class="c"># dict methods</span>
+  <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Detect dictionary set events and emit change events.&quot;&quot;&quot;</span>
+    <span class="nb">dict</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Detect dictionary del events and emit change events.&quot;&quot;&quot;</span>
+    <span class="nb">dict</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MutationDict.clear"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict.clear">[docs]</a>  <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">dict</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MutationDict.update"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict.update">[docs]</a>  <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="nb">dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MutationDict.setdefault"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict.setdefault">[docs]</a>  <span class="k">def</span> <span class="nf">setdefault</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">failobj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">failobj</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="MutationDict.pop"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict.pop">[docs]</a>  <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="MutationDict.popitem"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationDict.popitem">[docs]</a>  <span class="k">def</span> <span class="nf">popitem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="o">.</span><span class="n">popitem</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="MutationList"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList">[docs]</a><span class="k">class</span> <span class="nc">MutationList</span><span class="p">(</span><span class="n">Mutable</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; Provides a list type with mutability support.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="MutationList.coerce"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.coerce">[docs]</a>  <span class="k">def</span> <span class="nf">coerce</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert list to MutationList.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">MutationList</span><span class="p">):</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MutationList</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+      <span class="c"># this call will raise ValueError</span>
+      <span class="k">return</span> <span class="n">Mutable</span><span class="o">.</span><span class="n">coerce</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">value</span>
+
+  <span class="c">#  pickling support. see:</span>
+  <span class="c">#  http://docs.sqlalchemy.org/en/rel_0_8/orm/extensions/mutable.html#supporting-pickling</span></div>
+  <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;_parents&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span>
+
+  <span class="c"># list methods</span>
+  <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MutationList.insert"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.insert">[docs]</a>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+  <span class="k">def</span> <span class="nf">__setslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">__setslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">__delslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">__delslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="o">.</span><span class="n">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">l</span>
+
+  <span class="k">def</span> <span class="nf">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="o">.</span><span class="n">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">l</span>
+
+<div class="viewcode-block" id="MutationList.append"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.append">[docs]</a>  <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MutationList.pop"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.pop">[docs]</a>  <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">item</span>
+</div>
+<div class="viewcode-block" id="MutationList.remove"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.remove">[docs]</a>  <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MutationList.reverse"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.reverse">[docs]</a>  <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MutationList.sort"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.sort">[docs]</a>  <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MutationList.extend"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.MutationList.extend">[docs]</a>  <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+
+</div></div>
+<div class="viewcode-block" id="JSON"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSON">[docs]</a><span class="k">class</span> <span class="nc">JSON</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">TypeDecorator</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Stores any structure serializable with json.</span>
+
+<span class="sd">  Usage::</span>
+<span class="sd">    JSON()</span>
+<span class="sd">    Takes same parameters as sqlalchemy.types.Text</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">impl</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Text</span>
+
+<div class="viewcode-block" id="JSON.process_bind_param"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSON.process_bind_param">[docs]</a>  <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+</div>
+<div class="viewcode-block" id="JSON.process_result_value"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSON.process_result_value">[docs]</a>  <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+</div></div>
+<div class="viewcode-block" id="JSONUniqueListType"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSONUniqueListType">[docs]</a><span class="k">class</span> <span class="nc">JSONUniqueListType</span><span class="p">(</span><span class="n">JSON</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; Store a list in JSON format, with items made unique and sorted.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">python_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">MutationList</span>
+
+<div class="viewcode-block" id="JSONUniqueListType.process_bind_param"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSONUniqueListType.process_bind_param">[docs]</a>  <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="c"># value may be a simple string used in a LIKE clause for instance, so we</span>
+    <span class="c"># must ensure we uniquify/sort only for list-like values</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">JSON</span><span class="o">.</span><span class="n">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="JSONDict"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSONDict">[docs]</a><span class="k">def</span> <span class="nf">JSONDict</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Stores a dict as JSON on database, with mutability support.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">MutationDict</span><span class="o">.</span><span class="n">as_mutable</span><span class="p">(</span><span class="n">JSON</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="JSONList"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.JSONList">[docs]</a><span class="k">def</span> <span class="nf">JSONList</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Stores a list as JSON on database, with mutability support.</span>
+
+<span class="sd">  If kwargs has a param `unique_sorted` (which evaluated to True), list values</span>
+<span class="sd">  are made unique and sorted.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">type_</span> <span class="o">=</span> <span class="n">JSON</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;unique_sorted&#39;</span><span class="p">):</span>
+      <span class="n">type_</span> <span class="o">=</span> <span class="n">JSONUniqueListType</span>
+  <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+  <span class="k">return</span> <span class="n">MutationList</span><span class="o">.</span><span class="n">as_mutable</span><span class="p">(</span><span class="n">type_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="UUID"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.UUID">[docs]</a><span class="k">class</span> <span class="nc">UUID</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">TypeDecorator</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Platform-independent UUID type.</span>
+
+<span class="sd">  Uses Postgresql&#39;s UUID type, otherwise uses</span>
+<span class="sd">  CHAR(32), storing as stringified hex values.</span>
+
+<span class="sd">  From SQLAlchemy documentation.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">impl</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">CHAR</span>
+
+<div class="viewcode-block" id="UUID.load_dialect_impl"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.UUID.load_dialect_impl">[docs]</a>  <span class="k">def</span> <span class="nf">load_dialect_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dialect</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">&#39;postgresql&#39;</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">type_descriptor</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">dialects</span><span class="o">.</span><span class="n">postgresql</span><span class="o">.</span><span class="n">UUID</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">type_descriptor</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">CHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="UUID.process_bind_param"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.UUID.process_bind_param">[docs]</a>  <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">value</span>
+    <span class="k">elif</span> <span class="n">dialect</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">&#39;postgresql&#39;</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+      <span class="c"># hexstring</span>
+      <span class="k">return</span> <span class="s">&quot;</span><span class="si">%.32x</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">value</span>
+</div>
+<div class="viewcode-block" id="UUID.process_result_value"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.UUID.process_result_value">[docs]</a>  <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Locale"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.Locale">[docs]</a><span class="k">class</span> <span class="nc">Locale</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">TypeDecorator</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Store a :class:`babel.Locale` instance</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">impl</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">UnicodeText</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">python_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">babel</span><span class="o">.</span><span class="n">Locale</span>
+
+<div class="viewcode-block" id="Locale.process_bind_param"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.Locale.process_bind_param">[docs]</a>  <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">babel</span><span class="o">.</span><span class="n">Locale</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Unknown locale value: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">None</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">code</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">territory</span><span class="p">:</span>
+      <span class="n">code</span> <span class="o">+=</span> <span class="s">u&#39;_&#39;</span> <span class="o">+</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">territory</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">value</span><span class="o">.</span><span class="n">script</span><span class="p">:</span>
+      <span class="n">code</span> <span class="o">+=</span> <span class="s">u&#39;_&#39;</span> <span class="o">+</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">territory</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">code</span>
+</div>
+<div class="viewcode-block" id="Locale.process_result_value"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.Locale.process_result_value">[docs]</a>  <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">babel</span><span class="o">.</span><span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Timezone"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.Timezone">[docs]</a><span class="k">class</span> <span class="nc">Timezone</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">TypeDecorator</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Store a :class:`pytz.tzfile.DstTzInfo` instance</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">impl</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">UnicodeText</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">python_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pytz</span><span class="o">.</span><span class="n">tzfile</span><span class="o">.</span><span class="n">DstTzInfo</span>
+
+<div class="viewcode-block" id="Timezone.process_bind_param"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.Timezone.process_bind_param">[docs]</a>  <span class="k">def</span> <span class="nf">process_bind_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">pytz</span><span class="o">.</span><span class="n">tzfile</span><span class="o">.</span><span class="n">DstTzInfo</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Unknown timezone value: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">None</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">get_timezone</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">zone</span>
+</div>
+<div class="viewcode-block" id="Timezone.process_result_value"><a class="viewcode-back" href="../../../api.html#abilian.core.sqlalchemy.Timezone.process_result_value">[docs]</a>  <span class="k">def</span> <span class="nf">process_result_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">dialect</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">babel</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">get_timezone</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.core.entities &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.core.entities</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.core.entities</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base class for entities, objects that are managed by the Abilian framwework</span>
+<span class="sd">(unlike SQLAlchemy models which are considered lower-level).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">isclass</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="kn">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declared_attr</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">mapper</span><span class="p">,</span> <span class="n">Session</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.schema</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">ForeignKey</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.types</span> <span class="kn">import</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">UnicodeText</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">event</span>
+
+<span class="kn">from</span> <span class="nn">.extensions</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">.util</span> <span class="kn">import</span> <span class="n">memoized</span><span class="p">,</span> <span class="n">friendly_fqcn</span><span class="p">,</span> <span class="n">slugify</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">BaseMixin</span>
+<span class="kn">from</span> <span class="nn">.models.base</span> <span class="kn">import</span> <span class="n">Indexable</span><span class="p">,</span> <span class="n">SYSTEM</span><span class="p">,</span> <span class="n">SEARCHABLE</span><span class="p">,</span> <span class="n">EDITABLE</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Entity&#39;</span><span class="p">,</span> <span class="s">&#39;all_entity_classes&#39;</span><span class="p">,</span> <span class="s">&#39;db&#39;</span><span class="p">,</span> <span class="s">&#39;ValidationError&#39;</span><span class="p">]</span>
+
+
+<span class="c">#</span>
+<span class="c"># Manual validation</span>
+<span class="c">#</span>
+<div class="viewcode-block" id="ValidationError"><a class="viewcode-back" href="../../../api.html#abilian.core.entities.ValidationError">[docs]</a><span class="k">class</span> <span class="nc">ValidationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+</div>
+<span class="k">def</span> <span class="nf">validation_listener</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&quot;_validate&quot;</span><span class="p">):</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">_validate</span><span class="p">()</span>
+
+<span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="s">&#39;before_insert&#39;</span><span class="p">,</span> <span class="n">validation_listener</span><span class="p">)</span>
+<span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="s">&#39;before_update&#39;</span><span class="p">,</span> <span class="n">validation_listener</span><span class="p">)</span>
+
+
+<span class="c">#</span>
+<span class="c"># CRUD events. TODO: connect to signals instead?</span>
+<span class="c">#</span>
+<span class="k">def</span> <span class="nf">before_insert_listener</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&quot;_before_insert&quot;</span><span class="p">):</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">_before_insert</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">before_update_listener</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&quot;_before_update&quot;</span><span class="p">):</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">_before_update</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">before_delete_listener</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s">&quot;_before_delete&quot;</span><span class="p">):</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">_before_delete</span><span class="p">()</span>
+
+<span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="s">&#39;before_insert&#39;</span><span class="p">,</span> <span class="n">before_insert_listener</span><span class="p">)</span>
+<span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="s">&#39;before_update&#39;</span><span class="p">,</span> <span class="n">before_update_listener</span><span class="p">)</span>
+<span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="s">&#39;before_delete&#39;</span><span class="p">,</span> <span class="n">before_delete_listener</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">auto_slug_on_insert</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Generates a slug from :prop:`Entity.auto_slug` for new entities, unless slug</span>
+<span class="sd">  is already set.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">slug</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">slug</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">auto_slug</span>
+
+
+<span class="k">def</span> <span class="nf">auto_slug_after_insert</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Generates a slug from entity_type and id, unless slug is already set.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">slug</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">slug</span> <span class="o">=</span> <span class="s">u&#39;{name}{sep}{id}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">entity_class</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+                                            <span class="n">sep</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">SLUG_SEPARATOR</span><span class="p">,</span>
+                                            <span class="nb">id</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_EntityInherit</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Mixin for Entity subclasses. Entity meta-class takes care of inserting it in</span>
+<span class="sd">  base classes.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">__indexable__</span> <span class="o">=</span> <span class="bp">True</span>
+
+  <span class="nd">@declared_attr</span>
+  <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Column</span><span class="p">(</span>
+      <span class="n">Integer</span><span class="p">,</span>
+      <span class="n">ForeignKey</span><span class="p">(</span><span class="s">&#39;entity.id&#39;</span><span class="p">,</span> <span class="n">use_alter</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;fk_inherited_entity_id&#39;</span><span class="p">),</span>
+      <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+      <span class="n">info</span><span class="o">=</span><span class="n">SYSTEM</span> <span class="o">|</span> <span class="n">SEARCHABLE</span><span class="p">)</span>
+
+  <span class="nd">@declared_attr</span>
+  <span class="k">def</span> <span class="nf">__mapper_args__</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">&#39;polymorphic_identity&#39;</span><span class="p">:</span> <span class="n">cls</span><span class="o">.</span><span class="n">entity_type</span><span class="p">,</span>
+            <span class="s">&#39;inherit_condition&#39;</span><span class="p">:</span> <span class="n">cls</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">Entity</span><span class="o">.</span><span class="n">id</span><span class="p">}</span>
+
+
+<span class="n">BaseMeta</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">__class__</span>
+
+
+<span class="k">class</span> <span class="nc">EntityMeta</span><span class="p">(</span><span class="n">BaseMeta</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Metaclass for Entities. It properly sets-up subclasses by adding</span>
+<span class="sd">  _EntityInherit to `__bases__`.</span>
+
+<span class="sd">  `_EntityInherit` provides `id` attibute and `__mapper_args__`</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">mcs</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;__module__&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EntityMeta</span><span class="o">.</span><span class="n">__module__</span> <span class="ow">or</span> <span class="n">classname</span> <span class="o">!=</span> <span class="s">&#39;Entity&#39;</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">_EntityInherit</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">):</span>
+        <span class="n">bases</span> <span class="o">=</span> <span class="p">(</span><span class="n">_EntityInherit</span><span class="p">,)</span> <span class="o">+</span> <span class="n">bases</span>
+        <span class="n">d</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_EntityInherit</span><span class="o">.</span><span class="n">id</span>
+
+      <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;entity_type&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">entity_type_base</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;ENTITY_TYPE_BASE&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">entity_type_base</span><span class="p">:</span>
+          <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+            <span class="n">entity_type_base</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s">&#39;ENTITY_TYPE_BASE&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">entity_type_base</span><span class="p">:</span>
+              <span class="k">break</span>
+          <span class="k">else</span><span class="p">:</span>
+            <span class="c"># no break happened during loop: use default type base</span>
+            <span class="n">entity_type_base</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;__module__&#39;</span><span class="p">]</span>
+
+        <span class="n">d</span><span class="p">[</span><span class="s">&#39;entity_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entity_type_base</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span> <span class="o">+</span> <span class="n">classname</span>
+
+      <span class="n">d</span><span class="p">[</span><span class="s">&#39;SLUG_SEPARATOR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SLUG_SEPARATOR&#39;</span><span class="p">,</span>
+                                          <span class="n">Entity</span><span class="o">.</span><span class="n">SLUG_SEPARATOR</span><span class="p">))</span>
+
+    <span class="n">cls</span> <span class="o">=</span> <span class="n">BaseMeta</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">mcs</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    <span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="s">&#39;before_insert&#39;</span><span class="p">,</span> <span class="n">auto_slug_on_insert</span><span class="p">)</span>
+    <span class="n">event</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="s">&#39;after_insert&#39;</span><span class="p">,</span> <span class="n">auto_slug_after_insert</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cls</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="n">bases</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">__bases__</span>
+    <span class="n">BaseMeta</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Entity"><a class="viewcode-back" href="../../../api.html#abilian.core.entities.Entity">[docs]</a><span class="k">class</span> <span class="nc">Entity</span><span class="p">(</span><span class="n">Indexable</span><span class="p">,</span> <span class="n">BaseMixin</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Base class for Abilian entities.</span>
+
+<span class="sd">  From Sqlalchemy POV Entities use `Joined-Table inheritance</span>
+<span class="sd">  &lt;http://docs.sqlalchemy.org/en/rel_0_8/orm/inheritance.html#joined-table-inheritance&gt;`_,</span>
+<span class="sd">  thus entities subclasses cannot use inheritance themselves (as of 2013</span>
+<span class="sd">  Sqlalchemy does not support multi-level inheritance)</span>
+
+<span class="sd">  The name is a string that is shown to the user; it could be a title</span>
+<span class="sd">  for document, a folder name, etc.</span>
+
+<span class="sd">  The slug attribute may be used in URLs to reference the entity, but</span>
+<span class="sd">  uniqueness is not enforced, even within same entity type. For example</span>
+<span class="sd">  if an entity class represent folders, one could want uniqueness only</span>
+<span class="sd">  within same parent folder.</span>
+
+<span class="sd">  If slug is empty at first creation, its is derived from the name. When name</span>
+<span class="sd">  changes the slug is not updated. If name is also empty, the slug will be the</span>
+<span class="sd">  friendly entity_type with concatenated with entity&#39;s id.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">EntityMeta</span>
+  <span class="n">__mapper_args__</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;polymorphic_on&#39;</span><span class="p">:</span> <span class="s">&#39;_entity_type&#39;</span><span class="p">}</span>
+  <span class="n">__indexable__</span> <span class="o">=</span> <span class="bp">False</span>
+  <span class="n">__indexation_args__</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="n">__indexation_args__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Indexable</span><span class="o">.</span><span class="n">__indexation_args__</span><span class="p">)</span>
+  <span class="n">index_to</span> <span class="o">=</span> <span class="n">__indexation_args__</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;index_to&#39;</span><span class="p">,</span> <span class="p">())</span>
+  <span class="n">index_to</span> <span class="o">+=</span> <span class="n">BaseMixin</span><span class="o">.</span><span class="n">__indexation_args__</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;index_to&#39;</span><span class="p">,</span> <span class="p">())</span>
+  <span class="n">__indexation_args__</span><span class="p">[</span><span class="s">&#39;index_to&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index_to</span>
+  <span class="k">del</span> <span class="n">index_to</span>
+
+  <span class="n">SLUG_SEPARATOR</span> <span class="o">=</span> <span class="s">u&#39;-&#39;</span>  <span class="c"># \x2d \u002d HYPHEN-MINUS</span>
+
+  <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="n">UnicodeText</span><span class="p">())</span>
+  <span class="n">name</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="p">(</span><span class="n">EDITABLE</span> <span class="o">|</span> <span class="n">SEARCHABLE</span>
+               <span class="o">|</span> <span class="nb">dict</span><span class="p">(</span><span class="n">index_to</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;name_prefix&#39;</span><span class="p">,</span> <span class="s">&#39;text&#39;</span><span class="p">)))</span>
+
+  <span class="n">slug</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="s">&#39;slug&#39;</span><span class="p">,</span> <span class="n">UnicodeText</span><span class="p">(),</span> <span class="n">info</span><span class="o">=</span><span class="n">SEARCHABLE</span><span class="p">)</span>
+
+  <span class="n">_entity_type</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="s">&#39;entity_type&#39;</span><span class="p">,</span> <span class="n">String</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">entity_type</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">object_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">unicode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entity_type</span><span class="p">)</span>
+
+  <span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">_object_type</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="c"># overriden from Indexable</span>
+    <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">entity_type</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">entity_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">entity_type</span> <span class="ow">and</span> <span class="n">friendly_fqcn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entity_type</span><span class="p">)</span>
+
+  <span class="c"># Default magic metadata, should not be necessary</span>
+  <span class="c"># TODO: remove</span>
+  <span class="n">__editable__</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">()</span>
+  <span class="n">__searchable__</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">()</span>
+  <span class="n">__auditable__</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">BaseMixin</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">auto_slug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This property is used to auto-generate a slug from the name attribute.</span>
+<span class="sd">    It can be customized by subclasses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="n">slug</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">slug</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">slug</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">SLUG_SEPARATOR</span><span class="p">)</span>
+      <span class="n">session</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">object_session</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+      <span class="n">q</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Entity</span><span class="o">.</span><span class="n">slug</span><span class="p">)</span>\
+          <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Entity</span><span class="o">.</span><span class="n">_entity_type</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">object_type</span><span class="p">)</span>
+      <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Entity</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+      <span class="n">slug_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">slug</span><span class="p">)</span> <span class="o">+</span> <span class="s">r&#39;-?(-\d+)?&#39;</span><span class="p">)</span>
+      <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>  <span class="c"># 0: for the unnumbered slug</span>
+                 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">(</span><span class="n">slug_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">slug</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+                           <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">slug</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">m</span><span class="p">]</span>
+
+      <span class="n">max_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">results</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+      <span class="k">if</span> <span class="n">max_id</span><span class="p">:</span>
+        <span class="n">slug</span> <span class="o">=</span> <span class="s">u&#39;{}-{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slug</span><span class="p">,</span> <span class="n">max_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">slug</span>
+
+
+<span class="c"># TODO: make this unecessary</span></div>
+<span class="nd">@event.listens_for</span><span class="p">(</span><span class="n">Entity</span><span class="p">,</span> <span class="s">&#39;class_instrument&#39;</span><span class="p">,</span> <span class="n">propagate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">register_metadata</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+  <span class="n">cls</span><span class="o">.</span><span class="n">__editable__</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+  <span class="c"># TODO: use SQLAlchemy 0.8 introspection</span>
+  <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="s">&#39;__table__&#39;</span><span class="p">):</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">__table__</span><span class="o">.</span><span class="n">columns</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Column</span><span class="p">)]</span>
+
+  <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">info</span>
+
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;editable&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">):</span>
+      <span class="n">cls</span><span class="o">.</span><span class="n">__editable__</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="nd">@event.listens_for</span><span class="p">(</span><span class="n">Session</span><span class="p">,</span> <span class="s">&#39;before_flush&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">polymorphic_update_timestamp</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">flush_context</span><span class="p">,</span> <span class="n">instances</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  This listeners ensure an update statement is emited for &quot;entity&quot; table</span>
+<span class="sd">  to update &#39;updated_at&#39;.</span>
+
+<span class="sd">  With joined-table inheritance if the only modified attributes are</span>
+<span class="sd">  subclass&#39;s ones, then no update statement will be emitted.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">dirty</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Entity</span><span class="p">):</span>
+      <span class="k">continue</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get_history</span><span class="p">(</span><span class="s">&#39;updated_at&#39;</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">dict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">((</span><span class="n">history</span><span class="o">.</span><span class="n">added</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">deleted</span><span class="p">)):</span>
+      <span class="n">obj</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+
+
+<span class="nd">@memoized</span>
+<div class="viewcode-block" id="all_entity_classes"><a class="viewcode-back" href="../../../api.html#abilian.core.entities.all_entity_classes">[docs]</a><span class="k">def</span> <span class="nf">all_entity_classes</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Returns the list of all concrete persistent classes that are subclasses of</span>
+<span class="sd">  Entity.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">persistent_classes</span> <span class="o">=</span> <span class="n">Entity</span><span class="o">.</span><span class="n">_decl_class_registry</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+  <span class="c"># with sqlalchemy 0.8 _decl_class_registry holds object that are not classes</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">cls</span> <span class="k">for</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">persistent_classes</span>
+          <span class="k">if</span> <span class="n">isclass</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">Entity</span><span class="p">)]</span>
+
+</div>
+<span class="k">def</span> <span class="nf">register_all_entity_classes</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">cls</span> <span class="ow">in</span> <span class="n">all_entity_classes</span><span class="p">():</span>
+    <span class="n">register_metadata</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

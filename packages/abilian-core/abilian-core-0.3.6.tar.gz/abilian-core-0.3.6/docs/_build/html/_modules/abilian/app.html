@@ -1,0 +1,1252 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>abilian.app &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>abilian.app</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for abilian.app</h1><div class="highlight"><pre>
+<span class="c"># coding=utf-8</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base Flask application class, used by tests or to be extended</span>
+<span class="sd">in real applications.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging.config</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">count</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_filename</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="kn">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm.attributes</span> <span class="kn">import</span> <span class="n">NO_VALUE</span><span class="p">,</span> <span class="n">NEVER_SET</span>
+<span class="kn">import</span> <span class="nn">celery</span>
+
+<span class="kn">from</span> <span class="nn">werkzeug.datastructures</span> <span class="kn">import</span> <span class="n">ImmutableDict</span>
+<span class="kn">from</span> <span class="nn">werkzeug.utils</span> <span class="kn">import</span> <span class="n">import_string</span>
+<span class="kn">import</span> <span class="nn">jinja2</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="p">(</span>
+  <span class="n">Flask</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span>
+  <span class="n">request_started</span><span class="p">,</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">abort</span><span class="p">,</span> <span class="n">appcontext_pushed</span><span class="p">,</span>
+  <span class="n">_request_ctx_stack</span>
+  <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">flask.config</span> <span class="kn">import</span> <span class="n">ConfigAttribute</span>
+<span class="kn">from</span> <span class="nn">flask.helpers</span> <span class="kn">import</span> <span class="n">locked_cached_property</span>
+<span class="kn">from</span> <span class="nn">flask.ext.assets</span> <span class="kn">import</span> <span class="n">Bundle</span><span class="p">,</span> <span class="n">Environment</span> <span class="k">as</span> <span class="n">AssetsEnv</span>
+<span class="kn">from</span> <span class="nn">flask.ext.babel</span> <span class="kn">import</span> <span class="n">get_locale</span> <span class="k">as</span> <span class="n">babel_get_locale</span>
+<span class="kn">from</span> <span class="nn">flask.ext.migrate</span> <span class="kn">import</span> <span class="n">Migrate</span>
+<span class="kn">from</span> <span class="nn">flask.ext.script</span> <span class="kn">import</span> <span class="n">Manager</span> <span class="k">as</span> <span class="n">ScriptManager</span>
+
+<span class="kn">import</span> <span class="nn">abilian.i18n</span>
+<span class="kn">from</span> <span class="nn">abilian.core</span> <span class="kn">import</span> <span class="n">extensions</span><span class="p">,</span> <span class="n">signals</span><span class="p">,</span> <span class="n">redis</span>
+<span class="kn">from</span> <span class="nn">abilian.core.celery</span> <span class="kn">import</span> <span class="n">FlaskCelery</span>
+<span class="kn">import</span> <span class="nn">abilian.core.util</span>
+<span class="kn">from</span> <span class="nn">abilian.plugin.loader</span> <span class="kn">import</span> <span class="n">AppLoader</span>
+<span class="kn">from</span> <span class="nn">abilian.services</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">audit_service</span><span class="p">,</span> <span class="n">index_service</span><span class="p">,</span> <span class="n">activity_service</span><span class="p">,</span> <span class="n">auth_service</span><span class="p">,</span>
+    <span class="n">settings_service</span><span class="p">,</span> <span class="n">security_service</span><span class="p">,</span> <span class="n">preferences_service</span><span class="p">,</span>
+    <span class="n">repository_service</span><span class="p">,</span> <span class="n">session_repository_service</span><span class="p">,</span>
+    <span class="n">converter</span> <span class="k">as</span> <span class="n">conversion_service</span><span class="p">,</span> <span class="n">vocabularies_service</span><span class="p">,</span> <span class="n">antivirus</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">abilian.services.security</span> <span class="kn">import</span> <span class="n">Anonymous</span>
+
+<span class="kn">from</span> <span class="nn">abilian.web.action</span> <span class="kn">import</span> <span class="n">actions</span>
+<span class="kn">from</span> <span class="nn">abilian.web.views</span> <span class="kn">import</span> <span class="n">Registry</span> <span class="k">as</span> <span class="n">ViewRegistry</span>
+<span class="kn">from</span> <span class="nn">abilian.web.views.images</span> <span class="kn">import</span> <span class="n">user_photo_url</span>
+<span class="kn">from</span> <span class="nn">abilian.web.nav</span> <span class="kn">import</span> <span class="n">BreadcrumbItem</span><span class="p">,</span> <span class="n">Endpoint</span>
+<span class="kn">from</span> <span class="nn">abilian.web.filters</span> <span class="kn">import</span> <span class="n">init_filters</span>
+<span class="kn">from</span> <span class="nn">abilian.web.assets.filters</span> <span class="kn">import</span> <span class="n">ClosureJS</span>
+<span class="kn">from</span> <span class="nn">abilian.web.util</span> <span class="kn">import</span> <span class="n">send_file_from_directory</span><span class="p">,</span> <span class="n">url_for</span>
+<span class="kn">from</span> <span class="nn">abilian.web.admin</span> <span class="kn">import</span> <span class="n">Admin</span>
+<span class="kn">from</span> <span class="nn">abilian.web</span> <span class="kn">import</span> <span class="n">csrf</span>
+<span class="kn">from</span> <span class="nn">abilian.web.blueprints</span> <span class="kn">import</span> <span class="n">allow_access_for_roles</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">extensions</span><span class="o">.</span><span class="n">db</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;create_app&#39;</span><span class="p">,</span> <span class="s">&#39;Application&#39;</span><span class="p">,</span> <span class="s">&#39;ServiceManager&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="ServiceManager"><a class="viewcode-back" href="../../api.html#abilian.app.ServiceManager">[docs]</a><span class="k">class</span> <span class="nc">ServiceManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Mixin that provides lifecycle (register/start/stop) support for services.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="ServiceManager.start_services"><a class="viewcode-back" href="../../api.html#abilian.app.ServiceManager.start_services">[docs]</a>  <span class="k">def</span> <span class="nf">start_services</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">svc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+      <span class="n">svc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="ServiceManager.stop_services"><a class="viewcode-back" href="../../api.html#abilian.app.ServiceManager.stop_services">[docs]</a>  <span class="k">def</span> <span class="nf">stop_services</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">svc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+      <span class="n">svc</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+</div></div>
+<span class="k">class</span> <span class="nc">PluginManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Mixin that provides support for loading plugins.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">def</span> <span class="nf">load_plugins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Discovers and loads plugins.</span>
+
+<span class="sd">    At this point, prefer explicit loading using the :method:~`register_plugin`</span>
+<span class="sd">    method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">AppLoader</span><span class="p">()</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">__name__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">register_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads and registers a plugin given its package name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Registering plugin: &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">module</span><span class="o">.</span><span class="n">register_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<span class="n">default_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Flask</span><span class="o">.</span><span class="n">default_config</span><span class="p">)</span>
+<span class="n">default_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">PRIVATE_SITE</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">TEMPLATE_DEBUG</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">CSRF_ENABLED</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">BABEL_ACCEPT_LANGUAGES</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">DEFAULT_COUNTRY</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">PLUGINS</span><span class="o">=</span><span class="p">(),</span>
+    <span class="n">ADMIN_PANELS</span><span class="o">=</span><span class="p">(</span>
+        <span class="s">&#39;abilian.web.admin.panels.dashboard.DashboardPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.web.admin.panels.audit.AuditPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.web.admin.panels.login_sessions.LoginSessionsPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.web.admin.panels.settings.SettingsPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.web.admin.panels.users.UsersPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.web.admin.panels.groups.GroupsPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.web.admin.panels.sysinfo.SysinfoPanel&#39;</span><span class="p">,</span>
+        <span class="s">&#39;abilian.services.vocabularies.admin.VocabularyPanel&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">CELERY_ACCEPT_CONTENT</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;pickle&#39;</span><span class="p">,</span> <span class="s">&#39;json&#39;</span><span class="p">,</span> <span class="s">&#39;msgpack&#39;</span><span class="p">,</span> <span class="s">&#39;yaml&#39;</span><span class="p">],</span>
+    <span class="n">SENTRY_USER_ATTRS</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;email&#39;</span><span class="p">,</span> <span class="s">&#39;first_name&#39;</span><span class="p">,</span> <span class="s">&#39;last_name&#39;</span><span class="p">,),</span>
+    <span class="n">SENTRY_INSTALL_CLIENT_JS</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="c"># also install client JS</span>
+    <span class="n">SENTRY_JS_VERSION</span><span class="o">=</span><span class="s">&#39;1.1.18&#39;</span><span class="p">,</span>
+    <span class="n">SENTRY_JS_PLUGINS</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;jquery&#39;</span><span class="p">,</span> <span class="s">&#39;native&#39;</span><span class="p">,</span> <span class="s">&#39;require&#39;</span><span class="p">),</span>
+    <span class="n">SESSION_COOKIE_NAME</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">SQLALCHEMY_POOL_RECYCLE</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span> <span class="c"># 30min. default value in flask_sa is None</span>
+    <span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">LOGO_URL</span><span class="o">=</span><span class="n">Endpoint</span><span class="p">(</span><span class="s">&#39;abilian_static&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;img/logo-abilian-32x32.png&#39;</span><span class="p">),</span>
+    <span class="n">ABILIAN_UPSTREAM_INFO_ENABLED</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="c"># upstream info extension</span>
+    <span class="n">TRACKING_CODE_SNIPPET</span><span class="o">=</span><span class="s">u&#39;&#39;</span><span class="p">,</span> <span class="c"># tracking code to insert before &lt;/body&gt;</span>
+    <span class="n">MAIL_ADDRESS_TAG_CHAR</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">default_config</span> <span class="o">=</span> <span class="n">ImmutableDict</span><span class="p">(</span><span class="n">default_config</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Application"><a class="viewcode-back" href="../../api.html#abilian.app.Application">[docs]</a><span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="n">Flask</span><span class="p">,</span> <span class="n">ServiceManager</span><span class="p">,</span> <span class="n">PluginManager</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Base application class. Extend it in your own app.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">default_config</span> <span class="o">=</span> <span class="n">default_config</span>
+
+  <span class="c">#: Custom apps may want to always load some plugins: list them here.</span>
+  <span class="n">APP_PLUGINS</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;abilian.web.search&#39;</span><span class="p">,)</span>
+
+  <span class="c">#: Environment variable used to locate a config file to load last (after</span>
+  <span class="c">#: instance config file). Use this if you want to override some settings on a</span>
+  <span class="c">#: configured instance.</span>
+  <span class="n">CONFIG_ENVVAR</span> <span class="o">=</span> <span class="s">&#39;ABILIAN_CONFIG&#39;</span>
+
+  <span class="c">#: True if application has a config file and can be considered configured for</span>
+  <span class="c">#: site.</span>
+  <span class="n">configured</span> <span class="o">=</span> <span class="n">ConfigAttribute</span><span class="p">(</span><span class="s">&#39;CONFIGURED&#39;</span><span class="p">)</span>
+
+  <span class="c">#: instance of :class:`.web.views.registry.Registry`.</span>
+  <span class="n">default_view</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="c">#: json serializable dict to land in Javascript under Abilian.api</span>
+  <span class="n">js_api</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="c">#: :class:`flask.ext.script.Manager` instance for shell commands of this app.</span>
+  <span class="c">#: defaults to `.commands.manager`, relative to app name.</span>
+  <span class="n">script_manager</span> <span class="o">=</span> <span class="s">&#39;.commands.manager&#39;</span>
+
+  <span class="c">#: celery app class</span>
+  <span class="n">celery_app_cls</span> <span class="o">=</span> <span class="n">FlaskCelery</span>
+
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;instance_relative_config&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">__name__</span>
+
+    <span class="c"># used by make_config to determine if we try to load config from instance /</span>
+    <span class="c"># environment variable /...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_ABILIAN_INIT_TESTING_FLAG</span> <span class="o">=</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s">&#39;TESTING&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                                       <span class="k">if</span> <span class="n">config</span> <span class="k">else</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">Flask</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ABILIAN_INIT_TESTING_FLAG</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_setup_script_manager</span><span class="p">()</span>
+    <span class="n">appcontext_pushed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_install_id_generator</span><span class="p">)</span>
+    <span class="n">ServiceManager</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">PluginManager</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">default_view</span> <span class="o">=</span> <span class="n">ViewRegistry</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">js_api</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">config</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="c"># at this point we have loaded all external config files:</span>
+    <span class="c"># SQLALCHEMY_DATABASE_URI is definitively fixed (it cannot be defined in</span>
+    <span class="c"># database AFAICT), and LOGGING_FILE cannot be set in DB settings.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">setup_logging</span><span class="p">()</span>
+
+    <span class="n">configured</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SQLALCHEMY_DATABASE_URI&#39;</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;CONFIGURED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">configured</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">init_sentry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">configured</span><span class="p">:</span>
+      <span class="c"># set fixed secret_key so that any unconfigured worker will use, so that</span>
+      <span class="c"># session can be used during setup even if multiple processes are</span>
+      <span class="c"># processing requests.</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;abilian_setup_key&#39;</span>
+
+    <span class="c"># time to load config bits from database: &#39;settings&#39;</span>
+    <span class="c"># First init required stuff: db to make queries, and settings service</span>
+    <span class="n">extensions</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">settings_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">configured</span><span class="p">:</span>
+      <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+          <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">services</span><span class="p">[</span><span class="s">&#39;settings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">namespace</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sa</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">DatabaseError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+          <span class="c"># we may get here if DB is not initialized and &quot;settings&quot; table is</span>
+          <span class="c"># missing. Command &quot;initdb&quot; must be run to initialize db, but first we</span>
+          <span class="c"># must pass app init</span>
+          <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="c"># durint tests this message will show up on every test, since db is</span>
+            <span class="c"># always recreated</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">exc</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;FAVICO_URL&#39;</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;FAVICO_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;LOGO_URL&#39;</span><span class="p">)</span>
+
+    <span class="n">languages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;BABEL_ACCEPT_LANGUAGES&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">languages</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">languages</span> <span class="o">=</span> <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">VALID_LANGUAGES_CODE</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">languages</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">lang</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">languages</span>
+                        <span class="k">if</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">VALID_LANGUAGES_CODE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;BABEL_ACCEPT_LANGUAGES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">languages</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_jinja_loaders</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_jinja_loaders</span><span class="p">(</span>
+      <span class="n">jinja2</span><span class="o">.</span><span class="n">PackageLoader</span><span class="p">(</span><span class="s">&#39;abilian.web&#39;</span><span class="p">,</span> <span class="s">&#39;templates&#39;</span><span class="p">))</span>
+
+    <span class="n">js_filters</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;closure_js&#39;</span><span class="p">,)</span>
+                  <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;PRODUCTION&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                  <span class="k">else</span> <span class="bp">None</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_assets_bundles</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;css&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;options&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;less&#39;</span><span class="p">,</span> <span class="s">&#39;cssmin&#39;</span><span class="p">),</span>
+                                <span class="n">output</span><span class="o">=</span><span class="s">&#39;style-</span><span class="si">%(version)s</span><span class="s">.min.css&#39;</span><span class="p">,)},</span>
+        <span class="s">&#39;js-top&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;options&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s">&#39;top-</span><span class="si">%(version)s</span><span class="s">.min.js&#39;</span><span class="p">,</span>
+                                   <span class="n">filters</span><span class="o">=</span><span class="n">js_filters</span><span class="p">,)},</span>
+        <span class="s">&#39;js&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;options&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s">&#39;app-</span><span class="si">%(version)s</span><span class="s">.min.js&#39;</span><span class="p">,</span>
+                               <span class="n">filters</span><span class="o">=</span><span class="n">js_filters</span><span class="p">)},</span>
+    <span class="p">}</span>
+
+    <span class="c"># bundles for JS translations</span>
+    <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">languages</span><span class="p">:</span>
+      <span class="n">code</span> <span class="o">=</span> <span class="s">&#39;js-i18n-&#39;</span> <span class="o">+</span> <span class="n">lang</span>
+      <span class="n">filename</span> <span class="o">=</span> <span class="s">&#39;lang-&#39;</span> <span class="o">+</span> <span class="n">lang</span> <span class="o">+</span> <span class="s">&#39;-</span><span class="si">%(version)s</span><span class="s">.min.js&#39;</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_assets_bundles</span><span class="p">[</span><span class="n">code</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="s">&#39;options&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="n">js_filters</span><span class="p">),</span>
+      <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">http_error_code</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="mi">500</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">install_default_handler</span><span class="p">(</span><span class="n">http_error_code</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">init_extensions</span><span class="p">()</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">register_plugins</span><span class="p">()</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">add_access_controller</span><span class="p">(</span><span class="s">&#39;static&#39;</span><span class="p">,</span> <span class="n">allow_access_for_roles</span><span class="p">(</span><span class="n">Anonymous</span><span class="p">),</span>
+                                 <span class="n">endpoint</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">maybe_register_setup_wizard</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_finalize_assets_setup</span><span class="p">()</span>
+    <span class="c"># At this point all models should have been imported: time to configure</span>
+    <span class="c"># mappers. Normally Sqlalchemy does it when needed but mappers may be</span>
+    <span class="c"># configured inside sa.orm.class_mapper() which hides a misconfiguration: if</span>
+    <span class="c"># a mapper is misconfigured its exception is swallowed by</span>
+    <span class="c"># class_mapper(model) results in this laconic (and misleading) message:</span>
+    <span class="c"># &quot;model is not mapped&quot;</span>
+    <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">configure_mappers</span><span class="p">()</span>
+
+    <span class="n">signals</span><span class="o">.</span><span class="n">components_registered</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">before_first_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_set_current_celery_app</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">before_first_request</span><span class="p">(</span>
+        <span class="k">lambda</span><span class="p">:</span> <span class="n">signals</span><span class="o">.</span><span class="n">register_js_api</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">request_started</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_setup_nav_and_breadcrumbs</span><span class="p">)</span>
+
+    <span class="c"># Initialize Abilian core services.</span>
+    <span class="c"># Must come after all entity classes have been declared.</span>
+    <span class="c"># Inherited from ServiceManager. Will need some configuration love later.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;TESTING&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span>
+      <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_services</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">_setup_script_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">script_manager</span>
+
+    <span class="k">if</span> <span class="n">manager</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">ScriptManager</span><span class="p">):</span>
+      <span class="k">return</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+      <span class="n">manager</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">manager</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">manager</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">):</span>
+        <span class="n">manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">import_name</span> <span class="o">+</span> <span class="n">manager</span>
+
+      <span class="n">manager</span> <span class="o">=</span> <span class="n">import_string</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">manager</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c"># fallback on abilian-core&#39;s</span>
+        <span class="kn">from</span> <span class="nn">abilian.core.commands</span> <span class="kn">import</span> <span class="n">setup_abilian_commands</span>
+        <span class="n">manager</span> <span class="o">=</span> <span class="n">ScriptManager</span><span class="p">()</span>
+        <span class="n">setup_abilian_commands</span><span class="p">(</span><span class="n">manager</span><span class="p">)</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">script_manager</span> <span class="o">=</span> <span class="n">manager</span>
+
+  <span class="k">def</span> <span class="nf">_install_id_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">id_generator</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_set_current_celery_app</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Listener for `before_first_request`. Set our celery app as current, so that</span>
+<span class="sd">    task use the correct config. Without that tasks may use their default set</span>
+<span class="sd">    app.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;celery&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_current</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">_setup_nav_and_breadcrumbs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Listener for `request_started` event.</span>
+
+<span class="sd">    If you want to customize first items of breadcrumbs, override</span>
+<span class="sd">    :meth:`init_breadcrumbs`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">nav</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;active&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span> <span class="c"># active section</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">breadcrumb</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">init_breadcrumbs</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Application.init_breadcrumbs"><a class="viewcode-back" href="../../api.html#abilian.app.Application.init_breadcrumbs">[docs]</a>  <span class="k">def</span> <span class="nf">init_breadcrumbs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts the first element in breadcrumbs.</span>
+
+<span class="sd">    This happens during `request_started` event, which is triggered before any</span>
+<span class="sd">    url_value_preprocessor and `before_request` handlers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">breadcrumb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BreadcrumbItem</span><span class="p">(</span><span class="n">icon</span><span class="o">=</span><span class="s">u&#39;home&#39;</span><span class="p">,</span>
+                                       <span class="n">url</span><span class="o">=</span><span class="s">u&#39;/&#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">script_root</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Application.check_instance_folder"><a class="viewcode-back" href="../../api.html#abilian.app.Application.check_instance_folder">[docs]</a>  <span class="k">def</span> <span class="nf">check_instance_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">create</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Verifies instance folder exists, is a directory, and has necessary permissions.</span>
+
+<span class="sd">    :param:create: if `True`, creates directory hierarchy</span>
+
+<span class="sd">    :raises: OSError with relevant errno</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_path</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">eno</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+      <span class="k">if</span> <span class="n">create</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Create instance folder: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="mo">0775</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="s">&#39;Instance folder does not exists&#39;</span>
+        <span class="n">eno</span> <span class="o">=</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+      <span class="n">err</span> <span class="o">=</span> <span class="s">&#39;Instance folder is not a directory&#39;</span>
+      <span class="n">eno</span> <span class="o">=</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOTDIR</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">W_OK</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">X_OK</span><span class="p">):</span>
+      <span class="n">err</span> <span class="o">=</span> <span class="s">&#39;Require &quot;rwx&quot; access rights, please verify permissions&#39;</span>
+      <span class="n">eno</span> <span class="o">=</span> <span class="n">errno</span><span class="o">.</span><span class="n">EPERM</span>
+
+    <span class="k">if</span> <span class="n">err</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="n">eno</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="mo">0775</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.make_config"><a class="viewcode-back" href="../../api.html#abilian.app.Application.make_config">[docs]</a>  <span class="k">def</span> <span class="nf">make_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance_relative</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">Flask</span><span class="o">.</span><span class="n">make_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance_relative</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SESSION_COOKIE_NAME&#39;</span><span class="p">):</span>
+      <span class="n">config</span><span class="p">[</span><span class="s">&#39;SESSION_COOKIE_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39;-session&#39;</span>
+
+    <span class="c"># during testing DATA_DIR is not created by instance app, but we still need</span>
+    <span class="c"># this attribute to be set</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s">&#39;data&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ABILIAN_INIT_TESTING_FLAG</span><span class="p">:</span>
+      <span class="c"># testing: don&#39;t load any config file!</span>
+      <span class="k">return</span> <span class="n">config</span>
+
+    <span class="k">if</span> <span class="n">instance_relative</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">check_instance_folder</span><span class="p">(</span><span class="n">create</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">cfg_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s">&#39;config.py&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Try to load config: &quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span><span class="p">,</span> <span class="n">cfg_path</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">config</span><span class="o">.</span><span class="n">from_pyfile</span><span class="p">(</span><span class="n">cfg_path</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">config</span>
+
+    <span class="n">config</span><span class="o">.</span><span class="n">from_envvar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CONFIG_ENVVAR</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s">&#39;WTF_CSRF_ENABLED&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+      <span class="n">config</span><span class="p">[</span><span class="s">&#39;WTF_CSRF_ENABLED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;CSRF_ENABLED&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">config</span>
+</div>
+<div class="viewcode-block" id="Application.setup_logging"><a class="viewcode-back" href="../../api.html#abilian.app.Application.setup_logging">[docs]</a>  <span class="k">def</span> <span class="nf">setup_logging</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span>  <span class="c"># force flask to create application logger before logging</span>
+                 <span class="c"># configuration; else, flask will overwrite our settings</span>
+
+    <span class="n">log_level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;LOG_LEVEL&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">log_level</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+
+    <span class="n">logging_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;LOGGING_CONFIG_FILE&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">logging_file</span><span class="p">:</span>
+      <span class="n">logging_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span>
+                                                  <span class="n">logging_file</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">logging_file</span> <span class="o">=</span> <span class="n">resource_filename</span><span class="p">(</span><span class="n">__name__</span><span class="p">,</span> <span class="s">&#39;default_logging.yml&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">logging_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;.conf&#39;</span><span class="p">):</span>
+      <span class="c"># old standard &#39;ini&#39; file config</span>
+      <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fileConfig</span><span class="p">(</span><span class="n">logging_file</span><span class="p">,</span> <span class="n">disable_existing_loggers</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">logging_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;.yml&#39;</span><span class="p">):</span>
+      <span class="c"># yml config file</span>
+      <span class="n">logging_cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">logging_file</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">))</span>
+      <span class="n">logging_cfg</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;version&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">logging_cfg</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;disable_existing_loggers&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+      <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">logging_cfg</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.init_debug_toolbar"><a class="viewcode-back" href="../../api.html#abilian.app.Application.init_debug_toolbar">[docs]</a>  <span class="k">def</span> <span class="nf">init_debug_toolbar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span>
+        <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;DEBUG_TB_ENABLED&#39;</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="s">&#39;debugtoolbar&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blueprints</span><span class="p">):</span>
+      <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">flask.ext.debugtoolbar</span> <span class="kn">import</span> <span class="n">DebugToolbarExtension</span><span class="p">,</span> <span class="n">DebugToolbar</span>
+      <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;DEBUG_TB_ENABLED is on but flask.ext.debugtoolbar &#39;</span>
+                       <span class="s">&#39;is not installed.&#39;</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+          <span class="n">default_config</span> <span class="o">=</span> <span class="n">DebugToolbar</span><span class="o">.</span><span class="n">config</span>
+          <span class="n">init_dbt</span> <span class="o">=</span> <span class="n">DebugToolbarExtension</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+          <span class="c"># debugtoolbar &gt; 0.8.0</span>
+          <span class="n">dbt</span> <span class="o">=</span> <span class="n">DebugToolbarExtension</span><span class="p">()</span>
+          <span class="n">default_config</span> <span class="o">=</span> <span class="n">dbt</span><span class="o">.</span><span class="n">_default_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+          <span class="n">init_dbt</span> <span class="o">=</span> <span class="n">dbt</span><span class="o">.</span><span class="n">init_app</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="s">&#39;DEBUG_TB_PANELS&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+          <span class="c"># add our panels to default ones</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;DEBUG_TB_PANELS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">default_config</span><span class="p">[</span><span class="s">&#39;DEBUG_TB_PANELS&#39;</span><span class="p">])</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;DEBUG_TB_PANELS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s">&#39;abilian.services.indexing.debug_toolbar.IndexedTermsDebugPanel&#39;</span>
+          <span class="p">)</span>
+        <span class="n">init_dbt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">view_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_functions</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">view_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;debugtoolbar.&#39;</span><span class="p">):</span>
+            <span class="n">extensions</span><span class="o">.</span><span class="n">csrf</span><span class="o">.</span><span class="n">exempt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view_functions</span><span class="p">[</span><span class="n">view_name</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="Application.init_extensions"><a class="viewcode-back" href="../../api.html#abilian.app.Application.init_extensions">[docs]</a>  <span class="k">def</span> <span class="nf">init_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initializes flask extensions, helpers and services.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">init_debug_toolbar</span><span class="p">()</span>
+    <span class="n">redis</span><span class="o">.</span><span class="n">Extension</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">extensions</span><span class="o">.</span><span class="n">mail</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">extensions</span><span class="o">.</span><span class="n">upstream_info</span><span class="o">.</span><span class="n">extension</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">abilian.core.jinjaext</span> <span class="kn">import</span> <span class="n">DeferredJS</span>
+    <span class="n">DeferredJS</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="c"># auth_service installs a `before_request` handler (actually it&#39;s</span>
+    <span class="c"># flask-login). We want to authenticate user ASAP, so that sentry and logs</span>
+    <span class="c"># can report which user encountered any error happening later, in particular</span>
+    <span class="c"># in a before_request handler (like csrf validator)</span>
+    <span class="n">auth_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="c"># webassets</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_setup_asset_extension</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_register_base_assets</span><span class="p">()</span>
+
+    <span class="c"># Babel (for i18n)</span>
+    <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">add_translations</span><span class="p">(</span><span class="s">&#39;wtforms&#39;</span><span class="p">,</span>
+                                        <span class="n">translations_dir</span><span class="o">=</span><span class="s">&#39;locale&#39;</span><span class="p">,</span>
+                                        <span class="n">domain</span><span class="o">=</span><span class="s">&#39;wtforms&#39;</span><span class="p">)</span>
+    <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">add_translations</span><span class="p">(</span><span class="s">&#39;abilian&#39;</span><span class="p">)</span>
+    <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">localeselector</span><span class="p">(</span><span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">localeselector</span><span class="p">)</span>
+    <span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">babel</span><span class="o">.</span><span class="n">timezoneselector</span><span class="p">(</span><span class="n">abilian</span><span class="o">.</span><span class="n">i18n</span><span class="o">.</span><span class="n">timezoneselector</span><span class="p">)</span>
+
+    <span class="c"># Flask-Migrate</span>
+    <span class="n">Migrate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">)</span>
+
+    <span class="c"># CSRF by default</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;CSRF_ENABLED&#39;</span><span class="p">):</span>
+      <span class="n">extensions</span><span class="o">.</span><span class="n">csrf</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;csrf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">extensions</span><span class="o">.</span><span class="n">csrf</span>
+      <span class="n">extensions</span><span class="o">.</span><span class="n">abilian_csrf</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">csrf</span><span class="o">.</span><span class="n">blueprint</span><span class="p">)</span>
+
+    <span class="c"># images blueprint</span>
+    <span class="kn">from</span> <span class="nn">.web.views.images</span> <span class="kn">import</span> <span class="n">blueprint</span> <span class="k">as</span> <span class="n">images_bp</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">images_bp</span><span class="p">)</span>
+
+    <span class="c"># Abilian Core services</span>
+    <span class="n">security_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">repository_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">session_repository_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">audit_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">index_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">activity_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">preferences_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">conversion_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">vocabularies_service</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">antivirus</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">.web.preferences.user</span> <span class="kn">import</span> <span class="n">UserPreferencesPanel</span>
+    <span class="n">preferences_service</span><span class="o">.</span><span class="n">register_panel</span><span class="p">(</span><span class="n">UserPreferencesPanel</span><span class="p">(),</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">.web.coreviews</span> <span class="kn">import</span> <span class="n">users</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">bp</span><span class="p">)</span>
+
+    <span class="c"># Admin interface</span>
+    <span class="n">Admin</span><span class="p">()</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="c"># Celery async service</span>
+    <span class="c"># this allows all shared tasks to use this celery app</span>
+    <span class="n">celery_app</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;celery&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">celery_app_cls</span><span class="p">()</span>
+    <span class="n">celery_app</span><span class="o">.</span><span class="n">set_default</span><span class="p">()</span>
+
+    <span class="c"># dev helper</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+      <span class="c"># during dev, one can go to /http_error/403 to see rendering of 403</span>
+      <span class="n">http_error_pages</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">&#39;http_error_pages&#39;</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
+
+      <span class="nd">@http_error_pages.route</span><span class="p">(</span><span class="s">&#39;/&lt;int:code&gt;&#39;</span><span class="p">)</span>
+      <span class="k">def</span> <span class="nf">error_page</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Helper for development to show 403, 404, 500...&quot;&quot;&quot;</span>
+        <span class="n">abort</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">http_error_pages</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="s">&#39;/http_error&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.register_plugins"><a class="viewcode-back" href="../../api.html#abilian.app.Application.register_plugins">[docs]</a>  <span class="k">def</span> <span class="nf">register_plugins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads plugins listed in config variable &#39;PLUGINS&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">registered</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">plugin_fqdn</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">APP_PLUGINS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;PLUGINS&#39;</span><span class="p">]):</span>
+      <span class="k">if</span> <span class="n">plugin_fqdn</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">registered</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_plugin</span><span class="p">(</span><span class="n">plugin_fqdn</span><span class="p">)</span>
+        <span class="n">registered</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">plugin_fqdn</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.maybe_register_setup_wizard"><a class="viewcode-back" href="../../api.html#abilian.app.Application.maybe_register_setup_wizard">[docs]</a>  <span class="k">def</span> <span class="nf">maybe_register_setup_wizard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configured</span><span class="p">:</span>
+      <span class="k">return</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Application is not configured, installing setup wizard&#39;</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">abilian.web</span> <span class="kn">import</span> <span class="n">setupwizard</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">setupwizard</span><span class="o">.</span><span class="n">setup</span><span class="p">,</span> <span class="n">url_prefix</span><span class="o">=</span><span class="s">&#39;/setup&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.add_url_rule"><a class="viewcode-back" href="../../api.html#abilian.app.Application.add_url_rule">[docs]</a>  <span class="k">def</span> <span class="nf">add_url_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">view_func</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    See :meth:`Flask.add_url_rule`.</span>
+
+<span class="sd">    If `roles` parameter is present, it must be a</span>
+<span class="sd">    :class:`abilian.service.security.models.Role` instance, or a list of</span>
+<span class="sd">    Role instances.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">roles</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;roles&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">Application</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add_url_rule</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">view_func</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">roles</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">add_access_controller</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">allow_access_for_roles</span><span class="p">(</span><span class="n">roles</span><span class="p">),</span>
+                                 <span class="n">endpoint</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.add_access_controller"><a class="viewcode-back" href="../../api.html#abilian.app.Application.add_access_controller">[docs]</a>  <span class="k">def</span> <span class="nf">add_access_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add an access controller.</span>
+
+<span class="sd">    If `name` is None it is added at application level, else if is</span>
+<span class="sd">    considered as a blueprint name. If `endpoint` is True then it is</span>
+<span class="sd">    considered as an endpoint.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">auth_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="n">auth_service</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">adder</span> <span class="o">=</span> <span class="n">auth_state</span><span class="o">.</span><span class="n">add_bp_access_controller</span>
+
+    <span class="k">if</span> <span class="n">endpoint</span><span class="p">:</span>
+      <span class="n">adder</span> <span class="o">=</span> <span class="n">auth_state</span><span class="o">.</span><span class="n">add_endpoint_access_controller</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;{} is not a valid endpoint name&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="n">adder</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.add_static_url"><a class="viewcode-back" href="../../api.html#abilian.app.Application.add_static_url">[docs]</a>  <span class="k">def</span> <span class="nf">add_static_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url_path</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                     <span class="n">roles</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a new url rule for static files.</span>
+
+<span class="sd">    :param endpoint: flask endpoint name for this url rule.</span>
+<span class="sd">    :param url: subpath from application static url path. No heading or trailing</span>
+<span class="sd">                slash.</span>
+<span class="sd">    :param directory: directory to serve content from.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">       app.add_static_url(&#39;myplugin&#39;,</span>
+<span class="sd">                          &#39;/path/to/myplugin/resources&#39;,</span>
+<span class="sd">                          endpoint=&#39;myplugin_static&#39;)</span>
+
+<span class="sd">    With default setup it will serve content from directory</span>
+<span class="sd">    `/path/to/myplugin/resources` from url `http://.../static/myplugin`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">url_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_url_path</span> <span class="o">+</span> <span class="s">&#39;/&#39;</span> <span class="o">+</span> <span class="n">url_path</span> <span class="o">+</span> <span class="s">&#39;/&lt;path:filename&gt;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_url_rule</span><span class="p">(</span><span class="n">url_path</span><span class="p">,</span>
+                      <span class="n">endpoint</span><span class="o">=</span><span class="n">endpoint</span><span class="p">,</span>
+                      <span class="n">view_func</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">send_file_from_directory</span><span class="p">,</span>
+                                        <span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">),</span>
+                      <span class="n">roles</span><span class="o">=</span><span class="n">roles</span><span class="p">)</span>
+
+  <span class="c">#</span>
+  <span class="c"># Templating and context injection setup</span>
+  <span class="c">#</span></div>
+<div class="viewcode-block" id="Application.create_jinja_environment"><a class="viewcode-back" href="../../api.html#abilian.app.Application.create_jinja_environment">[docs]</a>  <span class="k">def</span> <span class="nf">create_jinja_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Flask</span><span class="o">.</span><span class="n">create_jinja_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">globals</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="n">app</span><span class="o">=</span><span class="n">current_app</span><span class="p">,</span>
+        <span class="n">csrf</span><span class="o">=</span><span class="n">csrf</span><span class="p">,</span>
+        <span class="n">get_locale</span><span class="o">=</span><span class="n">babel_get_locale</span><span class="p">,</span>
+        <span class="n">local_dt</span><span class="o">=</span><span class="n">abilian</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">local_dt</span><span class="p">,</span>
+        <span class="n">url_for</span><span class="o">=</span><span class="n">url_for</span><span class="p">,</span>
+        <span class="n">user_photo_url</span><span class="o">=</span><span class="n">user_photo_url</span><span class="p">,</span>
+        <span class="n">NO_VALUE</span><span class="o">=</span><span class="n">NO_VALUE</span><span class="p">,</span>
+        <span class="n">NEVER_SET</span><span class="o">=</span><span class="n">NEVER_SET</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">init_filters</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">env</span>
+</div>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">jinja_options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Flask</span><span class="o">.</span><span class="n">jinja_options</span><span class="p">)</span>
+
+    <span class="n">extensions</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;extensions&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="s">&#39;abilian.core.jinjaext.DeferredJSExtension&#39;</span>
+    <span class="k">if</span> <span class="n">ext</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">extensions</span><span class="p">:</span>
+      <span class="n">extensions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s">&#39;bytecode_cache&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+      <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s">&#39;cache&#39;</span><span class="p">,</span> <span class="s">&#39;jinja&#39;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">cache_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="mo">0775</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+      <span class="n">options</span><span class="p">[</span><span class="s">&#39;bytecode_cache&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">FileSystemBytecodeCache</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">),</span>
+                                                                 <span class="s">&#39;</span><span class="si">%s</span><span class="s">.cache&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;DEBUG&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;TEMPLATE_DEBUG&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)):</span>
+      <span class="n">options</span><span class="p">[</span><span class="s">&#39;undefined&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">StrictUndefined</span>
+    <span class="k">return</span> <span class="n">options</span>
+
+<div class="viewcode-block" id="Application.register_jinja_loaders"><a class="viewcode-back" href="../../api.html#abilian.app.Application.register_jinja_loaders">[docs]</a>  <span class="k">def</span> <span class="nf">register_jinja_loaders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">loaders</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Registers one or many `jinja2.Loader` instances for templates lookup.</span>
+
+<span class="sd">    During application initialization plugins can register a loader so that</span>
+<span class="sd">    their templates are available to jinja2 renderer.</span>
+
+<span class="sd">    Order of registration matters: last registered is first looked up (after</span>
+<span class="sd">    standard Flask lookup in app template folder). This allows a plugin to</span>
+<span class="sd">    override templates provided by others, or by base application. The</span>
+<span class="sd">    application can override any template from any plugins from its template</span>
+<span class="sd">    folder (See `Flask.Application.template_folder`).</span>
+
+<span class="sd">    :raise: `ValueError` if a template has already been rendered</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;_jinja_loaders&#39;</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="s">&#39;Cannot register new jinja loaders after first template rendered&#39;</span>
+      <span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_jinja_loaders</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">loaders</span><span class="p">)</span>
+</div>
+  <span class="nd">@locked_cached_property</span>
+<div class="viewcode-block" id="Application.jinja_loader"><a class="viewcode-back" href="../../api.html#abilian.app.Application.jinja_loader">[docs]</a>  <span class="k">def</span> <span class="nf">jinja_loader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches templates in custom app templates dir (default flask behaviour),</span>
+<span class="sd">    fallback on abilian templates.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">loaders</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jinja_loaders</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jinja_loaders</span>
+    <span class="n">loaders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Flask</span><span class="o">.</span><span class="n">jinja_loader</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+    <span class="n">loaders</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">ChoiceLoader</span><span class="p">(</span><span class="n">loaders</span><span class="p">)</span>
+
+  <span class="c"># Error handling</span></div>
+<div class="viewcode-block" id="Application.handle_user_exception"><a class="viewcode-back" href="../../api.html#abilian.app.Application.handle_user_exception">[docs]</a>  <span class="k">def</span> <span class="nf">handle_user_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="c"># If session.transaction._parent is None, then exception has occured in</span>
+    <span class="c"># after_commit(): doing a rollback() raises an error and would hide actual</span>
+    <span class="c"># error</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">is_active</span> <span class="ow">and</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="o">.</span><span class="n">_parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="c"># inconditionally forget all DB changes, and ensure clean session during</span>
+      <span class="c"># exception handling</span>
+      <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_remove_session_save_objects</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">Flask</span><span class="o">.</span><span class="n">handle_user_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.handle_exception"><a class="viewcode-back" href="../../api.html#abilian.app.Application.handle_exception">[docs]</a>  <span class="k">def</span> <span class="nf">handle_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+      <span class="c"># something happened in error handlers and session is not usable anymore.</span>
+      <span class="c">#</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_remove_session_save_objects</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">Flask</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</div>
+  <span class="k">def</span> <span class="nf">_remove_session_save_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Used during exception handling in case we need to remove() session: keep</span>
+<span class="sd">    instances and merge them in the new session.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+      <span class="k">return</span>
+    <span class="c"># Before destroying the session, get all instances to be attached to the</span>
+    <span class="c"># new session. Without this, we get DetachedInstance errors, like when</span>
+    <span class="c"># tryin to get user&#39;s attribute in the error page...</span>
+    <span class="n">old_session</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+    <span class="n">g_objs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+      <span class="n">obj</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">)</span> <span class="ow">and</span>
+          <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">object_session</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">old_session</span><span class="p">)):</span>
+        <span class="n">g_objs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">old_session</span><span class="o">.</span><span class="n">dirty</span><span class="p">))</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">load</span> <span class="ow">in</span> <span class="n">g_objs</span><span class="p">:</span>
+      <span class="c"># replace obj instance in bad session by new instance in fresh session</span>
+      <span class="nb">setattr</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">))</span>
+
+    <span class="c"># refresh `current_user`</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+      <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Application.log_exception"><a class="viewcode-back" href="../../api.html#abilian.app.Application.log_exception">[docs]</a>  <span class="k">def</span> <span class="nf">log_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_info</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log exception only if sentry is not installed (this avoids getting error</span>
+<span class="sd">    twice in sentry).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s">&#39;sentry&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">:</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">Application</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">log_exception</span><span class="p">(</span><span class="n">exc_info</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.init_sentry"><a class="viewcode-back" href="../../api.html#abilian.app.Application.init_sentry">[docs]</a>  <span class="k">def</span> <span class="nf">init_sentry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Installs Sentry handler if config defines &#39;SENTRY_DSN&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SENTRY_DSN&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">):</span>
+      <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">abilian.core.sentry</span> <span class="kn">import</span> <span class="n">Sentry</span>
+      <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+          <span class="s">&#39;SENTRY_DSN is defined in config but package &quot;raven&quot; is not &#39;</span>
+          <span class="s">&#39;installed.&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+      <span class="n">ext</span> <span class="o">=</span> <span class="n">Sentry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logging</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+      <span class="n">ext</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">tags</span><span class="p">[</span><span class="s">&#39;app_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+      <span class="n">ext</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">tags</span><span class="p">[</span><span class="s">&#39;process_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;web&#39;</span>
+      <span class="n">server_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SERVER_NAME&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+      <span class="n">ext</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">tags</span><span class="p">[</span><span class="s">&#39;configured_server_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">server_name</span>
+
+</div>
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;sqlalchemy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">db</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span> <span class="nf">redis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;redis&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">client</span>
+
+<div class="viewcode-block" id="Application.create_db"><a class="viewcode-back" href="../../api.html#abilian.app.Application.create_db">[docs]</a>  <span class="k">def</span> <span class="nf">create_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">abilian.core.models.subjects</span> <span class="kn">import</span> <span class="n">User</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">root</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">u&#39;SYSTEM&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s">u&#39;system@example.com&#39;</span><span class="p">,</span>
+                  <span class="n">can_login</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+      <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+      <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</div>
+  <span class="k">def</span> <span class="nf">_setup_asset_extension</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">assets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;webassets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">AssetsEnv</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;PRODUCTION&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">assets_base_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance_path</span><span class="p">,</span> <span class="s">&#39;webassets&#39;</span><span class="p">)</span>
+    <span class="n">assets_dir</span> <span class="o">=</span> <span class="n">assets_base_dir</span> <span class="o">/</span> <span class="s">&#39;compiled&#39;</span>
+    <span class="n">assets_cache_dir</span> <span class="o">=</span> <span class="n">assets_base_dir</span> <span class="o">/</span> <span class="s">&#39;cache&#39;</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="p">(</span><span class="n">assets_base_dir</span><span class="p">,</span> <span class="n">assets_dir</span><span class="p">,</span> <span class="n">assets_cache_dir</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+
+    <span class="n">assets</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">assets_dir</span><span class="p">)</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">assets_cache_dir</span><span class="p">)</span>
+    <span class="n">manifest_file</span> <span class="o">=</span> <span class="n">assets_base_dir</span> <span class="o">/</span> <span class="s">&#39;manifest.json&#39;</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">manifest</span> <span class="o">=</span> <span class="s">&#39;json:{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">manifest_file</span><span class="p">))</span>
+
+    <span class="c"># set up load_path for application static dir. This is required since we are</span>
+    <span class="c"># setting Environment.load_path for other assets (like core_bundle below),</span>
+    <span class="c"># in this case Flask-Assets uses webasssets resolvers instead of Flask&#39;s one</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">append_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">static_folder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_url_path</span><span class="p">)</span>
+
+    <span class="c"># filters options</span>
+    <span class="n">less_args</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;-ru&#39;</span><span class="p">]</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;less_extra_args&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">less_args</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;less_as_output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">if</span> <span class="n">assets</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+      <span class="n">assets</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;less_source_map_file&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;style.map&#39;</span>
+
+    <span class="c"># setup static url for our assets</span>
+    <span class="kn">from</span> <span class="nn">abilian.web</span> <span class="kn">import</span> <span class="n">assets</span> <span class="k">as</span> <span class="n">core_bundles</span>
+
+    <span class="n">assets</span><span class="o">.</span><span class="n">append_path</span><span class="p">(</span><span class="n">core_bundles</span><span class="o">.</span><span class="n">RESOURCES_DIR</span><span class="p">,</span> <span class="s">&#39;/static/abilian&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_static_url</span><span class="p">(</span><span class="s">&#39;abilian&#39;</span><span class="p">,</span> <span class="n">core_bundles</span><span class="o">.</span><span class="n">RESOURCES_DIR</span><span class="p">,</span>
+                        <span class="n">endpoint</span><span class="o">=</span><span class="s">&#39;abilian_static&#39;</span><span class="p">,</span>
+                        <span class="n">roles</span><span class="o">=</span><span class="n">Anonymous</span><span class="p">)</span>
+
+    <span class="c"># static minified are here</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_url_path</span> <span class="o">+</span> <span class="s">&#39;/min&#39;</span>
+    <span class="n">assets</span><span class="o">.</span><span class="n">append_path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">assets_dir</span><span class="p">),</span> <span class="n">assets</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_static_url</span><span class="p">(</span><span class="s">&#39;min&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">assets_dir</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="s">&#39;webassets_static&#39;</span><span class="p">,</span>
+                        <span class="n">roles</span><span class="o">=</span><span class="n">Anonymous</span><span class="p">,)</span>
+
+  <span class="k">def</span> <span class="nf">_finalize_assets_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">assets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;webassets&#39;</span><span class="p">]</span>
+    <span class="n">assets_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">assets</span><span class="o">.</span><span class="n">directory</span><span class="p">)</span>
+    <span class="n">closure_base_args</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">&#39;--jscomp_warning&#39;</span><span class="p">,</span> <span class="s">&#39;internetExplorerChecks&#39;</span><span class="p">,</span>
+        <span class="s">&#39;--source_map_format&#39;</span><span class="p">,</span> <span class="s">&#39;V3&#39;</span><span class="p">,</span>
+        <span class="s">&#39;--create_source_map&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assets_bundles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="n">bundles</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;bundles&#39;</span><span class="p">,</span> <span class="p">[])</span>
+      <span class="n">options</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;options&#39;</span><span class="p">,</span> <span class="p">{})</span>
+      <span class="n">filters</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;filters&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[]</span>
+      <span class="n">options</span><span class="p">[</span><span class="s">&#39;filters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filters</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f</span> <span class="o">==</span> <span class="s">&#39;closure_js&#39;</span><span class="p">:</span>
+           <span class="n">js_map_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">assets_dir</span> <span class="o">/</span> <span class="s">&#39;{}.map&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+           <span class="n">f</span> <span class="o">=</span> <span class="n">ClosureJS</span><span class="p">(</span><span class="n">extra_args</span><span class="o">=</span><span class="n">closure_base_args</span> <span class="o">+</span> <span class="p">[</span><span class="n">js_map_file</span><span class="p">])</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;filters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">options</span><span class="p">[</span><span class="s">&#39;filters&#39;</span><span class="p">]:</span>
+        <span class="n">options</span><span class="p">[</span><span class="s">&#39;filters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+
+      <span class="k">if</span> <span class="n">bundles</span><span class="p">:</span>
+        <span class="n">assets</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">Bundle</span><span class="p">(</span><span class="o">*</span><span class="n">bundles</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Application.register_asset"><a class="viewcode-back" href="../../api.html#abilian.app.Application.register_asset">[docs]</a>  <span class="k">def</span> <span class="nf">register_asset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_</span><span class="p">,</span> <span class="o">*</span><span class="n">assets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Registers webassets bundle to be served on all pages.</span>
+
+<span class="sd">    :param type_: `&quot;css&quot;`, `&quot;js-top&quot;` or `&quot;js&quot;&quot;`.</span>
+
+<span class="sd">    :param \*asset:</span>
+<span class="sd">        a path to file, a :ref:`webassets.Bundle &lt;webassets:bundles&gt;` instance</span>
+<span class="sd">        or a callable that returns a :ref:`webassets.Bundle &lt;webassets:bundles&gt;`</span>
+<span class="sd">        instance.</span>
+
+<span class="sd">    :raises KeyError: if `type_` is not supported.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">supported</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assets_bundles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">type_</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">supported</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s">&quot;Invalid type: </span><span class="si">%s</span><span class="s">. Valid types: &quot;</span><span class="p">,</span>
+                     <span class="nb">repr</span><span class="p">(</span><span class="n">type_</span><span class="p">),</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">supported</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">assets</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">Bundle</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">asset</span><span class="p">):</span>
+        <span class="n">asset</span> <span class="o">=</span> <span class="n">asset</span><span class="p">()</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_assets_bundles</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;bundles&#39;</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">asset</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.register_i18n_js"><a class="viewcode-back" href="../../api.html#abilian.app.Application.register_i18n_js">[docs]</a>  <span class="k">def</span> <span class="nf">register_i18n_js</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">paths</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    register templates path translations files, like</span>
+<span class="sd">    `select2/select2_locale_{lang}.js`.</span>
+
+<span class="sd">    Only existing files are registered.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">languages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;BABEL_ACCEPT_LANGUAGES&#39;</span><span class="p">]</span>
+    <span class="n">assets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;webassets&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">languages</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+          <span class="n">assets</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">search_for_source</span><span class="p">(</span><span class="n">assets</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+          <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;i18n JS not found, skipped: &quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">register_asset</span><span class="p">(</span><span class="s">&#39;js-i18n-&#39;</span><span class="o">+</span><span class="n">lang</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</div>
+  <span class="k">def</span> <span class="nf">_register_base_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Registers assets needed by Abilian. This is done in a separate method in</span>
+<span class="sd">    order to allow applications to redefine it at will.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">abilian.web</span> <span class="kn">import</span> <span class="n">assets</span> <span class="k">as</span> <span class="n">bundles</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_asset</span><span class="p">(</span><span class="s">&#39;css&#39;</span><span class="p">,</span> <span class="n">bundles</span><span class="o">.</span><span class="n">LESS</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_asset</span><span class="p">(</span><span class="s">&#39;js-top&#39;</span><span class="p">,</span> <span class="n">bundles</span><span class="o">.</span><span class="n">TOP_JS</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_asset</span><span class="p">(</span><span class="s">&#39;js&#39;</span><span class="p">,</span> <span class="n">bundles</span><span class="o">.</span><span class="n">JS</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">register_i18n_js</span><span class="p">(</span><span class="o">*</span><span class="n">bundles</span><span class="o">.</span><span class="n">JS_I18N</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Application.install_default_handler"><a class="viewcode-back" href="../../api.html#abilian.app.Application.install_default_handler">[docs]</a>  <span class="k">def</span> <span class="nf">install_default_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">http_error_code</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Installs a default error handler for `http_error_code`.</span>
+
+<span class="sd">    The default error handler renders a template named error404.html for</span>
+<span class="sd">    http_error_code 404.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;Set Default HTTP error handler for status code </span><span class="si">%d</span><span class="s">&#39;</span><span class="p">,</span>
+                 <span class="n">http_error_code</span><span class="p">)</span>
+    <span class="n">handler</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_http_error</span><span class="p">,</span> <span class="n">http_error_code</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="n">http_error_code</span><span class="p">)(</span><span class="n">handler</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.handle_http_error"><a class="viewcode-back" href="../../api.html#abilian.app.Application.handle_http_error">[docs]</a>  <span class="k">def</span> <span class="nf">handle_http_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper that renders `error{code}.html`.</span>
+
+<span class="sd">    Convenient way to use it::</span>
+
+<span class="sd">       from functools import partial</span>
+<span class="sd">       handler = partial(app.handle_http_error, code)</span>
+<span class="sd">       app.errorhandler(code)(handler)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+      <span class="c"># 5xx code: error on server side</span>
+      <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>  <span class="c"># ensure rollback if needed, else error page may</span>
+                             <span class="c"># have an error, too, resulting in raw 500 page :-(</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="s">&#39;error{:d}.html&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">),</span> <span class="n">code</span>
+
+</div></div>
+<div class="viewcode-block" id="create_app"><a class="viewcode-back" href="../../api.html#abilian.app.create_app">[docs]</a><span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">Application</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

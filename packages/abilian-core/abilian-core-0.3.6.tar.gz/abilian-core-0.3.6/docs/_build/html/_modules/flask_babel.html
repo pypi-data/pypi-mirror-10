@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flask_babel &mdash; Abilian 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Abilian 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Abilian
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">About Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#goals-principles">Goals &amp; principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#infrastructure">Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#domain-model-and-services">Domain model and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#content-management-and-services">Content management and services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#social">Social</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#user-interface-and-api">User Interface and API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#management-and-admin">Management and admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#current-status">Current status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#roadmap-getting-involved">Roadmap &amp; getting involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#licence">Licence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#credits">Credits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installing.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Constributing to Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#project-on-github">Project on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#license-and-copyright">License and copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#releasing">Releasing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../coding-standard.html">Coding standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding-standard.html#additional-rules">Additional rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding-standard.html#notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coding-standard.html#line-length">Line length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#package-abilian">Package <code class="docutils literal"><span class="pre">abilian</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.app">Module <code class="docutils literal"><span class="pre">abilian.app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.i18n">Module <code class="docutils literal"><span class="pre">abilian.i18n</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-abilian.plugin">Package <code class="docutils literal"><span class="pre">abilian.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#package-abilian-core">Package <code class="docutils literal"><span class="pre">abilian.core</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.commands">Module <code class="docutils literal"><span class="pre">abilian.core.commands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.entities">Module <code class="docutils literal"><span class="pre">abilian.core.entities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.extensions">Module <code class="docutils literal"><span class="pre">abilian.core.extensions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.logging">Module <code class="docutils literal"><span class="pre">abilian.core.logging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#special-loggers">Special loggers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.signals">Module <code class="docutils literal"><span class="pre">abilian.core.signals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.sqlalchemy">Module <code class="docutils literal"><span class="pre">abilian.core.sqlalchemy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.models.base">Module <code class="docutils literal"><span class="pre">abilian.core.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.core.util">Module <code class="docutils literal"><span class="pre">abilian.core.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#package-abilian-services">Package <code class="docutils literal"><span class="pre">abilian.services</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.services.base">Module <code class="docutils literal"><span class="pre">abilian.services.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.services.activity">Module <code class="docutils literal"><span class="pre">abilian.services.activity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.services.audit">Module <code class="docutils literal"><span class="pre">abilian.services.audit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.services.conversion">Module <code class="docutils literal"><span class="pre">abilian.services.conversion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.services.image">Module <code class="docutils literal"><span class="pre">abilian.services.image</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian-services-indexing">Module <code class="docutils literal"><span class="pre">abilian.services.indexing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian-services-security">Module <code class="docutils literal"><span class="pre">abilian.services.security</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#package-abilian-web">Package <code class="docutils literal"><span class="pre">abilian.web</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.decorators">Module <code class="docutils literal"><span class="pre">abilian.web.decorators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.filters">Module <code class="docutils literal"><span class="pre">abilian.web.filters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.action">Module <code class="docutils literal"><span class="pre">abilian.web.action</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.nav">Module <code class="docutils literal"><span class="pre">abilian.web.nav</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.forms">Module <code class="docutils literal"><span class="pre">abilian.web.forms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.views">Module <code class="docutils literal"><span class="pre">abilian.web.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.frontend">Module <code class="docutils literal"><span class="pre">abilian.web.frontend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#module-abilian.web.util">Module <code class="docutils literal"><span class="pre">abilian.web.util</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-abilian.testing">Package <code class="docutils literal"><span class="pre">abilian.testing</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog for Abilian Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.3.6 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#fixes">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.3.5 (2015-05-27)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#updates">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id4">0.3.4 (2015-04-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">0.3.3 (2015-03-31)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.3.2 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.3.1 (2014-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id9">0.3.0 (2014-12-23)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#api-changes">API changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#building-tests">Building, tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id11">0.2.0 (2014-08-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id12">0.1.4 (2014-03-27)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id13">0.1.3 (2014-02-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id14">0.1.2 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id15">0.1.1 (2013-12-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id16">0.1 (2013-12-13)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../credits.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../credits.html#design-programming">Design, programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../credits.html#art-images-icons">Art (images, icons)</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Abilian</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>flask_babel</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for flask_babel</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    flaskext.babel</span>
+<span class="sd">    ~~~~~~~~~~~~~~</span>
+
+<span class="sd">    Implements i18n/l10n support for Flask applications based on Babel.</span>
+
+<span class="sd">    :copyright: (c) 2013 by Armin Ronacher, Daniel Neuhäuser.</span>
+<span class="sd">    :license: BSD, see LICENSE for more details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c"># this is a workaround for a snow leopard bug that babel does not</span>
+<span class="c"># work around :)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;LC_CTYPE&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;utf-8&#39;</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;LC_CTYPE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;en_US.utf-8&#39;</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">_request_ctx_stack</span>
+<span class="kn">from</span> <span class="nn">babel</span> <span class="kn">import</span> <span class="n">dates</span><span class="p">,</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">support</span><span class="p">,</span> <span class="n">Locale</span>
+<span class="kn">from</span> <span class="nn">werkzeug</span> <span class="kn">import</span> <span class="n">ImmutableDict</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pytz.gae</span> <span class="kn">import</span> <span class="n">pytz</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pytz</span> <span class="kn">import</span> <span class="n">timezone</span><span class="p">,</span> <span class="n">UTC</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">timezone</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span>
+    <span class="n">UTC</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">UTC</span>
+
+<span class="kn">from</span> <span class="nn">flask_babel._compat</span> <span class="kn">import</span> <span class="n">string_types</span>
+
+
+<span class="k">class</span> <span class="nc">Babel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Central controller class that can be used to configure how</span>
+<span class="sd">    Flask-Babel behaves.  Each application that wants to use Flask-Babel</span>
+<span class="sd">    has to create, or run :meth:`init_app` on, an instance of this class</span>
+<span class="sd">    after the configuration was initialized.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">default_date_formats</span> <span class="o">=</span> <span class="n">ImmutableDict</span><span class="p">({</span>
+        <span class="s">&#39;time&#39;</span><span class="p">:</span>             <span class="s">&#39;medium&#39;</span><span class="p">,</span>
+        <span class="s">&#39;date&#39;</span><span class="p">:</span>             <span class="s">&#39;medium&#39;</span><span class="p">,</span>
+        <span class="s">&#39;datetime&#39;</span><span class="p">:</span>         <span class="s">&#39;medium&#39;</span><span class="p">,</span>
+        <span class="s">&#39;time.short&#39;</span><span class="p">:</span>       <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;time.medium&#39;</span><span class="p">:</span>      <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;time.full&#39;</span><span class="p">:</span>        <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;time.long&#39;</span><span class="p">:</span>        <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;date.short&#39;</span><span class="p">:</span>       <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;date.medium&#39;</span><span class="p">:</span>      <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;date.full&#39;</span><span class="p">:</span>        <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;date.long&#39;</span><span class="p">:</span>        <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;datetime.short&#39;</span><span class="p">:</span>   <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;datetime.medium&#39;</span><span class="p">:</span>  <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;datetime.full&#39;</span><span class="p">:</span>    <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;datetime.long&#39;</span><span class="p">:</span>    <span class="bp">None</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">default_locale</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">,</span> <span class="n">default_timezone</span><span class="o">=</span><span class="s">&#39;UTC&#39;</span><span class="p">,</span>
+                 <span class="n">date_formats</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">configure_jinja</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_locale</span> <span class="o">=</span> <span class="n">default_locale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_timezone</span> <span class="o">=</span> <span class="n">default_timezone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date_formats</span> <span class="o">=</span> <span class="n">date_formats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_configure_jinja</span> <span class="o">=</span> <span class="n">configure_jinja</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
+
+        <span class="k">if</span> <span class="n">app</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set up this instance for use with *app*, if no app was passed to</span>
+<span class="sd">        the constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">babel_instance</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&#39;extensions&#39;</span><span class="p">):</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;babel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;BABEL_DEFAULT_LOCALE&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_locale</span><span class="p">)</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;BABEL_DEFAULT_TIMEZONE&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_timezone</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date_formats</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_date_formats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_date_formats</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c">#: a mapping of Babel datetime format strings that can be modified</span>
+        <span class="c">#: to change the defaults.  If you invoke :func:`format_datetime`</span>
+        <span class="c">#: and do not provide any format string Flask-Babel will do the</span>
+        <span class="c">#: following things:</span>
+        <span class="c">#:</span>
+        <span class="c">#: 1.   look up ``date_formats[&#39;datetime&#39;]``.  By default ``&#39;medium&#39;``</span>
+        <span class="c">#:      is returned to enforce medium length datetime formats.</span>
+        <span class="c">#: 2.   ``date_formats[&#39;datetime.medium&#39;] (if ``&#39;medium&#39;`` was</span>
+        <span class="c">#:      returned in step one) is looked up.  If the return value</span>
+        <span class="c">#:      is anything but `None` this is used as new format string.</span>
+        <span class="c">#:      otherwise the default for that language is used.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_formats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date_formats</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">locale_selector_func</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timezone_selector_func</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_configure_jinja</span><span class="p">:</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">datetimeformat</span><span class="o">=</span><span class="n">format_datetime</span><span class="p">,</span>
+                <span class="n">dateformat</span><span class="o">=</span><span class="n">format_date</span><span class="p">,</span>
+                <span class="n">timeformat</span><span class="o">=</span><span class="n">format_time</span><span class="p">,</span>
+                <span class="n">timedeltaformat</span><span class="o">=</span><span class="n">format_timedelta</span><span class="p">,</span>
+
+                <span class="n">numberformat</span><span class="o">=</span><span class="n">format_number</span><span class="p">,</span>
+                <span class="n">decimalformat</span><span class="o">=</span><span class="n">format_decimal</span><span class="p">,</span>
+                <span class="n">currencyformat</span><span class="o">=</span><span class="n">format_currency</span><span class="p">,</span>
+                <span class="n">percentformat</span><span class="o">=</span><span class="n">format_percent</span><span class="p">,</span>
+                <span class="n">scientificformat</span><span class="o">=</span><span class="n">format_scientific</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">add_extension</span><span class="p">(</span><span class="s">&#39;jinja2.ext.i18n&#39;</span><span class="p">)</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">install_gettext_callables</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_translations</span><span class="p">()</span><span class="o">.</span><span class="n">ugettext</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+                <span class="k">lambda</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">get_translations</span><span class="p">()</span><span class="o">.</span><span class="n">ungettext</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+                <span class="n">newstyle</span><span class="o">=</span><span class="bp">True</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">localeselector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Registers a callback function for locale selection.  The default</span>
+<span class="sd">        behaves as if a function was registered that returns `None` all the</span>
+<span class="sd">        time.  If `None` is returned, the locale falls back to the one from</span>
+<span class="sd">        the configuration.</span>
+
+<span class="sd">        This has to return the locale as string (eg: ``&#39;de_AT&#39;``, &#39;&#39;`en_US`&#39;&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale_selector_func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">,</span> \
+            <span class="s">&#39;a localeselector function is already registered&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">locale_selector_func</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="k">return</span> <span class="n">f</span>
+
+    <span class="k">def</span> <span class="nf">timezoneselector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Registers a callback function for timezone selection.  The default</span>
+<span class="sd">        behaves as if a function was registered that returns `None` all the</span>
+<span class="sd">        time.  If `None` is returned, the timezone falls back to the one from</span>
+<span class="sd">        the configuration.</span>
+
+<span class="sd">        This has to return the timezone as string (eg: ``&#39;Europe/Vienna&#39;``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">timezone_selector_func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">,</span> \
+            <span class="s">&#39;a timezoneselector function is already registered&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timezone_selector_func</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="k">return</span> <span class="n">f</span>
+
+
+    <span class="k">def</span> <span class="nf">list_translations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of all the locales translations exist for.  The</span>
+<span class="sd">        list returned will be filled with actual locale objects and not just</span>
+<span class="sd">        strings.</span>
+
+<span class="sd">        .. versionadded:: 0.6</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s">&#39;translations&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+            <span class="n">locale_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="s">&#39;LC_MESSAGES&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">locale_dir</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;.mo&#39;</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">locale_dir</span><span class="p">)):</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">folder</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_locale</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">default_locale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The default locale from the configuration as instance of a</span>
+<span class="sd">        `babel.Locale` object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;BABEL_DEFAULT_LOCALE&#39;</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">default_timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The default timezone from the configuration as instance of a</span>
+<span class="sd">        `pytz.timezone` object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">timezone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s">&#39;BABEL_DEFAULT_TIMEZONE&#39;</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">get_translations</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns the correct gettext translations that should be used for</span>
+<span class="sd">    this request.  This will never fail and return a dummy translation</span>
+<span class="sd">    object if used outside of the request or if a translation cannot be</span>
+<span class="sd">    found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+    <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+    <span class="n">translations</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">&#39;babel_translations&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">root_path</span><span class="p">,</span> <span class="s">&#39;translations&#39;</span><span class="p">)</span>
+        <span class="n">translations</span> <span class="o">=</span> <span class="n">support</span><span class="o">.</span><span class="n">Translations</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="p">[</span><span class="n">get_locale</span><span class="p">()])</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">babel_translations</span> <span class="o">=</span> <span class="n">translations</span>
+    <span class="k">return</span> <span class="n">translations</span>
+
+
+<span class="k">def</span> <span class="nf">get_locale</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns the locale that should be used for this request as</span>
+<span class="sd">    `babel.Locale` object.  This returns `None` if used outside of</span>
+<span class="sd">    a request.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+    <span class="k">if</span> <span class="n">ctx</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">&#39;babel_locale&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">locale</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">babel</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;babel&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">babel</span><span class="o">.</span><span class="n">locale_selector_func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">locale</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">default_locale</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">locale_selector_func</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">rv</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">locale</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">default_locale</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">locale</span> <span class="o">=</span> <span class="n">Locale</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">rv</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">babel_locale</span> <span class="o">=</span> <span class="n">locale</span>
+    <span class="k">return</span> <span class="n">locale</span>
+
+
+<span class="k">def</span> <span class="nf">get_timezone</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns the timezone that should be used for this request as</span>
+<span class="sd">    `pytz.timezone` object.  This returns `None` if used outside of</span>
+<span class="sd">    a request.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+    <span class="n">tzinfo</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">&#39;babel_tzinfo&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tzinfo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">babel</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;babel&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">babel</span><span class="o">.</span><span class="n">timezone_selector_func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">default_timezone</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">timezone_selector_func</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">rv</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">default_timezone</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rv</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
+                    <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">timezone</span><span class="p">(</span><span class="n">rv</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">rv</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">babel_tzinfo</span> <span class="o">=</span> <span class="n">tzinfo</span>
+    <span class="k">return</span> <span class="n">tzinfo</span>
+
+
+<span class="k">def</span> <span class="nf">refresh</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Refreshes the cached timezones and locale information.  This can</span>
+<span class="sd">    be used to switch a translation between a request and if you want</span>
+<span class="sd">    the changes to take place immediately, not just with the next request::</span>
+
+<span class="sd">        user.timezone = request.form[&#39;timezone&#39;]</span>
+<span class="sd">        user.locale = request.form[&#39;locale&#39;]</span>
+<span class="sd">        refresh()</span>
+<span class="sd">        flash(gettext(&#39;Language was changed&#39;))</span>
+
+<span class="sd">    Without that refresh, the :func:`~flask.flash` function would probably</span>
+<span class="sd">    return English text and a now German page.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="s">&#39;babel_locale&#39;</span><span class="p">,</span> <span class="s">&#39;babel_tzinfo&#39;</span><span class="p">,</span> <span class="s">&#39;babel_translations&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+            <span class="nb">delattr</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">format</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A small helper for the datetime formatting functions.  Looks up</span>
+<span class="sd">    format defaults for different kinds.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">babel</span> <span class="o">=</span> <span class="n">_request_ctx_stack</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s">&#39;babel&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">format</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">format</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">date_formats</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">format</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;short&#39;</span><span class="p">,</span> <span class="s">&#39;medium&#39;</span><span class="p">,</span> <span class="s">&#39;full&#39;</span><span class="p">,</span> <span class="s">&#39;long&#39;</span><span class="p">):</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="n">babel</span><span class="o">.</span><span class="n">date_formats</span><span class="p">[</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">format</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">rv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">format</span> <span class="o">=</span> <span class="n">rv</span>
+    <span class="k">return</span> <span class="n">format</span>
+
+
+<span class="k">def</span> <span class="nf">to_user_timezone</span><span class="p">(</span><span class="n">datetime</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert a datetime object to the user&#39;s timezone.  This automatically</span>
+<span class="sd">    happens on all date formatting unless rebasing is disabled.  If you need</span>
+<span class="sd">    to convert a :class:`datetime.datetime` object at any time to the user&#39;s</span>
+<span class="sd">    timezone (as returned by :func:`get_timezone` this function can be used).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">UTC</span><span class="p">)</span>
+    <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">get_timezone</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">tzinfo</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">to_utc</span><span class="p">(</span><span class="n">datetime</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert a datetime object to UTC and drop tzinfo.  This is the</span>
+<span class="sd">    opposite operation to :func:`to_user_timezone`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">datetime</span> <span class="o">=</span> <span class="n">get_timezone</span><span class="p">()</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">datetime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">UTC</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_datetime</span><span class="p">(</span><span class="n">datetime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">rebase</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a date formatted according to the given pattern.  If no</span>
+<span class="sd">    :class:`~datetime.datetime` object is passed, the current time is</span>
+<span class="sd">    assumed.  By default rebasing happens which causes the object to</span>
+<span class="sd">    be converted to the users&#39;s timezone (as returned by</span>
+<span class="sd">    :func:`to_user_timezone`).  This function formats both date and</span>
+<span class="sd">    time.</span>
+
+<span class="sd">    The format parameter can either be ``&#39;short&#39;``, ``&#39;medium&#39;``,</span>
+<span class="sd">    ``&#39;long&#39;`` or ``&#39;full&#39;`` (in which cause the language&#39;s default for</span>
+<span class="sd">    that setting is used, or the default from the :attr:`Babel.date_formats`</span>
+<span class="sd">    mapping is used) or a format string as documented by Babel.</span>
+
+<span class="sd">    This function is also available in the template context as filter</span>
+<span class="sd">    named `datetimeformat`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">format</span> <span class="o">=</span> <span class="n">_get_format</span><span class="p">(</span><span class="s">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">format</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_date_format</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">format_datetime</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">rebase</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_date</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">rebase</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a date formatted according to the given pattern.  If no</span>
+<span class="sd">    :class:`~datetime.datetime` or :class:`~datetime.date` object is passed,</span>
+<span class="sd">    the current time is assumed.  By default rebasing happens which causes</span>
+<span class="sd">    the object to be converted to the users&#39;s timezone (as returned by</span>
+<span class="sd">    :func:`to_user_timezone`).  This function only formats the date part</span>
+<span class="sd">    of a :class:`~datetime.datetime` object.</span>
+
+<span class="sd">    The format parameter can either be ``&#39;short&#39;``, ``&#39;medium&#39;``,</span>
+<span class="sd">    ``&#39;long&#39;`` or ``&#39;full&#39;`` (in which cause the language&#39;s default for</span>
+<span class="sd">    that setting is used, or the default from the :attr:`Babel.date_formats`</span>
+<span class="sd">    mapping is used) or a format string as documented by Babel.</span>
+
+<span class="sd">    This function is also available in the template context as filter</span>
+<span class="sd">    named `dateformat`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">rebase</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">to_user_timezone</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">format</span> <span class="o">=</span> <span class="n">_get_format</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">,</span> <span class="n">format</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_date_format</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">format_date</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">rebase</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_time</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">rebase</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a time formatted according to the given pattern.  If no</span>
+<span class="sd">    :class:`~datetime.datetime` object is passed, the current time is</span>
+<span class="sd">    assumed.  By default rebasing happens which causes the object to</span>
+<span class="sd">    be converted to the users&#39;s timezone (as returned by</span>
+<span class="sd">    :func:`to_user_timezone`).  This function formats both date and</span>
+<span class="sd">    time.</span>
+
+<span class="sd">    The format parameter can either be ``&#39;short&#39;``, ``&#39;medium&#39;``,</span>
+<span class="sd">    ``&#39;long&#39;`` or ``&#39;full&#39;`` (in which cause the language&#39;s default for</span>
+<span class="sd">    that setting is used, or the default from the :attr:`Babel.date_formats`</span>
+<span class="sd">    mapping is used) or a format string as documented by Babel.</span>
+
+<span class="sd">    This function is also available in the template context as filter</span>
+<span class="sd">    named `timeformat`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">format</span> <span class="o">=</span> <span class="n">_get_format</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">format</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_date_format</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">format_time</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">rebase</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_timedelta</span><span class="p">(</span><span class="n">datetime_or_timedelta</span><span class="p">,</span> <span class="n">granularity</span><span class="o">=</span><span class="s">&#39;second&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Format the elapsed time from the given date to now or the given</span>
+<span class="sd">    timedelta.  This currently requires an unreleased development</span>
+<span class="sd">    version of Babel.</span>
+
+<span class="sd">    This function is also available in the template context as filter</span>
+<span class="sd">    named `timedeltaformat`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">datetime_or_timedelta</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="n">datetime_or_timedelta</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime_or_timedelta</span>
+    <span class="k">return</span> <span class="n">dates</span><span class="o">.</span><span class="n">format_timedelta</span><span class="p">(</span><span class="n">datetime_or_timedelta</span><span class="p">,</span> <span class="n">granularity</span><span class="p">,</span>
+                                  <span class="n">locale</span><span class="o">=</span><span class="n">get_locale</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">_date_format</span><span class="p">(</span><span class="n">formatter</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">rebase</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Internal helper that formats the date.&quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_locale</span><span class="p">()</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">formatter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dates</span><span class="o">.</span><span class="n">format_date</span> <span class="ow">and</span> <span class="n">rebase</span><span class="p">:</span>
+        <span class="n">extra</span><span class="p">[</span><span class="s">&#39;tzinfo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_timezone</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">formatter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_number</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the given number formatted for the locale in request</span>
+<span class="sd">    </span>
+<span class="sd">    :param number: the number to format</span>
+<span class="sd">    :return: the formatted number</span>
+<span class="sd">    :rtype: unicode</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_locale</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="o">.</span><span class="n">format_number</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_decimal</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the given decimal number formatted for the locale in request</span>
+
+<span class="sd">    :param number: the number to format</span>
+<span class="sd">    :param format: the format to use</span>
+<span class="sd">    :return: the formatted number</span>
+<span class="sd">    :rtype: unicode</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_locale</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="o">.</span><span class="n">format_decimal</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="n">format</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_currency</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">currency</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the given number formatted for the locale in request</span>
+
+<span class="sd">    :param number: the number to format</span>
+<span class="sd">    :param currency: the currency code</span>
+<span class="sd">    :param format: the format to use</span>
+<span class="sd">    :return: the formatted number</span>
+<span class="sd">    :rtype: unicode</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_locale</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="o">.</span><span class="n">format_currency</span><span class="p">(</span>
+        <span class="n">number</span><span class="p">,</span> <span class="n">currency</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="n">format</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_percent</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return formatted percent value for the locale in request</span>
+
+<span class="sd">    :param number: the number to format</span>
+<span class="sd">    :param format: the format to use</span>
+<span class="sd">    :return: the formatted percent number</span>
+<span class="sd">    :rtype: unicode</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_locale</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="o">.</span><span class="n">format_percent</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="n">format</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">format_scientific</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return value formatted in scientific notation for the locale in request</span>
+
+<span class="sd">    :param number: the number to format</span>
+<span class="sd">    :param format: the format to use</span>
+<span class="sd">    :return: the formatted percent number</span>
+<span class="sd">    :rtype: unicode</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">get_locale</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">numbers</span><span class="o">.</span><span class="n">format_scientific</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="n">format</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="n">locale</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="gettext"><a class="viewcode-back" href="../api.html#abilian.i18n.gettext">[docs]</a><span class="k">def</span> <span class="nf">gettext</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Translates a string with the current locale and passes in the</span>
+<span class="sd">    given keyword arguments as mapping to a string formatting string.</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        gettext(u&#39;Hello World!&#39;)</span>
+<span class="sd">        gettext(u&#39;Hello %(name)s!&#39;, name=&#39;World&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">get_translations</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">string</span> <span class="o">%</span> <span class="n">variables</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">ugettext</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">%</span> <span class="n">variables</span></div>
+<span class="n">_</span> <span class="o">=</span> <span class="n">gettext</span>
+
+
+<div class="viewcode-block" id="ngettext"><a class="viewcode-back" href="../api.html#abilian.i18n.ngettext">[docs]</a><span class="k">def</span> <span class="nf">ngettext</span><span class="p">(</span><span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Translates a string with the current locale and passes in the</span>
+<span class="sd">    given keyword arguments as mapping to a string formatting string.</span>
+<span class="sd">    The `num` parameter is used to dispatch between singular and various</span>
+<span class="sd">    plural forms of the message.  It is available in the format string</span>
+<span class="sd">    as ``%(num)d`` or ``%(num)s``.  The source language should be</span>
+<span class="sd">    English or a similar language which only has one plural form.</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        ngettext(u&#39;%(num)d Apple&#39;, u&#39;%(num)d Apples&#39;, num=len(apples))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">variables</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;num&#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">get_translations</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">singular</span> <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">plural</span><span class="p">)</span> <span class="o">%</span> <span class="n">variables</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">ungettext</span><span class="p">(</span><span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> <span class="o">%</span> <span class="n">variables</span>
+
+</div>
+<span class="k">def</span> <span class="nf">pgettext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Like :func:`gettext` but with a context.</span>
+
+<span class="sd">    .. versionadded:: 0.7</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">get_translations</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">string</span> <span class="o">%</span> <span class="n">variables</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">upgettext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span> <span class="o">%</span> <span class="n">variables</span>
+
+
+<span class="k">def</span> <span class="nf">npgettext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Like :func:`ngettext` but with a context.</span>
+
+<span class="sd">    .. versionadded:: 0.7</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">variables</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;num&#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">get_translations</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">singular</span> <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">plural</span><span class="p">)</span> <span class="o">%</span> <span class="n">variables</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">unpgettext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">plural</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> <span class="o">%</span> <span class="n">variables</span>
+
+
+<div class="viewcode-block" id="lazy_gettext"><a class="viewcode-back" href="../api.html#abilian.i18n.lazy_gettext">[docs]</a><span class="k">def</span> <span class="nf">lazy_gettext</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Like :func:`gettext` but the string returned is lazy which means</span>
+<span class="sd">    it will be translated when it is used as an actual string.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        hello = lazy_gettext(u&#39;Hello World&#39;)</span>
+
+<span class="sd">        @app.route(&#39;/&#39;)</span>
+<span class="sd">        def index():</span>
+<span class="sd">            return unicode(hello)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">speaklater</span> <span class="kn">import</span> <span class="n">make_lazy_string</span>
+    <span class="k">return</span> <span class="n">make_lazy_string</span><span class="p">(</span><span class="n">gettext</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">)</span>
+
+</div>
+<span class="k">def</span> <span class="nf">lazy_pgettext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Like :func:`pgettext` but the string returned is lazy which means</span>
+<span class="sd">    it will be translated when it is used as an actual string.</span>
+
+<span class="sd">    .. versionadded:: 0.7</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">speaklater</span> <span class="kn">import</span> <span class="n">make_lazy_string</span>
+    <span class="k">return</span> <span class="n">make_lazy_string</span><span class="p">(</span><span class="n">pgettext</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="o">**</span><span class="n">variables</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2013, Abilian SAS.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
