@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.py
+basic_theme/__init__.py
+basic_theme/base.html
+basic_theme/nav.html
+basic_theme/search.html
+basic_theme/css/theme.css
+basic_theme/js/theme.js
+mkdocs_basic_theme.egg-info/PKG-INFO
+mkdocs_basic_theme.egg-info/SOURCES.txt
+mkdocs_basic_theme.egg-info/dependency_links.txt
+mkdocs_basic_theme.egg-info/entry_points.txt
+mkdocs_basic_theme.egg-info/not-zip-safe
+mkdocs_basic_theme.egg-info/pbr.json
+mkdocs_basic_theme.egg-info/top_level.txt
+site/__init__.py
