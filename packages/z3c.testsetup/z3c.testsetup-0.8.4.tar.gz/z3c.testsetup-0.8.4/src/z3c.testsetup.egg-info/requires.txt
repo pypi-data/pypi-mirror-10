@@ -1,0 +1,9 @@
+setuptools
+zope.testing
+martian
+six
+
+[test]
+zope.app.testing
+zope.app.zcmlfiles
+zope.component
