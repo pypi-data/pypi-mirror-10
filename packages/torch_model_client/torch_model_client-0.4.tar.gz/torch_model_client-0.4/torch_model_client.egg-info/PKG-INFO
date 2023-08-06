@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: torch-model-client
+Version: 0.4
+Summary: client library for torch_model_server
+Home-page: https://bitbucket.org/plotwatt/torch_model_server
+Author: zach dwiel
+Author-email: zdwiel@plotwatt.com
+License: UNKNOWN
+Description:  A client lubrary for torch_model_server which serializes numpy
+            arrays to floats, sends the data across the wire over http to the
+            server and unserializes the array of floats back into a numpy
+            array 
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
