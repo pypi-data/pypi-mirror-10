@@ -1,0 +1,24 @@
+{% load i18n %}
+
+<form action="{% url 'djangocms_contact:contact' %}" method="POST" class="djc-contact-form">
+  {% csrf_token %}
+
+  <div class="name">
+    <label for="{{ contact_form.name.id_for_label }}">{% trans "Name:" %}</label>
+    {{ contact_form.name }}
+  </div>
+  <div class="email">
+    <label for="{{ contact_form.email.id_for_label }}">{% trans "Email:" %}</label>
+    {{ contact_form.email }}
+  </div>
+  <div class="subject">
+    <label for="{{ contact_form.subject.id_for_label }}">{% trans "Subject:" %}</label>
+    {{ contact_form.subject }}
+  </div>
+  <div class="message">
+    <label for="{{ contact_form.message.id_for_label }}">{% trans "Message:" %}</label>
+    {{ contact_form.message }}
+  </div>
+
+  <button type="submit">{% trans "Send" %}</button>
+</form>
