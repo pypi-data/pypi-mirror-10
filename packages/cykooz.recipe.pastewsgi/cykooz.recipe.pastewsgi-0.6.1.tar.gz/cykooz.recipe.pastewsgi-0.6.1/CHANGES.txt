@@ -1,0 +1,14 @@
+Changes
+=======
+
+0.6.1 (2015-06-25)
+------------------
+
+- Fixed a bug when using Python 3.x.
+- Added the initialization option ``target`` that can be used to specify a full path of generated script.
+
+0.5 (2014-05-20)
+----------------
+
+- Create fork of ``tranchitella.recipe.wsgi == 0.4``
+- Add an initialization option to specify code for additional initialization
