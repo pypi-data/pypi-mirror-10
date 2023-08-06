@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo="Personaje" subtipo='P'>
+
+    <nombre>Alma Blanca</nombre>
+
+    <clases/>
+
+    <nivel>1</nivel>
+
+    <atributos>
+        <salud>2</salud>
+        <consentracion>2</consentracion>
+        <agilidad>2</agilidad>
+    </atributos>
+
+    <imagen archivo='AlmaBlanca.png'>
+        <titulo><![CDATA[La Esencia de una idea pura que toma forma fisica]]></titulo>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>4</serial>
+        <vercion>1</vercion>
+    </metadatos>
+
+</carta>

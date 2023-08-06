@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from Cambios.main import CambiosNoDeseados
+from Cambios.juego import Juego, Personaje
+from Cambios.cartas import MasoCartas, BuscarCarta
+from Cambios.reglas import Jugador
+
+
+def main(servidor, puerto):
+    personajes = [100000401, 100000501, 100000601, 100000701]
+    recursos = [100000101, 100000201, 100000301]
+    habilidades = [100000801, 100000901, 100001001]
+    cartas = [
+        BuscarCarta(recursos[0]),
+        BuscarCarta(recursos[0]),
+        BuscarCarta(habilidades[0]),
+        BuscarCarta(habilidades[0]),
+        BuscarCarta(recursos[0]),
+        BuscarCarta(recursos[0]),
+        BuscarCarta(recursos[2]),
+        BuscarCarta(recursos[2]),
+        BuscarCarta(habilidades[0]),
+        BuscarCarta(habilidades[0]),
+        ]
+    maso = MasoCartas(10)
+    maso.agregar(cartas)
+    jugador = Jugador(maso, [BuscarCarta(personajes[0]), BuscarCarta(personajes[2])])
+
+    juego = CambiosNoDeseados(servidor, puerto)
+    juego.jugador = jugador
+    juego.start()
+    juego.join()
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print "Uso:", sys.argv[0], "servidor:puerto"
+        print "e.g.", sys.argv[0], "localhost:31425"
+    else:
+        host, port = sys.argv[1].split(":")
+        main(host, int(port))

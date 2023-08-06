@@ -1,0 +1,52 @@
+Metadata-Version: 1.0
+Name: CambiosNoDeseados
+Version: 0.0.1.dev3
+Summary: Cambios No Deseados - Conbinación de un RPG Tactico y un TCG
+Home-page: https://bitbucket.org/WolfangT/cambiosnodeseadoscd
+Author: Wolfang Torres
+Author-email: Wolfang.Torres@gmail.com
+License: MIT
+Description: # README #
+        
+        
+        ## ¿Que es Cambios No Deseados? ##
+        
+        Es un proyecto entre unos amigos para crear una combinación entre un Rouge-Like y un TGC
+        
+        Actualmente esta en la versión <a1> "alpha 1"
+        
+        
+        ## ¿Como lo pruebo? ##
+        
+        Por los momentos no existen un instalador
+        
+        
+        ## ¿Como esta siendo desarrollado? ##
+        
+        El juego esta escrito en python usando la librería PyGame para los gráficos y PodSixNet para la comunicación en red. El juego esta diseñado con un modelo servidor - cliente en mente.
+        
+        El código esta estructurado en varios módulos que contienen un nivel de abstracción lógica diferente:
+        
+        ### Juego ###
+        Contiene las definiciones de los componentes del juego en si, que es un mapa, que es un personaje, etc.
+        
+        ### Cartas ###
+        Define el concepto de carta y maso, permite crear cartas en base a archivos xml
+        
+        ### Reglas ###
+        Contiene las definiciones de la forma en que el juego es jugado, los jugadores, interpreta los efectos de las cartas
+        
+        ### Interfaz ###
+        Crea la interfaz gráfica con la que el usuario interactúa
+        
+        ### Cliente ###
+        Define a un jugador que se conecta a un servidor para jugar, le permite a la interfaz enviar y recibir información
+        
+        ### Servidor ###
+        Define al servidor central que controla el juego, decide que información enviá a los clientes
+        
+        
+        ## ¿Quien trabaja en esto? ##
+        
+        El administrador es Wolfang Torres, lo puedes encontrar en wolfang.torres@gmail.com
+Platform: UNKNOWN

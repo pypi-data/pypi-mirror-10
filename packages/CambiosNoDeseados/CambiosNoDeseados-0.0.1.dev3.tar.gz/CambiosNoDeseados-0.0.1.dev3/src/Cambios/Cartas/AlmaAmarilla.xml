@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo="Personaje" subtipo='P'>
+
+    <nombre>Alma Amarilla</nombre>
+
+    <clases/>
+
+    <nivel>1</nivel>
+
+    <atributos>
+        <salud>1</salud>
+        <consentracion>1</consentracion>
+        <agilidad>3</agilidad>
+    </atributos>
+
+    <imagen archivo='AlmaAmarilla.png'>
+        <titulo>La Esencia de un sentimiento que ha sido reimaginado por generaciones</titulo>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>7</serial>
+        <vercion>1</vercion>
+    </metadatos>
+
+</carta>
+

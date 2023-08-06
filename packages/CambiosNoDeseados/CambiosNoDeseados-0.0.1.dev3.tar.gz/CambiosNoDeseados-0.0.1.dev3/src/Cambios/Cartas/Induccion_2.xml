@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo='Habilidad' subtipo='Inmediata'>
+
+    <nombre>Inducción</nombre>
+
+    <clases/>
+
+    <habilidad>
+        <titulo>Intercambiar</titulo>
+        <activacion>Acción</activacion>
+        <costo>
+            <token tipo='Agilidad' valor='1'/>
+        </costo>
+        <efecto>Intercambia tu posición con el objetivo</efecto>
+        <extra>
+            <token tipo='Alcanse' valor='1'/>
+        </extra>
+    </habilidad>
+
+    <imagen>
+        <titulo/>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>9</serial>
+        <vercion>2</vercion>
+    </metadatos>
+
+</carta>

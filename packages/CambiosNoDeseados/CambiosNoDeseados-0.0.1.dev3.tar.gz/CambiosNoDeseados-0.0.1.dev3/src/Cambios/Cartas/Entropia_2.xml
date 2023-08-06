@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo='Habilidad' subtipo='Inmediata'>
+
+    <nombre>Entropia</nombre>
+
+    <clases/>
+
+    <habilidad>
+        <titulo>Lastimar</titulo>
+        <activacion>Acción</activacion>
+        <costo>
+            <token tipo='Resistencia' valor='1'/>
+        </costo>
+        <efecto>Destruir <token tipo='Energia' valor='1'/> al objetivo</efecto>
+        <extra>
+            <token tipo='Alcanse' valor='1'/>
+        </extra>
+    </habilidad>
+
+    <imagen>
+        <titulo/>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>8</serial>
+        <vercion>2</vercion>
+    </metadatos>
+
+</carta>

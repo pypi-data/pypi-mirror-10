@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta tipo='Habilidad' subtipo='Inmediata'>
+
+    <nombre>Radiación</nombre>
+
+    <clases/>
+
+    <habilidad>
+        <titulo>Energisar</titulo>
+        <activacion>Reacción</activacion>
+        <costo>
+            <token tipo='Energia' valor='1'/>
+        </costo>
+        <efecto>Si eres afectado por una habilidad de otro personaje:</efecto>
+        <efecto>Puedes realizar una acción que interviene el periodo actual</efecto>
+        <extra/>
+    </habilidad>
+
+    <imagen>
+        <titulo/>
+        <alternativo/>
+        <artista/>
+    </imagen>
+
+    <metadatos licencia="®Tierras extrañas: Escaramusas, por Wolfang Torres, Todos los derechos reservados">
+        <temporada numero='0'>Mundo Extraño</temporada>
+        <expancion numero='0'/>
+        <serial>10</serial>
+        <vercion>2</vercion>
+    </metadatos>
+
+</carta>
