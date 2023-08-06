@@ -1,0 +1,15 @@
+MANIFEST.in
+setup.cfg
+setup.py
+djangocms_renderit_plugin/__init__.py
+djangocms_renderit_plugin/cms_plugins.py
+djangocms_renderit_plugin/models.py
+djangocms_renderit_plugin/tests.py
+djangocms_renderit_plugin.egg-info/PKG-INFO
+djangocms_renderit_plugin.egg-info/SOURCES.txt
+djangocms_renderit_plugin.egg-info/dependency_links.txt
+djangocms_renderit_plugin.egg-info/top_level.txt
+djangocms_renderit_plugin/migrations/0001_initial.py
+djangocms_renderit_plugin/migrations/0002_renderitcmsplugin_tag_libraries.py
+djangocms_renderit_plugin/migrations/__init__.py
+djangocms_renderit_plugin/templates/djangocms_renderit_plugin/renderit.html
