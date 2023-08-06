@@ -1,0 +1,69 @@
+Metadata-Version: 1.1
+Name: microstackcommon
+Version: 0.2.1
+Summary: The Microstack common functions module.
+Home-page: https://github.com/microstack/microstackcommon
+Author: Thomas Preston
+Author-email: thomas.preston@openlx.org.uk
+License: GPLv3+
+Description: microstackcommon
+        ================
+        
+        Common functions for interacting with Microstack products.
+        
+        Contains some core helper functions and pure Python drivers for accessing
+        GPIO pins, SPI and I2C buses.
+        
+        Currently in active development. Still need to experiment with SMBus for
+        Python 3.
+        
+        
+        Documentation
+        =============
+        
+        [http://microstack-iot.github.io/](http://microstack-iot.github.io/)
+        
+        Install
+        =======
+        
+        Make sure you are using the latest version of Raspbian:
+        
+            $ sudo apt-get update
+            $ sudo apt-get upgrade
+        
+        Install `microstackcommon` for Python 3 with the following command:
+        
+            $ sudo apt-get install python3-microstackcommon
+        
+        You will also need to set up automatic loading of the SPI kernel module which
+        can be done with the latest version of `raspi-config`. Run:
+        
+            $ sudo raspi-config
+        
+        Then navigate to `Advanced Options`, `SPI` and select `yes`.
+        Change Log
+        ==========
+        
+        v0.2.0
+        ------
+        - Removed most of the spi/gpio group stuff becasue of new Raspbian rules.
+        - Updated GPIO.
+        - Cleaned up and adding to PyPi.
+        
+        v0.1.1
+        ------
+        - Added i2c_dev to modules in install proceedure.
+        
+        
+        v0.1.0
+        ------
+        - Inital structure.
+        
+Keywords: microstack raspberrypi openlx
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
