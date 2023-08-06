@@ -1,0 +1,3 @@
+recursive-include sphinx_html5_basic_theme *.conf *.html *.xml *.gif *.png *.css_t
+recursive-include sphinx_html5_basic_theme *.js *.js_t *.rst *.bat Makefile *.py
+recursive-exclude sphinx_html5_basic_theme/doc/_build *
