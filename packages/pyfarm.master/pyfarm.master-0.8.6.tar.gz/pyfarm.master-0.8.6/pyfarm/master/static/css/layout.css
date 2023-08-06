@@ -1,0 +1,24 @@
+ul.dropdown-menu-form {
+    padding: 5px 10px 5px;
+}
+
+.main-container {
+    margin-left:10%;
+    margin-right:10%
+}
+
+.flash {
+    margin-top:10px;
+    margin-bottom:10px;
+    padding:0.8em;
+    border:1px solid #DDD;
+    border-radius:4px;
+}
+
+.clickable-icon {
+    cursor: pointer;
+}
+
+label {
+    font-weight: normal !important;
+}

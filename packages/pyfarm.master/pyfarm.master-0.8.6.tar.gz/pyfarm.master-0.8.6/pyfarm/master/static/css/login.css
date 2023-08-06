@@ -1,0 +1,5 @@
+/*
+override the input fields because they're
+not displayed properly after being inherited
+*/
+input { min-height: 30; }

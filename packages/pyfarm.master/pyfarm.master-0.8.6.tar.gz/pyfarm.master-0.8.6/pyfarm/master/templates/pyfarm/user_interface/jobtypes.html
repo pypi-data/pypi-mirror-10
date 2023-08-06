@@ -1,0 +1,27 @@
+{% extends "pyfarm/user_interface/layout.html" %}
+{% block title %}Jobtypes{% endblock %}
+{% block jobtypes_nb_class %}active{% endblock %}
+{% block content %}
+
+<table class="table table-striped table-bordered model-list">
+  <tr>
+    <th></th>
+    <th>Name</th>
+  </tr>
+  {% for jobtype in jobtypes %}
+  <tr>
+    <td>
+      <form style="display: inline;" role="form" method="POST" action="{{ url_for('remove_single_jobtype_ui', jobtype_id=jobtype.id) }}">
+        <label for="remove-jobtype-{{jobtype.id}}-submit" class="clickable-icon" title="Remove jobtype"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></label>
+        <input id="remove-jobtpye-{{jobtype.id}}-submit" type="submit" class="hidden" onclick="return confirm('Are you sure you want to remove this jobtype?');"/>
+      </form>
+    </td>
+    <td>
+      <a href="{{ url_for('single_jobtype_ui', jobtype_id=jobtype.id) }}">{{ jobtype.name }}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{{ url_for('jobtype_create_ui') }}" class="btn btn-default" role="button">Create</a>
+{% endblock %}

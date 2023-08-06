@@ -1,0 +1,181 @@
+{% extends "pyfarm/user_interface/layout.html" %}
+{% block title %}Jobtype {{ jobtype.name }}{% endblock %}
+{% block jobtypes_nb_class %}active{% endblock %}
+{% block additional_styles %}
+<link href="{{ url_for('static', filename='css/jobtype.css') }}" rel="stylesheet">
+{% endblock %}
+{% block additional_scripts %}
+<script src="{{ url_for('static', filename='js/jobtype.js') }}" type="text/javascript"></script>
+{% endblock %}
+{% block content %}
+
+<h1 style="margin-bottom:20px">{{ jobtype.name }}</h1>
+<form method="POST" action="{{ url_for('single_jobtype_ui', jobtype_id=jobtype.id) }}">
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+        Name
+      </td>
+      <td>
+        <input type="text" class="form-control" value="{{ jobtype.name }}" disabled/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="description">Description</label>
+      </td>
+      <td>
+        <textarea id="description" class="form-control" name="description">{{ jobtype.description or '' }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="version">Version</label>
+      </td>
+      <td>
+        <input type="text" id="version" class="form-control" value="{{ latest_version.version }}" disabled/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="max_batch">Max Batch</label>
+      </td>
+      <td>
+        <input type="text" class="form-control" id="max_batch" name="max_batch" value="{{ latest_version.max_batch or ''}}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="batch_contiguous">Batch Contiguous</label>
+      </td>
+      <td>
+        {% if latest_version.batch_contiguous %}
+        <input type="checkbox" id="batch_contiguous" name="batch_contiguous" value="true" checked/>
+        {% else %}
+        <input type="checkbox" id="batch_contiguous" name="batch_contiguous" value="true"/>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="classname">Class Name</label>
+      </td>
+      <td>
+        <input type="text" class="form-control" id="classname" name="classname" value="{{ latest_version.classname }}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="code">Code</label>
+      </td>
+      <td>
+        <textarea id="code" name="code" class="form-control">{{ latest_version.code }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <input type=submit class="btn" value="Update Jobtype"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</form>
+
+<h4>Actions</h4>
+<form style="display: inline;" role="form" method="POST" action="{{ url_for('remove_single_jobtype_ui', jobtype_id=jobtype.id) }}">
+  <label for="remove-jobtype-submit" class="clickable-icon" title="Remove jobtype"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove</label>
+  <input id="remove-jobtype-submit" type="submit" class="hidden" onclick="return confirm('Are you sure you want to remove this jobtype?');"/>
+</form>
+
+<h4>Required Software</h4>
+{% for requirement in latest_version.software_requirements %}
+<div class="software_requirement">
+  <form style="display: inline;" role="form" method="POST" action="{{ url_for('single_jobtype_remove_requirement_ui', jobtype_id=jobtype.id, software_id=requirement.software_id) }}">
+    <label for="remove-requirement-submit" class="clickable-icon" title="Remove software requirement"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></label>
+    <input id="remove-requirement-submit" type="submit" class="hidden" onclick="return confirm('Are you sure you want to remove this software requirement?');"/>
+  </form>
+  <span class="software">{{ requirement.software.software }}</span>
+  {% if requirement.min_version %}
+  <span class="min_version">&gt;= {{ requirement.min_version.version }}</span>
+  {% endif %}
+  {% if requirement.max_version %}
+  <span class="max_version">&lt;= {{ requirement.max_version.version }}</span>
+  {% endif %}
+</div>
+{% endfor %}
+
+<h5>Add</h5>
+<form method="POST" action="{{ url_for('single_jobtype_add_requirement_ui', jobtype_id=jobtype.id) }}" class="form-horizontal">
+    <div class="form-group">
+      <label for="software" class="col-sm-2 control-label">Software</label>
+      <div class="col-sm-5">
+        <select id="software" class="form-control" name="software">
+          <option value=""></option>
+          {% for software in software_items %}
+          <option value="{{ software.id }}">{{ software.software }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="minimum_version" class="col-sm-2 control-label">Minimum Version</label>
+      <div class="col-sm-5">
+        <select id="minimum_version" name="minimum_version" class="form-control">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="maximum_version" class="col-sm-2 control-label">Maximum Version</label>
+      <div class="col-sm-5">
+        <select id="maximum_version" name="maximum_version" class="form-control">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="control">
+        <input type="submit" class="btn" value="Add"/>
+      </div>
+    </div>
+</form>
+
+<h4>Notification Templates</h4>
+<h5>Success Notification</h5>
+<form method="POST" action="{{ url_for('single_jobtype_update_templates', jobtype_id=jobtype.id) }}" class="form">
+  <div class="form-group">
+    <label for="success_subject" class="control-label">Subject</label>
+    <input type="text" name="success_subject" class="form-control" id="success_subject" value="{{ jobtype.success_subject or ''}}"/>
+  </div>
+  <div class="form-group">
+    <label for="success_body" class="control-label">Body</label>
+    <textarea name="success_body" class="form-control" id="success_body">{{ jobtype.success_body or ''}}</textarea>
+  </div>
+  <div class="form-group">
+    <div class="control">
+      <input type="submit" class="btn" value="Update"/>
+    </div>
+  </div>
+</form>
+
+<h5>Failure Notification</h5>
+<form method="POST" action="{{ url_for('single_jobtype_update_templates', jobtype_id=jobtype.id) }}" class="form">
+  <div class="form-group">
+    <label for="failure_subject" class="control-label">Subject</label>
+    <input type="text" name="failure_subject" class="form-control" id="failure_subject" value="{{ jobtype.fail_subject or '' }}"/>
+  </div>
+  <div class="form-group">
+    <label for="failure_body" class="control-label">Body</label>
+    <textarea name="failure_body" class="form-control" id="failure_body">{{ jobtype.fail_body or '' }}</textarea>
+  </div>
+  <div class="form-group">
+    <div class="control">
+      <input type="submit" class="btn" value="Update"/>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
