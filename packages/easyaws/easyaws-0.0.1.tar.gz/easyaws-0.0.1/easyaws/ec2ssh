@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Author: Amber Jain
+# Email: i.amber.jain {at} gmail
+
+# TODO:
+# 1. Non-existing instance name supplied to -c
+# 2. Ability to specify username (-u option)
+
+set -e
+
+SELF_NAME=$(basename $0)
+ 
+# Prints warning/error $MESSAGE in red foreground color
+red_echo() {
+    echo -e "\e[1;31m[E] $SELF_NAME: $MESSAGE\e[0m"
+}
+
+simple_red_echo() {
+    echo -e "\e[1;31m$MESSAGE\e[0m"
+}
+
+# Prints success/info $MESSAGE in green foreground color
+green_echo() {
+    echo -e "\e[1;32m[S] $SELF_NAME: $MESSAGE\e[0m"
+}
+
+simple_green_echo() {
+    echo -e "\e[1;32m$MESSAGE\e[0m"
+}
+ 
+# Prints $MESSAGE in blue foreground color
+blue_echo() {
+    echo -e "\e[1;34m[I] $SELF_NAME: $MESSAGE\e[0m"
+}
+
+simple_blue_echo() {
+    echo -e "\e[1;34m$MESSAGE\e[0m"
+}
+
+help(){
+	echo "Usage: $0 [options] "
+	echo "Options:"
+	echo "  -h                 Print this help message"
+	echo "  -l                 List all EC2 instances (with instance state)"
+	echo "  -c <instance_name> Connect to specified ec2 instance name"
+	echo "  -i <identity_file> File from which the identity (private key) for public key authentication is read"
+	#echo "  -p <ssh_port>      Port to connect to on the remote host"
+	#echo "  -v                 Turn on verbose output for SSH command (when used with -c option)"
+	exit 0
+}
+
+list_instances(){
+	MESSAGE="Output format: (InstanceState, InstanceName, Keyname)" ; simple_blue_echo
+	aws ec2 describe-instances --query 'Reservations[].Instances[].[State.Name,Tags[?Key==`Name`] | [0].Value,KeyName]' --filters Name=instance-state-name,Values=running --output table
+	exit 0
+}
+
+connect_ssh(){
+	MESSAGE="Trying to connect to EC2 instance: '$OPTARG'" ; blue_echo
+	INSTANCE_NAME=$OPTARG
+	INSTANCE_PUBLIC_DNS_NAME=`aws ec2 describe-instances --filters "Name=tag:Name,Values=$OPTARG" --query 'Reservations[].Instances[].[PublicDnsName]'`
+	INSTANCE_STATE=`aws ec2 describe-instances --filters "Name=tag:Name,Values=$OPTARG" --query 'Reservations[].Instances[].[State.Name]'`
+	if [[ $INSTANCE_STATE == "stopped" ]]
+	then
+  		MESSAGE="'$OPTARG' is NOT running" ; red_echo
+	else
+  		MESSAGE="Detected public DNS name of '$OPTARG' as '$INSTANCE_PUBLIC_DNS_NAME'" ; green_echo
+	fi
+}
+
+while getopts "hlc:i:" opt; do
+  case $opt in
+    h)
+      help
+      ;;
+    l)
+	  list_instances
+	  ;;
+	i)
+	  KEY_FILE_LOCATION=$OPTARG
+	  ;;
+	c)
+	  connect_ssh
+	  ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+if [ -z "$INSTANCE_PUBLIC_DNS_NAME" ]; then
+	help
+elif [ -z "$KEY_FILE_LOCATION" ]; then
+	help
+else
+	MESSAGE="SSHing into '$INSTANCE_PUBLIC_DNS_NAME' (i.e. '$INSTANCE_NAME') with key '$KEY_FILE_LOCATION'" ; blue_echo
+	ssh ubuntu@$INSTANCE_PUBLIC_DNS_NAME -i $KEY_FILE_LOCATION
+fi
