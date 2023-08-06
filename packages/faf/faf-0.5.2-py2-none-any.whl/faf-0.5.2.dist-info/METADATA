@@ -1,0 +1,38 @@
+Metadata-Version: 2.0
+Name: faf
+Version: 0.5.2
+Summary: Fire & Forget HTTP Requests
+Home-page: https://github.com/Magnetic/FAF
+Author: Magnetic Engineering
+Author-email: Engineering@Magnetic.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: characteristic
+Requires-Dist: treq
+Requires-Dist: Twisted
+Provides-Extra: dogstatsd
+Requires-Dist: dogstatsd-python; extra == 'dogstatsd'
+Provides-Extra: statsd
+Requires-Dist: datadog; extra == 'statsd'
+
+===
+FAF
+===
+
+FAF (Fire And Forget) is a simple HTTP(s) relayer.
+
+Start it on an endpoint, send URLs over the endpoint, and it will make
+HTTP requests to each URL it sees.
+
+The responses are generally meant to be ignored (or just monitored for
+success).
+
+
