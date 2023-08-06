@@ -1,0 +1,4 @@
+#!/usr/bin/python
+from dataplicity.app import App
+import sys
+sys.exit(App().run())
