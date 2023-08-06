@@ -1,0 +1,181 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="ps.plone.jssor"
+      tal:omit-tag="">
+
+<tal:slider tal:define="results view/results|nothing;
+                  viewletClass string:featured-listing-top ps_slider top ${view/get_PositionClass}" >
+<div tal:attributes="class viewletClass" tal:condition="results">
+  <div class="slider_title" tal:define="title view/get_title" tal:condition="title">
+    <h2 tal:content="title" />
+  </div>
+  <!-- include gallery JS -->
+  <div class="fls-script" id="fls-script-top" 
+    tal:define="script view/get_code|nothing" tal:condition="script"
+    tal:content="structure script" />
+
+<div class="fls-wrapper" id="fls-top-wrapper"
+    tal:define="stageCSS view/StageCss;
+                slidesCSS view/StageCss">
+  <div class="slider_collection slider1_container" id="slider1_container" 
+    tal:attributes="style string:${stageCSS};">
+      <tal:results
+          tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                      wraplink python:True;">
+
+      <!-- Loading Screen     -->  
+      <tal:loader tal:condition="view/haveLoader">   
+        <div u="loading" style="position:absolute;top:0px;left:0px;">
+          <div class="loader_background"></div>
+          <div class="loader_image" ></div>
+        </div>
+      </tal:loader>
+      
+
+      <div u="slides" class="fls-slides"
+        tal:attributes="style string:${slidesCSS};">
+        <div class="collection-item visualIEFloatFix"
+             tal:repeat="listing results">
+          <tal:items
+              tal:define="listing_title listing/title/value;
+                          provider_url view/ProviderUrl|nothing;
+                          listing_url string:${provider_url}/${listing/id/value};">
+            <tal:fields>
+                
+              <tal:image
+                  tal:define="image listing/lead_image | nothing">
+                  <a  u="image"
+                      tal:attributes="href listing_url;
+                                      title listing_title">
+                    <img
+                      tal:condition="image"
+                      tal:attributes="src image;
+                                      alt listing_title" />
+                    <img
+                      tal:condition="not:image" alt="" title=""
+                      src="++resource++plone.mls.listing.images/no-image.png" />
+                  </a>
+                  <img u="thumb" tal:condition="view/haveThumbnailNavigator"
+                    tal:attributes="src listing/lead_image_thumb"/>
+              </tal:image>
+
+              <div
+                tal:condition="view/showCaption"
+                u="caption" t="0" t2="0"
+                tal:attributes="class view/CaptionCSSClass"
+                tal:define="layout view/CaptionDataLayout;
+                            bath_val listing/rooms_baths/value|nothing;
+                            bath python: True if bath_val is not None else False;
+                            bed_val listing/rooms_beds/value|nothing;
+                            bed python: True if bed_val is not None else False;
+                            bedbath_val listing/beds_baths/value|nothing;
+                            bedbath python: True if bedbath_val is not None else False;
+                            location_raw listing/location/value;
+                            location_list python:location_raw.split(',');
+                            location_length python:len(location_list)-1;
+                            location python:location_list[0]+', '+location_list[location_length-1]+', '+location_list[location_length];
+                            isLongCaption view/isLongCaption;">
+                <div class="fls_caption">
+                  <div 
+                    tal:attributes="class layout"
+                    tal:condition="python: layout=='layout01'">
+                    
+                    <h3 class="highlight price" tal:content="listing/price/value"/>
+                    <div class="title" tal:content="listing/title/value"/>
+                    <div class="location" tal:content="location"/>
+                    <div class="bedbath">
+                      <span class="baths icons-on" tal:condition="bath"><span tal:content="bath_val"/></span>
+                      <span class="beds icons-on"  tal:condition="bed"><span tal:content="bed_val"/></span>
+                    </div>
+
+                  </div>
+                  <div 
+                    tal:attributes="class layout"
+                    tal:condition="python: layout=='layout02'">
+                    <div class="row01">
+                      <div class="title" tal:content="listing/title/value"/>
+                    </div>
+                    <div class="row02">
+                      <span class="baths icons-on" tal:condition="bath"><span tal:content="bath_val"/></span>
+                      <span class="beds icons-on"  tal:condition="bed"><span tal:content="bed_val"/></span>
+                      <span class="v_devider"/>
+                      <span class="location" tal:content="location"/>
+                      <span class="highlight price" tal:content="listing/price/value"/>
+                    </div>
+                  </div>
+                  <div 
+                    tal:attributes="class layout"
+                    tal:condition="python: layout=='layout03'">
+                    <div class="short" tal:condition="not:isLongCaption">
+                      <span class="title" tal:content="listing/title/value" />
+                      <span class="type icons-on" tal:content="listing/object_type/value"/>
+                      <span class="beds icons-on"  tal:condition="bed" tal:content="bed_val" />
+                      <span class="baths icons-on" tal:condition="bath" tal:content="bath_val"/>
+                      <span class="price" tal:content="listing/price/value"/>
+                     
+                    </div>
+                  <div class="long" tal:condition="isLongCaption">
+                    <h3 class="title" tal:content="listing/title/value" />
+                    <span class="location" tal:content="location"/>
+                    <div class="top-info">
+                      <div class="object_type"><span class="label" tal:content="listing/object_type/label" /> - <span class="value" tal:content="listing/object_type/value"/></div>
+                      <div class="beds_baths" tal:condition="bedbath"><span class="label" tal:content="listing/beds_baths/label" /> - <span class="value" tal:content="listing/beds_baths/value"/></div>
+                    </div>
+                    <div class="bottom-info">
+                      <div class="location_type">
+                        <span class="label" tal:content="listing/location_type/label" /> - 
+                        <span class="value" tal:content="listing/location_type/value"/>
+                      </div>
+                      <div class="view_type">
+                        <span class="label" tal:content="listing/view_type/label" /> - 
+                        <span class="value" tal:content="listing/view_type/value"/>
+                      </div>
+                      <div class="lot_size">
+                        <span class="label" tal:content="listing/lot_size/label" /> - 
+                        <span class="value" tal:content="listing/lot_size/value"/>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  </div>
+                  <div 
+                    tal:attributes="class layout"
+                    tal:condition="python: layout=='layout04'">
+                    <div class="location" tal:content="location"/>
+                    <div class="type icons-on" tal:content="listing/object_type/value"/>
+                    <div class="price" tal:content="listing/price/value"/>
+                    <p class="title" tal:condition="isLongCaption" tal:content="listing/title/value" />
+                    <p class="bed_bath" tal:condition="isLongCaption" >
+                      <span class="beds icons-on"  tal:condition="bed" tal:content="bed_val" />
+                      <span class="baths icons-on" tal:condition="bath" tal:content="bath_val"/>
+                    </p>
+                      
+                  </div>
+                </div>
+              </div>
+
+            </tal:fields>
+          </tal:items>
+          
+        </div>
+        <!-- ??? -->
+      </div>
+      </tal:results>
+      <!-- Navigators -->
+      <tal:bulletnav tal:condition="view/haveBulletPointNavigator"
+          tal:content="structure view/get_BulletPointNavigator|nothing"/>
+      <tal:thumbnav tal:condition="view/haveThumbnailNavigator"
+          tal:content="structure view/get_ThumbnailNavigator|nothing"/>
+
+      <tal:arrownav tal:condition="view/haveArrowNavigator" 
+          tal:content="structure view/get_ArrowNavigator|nothing"/>
+      
+    </div>
+    
+  </div>
+</div>
+</tal:slider>
+</html>
