@@ -1,0 +1,35 @@
+Metadata-Version: 1.0
+Name: type-constraint
+Version: 0.0.7
+Summary: a type constraint tool for python function
+Home-page: http://tieba.baidu.com/f?ie=utf-8&kw=%E5%91%A8%E4%BA%95%E6%B1%9F
+Author: timchow
+Author-email: jingjiang@staff.sina.com.cn
+License: LGPL
+Description: from type_constraint import BasicCheck, CheckMeta, Check
+        
+        class A:
+            __metaclass__ = CheckMeta()
+            def f(self, i, j):
+                """
+                @param i str
+                @param j str
+                """
+                return i + j
+        
+        a = A()
+        a.f('1', '2')
+        
+        @BasicCheck
+        def test_func(i, j):
+            """
+            this is a test function for type constraint
+            @param i int   :this is the first operand
+            @param j float :this is the second operand
+            @return float
+            """
+            return i / j
+        
+        
+Keywords: type constraint
+Platform: UNKNOWN
