@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: gtfe
+Version: 1.1.2
+Summary: Get the number of seconds since the Unix epoch for a given datetime.
+Home-page: https://github.com/mverteuil/gtfe
+Author: Matthew de Verteuil, Jason Peddle, Liav Koren, Ben Webber
+Author-email: onceuponajooks@gmail.com
+License: MIT
+Description: installation
+        ------------
+        
+        `pip install gtfe`
+        
+        usage
+        -----
+        
+        didactic example::
+        
+            >>> import time, datetime, gtfe
+            >>> time.time(), gtfe.get_epoch_for_datetime(datetime.datetime.now())
+            (1434054301.937659, 1434054301.0)
+        
+        testing
+        -------
+        
+        - Clone the repository
+        - `python setup.py test`
+Keywords: epoch datetime time timezone
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet
