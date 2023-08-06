@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = openstacksdk_plugin
+omit = openstacksdk_plugin/openstack/*
+
+[report]
+ignore-errors = True
