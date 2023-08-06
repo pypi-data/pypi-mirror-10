@@ -1,0 +1,4 @@
+[console_scripts]
+conn-check = conn_check.main:main
+conn-check-export-fw = conn_check.utils.firewall_rules:main
+
