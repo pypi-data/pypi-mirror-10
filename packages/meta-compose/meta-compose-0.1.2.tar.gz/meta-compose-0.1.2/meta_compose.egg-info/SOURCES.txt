@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+meta_compose.egg-info/PKG-INFO
+meta_compose.egg-info/SOURCES.txt
+meta_compose.egg-info/dependency_links.txt
+meta_compose.egg-info/entry_points.txt
+meta_compose.egg-info/requires.txt
+meta_compose.egg-info/top_level.txt
+metacompose/__init__.py
+metacompose/cli/__init__.py
+metacompose/cli/main.py
+tests/__init__.py
+tests/simple_template_test.py
