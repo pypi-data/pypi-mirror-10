@@ -1,0 +1,20 @@
+CHANGES
+=======
+
+1.0.1
+-----
+
+* Explicitly depend on pbr
+* Add venv environment for tox
+* Use pbr without explicit version
+
+1.0.0
+-----
+
+* Manual update from global requirements
+* Switch to pbr
+* Basic support for API versions
+* After-moving code reorganization
+* Sync remaining changes from ironic-inspector tree
+* Add gitreview file
+* Initial import
