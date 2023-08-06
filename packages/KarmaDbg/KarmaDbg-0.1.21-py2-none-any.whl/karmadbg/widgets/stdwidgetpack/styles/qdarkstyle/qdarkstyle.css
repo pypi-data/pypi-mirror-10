@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+}
+
+pre {
+    margin: 0;
+}
+
+
+.highlight .symbol {
+    color : #0099CC;
+}
+
+.highlight .sourcefile {
+    color : #006666;
+}
+
+.highlight .current {
+    color: #006666;
+    background-color : gray;
+    width: 100%;
+}
+
+.highlight .breakpoint {
+    color: maroon;
+    background-color : black;
+}
+
+
+.error {
+    color: purple
+}
+
+.highlight .lineno {
+    color: silver;
+    background:  #3A3939;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.highlighttable .linenodiv {
+    color: silver;
+    background:  #3A3939;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.highlight .p {
+    color : silver;
+    font-weight: bold;
+}
+
+.highlight .k {
+    color : #0099CC;
+    font-weight: bold;
+}
+
+.highlight .c1 {
+    color : #AACCAA;
+}
+
+.highlight .cm {
+    color : #AACCAA;
+}
+
+.highlight .cp {
+    color : dimgrey
+}
+
+.highlight .fn {
+    font-weight: bold;
+}
+
+.highlight .nb {
+    color: maroon;
+}
+
+.highlight .o {
+    font-weight: bold;
+}
+
+.highlight .mi {
+    color: maroon;
+
+}
