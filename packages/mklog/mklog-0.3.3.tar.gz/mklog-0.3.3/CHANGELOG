@@ -1,0 +1,54 @@
+mklog 0.3.3 (Sat Jun 13 21:52:18 CEST 2015)
+
+  * Prevent encoding errors on string received from file or (standard or error)
+    input.
+  * Simplification of thread management (no visible effect).
+  * Several minor improvements to setup, test and documentation.
+
+  -- Louis
+
+mklog 0.3.2
+
+  * Ported to Python3
+  * Changed project URL : is now http://git.framasoft.org/spalax/mklog
+  * Changed default string formatting
+  * Improved documentation
+
+mklog 0.3.1
+
+  * Changed project URL
+
+mklog 0.3.0
+
+  * Added option "--time-format".
+  * Corrected bug #004: Arguments of "--command" containing quotation marks are
+    handled well.
+  * Corrected bug #005: Output is correctly flushed.
+  * Improved man page.
+  * Small internal improvements.
+
+mklog 0.2.0
+
+  * Added option "--format", to set output format.
+
+mklog 0.1.4
+
+  * Complex commands such as the following one are now accepted.
+    mklog -c "cat file1 & tail file2"
+
+mklog 0.1.3
+
+  * Corrected bug: Error if a non-existent file is given in argument.
+
+mklog 0.1.2
+
+  * Keyboard interrupt (^C) are correctly handled.
+  * With option -c, standard output and error are preserved.
+
+mklog 0.1.1
+
+  * Changed details in release process. No incidence on final package.
+
+mklog 0.1.0
+
+  * Initial release.
