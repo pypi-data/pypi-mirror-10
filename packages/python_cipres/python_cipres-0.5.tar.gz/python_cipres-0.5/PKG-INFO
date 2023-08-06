@@ -1,0 +1,116 @@
+Metadata-Version: 1.1
+Name: python_cipres
+Version: 0.5
+Summary: CIPRES REST API Client
+Home-page: http://www.phylo.org/restusers
+Author: Terri Schwartz
+Author-email: terri@sdsc.edu
+License: MIT
+Description: ==================
+        python_cipres
+        ==================
+        
+        The CIPRES REST API (CRA) provides a way to run parallel versions of phylogenetic alignment and tree 
+        inference software, such as RaXML, MrBayes, Garli, Beast, etc. on high performance supercomputers.  
+        The python_cipres package is a client library that makes it easy to use the CRA.  The package includes 
+        several scripts that can be run, as is, to submit jobs, check their status and download results.  Or, 
+        the package can imported and used to develop custom software that uses the CRA.
+        
+        python_cipres was written for python 2.7 and tested on linux, mac OS and windows.
+        
+        
+        Installation
+        ------------
+        To install python_cipres, simply::
+        
+            $ pip install python_cipres
+        
+        Or, if you've downloaded the source from svn, or from a source archive, go to the top
+        level directory, which contains "setup.py", and run::
+            
+            $ python setup.py install
+        
+        
+        Register to use the CIPRES REST API
+        -----------------------------------
+        Register at https://www.phylo.org/restusers, then log in, and from the "Developer" menu,
+        choose "Application Management" and create a new application.  Make note of the application ID that 
+        is assigned.
+        
+        General documentation about using the CIPRES REST API is available at 
+        https://www.phylo.org/restusers/documentation.  However, the documentation doesn't specifically 
+        address the python_cipres package.
+        
+        
+        Configuration File (~/pycipres.conf)
+        -------------------------------------
+        In your home directory create a file named "pycipres.conf" with the following settings::
+        
+            URL=https://www.phylo.org/cipresrest/v1
+            APPNAME=the_application_you_just_registered
+            APPID=application_ID
+            USERNAME=the_username_you_just_registered
+            PASSWORD=the_password
+        
+        
+        Test
+        ----
+        Run a quick test of the installation and configuration::
+        
+            $ cipresjob.py -l
+        
+        This should return the url of the CRA and a list of jobs that you've submitted.  Without any 
+        submitted jobs it looks like this::
+        
+            URL=https://cipresrest.sdsc.edu/cipresrest/v1
+        
+        Documentation
+        -------------
+        There are two scripts, tooltest.py and cipresjob.py that can be run from the command line to submit jobs
+        and monitor them.   The scripts are explained in examples/Readme.txt.   
+        
+            *You will find the examples directory where you installed the python_cipres package (the path
+            will typically be site-packages/python_cipres-0.1-py2.7.egg/python_cipres/examples) OR you can
+            download a source archive from the pypi page.  Within the expanded source archive, the path is
+            python_cipres/examples.   Each subdirectory under examples is a "job template" that can be 
+            submitted to run on the CRA using tooltest.py.*
+        
+        To use the python_cipres library in your own code::
+        
+            import python_cipres.client as CipresClient
+        
+        Have a look at the code in commands.py to see how to use client.py.
+        
+            client.py
+                provides the basic job management API
+        
+            commands.py
+                uses the methods in client.py to implement what tooltest.py and cipresjob.py do
+        
+            bin/tooltest.py and bin/cipresjob.py
+                are executable scripts that call the corresponding methods in commands.py.
+                Tooltest.py submits a job to CIPRES based on the specification in a job template directory.
+                Cipresjob.py lists jobs, checks a job's status and downloads results.
+        
+        
+        If you base an application on python_cipres and share it with others, keep in mind that the users of 
+        your application should use the APPNAME and APPID that you registered to identify your code, but must 
+        use their own USERNAME and PASSWORD to submit jobs.
+        
+        
+        Release History
+        ---------------
+        
+        0.5 (2015-06-02)
+        
+            * Added -r argument to cipresjob.py to cancel and remove jobs.
+        
+        0.4 (2015-06-01)
+        
+            * Initial version on pypi
+        
+Keywords: cipres cra phylogenetics xsede
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 2.7
