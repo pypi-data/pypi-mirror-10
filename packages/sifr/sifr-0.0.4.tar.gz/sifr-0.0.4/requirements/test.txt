@@ -1,0 +1,9 @@
+-r main.txt
+-r daemon.txt
+-r redis.txt
+-r riak.txt
+nose
+mock
+coverage
+nose-cov
+hiro>0.1.6
