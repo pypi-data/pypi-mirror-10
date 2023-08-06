@@ -1,0 +1,18 @@
+<%!
+from xmi2odoo.tools import model, emodel, name
+%>\
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+%  for col in CLASS.all_attributes(parents=False, stereotypes=['property']):
+    <record model="ir.property" id="${emodel(col,'_')}_${name(col, 'property_')}">
+        <field name="name">${emodel(col,'_')}_${name()}</field>
+        <field name="fields_id" search="[('model','=','${emodel(col,'_')}'), ('name','=','${name(col)}')]"/>
+        <field name="value" eval="'${col.datatype.oerp_id()},%i' % ${col.tag.get('value',1)}"/>
+	</record>
+%  endfor
+</data>
+</openerp>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

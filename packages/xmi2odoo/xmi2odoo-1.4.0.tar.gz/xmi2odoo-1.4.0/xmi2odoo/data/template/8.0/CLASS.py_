@@ -1,0 +1,272 @@
+<%!
+from xmi2odoo.tools import emodel, sel_literals, fnc_name, attr_options, class_id
+from xmi2odoo.tools import ass_id, ass_options, ass_other_name, ass_relational_obj, ass_other_id
+from xmi2odoo.tools import parameters
+%>\
+# -*- coding: utf-8 -*-
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
+
+
+class ${CLASS.name.replace('.','_')}(${'models.TransientModel' if CLASS.is_stereotype('memory') else 'models.Model'}):
+    """${CLASS.get('documentation', '')}"""
+
+% if CLASS.is_stereotype('hierarchical'):
+    def name_get(self, cr, uid, ids, context=None):
+        if isinstance(ids, (list, tuple)) and not len(ids):
+            return []
+        if isinstance(ids, (long, int)):
+            ids = [ids]
+        reads = self.read(cr, uid, ids, ['name','parent_id'], context=context)
+        res = []
+        for record in reads:
+            name = record['name']
+            if record['parent_id']:
+                name = record['parent_id'][1]+' / '+name
+            res.append((record['id'], name))
+        return res
+
+    def _name_get_fnc(self, cr, uid, ids, prop, unknow_none, context=None):
+        res = self.name_get(cr, uid, ids, context=context)
+        return dict(res)
+
+    def _check_recursion(self, cr, uid, ids, context=None):
+        level = 100
+        while len(ids):
+            cr.execute('select distinct parent_id from ${CLASS.oerp_id('_')} where id IN %s',(tuple(ids),))
+            ids = filter(None, map(lambda x:x[0], cr.fetchall()))
+            if not level:
+                return False
+            level -= 1
+        return True
+% endif
+    _name = '${emodel(CLASS)}'
+% if not CLASS.is_extended():
+    _description = '${CLASS.get('documentation',CLASS.name)[:64]}'
+% endif
+% if len(CLASS.child_of)>0:
+    _inherits = {${','.join(['\'%s\': \'%s_id\'' % (parent.oerp_id('.'), parent.oerp_id('_')) for parent in CLASS.parents(no_stereotypes=['prototype','extend']) ])}}
+    _inherit = [${','.join(set(['\'%s\'' % (parent.oerp_id('.'),) for parent in CLASS.parents(stereotypes=['prototype','extend'])]))}]
+% endif
+%  if 'order' in CLASS.tag:
+
+    _order = "${CLASS.tag['order']}"
+%  endif
+% for sm in CLASS.get_statemachines(no_stereotypes=['extend','prototype']):
+
+    _states_ = [
+        # State machine: ${sm.name}
+%      for s in sm.list_ordered_states():
+        ('${s.name}', '${s['label']}'),
+%      endfor
+    ]
+% endfor
+% if CLASS.is_child_of('mail.thread'):
+
+    _track = {
+%     for sm in CLASS.get_statemachines(no_stereotypes=['extend','prototype']):
+    'state': {
+%      for s in sm.list_ordered_states():
+            '${CLASS.oerp_id()}_${s.name}': lambda self, cr, uid, obj, ctx=None: obj['state'] == '${s.name}',
+%      endfor
+        },
+%     endfor
+    }
+% endif
+% if CLASS.all_associations(parents=False, stereotypes=['button_box']):
+
+    def _count_all(self, cr, uid, ids, field_name, arg, context=None):
+       return {
+           obj.id: {
+% for ass in CLASS.all_associations(parents=False, stereotypes=['button_box']):
+               '${ass.name}_count': len(obj.${ass.name}),
+% endfor
+           }
+           for obj in self.browse(cr, uid, ids, context=context)
+       }
+% endif
+% for col in CLASS.all_attributes(parents=False, stereotypes=['function']):
+%   if col.datatype.entityclass == 'cenumeration':
+
+   def _get_${ col.datatype.name }(self, cr, uid, context=None):
+       return []
+%   endif
+% endfor
+
+%      if CLASS.is_stereotype('hierarchical'):
+    complete_name = fields.Char(
+        compute="_name_get_fnc",
+        string='Name',
+        store=True
+        )
+%      endif
+%      for parent in CLASS.parents(no_stereotypes=['prototype','extend']):
+    ${parent.oerp_id('_')}_id = fields.Many2one(
+        '${parent.oerp_id('.')}',
+        '${parent.get('label', parent.name)}',
+        ondelete='cascade',
+        required=True,
+        help=u"""${quote(parent.get('documentation',''))}"""
+        )
+%      endfor
+%      for child in CLASS.childs(no_stereotypes=['prototype','extend']):
+    ${child.oerp_id('_')}_id = fields.One2many(
+        '${child.oerp_id('.')}',
+        '${CLASS.oerp_id('_')}_id',
+        '${child.get('label', child.name)}',
+        help=u"""${quote(child.get('documentation',''))}"""
+        )
+%      endfor
+%      for col in CLASS.all_attributes(parents=False):
+%          if col.datatype.name in datatype:
+    ${fnc_name(col)} = fields.${datatype[col.datatype.name]}(
+        ${attr_options(CLASS, col, '8.0')}
+        )
+%          endif
+%          if col.datatype.name not in datatype and col.datatype.entityclass == 'cenumeration':
+    ${fnc_name(col)} = fields.Selection(
+        ${sel_literals(col)},
+        ${attr_options(CLASS, col, '8.0')}
+        )
+%          endif
+%          if col.datatype.name not in datatype and col.datatype.entityclass == 'cclass':
+    ${fnc_name(col)} = fields.Many2one(
+        '${col.datatype.oerp_id()}',
+        ${attr_options(CLASS, col, '8.0')}
+        )
+%          endif
+%      endfor
+%      if list(CLASS.get_statemachines(no_stereotypes=['extend','prototype'])):
+    state = fields.Selection(
+        _states_,
+        'State',
+%  for sm in CLASS.statemachines:
+        default='${','.join([ s.name for s in sm.list_states() if s.is_initial() ])}',
+%  endfor
+        )
+%      endif
+%      for ass in CLASS.all_associations(parents=False):
+%      if ass.multiplicity == 'one2one':
+       ${fnc_name(ass)} = \
+%        if (eval(ass.multiplicityrange) or (0,0))[0]  > 0:
+    fields.Many2one(
+        '${ass_id(ass)}',
+        ${ass_options(CLASS, ass, '8.0')}
+        )
+%        else:
+    fields.One2many(
+        '${ass_id(ass)}',
+        '${ass_other_name(CLASS, ass)}',
+        ${ass_options(CLASS, ass, '8.0')}
+        )
+%        endif
+%      elif ass.multiplicity == 'many2one':
+    ${fnc_name(ass)} = fields.Many2one(
+        '${ass_id(ass)}',
+%      if ass.aggregation == 'composite':
+        ondelete='cascade',
+%      endif
+        ${ass_options(CLASS, ass, '8.0')}
+        )
+%      elif ass.multiplicity == 'one2many':
+    ${fnc_name(ass)} = fields.One2many(
+        '${ass_id(ass)}',
+        '${ass_other_name(CLASS, ass)}',
+        ${ass_options(CLASS, ass, '8.0')}
+        )
+%      elif ass.multiplicity == 'many2many':
+    ${fnc_name(ass)} = fields.Many2many(
+        '${ass_id(ass)}',
+        '${ass_relational_obj(MODULE_NAME, ass)}',
+        '${class_id(CLASS)}',
+        '${ass_other_id(ass)}',
+        ${ass_options(CLASS, ass, '8.0')}
+        )
+%      endif
+%      endfor
+%      for ass in CLASS.all_associations(parents=False, stereotypes=['button_box']):
+       ${fnc_name(ass)}_count' = fields.Integer(
+        compute='_count_all',
+        string='${ass.tag.get('label', ass.name)}"
+        )
+%      endfor
+
+    _constraints = [
+%  if CLASS.is_stereotype('hierarchical'):
+        (_check_recursion, 'Error ! You cannot create recursive ${CLASS.name}.', ['parent_id'])
+%  endif
+%  if 'constraints' in CLASS.tag:
+        ${CLASS.tag['constraints']}
+%  endif
+    ]
+%  if 'sql_constraints' in CLASS.tag:
+
+    _sql_constraints = [ ${CLASS.tag['sql_constraints']} ]
+%  endif
+%  for op in [ op for op in CLASS.iter_over_inhereted_attrs('members') if type(op) is uml.COperation ]:
+
+    @api.one
+    def ${op.name}(self${parameters(op, prefix=' ,')}):
+        """${op.tag.get('documentation','')}"""
+%    if op.member_of.name == CLASS.name:
+%      if len(CLASS.child_of)>0:
+        parent = super(${CLASS.name},self)
+        result = parent.${op.name}(${parameters(op)}) if hasattr(parent, '${op.name}') else False
+        return result
+%      endif
+%      if len(CLASS.child_of)==0:
+        raise NotImplementedError
+%      endif
+%    endif
+%    if op.member_of.name != CLASS.name:
+        member = getattr(self.pool.get('${op.member_of.oerp_id()}'), '${op.name}')
+        return member(cr, uid, ids${parameters(op, prefix=', ')})
+%    endif
+%  endfor
+%  for sm in CLASS.get_statemachines(no_stereotypes=['extend','prototype']):
+%      for state in sorted(set([ tra.state_to for tra in sm.middle_transitions() if (not tra.state_from.is_initial() and tra.state_to.is_initial()) or (tra.state_from.is_final() and not tra.state_to.is_final())]), key=lambda s: s.name):
+
+    @api.multi
+    def action_cancel_${state.name}(self):
+        # go from canceled state to draft state
+        self.write({'state': '${state.name}'})
+        self.delete_workflow()
+        self.create_workflow()
+        return True
+%      endfor
+%  endfor
+%  if CLASS.parents(no_stereotypes=['prototype','extend']):
+
+    def unlink(self, cr, uid, ids, context=None):
+%    for parent in CLASS.parents(no_stereotypes=['prototype','extend']):
+        ${parent.oerp_id('_')}_obj = self.pool.get('${parent.oerp_id('.')}')
+%    endfor
+        data = self.read(cr, uid, ids, [ \
+%    for parent in CLASS.parents(no_stereotypes=['prototype','extend']):
+'${parent.oerp_id('_')}_id', \
+%    endfor
+])
+        res = super(${CLASS.name}, self).unlink(cr, uid, ids, context=context)
+        for item in data:
+%    for parent in CLASS.parents(no_stereotypes=['prototype','extend']):
+            ${parent.oerp_id('_')}_obj.unlink(cr, uid, item['${parent.oerp_id('_')}_id'][0],context=context)
+%    endfor
+        return res
+%  endif
+% for ass in CLASS.all_associations(parents=False, stereotypes=['button_box']):
+    def view_${ass.name}(self, cr, uid, ids, context=None):
+        res_id = ids and ids[0] or False
+        return {
+            'name': _('${ass.tag.get('label', ass.name)}'),
+            'domain': [('${ass.swap[0].name}', 'in', ids)],
+            'res_model': '${ass_id(ass)}',
+            'type': 'ir.actions.act_window',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'limit': 80,
+            'context': "{'default_${ass.swap[0].name}': %s}" % (res_id)
+        }
+% endfor
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
