@@ -1,0 +1,9 @@
+[keystoneauth1.auth.plugin]
+k2k = keystoneauth1.auth.identity.v3:Keystone2Keystone
+password = keystoneauth1.auth.identity.generic:Password
+token = keystoneauth1.auth.identity.generic:Token
+v2password = keystoneauth1.auth.identity.v2:Password
+v2token = keystoneauth1.auth.identity.v2:Token
+v3password = keystoneauth1.auth.identity.v3:Password
+v3token = keystoneauth1.auth.identity.v3:Token
+
