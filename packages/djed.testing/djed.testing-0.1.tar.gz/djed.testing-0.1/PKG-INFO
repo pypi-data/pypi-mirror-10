@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: djed.testing
+Version: 0.1
+Summary: Base unit test case for Pyramid
+Home-page: https://github.com/djedproject/djed.testing
+Author: Djed developers
+Author-email: djedproject@googlegroups.com
+License: ISC License (ISCL)
+Description: ============
+        djed.testing
+        ============
+        
+        .. image:: https://travis-ci.org/djedproject/djed.testing.png?branch=master
+           :target: https://travis-ci.org/djedproject/djed.testing
+        
+        Changes
+        =======
+        
+        0.1 (2015-07-02)
+        ----------------
+        
+        -  Initial version
+Keywords: web pyramid pylons djed
+Platform: UNKNOWN
+Classifier: Framework :: Pyramid
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Internet :: WWW/HTTP
