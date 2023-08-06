@@ -1,0 +1,7 @@
+click>=3.0
+gpsdio>=0.0.2
+msgpack-python>=0.4.6
+
+[test]
+pytest
+pytest-cov

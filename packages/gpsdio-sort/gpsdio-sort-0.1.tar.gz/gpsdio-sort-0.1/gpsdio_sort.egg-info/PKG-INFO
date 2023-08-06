@@ -1,0 +1,92 @@
+Metadata-Version: 1.1
+Name: gpsdio-sort
+Version: 0.1
+Summary: A CLI plugin for `gpsdio` that sorts messages in arbitrarily large files according to an arbitrary set of columns.
+Home-page: https://github.com/SkyTruth/gpsdio-sort
+Author: Egil Moeller
+Author-email: egil@skytruth.org
+License: Copyright 2014-2015 SkyTruth
+Authors:
+Egil Möller <egil@skytruth-org>
+Kevin Wurster <kevin@skytruth.org>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Description: =====================
+        gpsdio sorting plugin
+        =====================
+        
+        
+        .. image:: https://travis-ci.org/SkyTruth/gpsdio-sort.svg?branch=master
+            :target: https://travis-ci.org/SkyTruth/gpsdio-sort
+        
+        
+        .. image:: https://coveralls.io/repos/SkyTruth/gpsdio-sort/badge.svg?branch=master
+            :target: https://coveralls.io/r/SkyTruth/gpsdio-sort
+        
+        
+        A CLI plugin for `gpsdio <https://github.com/skytruth/gpdsio/>`_ that creates sort rasters.
+        
+        
+        Examples
+        --------
+        
+        See ``gpsdio sort --help`` for info.
+        
+        .. code-block:: console
+        
+            $ gpsdio sort input.msg output.msg \
+                -c mmsi,timestamp
+        
+        
+        Installing
+        ----------
+        
+        Via pip:
+        
+        .. code-block:: console
+        
+            $ pip install gpsdio-sort
+        
+        From master:
+        
+        .. code-block:: console
+        
+            $ git clone https://github.com/SkyTruth/gpsdio-sort
+            $ cd gpsdio-sort
+            $ pip install .
+        
+        
+        Developing
+        ----------
+        
+        .. code-block::
+        
+            $ git clone https://github.com/SkyTruth/gpsdio-sort
+            $ cd gpsdio-sort
+            $ virtualenv venv && source venv/bin/activate
+            $ pip install -e .[test]
+            $ py.test tests --cov gpsdio_sort --cov-report term-missing
+Keywords: AIS GIS remote sensing sort
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Communications
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Utilities
