@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object
+    meta_type="Plone Types Tool"
+    name="portal_types">
+  <object
+      meta_type="Factory-based Type Information with dynamic views"
+      name="FormStarRatingField"
+  />
+  <object
+      meta_type="Factory-based Type Information with dynamic views"
+      name="FormFolder"
+  />
+</object>
