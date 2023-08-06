@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+fakebook/__init__.py
+fakebook/server.py
+fakebook/version.py
+fakebook/config/__init__.py
+fakebook/config/local.conf
+fakebook/handlers/__init__.py
+fakebook/handlers/login.py
+fakebook/handlers/token.py
