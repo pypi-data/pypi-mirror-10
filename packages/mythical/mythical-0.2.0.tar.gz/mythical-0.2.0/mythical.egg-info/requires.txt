@@ -1,0 +1,7 @@
+certifi
+iso8601
+paramiko >= 1.0,<2.0
+
+[tests]
+pytest >=2.5.2,<3
+pytest-cov >=1.7,<2
