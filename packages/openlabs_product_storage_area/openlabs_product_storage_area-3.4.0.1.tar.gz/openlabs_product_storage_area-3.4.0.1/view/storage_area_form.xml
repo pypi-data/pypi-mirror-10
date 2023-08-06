@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form string="Storage Area" >
+    <label name="name"/>
+    <field name="name"/>
+    <label name="sequence"/>
+    <field name="sequence"/>
+    <newline/>
+    <separator name="description" colspan="6"/>
+    <field name="description" colspan="6"/>
+</form>
