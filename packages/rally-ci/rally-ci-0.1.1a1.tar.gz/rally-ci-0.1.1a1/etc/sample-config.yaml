@@ -1,0 +1,93 @@
+---
+
+- stream:
+    name: openstack
+    module: rallyci.streams.gerrit
+    ssh:
+      username: CHANGEME
+      hostname: review.openstack.org
+      port: 29418
+
+- logger:
+    name: main
+    module: rallyci.loggers.logfile
+    path: /home/rally/jobs-logs/
+
+- environment:
+    name: event
+    module: rallyci.environments.event
+    export-event:
+      GERRIT_PROJECT: change.project
+      GERRIT_REF: patchSet.ref
+
+- environment:
+    name: dummy
+    module: rallyci.environments.dummy
+
+- script:
+    name: git_checkout
+    interpreter: /bin/bash -xe -s
+    data: |
+      cd $GERRIT_PROJECT && git checkout master && git pull
+      git fetch https://review.openstack.org/$GERRIT_PROJECT $GERRIT_REF
+      git checkout FETCH_HEAD && git rebase master || true
+      git clean -fxd -e .tox -e *.egg-info
+      git diff --name-only master
+
+- script:
+    name: init_ubuntu_dev
+    interpreter: /bin/bash -xe -s
+    data: |
+      apt-get -y update && apt-get -y upgrade
+      apt-get -y install git
+
+- script:
+    name: install_rally
+    interpreter: /bin/bash -xe -s
+    data: |
+      cd rally
+      python setup.py build
+      python setup.py install
+
+- script:
+    name: rally_unit
+    interpreter: /bin/bash -xe -s
+    user: rally
+    data: |
+      cd rally
+      python -m unittest discover tests/unit
+
+- provider:
+    name: lxc_localhost
+    module: rallyci.providers.lxc
+    nodes:
+      - hostname: localhost
+        max_vms: 4
+    images:
+      - name: bare_ubuntu
+        template: ubuntu
+      - name: rally
+        parent: bare_ubuntu
+        build_scripts: ["init_ubuntu_dev", "install_rally"]
+
+- runner:
+    name: ssh
+    module: rallyci.runners.ssh
+    provider: lxc_localhost
+
+- job:
+    name: py27
+    envs:
+      - name: event
+      - name: dummy
+        export:
+          RCI_TOXENV: py27
+    runners:
+      - name: ssh
+        image: rally
+        scripts: ["rally_unit"]
+
+- project:
+    name: openstack/rally
+    jobs:
+      - py27
