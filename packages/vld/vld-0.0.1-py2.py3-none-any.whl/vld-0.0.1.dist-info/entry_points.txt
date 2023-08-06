@@ -1,0 +1,8 @@
+[console_scripts]
+vld = vld.commands:vld_report
+vld-count = vld.commands:vld_count
+vld-new-ingredient = vld.commands:vld_new_ingredient
+vld-price = vld.commands:vld_price
+vld-report = vld.commands:vld_report
+vld-show-ingredients = vld.commands:vld_show_ingredients
+
