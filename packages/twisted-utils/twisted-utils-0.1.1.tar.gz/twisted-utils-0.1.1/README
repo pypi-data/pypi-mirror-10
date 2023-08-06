@@ -1,0 +1,13 @@
+.. role:: bash(code)
+    :language: bash
+
+
+Some utilities for Python Twisted
+=================================
+For installation, use `fabric` by doing
+
+.. code:: bash
+
+    fab localInstall
+
+
