@@ -1,0 +1,57 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeStep
+      profile="plone.app.mosaic:default"
+      source="0001"
+      destination="2"
+      title="Upgrade example layouts; Reinstall plone.app.standardtiles"
+      handler=".upgrades.upgrade_1_to_2"
+      />
+
+  <genericsetup:upgradeDepends
+      profile="plone.app.mosaic:default"
+      source="0001"
+      destination="2"
+      title="Add 'tile-align-center' tile style"
+      import_profile="plone.app.mosaic:default"
+      import_steps="plone.app.registry"
+      run_deps="false"
+      />
+
+  <genericsetup:upgradeStep
+      profile="plone.app.mosaic:bbb"
+      source="1"
+      destination="2"
+      title="Upgrade example layouts; Reinstall plone.app.standardtiles"
+      handler=".upgrades.upgrade_1_to_2"
+      />
+
+  <genericsetup:upgradeDepends
+      profile="plone.app.mosaic:bbb"
+      source="1"
+      destination="2"
+      title="Add 'tile-align-center' tile style"
+      import_profile="plone.app.mosaic:default"
+      import_steps="plone.app.registry"
+      run_deps="false"
+      />
+
+  <genericsetup:upgradeStep
+      profile="plone.app.mosaic:default"
+      source="2"
+      destination="5003"
+      title="Upgrade example layouts"
+      handler=".upgrades.upgrade_2_to_3"
+      />
+
+  <genericsetup:upgradeStep
+      profile="plone.app.mosaic:bbb"
+      source="2"
+      destination="4003"
+      title="Upgrade example layouts"
+      handler=".upgrades.upgrade_2_to_3"
+      />
+
+</configure>
