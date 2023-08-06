@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: cacpy
+Version: 0.5.2
+Summary: A python wrapper for the cloudatcost.com API - https://github.com/cloudatcost/api
+Home-page: https://github.com/adc4392/python-cloudatcost
+Author: Andy Culler
+Author-email: adc4392@gmail.com
+License: MIT
+Download-URL: https://github.com/adc4392/python-cloudatcost/tarball/0.5.2
+Description: ==================
+        python-cloudatcost
+        ==================
+        
+        ``python-cloudatcost`` is a light-weight Python wrapper for the `Cloud at Cost REST API`_.
+        
+        -----
+        usage
+        -----
+        ::
+        
+            from cacpy import CACPy
+            cac = CACPy('email@example.com','API_KEY')
+            srv_info = cac.get_server_info()
+        
+        More details and the latest updates can be found on the `GitHub Project Page`_.
+        
+        .. _Cloud at Cost REST API: https://github.com/cloudatcost/api
+        .. _GitHub Project Page: https://github.com/adc4392/python-cloudatcost
+        
+Keywords: wrapper for cloud at cost api
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
