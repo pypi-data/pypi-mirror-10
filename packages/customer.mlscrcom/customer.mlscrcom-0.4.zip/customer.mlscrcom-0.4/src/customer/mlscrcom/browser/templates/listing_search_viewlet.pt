@@ -1,0 +1,311 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone.mls.listing"
+      tal:omit-tag=""
+      tal:condition="view/available | nothing"
+      tal:define="listings view/listings | nothing;
+                  batch view/batching | nothing;
+                  results batch/sequence_length | nothing;">
+
+  <section id="listing-search" class="listing-summary"
+           tal:define="page_url view/view_url | nothing;
+                       is_view_template context/@@plone_context_state/is_view_template;
+                       b_size view/limit;
+                       b_orphan python: 1;
+                       b_start request/b_start | python: 0;">
+
+    <div id="custom-search-form"
+         tal:condition="view/form | nothing"
+         tal:attributes="class python: results and 'results' or ''">
+      <p id="show-form" i18n:domain="plone" style="display: none;"><a class="edit_search_link" href=""
+         i18n:translate="edit_your_search_options">Edit your search options</a></p>
+
+<!-- Translate for js -->
+<span id="js-translations" style="display:none" i18n:domain="customer.mlscrcom">
+  <span id="text_All" i18n:translate="searchpage_all">All</span>
+  <span id="text_Selected" i18n:translate="searchpage_selected">Selected</span>
+  <span id="text_Default" i18n:translate="searchpage_default">Default</span>
+  <span id="text_UnselectAll" i18n:translate="searchpage_unselectall">unselect all</span>
+</span>     
+<!-- NEW FORM -->
+<form
+  tal:attributes="action view/form/action;
+                  method view/form/method;
+                  enctype view/form/enctype;
+                  id view/form/id;">
+<metal:block define-macro="widget-rows">
+<hr />
+<div id="row-one" class="form-rows">
+  <tal:block tal:repeat="widget view/row_one_widgets|nothing">
+    <div id="" class="row"
+      tal:attributes="id string:${widget/id}-row"
+      tal:condition="python:widget.mode != 'hidden'">
+        <div class="searchhelp">
+          <span class="search_text">Select:</span> <span class="search_option">All</span>
+        </div>
+        <span class="error"
+          tal:condition="widget/error">
+          <span tal:replace="structure widget/error/render">error</span>
+        </span>
+        <div class="widget" tal:content="structure widget/render" tal:attributes="class string:widget ${widget/klass}">
+          <input type="text" size="24" value="" />
+        </div>
+        <p class="discreet" tal:condition="widget/description|nothing" tal:content="widget/description|nothing">Description</p>
+        <input type="hidden" value=""
+          tal:condition="python:widget.mode == 'hidden'"
+          tal:replace="structure widget/render" />
+    <div class="search_unselect"><span>unselect all</span></div>
+    </div>
+  </tal:block>
+  <span class="clear"></span>
+</div>
+<hr />
+<div id="row-two" class="form-rows">
+  <tal:block tal:repeat="widget view/row_two_widgets|nothing">
+    <div id="" class="row"
+      tal:attributes="id string:${widget/id}-row"
+      tal:condition="python:widget.mode != 'hidden'">
+      <div>
+        <div class="label">
+          <label tal:attributes="for widget/id"><span i18n:translate=""
+            tal:replace="widget/label">label</span> <span class="required"
+            tal:condition="widget/required">*</span></label>
+          <p class="discreet" tal:condition="widget/description|nothing" tal:content="widget/description|nothing">Description</p>
+        </div>
+        <div class="widget" tal:content="structure widget/render" tal:attributes="class string:widget ${widget/klass}">
+          <input type="text" size="24" value="" />
+        </div>
+        <span class="error"
+          tal:condition="widget/error">
+          <span tal:replace="structure widget/error/render">error</span>
+        </span>
+        <input type="hidden" value=""
+          tal:condition="python:widget.mode == 'hidden'"
+          tal:replace="structure widget/render" />
+      </div>
+    </div>
+  </tal:block>
+  <span class="clear"></span>
+</div>
+<hr />
+<div id="row-price" class="form-rows">
+  <tal:block tal:repeat="widget view/row_price_widgets|nothing">
+    <div id="" class="row"
+      tal:attributes="id string:${widget/id}-row"
+      tal:condition="python:widget.mode != 'hidden'">
+      <div>
+        <div class="label">
+          <label tal:attributes="for widget/id"><span i18n:translate=""
+            tal:replace="widget/label">label</span> <span class="required"
+            tal:condition="widget/required">*</span></label>
+          <p class="discreet" tal:condition="widget/description|nothing" tal:content="widget/description|nothing">Description</p>
+        </div>
+        <div class="widget" tal:content="structure widget/render" tal:attributes="class string:widget ${widget/klass}">
+          <input type="text" size="24" value="" />
+        </div>
+        <span class="error"
+          tal:condition="widget/error">
+          <span tal:replace="structure widget/error/render">error</span>
+        </span>
+        <input type="hidden" value=""
+          tal:condition="python:widget.mode == 'hidden'"
+          tal:replace="structure widget/render" />
+      </div>
+    </div>
+  </tal:block>
+  <span class="clear"></span>
+</div>
+<hr />
+<div id="row-three" class="form-rows">
+  <tal:block tal:repeat="widget view/row_three_widgets|nothing">
+    <div id="" class="row"
+      tal:attributes="id string:${widget/id}-row"
+      tal:condition="python:widget.mode != 'hidden'">
+      <div>
+        <div class="label">
+          <label tal:attributes="for widget/id"><span i18n:translate=""
+            tal:replace="widget/label">label</span> <span class="required"
+            tal:condition="widget/required">*</span></label>
+          <p class="discreet" tal:condition="widget/description|nothing" tal:content="widget/description|nothing">Description</p>
+        </div>
+        <div class="widget" tal:content="structure widget/render" tal:attributes="class string:widget ${widget/klass}">
+          <input type="text" size="24" value="" />
+        </div>
+        <span class="error"
+          tal:condition="widget/error">
+          <span tal:replace="structure widget/error/render">error</span>
+        </span>
+        <input type="hidden" value=""
+          tal:condition="python:widget.mode == 'hidden'"
+          tal:replace="structure widget/render" />
+      </div>
+    </div>
+  </tal:block>
+  <span class="clear"></span>
+</div>
+<hr />
+<div id="row-four" class="form-rows">
+  <tal:block tal:repeat="widget view/row_four_widgets|nothing">
+    <div id="" class="row"
+      tal:attributes="id string:${widget/id}-row"
+      tal:condition="python:widget.mode != 'hidden'">
+      <div>
+        <div class="label">
+          <label tal:attributes="for widget/id"><span i18n:translate=""
+            tal:replace="widget/label">label</span> <span class="required"
+            tal:condition="widget/required">*</span></label>
+          <p class="discreet" tal:condition="widget/description|nothing" tal:content="widget/description|nothing">Description</p>
+        </div>
+        <div class="widget" tal:content="structure widget/render" tal:attributes="class string:widget ${widget/klass}">
+          <input type="text" size="24" value="" />
+        </div>
+        <span class="error"
+          tal:condition="widget/error">
+          <span tal:replace="structure widget/error/render">error</span>
+        </span>
+        <input type="hidden" value=""
+          tal:condition="python:widget.mode == 'hidden'"
+          tal:replace="structure widget/render" />
+      </div>
+    </div>
+  </tal:block>
+  <span class="clear"></span>
+</div>
+<hr />
+<div id="tabs-container">
+<!-- Tab menu -->
+  <ul id="tab-menu">
+  <tal:block tal:repeat="widget view/row_tab_widgets|nothing">
+    <li id="" class="tabs-menu"
+      tal:condition="python:widget.mode != 'hidden'"
+      tal:attributes="id widget/id">
+      <label tal:attributes="for widget/id"><span i18n:translate=""
+            tal:replace="widget/label">label</span></label>
+    </li>
+  </tal:block>
+  </ul>
+<span class="clear"></span>
+<!-- END Tabs menu -->
+<!-- Tabs Content -->
+  <div id="tab-content" class="form-rows">
+  <tal:block tal:repeat="widget view/row_tab_widgets|nothing">
+    <div class="widget"  
+     tal:attributes="class string:content row ${widget/id};
+                     id string:${widget/id}">
+
+      <h2 class='noscript_headings'><span i18n:translate=""
+            tal:replace="widget/label">label</span></h2>
+      <div class="searchhelp">
+        <span class="search_text">Select:</span> <span class="search_option">All</span>
+      </div>
+      <div tal:content="structure widget/render">
+        <input type="text" size="24" value="" />
+      </div>
+      <div class="search_unselect"><span>unselect all</span></div>
+      <span class="clear"></span>
+     </div>
+  </tal:block>
+  <span class="clear"></span>
+  </div>
+<!-- Tabs Content End -->
+  <span class="clear"></span>
+<hr />
+<div class="formControls">
+    <input i18n:attributes="value" id="form-buttons-search" name="form.buttons.search" class="submit-widget button-field" value="Search" type="submit">
+</div>
+<hr />
+
+</div>
+</metal:block>
+</form>
+<!-- END NEW FORM -->
+    </div>
+
+    <tal:listings tal:condition="listings">
+      <h2 i18n:domain="plone"
+          tal:condition="results"><span
+          i18n:translate="batch_x_items_matching_your_criteria"><span
+          i18n:name="number"
+          tal:omit-tag=""
+          tal:content="results">234</span> items matching your search terms</span></h2>
+
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+      <div class="tileItem visualIEFloatFix" style="margin-bottom: 1em;"
+           tal:repeat="listing batch">
+        <h2 class="tileHeadline"><a href="" class="summary url"
+            tal:attributes="href string:${page_url}${listing/id/value}"><span
+            tal:replace="listing/title/value">[Listing Title]</span></a></h2>
+
+        <figure tal:define="image listing/lead_image | nothing">
+          <a href="" tal:attributes="href string:${page_url}${listing/id/value};
+                                     title listing/title/value"><img src="" alt=""
+                     tal:condition="image"
+                     tal:attributes="src image" /><img
+                     tal:condition="not:image" alt="" title=""
+                     src="++resource++plone.mls.listing.images/no-image.png" /></a>
+          <figcaption>
+            <small><span tal:replace="listing/title/value">[Caption]</span></small>
+          </figcaption>
+        </figure>
+
+        <section>
+          <dl>
+            <tal:item tal:define="item listing/price | nothing" tal:condition="item">
+              <dt class="row"><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/workflow_status | nothing" tal:condition="item">
+              <dt><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/listing_type | nothing" tal:condition="item">
+              <dt><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/image_count | nothing" tal:condition="item">
+              <dt><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd tal:attributes="class item/value"><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/object_type | nothing" tal:condition="item">
+              <dt class="row"><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/beds_baths | nothing" tal:condition="item">
+              <dt><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/location | nothing" tal:condition="item">
+              <dt class="row"><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd class="full"><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/location_type | nothing" tal:condition="item">
+              <dt class="row"><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd class="full"><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+
+            <tal:item tal:define="item listing/view_type | nothing" tal:condition="item">
+              <dt class="row"><span tal:replace="item/label">[Label]</span>:</dt>
+              <dd class="full"><span tal:replace="item/value">[Value]</span></dd>
+            </tal:item>
+          </dl>
+        </section>
+
+        <div class="visualClear"></div>
+      </div>
+
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+
+    </tal:listings>
+  </section>
+</html>

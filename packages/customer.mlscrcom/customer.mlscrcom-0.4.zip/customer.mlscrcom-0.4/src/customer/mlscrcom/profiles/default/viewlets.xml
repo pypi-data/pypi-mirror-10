@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object>
+  <order manager="plone.portaltop" skinname="*"
+         based-on="Plone Default">
+    <viewlet name="mlscrcom.listing_search" insert-after="*" />
+  </order>
+
+  <order manager="plone.portalfooter" skinname="*"
+         based-on="Plone Default">
+    <viewlet name="mlscrcom.listing_quick_search" insert-before="*" />
+  </order>
+
+  <hidden manager="plone.belowcontentbody" skinname="*" purge="True" />
+
+</object>

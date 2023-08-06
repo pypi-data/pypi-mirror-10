@@ -1,0 +1,257 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: PS Plone Add-Ons\n"
+"POT-Creation-Date: 2012-04-24 14:56+0000\n"
+"PO-Revision-Date: 2012-04-24 14:56+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
+"Language-Team: French (http://www.transifex.net/projects/p/PS_Plone_Addons/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Domain: customer.mlscrcom\n"
+"Language: fr\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+#: ./../browser/viewlets.py:154
+msgid "Search"
+msgstr ""
+
+#. Default: "Find your home in Costa Rica!"
+#: ./../browser/templates/listing-search-viewlet.pt:15
+msgid "heading_find_your_home"
+msgstr ""
+
+#. Default: "mls-cr.com Settings"
+#: ./../browser/controlpanel.py:36
+msgid "heading_mls_settings"
+msgstr ""
+
+#. Default: "Quicksearch"
+#: ./../browser/templates/listing-quick-search-viewlet.pt:12
+msgid "heading_quicksearch"
+msgstr ""
+
+#. Default: "The only source for verified Real Estate Listings in the
+#. country!"
+#: ./../browser/templates/listing-search-viewlet.pt:16
+msgid "heading_verified_listings"
+msgstr ""
+
+#. Default: "Settings for the custom front page."
+#: ./../browser/controlpanel.py:40
+msgid "help_mls_settings"
+msgstr ""
+
+#. Default: "Number of Articles to display"
+#: ./../interfaces.py:192
+msgid "label_articles_count"
+msgstr ""
+
+#. Default: "'Articles' URL (English)"
+#: ./../interfaces.py:200
+msgid "label_articles_url_en"
+msgstr ""
+
+#. Default: "'Articles' URL (Spanish)"
+#: ./../interfaces.py:208
+msgid "label_articles_url_es"
+msgstr ""
+
+#. Default: "Number of Events to display"
+#: ./../interfaces.py:171
+msgid "label_events_count"
+msgstr ""
+
+#. Default: "Events Workflow state"
+#: ./../interfaces.py:180
+msgid "label_events_state"
+msgstr ""
+
+#. Default: "Heading 'Agent Locator' (English)"
+#: ./../interfaces.py:60
+msgid "label_heading_agent_locator_en"
+msgstr ""
+
+#. Default: "Heading 'Agent Locator' (Spanish)"
+#: ./../interfaces.py:69
+msgid "label_heading_agent_locator_es"
+msgstr ""
+
+#. Default: "Heading 'Articles' (English)"
+#: ./../interfaces.py:78
+msgid "label_heading_articles_en"
+msgstr ""
+
+#. Default: "Heading 'Articles' (Spanish)"
+#: ./../interfaces.py:87
+msgid "label_heading_articles_es"
+msgstr ""
+
+#. Default: "Heading 'Latest Listings' (English)"
+#: ./../interfaces.py:132
+msgid "label_heading_latest_listings_en"
+msgstr ""
+
+#. Default: "Heading 'Latest Listings' (Spanish)"
+#: ./../interfaces.py:141
+msgid "label_heading_latest_listings_es"
+msgstr ""
+
+#. Default: "Heading 'News & Events' (English)"
+#: ./../interfaces.py:96
+msgid "label_heading_news_events_en"
+msgstr ""
+
+#. Default: "Heading 'News & Events' (Spanish)"
+#: ./../interfaces.py:105
+msgid "label_heading_news_events_es"
+msgstr ""
+
+#. Default: "Heading 'Offering / Seeking Requests' (English)"
+#: ./../interfaces.py:114
+msgid "label_heading_offering_seekings_en"
+msgstr ""
+
+#. Default: "Heading 'Offering / Seeking Requests' (Spanish)"
+#: ./../interfaces.py:123
+msgid "label_heading_offering_seekings_es"
+msgstr ""
+
+#. Default: "Listing Type"
+#: ./../browser/viewlets.py:109
+msgid "label_listing_search_listing_type"
+msgstr ""
+
+#. Default: "Location"
+#: ./../browser/viewlets.py:99
+msgid "label_listing_search_location"
+msgstr ""
+
+#. Default: "Price"
+#: ./../browser/viewlets.py:120
+msgid "label_listing_search_price_min"
+msgstr ""
+
+#. Default: "Number of News Items to display"
+#: ./../interfaces.py:150
+msgid "label_news_count"
+msgstr ""
+
+#. Default: "News Items Workflow state"
+#: ./../interfaces.py:159
+msgid "label_news_state"
+msgstr ""
+
+#. Default: "Commercial"
+#: ./../browser/templates/listing-quick-search-viewlet.pt:16
+msgid "label_quicksearch_commercial"
+msgstr ""
+
+#. Default: "Land Listing"
+#: ./../browser/templates/listing-quick-search-viewlet.pt:17
+msgid "label_quicksearch_landlistings"
+msgstr ""
+
+#. Default: "Residential"
+#: ./../browser/templates/listing-quick-search-viewlet.pt:15
+msgid "label_quicksearch_residential"
+msgstr ""
+
+#. Default: "Number of 'Latest Listings' to display"
+#: ./../interfaces.py:217
+msgid "label_recent_listings_count"
+msgstr ""
+
+#. Default: "'Recent Listings' URL (English)"
+#: ./../interfaces.py:225
+msgid "label_recent_listings_url_en"
+msgstr ""
+
+#. Default: "'Recent Listings' URL (Spanish)"
+#: ./../interfaces.py:233
+msgid "label_recent_listings_url_es"
+msgstr ""
+
+#. Default: "Show listing quick search"
+#: ./../interfaces.py:51
+msgid "label_show_listing_quick_search"
+msgstr ""
+
+#. Default: "Show listing search on Frontpage"
+#: ./../interfaces.py:42
+msgid "label_show_listing_search"
+msgstr ""
+
+#: ./../profiles/default/controlpanel.xml
+msgid "mls-cr.com Configuration"
+msgstr ""
+
+#. Default: "All"
+#: ./../browser/templates/listing_search_viewlet.pt:28
+#: ./../browser/viewlets.py:236
+msgid "searchpage_all"
+msgstr ""
+
+#. Default: "Default"
+#: ./../browser/templates/listing_search_viewlet.pt:30
+#: ./../browser/viewlets.py:237
+msgid "searchpage_default"
+msgstr ""
+
+#. Default: "Selected"
+#: ./../browser/templates/listing_search_viewlet.pt:29
+#: ./../browser/viewlets.py:238
+msgid "searchpage_selected"
+msgstr ""
+
+#. Default: "unselect all"
+#: ./../browser/templates/listing_search_viewlet.pt:31
+#: ./../browser/viewlets.py:239
+msgid "searchpage_unselectall"
+msgstr ""
+
+#. Default: "4 steps to find your home"
+#: ./../browser/templates/listing-search-viewlet.pt:72
+msgid "text_4steps_to_find"
+msgstr ""
+
+#. Default: "(coming soon)"
+#: ./../browser/templates/listing-search-viewlet.pt:80
+msgid "text_coming_soon"
+msgstr ""
+
+#. Default: "Contact agent"
+#: ./../browser/templates/listing-search-viewlet.pt:80
+msgid "text_contact_agent"
+msgstr ""
+
+#. Default: "Find mortgage"
+#: ./../browser/templates/listing-search-viewlet.pt:82
+msgid "text_find_mortage"
+msgstr ""
+
+#. Default: "Advanced Search"
+#: ./../browser/templates/listing-search-viewlet.pt:68
+msgid "text_more_options"
+msgstr ""
+
+#. Default: "No news or events available."
+#: ./../browser/templates/frontpage.pt:34
+msgid "text_no_news_section"
+msgstr ""
+
+#. Default: "Search properties"
+#: ./../browser/templates/listing-search-viewlet.pt:79
+msgid "text_search_properties"
+msgstr ""
+
+#. Default: "Select lawyer"
+#: ./../browser/templates/listing-search-viewlet.pt:81
+msgid "text_select_lawyer"
+msgstr ""

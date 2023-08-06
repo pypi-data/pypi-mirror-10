@@ -1,0 +1,69 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+  <!-- Frontpage View. -->
+  <!-- =============== -->
+  <browser:page
+      class=".frontpage.FrontPageView"
+      for="*"
+      layer=".interfaces.ICustomerSpecific"
+      name="mlscrcom_frontpage"
+      permission="zope2.View"
+      template="templates/frontpage.pt"
+      />
+
+  <browser:menuItem
+      for="*"
+      menu="plone_displayviews"
+      title="mls-cr.com Frontpage"
+      action="@@mlscrcom_frontpage"
+      description="Custom Frontpage for mls-cr.com"
+      />
+
+  <browser:view 
+     for="*"
+     name="translations_js.js" 
+     class=".utils.translations"
+     permission="zope2.View"
+     />
+
+  <!-- Controlpanel View. -->
+  <!-- ================== -->
+  <browser:page
+      class=".controlpanel.MLSCRComSettingsControlPanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      layer=".interfaces.ICustomerSpecific"
+      name="mlscrcom-controlpanel"
+      permission="plone.app.controlpanel.Site"
+      />
+
+
+  <!-- Viewlet registrations. -->
+  <!-- ====================== -->
+  <browser:viewlet
+      class=".viewlets.ListingSearchViewlet"
+      layer=".interfaces.ICustomerSpecific"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      name="mlscrcom.listing_search"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      class=".viewlets.ListingQuickSearchViewlet"
+      layer=".interfaces.ICustomerSpecific"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      name="mlscrcom.listing_quick_search"
+      permission="zope2.View"
+      />
+
+
+  <!-- Zope 3 browser resources. -->
+  <!-- ========================= -->
+  <browser:resourceDirectory
+      directory="images"
+      layer=".interfaces.ICustomerSpecific"
+      name="customer.mlscrcom.images"
+      />
+
+</configure>

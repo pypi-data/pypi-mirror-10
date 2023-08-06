@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+
+  <!-- Set conditions on stylesheets we don't want to pull in for the diazo theme. -->
+  <!-- =========================================================================== -->
+  <stylesheet
+      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+      id="base.css"
+      />
+
+  <stylesheet
+      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+      id="columns.css"
+      />
+
+  <stylesheet
+      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+      id="portlets.css"
+      />
+
+  <stylesheet
+      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+      id="navtree.css"
+      />
+
+  <!-- Custom Stylesheet registration. -->
+  <!-- =============================== -->
+  <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/print.css"
+      media="print"
+      rel="stylesheet"
+      rendering="link"
+      title="" />
+
+  <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/screen.css"
+      media="screen"
+      rel="stylesheet"
+      rendering="link"
+      title="" />
+
+  <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/plone-cleanup.css"
+      media="screen"
+      rel="stylesheet"
+      rendering="link"
+      title="" />
+
+
+<!--   <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/searchform.css"
+      media="screen"
+      rel="stylesheet"
+      rendering="link"
+      title=""
+      />
+ -->
+
+<!--   <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/quicksearch-portlet.css"
+      media="screen"
+      rel="stylesheet"
+      rendering="link"
+      title=""
+      />
+ -->
+<!--   <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/agentcontact_portlet.css"
+      media="screen"
+      rel="stylesheet"
+      rendering="link"
+      title=""
+      />
+ -->
+  <stylesheet
+      applyPrefix="True"
+      authenticated="False"
+      cacheable="True"
+      compression="safe"
+      conditionalcomment=""
+      cookable="True"
+      enabled="on"
+      expression="request/HTTP_X_THEME_ENABLED | nothing"
+      id="++theme++customer.mlscrcom/stylesheets/application.css"
+      media="screen"
+      rel="stylesheet"
+      rendering="link"
+      title="" />
+</object>

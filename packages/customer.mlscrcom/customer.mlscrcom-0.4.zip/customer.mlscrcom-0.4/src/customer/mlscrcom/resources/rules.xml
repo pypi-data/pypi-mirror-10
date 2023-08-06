@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://w3c.org/1999/XSL/Transform">
+
+  <rules css:if-content="#visual-portal-wrapper">
+    <theme href="index.html" />
+
+    <drop theme="/html/head/base" />
+    <drop theme="/html/head/title" />
+    <drop theme="/html/head/style" /> 
+    <drop theme="/html/head/script" />
+    <drop theme="/html/head/link" />
+    <drop theme="/html/head/comment()" />
+    <drop theme="/html/body/script" />
+    <!-- HTML Head -->
+    <!-- copy Header Data in Template -->
+    <prepend
+       content="/html/head/title | /html/head/base | /html/head/style | /html/head/script | /html/head/link | /html/head/comment() | /html/head/meta"
+       theme="/html/head"/>
+
+    <copy
+        attributes="class id dir"
+        content="/html/body"
+        theme="/html/body"
+        />
+     <!-- Drop Search on the top on subpages -->
+
+    <!-- Logo (link target) -->
+    <copy
+        attributes="href"
+        css:content="#portal-logo"
+        css:theme="#logo a"
+        />
+    <!-- Language Selector -->
+    <replace
+        css:content="#portal-languageselector"
+        css:theme="#portal-languageselector"
+        />
+
+    <!-- Global Navigation -->
+    <replace
+        css:content="#portal-globalnav li"
+        css:theme-children="#portal-globalnav ul"
+        />
+
+    <!-- Breadcrumbs -->
+    <replace
+        css:content="#portal-breadcrumbs"
+        css:theme="#portal-breadcrumbs"
+        />
+
+    <!-- Listing Search -->
+    <replace
+        css:content="#home-search-map-wrapper"
+        css:theme="#home-search-map-wrapper"
+        />
+
+    <!-- Document Content -->
+    <replace
+        css:content="#content"
+        css:theme="#content"
+        />
+
+    <!-- Edit Bar -->
+    <before
+        css:content="#edit-bar"
+        css:theme="#content-wrapper"
+        />
+
+    <!-- Portlet Columns -->
+    <replace
+        css:content-children="#portal-column-one"
+        css:theme="#portlet-column-one"
+        />
+
+    <replace
+        css:content-children="#portal-column-two"
+        css:theme="#portlet-column-two"
+        />
+
+    <after
+        css:content="#viewlet-below-content"
+        css:theme="#portlet-column-two"
+        />
+
+    <replace
+        css:content="#quicksearch-wrapper"
+        css:theme="#quicksearch-wrapper"
+        />
+
+    <!-- Doormat (Footer) -->
+    <rules css:if-content="#doormat-container">
+      <replace
+        css:content="#doormat-container"
+        css:theme="#doormat-container"
+        />
+    </rules>
+
+    <after
+        css:content="#portal-personaltools-wrapper"
+        css:theme="#doormat-container"
+        />
+    <append
+        css:content="#visual-portal-wrapper > div.row > script"
+        css:theme="#footer-wrapper"/>
+        
+    </rules>
+
+</rules>

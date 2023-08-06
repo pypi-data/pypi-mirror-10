@@ -1,0 +1,138 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="customer.mlscrcom"
+      tal:omit-tag="">
+  <body>
+    <section id="homepage"
+             metal:fill-slot="main"
+             tal:define="headings view/headings | nothing">
+
+      <div tal:replace="structure provider:plone.abovecontentbody" />
+
+      <article id="agent-locators"
+               tal:condition="view/agent_locator | nothing">
+        <h2 tal:content="headings/heading_agent_locator | nothing">[Agent Locators]</h2>
+      </article>
+
+      <article id="offering-seeking-requests"
+               tal:condition="view/offering_seekings | nothing">
+        <h2 tal:content="headings/heading_offering_seekings | nothing">[Offering / Seeking Requests]</h2>
+        <figure>
+          <img src="" alt="" title=""
+               tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++customer.mlscrcom.images/offering_seeking.png" />
+        </figure>
+      </article>
+
+      <section id="news-events">
+
+        <tal:no_news tal:condition="not: view/news_section_available | nothing">
+          <h1 tal:content="headings/heading_news_events | nothing">[News &amp; Events]</h1>
+          <p i18n:translate="text_no_news_section">No news or events available.</p>
+        </tal:no_news>
+
+        <section tal:condition="view/articles_available | nothing">
+          <h1 tal:content="headings/heading_articles | nothing">[Articles]</h1>
+          <ul tal:define="articles view/articles | nothing">
+            <li tal:repeat="item articles"><a href=""
+                tal:attributes="href item/getURL;
+                                title item/Description"
+                tal:content="item/pretty_title_or_id">[Article Title]</a></li>
+          </ul>
+        </section>
+
+        <section class="news-events"
+                 tal:condition="view/news_available | view/events_available | nothing"
+                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+          <h1 tal:content="headings/heading_news_events | nothing">[News &amp; Events]</h1>
+          <tal:news tal:define="items view/news_items | nothing">
+            <article tal:repeat="item items">
+              <h2><a href="" class="tile"
+                     tal:attributes="href item/getURL;
+                                     title item/Description"
+                     tal:content="item/pretty_title_or_id">[News Item Title]</a></h2>
+              <img src="" alt=""
+                   tal:define="obj item/getObject | nothing"
+                   tal:condition="obj/image | nothing"
+                   tal:replace="structure python: obj.tag(scale='thumb', css_class='image-left')" />
+              <small tal:content="python:toLocalizedTime(item.Date, long_format=1)">[Date]</small>
+              <p tal:condition="item/Description" tal:content="item/Description">[News Item Description]</p>
+            </article>
+          </tal:news>
+
+          <tal:events tal:define="items view/events_items | nothing">
+            <article tal:repeat="item items">
+              <h2><a href="" class="tile"
+                     tal:attributes="href item/getURL;
+                                     title item/Description"
+                     tal:content="item/pretty_title_or_id">[Event Title]</a></h2>
+              <tal:event tal:define="item_enddate python:toLocalizedTime(item.end);
+                                     item_endtime python:toLocalizedTime(item.end, time_only=1);
+                                     item_samedate python: item.end - item.start &lt; 1;
+                                     item_sametime python: item.start == item.end;
+                                     item_startdate python:toLocalizedTime(item.start);
+                                     item_starttime python:toLocalizedTime(item.start, time_only=1);">
+                <small tal:condition="python: item_sametime"
+                      tal:content="string:${item_startdate} ${item_starttime}">[Date]</small>
+                <small tal:condition="python: item_samedate and not item_sametime"
+                      tal:content="string:${item_startdate} ${item_starttime} - ${item_endtime}">[Date]</small>
+                <small tal:condition="python: not item_sametime and not item_samedate"
+                      tal:content="string:${item_startdate} - ${item_enddate}">[Date]</small>
+                <small tal:condition="item/location"> &mdash; <tal:location content="item/location">[Location]</tal:location></small>
+              </tal:event>
+              <p tal:condition="item/Description" tal:content="item/Description">[Event Description]</p>
+            </article>
+          </tal:events>
+        </section>
+      </section>
+
+      <section id="latest-listings" tal:condition="view/recent_listings_available | nothing">
+        <h1 tal:content="headings/heading_latest_listings | nothing">[Latest Listings]</h1>
+        <tal:listings tal:define="listings view/recent_listings | nothing;
+                                  recent_listings_url view/recent_listings_url">
+          <article tal:repeat="listing listings">
+            <h2><a href=""
+                   tal:attributes="href string:${recent_listings_url}/${listing/id/value}"
+                   tal:content="listing/title/value">[Listing Title]</a></h2>
+            <a href=""
+               tal:attributes="href string:${recent_listings_url}/${listing/id/value}"><img
+               src="" alt="" class="image-left"
+               tal:attributes="src listing/lead_image;
+                               alt listing/title/value;" /></a>
+            <dl>
+              <tal:item tal:define="item listing/price | nothing" tal:condition="item">
+                <dt class="price"><span tal:replace="item/label">Label</span>:</dt>
+                <dd class="price" tal:content="item/value">Value</dd>
+              </tal:item>
+              <tal:item tal:define="item listing/beds_baths | nothing" tal:condition="item">
+                <dt><span tal:replace="item/label">Label</span>:</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+            </dl>
+            <small class="listing-location" tal:content="listing/location/value">[Listing Details]</small>
+          </article>
+        </tal:listings>
+      </section>
+
+      <div class="visualClear"><!-- --></div>
+
+      <div tal:replace="structure provider:plone.abovecontenttitle" />
+      <h1 class="documentFirstHeading"
+          tal:content="context/pretty_title_or_id">Recent MLS Listings</h1>
+
+      <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+      <p class="documentDescription"
+         tal:content="context/Description | nothing" />
+
+      <p tal:define="text context/getText | nothing"
+         tal:condition="text"
+         tal:replace="structure text">Body Text</p>
+
+      <div tal:replace="structure provider:plone.belowcontentbody" />
+    </section>
+  </body>
+</html>
