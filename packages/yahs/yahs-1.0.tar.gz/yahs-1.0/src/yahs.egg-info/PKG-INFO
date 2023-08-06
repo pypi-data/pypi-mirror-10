@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: yahs
+Version: 1.0
+Summary: Super basic HTTP server for creating and testing REST APIs
+Home-page: https://github.com/timatooth/yahs
+Author: Tim Sullivan
+Author-email: tsullivan@timatooth.com
+License: MIT
+Download-URL: https://github.com/timatooth/yahs/tarball/1.0
+Description: 
+        Yet another HTTP Server (YaHS)
+        ------------------------------
+        
+        Provides simple decorator API to easily register a Python function as a REST url
+        handler.
+        
+        E.g
+        @Server.handle('GET', '/food')
+        def get_food(request):
+            return "Tasty food"
+        
+        
+Keywords: http,rest,json,decorator
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
