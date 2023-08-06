@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n staticfiles mezzanine_tags %}
+
+{% block meta_title %}Sermon Series{% endblock %}
+{% block title %}Sermon Series{% endblock %}
+
+{% block full_width_content %}
+
+<div class="container">
+<div class="row">
+    <div class="col-md-12 middle">
+    {% if sermon_series %}
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Bible Passage</th>
+                    <th>Description</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for series in sermon_series %}
+                    <tr class="sermon_series_row" onclick="window.document.location='{% url 'sermons:series' series.id %}';">
+                        {% if series.image %}
+                        <td><img src="{{ MEDIA_URL }}{% thumbnail series.image 0 100 %}"></td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                        <td>{{ series.title }}</td>
+                        <td>{{ series.bible_passage }}</td>
+                        <td>{{ series.description|truncatewords:30 }}...</td>
+                        <td>{{ series.start_date.year }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}
