@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: kl
+Version: 1.0.1
+Summary: Simple keylogger for Linux + X11
+Home-page: https://github.com/surrealists/kl
+Author: Cristian Cabrera
+Author-email: surrealcristian@gmail.com
+License: MIT
+Description: # kl
+        
+        Simple keylogger for Linux + X11.
+        
+        ## Requirements
+        
+        - python 2 or 3
+        - xlib
+        
+        ## Usage
+        
+        Without custom callback (prints to STDOUT):
+        
+        ```python
+        import kl
+        
+        kl.run()
+        ```
+        
+        With custom callback, logging to disk:
+        
+        ```python
+        import json
+        import kl
+        
+        def log(keys):
+            with open('/tmp/kl.log', 'a') as f:
+                print(json.dumps(keys), file=f)
+        
+        kl.run(cb=log)
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: X11 Applications
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: Utilities
