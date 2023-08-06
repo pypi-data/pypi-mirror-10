@@ -1,0 +1,3 @@
+include cHaversine/*.pyx
+include cHaversine/*.py
+exclude cHaversine/*.c
