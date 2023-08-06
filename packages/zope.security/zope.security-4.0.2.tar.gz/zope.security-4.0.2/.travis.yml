@@ -1,0 +1,20 @@
+language: python
+sudo: false
+env:
+    - TOXENV=py26
+    - TOXENV=py27
+    - TOXENV=py27-pure
+    - TOXENV=py32
+    - TOXENV=py33
+    - TOXENV=py33-pure
+    - TOXENV=py34
+    - TOXENV=pypy
+    - TOXENV=pypy3
+    - TOXENV=coverage
+    - TOXENV=docs
+install:
+    - pip install tox
+script:
+    - tox
+notifications:
+    email: false
