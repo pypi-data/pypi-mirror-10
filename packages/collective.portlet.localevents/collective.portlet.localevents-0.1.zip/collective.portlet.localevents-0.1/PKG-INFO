@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: collective.portlet.localevents
+Version: 0.1
+Summary: an events portlet for plone that only displays events located in the current folder
+Home-page: http://pypi.python.org/pypi/collective.portlet.localevents
+Author: Harald Friessnegger
+Author-email: harald@webmeisterei.com
+License: GPL
+Description: ==============================
+        collective.portlet.localevents
+        ==============================
+        
+        Customization of the default event portlet (``portlets.Events``) provided by ``plone.app.portlets``
+        that does not search for events in the whole portal (or `INavigationRoot`) but only in
+        the context of the portlet.
+        
+        When creating a portlet you can decide if events shall be searched in
+        
+        * the context the portlet has been assigned or
+        
+        * the context the portlet is shown in
+        
+        
+        Our usecase for this portlet was a section `team` with folders for different team members in it.
+        (no INavigationRoot can be set on those, since we don't want to limit the navigation, search, etc
+        just on this folder)
+        
+        Each Team member can now easily add an event portlet only listing the events within his/her folder.
+        
+          
+        
+        
+        Contributors
+        ============
+        
+        - Harald Friessnegger, harald@webmeisterei.com (Author)
+        
+        Changelog
+        =========
+        
+        
+        0.1 (2015-06-23)
+        ----------------
+        
+        - add portlet code, and translations
+        
+        - package created using bobtemplates.plone
+          [frisi]
+        
+        
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7

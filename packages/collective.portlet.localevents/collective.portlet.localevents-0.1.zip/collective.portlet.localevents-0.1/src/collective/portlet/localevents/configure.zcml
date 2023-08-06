@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.portlet.localevents">
+
+    <includeDependencies package="." />
+
+    <i18n:registerTranslations directory="locales" />
+
+
+    <plone:portlet
+        name="portlets.LocalEvents"
+        interface=".events.ILocalEventsPortlet"
+        assignment=".events.Assignment"
+        renderer=".events.Renderer"
+        addview=".events.AddForm"
+        editview=".events.EditForm"
+        />
+        
+    <genericsetup:registerProfile
+        name="default"
+        title="Local events portlets"
+        directory="profiles/default"
+        description="Provides an event portlet that lists events located in the current context."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:importStep
+        name="collective.portlet.localevents-postInstall"
+        title="collective.portlet.localevents post_install import step"
+        description="Post install import step from collective.portlet.localevents"
+        handler=".setuphandlers.post_install">
+    </genericsetup:importStep>
+
+</configure>
