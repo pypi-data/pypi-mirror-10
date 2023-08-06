@@ -1,0 +1,19 @@
+{% extends "admin/index.html" %}
+{% load static from staticfiles %}
+
+{% block extrastyle  %}
+{{block.super}}
+<link rel="stylesheet" type="text/css" href="{% static "djangofreezer/css/admin_freezer.css" %}" />
+{% endblock %}
+
+{% block footer %}
+  {{ block.super }}
+<div id="pipFreezeDiv">
+  <p>Dependecies (pip freeze):</p>
+  <ul>
+  {% for name, version in requirements %}
+    <li>Name: {{ name }}, {{ version }}</li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}
