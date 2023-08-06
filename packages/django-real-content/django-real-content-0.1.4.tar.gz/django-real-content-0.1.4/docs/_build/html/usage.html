@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Usage &mdash; django-real-content 0.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-real-content 0.1.4 documentation" href="index.html" />
+    <link rel="next" title="&lt;no title&gt;" href="advanced.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="advanced.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="advanced.html" title="&lt;no title&gt;"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="advanced.html" title="&lt;no title&gt;"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">django-real-content 0.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>Load django-real-content in your template.</p>
+<div class="highlight-python"><div class="highlight"><pre>{% load drc %}
+</pre></div>
+</div>
+<div class="section" id="random-title">
+<h2>random title<a class="headerlink" href="#random-title" title="Permalink to this headline">¶</a></h2>
+<p>show random title</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_title %}
+</pre></div>
+</div>
+<p>show random title using <code class="docutils literal"><span class="pre">h3</span></code> html tag</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_title 3 %}
+</pre></div>
+</div>
+<p>show random title with additional css class</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_title css_class=&#39;custom_css_class&#39; %}
+</pre></div>
+</div>
+<p>show random title using <code class="docutils literal"><span class="pre">h3</span></code> html tag and with additional css class</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_title 3 css_class=&#39;custom_css_class&#39; %}
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-paragraphs">
+<h2>random paragraphs<a class="headerlink" href="#random-paragraphs" title="Permalink to this headline">¶</a></h2>
+<p>show 1 random paragraph</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_paragraphs %}
+</pre></div>
+</div>
+<p>show 3 random paragraphs</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_paragraphs 3 %}
+</pre></div>
+</div>
+<p>show 1 random paragraph with additional css class</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_paragraphs css_class=&#39;custom_css_class&#39; %}
+</pre></div>
+</div>
+<p>show 3 random paragraphs with additional css class</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_paragraphs 3 css_class=&#39;custom_css_class&#39; %}
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-image">
+<h2>random image<a class="headerlink" href="#random-image" title="Permalink to this headline">¶</a></h2>
+<p>show random image from <a class="reference external" href="http://lorempixel.com">lorempixel.com</a></p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_image %}
+</pre></div>
+</div>
+<p>show random image from lorempixel.com which dimensions are 420x360</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_image 420 360 %}
+</pre></div>
+</div>
+<p>show random image from lorempixel.com which dimensions are 420x360 in
+category &#8220;cats&#8221; and grayscale</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_image 420 360 category=&#39;cats&#39; gray=True %}
+</pre></div>
+</div>
+<p>show random image from lorempixel.com which dimensions are 420x360 in
+category &#8220;cats&#8221;, grayscale and with additional css class</p>
+<div class="highlight-python"><div class="highlight"><pre>{% drc_image 420 360 category=&#39;sports&#39; gray=True css_class=&#39;custom_css_class&#39; %}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#random-title">random title</a></li>
+<li><a class="reference internal" href="#random-paragraphs">random paragraphs</a></li>
+<li><a class="reference internal" href="#random-image">random image</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="advanced.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="advanced.html"
+                        title="next chapter">&lt;no title&gt;</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/usage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Mislav Cimperšak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
+      
+      |
+      <a href="_sources/usage.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
