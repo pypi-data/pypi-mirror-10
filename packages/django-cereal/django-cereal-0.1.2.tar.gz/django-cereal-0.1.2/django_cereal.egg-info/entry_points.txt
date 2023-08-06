@@ -1,0 +1,3 @@
+[kombu.serializers]
+django_cereal_pickle = django_cereal.pickle:register_args
+
