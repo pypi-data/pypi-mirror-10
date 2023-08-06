@@ -1,0 +1,31 @@
+Monkey patching for Python
+====================================
+
+This library provides Ruby style method name resolution for Python
+by monkey patching.
+
+
+        import monkeypatch as mp
+
+        @mp.monkeypatch
+        class ExampleClass(object):
+            @mp.route('raise_([0-9]+).to_([0-9]+).power')
+            def power(self, a,b):
+                return int(a) ** int(b)
+
+        a = ExampleClass()
+        print a.raise_2.to_15.power()
+
+Note that due to restrictions in Python, some are not valid attribute names.
+
+       today.5.days.ago()
+
+Also, if the route path has a prefix the same as any attribute that exists
+in the original class, the behaviour is undefined and you should not rely
+on it.
+
+## Getting Started
+
+      pip install mr-monkeypatch
+
+(MR for method-resolution)
