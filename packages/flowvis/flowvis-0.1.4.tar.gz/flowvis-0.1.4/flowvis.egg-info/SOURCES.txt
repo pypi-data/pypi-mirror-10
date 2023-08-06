@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+flowvis/__init__.py
+flowvis/scenario.py
+flowvis/structure.py
+flowvis/visualizer.py
+flowvis.egg-info/PKG-INFO
+flowvis.egg-info/SOURCES.txt
+flowvis.egg-info/dependency_links.txt
+flowvis.egg-info/not-zip-safe
+flowvis.egg-info/requires.txt
+flowvis.egg-info/top_level.txt
+flowvis/packages/__init__.py
+flowvis/packages/vecpy.py

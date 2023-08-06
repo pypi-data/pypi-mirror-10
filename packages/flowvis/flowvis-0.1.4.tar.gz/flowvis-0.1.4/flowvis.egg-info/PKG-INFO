@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: flowvis
+Version: 0.1.4
+Summary: Visualization of flow on a transport network
+Home-page: https://github.com/j-i-l/FlowVis
+Author: Jonas I. Liechti
+Author-email: jon.liechti@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/j-i-l/FlowVis/tarball/0.1.1
+Description: FlowVis: Visualization Tool for Transport Networks in Python
+        ============================================================
+        
+        .. image:: https://img.shields.io/pypi/v/requests.svg
+            :target: https://pypi.python.org/pypi/flowvis
+        
+        .. image:: https://img.shields.io/pypi/dm/requests.svg
+                :target: https://pypi.python.org/pypi/flowvis
+        
+        
+        Features
+        --------
+        
+        - Visualize network flow. Highly customizable.
+        
+        
+        Installation
+        ------------
+        
+        To install FlowVis, simply:
+        
+        .. code-block:: bash
+        
+            $ pip install flowvis
+        
+        
+        Documentation
+        -------------
+        
+        FlowVis is a python package allowing to visualize transport flow in network like infrastructure.
+        
+        For an exemplary use, refer to the FlowVisExample_.
+        
+        .. _FlowVisExample:       https://github.com/j-i-l/FlowVisExample
+        
+        
+Keywords: visualization,network,transport,flow
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
