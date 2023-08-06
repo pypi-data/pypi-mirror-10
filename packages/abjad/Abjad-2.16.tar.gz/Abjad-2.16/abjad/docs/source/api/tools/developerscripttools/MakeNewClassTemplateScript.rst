@@ -1,0 +1,169 @@
+developerscripttools.MakeNewClassTemplateScript
+===============================================
+
+.. autoclass:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript
+
+Lineage
+-------
+
+.. graphviz::
+
+   digraph InheritanceGraph {
+       graph [background=transparent,
+           color=lightslategrey,
+           fontname=Arial,
+           outputorder=edgesfirst,
+           overlap=prism,
+           penwidth=2,
+           rankdir=LR,
+           root="__builtin__.object",
+           splines=spline,
+           style="dotted, rounded"];
+       node [colorscheme=pastel19,
+           fontname=Arial,
+           fontsize=12,
+           penwidth=2,
+           style="filled, rounded"];
+       edge [color=lightsteelblue2,
+           penwidth=2];
+       subgraph cluster___builtin__ {
+           graph [label=__builtin__];
+           "__builtin__.object" [color=1,
+               group=0,
+               label=object,
+               shape=box];
+       }
+       subgraph cluster_abctools {
+           graph [label=abctools];
+           "abctools.AbjadObject" [color=2,
+               group=1,
+               label=AbjadObject,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" [color=2,
+               group=1,
+               label=AbstractBase,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" -> "abctools.AbjadObject";
+       }
+       subgraph cluster_developerscripttools {
+           graph [label=developerscripttools];
+           "developerscripttools.DeveloperScript" [color=3,
+               group=2,
+               label=DeveloperScript,
+               shape=oval,
+               style=bold];
+           "developerscripttools.MakeNewClassTemplateScript" [color=black,
+               fontcolor=white,
+               group=2,
+               label=<<B>MakeNewClassTemplateScript</B>>,
+               shape=box,
+               style="filled, rounded"];
+           "developerscripttools.DeveloperScript" -> "developerscripttools.MakeNewClassTemplateScript";
+       }
+       "__builtin__.object" -> "abctools.AbjadObject.AbstractBase";
+       "abctools.AbjadObject" -> "developerscripttools.DeveloperScript";
+   }
+
+.. only:: html
+
+   Attribute summary
+   -----------------
+
+   .. autosummary::
+
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.alias
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.argument_parser
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.colors
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.formatted_help
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.formatted_usage
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.formatted_version
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.long_description
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.process_args
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.program_name
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.scripting_group
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.setup_argument_parser
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.short_description
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.version
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__call__
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__eq__
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__format__
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__hash__
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__ne__
+      ~abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__repr__
+
+Bases
+-----
+
+- :py:class:`developerscripttools.DeveloperScript <abjad.tools.developerscripttools.DeveloperScript.DeveloperScript>`
+
+- :py:class:`abctools.AbjadObject <abjad.tools.abctools.AbjadObject.AbjadObject>`
+
+- :py:class:`abctools.AbjadObject.AbstractBase <abjad.tools.abctools.AbjadObject.AbstractBase>`
+
+- :py:class:`__builtin__.object <object>`
+
+Read-only properties
+--------------------
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.alias
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.argument_parser
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.colors
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.formatted_help
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.formatted_usage
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.formatted_version
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.long_description
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.program_name
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.scripting_group
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.short_description
+   :noindex:
+
+.. autoattribute:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.version
+   :noindex:
+
+Methods
+-------
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.process_args
+   :noindex:
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.setup_argument_parser
+   :noindex:
+
+Special methods
+---------------
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__call__
+   :noindex:
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__eq__
+   :noindex:
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__format__
+   :noindex:
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__hash__
+   :noindex:
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__ne__
+   :noindex:
+
+.. automethod:: abjad.tools.developerscripttools.MakeNewClassTemplateScript.MakeNewClassTemplateScript.__repr__
+   :noindex:

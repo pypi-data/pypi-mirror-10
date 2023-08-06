@@ -1,0 +1,247 @@
+pitchtools.Vector
+=================
+
+.. autoclass:: abjad.tools.pitchtools.Vector.Vector
+
+Lineage
+-------
+
+.. graphviz::
+
+   digraph InheritanceGraph {
+       graph [background=transparent,
+           color=lightslategrey,
+           fontname=Arial,
+           outputorder=edgesfirst,
+           overlap=prism,
+           penwidth=2,
+           rankdir=LR,
+           root="__builtin__.object",
+           splines=spline,
+           style="dotted, rounded"];
+       node [colorscheme=pastel19,
+           fontname=Arial,
+           fontsize=12,
+           penwidth=2,
+           style="filled, rounded"];
+       edge [color=lightsteelblue2,
+           penwidth=2];
+       subgraph cluster___builtin__ {
+           graph [label=__builtin__];
+           "__builtin__.object" [color=1,
+               group=0,
+               label=object,
+               shape=box];
+       }
+       subgraph cluster_abctools {
+           graph [label=abctools];
+           "abctools.AbjadObject" [color=2,
+               group=1,
+               label=AbjadObject,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" [color=2,
+               group=1,
+               label=AbstractBase,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" -> "abctools.AbjadObject";
+       }
+       subgraph cluster_datastructuretools {
+           graph [label=datastructuretools];
+           "datastructuretools.TypedCollection" [color=3,
+               group=2,
+               label=TypedCollection,
+               shape=oval,
+               style=bold];
+           "datastructuretools.TypedCounter" [color=3,
+               group=2,
+               label=TypedCounter,
+               shape=box];
+           "datastructuretools.TypedCollection" -> "datastructuretools.TypedCounter";
+       }
+       subgraph cluster_pitchtools {
+           graph [label=pitchtools];
+           "pitchtools.IntervalClassVector" [color=4,
+               group=3,
+               label=IntervalClassVector,
+               shape=box];
+           "pitchtools.IntervalVector" [color=4,
+               group=3,
+               label=IntervalVector,
+               shape=box];
+           "pitchtools.PitchClassVector" [color=4,
+               group=3,
+               label=PitchClassVector,
+               shape=box];
+           "pitchtools.PitchVector" [color=4,
+               group=3,
+               label=PitchVector,
+               shape=box];
+           "pitchtools.Vector" [color=black,
+               fontcolor=white,
+               group=3,
+               label=<<B>Vector</B>>,
+               shape=oval,
+               style="filled, rounded"];
+           "pitchtools.Vector" -> "pitchtools.IntervalClassVector";
+           "pitchtools.Vector" -> "pitchtools.IntervalVector";
+           "pitchtools.Vector" -> "pitchtools.PitchClassVector";
+           "pitchtools.Vector" -> "pitchtools.PitchVector";
+       }
+       "__builtin__.object" -> "abctools.AbjadObject.AbstractBase";
+       "abctools.AbjadObject" -> "datastructuretools.TypedCollection";
+       "datastructuretools.TypedCounter" -> "pitchtools.Vector";
+   }
+
+.. only:: html
+
+   Attribute summary
+   -----------------
+
+   .. autosummary::
+
+      ~abjad.tools.pitchtools.Vector.Vector.clear
+      ~abjad.tools.pitchtools.Vector.Vector.copy
+      ~abjad.tools.pitchtools.Vector.Vector.elements
+      ~abjad.tools.pitchtools.Vector.Vector.from_selection
+      ~abjad.tools.pitchtools.Vector.Vector.item_class
+      ~abjad.tools.pitchtools.Vector.Vector.items
+      ~abjad.tools.pitchtools.Vector.Vector.keys
+      ~abjad.tools.pitchtools.Vector.Vector.most_common
+      ~abjad.tools.pitchtools.Vector.Vector.subtract
+      ~abjad.tools.pitchtools.Vector.Vector.update
+      ~abjad.tools.pitchtools.Vector.Vector.values
+      ~abjad.tools.pitchtools.Vector.Vector.viewitems
+      ~abjad.tools.pitchtools.Vector.Vector.viewkeys
+      ~abjad.tools.pitchtools.Vector.Vector.viewvalues
+      ~abjad.tools.pitchtools.Vector.Vector.__add__
+      ~abjad.tools.pitchtools.Vector.Vector.__and__
+      ~abjad.tools.pitchtools.Vector.Vector.__contains__
+      ~abjad.tools.pitchtools.Vector.Vector.__delitem__
+      ~abjad.tools.pitchtools.Vector.Vector.__eq__
+      ~abjad.tools.pitchtools.Vector.Vector.__format__
+      ~abjad.tools.pitchtools.Vector.Vector.__getitem__
+      ~abjad.tools.pitchtools.Vector.Vector.__hash__
+      ~abjad.tools.pitchtools.Vector.Vector.__iter__
+      ~abjad.tools.pitchtools.Vector.Vector.__len__
+      ~abjad.tools.pitchtools.Vector.Vector.__missing__
+      ~abjad.tools.pitchtools.Vector.Vector.__ne__
+      ~abjad.tools.pitchtools.Vector.Vector.__or__
+      ~abjad.tools.pitchtools.Vector.Vector.__repr__
+      ~abjad.tools.pitchtools.Vector.Vector.__setitem__
+      ~abjad.tools.pitchtools.Vector.Vector.__str__
+      ~abjad.tools.pitchtools.Vector.Vector.__sub__
+
+Bases
+-----
+
+- :py:class:`datastructuretools.TypedCounter <abjad.tools.datastructuretools.TypedCounter.TypedCounter>`
+
+- :py:class:`datastructuretools.TypedCollection <abjad.tools.datastructuretools.TypedCollection.TypedCollection>`
+
+- :py:class:`abctools.AbjadObject <abjad.tools.abctools.AbjadObject.AbjadObject>`
+
+- :py:class:`abctools.AbjadObject.AbstractBase <abjad.tools.abctools.AbjadObject.AbstractBase>`
+
+- :py:class:`__builtin__.object <object>`
+
+Read-only properties
+--------------------
+
+.. autoattribute:: abjad.tools.pitchtools.Vector.Vector.item_class
+   :noindex:
+
+Methods
+-------
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.clear
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.copy
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.elements
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.from_selection
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.items
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.keys
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.most_common
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.subtract
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.update
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.values
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.viewitems
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.viewkeys
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.viewvalues
+   :noindex:
+
+Special methods
+---------------
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__add__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__and__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__contains__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__delitem__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__eq__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__format__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__getitem__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__hash__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__iter__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__len__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__missing__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__ne__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__or__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__repr__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__setitem__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__str__
+   :noindex:
+
+.. automethod:: abjad.tools.pitchtools.Vector.Vector.__sub__
+   :noindex:

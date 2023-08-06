@@ -1,0 +1,150 @@
+mathtools.BoundedObject
+=======================
+
+.. autoclass:: abjad.tools.mathtools.BoundedObject.BoundedObject
+
+Lineage
+-------
+
+.. graphviz::
+
+   digraph InheritanceGraph {
+       graph [background=transparent,
+           color=lightslategrey,
+           fontname=Arial,
+           outputorder=edgesfirst,
+           overlap=prism,
+           penwidth=2,
+           rankdir=LR,
+           root="__builtin__.object",
+           splines=spline,
+           style="dotted, rounded"];
+       node [colorscheme=pastel19,
+           fontname=Arial,
+           fontsize=12,
+           penwidth=2,
+           style="filled, rounded"];
+       edge [color=lightsteelblue2,
+           penwidth=2];
+       subgraph cluster___builtin__ {
+           graph [label=__builtin__];
+           "__builtin__.object" [color=1,
+               group=0,
+               label=object,
+               shape=box];
+       }
+       subgraph cluster_abctools {
+           graph [label=abctools];
+           "abctools.AbjadObject" [color=2,
+               group=1,
+               label=AbjadObject,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" [color=2,
+               group=1,
+               label=AbstractBase,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" -> "abctools.AbjadObject";
+       }
+       subgraph cluster_mathtools {
+           graph [label=mathtools];
+           "mathtools.BoundedObject" [color=black,
+               fontcolor=white,
+               group=2,
+               label=<<B>BoundedObject</B>>,
+               shape=box,
+               style="filled, rounded"];
+       }
+       subgraph cluster_timespantools {
+           graph [label=timespantools];
+           "timespantools.AnnotatedTimespan" [color=4,
+               group=3,
+               label=AnnotatedTimespan,
+               shape=box];
+           "timespantools.Timespan" [color=4,
+               group=3,
+               label=Timespan,
+               shape=box];
+           "timespantools.Timespan" -> "timespantools.AnnotatedTimespan";
+       }
+       "__builtin__.object" -> "abctools.AbjadObject.AbstractBase";
+       "abctools.AbjadObject" -> "mathtools.BoundedObject";
+       "mathtools.BoundedObject" -> "timespantools.Timespan";
+   }
+
+.. only:: html
+
+   Attribute summary
+   -----------------
+
+   .. autosummary::
+
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_closed
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_half_closed
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_half_open
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_left_closed
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_left_open
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_open
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_right_closed
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.is_right_open
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.__eq__
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.__format__
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.__hash__
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.__ne__
+      ~abjad.tools.mathtools.BoundedObject.BoundedObject.__repr__
+
+Bases
+-----
+
+- :py:class:`abctools.AbjadObject <abjad.tools.abctools.AbjadObject.AbjadObject>`
+
+- :py:class:`abctools.AbjadObject.AbstractBase <abjad.tools.abctools.AbjadObject.AbstractBase>`
+
+- :py:class:`__builtin__.object <object>`
+
+Read-only properties
+--------------------
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_closed
+   :noindex:
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_half_closed
+   :noindex:
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_half_open
+   :noindex:
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_open
+   :noindex:
+
+Read/write properties
+---------------------
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_left_closed
+   :noindex:
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_left_open
+   :noindex:
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_right_closed
+   :noindex:
+
+.. autoattribute:: abjad.tools.mathtools.BoundedObject.BoundedObject.is_right_open
+   :noindex:
+
+Special methods
+---------------
+
+.. automethod:: abjad.tools.mathtools.BoundedObject.BoundedObject.__eq__
+   :noindex:
+
+.. automethod:: abjad.tools.mathtools.BoundedObject.BoundedObject.__format__
+   :noindex:
+
+.. automethod:: abjad.tools.mathtools.BoundedObject.BoundedObject.__hash__
+   :noindex:
+
+.. automethod:: abjad.tools.mathtools.BoundedObject.BoundedObject.__ne__
+   :noindex:
+
+.. automethod:: abjad.tools.mathtools.BoundedObject.BoundedObject.__repr__
+   :noindex:

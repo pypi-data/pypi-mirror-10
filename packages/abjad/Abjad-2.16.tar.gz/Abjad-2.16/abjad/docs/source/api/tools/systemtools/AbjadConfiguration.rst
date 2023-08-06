@@ -1,0 +1,236 @@
+systemtools.AbjadConfiguration
+==============================
+
+.. autoclass:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration
+
+Lineage
+-------
+
+.. graphviz::
+
+   digraph InheritanceGraph {
+       graph [background=transparent,
+           color=lightslategrey,
+           fontname=Arial,
+           outputorder=edgesfirst,
+           overlap=prism,
+           penwidth=2,
+           rankdir=LR,
+           root="__builtin__.object",
+           splines=spline,
+           style="dotted, rounded"];
+       node [colorscheme=pastel19,
+           fontname=Arial,
+           fontsize=12,
+           penwidth=2,
+           style="filled, rounded"];
+       edge [color=lightsteelblue2,
+           penwidth=2];
+       subgraph cluster___builtin__ {
+           graph [label=__builtin__];
+           "__builtin__.object" [color=1,
+               group=0,
+               label=object,
+               shape=box];
+       }
+       subgraph cluster_abctools {
+           graph [label=abctools];
+           "abctools.AbjadObject" [color=2,
+               group=1,
+               label=AbjadObject,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" [color=2,
+               group=1,
+               label=AbstractBase,
+               shape=box];
+           "abctools.AbjadObject.AbstractBase" -> "abctools.AbjadObject";
+       }
+       subgraph cluster_systemtools {
+           graph [label=systemtools];
+           "systemtools.AbjadConfiguration" [color=black,
+               fontcolor=white,
+               group=3,
+               label=<<B>AbjadConfiguration</B>>,
+               shape=box,
+               style="filled, rounded"];
+           "systemtools.Configuration" [color=4,
+               group=3,
+               label=Configuration,
+               shape=oval,
+               style=bold];
+           "systemtools.Configuration" -> "systemtools.AbjadConfiguration";
+       }
+       subgraph cluster_ide {
+           graph [label=ide];
+           "ide.idetools.Configuration" [color=3,
+               group=2,
+               label=Configuration,
+               shape=box];
+       }
+       "__builtin__.object" -> "abctools.AbjadObject.AbstractBase";
+       "abctools.AbjadObject" -> "systemtools.Configuration";
+       "systemtools.AbjadConfiguration" -> "ide.idetools.Configuration";
+   }
+
+.. only:: html
+
+   Attribute summary
+   -----------------
+
+   .. autosummary::
+
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_configuration_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_configuration_file_path
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_experimental_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_output_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_root_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_stylesheets_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_tools_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.configuration_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.configuration_file_name
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.configuration_file_path
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_abjad_startup_string
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_abjad_version_string
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_lilypond_minimum_version_string
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_lilypond_version_string
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_python_version_string
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_tab_width
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_text_editor
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.home_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.list_package_dependency_versions
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.score_manager_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.score_manager_root_directory
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.set_default_accidental_spelling
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__delitem__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__eq__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__format__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__getitem__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__hash__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__iter__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__len__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__ne__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__repr__
+      ~abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__setitem__
+
+Bases
+-----
+
+- :py:class:`systemtools.Configuration <abjad.tools.systemtools.Configuration.Configuration>`
+
+- :py:class:`abctools.AbjadObject <abjad.tools.abctools.AbjadObject.AbjadObject>`
+
+- :py:class:`abctools.AbjadObject.AbstractBase <abjad.tools.abctools.AbjadObject.AbstractBase>`
+
+- :py:class:`__builtin__.object <object>`
+
+Read-only properties
+--------------------
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_configuration_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_configuration_file_path
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_experimental_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_output_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_root_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_stylesheets_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.abjad_tools_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.configuration_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.configuration_file_name
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.configuration_file_path
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.home_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.score_manager_directory
+   :noindex:
+
+.. autoattribute:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.score_manager_root_directory
+   :noindex:
+
+Class methods
+-------------
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_abjad_startup_string
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_lilypond_minimum_version_string
+   :noindex:
+
+Static methods
+--------------
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_abjad_version_string
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_lilypond_version_string
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_python_version_string
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_tab_width
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.get_text_editor
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.list_package_dependency_versions
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.set_default_accidental_spelling
+   :noindex:
+
+Special methods
+---------------
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__delitem__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__eq__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__format__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__getitem__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__hash__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__iter__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__len__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__ne__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__repr__
+   :noindex:
+
+.. automethod:: abjad.tools.systemtools.AbjadConfiguration.AbjadConfiguration.__setitem__
+   :noindex:
