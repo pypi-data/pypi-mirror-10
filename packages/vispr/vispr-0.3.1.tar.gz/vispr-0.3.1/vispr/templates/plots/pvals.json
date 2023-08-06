@@ -1,0 +1,132 @@
+{
+    "width": 200,
+    "height": 200,
+    "data": [
+        {
+            "name": "pvals",
+            "values": {{ pvals }}
+        },
+        {
+            "name": "highlight",
+            "values": {{ highlight }}
+        }
+    ],
+    "scales": [
+        {
+            "name": "x",
+            "type": "linear",
+            "range": "width",
+            "zero": false,
+            "domain": {"data": "pvals", "field": "data.idx"}
+        },
+        {
+            "name": "y",
+            "type": "linear",
+            "range": "height",
+            "nice": true,
+            "domain": {"data": "pvals", "field": "data.log10-p-value"}
+        },
+        {
+            "name": "c",
+            "type": "ordinal",
+            "domain": {"data": "highlight", "field": "data.target"},
+            "range": "category20"
+        }
+    ],
+    "axes": [
+        {"type": "x", "scale": "x", "offset": 5, "title": "targets", "ticks": 4},
+        {"type": "y", "scale": "y", "nice": true, "offset": 5, "title": "-log10 p-value"}
+    ],
+    "marks": [
+        {
+            "type": "line",
+            "from": {"data": "pvals"},
+            "properties": {
+                "enter": {
+                    "x": {"scale": "x", "field": "data.idx"},
+                    "y": {"scale": "y", "field": "data.log10-p-value"},
+                    "stroke": {"value": "steelblue"},
+                    "strokeWidth": {"value": 2}
+                }
+            }
+        },
+        {
+            "type": "symbol",
+            "from": {"data": "highlight"},
+            "properties": {
+                "enter": {
+                    "x": {"scale": "x", "field": "data.idx"},
+                    "y": {"scale": "y", "field": "data.log10-p-value"},
+                    "fill": {"scale": "c", "field": "data.target"},
+                    "stroke": {"value": "transparent"},
+                    "size": {"value": 50}
+                }
+            }
+        },
+        {
+            "type": "rect",
+            "properties": {
+                "enter": {
+                    "x": {"value": 0},
+                    "x2": {"value": 200},
+                    "y": {"scale": "y", "value": {{ fdr5 }}},
+                    "y2": {"scale": "y", "value": {{ fdr5 }}, "offset": 1},
+                    "stroke": {"value": "grey"},
+                    "strokeWidth": {"value": 1},
+                    "strokeDash": {"value": [2,1]}
+                }
+            }
+        },
+        {
+            "type": "rect",
+            "properties": {
+                "enter": {
+                    "x": {"value": 0},
+                    "x2": {"value": 200},
+                    "y": {"scale": "y", "value": {{ fdr25 }}},
+                    "y2": {"scale": "y", "value": {{ fdr25 }}, "offset": 1},
+                    "stroke": {"value": "grey"},
+                    "strokeWidth": {"value": 1},
+                    "strokeDash": {"value": [2,1]}
+                }
+            }
+        },
+        {
+            "type": "text",
+            "properties": {
+                "enter": {
+                    "x": {"value": 200},
+                    "y": {"scale": "y", "value": {{ fdr5 }}},
+                    "dy": {"value": -2},
+                    "text": {"value": "{{ fdr5label }}"},
+                    "align": {"value": "right"},
+                    "fill": {"value": "grey"}
+                }
+            }
+        },
+        {
+            "type": "text",
+            "properties": {
+                "enter": {
+                    "x": {"value": 200},
+                    "y": {"scale": "y", "value": {{ fdr25 }}},
+                    "dy": {"value": -2},
+                    "text": {"value": "{{ fdr25label }}"},
+                    "align": {"value": "right"},
+                    "fill": {"value": "grey"}
+                }
+            }
+        }
+    ],
+    "legends": [
+        {
+            "fill": "c",
+            "title": "                  ",
+            "properties": {
+                "symbols": {
+                    "stroke": {"value": "transparent"}
+                }
+            }
+        }
+    ]
+}
