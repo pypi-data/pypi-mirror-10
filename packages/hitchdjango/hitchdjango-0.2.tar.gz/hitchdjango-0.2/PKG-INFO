@@ -1,0 +1,81 @@
+Metadata-Version: 1.1
+Name: hitchdjango
+Version: 0.2
+Summary: Plugin to run Django with the Hitch testing framework.
+Home-page: https://hitch.readthedocs.org/
+Author: Colm O'Connor
+Author-email: colm.oconnor.github@gmail.com
+License: AGPL
+Description: HitchDjango
+        ===========
+        
+        HitchDjango is a plugin for the Hitch test framework that lets you run and
+        interact with Django as part of a test.
+        
+        When the plugin starts Django, *before* running runserver, it will:
+        
+        * Check the version and fail if it is different to what is specified.
+        * Run migrations (using manage.py migrate).
+        * Get the URL using localhost + the specified port and put it in sites.site.
+        * Install all specified Django fixtures.
+        
+        Currently HitchDjango runs only on Django 1.8 and above. Please raise a ticket
+        if you need an earlier version.
+        
+        Use with Hitch
+        ==============
+        
+        Install like so::
+        
+            $ hitch install hitchdjango
+        
+        
+        .. code-block:: python
+        
+                # Service definition in engine's setUp:
+                self.services['Django'] = hitchdjango.DjangoService(
+                    version="1.8",                                              # Mandatory
+                    python="{}/venv/bin/python".format(PROJECT_DIRECTORY),      # Mandatory
+                    managepy=None,                                              # Optional full path to manage.py (default: None, assumes in project directory)
+                    django_fixtures=['fixture1.json',],                         # Optional (default: None)
+                    port=18080,                                                 # Optional (default: 18080)
+                    settings="remindme.settings",                               # Optional (default: settings)
+                    needs=[self.services['Postgres'], ]                         # Optional (default: no prerequisites)
+                )
+        
+        
+                # Interact during the test:
+                >>> self.services['Django'].manage("help").run()
+                [ Prints help ]
+        
+                >>> self.services['Django'].url()
+                http://127.0.0.1:18080/
+        
+                >>> self.services['Django'].savefixture("fixtures/database_current_state.json").run()
+                [ Saves fixture ]
+        
+        
+        See this service in action at the DjangoRemindMe_ project.
+        
+        
+        .. _HitchServe: https://github.com/hitchtest/hitchserve
+        .. _DjangoRemindMe: https://github.com/hitchtest/django-remindme
+        
+Keywords: hitch testing framework bdd tdd declarative tests testing service django
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Operating System :: Unix
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
