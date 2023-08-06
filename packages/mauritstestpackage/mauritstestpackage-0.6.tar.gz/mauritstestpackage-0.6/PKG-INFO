@@ -1,0 +1,66 @@
+Metadata-Version: 1.1
+Name: mauritstestpackage
+Version: 0.6
+Summary: Test package from Maurits for uploading to PyPI.
+Home-page: https://pypi.python.org/pypi/mauritstestpackage
+Author: Maurits van Rees
+Author-email: maurits@vanrees.org
+License: GPL
+Description: Test package.
+        
+        I can use this for testing zest.releaser upload to PyPI.
+        
+        Or testpypi.
+        
+        Maurits van Rees
+        
+        
+        Changelog
+        =========
+        
+        0.6 (2015-06-05)
+        ----------------
+        
+        - Add README.rst as symbolic link again.  Remove mauritstestpackage/README.txt.
+        
+        
+        0.5 (2015-06-05)
+        ----------------
+        
+        - Remove README.rst.
+        
+        - Add changelog to long description.
+        
+        
+        0.4 (2015-06-05)
+        ----------------
+        
+        - README.rst as symbolic link.  Extra mauritstestpackage/README.txt.
+        
+        
+        0.3 (2015-06-05)
+        ----------------
+        
+        - README.txt as long description, instead of README.rst.
+        
+        
+        0.2 (2015-05-22)
+        ----------------
+        
+        - Nothing changed yet.
+        
+        
+        0.1 (2015-05-13)
+        ----------------
+        
+        - First release.
+        
+Keywords: test release pypi
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
