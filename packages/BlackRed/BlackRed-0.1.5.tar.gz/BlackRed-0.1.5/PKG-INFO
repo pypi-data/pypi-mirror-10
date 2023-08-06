@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: BlackRed
+Version: 0.1.5
+Summary: Dynamic blacklisting library using redis.
+Home-page: https://github.com/edelbluth/blackred
+Author: Juergen Edelbluth
+Author-email: dev@juergen.rocks
+License: Apache Software License 2.0
+Download-URL: https://github.com/edelbluth/blackred/tarball/v0.1.5
+Description: UNKNOWN
+Keywords: protection,redis,django,ban,filter
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Networking
+Requires: redis
