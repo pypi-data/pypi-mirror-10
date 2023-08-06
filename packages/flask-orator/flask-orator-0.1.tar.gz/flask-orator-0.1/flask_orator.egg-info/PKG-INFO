@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: flask-orator
+Version: 0.1
+Summary: Adds Orator support to your Flask application
+Home-page: https://github.com/sdispater/orator
+Author: Sébastien Eustace
+Author-email: sebastien.eustace@gmail.com
+License: MIT
+Download-URL: https://github.com/sdispater/orator/archive/0.1.tar.gz
+Description: Flask-Orator
+        ############
+        
+        .. image:: https://travis-ci.org/sdispater/flask-orator.png
+           :alt: Orator Build status
+           :target: https://travis-ci.org/sdispater/flask-orator
+        
+        Flask-Orator adds `Orator ORM <https://github.com/sdispater/orator>`_ support to Flask applications.
+        
+        
+        Resources
+        =========
+        
+        You can install Orator in 2 different ways:
+        
+        * `Documentation <http://flask-orator.readthedocs.org>`_
+        * `Issue Tracker <https://github.com/sdispater/flask-orator/issues>`_
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
