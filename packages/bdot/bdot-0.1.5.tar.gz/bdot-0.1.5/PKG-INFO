@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: bdot
+Version: 0.1.5
+Summary: Fast Matrix Multiply on Pretty Big Data (powered by Bcolz)
+Home-page: https://github.com/tailwind/bdot
+Author: Waylon Flinn
+Author-email: UNKNOWN
+License: MIT
+Description: 
+        Bdot does big dot products (by making your RAM bigger on the inside). 
+        It aims to let you do all the things you want to do with numpy, 
+        but don't have enough memory for. You can also use it to save space
+        in the cloud and quickly build production microservices.
+        
+        It's pretty math.
+        
+        Bdot is based on Bcolz and includes transparent disk-based storage. It was created 
+        to simplify production implementation of nearest neighbor search and other fancy 
+        machine learning rigmarole.
+        
+Keywords: dot product matrix multiply compression bcolz numpy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
