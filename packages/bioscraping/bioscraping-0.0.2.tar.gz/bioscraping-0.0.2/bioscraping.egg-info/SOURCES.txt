@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+setup.cfg
+setup.py
+bioscraping/__init__.py
+bioscraping/_base.py
+bioscraping/pubmed.py
+bioscraping/uniprot.py
+bioscraping.egg-info/PKG-INFO
+bioscraping.egg-info/SOURCES.txt
+bioscraping.egg-info/dependency_links.txt
+bioscraping.egg-info/top_level.txt
+bioscraping/parsers/__init__.py
+bioscraping/parsers/xmlstuff.py
+test/not_a_real_test.py
