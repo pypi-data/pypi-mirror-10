@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{size}} Ad Units</title>
+<script src="js/swfobject.js"></script>
+<style>
+    :focus {outline:0;}
+    body {height: 100%; margin: 40px; padding: 0; background-color:#333; color:#999; font-family:"Arial","Helvetica"; font-size:12px;}
+    .text-center {text-align:center;}
+    .margin-bottom {margin-bottom:20px;}
+    .center {margin:0px auto;}
+</style>
+<script>
+    var params = {
+        quality: "high",
+        scale: "noscale",
+        wmode: "window",
+        menu: "false",
+        allowscriptaccess: "always",
+        bgcolor: "#000000"
+    };
+    var flashvars = {clickTAG: "http://xstudios.agency"};
+    var attributes = {};
+    swfobject.embedSWF("{{filename}}.swf", "ad_{{size}}", "{{width}}", "{{height}}", "10.1.0", "expressInstall.swf", flashvars, params, attributes);
+</script>
+</head>
+<body>
+    <div class="text-center margin-bottom">
+        <div id="ad_{{size}}"></div>
+        <br/>{{size}} (Flash)
+    </div>
+
+    <div class="text-center margin-bottom">
+        <img src="{{filename}}.jpg" />
+        <br/>{{size}} (Static)
+    </div>
+</body>
+</html>
