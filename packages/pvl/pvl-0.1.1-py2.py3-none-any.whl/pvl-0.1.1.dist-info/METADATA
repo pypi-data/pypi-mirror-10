@@ -1,0 +1,63 @@
+Metadata-Version: 2.0
+Name: pvl
+Version: 0.1.1
+Summary: Python implementation of PVL (Parameter Value Language)
+Home-page: https://github.com/planetarypy/pvl
+Author: The PlanetaryPy Developers
+Author-email: trevor@heytrevor.com
+License: BSD
+Keywords: pvl
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: pytz
+Requires-Dist: six
+
+===============================
+pvl
+===============================
+
+.. image:: https://badge.fury.io/py/pvl.svg
+    :target: http://badge.fury.io/py/pvl
+
+.. image:: https://travis-ci.org/planetarypy/pvl.svg?branch=master
+        :target: https://travis-ci.org/planetarypy/pvl
+
+.. image:: https://pypip.in/d/pvl/badge.png
+        :target: https://pypi.python.org/pypi/pvl
+
+
+Python implementation of PVL (Parameter Value Language)
+
+* Free software: BSD license
+* Documentation: http://pvl.readthedocs.org.
+
+Features
+--------
+
+* TODO
+
+
+
+History
+-------
+
+0.1.1 (2015-06-01)
+~~~~~~~~~~~~~~~~~~
+
+* Fixed issue with reading Pancam PDS Products.
+
+0.1.0 (2015-05-30)
+~~~~~~~~~~~~~~~~~~
+
+* First release on PyPI.
+
+
