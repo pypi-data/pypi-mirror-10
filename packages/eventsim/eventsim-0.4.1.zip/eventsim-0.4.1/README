@@ -1,0 +1,50 @@
+Description
+-----------
+
+eventsim makes discrete event easy to simulate
+
+Currently, it consists of two modules:
+	models and randgen
+
+Modules
+--------
+models
+-------
+contains methods for simplifying and calculating:
+*probability,
+*estimated variance,
+*estimated mean,
+*estimated standard deviation,
+*expectation value,
+*discreteEmp
+
+most of its methods takes in two arguments, outcome and cummulative probability and a third optional argument which is how many times an item should be generated or times to be calculated.
+
+randgen 
+--------
+contains methods for simplifying and generating a:
+
+*random outcome,
+*a unique outcome
+*times of occurrence of outcome
+*probability of occurrence
+*cummulative probability of occurrence
+
+
+another module coming soon aimed at generating a real life event simulation scenario in workplace 
+
+
+For more help information please read the help notes provided in the package
+	
+
+Requirements
+------------
+
+* Any version of python
+
+Acknowledgements
+----------------
+
+I was inspired to write this package after my university coursework demanded using python to simulate events. I hope Modelling and Simulation students find it useful
+
+All glory belongs to God for helping me in completing my first module.
