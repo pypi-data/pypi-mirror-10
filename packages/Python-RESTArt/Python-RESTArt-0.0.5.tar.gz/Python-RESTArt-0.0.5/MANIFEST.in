@@ -1,0 +1,9 @@
+include requirements.txt
+recursive-include tests *
+recursive-include examples *
+recursive-include docs *
+recursive-exclude tests *.pyc *.pyo
+recursive-exclude examples *.pyc *.pyo
+recursive-exclude docs *.pyc *.pyo
+prune docs/_build
+prune docs/_themes
