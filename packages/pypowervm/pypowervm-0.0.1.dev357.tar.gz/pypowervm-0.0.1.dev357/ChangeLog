@@ -1,0 +1,235 @@
+CHANGES
+=======
+
+* find_maps by storage element
+* Enable entry deletion on wrapper
+* Update monitors to read_by_path
+* Add LPAR Metric Cache
+* VSCSIMapping.bld_from_existing to clone storage
+* Reconcile metrics to per VM basis
+* Enable sonar scans through tox
+* Handle no response in vios_busy helper
+* add_vscsi_mappings detects existing mapping
+* SCSI mapper search and remove by ID or UUID
+* Add 'name' @property to VOptMedia
+* Add tasks for migration related operations
+* Remove .pyc files for tox runs
+* SCSI ops can take VIOS wrapper or UUID
+* Retry decorator supports modifying arguments
+* Support PCM Data Sources
+* Refactor convert_uuid_to_pvm
+* System wrapper support for IOSlots and WWPN under assoc io config
+* Attribute order changes for sharedprocessorpool
+* scsi_mapper.find_maps, gen_match_func
+* Adapter.read_by_href needs to preserve querystring
+* Create needed files to build pypowervm debian package
+* Fix the find peer algorithm for trunk adapters
+* Changes for attribute ordering for Cluster
+* Change CNA to return wrapper
+* Improve LUA result parsing
+* Support stdout and xmlresult in lua_recovery
+* Child ordering for capabilities & shared proc cfg
+* Util method to sanitize partition name
+* Remove duplicate ITLs on discover_hdisk
+* Remove managed_system.find_entry_by_mtms
+* Clear TTY on new VNC
+* Accomodate IsManagementPartition
+* Limit storage upload to three parallel operations
+* Util method to generate sanitized file name based
+* Add branch for empty Stdout in hdisk
+* Fix close issue if no tty
+* Remove the psutil kill on vterm temporarily
+* Provide 'lazy' file copy for storage tasks
+* Initial VNC Terminal Enablement
+* Sonar: Factor out code duplication
+* Sonar: Module docstrings
+* Implement EntryWrapper.create()
+* Fixes for SEA element ordering
+* Correct monitor test case
+* Anonymous CHILD search (no ROOT UUID)
+* href utils and Atom base class for Entry & Feed
+* Add unordered elements to volume groups
+* Remove redundant adapter param
+* Adapter linked from Response, Element*, Entry*
+* Add hdisk removal job
+* Add 'active' pfc ports in vios wrapper
+* Add wrapper support for monitoring
+* Add state enumerations to base partition
+* Fix additional VLANs bug in network_bridger
+* Add VLAN path for network bridger
+* Add rmdev job to traits
+* Embed traits in entities.Entry and .Element
+* Fix upload via FIFO pipe error
+* Add a wrapper for HttpErrorResponse
+* Incorporate X-MC-Type into Session and APITraits
+* Fix vterm task
+* Add dynamic VLAN trait
+* Reconcile xags in paths and args
+* Support new file upload mechanism
+* Update attrib on VFC Mappings
+* Fix the update wrapper for duplicate groups
+* Add support for lpar profile sync
+* Provide initial refactor of network bridger
+* Add trait for colocation to PowerVM API Server
+* Fix suffix bug
+* Enable file-based Session authentication
+* Fix Accept header for quick prop with query params
+* Omit ?group=None for 'quick' and 'do' URIs
+* Support modification in wrappers for VLANs
+* Make LPARBuilder work for VIOS
+* Remove 'Enum' suffix from all enumerations
+* Remove pypowervm.wrappers.constants
+* get_req_path_uuid can extract the ROOT UUID
+* Remove obsolete pypowervm.wrappers.constants vars
+* Get rid of obsolete xag-related constants
+* HTTPStatusEnum
+* LUAStatusEnum, LUATypeEnum
+* Bug fixes for wwpn API
+* Remove the cna_uris from base_partition
+* Get rid of top-level Partition properties
+* BasePartition
+* Initial API Traits configuration
+* LPAR.assoc_sys_uuid
+* Remaining support for happy path NetBridge bld()
+* Support related_href property
+* Ensure calculated proc units is between min/max
+* Update related href build to not include groups
+* Return the vOpt on the upload
+* Change scsi mapper to work against storage elems
+* Adapter.create and .delete don't accept xags
+* EntryWrapper.search supports CHILD
+* Remove attr parameter from standardizer
+* Fix the SCSI mapping function
+* EntryWrapper.search supports extended attr groups
+* Make group=None the default for read/update
+* Provide locks on storage operations
+* Handle multiple calls down into scsi_mapper
+* Make *Wrapper.type_and_uuid private
+* Resolve sonar issues on adapter.py
+* Refactor extended attribute group enum pattern
+* Add assigned virtual io server support to NetBridge bld()
+* Add implementation for removing hdisk
+* Fallback search by looping through GET feed
+* Add support to remove physical volume mappings
+* Quote special characters on EntryWrapper.search
+* Implement LU.__hash__
+* pypowervm.tasks.scsi_mapper.remove_lu_mapping
+* Additional vSwitch Attributes
+* LUs are equal if their names and UDIDs are equal
+* remove_lu_linked_clone: update is optional
+* Remove LU Linked Clone (remove_lu_linked_clone)
+* Add in non-included schema collections constants
+* Create the vSwitch on the client CNA create
+* Add bld() classmethod to NetBridge
+* Round LU size up to 2dp
+* Provide virtual switch creation on the wrapper
+* Create LU Linked Clone (crt_lu_linked_clone)
+* Include VIO mapping functions
+* Improvements to get_req_path_uuid
+* Add support for SRR and Proc Compat
+* Provide WWPN mapper
+* Fix adapter read when not using caching
+* Add LPAR element ordering
+* Provide additional WWPN utilities
+* Logical Unit Type support
+* upload_new_lu: create and populate an SSP LU
+* Add support for PFC query on VIOS
+* upload_new_vdisk/vopt: crt_vdisk/_upload_stream
+* Refactor upload/storage tasks into tasks.storage
+* Remove crt_* methods from logical_partition
+* Move the storage adapters to the correct location
+* SCSI Mapping Logic in pypowervm
+* Add lpar availability priority to builder
+* Implement LU removal: tasks.cluster_ssp.rm_lu
+* Implement LU creation: tasks.cluster_ssp.crt_lu
+* Add lpar builder and standardizer
+* Rename pypowervm.jobs to pypowervm.tasks
+* Use QName to parse Element tag/namespace
+* sonar: make backslash-containing strings raw
+* sonar: python:S1721: remove unnecessary parens
+* sonar: shorten method name set_dedicated_test_pro-
+* sonar: shorten method name get_job_response_excep-
+* Scrub UT setUp/tearDown methods
+* Consistent float get/set for GB storage properties
+* LU.bld()
+* Child element ordering for LU (LogicalUnit)
+* VG.bld()
+* Fix Wrapper.update to use only path (not href)
+* Element ordering for storage.VG
+* PoC: exploit implicit child ordering for Node
+* Order-gnostic insertion of a child element
+* Update to utilize new wrapper update method
+* EntryWrapper.update takes xag, returns new wrapper
+* EntryWrapper.update(adapter)
+* Add LPAR element wrappers and builders
+* search and refresh in EntryWrapper
+* Support Virtual FC Mappings
+* Provide WWPN generation
+* Maintainability of VSCSIMapping.backing_storage
+* Provide mappings for PV and LU
+* Enable Adapter.search(SSP, name='...')
+* Adapter.search(wrap_cls, negate=False, key=value)
+* Minor fixes for XAG and schemas
+* Provide hdisk discovery utility
+* @pvm_type, bld(), tersify, privatize
+* _element=>element, document for_propname
+* Wrappers wrap(entry/resp/el), __init__(fields...)
+* Provide I/O hardware getters
+* Missing wrapper property: warning=>debug
+* Move ClientNetworkAdapter, shorten names phase I
+* crt_vnet => VirtualNetwork.new_instance()
+* crt_cna => ClientNetworkAdapter.new_instance()
+* Provide VLAN provision optimization
+* Add retry to VLAN operations
+* Support delete VLAN in the API
+* Wrapper._get_val_{type}
+* Allow additional parameters on power on / off
+* Cluster/SharedStoragePool creation
+* Add network_bridger baseline
+* Clean up of upload_lv components
+* Framework & PoC for construction of fresh wrappers
+* Provide dev_name and vio_uri on SEA
+* Sync load groups back to Network Bridge
+* Fix VolumeGroup capacity numbers
+* Provide crt_load_group method
+* Provide helper function to list all VLANs
+* Add additional attributes to virtual_io_server
+* Correct SSP Repository
+* Add helper utility methods to network wrappers
+* Add function to find a wrapper from a list
+* Add NetworkBridge root element to network
+* Provide mtms string method
+* Support MTMS query in Managed System
+* Fix default response checker method
+* Introduce Cluster, Node, MTMS wrappers
+* Updates the create network adapter to succeed
+* LogicalUnit Wrapper & SSP getter
+* Introduce SharedStoragePool Wrapper
+* Un-@property & UT hdisk_reserve_policy, _from_uuid
+* Add retry decorator
+* Add new close vterm method
+* Updates the Volume Groups to use new wrapper props
+* Add setters for vdisk
+* Review Comment updates for Modifiable Lists
+* Utilize Element Lists
+* Add constants for extended attribute groups
+* Add etags to feeds
+* Add upload cleanup method
+* SCSI Mappings group added to parent element
+* Correct CDATA handling in adapter
+* Updating logical_partition for new property
+* Fix the job code to use properties
+* Handle absent etag for entry
+* Update some constants in the wrappers
+* Fix @property getters in managed_system wrapper
+* Provides wrappers to the File API
+* Change calls to get_name() to use properties
+* Add feeds to load_from_response
+* Add etag to EntryWrapper and response loader
+* Convert wrapper getters to @propertys
+* Adding client network adapters
+* Updating the sonar properties
+* Updating the sonar properties
+* Provide a group on the scsi mappings
+* Initial seed of pypowervm API
+* Initial empty repository
