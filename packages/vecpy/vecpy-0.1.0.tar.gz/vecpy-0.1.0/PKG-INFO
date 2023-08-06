@@ -1,0 +1,73 @@
+Metadata-Version: 1.1
+Name: vecpy
+Version: 0.1.0
+Summary: Simple Vector package to help with basic linear algebra.
+Home-page: https://github.com/j-i-l/VecPy
+Author: Jonas I. Liechti
+Author-email: jon.liechti@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/j-i-l/VecPy/tarball/0.1.0
+Description: VecPy: Some Linear Algebra Basics in Python
+        ===========================================
+        
+        .. image:: https://img.shields.io/pypi/v/requests.svg
+            :target: https://pypi.python.org/pypi/vecpy
+        
+        .. image:: https://img.shields.io/pypi/dm/requests.svg
+                :target: https://pypi.python.org/pypi/vecpy
+        
+        
+        .. code-block:: python
+        
+            >>> from vecpy import Vector as Vec
+            >>> v = Vec
+            >>> # get unit vector
+            >>> v ^ 0
+            ...
+        
+        Features
+        --------
+        
+        - Basic operations ( dot-product, projection, rescaling, etc.)
+        
+        
+        Installation
+        ------------
+        
+        To install VecPy, simply:
+        
+        .. code-block:: bash
+        
+            $ pip install vecpy
+        
+        
+        Documentation
+        -------------
+        
+        Soon, soon...
+        
+        .. :changelog:
+        
+        Release History
+        ---------------
+        
+        0.2.0 (2015-07-02)
+        ++++++++++++++++++
+        
+        * BIRTH!
+        
+        
+        0.0.1 (2015-05-02)
+        ++++++++++++++++++
+        
+        * There are magic functions
+        
+Keywords: vector,linear algebra,projection
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
