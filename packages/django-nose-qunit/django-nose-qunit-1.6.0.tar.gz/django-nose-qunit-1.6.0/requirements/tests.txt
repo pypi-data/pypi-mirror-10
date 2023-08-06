@@ -1,0 +1,22 @@
+# Additional dependencies for the test suite
+
+# Indirect dependencies first, exact versions for consistency
+
+# ipdb -> ipython
+gnureadline==6.3.3; sys_platform == 'darwin'
+
+# ipdb
+ipython==3.2.0
+
+# tox
+pluggy==0.3.0
+py==1.4.30
+virtualenv==13.1.0
+
+# Direct dependencies for running tests
+
+# A better debugger
+ipdb==0.8.1
+
+# For managing test environments
+tox==2.1.1
