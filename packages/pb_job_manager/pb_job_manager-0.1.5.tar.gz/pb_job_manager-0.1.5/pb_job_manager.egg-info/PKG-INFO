@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: pb-job-manager
+Version: 0.1.5
+Summary: A utility class to run plumbum commands in parallel
+Home-page: https://github.com/mbarkhau/pb-job-manager/
+Author: Manuel Barkhau
+Author-email: mbarkhau@gmail.com
+License: BSD License
+Description: 
+        .. image:: https://secure.travis-ci.org/mbarkhau/pb-job-manager.png
+           :target: http://travis-ci.org/mbarkhau/pb-job-manager
+Keywords: plumbum,shell,popen,process,subprocess,multiprocess
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
