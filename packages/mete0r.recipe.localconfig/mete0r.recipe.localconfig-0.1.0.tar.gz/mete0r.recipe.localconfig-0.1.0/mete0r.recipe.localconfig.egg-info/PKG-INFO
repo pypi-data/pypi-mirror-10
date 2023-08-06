@@ -1,0 +1,67 @@
+Metadata-Version: 1.1
+Name: mete0r.recipe.localconfig
+Version: 0.1.0
+Summary: override default config with local files
+Home-page: https://github.com/mete0r/recipe.localconfig
+Author: mete0r
+Author-email: mete0r@sarangbang.or.kr
+License: GNU Lesser General Public License v3 or later (LGPLv3+)
+Description: mete0r.recipe.localconfig
+        =========================
+        
+        override default config with local files
+        
+        
+        example::
+        
+                [buildout]
+                parts = config
+        
+                [config]
+                recipe = mete0r.recipe.localconfig
+                localconfig.path = local-config.json
+        
+                foo = default-value
+        
+                [deploy]
+                recipe = some-recipe-to-deploy
+                option = ${config:foo}
+        
+        
+        local-config.json::
+        
+                {
+                        "foo": "local-value"
+                }
+        
+        
+        Options
+        -------
+        
+        `localconfig.path` (required)
+        
+        path to external config file.
+        
+        `localconfig.required` (optional, default: false)
+        
+        whether the external config file should exists
+        
+        Changes
+        =======
+        
+        0.1.0 (2015-07-09)
+        ------------------
+        
+        - Initial release.
+        
+Keywords: buildout,recipe
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Framework :: Buildout :: Recipe
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
