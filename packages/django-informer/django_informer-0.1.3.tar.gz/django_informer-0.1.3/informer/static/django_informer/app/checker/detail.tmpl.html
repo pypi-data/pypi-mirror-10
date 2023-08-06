@@ -1,0 +1,13 @@
+<md-content>
+    <h2>
+        {{ informer.name | name }}
+        <small>
+            <md-icon data-ng-if="informer.operational" md-svg-icon="/static/django_informer/assets/images/ic_keyboard_arrow_up_48px.svg"></md-icon>
+            <md-icon data-ng-if="!informer.operational" md-svg-icon="/static/django_informer/assets/images/ic_keyboard_arrow_down_48px.svg"></md-icon>
+        </small>
+    </h2>
+    <p>{{ informer.message }}</p>
+    <a href="#/dashboard/">
+        <md-icon md-svg-icon="/static/django_informer/assets/images/ic_keyboard_backspace_48px.svg"></md-icon>
+    </a>
+</md-content>
