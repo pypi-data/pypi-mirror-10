@@ -1,0 +1,37 @@
+[
+  {"pk": 1,
+    "fields":
+    {"text": "Разработка <b>продающих одностраничных сайтов</b>. Отличный дизайн. Умный копирайтинг. Идеальная верстка.",
+      "name": "Создание одностраничных сайтов",
+      "arrows": "false",
+      "elem_number": 1,
+      "isShown": true,
+      "pagination": "false"
+    },
+    "model": "monocle_mainbanner.mainbanner"
+  },
+  {
+    "pk": 1,
+    "fields":
+    {"text": "Экономия времени",
+      "name": "Быстрое и качественное создание одностраничных сайтов",
+      "image": "monocle_mainbanner/banner_1.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 0
+    },
+    "model": "monocle_mainbanner.slide"
+  },
+  {
+    "pk": 2,
+    "fields":
+    {"text": "Всегда актуальное состояние контента вашего сайта",
+      "name": "Разработка индивидуального дизайна панели администрирования для каждого сайта. Вы получаете только те функции, которые вам необходимы, ничего лишнего.",
+      "image": "monocle_mainbanner/banner_2.jpg",
+      "slider": 1,
+      "isShown": true,
+      "position": 1
+    },
+  "model": "monocle_mainbanner.slide"
+  }
+]
