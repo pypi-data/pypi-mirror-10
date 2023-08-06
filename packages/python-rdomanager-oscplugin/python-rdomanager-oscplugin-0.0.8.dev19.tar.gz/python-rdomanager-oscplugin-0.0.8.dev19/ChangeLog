@@ -1,0 +1,95 @@
+CHANGES
+=======
+
+* Wire in control over neutron ovs tunnels
+* Remove autospec=True
+* Configure boot fails when image names are not unique
+* Deprecate local grub2 element
+* Print the overcloud endpoint at the end if deploying
+* Add overcloud validate command
+* Fix default value of Cinder ISCSI backend
+* Add overcloud deploy post config and add network initialization
+* Fix assert_called_once_with assertions
+* Pass NeutronAllowL3AgentFailover when use_tht
+* Add ability to assign roles to flavors
+
+0.0.7
+-----
+
+* Write the passwords to tripleo-overcloud-passwords
+* Use uuid4 instead of uuid1 as a base for passwords
+* Only show the error if it isn't None
+* Add proper Heat parameters when doing a tuskar-based install
+* Assume the v2 Keystone client
+* Update to let corosync use hostnames on image build
+* Rename command overcloud image create to upload
+* Use the correct envvar name for RHOS release
+* Add the Node UUID's that are being introspected
+* Add an option to pull in extra configuration via heat
+* Utilize environment variables properly
+* Minor update of scale command
+* Update image create to be in sync with latest from instack-undercloud
+* Update image build to be in sync with latest from instack-undercloud
+* Integrate Tuskar into openstack overcloud deploy
+* Add overcloud update command
+* Fix argument error in overcloud_deploy._heat_deploy
+* Rename the "all" commands to "bulk"
+* Remove some extra debug code
+* Add overcloud node delete command
+* Implement setup_endpoints needed by overcloud deploy
+* Overcloud Deploy Command
+* Define Tripleo Heat Template parameters
+* Rename overcloud deploy command
+* Add a utility to remove SSH keys from the known_hosts file
+* The baremetal client will return None if the node isn't found
+* Add a utility function for reading Hiera keys
+* Refactor setting node state into utils
+* Add a ulility to create an environment file
+* Add a docstring for wait_for_provision_state
+* Better command description
+
+0.0.6
+-----
+
+* Update metadata for upload to pypi
+* Implementation of overcloud image build
+* Wait for discoverd
+* Add missing requirement
+* Remove cliff-tablib as a dependency
+* Use check_call
+* Changing the way jenkins is being called
+* Scale out overcloud
+* Add man-type documentation pages for rdo-manager commands
+* Don't try to update a node in power transition
+* Revert "Scale out overcloud"
+* Scale out overcloud
+* Add overcloud image create method
+* Implement wait_for_stack_ready
+* Conform to new API_VERSIONS requirement from OSC
+* Always set the provision state to Manage before discovery
+* Add check_hypervisor_stats
+* Configure boot for all Ironic nodes
+* Fix pep8 line length failure
+* Add utility method for generating passwords for the undercloud
+* Look for a "nodes" key in the nodes JSON and use that if it exists
+* Fix heat client connection
+* Fix a typo - instace vs instance
+* Add initial Overcloud Deploy command
+* Add configuration for running unittests in jenkins with khaleesi
+* Fix doc problems so build of docs succeeds
+* Add initialisation of the Orchestration client
+* Add the openstack baremetal introspection all status command
+* Implementation of the Baremental introspection all start command
+* Implementation of the Baremental import command
+* Correct a typo - rdomanger -> rdomanager
+* Fix pbr info
+* Stub out the overcloud image commands
+* Redo layout of undercloud module namespace
+* Remove instack dependencies
+* Modify main package metadata
+* Enable undercloud plugin command test
+* Add the Python 3.4 classifier
+* Fix PEP8 Errors
+* Fix PEP8 Errors
+* Implement undercloud install
+* Initial commit
