@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: pytest-blockage
+Version: 0.2.0
+Summary: Disable network requests during a test run.
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: BSD
+Description: pytest-blockage
+        ===============
+        
+        Disable network requests during a test run.
+        
+        Based mainly on https://github.com/andymckay/nose-blockage; source is
+        available at https://github.com/rob-b/pytest-blockage
+        
+        Installation
+        ------------
+        
+        The plugin can be installed via `pypi <https://pypi.python.org/pypi/pytest-blockage/>`_::
+        
+            $ pip install pytest-blockage
+        
+        
+        Usage
+        -----
+        
+        To activate the plugin the ``--blockage`` parameter should be passed. e.g.::
+        
+            $ py.test package --blockage
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
