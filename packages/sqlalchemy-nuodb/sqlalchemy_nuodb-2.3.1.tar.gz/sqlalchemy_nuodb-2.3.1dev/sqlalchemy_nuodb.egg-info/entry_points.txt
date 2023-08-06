@@ -1,0 +1,4 @@
+[sqlalchemy.dialects]
+nuodb = sqlalchemy_nuodb.pynuodb:NuoDBDialect_pynuodb
+nuodb.pynuodb = sqlalchemy_nuodb.pynuodb:NuoDBDialect_pynuodb
+
