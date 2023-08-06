@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+from make_deb import DebianConfiguration
+
+
+def main():
+    debconf = DebianConfiguration(os.getcwd())
+    debconf.render()
+
+    print "'debian' directory successfully placed at the root of your repository"
+
+if __name__ == "__main__":
+    main()
+    sys.exit(0)
