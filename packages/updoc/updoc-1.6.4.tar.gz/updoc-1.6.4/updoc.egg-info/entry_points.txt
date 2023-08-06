@@ -1,0 +1,5 @@
+[console_scripts]
+updoc-manage = djangofloor.scripts:manage
+updoc-celery = djangofloor.scripts:celery
+updoc-gunicorn = djangofloor.scripts:gunicorn
+
