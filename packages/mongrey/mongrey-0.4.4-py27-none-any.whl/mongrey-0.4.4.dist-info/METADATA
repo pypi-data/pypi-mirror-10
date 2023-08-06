@@ -1,0 +1,400 @@
+Metadata-Version: 2.0
+Name: mongrey
+Version: 0.4.4
+Summary: Greylist Service for Postfix
+Home-page: https://github.com/radical-software/mongrey
+Author: Stéphane RAULT
+Author-email: stephane.rault@radicalspam.org
+License: BSD
+Keywords: postfix,policy,filter,smtp,greylist
+Platform: UNKNOWN
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Communications :: Email :: Filters
+Classifier: Topic :: Communications :: Email :: Mail Transport Agents
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Requires-Dist: six
+Requires-Dist: cython
+Requires-Dist: gevent (>=1.0)
+Requires-Dist: arrow
+Requires-Dist: IPy
+Requires-Dist: python-decouple
+Requires-Dist: psutil
+Requires-Dist: pygeoip
+Requires-Dist: regex
+Requires-Dist: werkzeug
+Requires-Dist: PyYAML
+Requires-Dist: redis
+Requires-Dist: Unidecode (>=0.04.14,<0.05)
+Provides-Extra: full
+Requires-Dist: MySQL-python; extra == 'full'
+Requires-Dist: gevent (>=1.0); extra == 'full'
+Requires-Dist: pymongo (>=2.8,<3.0); extra == 'full'
+Requires-Dist: regex; extra == 'full'
+Requires-Dist: cython; extra == 'full'
+Requires-Dist: Flask-Script; extra == 'full'
+Requires-Dist: python-decouple; extra == 'full'
+Requires-Dist: passlib; extra == 'full'
+Requires-Dist: psycopg2; extra == 'full'
+Requires-Dist: six; extra == 'full'
+Requires-Dist: redis; extra == 'full'
+Requires-Dist: wtf-peewee; extra == 'full'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'full'
+Requires-Dist: Mongoengine (>=0.9); extra == 'full'
+Requires-Dist: werkzeug; extra == 'full'
+Requires-Dist: Flask-KVSession; extra == 'full'
+Requires-Dist: itsdangerous; extra == 'full'
+Requires-Dist: PyYAML; extra == 'full'
+Requires-Dist: blinker; extra == 'full'
+Requires-Dist: gunicorn; extra == 'full'
+Requires-Dist: Flask-BabelEx; extra == 'full'
+Requires-Dist: IPy; extra == 'full'
+Requires-Dist: pygeoip; extra == 'full'
+Requires-Dist: flask-wtf; extra == 'full'
+Requires-Dist: peewee; extra == 'full'
+Requires-Dist: psutil; extra == 'full'
+Requires-Dist: wtforms; extra == 'full'
+Requires-Dist: arrow; extra == 'full'
+Requires-Dist: flask-mongoengine; extra == 'full'
+Requires-Dist: flask-admin; extra == 'full'
+Requires-Dist: python-daemon; extra == 'full'
+Provides-Extra: install
+Requires-Dist: envoy; extra == 'install'
+Requires-Dist: jinja2; extra == 'install'
+Provides-Extra: server
+Requires-Dist: pygeoip; extra == 'server'
+Requires-Dist: cython; extra == 'server'
+Requires-Dist: PyYAML; extra == 'server'
+Requires-Dist: gevent (>=1.0); extra == 'server'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'server'
+Requires-Dist: peewee; extra == 'server'
+Requires-Dist: six; extra == 'server'
+Requires-Dist: redis; extra == 'server'
+Requires-Dist: wtf-peewee; extra == 'server'
+Requires-Dist: regex; extra == 'server'
+Requires-Dist: psutil; extra == 'server'
+Requires-Dist: Mongoengine (>=0.9); extra == 'server'
+Requires-Dist: MySQL-python; extra == 'server'
+Requires-Dist: arrow; extra == 'server'
+Requires-Dist: psycopg2; extra == 'server'
+Requires-Dist: werkzeug; extra == 'server'
+Requires-Dist: python-daemon; extra == 'server'
+Requires-Dist: IPy; extra == 'server'
+Requires-Dist: pymongo (>=2.8,<3.0); extra == 'server'
+Requires-Dist: python-decouple; extra == 'server'
+Provides-Extra: server-mongo
+Requires-Dist: pygeoip; extra == 'server-mongo'
+Requires-Dist: cython; extra == 'server-mongo'
+Requires-Dist: PyYAML; extra == 'server-mongo'
+Requires-Dist: gevent (>=1.0); extra == 'server-mongo'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'server-mongo'
+Requires-Dist: six; extra == 'server-mongo'
+Requires-Dist: redis; extra == 'server-mongo'
+Requires-Dist: regex; extra == 'server-mongo'
+Requires-Dist: psutil; extra == 'server-mongo'
+Requires-Dist: Mongoengine (>=0.9); extra == 'server-mongo'
+Requires-Dist: arrow; extra == 'server-mongo'
+Requires-Dist: werkzeug; extra == 'server-mongo'
+Requires-Dist: python-daemon; extra == 'server-mongo'
+Requires-Dist: IPy; extra == 'server-mongo'
+Requires-Dist: pymongo (>=2.8,<3.0); extra == 'server-mongo'
+Requires-Dist: python-decouple; extra == 'server-mongo'
+Provides-Extra: server-mysql
+Requires-Dist: pygeoip; extra == 'server-mysql'
+Requires-Dist: cython; extra == 'server-mysql'
+Requires-Dist: PyYAML; extra == 'server-mysql'
+Requires-Dist: gevent (>=1.0); extra == 'server-mysql'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'server-mysql'
+Requires-Dist: peewee; extra == 'server-mysql'
+Requires-Dist: six; extra == 'server-mysql'
+Requires-Dist: redis; extra == 'server-mysql'
+Requires-Dist: regex; extra == 'server-mysql'
+Requires-Dist: psutil; extra == 'server-mysql'
+Requires-Dist: MySQL-python; extra == 'server-mysql'
+Requires-Dist: arrow; extra == 'server-mysql'
+Requires-Dist: werkzeug; extra == 'server-mysql'
+Requires-Dist: python-daemon; extra == 'server-mysql'
+Requires-Dist: IPy; extra == 'server-mysql'
+Requires-Dist: python-decouple; extra == 'server-mysql'
+Provides-Extra: server-postgresql
+Requires-Dist: pygeoip; extra == 'server-postgresql'
+Requires-Dist: cython; extra == 'server-postgresql'
+Requires-Dist: PyYAML; extra == 'server-postgresql'
+Requires-Dist: gevent (>=1.0); extra == 'server-postgresql'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'server-postgresql'
+Requires-Dist: peewee; extra == 'server-postgresql'
+Requires-Dist: six; extra == 'server-postgresql'
+Requires-Dist: redis; extra == 'server-postgresql'
+Requires-Dist: regex; extra == 'server-postgresql'
+Requires-Dist: psutil; extra == 'server-postgresql'
+Requires-Dist: arrow; extra == 'server-postgresql'
+Requires-Dist: psycopg2; extra == 'server-postgresql'
+Requires-Dist: werkzeug; extra == 'server-postgresql'
+Requires-Dist: python-daemon; extra == 'server-postgresql'
+Requires-Dist: IPy; extra == 'server-postgresql'
+Requires-Dist: python-decouple; extra == 'server-postgresql'
+Provides-Extra: server-sqlite
+Requires-Dist: pygeoip; extra == 'server-sqlite'
+Requires-Dist: cython; extra == 'server-sqlite'
+Requires-Dist: PyYAML; extra == 'server-sqlite'
+Requires-Dist: gevent (>=1.0); extra == 'server-sqlite'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'server-sqlite'
+Requires-Dist: peewee; extra == 'server-sqlite'
+Requires-Dist: six; extra == 'server-sqlite'
+Requires-Dist: redis; extra == 'server-sqlite'
+Requires-Dist: wtf-peewee; extra == 'server-sqlite'
+Requires-Dist: regex; extra == 'server-sqlite'
+Requires-Dist: psutil; extra == 'server-sqlite'
+Requires-Dist: arrow; extra == 'server-sqlite'
+Requires-Dist: werkzeug; extra == 'server-sqlite'
+Requires-Dist: python-daemon; extra == 'server-sqlite'
+Requires-Dist: IPy; extra == 'server-sqlite'
+Requires-Dist: python-decouple; extra == 'server-sqlite'
+Provides-Extra: web
+Requires-Dist: MySQL-python; extra == 'web'
+Requires-Dist: gevent (>=1.0); extra == 'web'
+Requires-Dist: pymongo (>=2.8,<3.0); extra == 'web'
+Requires-Dist: regex; extra == 'web'
+Requires-Dist: cython; extra == 'web'
+Requires-Dist: Flask-Script; extra == 'web'
+Requires-Dist: python-decouple; extra == 'web'
+Requires-Dist: passlib; extra == 'web'
+Requires-Dist: flask-mongoengine; extra == 'web'
+Requires-Dist: six; extra == 'web'
+Requires-Dist: redis; extra == 'web'
+Requires-Dist: wtf-peewee; extra == 'web'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'web'
+Requires-Dist: Mongoengine (>=0.9); extra == 'web'
+Requires-Dist: werkzeug; extra == 'web'
+Requires-Dist: Flask-KVSession; extra == 'web'
+Requires-Dist: itsdangerous; extra == 'web'
+Requires-Dist: PyYAML; extra == 'web'
+Requires-Dist: blinker; extra == 'web'
+Requires-Dist: gunicorn; extra == 'web'
+Requires-Dist: Flask-BabelEx; extra == 'web'
+Requires-Dist: IPy; extra == 'web'
+Requires-Dist: pygeoip; extra == 'web'
+Requires-Dist: flask-wtf; extra == 'web'
+Requires-Dist: peewee; extra == 'web'
+Requires-Dist: psutil; extra == 'web'
+Requires-Dist: wtforms; extra == 'web'
+Requires-Dist: arrow; extra == 'web'
+Requires-Dist: psycopg2; extra == 'web'
+Requires-Dist: flask-admin; extra == 'web'
+Provides-Extra: web-mongo
+Requires-Dist: gevent (>=1.0); extra == 'web-mongo'
+Requires-Dist: pymongo (>=2.8,<3.0); extra == 'web-mongo'
+Requires-Dist: regex; extra == 'web-mongo'
+Requires-Dist: cython; extra == 'web-mongo'
+Requires-Dist: Flask-Script; extra == 'web-mongo'
+Requires-Dist: python-decouple; extra == 'web-mongo'
+Requires-Dist: passlib; extra == 'web-mongo'
+Requires-Dist: flask-mongoengine; extra == 'web-mongo'
+Requires-Dist: six; extra == 'web-mongo'
+Requires-Dist: redis; extra == 'web-mongo'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'web-mongo'
+Requires-Dist: Mongoengine (>=0.9); extra == 'web-mongo'
+Requires-Dist: werkzeug; extra == 'web-mongo'
+Requires-Dist: Flask-KVSession; extra == 'web-mongo'
+Requires-Dist: itsdangerous; extra == 'web-mongo'
+Requires-Dist: PyYAML; extra == 'web-mongo'
+Requires-Dist: blinker; extra == 'web-mongo'
+Requires-Dist: gunicorn; extra == 'web-mongo'
+Requires-Dist: Flask-BabelEx; extra == 'web-mongo'
+Requires-Dist: IPy; extra == 'web-mongo'
+Requires-Dist: pygeoip; extra == 'web-mongo'
+Requires-Dist: flask-wtf; extra == 'web-mongo'
+Requires-Dist: psutil; extra == 'web-mongo'
+Requires-Dist: wtforms; extra == 'web-mongo'
+Requires-Dist: arrow; extra == 'web-mongo'
+Requires-Dist: flask-admin; extra == 'web-mongo'
+Provides-Extra: web-mysql
+Requires-Dist: MySQL-python; extra == 'web-mysql'
+Requires-Dist: gevent (>=1.0); extra == 'web-mysql'
+Requires-Dist: regex; extra == 'web-mysql'
+Requires-Dist: cython; extra == 'web-mysql'
+Requires-Dist: Flask-Script; extra == 'web-mysql'
+Requires-Dist: python-decouple; extra == 'web-mysql'
+Requires-Dist: passlib; extra == 'web-mysql'
+Requires-Dist: six; extra == 'web-mysql'
+Requires-Dist: redis; extra == 'web-mysql'
+Requires-Dist: wtf-peewee; extra == 'web-mysql'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'web-mysql'
+Requires-Dist: werkzeug; extra == 'web-mysql'
+Requires-Dist: Flask-KVSession; extra == 'web-mysql'
+Requires-Dist: itsdangerous; extra == 'web-mysql'
+Requires-Dist: PyYAML; extra == 'web-mysql'
+Requires-Dist: blinker; extra == 'web-mysql'
+Requires-Dist: gunicorn; extra == 'web-mysql'
+Requires-Dist: Flask-BabelEx; extra == 'web-mysql'
+Requires-Dist: IPy; extra == 'web-mysql'
+Requires-Dist: pygeoip; extra == 'web-mysql'
+Requires-Dist: flask-wtf; extra == 'web-mysql'
+Requires-Dist: peewee; extra == 'web-mysql'
+Requires-Dist: psutil; extra == 'web-mysql'
+Requires-Dist: wtforms; extra == 'web-mysql'
+Requires-Dist: arrow; extra == 'web-mysql'
+Requires-Dist: flask-admin; extra == 'web-mysql'
+Provides-Extra: web-postgresql
+Requires-Dist: gevent (>=1.0); extra == 'web-postgresql'
+Requires-Dist: regex; extra == 'web-postgresql'
+Requires-Dist: cython; extra == 'web-postgresql'
+Requires-Dist: Flask-Script; extra == 'web-postgresql'
+Requires-Dist: python-decouple; extra == 'web-postgresql'
+Requires-Dist: passlib; extra == 'web-postgresql'
+Requires-Dist: psycopg2; extra == 'web-postgresql'
+Requires-Dist: six; extra == 'web-postgresql'
+Requires-Dist: redis; extra == 'web-postgresql'
+Requires-Dist: wtf-peewee; extra == 'web-postgresql'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'web-postgresql'
+Requires-Dist: werkzeug; extra == 'web-postgresql'
+Requires-Dist: Flask-KVSession; extra == 'web-postgresql'
+Requires-Dist: itsdangerous; extra == 'web-postgresql'
+Requires-Dist: PyYAML; extra == 'web-postgresql'
+Requires-Dist: blinker; extra == 'web-postgresql'
+Requires-Dist: gunicorn; extra == 'web-postgresql'
+Requires-Dist: Flask-BabelEx; extra == 'web-postgresql'
+Requires-Dist: IPy; extra == 'web-postgresql'
+Requires-Dist: pygeoip; extra == 'web-postgresql'
+Requires-Dist: flask-wtf; extra == 'web-postgresql'
+Requires-Dist: peewee; extra == 'web-postgresql'
+Requires-Dist: psutil; extra == 'web-postgresql'
+Requires-Dist: wtforms; extra == 'web-postgresql'
+Requires-Dist: arrow; extra == 'web-postgresql'
+Requires-Dist: flask-admin; extra == 'web-postgresql'
+Provides-Extra: web-sqlite
+Requires-Dist: gevent (>=1.0); extra == 'web-sqlite'
+Requires-Dist: regex; extra == 'web-sqlite'
+Requires-Dist: cython; extra == 'web-sqlite'
+Requires-Dist: Flask-Script; extra == 'web-sqlite'
+Requires-Dist: python-decouple; extra == 'web-sqlite'
+Requires-Dist: passlib; extra == 'web-sqlite'
+Requires-Dist: six; extra == 'web-sqlite'
+Requires-Dist: redis; extra == 'web-sqlite'
+Requires-Dist: wtf-peewee; extra == 'web-sqlite'
+Requires-Dist: Unidecode (>=0.04.14,<0.05); extra == 'web-sqlite'
+Requires-Dist: werkzeug; extra == 'web-sqlite'
+Requires-Dist: Flask-KVSession; extra == 'web-sqlite'
+Requires-Dist: itsdangerous; extra == 'web-sqlite'
+Requires-Dist: PyYAML; extra == 'web-sqlite'
+Requires-Dist: blinker; extra == 'web-sqlite'
+Requires-Dist: gunicorn; extra == 'web-sqlite'
+Requires-Dist: Flask-BabelEx; extra == 'web-sqlite'
+Requires-Dist: IPy; extra == 'web-sqlite'
+Requires-Dist: pygeoip; extra == 'web-sqlite'
+Requires-Dist: flask-wtf; extra == 'web-sqlite'
+Requires-Dist: peewee; extra == 'web-sqlite'
+Requires-Dist: psutil; extra == 'web-sqlite'
+Requires-Dist: wtforms; extra == 'web-sqlite'
+Requires-Dist: arrow; extra == 'web-sqlite'
+Requires-Dist: flask-admin; extra == 'web-sqlite'
+
+===========================
+Greylist Server for Postfix
+===========================
+
+|Build Status| |health| |docs| |translation| |pypi downloads| |pypi version| |pypi licence| |pypi wheel| |requires status|
+
+.. image:: mongrey.png
+   :align: center
+   :alt: logo
+
+Resume
+======
+
+:License: BSD
+:Code: https://github.com/radical-software/mongrey
+:Issues: https://github.com/radical-software/mongrey/issues
+:Doc EN: http://mongrey.readthedocs.org/en/latest/
+:Doc FR: http://mongrey.readthedocs.org/fr/latest/
+
+Features
+========
+
+* Greylist Server high performance
+* Backends: MongoDB, PostgreSQL, MySQL, Sqlite
+* No software dependencies (except Backend);
+* Configuration by Country, IP address, Network address, Email, Domain, Regex
+    * For every policy filter
+    * For black and white lists
+* Optional filters:     
+    * Relay deny control
+    * Spoofing
+    * Directory control DB, (SMTP, LDAP en cours..)
+    * RBL
+    * SPF
+* WebUI (optional)
+* REST API (in progress...)
+* Cache with Memory or Redis
+
+Sample installation for Mongrey Server - Sqlite Backend
+=======================================================
+
+::
+
+    $ curl -L http://download.mongrey.io/latest/mongrey-server-sqlite > /usr/local/bin/mongrey-server
+
+    $ chmod +x /usr/local/bin/mongrey-server
+
+    $ /usr/local/bin/mongrey-server --version
+
+Contributing
+============
+
+To contribute to the project, fork it on GitHub and send a pull request.
+
+All contributions and suggestions are welcome.
+
+.. _MongoDB: http://mongodb.org/
+.. _Docker: https://www.docker.com/
+.. _Ubuntu: http://www.ubuntu.com/
+.. _Python: http://www.python.org/
+.. _Gevent: http://www.gevent.org/
+.. _Postfix: http://www.postfix.org
+.. _Postfix_Policy: http://www.postfix.org/SMTPD_POLICY_README.html
+.. _Coroutine: http://en.wikipedia.org/wiki/Coroutine
+
+.. |Build Status| image:: https://travis-ci.org/radical-software/mongrey.svg?branch=master
+   :target: https://travis-ci.org/radical-software/mongrey
+   :alt: Travis Build Status
+
+.. |pypi downloads| image:: https://img.shields.io/pypi/dm/mongrey.svg
+    :target: https://pypi.python.org/pypi/mongrey
+    :alt: Number of PyPI downloads
+
+.. |pypi version| image:: https://img.shields.io/pypi/v/mongrey.svg
+    :target: https://pypi.python.org/pypi/mongrey
+    :alt: Latest Version
+
+.. |pypi licence| image:: https://img.shields.io/pypi/l/mongrey.svg
+    :target: https://pypi.python.org/pypi/mongrey
+    :alt: License
+
+.. |pypi wheel| image:: https://pypip.in/wheel/mongrey/badge.png
+    :target: https://pypi.python.org/pypi/mongrey/
+    :alt: Python Wheel
+
+.. |requires status| image:: https://requires.io/github/radical-software/mongrey/requirements.svg?branch=master
+     :target: https://requires.io/github/radical-software/mongrey/requirements/?branch=master
+     :alt: Requirements Status
+
+.. |docs| image:: https://readthedocs.org/projects/mongrey-en/badge/?version=latest
+    :target: http://mongrey.readthedocs.org/en/latest/
+    :alt: Documentation Status     
+
+.. |health| image:: https://landscape.io/github/radical-software/mongrey/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/radical-software/mongrey/master
+   :alt: Code Health
+
+.. |translation| image:: https://d322cqt584bo4o.cloudfront.net/mongrey/localized.png
+   :target: https://crowdin.com/project/mongrey
+   :alt: Translation
+
+
+
