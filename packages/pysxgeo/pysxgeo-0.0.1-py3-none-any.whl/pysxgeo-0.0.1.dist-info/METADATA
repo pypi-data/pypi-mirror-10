@@ -1,0 +1,66 @@
+Metadata-Version: 2.0
+Name: pysxgeo
+Version: 0.0.1
+Summary: This API provides access to Sypex Geo 2.2 databases. The databases available from https://sypexgeo.net/ 
+Home-page: https://bitbucket.org/niklak/pysxgeo/
+Author: Nikolay Gumanov
+Author-email: morgenpurple@gmail.com
+License: UNKNOWN
+Keywords: geolocation
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+
+pysxgeo
+========
+
+Description
+-----------
+pysxgeo is an API that provides access to Sypex Geo (2.2) databases (country and city).
+The databases provides an information about geolocation by ip-address.
+For information about databases please visit `sypexgeo.net <https://sypexgeo.net/>`_.
+
+Requirements
+____________
+
+Python 3.x
+
+Usage
+-----
+Some examples:
+
+.. code-block:: pycon
+
+    >>> from pysxgeo import sxgeo
+    >>>
+    >>> ip = '52.0.183.139'
+    >>> db = '/path/to/db' # City or Country
+    >>> # AVAILABLE MODES: SXGEO_FILE, SXGEO_MEMORY, SXGEO_BATCH
+    >>> info = sxgeo.SxGeo(db_file=db, mode=sxgeo.SXGEO_BATCH)
+    >>> info.get_city(ip, full=True)
+    {'country': {'lon': -98.5, 'name_ru': 'США', 'name_en': 'United States',
+                 'lat': 39.76, 'id': 225, 'iso': 'US'},
+     'region': {'id': 4142224, 'name_ru': 'Делавэр',
+                'name_en': 'Delaware', 'iso': 'US-DE'},
+     'city': {'name_ru': 'Уилмингтон', 'name_en': 'Wilmington',
+              'lat': 39.74595, 'id': 4145381, 'lon': -75.54659}
+    }
+    >>> get_country(ip)
+    'US'
+    >>> get_country_id(ip)
+    225
+    >>> # Quick usage. The answer depends of your database choice.
+    >>> info.get(ip)
+    {'city': {'name_en': 'Wilmington', 'lon': -75.54659,
+              'name_ru': 'Уилмингтон', 'id': 4145381, 'lat': 39.74595},
+     'country': {'iso': 'US', 'id': 225}}
+    >>> # Get db info:
+    >>> info.about()
+
