@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: collective.recipe.database-url
+Version: 0.0.2
+Summary: Use dj-database-url to parse DATABASE_URL for Buildout environments
+Home-page: https://github.com/collective/collective.recipe.database_url
+Author: Alex Clark
+Author-email: aclark@aclark.net
+License: Whatever Plone is
+Description: collective.recipe.database_url
+        ==============================
+        
+        Use `dj-database-url <https://github.com/kennethreitz/dj-database-url>`_ to parse DATABASE_URL for Buildout environments
+        
+        ::
+        
+            [buildout]
+            develop = .
+            extends =
+                https://raw.githubusercontent.com/plock/pins/master/plone-4-3
+                https://raw.githubusercontent.com/plock/pins/master/dev
+            #    https://raw.githubusercontent.com/plock/pins/master/relstorage
+        
+            # https://raw.githubusercontent.com/plock/pins/master/relstorage
+            [plone]
+            eggs += 
+                RelStorage
+                psycopg2
+            parts += database_url
+            rel-storage =
+                dbname ${database_url:name}
+                host ${database_url:host}
+                type ${database_url:engine}
+                user ${database_url:user}
+                password ${database_url:password}
+        
+            [database_url]
+            recipe = collective.recipe.database_url
+        
+        Changelog
+        =========
+        
+        0.0.2 (2015-07-04)
+        ------------------
+        
+        - Update documentation
+        
+        0.0.1 (2015-07-03)
+        ------------------
+        
+        - Initial release
+        
+Keywords: buildout database plone python url
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Programming Language :: Python :: 2.7
