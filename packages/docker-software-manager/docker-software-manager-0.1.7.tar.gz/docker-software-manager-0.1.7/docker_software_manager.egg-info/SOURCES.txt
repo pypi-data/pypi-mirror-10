@@ -1,0 +1,16 @@
+MANIFEST.in
+setup.py
+docker_software_manager.egg-info/PKG-INFO
+docker_software_manager.egg-info/SOURCES.txt
+docker_software_manager.egg-info/dependency_links.txt
+docker_software_manager.egg-info/entry_points.txt
+docker_software_manager.egg-info/requires.txt
+docker_software_manager.egg-info/top_level.txt
+dsm/__init__.py
+dsm/cli.py
+dsm/defaults.conf
+dsm/docker-gen/docker-gen-nginx.service
+dsm/docker-gen/install.sh
+dsm/docker-gen/nginx.tmpl
+dsm/docker-gen/remove.sh
+dsm/docker-gen/update.sh
