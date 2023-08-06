@@ -1,0 +1,52 @@
+Metadata-Version: 2.0
+Name: debparse
+Version: 0.1.1
+Summary: Parse and inspect debian source files
+Home-page: https://github.com/l0kix2/debparse
+Author: Kirill Sibirev
+Author-email: l0kix2@gmail.com
+License: BSD
+Keywords: debparse
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+
+===============================
+Debinspect
+===============================
+
+.. image:: https://img.shields.io/travis/l0kix2/debinspect.svg
+        :target: https://travis-ci.org/l0kix2/debinspect
+
+.. image:: https://img.shields.io/pypi/v/debinspect.svg
+        :target: https://pypi.python.org/pypi/debinspect
+
+
+Parse and inspect debian source files
+
+* Free software: BSD license
+* Documentation: https://debinspect.readthedocs.org.
+
+Features
+--------
+
+* TODO
+
+
+
+History
+-------
+
+0.1.0 (2015-01-11)
+---------------------
+
+* First release on PyPI.
+
