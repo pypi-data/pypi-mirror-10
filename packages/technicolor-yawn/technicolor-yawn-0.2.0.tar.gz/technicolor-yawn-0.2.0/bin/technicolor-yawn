@@ -1,0 +1,123 @@
+#!/usr/bin/env python
+
+import sys
+import re
+
+from termcolor import colored
+
+
+pattern = """
+    ^
+    (?P<level>(DEBUG|INFO|WARNING|ERROR|CRITICAL))
+    \s+
+    (?P<date>\d\d\d\d-\d\d-\d\d)
+    \s+
+    (?P<time>\d\d:\d\d:\d\d,\d\d\d)
+    \s+
+    (?P<filename>.*?)
+    :
+    (?P<line>\d+)
+    \]\s
+    (?P<message>.*)
+    $
+    """
+
+
+def format_line(parsed_line):
+    output = ""
+    order = ['level', 'date', 'time', 'filename', 'line', 'message']
+    groups = {
+        'level': {
+            'DEBUG': 'blue',
+            'INFO': 'green',
+            'WARNING': 'yellow',
+            'ERROR': 'red',
+            'CRITICAL': 'magenta',
+        },
+        'date': 'grey',
+        'time': 'grey',
+        'filename': 'grey',
+        'line': 'grey',
+        'message': 'white'
+    }
+
+    default_colour = 'grey'
+    i = 0
+    for g in order:
+        colour = groups[g]
+        if isinstance(colour, dict):
+            colour = colour[parsed_line.group(g)]
+        output += colored(parsed_line.string[i:parsed_line.start(g)], default_colour)
+        output += colored(parsed_line.group(g), colour or default_colour)
+        i = parsed_line.end(g)
+
+    output += colored(parsed_line.string[i:], default_colour)
+    return output
+
+
+def suppress_message(message):
+    m = message[0]
+    level = m.group('level')
+    message = m.group('message')
+    filename = m.group('filename')
+    blacklist = [
+        level == "DEBUG" and "KALOG" not in message,
+        level == "INFO" and message.startswith('"GET /gae_mini_profiler'),
+        level == "INFO" and message.startswith('Saved; key: __appstats__'),
+        level == "INFO" and filename == "render.py" and message.startswith('Dynamically loading'),
+        level == "INFO" and filename == "render.py" and message.startswith("Compiled"),
+    ]
+    return any(blacklist)
+
+
+def output_log(message):
+    if suppress_message(message):
+        return
+
+    sys.stdout.write(format_line(message[0]))
+    for line in message[1:]:
+        sys.stdout.write(line)
+    sys.stdout.flush()
+
+
+def read_file(fileobj):
+    # Once we recognize the start of a structured message, we make the
+    # big assumption that the message might be multi-line and consists
+    # of everything up until the start of another message. The first
+    # item of message_buffer is a match object and the rest are strings.
+    message_buffer = []
+    try:
+        while True:
+            line = fileobj.readline()
+            if not line:  # got EOF, so exit
+                break
+            message_start_match = re.match(pattern, line, re.VERBOSE)
+            if message_start_match:
+                if message_buffer:
+                    output_log(message_buffer)
+                message_buffer = [message_start_match]
+            elif message_buffer:
+                message_buffer.append(line)
+            else:
+                # No structured message yet, so just pass it through.
+                sys.stdout.write(line)
+    finally:
+        if message_buffer:
+            output_log(message_buffer)
+
+
+def main():
+    try:
+        if len(sys.argv) == 1:
+            read_file(sys.stdin)
+        else:
+            filename = sys.argv[1]
+            with open(filename, "r") as f:
+                read_file(f)
+    except KeyboardInterrupt:
+        # Ignore KeyboardInterrupt, since this is how we stop GAE
+        return
+
+
+if __name__ == '__main__':
+    main()
