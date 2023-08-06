@@ -1,0 +1,4 @@
+[console_scripts]
+jldsmear = jldesmear.ui:desmear_cli
+jldsmear_gui = jldsmear.ui:desmear_gui
+
