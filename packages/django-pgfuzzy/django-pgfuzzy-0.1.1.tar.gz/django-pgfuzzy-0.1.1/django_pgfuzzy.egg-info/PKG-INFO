@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: django-pgfuzzy
+Version: 0.1.1
+Summary: A set of lookups for Django to allow usage of PostgreSQL fuzzystrmatch extension
+Home-page: http://github.com/codedbyjay/django-pgfuzzy
+Author: Jean-Mark Wright
+Author-email: jeanmark.wright@gmail.com
+License: GPL v3 License
+Description: # django-pgsoundex
+        
+        This library allows usage of the PostgreSQL fuzzystrmatch functions. This 
+        package depends on PostgreSQL, therefore you'll need to have a PostgreSQL 
+        database setup in settings.
+        
+        In order to use the package:
+        
+        pip install django-pgfuzzy
+        
+        Then add `pgfuzzy` to `INSTALLED_APPS`.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
