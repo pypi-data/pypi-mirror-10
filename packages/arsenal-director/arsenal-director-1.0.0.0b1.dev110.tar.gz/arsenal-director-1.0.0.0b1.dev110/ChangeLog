@@ -1,0 +1,83 @@
+CHANGES
+=======
+
+* Update the package name and version to 1.0.0.b
+* Changed logging around retry-able exceptions in client_wrapper
+* Upgrade some useful debug-level log messages to info
+* Small style fix to scheduler.py
+* Handle time going backwards in RateLimiter
+* Small NOTE addition
+* Add arsenal.director.scheduler tests
+* Add cache directive rate limiting
+* Add RateLimiter object and accompanying tests
+* Update README.rst
+* Added content to the 'contributing' documentation page
+* Fixed some grammatical/syntax issues in the design documentation page
+* Add more documentation
+* Remove non-existant reference to root-level CONTRIBUTING.rst
+* Add some documentation around installing and configuring Arsenal
+* Use the sphinx 'read the docs' theme instead of the OpenStack theme
+* Update README.rst
+* Explitly select 'rackspace' auth system in pyrax for OnMetalScout
+* Add eventlet to requirements.txt for oslo-incubator
+* Fix bug in OpenstackClientWrapper.call introduced in previous commit
+* Simplify generator to list conversion in OpenstackClientWrapper.call
+* Modify DevStackScout to avoid OnMetalScout's pyrax behavior
+* Remove abuse of map in DirectorScheduler
+* Add pyrax auth function for glance client in OnMetalScout
+* Handle generators in OpenstackClientWrapper.call
+* Add function arg to GlanceClientWrapper to get an auth token
+* Add an unauthorized exception test for OpenstackClientWrapper
+* make SimpleProportionalStrategy.directives always return a list
+* Add run_tests.sh and necessary support files to run with Jenkins
+* Pull in updated oslo-incubator files
+* Make configuration options with sensitive data 'secret'
+* Update README.rst
+* Add tests for OnMetalScout
+* Replace glance client wrapper use of pyrax with keystone-client
+* Removed unnecessary parans
+* Changes after testing against DevStack
+* A big fat commit
+* Clean up some cruft
+* Adding glance client to requirements and a glance client wrapper
+* Refactored client wrappers
+* Added Scout class to retrieve data from Ironic and Nova
+* Added ability to dynamically load a Strategy
+* Fixed problems with NovaClientWrapper
+* Create NovaClientWrapper to wrap novaclient
+* Fixed pep8 issues
+* Fixed tests to test proportion cached against individual flavors
+* Corrected strategy behavior
+* Added easier to read __str__ functions to StrategyInput objects
+* Added bounds checking for percentage in SimpleProportionalStrategy
+* Addressed brad's comments from pr review
+* Added node ejection behavior test for SimpleProportionalStrategy
+* Fixed pep8 issues with strategy work
+* Refactored a bit to segment the directives method
+* Initial 'working' version of SimpleProportionStrategy
+* Garbage commit, not in a fully working state
+* Added node ejection behavior test for SimpleProportionalStrategy
+* Fixed pep8 issues with strategy work
+* Refactored a bit to segment the directives method
+* Initial 'working' version of SimpleProportionStrategy
+* Garbage commit, not in a fully working state
+* Added pin requirements to TODO
+* Fixed linked to build status image in README.rst
+* Add TODO about measuring cache hits/misses
+* Add Travis build image to README.rst
+* Update README.rst
+* Moved configuration options from test to ironic_client_wrapper
+* Added enough capability to run a periodic task
+* Added configuration option fix for ArsenalException
+* Fix test-requirements.txt
+* Pulled in IronicClientWrapper from Openstack Nova
+* Pulled in IronicClientWrapper from Openstack Nova
+* Added Exception file and base exception class
+* Added logging to Arsenal service start to display configuration
+* Added basic version information into Arsenal
+* Add support for travis tests
+* Added extremely basic logging
+* Added bare-bones Arsenal service
+* Added service module from oslo-incubator
+* Initial Cookiecutter Commit
+* Initial commit
