@@ -1,0 +1,13 @@
+setuptools
+
+[green]
+coverage
+testtools
+shutilwhich
+nose
+nose-parameterized>=0.4.0
+mock
+setuptools-green
+
+[polysquarelint]
+polysquare-setuptools-lint
