@@ -1,0 +1,4 @@
+[console_scripts]
+keyserver-ng-purge = keyserver.daemon:delete_expired_keys
+keyserver-ng = keyserver.daemon:run
+
