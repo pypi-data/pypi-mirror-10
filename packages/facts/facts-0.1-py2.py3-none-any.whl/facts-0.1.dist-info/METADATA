@@ -1,0 +1,116 @@
+Metadata-Version: 2.0
+Name: facts
+Version: 0.1
+Summary: Return facts of server
+Home-page: https://github.com/johnnoone/facts
+Author: Xavier Barbosa
+Author-email: clint.northwood@gmail.com
+License: UNKNOWN
+Keywords: infrastructure,asyncio
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: System :: Clustering
+Requires-Dist: aioutils
+Requires-Dist: PyYAML
+Requires-Dist: asyncio; python_version=="3.3"
+
+Facts
+=====
+
+Returns facts of local machine.
+
+
+Installation
+------------
+
+::
+
+    pip install facts
+
+
+CLI Usage
+---------
+
+Get all facts::
+
+    facts all
+
+Get one fact::
+
+    fact read foo
+
+Set one custom fact::
+
+    fact write foo 'It is nice'
+
+When value is a mapping, then you can choose between 2 merging strategies::
+
+    fact write foo '{is: bar}' --format yaml --replace
+    fact write foo '{not: baz}' --format yaml --merge
+
+Delete a custom fact::
+
+    fact delete foo
+
+
+Targeting
+---------
+
+By convention key facts can't have colon marks.
+Because facts can be nested, and it's possible to target these sub data.
+Each parts must be seperated by a colon. For example if::
+
+    fact read foo
+
+returns::
+
+    is: bar
+    not: baz
+
+Then::
+
+    fact read foo:is
+
+returns::
+
+    bar
+
+But::
+
+    fact read foo:wrong:key
+
+will return nothing.
+
+
+Matching
+--------
+
+It is also possible to check if a certain fact turns out true::
+
+    fact match foo:is:bar
+
+
+Extending
+---------
+
+You can extend with your own facts. Any python modules under ``~/.facts/grafts``
+will be loaded. For example::
+
+    # ~/.facts/grafts/my_grafts.py
+
+    from . import graft
+
+    @graft
+    def hello_world():
+        return {
+            'hello': 'world'
+        }
+
+Will append the fact ``hello`` with the value ``world``.
+
+
