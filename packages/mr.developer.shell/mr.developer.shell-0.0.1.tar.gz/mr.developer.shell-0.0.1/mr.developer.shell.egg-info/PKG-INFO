@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: mr.developer.shell
+Version: 0.0.1
+Summary: mr.developer extension to run shell commands on repositories.
+Home-page: http://github.com/gforcada/mr.developer.shell
+Author: Gil Forcada Codinachs
+Author-email: gilforcada@gmail.com
+License: BSD
+Description: 
+        .. -*- coding: utf-8 -*-
+        
+        ==================
+        mr.developer.shell
+        ==================
+        Run shell commands on all your `mr.developer <https://pypi.python.org/pypi/mr.developer>`_ controlled repositories!
+        
+        Motivation
+        ==========
+        I got tired of::
+        
+            cd src
+            for f in *; do echo $f; cd $f; DO SOMETHING; cd .. ; done
+        
+        So I created a mr.developer extension to do **exactly** the sambe but nicer::
+        
+            ./bin/develop shell "git grep hidden stuff"
+        
+        
+        .. -*- coding: utf-8 -*-
+        
+        =======
+        CHANGES
+        =======
+        
+        0.0.1 (2015-06-01)
+        ==================
+        
+        - Project creation.
+        
+        
+Keywords: mr.developer extension shell
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Buildout
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
