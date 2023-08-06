@@ -1,0 +1,6 @@
+[helionsdk]
+dns = helionsdk.dns.dns_service:DnsService
+
+[console_scripts]
+helionsdk = helionsdk.shell:main
+

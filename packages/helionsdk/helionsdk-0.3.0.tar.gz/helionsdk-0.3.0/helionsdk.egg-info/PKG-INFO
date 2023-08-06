@@ -1,0 +1,47 @@
+Metadata-Version: 1.1
+Name: helionsdk
+Version: 0.3.0
+Summary: Helion SDK
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-dev@lists.openstack.org
+License: UNKNOWN
+Description: ==========
+        Helion SDK
+        ==========
+        
+        This repository contains the Helion SDK that is just a proof on concept
+        on creating a real OpenStack SDK plugin.
+        
+        To try out the Helion SDK, install the package and run the following:
+        
+            helionsdk
+        
+        The script loads the Helion plugin and calls the two methods of the
+        proxy.
+        
+        * Free software: Apache license
+        * Documentation: http://docs.openstack.org/developer/helionsdk
+        * Source: http://git.openstack.org/cgit/openstack/helionsdk
+        * Bugs: http://bugs.launchpad.net/helionsdk
+        
+        TODO
+        ----
+        
+        * Write docs describing how to use it
+        * Fix this README with proper links to source and documentation
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
