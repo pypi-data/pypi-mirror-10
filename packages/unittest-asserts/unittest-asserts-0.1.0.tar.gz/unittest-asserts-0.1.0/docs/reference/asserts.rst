@@ -1,0 +1,5 @@
+asserts
+=============================
+
+.. automodule:: asserts
+    :members:
