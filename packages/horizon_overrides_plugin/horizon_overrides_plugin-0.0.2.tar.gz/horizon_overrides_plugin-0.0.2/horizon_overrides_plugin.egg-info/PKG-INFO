@@ -1,0 +1,93 @@
+Metadata-Version: 1.1
+Name: horizon-overrides-plugin
+Version: 0.0.2
+Summary: OpenStack Dashboard OVERRIDES - support for more than one customization_module
+Home-page: https://github.com/michaelkuty/horizon-overrides-plugin.git
+Author: Michael Kuty
+Author-email: mail@majklk.cz
+License: UNKNOWN
+Description: ========================
+        Horizon Overrides Plugin
+        ========================
+        
+        Simple Horizon plugin which solves plugin overrides hell !
+        
+        Problem
+        -------
+        
+        Horizon supports only one overrides.py file. But if you have more than one plugin with overrides.py maybe you want include all overrides.py files.
+        
+        Require
+        -------
+        
+        * Python 2.6 +
+        * Openstack Dashboard Icehouse +
+        
+        Installation notes
+        ------------------
+        
+        .. code-block:: bash
+        
+            pip install horizon-overrides-plugin
+        
+        .. code-block:: python
+        
+            INSTALLED_APPS += ('horizon_overrides',)
+        
+            HORIZON_CONFIG['customization_module'] = 'horizon_overrides.overrides'
+        
+        Usage
+        -----
+        
+        * all overrides.py files will be included in defeault state
+        * you can specify OVERRIDES = ['my_plugin','my_second_plugin.overrides', 'another_plugin.will_be_overrides'] in settings.py which restrict includes
+        
+        .. code-block:: python
+        
+            OVERRIDES = ['my_plugin','my_second_plugin.overrides', 'another_plugin.will_be_overrides']
+        
+        *NOTE: all plugins must be in the INSTALLED_APPS tuple*
+        
+        
+        Full example config
+        -------------------
+        
+        .. code-block:: python
+        
+            INSTALLED_APPS = (
+                "horizon_overrides",
+                "horizon_telemetry",
+                "horizon_monitoring",
+                "horizon_billing",
+            )
+        
+            HORIZON_CONFIG['customization_module'] = 'horizon_overrides.overrides'
+        
+            OVERRIDES = (
+                "horizon_telemetry.overrides",
+                "horizon_monitoring",
+                "horizon_billing.another_name_for_override_file",
+            )
+        
+        Read more
+        ---------
+        
+        * http://docs.openstack.org/developer/horizon/topics/tutorial.html
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: OpenStack
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Internet :: WWW/HTTP
