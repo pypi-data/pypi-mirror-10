@@ -1,0 +1,6 @@
+[bob.test]
+atvskeystroke = xbob.db.atvskeystroke.test:ATVSKeystrokeDatabaseTest
+
+[bob.db]
+atvskeystroke = xbob.db.atvskeystroke.driver:Interface
+
