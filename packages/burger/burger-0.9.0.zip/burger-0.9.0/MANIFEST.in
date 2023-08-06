@@ -1,0 +1,11 @@
+include README.txt LICENSE.txt NEWS.txt
+
+#recursive-include doc *
+
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.orig
+global-exclude *.rej
+
+prune upload.py
+#prune doc/_build
