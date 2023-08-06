@@ -1,0 +1,2349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1362</width>
+    <height>958</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PlanarRad</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <widget class="QPushButton" name="run">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>790</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Run</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>1</y>
+      <width>1371</width>
+      <height>781</height>
+     </rect>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <italic>false</italic>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <widget class="QWidget" name="rad_transf_model_tab">
+     <attribute name="title">
+      <string>Radiative Transfer Model</string>
+     </attribute>
+     <widget class="QLabel" name="p_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>P values </string>
+      </property>
+      <property name="buddy">
+       <cstring>p_values</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="execPath_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>686</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Path to Planarrad</string>
+      </property>
+      <property name="buddy">
+       <cstring>exec_path_button</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="cpu_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>645</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Number of CPU </string>
+      </property>
+      <property name="buddy">
+       <cstring>nb_cpu</cstring>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="nb_cpu">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>640</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSlider" name="sens">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>370</y>
+        <width>721</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>380</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sens.</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>20</y>
+        <width>20</width>
+        <height>701</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="exec_path">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>720</y>
+        <width>481</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/home/marrabld/Apps/jude2_install/bin</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="p_values">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>130</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="title_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>361</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Set the optical parameters list (comma seperated)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="particles_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>155</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Particle scattering</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="x_value">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>180</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.01</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="y_value">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>210</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1.0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="x_label">
+      <property name="geometry">
+       <rect>
+        <x>75</x>
+        <y>180</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X :</string>
+      </property>
+      <property name="buddy">
+       <cstring>x_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="y_label">
+      <property name="geometry">
+       <rect>
+        <x>75</x>
+        <y>210</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Y :</string>
+      </property>
+      <property name="buddy">
+       <cstring>y_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="organic_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>235</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Organic absorption</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="s_value">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>290</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.015</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="g_value">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>260</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>0.01</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="g_label">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>260</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>G :</string>
+      </property>
+      <property name="buddy">
+       <cstring>g_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="s_label">
+      <property name="geometry">
+       <rect>
+        <x>76</x>
+        <y>290</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>S :</string>
+      </property>
+      <property name="buddy">
+       <cstring>s_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="z_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>320</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Depth (Z) </string>
+      </property>
+      <property name="buddy">
+       <cstring>z_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="z_value">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>320</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>10.0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>320</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(m)</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="exec_path_button">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>680</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>DIrectory</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="waveL_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>350</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Wavelengths </string>
+      </property>
+      <property name="buddy">
+       <cstring>wavelength_values</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="wavelength_values">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>350</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>410.0, 430.0, 450.0, 470.0, 490.0, 510.0, 530.0, 550.0, 570.0, 590.0, 610.0, 630.0, 650.0, 670.0, 690.0, 710.0, 730.0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="phyto_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>475</y>
+        <width>191</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Phytoplankton absorption </string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="buddy">
+       <cstring>phyto_button</cstring>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="phyto_button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>470</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>File</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="phyto_path">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>510</y>
+        <width>491</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/home/marrabld/Projects/planarradpy/inputs/iop_files/a_phi.csv</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bottom_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>405</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Bottom reflectance </string>
+      </property>
+      <property name="buddy">
+       <cstring>bottom_button</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="bottom_path">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>440</y>
+        <width>491</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/home/marrabld/Projects/planarradpy/inputs/bottom_files/ger_sand17.txt</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="bottom_button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>400</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>File</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="verbose_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>610</y>
+        <width>66</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Verbose </string>
+      </property>
+      <property name="buddy">
+       <cstring>verbose_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="verbose_value">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>610</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>350</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(nm)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>610</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(1 -&gt; 6)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>650</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(-1 means all CPUs)</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_3">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>10</y>
+        <width>771</width>
+        <height>351</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="matplotlibWidget" name="graphic_widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>0</y>
+        <width>791</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>410</y>
+        <width>20</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>410</y>
+        <width>141</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Plot tools (options)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>870</x>
+        <y>410</y>
+        <width>171</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modelled Parameters&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column1_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>440</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column2_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>470</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column1_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>440</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column2_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>470</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="show_all_curves">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>440</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>All curves</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column3_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>500</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column5_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>560</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column6_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>590</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column7_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>620</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column8_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>650</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column3_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>500</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column4_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>530</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column5_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>560</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column6_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>590</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column7_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>620</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column8_result">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>650</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="column4_label">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>530</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>380</y>
+        <width>421</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>540</y>
+        <width>421</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="report_parameter_value">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>570</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rrs</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="report_parameter_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>570</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Report parameter </string>
+      </property>
+      <property name="buddy">
+       <cstring>report_parameter_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="batch_name_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Batch name </string>
+      </property>
+      <property name="buddy">
+       <cstring>batch_name_value</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="batch_name_value">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>40</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>default</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="open_result_file_button">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>500</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open report</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="saa_values">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>70</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="sza_values">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>100</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="saa_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>SAA values </string>
+      </property>
+      <property name="buddy">
+       <cstring>saa_values</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sza_label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>SZA values </string>
+      </property>
+      <property name="buddy">
+       <cstring>sza_values</cstring>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="show_grid">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>470</y>
+        <width>61</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Grid</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mouse_coordinate">
+      <property name="geometry">
+       <rect>
+        <x>728</x>
+        <y>551</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(x, y)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>585</x>
+        <y>551</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mouse coordinates :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>630</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/icons/Icons/bbp.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>700</y>
+        <width>211</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/icons/Icons/CDOM.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>586</x>
+        <y>600</y>
+        <width>161</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Bio-optical Models:</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_6">
+      <property name="geometry">
+       <rect>
+        <x>605</x>
+        <y>576</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>524</x>
+        <y>70</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(deg)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>524</x>
+        <y>100</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(deg)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>154</x>
+        <y>159</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/icons/Icons/b_bp_small.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>241</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/icons/Icons/ag.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="sza_values_3">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>600</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="saa_label_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>570</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>View Azimuth</string>
+      </property>
+      <property name="buddy">
+       <cstring>saa_values</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="saa_values_3">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>570</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_61">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>600</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(deg)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_62">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>570</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(deg)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sza_label_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>600</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>View Zenith</string>
+      </property>
+      <property name="buddy">
+       <cstring>sza_values</cstring>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="reverse_tab">
+     <attribute name="title">
+      <string>Inverse</string>
+     </attribute>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>0</y>
+        <width>20</width>
+        <height>721</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>400</y>
+        <width>66</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Details :</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>110</y>
+        <width>116</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>HOPE (1999)</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_3">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>140</y>
+        <width>116</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>RadioButton</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tool (method) :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>191</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Deconvolution parameters :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="x_value_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>480</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>600</y>
+        <width>21</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>s :</string>
+      </property>
+      <property name="buddy">
+       <cstring>s_value_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>460</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Particules scaterring :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>630</y>
+        <width>21</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(m)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>510</y>
+        <width>21</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>y :</string>
+      </property>
+      <property name="buddy">
+       <cstring>y_value_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>480</y>
+        <width>21</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>x :</string>
+      </property>
+      <property name="buddy">
+       <cstring>x_value_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="y_value_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>510</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>430</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>P values :</string>
+      </property>
+      <property name="buddy">
+       <cstring>p_values_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>660</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Wavelengths :</string>
+      </property>
+      <property name="buddy">
+       <cstring>wavelength_values_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>540</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Organic absorption :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="g_value_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>560</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="p_values_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>430</y>
+        <width>311</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="s_value_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>600</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>630</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Depth (z) :</string>
+      </property>
+      <property name="buddy">
+       <cstring>z_value_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="wavelength_values_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>660</y>
+        <width>311</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="z_value_reverse">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>630</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>560</y>
+        <width>21</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>g :</string>
+      </property>
+      <property name="buddy">
+       <cstring>g_value_reverse</cstring>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_4">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>10</y>
+        <width>791</width>
+        <height>351</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>0</y>
+        <width>811</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>370</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sens.</string>
+      </property>
+      <property name="buddy">
+       <cstring>sens_2</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>1040</x>
+        <y>660</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(nm)</string>
+      </property>
+     </widget>
+     <widget class="QSlider" name="sens_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>360</y>
+        <width>741</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>796</y>
+      <width>331</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+    <property name="textVisible">
+     <bool>true</bool>
+    </property>
+    <property name="textDirection">
+     <enum>QProgressBar::TopToBottom</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cancel">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>790</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quit">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>790</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="error_text_label">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>790</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+      <underline>true</underline>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="accessibleName">
+     <string/>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="text">
+     <string>Check values !</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+    <property name="openExternalLinks">
+     <bool>false</bool>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="error_label">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>780</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../../.designer/backup/Icons/beCareful.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1362</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menuEssai">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionRun"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuFigure">
+    <property name="title">
+     <string>Figure</string>
+    </property>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionThis_GUI"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help !</string>
+    </property>
+    <addaction name="actionLog_file"/>
+    <addaction name="actionDocumentation"/>
+   </widget>
+   <addaction name="menuEssai"/>
+   <addaction name="menuFigure"/>
+   <addaction name="menuAbout"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>76</red>
+         <green>76</green>
+         <blue>76</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>60</red>
+         <green>60</green>
+         <blue>60</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Midlight">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>63</red>
+         <green>61</green>
+         <blue>61</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Dark">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>36</red>
+         <green>36</green>
+         <blue>35</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Mid">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>34</red>
+         <green>32</green>
+         <blue>32</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>60</red>
+         <green>60</green>
+         <blue>60</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>76</red>
+         <green>76</green>
+         <blue>76</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>26</red>
+         <green>26</green>
+         <blue>26</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>10</red>
+         <green>22</green>
+         <blue>25</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Shadow">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>27</red>
+         <green>27</green>
+         <blue>27</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>76</red>
+         <green>76</green>
+         <blue>76</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>60</red>
+         <green>60</green>
+         <blue>60</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Midlight">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>63</red>
+         <green>61</green>
+         <blue>61</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Dark">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>36</red>
+         <green>36</green>
+         <blue>35</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Mid">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>34</red>
+         <green>32</green>
+         <blue>32</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>60</red>
+         <green>60</green>
+         <blue>60</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>76</red>
+         <green>76</green>
+         <blue>76</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>26</red>
+         <green>26</green>
+         <blue>26</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>10</red>
+         <green>22</green>
+         <blue>25</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Shadow">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>27</red>
+         <green>27</green>
+         <blue>27</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="WindowText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>36</red>
+         <green>36</green>
+         <blue>35</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>60</red>
+         <green>60</green>
+         <blue>60</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Midlight">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>63</red>
+         <green>61</green>
+         <blue>61</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Dark">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>36</red>
+         <green>36</green>
+         <blue>35</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Mid">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>34</red>
+         <green>32</green>
+         <blue>32</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>36</red>
+         <green>36</green>
+         <blue>35</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="ButtonText">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>36</red>
+         <green>36</green>
+         <blue>35</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>10</red>
+         <green>22</green>
+         <blue>25</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>10</red>
+         <green>22</green>
+         <blue>25</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Shadow">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>27</red>
+         <green>27</green>
+         <blue>27</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionDd"/>
+   <addaction name="actionSave_as"/>
+   <addaction name="actionDocumentation"/>
+   <addaction name="actionLog_file"/>
+   <addaction name="actionThis_GUI"/>
+  </widget>
+  <action name="actionDd">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/Icons/i_document-open.png</normaloff>:/icons/Icons/i_document-open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/Icons/i_document-save.png</normaloff>:/icons/Icons/i_document-save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As ...</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../.designer/backup/Icons/document-open.png</normaloff>../../../.designer/backup/Icons/document-open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="text">
+    <string>Run</string>
+   </property>
+  </action>
+  <action name="actionLog_file">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/Icons/i_view-refresh.png</normaloff>:/icons/Icons/i_view-refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Log file</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/Icons/i_help-contents.png</normaloff>:/icons/Icons/i_help-contents.png</iconset>
+   </property>
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+  </action>
+  <action name="actionThis_GUI">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/Icons/i_help-about.png</normaloff>:/icons/Icons/i_help-about.png</iconset>
+   </property>
+   <property name="text">
+    <string>This GUI !</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>matplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>gui_matplotlibwidgetFile.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>batch_name_value</tabstop>
+  <tabstop>saa_values</tabstop>
+  <tabstop>sza_values</tabstop>
+  <tabstop>p_values</tabstop>
+  <tabstop>x_value</tabstop>
+  <tabstop>y_value</tabstop>
+  <tabstop>g_value</tabstop>
+  <tabstop>s_value</tabstop>
+  <tabstop>z_value</tabstop>
+  <tabstop>wavelength_values</tabstop>
+  <tabstop>report_parameter_value</tabstop>
+  <tabstop>verbose_value</tabstop>
+  <tabstop>nb_cpu</tabstop>
+  <tabstop>show_all_curves</tabstop>
+  <tabstop>show_grid</tabstop>
+  <tabstop>bottom_button</tabstop>
+  <tabstop>phyto_button</tabstop>
+  <tabstop>exec_path_button</tabstop>
+  <tabstop>run</tabstop>
+  <tabstop>cancel</tabstop>
+  <tabstop>open_result_file_button</tabstop>
+  <tabstop>quit</tabstop>
+  <tabstop>bottom_path</tabstop>
+  <tabstop>phyto_path</tabstop>
+  <tabstop>exec_path</tabstop>
+  <tabstop>graphicsView_3</tabstop>
+  <tabstop>radioButton_3</tabstop>
+  <tabstop>x_value_reverse</tabstop>
+  <tabstop>y_value_reverse</tabstop>
+  <tabstop>g_value_reverse</tabstop>
+  <tabstop>p_values_reverse</tabstop>
+  <tabstop>s_value_reverse</tabstop>
+  <tabstop>wavelength_values_reverse</tabstop>
+  <tabstop>z_value_reverse</tabstop>
+  <tabstop>graphicsView_4</tabstop>
+  <tabstop>sens_2</tabstop>
+  <tabstop>radioButton_2</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
